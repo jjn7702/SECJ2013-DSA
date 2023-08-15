@@ -27,7 +27,7 @@ This course contributes to the following Program Learning Outcomes:
 
 1. [Introduction to Data Structures and Algorithms](#introduction-to-data-structures-and-algorithms)
 2. [Abstract Data Type, C++ Revision and Advanced File Operations](#Abstract-Data-Type,-C++-Revision-and-Advanced-File-Operations)
-3. [Recursive and Algorithm Efficiency](#recursive-and`-algorithm-efficiency)
+3. [Recursive and Algorithm Efficiency](#recursive-and-algorithm-efficiency)
 4. [Greedy Algorithms](#greedy-algorithms)
 5. [Arrays and Linked Lists](#arrays-and-linked-lists)
 6. [Stacks and Queues](#stacks-and-queues)
