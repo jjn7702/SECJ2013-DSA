@@ -16,7 +16,7 @@ By the end of this course, students will be able to:
 2. Apply effectively data structure concepts in programming.
 3. Develop medium scale programs as a group mini project by applying data structure concepts in problem solving.
 
-## Program Learning Outcomes (PLO) Mapping
+## Program Learning Outcomes (PLO)
 This course contributes to the following Program Learning Outcomes:
 
 - PLO1: Ability to acquire theory and principles of computer science and equip with social science and personal development knowledge.
@@ -25,24 +25,32 @@ This course contributes to the following Program Learning Outcomes:
 
 ## Table of Contents
 
-1. [Introduction to Data Structures](#introduction-to-data-structures)
-2. [Arrays and Linked Lists](#arrays-and-linked-lists)
-3. [Stacks and Queues](#stacks-and-queues)
-4. [Trees and Binary Trees](#trees-and-binary-trees)
-5. [Graphs and Graph Algorithms](#graphs-and-graph-algorithms)
-6. [Sorting Algorithms](#sorting-algorithms)
-7. [Searching Algorithms](#searching-algorithms)
-8. [Hashing and Hash Tables](#hashing-and-hash-tables)
+1. [Introduction to Data Structures and Algorithms](#introduction-to-data-structures)
+2. [Abstract Data Type, C++ Revision and Advanced File Operations](#abstract-data-type-c++-revision-and-advanced-file-operations)
+3. [Arrays and Linked Lists](#arrays-and-linked-lists)
+4. [Stacks and Queues](#stacks-and-queues)
+5. [Trees and Binary Trees](#trees-and-binary-trees)
+6. [Graphs and Graph Algorithms](#graphs-and-graph-algorithms)
+7. [Sorting Algorithms](#sorting-algorithms)
+8. [Searching Algorithms](#searching-algorithms)
+
 9. [Dynamic Programming](#dynamic-programming)
 10. [Greedy Algorithms](#greedy-algorithms)
 
 ## Course Content
 
-### Introduction to Data Structures
+### Introduction to Data Structures and Algorithms
 
-- What are data structures?
+- Algorithm and Data Structure
+- Types of Data Structure
+- Programming Principle
 - Importance of choosing the right data structure
 - Big O notation and algorithm analysis
+
+### Abstract Data Type, C++ Revision and Advanced File Operations
+
+- Hash functions and their properties
+- Hash tables: definition, operations, and collision handling
 
 ### Arrays and Linked Lists
 
@@ -78,11 +86,6 @@ This course contributes to the following Program Learning Outcomes:
 
 - Linear search and binary search
 - Hashing: principles and collision resolution techniques
-
-### Hashing and Hash Tables
-
-- Hash functions and their properties
-- Hash tables: definition, operations, and collision handling
 
 ### Dynamic Programming
 
