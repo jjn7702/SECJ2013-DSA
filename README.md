@@ -28,13 +28,13 @@ This course contributes to the following Program Learning Outcomes:
 1. [Introduction to Data Structures and Algorithms](#introduction-to-data-structures-and-algorithms)
 2. [Abstract Data Type, C++ Revision and Advanced File Operations](#abstract-data-type,-c++-revision-and-advanced-file-operations)
 3. [Recursive and Algorithm Efficiency](#recursive-and-algorithm-efficiency)
-4. [Greedy Algorithms](#greedy-algorithms)
-5. [Arrays and Linked Lists](#arrays-and-linked-lists)
-6. [Stacks and Queues](#stacks-and-queues)
-7. [Trees and Binary Trees](#trees-and-binary-trees)
-8. [Graphs and Graph Algorithms](#graphs-and-graph-algorithms)
-9. [Sorting Algorithms](#sorting-algorithms)
-10. [Searching Algorithms](#searching-algorithms)
+4. [Sorting](#sorting)
+5. [Searching](#searching)
+6. [Arrays and Linked Lists](#arrays-and-linked-lists)
+7. [Stacks and Queues](#stacks-and-queues)
+8. [Trees and Binary Trees](#trees-and-binary-trees)
+9. [Graphs and Graph Algorithms](#graphs-and-graph-algorithms)
+10. [Sorting Algorithms](#sorting-algorithms)
 
 ## Course Content
 
@@ -56,12 +56,16 @@ This course contributes to the following Program Learning Outcomes:
 - Tracing Recursive Algorithms
 - Algorithm Efficiency: Analysis order of magnitude, Big O notation
 
-### Greedy Algorithms
+### Sorting
 
-- Introduction to greedy algorithms
-- The greedy choice property and optimal substructure
-- Applications of greedy algorithms
-  
+- Simple Sort: Bubble Sort, Selection Sort, Insertion Sort, and Sorting Analysis
+- Advanced Sort: Merge Sort and Quick Sort
+
+### Searching
+
+- Sequential search
+- Binary search
+
 ### Arrays and Linked Lists
 
 - Arrays: definition, operations, and complexities
@@ -91,11 +95,6 @@ This course contributes to the following Program Learning Outcomes:
 - Bubble sort, insertion sort, and selection sort
 - Merge sort and quicksort: principles and implementations
 - Comparing sorting algorithms: time and space complexity
-
-### Searching Algorithms
-
-- Linear search and binary search
-- Hashing: principles and collision resolution techniques
 
 ## Evaluation
 
