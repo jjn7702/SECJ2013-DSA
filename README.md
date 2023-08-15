@@ -9,6 +9,22 @@ Welcome to the Data Structures and Algorithms Course! In this course, you will l
 - **Contact:** [lizawati@utm.my]
 - **Prerequisites:** Programming Technique 1 and Programming Technique 2
 
+## Course Learning Outcomes (CLO)
+By the end of this course, students will be able to:
+
+1. Choose the most suitable data structures and analyse the most effective algorithm for solving certain problem.
+2. Apply effectively data structure concepts in programming.
+3. Develop medium scale programs as a group mini project by applying data structure concepts in problem solving.
+
+## Program Learning Outcomes (PLO) Mapping
+This course contributes to the following Program Learning Outcomes:
+
+- PLO1: [Description of PLO1]
+- PLO2: [Description of PLO2]
+- PLO3: [Description of PLO3]
+- PLO4: [Description of PLO4]
+- PLO5: [Description of PLO5]
+
 ## Table of Contents
 
 1. [Introduction to Data Structures](#introduction-to-data-structures)
