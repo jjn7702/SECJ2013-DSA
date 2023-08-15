@@ -26,7 +26,7 @@ This course contributes to the following Program Learning Outcomes:
 ## Table of Contents
 
 1. [Introduction to Data Structures and Algorithms](#introduction-to-data-structures-and-algorithms)
-2. [Abstract Data Type, C++ Revision and Advanced File Operations](#abstract-data-type,-c++-revision-and-advanced-file-operations)
+2. [Abstract Data Type, C++ Revision and Advanced File Operations](#abstract-data-type-c-revision-and-advanced-file-operations)
 3. [Recursive and Algorithm Efficiency](#recursive-and-algorithm-efficiency)
 4. [Sorting](#sorting)
 5. [Searching](#searching)
