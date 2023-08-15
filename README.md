@@ -31,10 +31,9 @@ This course contributes to the following Program Learning Outcomes:
 4. [Sorting](#sorting)
 5. [Searching](#searching)
 6. [Linked Lists](#linked-lists)
-7. [Stacks and Queues](#stacks-and-queues)
-8. [Trees and Binary Trees](#trees-and-binary-trees)
-9. [Graphs and Graph Algorithms](#graphs-and-graph-algorithms)
-10. [Sorting Algorithms](#sorting-algorithms)
+7. [Stack](#stack)
+8. [Queue](#queue)
+9. [Tree](#tree)
 
 ## Course Content
 
@@ -72,30 +71,27 @@ This course contributes to the following Program Learning Outcomes:
 - Introduction to Linked lists
 - Linked lists operations
 - Types of Linked List
+- Linked List Implementations: Declaring Nodes and Linked Lists class, Insert Node, Delete Node, Find Node, and Print Node
 
-### Stacks and Queues
+### Stack
 
-- Stacks: definition, operations, and applications
-- Queues: definition, operations, and applications
-- Implementing stacks and queues using arrays and linked lists
+- Introduction to Stack
+- Stack Operations: push() and pop()
+- Stack implementations: Stack Array and Stack Linked List
+- Stack Applications: Infix, Postfix and Prefix
 
-### Trees and Binary Trees
+### Queue
 
-- Trees: definitions, types, and properties
-- Binary trees: definitions, types, and properties
-- Tree traversal algorithms: inorder, preorder, postorder
+- Introduction to Queue
+- Queue Implementations: Array Implementation (Linear and Circular) and Linked List Implementation (Linear and Circular Queue)
 
-### Graphs and Graph Algorithms
+### Tree
 
-- Introduction to graphs: definitions and terminology
-- Graph representation: adjacency matrix, adjacency list
-- Depth-first search (DFS) and Breadth-first search (BFS)
-
-### Sorting Algorithms
-
-- Bubble sort, insertion sort, and selection sort
-- Merge sort and quicksort: principles and implementations
-- Comparing sorting algorithms: time and space complexity
+- Introduction to Tree
+- Terms related to Tree concepts
+- Binary Search Tree
+- Binary Search Tree Implementations: Declaring Tree node, Tree class, Create Node, Insert Node, Delete Node, Search Node
+- Tree Traversals
 
 ## Evaluation
 
