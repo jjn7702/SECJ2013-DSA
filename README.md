@@ -43,8 +43,6 @@ This course contributes to the following Program Learning Outcomes:
 - Algorithm and Data Structure
 - Types of Data Structure
 - Programming Principle
-- Importance of choosing the right data structure
-- Big O notation and algorithm analysis
 
 ### Abstract Data Type, C++ Revision and Advanced File Operations
 
@@ -54,9 +52,9 @@ This course contributes to the following Program Learning Outcomes:
 
 ### Recursive and Algorithm Efficiency
 
-- Understanding dynamic programming
-- Memoization and tabulation techniques
-- Solving problems using dynamic programming approach
+- Recursive Principle and Design
+- Tracing Recursive Algorithms
+- Algorithm Efficiency: Analysis order of magnitude, Big O notation
 
 ### Greedy Algorithms
 
