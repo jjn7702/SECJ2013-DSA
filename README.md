@@ -30,7 +30,7 @@ This course contributes to the following Program Learning Outcomes:
 3. [Recursive and Algorithm Efficiency](#recursive-and-algorithm-efficiency)
 4. [Sorting](#sorting)
 5. [Searching](#searching)
-6. [Arrays and Linked Lists](#arrays-and-linked-lists)
+6. [Linked Lists](#linked-lists)
 7. [Stacks and Queues](#stacks-and-queues)
 8. [Trees and Binary Trees](#trees-and-binary-trees)
 9. [Graphs and Graph Algorithms](#graphs-and-graph-algorithms)
@@ -66,11 +66,12 @@ This course contributes to the following Program Learning Outcomes:
 - Sequential search
 - Binary search
 
-### Arrays and Linked Lists
+### Linked Lists
 
-- Arrays: definition, operations, and complexities
-- Singly linked lists: definition, operations, and complexities
-- Doubly linked lists: definition, operations, and complexities
+- Pointer Concepts
+- Introduction to Linked lists
+- Linked lists operations
+- Types of Linked List
 
 ### Stacks and Queues
 
