@@ -27,15 +27,14 @@ This course contributes to the following Program Learning Outcomes:
 
 1. [Introduction to Data Structures and Algorithms](#introduction-to-data-structures-and-algorithms)
 2. [Abstract Data Type, C++ Revision and Advanced File Operations](#Abstract-Data-Type,-C++-Revision-and-Advanced-File-Operations)
-3. [Arrays and Linked Lists](#arrays-and-linked-lists)
-4. [Stacks and Queues](#stacks-and-queues)
-5. [Trees and Binary Trees](#trees-and-binary-trees)
-6. [Graphs and Graph Algorithms](#graphs-and-graph-algorithms)
-7. [Sorting Algorithms](#sorting-algorithms)
-8. [Searching Algorithms](#searching-algorithms)
-
-9. [Dynamic Programming](#dynamic-programming)
-10. [Greedy Algorithms](#greedy-algorithms)
+3. [Recursive and Algorithm Efficiency](#recursive-and`-algorithm-efficiency)
+4. [Greedy Algorithms](#greedy-algorithms)
+5. [Arrays and Linked Lists](#arrays-and-linked-lists)
+6. [Stacks and Queues](#stacks-and-queues)
+7. [Trees and Binary Trees](#trees-and-binary-trees)
+8. [Graphs and Graph Algorithms](#graphs-and-graph-algorithms)
+9. [Sorting Algorithms](#sorting-algorithms)
+10. [Searching Algorithms](#searching-algorithms)
 
 ## Course Content
 
@@ -49,9 +48,22 @@ This course contributes to the following Program Learning Outcomes:
 
 ### Abstract Data Type, C++ Revision and Advanced File Operations
 
-- Hash functions and their properties
-- Hash tables: definition, operations, and collision handling
+- Abstract Data Type Concepts
+- C++ Revision: C++ Class, Pass objects to functions, class as return value for functions, Array of class, and pointer to class
+- Advanced File Operations: File Operations, Passing File Stream Objects to Functions, Member Functions for Reading and Writing Files, Binary Files, and Random-Access Files
 
+### Recursive and Algorithm Efficiency
+
+- Understanding dynamic programming
+- Memoization and tabulation techniques
+- Solving problems using dynamic programming approach
+
+### Greedy Algorithms
+
+- Introduction to greedy algorithms
+- The greedy choice property and optimal substructure
+- Applications of greedy algorithms
+  
 ### Arrays and Linked Lists
 
 - Arrays: definition, operations, and complexities
@@ -86,18 +98,6 @@ This course contributes to the following Program Learning Outcomes:
 
 - Linear search and binary search
 - Hashing: principles and collision resolution techniques
-
-### Dynamic Programming
-
-- Understanding dynamic programming
-- Memoization and tabulation techniques
-- Solving problems using dynamic programming approach
-
-### Greedy Algorithms
-
-- Introduction to greedy algorithms
-- The greedy choice property and optimal substructure
-- Applications of greedy algorithms
 
 ## Evaluation
 
