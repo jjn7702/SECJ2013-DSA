@@ -1,11 +1,11 @@
-# Data Structures and Algorithms (SECJ1023) Course
+# Data Structures and Algorithms (SECJ2013)
 
 Welcome to the Data Structures and Algorithms Course! In this course, you will learn the fundamental concepts of data structures and algorithms, which are crucial for writing efficient and optimized computer programs.
 
 ## Course Overview
 
 - **Course Duration:** 15 weeks
-- **Instructor:** [Lizawati binti Mi Yusuf]
+- **Instructor:** [Lizawati binti Mi Yusuf](https://utmscholar.utm.my/Scholar/ScholarInfoDetails/WwO9?_gl=1*180c7oh*_ga*NTE5MTkwOTQ1LjE2ODE3NzYwNTY.*_ga_N3HJW8G3P7*MTY5MjA2NTUyMC4xOS4xLjE2OTIwNjU4NDguMC4wLjA.)
 - **Contact:** [lizawati@utm.my]
 - **Prerequisites:** Basic programming knowledge in [C++]
 
