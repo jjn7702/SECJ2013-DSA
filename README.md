@@ -19,11 +19,9 @@ By the end of this course, students will be able to:
 ## Program Learning Outcomes (PLO) Mapping
 This course contributes to the following Program Learning Outcomes:
 
-- PLO1: [Description of PLO1]
-- PLO2: [Description of PLO2]
-- PLO3: [Description of PLO3]
-- PLO4: [Description of PLO4]
-- PLO5: [Description of PLO5]
+- PLO1: Ability to acquire theory and principles of computer science and equip with social science and personal development knowledge.
+- PLO2: Ability to design and construct computer programs using standard approaches.
+- PLO7: Ability to work effectively in a team.
 
 ## Table of Contents
 
