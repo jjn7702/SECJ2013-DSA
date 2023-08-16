@@ -9,7 +9,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 # Data Structures and Algorithms (SECJ2013)
 
-Welcome to the Data Structures and Algorithms Course! In this course, you will learn the fundamental concepts of data structures and algorithms, which are crucial for writing efficient and optimized computer programs.
+Welcome to the Course on Data Structures and Algorithms! This course will teach you the fundamentals of data structures and algorithms, which are essential for developing efficient and optimised computer programs.
 
 ## Course Overview
 
