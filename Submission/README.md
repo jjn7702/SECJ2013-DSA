@@ -54,11 +54,12 @@ In summary, this folder structure appears to be organizing a GitHub repository b
 
 | No | Name | Folder |
 | --- | --- | :---: |
-| 1 | ADILA FIRDAUS BINTI ARBAIN | <a href="adila90" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
-| 2 | JOHANNA BINTI AHMAD | <a href="JohannaAhmad" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
-| 3 | AFIF HAZMIE ARSYAD BIN AGUS | <a href="AfifHazmie" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
-| 4 | AHMAD AIMAN HAFIZI BIN MUHAMMAD | <a href="AimanHafizi619" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
-| 5 | AHMAD MUHAIMIN BIN AHMAD HAMBALI | <a href="Mincridible" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
+| _0_ | _Sample_ | <a href="adila90" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
+| 1 | Group 1 | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
+| 2 | Group 2 | <a href="group2" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
+| 3 | Group 3 | <a href="group3" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
+| 4 | Group 4 | <a href="group4" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
+| 5 | Group 5 | <a href="group5" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/issues) for any improvements, suggestions or errors in the content.
