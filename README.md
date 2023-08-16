@@ -119,5 +119,6 @@ This course contributes to the following Program Learning Outcomes:
 - [Sartaj Sahni. (2005). Data Structures, Algorithms, and Applications in C++. Silicon Press, Cop.](https://o6ucs.files.wordpress.com/2012/10/data-structures-algorithms-and-applications-in-c-by-sartraj-sahani.pdf)
 - [Goodrich, M. T., Mount, D. M., and Tamassia, R. (2011). Data Structures and Algorithms in C++. John Wiley & Sons, Cop.‌](https://github.com/ashwani65/Algorithms-and-Data-Structures.pdf/blob/master/data-structures-and-algorithms-in-C%2B%2B.pdf)
 - [Carrano, F. M., and Henry, T. (2017). Data Abstraction and Problem Solving with C++ : Walls and Mirrors. Pearson.](https://github.com/RyanYaNg7/cs32/blob/master/Data%20Abstraction%20%26%20Problem%20Solving%20with%20C%2B%2B%20Walls%20and%20Mirrors.pdf)
+- [Lipschutz, S. (2011). Data Structures With C. McGraw-Hill Education.‌](https://github.com/ahsan-habib-hstu/data-structure/blob/master/Data%20Structures%20With%20C%20-%20by%20schaum%20series_2.pdf)
 - [Miller, B., Ranum, D. and Pearce, J. (n.d.). Problem Solving with Algorithms and Data Structures using C++. Runestone.academy‌](https://runestone.academy/ns/books/published/cppds/index.html)
 - [Learn GitHub](https://github.com/drshahizan/learn-github)
