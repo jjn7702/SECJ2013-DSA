@@ -16,21 +16,21 @@ Welcome to the Course on Data Structures and Algorithms! This course will teach 
 - **Course Duration:** 15 weeks
 - **Prerequisites:** Programming Technique 1 and Programming Technique 2
 
-## Course Learning Outcomes (CLO) 📝
+## Course Learning Outcomes (CLO) 🎯
 By the end of this course, students will be able to:
 
 1. Choose the most suitable data structures and analyse the most effective algorithm for solving certain problem.
 2. Apply effectively data structure concepts in programming.
 3. Develop medium scale programs as a group mini project by applying data structure concepts in problem solving.
 
-## Program Learning Outcomes (PLO) 📝
+## Program Learning Outcomes (PLO) 🌟
 This course contributes to the following Program Learning Outcomes:
 
 - PLO1: Ability to acquire theory and principles of computer science and equip with social science and personal development knowledge.
 - PLO2: Ability to design and construct computer programs using standard approaches.
 - PLO7: Ability to work effectively in a team.
 
-## Table of Contents
+## Table of Contents 📑
 
 1. [Introduction to Data Structures and Algorithms](#introduction-to-data-structures-and-algorithms)
 2. [Abstract Data Type, C++ Revision and Advanced File Operations](#abstract-data-type-c-revision-and-advanced-file-operations)
@@ -42,7 +42,7 @@ This course contributes to the following Program Learning Outcomes:
 8. [Queue](#queue)
 9. [Tree](#tree)
 
-## Course Content
+## Course Content 📖
 
 ### Introduction to Data Structures and Algorithms
 
@@ -100,7 +100,7 @@ This course contributes to the following Program Learning Outcomes:
 - Binary Search Tree Implementations: Declaring Tree node, Tree class, Create Node, Insert Node, Delete Node, Search Node
 - Tree Traversals
 
-## Evaluation
+## Evaluation 📊
 
 - Assignments(2): 10%
 - Lab Exercises(4): 10%
@@ -111,7 +111,7 @@ This course contributes to the following Program Learning Outcomes:
 - Final Exam: 30%
 - **Total: 100%**
 
-## Additional Resources
+## Additional Resources 🔗
 
 - [Narasimha Karumanchi. (2010). Data Structures and Algorithms Made Easy. Careermonk Publications.‌](https://www.emgywomenscollege.ac.in/templateEditor/kcfinder/upload/files/algorithm%281%29.pdf)
 - [Dale, N. B. (2003). C++ Plus Data Structures. Jones & Bartlett Learning.](https://cdn.preterhuman.net/texts/math/Data_Structure_And_Algorithms/C++%20Data%20Structures%203rd%20ed%20-%20Nell%20Dale.pdf)
