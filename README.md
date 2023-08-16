@@ -116,6 +116,6 @@ This course contributes to the following Program Learning Outcomes:
 - [Narasimha Karumanchi. (2010). Data Structures and Algorithms Made Easy. Careermonk Publications.‌](https://www.emgywomenscollege.ac.in/templateEditor/kcfinder/upload/files/algorithm%281%29.pdf)
 - [Dale, N. B. (2003). C++ Plus Data Structures. Jones & Bartlett Learning.](https://cdn.preterhuman.net/texts/math/Data_Structure_And_Algorithms/C++%20Data%20Structures%203rd%20ed%20-%20Nell%20Dale.pdf)
 - [Drozdek, A. (2012). Data Structures and Algorithms in C++. Cengage Learning.](http://www.pkt.edu.my/pdf_sys/home/pdf/65)
-- [Sartaj Sahni. (2005). Data structures, algorithms, and applications in C++. Silicon Press, Cop.](https://o6ucs.files.wordpress.com/2012/10/data-structures-algorithms-and-applications-in-c-by-sartraj-sahani.pdf)
+- [Sartaj Sahni. (2005). Data Structures, Algorithms, and Applications in C++. Silicon Press, Cop.](https://o6ucs.files.wordpress.com/2012/10/data-structures-algorithms-and-applications-in-c-by-sartraj-sahani.pdf)
 - [Miller, B., Ranum, D. and Pearce, J. (n.d.). Problem Solving with Algorithms and Data Structures using C++. Runestone.academy‌](https://runestone.academy/ns/books/published/cppds/index.html)
 - [Learn GitHub](https://github.com/drshahizan/learn-github)
