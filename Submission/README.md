@@ -5,6 +5,13 @@
 <a href="https://github.com/jjn7702/SECJ2013-DSA/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/jjn7702/SECJ2013-DSA?color=2b9348"></a>
 ![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fjjn7702%2FSECJ2013-DSA&labelColor=%23d9e3f0&countColor=%23697689&style=flat)
 
+[![Stars Badge](https://img.shields.io/github/stars/jjn7702/SECJ2013-DSA)](https://github.com/jjn7702/SECJ2013-DSA/stargazers)
+[![Forks Badge](https://img.shields.io/github/forks/jjn7702/SECJ2013-DSA)](https://github.com/jjn7702/SECJ2013-DSA/network/members)
+[![Pull Requests Badge](https://img.shields.io/github/issues-pr/jjn7702/SECJ2013-DSA)](https://github.com/jjn7702/SECJ2013-DSA/pulls)
+[![Issues Badge](https://img.shields.io/github/issues/jjn7702/SECJ2013-DSA)](https://github.com/jjn7702/SECJ2013-DSA/issues)
+[![Contributors Badge](https://img.shields.io/github/contributors/jjn7702/SECJ2013-DSA?color=2b9348)](https://github.com/jjn7702/SECJ2013-DSA/graphs/contributors)
+![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fjjn7702%2FSECJ2013-DSA&labelColor=%23d9e3f0&countColor=%23697689&style=flat)
+
 _Don't forget to hit the :star: if you like this repo._
 
 # Data Structures and Algorithms (SECJ2013)
