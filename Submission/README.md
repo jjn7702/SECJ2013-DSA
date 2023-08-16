@@ -9,7 +9,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 # Data Structures and Algorithms (SECJ2013)
 
-## Submission
+## Submission <img src="../images/folder.png" width="24px" height="24px" >
 
 ### Folder Structure
 You must place your file in the submission folder. Within the `submission` folder, create a folder called your  `github_id`. Suggested folder structure for the DSA tasks:
