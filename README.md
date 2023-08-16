@@ -1,9 +1,9 @@
-<a href="https://github.com/drshahizan/learn-github/stargazers"><img src="https://img.shields.io/github/stars/drshahizan/learn-github" alt="Stars Badge"/></a>
-<a href="https://github.com/drshahizan/learn-github/network/members"><img src="https://img.shields.io/github/forks/drshahizan/learn-github" alt="Forks Badge"/></a>
-<a href="https://github.com/drshahizan/learn-github/pulls"><img src="https://img.shields.io/github/issues-pr/drshahizan/learn-github" alt="Pull Requests Badge"/></a>
-<a href="https://github.com/drshahizan/learn-github/issues"><img src="https://img.shields.io/github/issues/drshahizan/learn-github" alt="Issues Badge"/></a>
-<a href="https://github.com/drshahizan/learn-github/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/drshahizan/learn-github?color=2b9348"></a>
-![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fdrshahizan%2Flearn-github&labelColor=%23d9e3f0&countColor=%23697689&style=flat)
+<a href="https://github.com/jjn7702/SECJ2013-DSA-04/stargazers"><img src="https://img.shields.io/github/stars/jjn7702/SECJ2013-DSA-04" alt="Stars Badge"/></a>
+<a href="https://github.com/jjn7702/SECJ2013-DSA-04/network/members"><img src="https://img.shields.io/github/forks/jjn7702/SECJ2013-DSA-04" alt="Forks Badge"/></a>
+<a href="https://github.com/jjn7702/SECJ2013-DSA-04/pulls"><img src="https://img.shields.io/github/issues-pr/jjn7702/SECJ2013-DSA-04" alt="Pull Requests Badge"/></a>
+<a href="https://github.com/jjn7702/SECJ2013-DSA-04/issues"><img src="https://img.shields.io/github/issues/jjn7702/SECJ2013-DSA-04" alt="Issues Badge"/></a>
+<a href="https://github.com/jjn7702/SECJ2013-DSA-04/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/jjn7702/SECJ2013-DSA-04?color=2b9348"></a>
+![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fjjn7702%2FSECJ2013-DSA-04&labelColor=%23d9e3f0&countColor=%23697689&style=flat)
 
 Don't forget to hit the :star: if you like this repo.
 
