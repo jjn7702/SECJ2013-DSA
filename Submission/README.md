@@ -45,7 +45,7 @@ Inside each `assignments/project` directory, you'll find the following structure
 - `assignment1.md` (or `assignment2.md`, or `project.md`) is a Markdown file that contains the response to the specific assignments/ tasks. It likely provides a detailed explanation, solution, or discussion related to the question.
 - `files` is a subdirectory within each `assignments/project` directory that contains additional files related to the task.
 - Inside the `files` directory, you'll find two subdirectories:
-  - `images` directory holds image files that are referenced or used within the answer or any associated documentation.
+  - `images` directory holds image files that are referenced or used within the task or any associated documentation.
   - `source-code` directory contains source code files related to the task, or input files if any.
 
 In summary, this folder structure appears to be organizing a GitHub repository by dividing it into separate sections for different tasks. Each task has its own directory, including the md file, along with subdirectories for related files, such as images and source codes.
