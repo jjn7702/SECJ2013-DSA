@@ -119,8 +119,7 @@ This course contributes to the following Program Learning Outcomes:
 - [Dale, N. B. (2003). C++ Plus Data Structures. Jones & Bartlett Learning.](https://cdn.preterhuman.net/texts/math/Data_Structure_And_Algorithms/C++%20Data%20Structures%203rd%20ed%20-%20Nell%20Dale.pdf)
 - [Drozdek, A. (2012). Data Structures and Algorithms in C++. Cengage Learning.](http://www.pkt.edu.my/pdf_sys/home/pdf/65)
 - [Miller, B., Ranum, D. and Pearce, J. (n.d.). Problem Solving with Algorithms and Data Structures using C++. Runestone.academy‌](https://runestone.academy/ns/books/published/cppds/index.html)
-- Practice Coding: [List of coding challenge websites]
-- Additional Readings: [List of articles, blog posts, etc.]
+- [Learn GitHub](https://github.com/drshahizan/learn-github)
 
 ## Contact Information
 
