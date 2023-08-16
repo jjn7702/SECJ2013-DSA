@@ -7,7 +7,7 @@
 
 _Don't forget to hit the :star: if you like this repo._
 
-# Special Topic Data Engineering
+# Data Structures and Algorithms (SECJ2013)
 
 ## Submission
 
@@ -17,28 +17,18 @@ You must place your file in the submission folder. Within the `submission` folde
 ```
 📁github_id
 ├── 📄readme.md
-├── 📁questions 1
-│   ├── 📄answerQ1.md
+├── 📁Assignment1
+│   ├── 📄assignment1.md
 │   └── 📁files
 │       ├── 📁images
 │       └── 📁source-code
-├── 📁questions 2
-│   ├── 📄answerQ2.md
+├── 📁Assignment2
+│   ├── 📄assignment2.md
 │   └── 📁files
 │       ├── 📁images
 │       └── 📁source-code
-├── 📁questions 3
-│   ├── 📄answerQ3.md
-│   └── 📁files
-│       ├── 📁images
-│       └── 📁source-code
-├── 📁questions 4
-│   ├── 📄answerQ4.md
-│   └── 📁files
-│       ├── 📁images
-│       └── 📁source-code
-└── 📁questions 5
-    ├── 📄answerQ5.md
+└── 📁Project
+    ├── 📄project.md
     └── 📁files
         ├── 📁images
         └── 📁source-code
@@ -48,17 +38,17 @@ The folder structure you provided appears to be organized in a hierarchical mann
 - `github_id` is your folder or repository name.
 - `readme.md` is a Markdown file that serves as the readme for the repository. It usually contains information about the project, instructions, and documentation.
 
-Inside the `github_id` folder, there are five directories named `questions 1`, `questions 2`, `questions 3`, `questions 4`, and `questions 5`. Each of these directories represents a separate section or set of questions in the repository.
+Inside the `github_id` folder, there are *three* directories named `Assignment1`, `Assignment2`, and `Project`. Each of these directories represents a separate section or different tasks in the repository.
 
-Inside each `questions` directory, you'll find the following structure:
+Inside each `assignments/project` directory, you'll find the following structure:
 
-- `answerQ1.md` (or `answerQ2.md`, `answerQ3.md`, etc.) is a Markdown file that contains the answer or response to the specific question. It likely provides a detailed explanation, solution, or discussion related to the question.
-- `files` is a subdirectory within each `questions` directory that contains additional files related to the answer.
+- `assignment1.md` (or `assignment2.md`, `project.md`) is a Markdown file that contains the response to the specific assignments/ tasks. It likely provides a detailed explanation, solution, or discussion related to the question.
+- `files` is a subdirectory within each `assignments/project` directory that contains additional files related to the task.
 - Inside the `files` directory, you'll find two subdirectories:
   - `images` directory holds image files that are referenced or used within the answer or any associated documentation.
-  - `source-code` directory contains source code files related to the question, answer, or any code examples provided.
+  - `source-code` directory contains source code files related to the task, or input files if any.
 
-In summary, this folder structure appears to be organizing a GitHub repository by dividing it into separate sections for different questions. Each question has its own directory, including the answer file, along with subdirectories for related files, such as images and source code.
+In summary, this folder structure appears to be organizing a GitHub repository by dividing it into separate sections for different tasks. Each task has its own directory, including the md file, along with subdirectories for related files, such as images and source codes.
 
 ## Your Folder
 
