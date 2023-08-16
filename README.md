@@ -109,7 +109,7 @@ This course contributes to the following Program Learning Outcomes:
 - Test1(Theory): 15%
 - Test2(Practical): 15%
 - Final Exam: 30%
-- Total: 100%
+- **Total: 100%**
 
 ## Additional Resources
 
