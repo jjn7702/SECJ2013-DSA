@@ -42,7 +42,7 @@ Inside the `github_id` folder, there are **three** directories named `Assignment
 
 Inside each `assignments/project` directory, you'll find the following structure:
 
-- `assignment1.md` (or `assignment2.md`, `project.md`) is a Markdown file that contains the response to the specific assignments/ tasks. It likely provides a detailed explanation, solution, or discussion related to the question.
+- `assignment1.md` (or `assignment2.md`, or `project.md`) is a Markdown file that contains the response to the specific assignments/ tasks. It likely provides a detailed explanation, solution, or discussion related to the question.
 - `files` is a subdirectory within each `assignments/project` directory that contains additional files related to the task.
 - Inside the `files` directory, you'll find two subdirectories:
   - `images` directory holds image files that are referenced or used within the answer or any associated documentation.
