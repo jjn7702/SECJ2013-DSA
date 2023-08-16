@@ -102,7 +102,7 @@ This course contributes to the following Program Learning Outcomes:
 
 ## Evaluation 📊
 
-- [Assignments](https://github.com/jjn7702/SECJ2013-DSA/Submission)(2): 10%
+- [Assignments](https://github.com/jjn7702/SECJ2013-DSA/Submission/)(2): 10%
 - Lab Exercises(4): 10%
 - Quizzes(2): 10%
 - [Project](https://github.com/jjn7702/SECJ2013-DSA/Submission): 10%
