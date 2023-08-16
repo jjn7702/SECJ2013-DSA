@@ -95,16 +95,19 @@ This course contributes to the following Program Learning Outcomes:
 
 ## Evaluation
 
-- Assignments: XX%
-- Midterm Exam: XX%
-- Final Project: XX%
-- Class Participation: XX%
+- Assignments(2): 10%
+- Lab Exercises(4): 10%
+- Quizzes(2): 10%
+- Project: 10%
+- Test1(Theory): 15%
+- Test2(Practical): 15%
+- Final Exam: 30%
 - Total: 100%
 
 ## Additional Resources
 
-- Recommended Textbook: [Title, Author]
-- Online Platforms: [List of platforms with links]
+- [Narasimha Karumanchi. (2010). Data Structures and Algorithms Made Easy. Careermonk Publications.‌](https://www.emgywomenscollege.ac.in/templateEditor/kcfinder/upload/files/algorithm%281%29.pdf)
+- Online Platforms: [Miller, B., Ranum, D. and Pearce, J. (n.d.). Problem Solving with Algorithms and Data Structures using C++. Runestone.academy‌](https://runestone.academy/ns/books/published/cppds/index.html)
 - Practice Coding: [List of coding challenge websites]
 - Additional Readings: [List of articles, blog posts, etc.]
 
