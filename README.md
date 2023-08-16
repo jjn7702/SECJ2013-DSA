@@ -11,7 +11,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 Welcome to the Course on Data Structures and Algorithms! This course will teach you the fundamentals of data structures and algorithms, which are essential for developing efficient and optimised computer programs.
 
-## Course Overview
+## Course Overview 📚
 
 - **Course Duration:** 15 weeks
 - **Prerequisites:** Programming Technique 1 and Programming Technique 2
