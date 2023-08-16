@@ -14,8 +14,6 @@ Welcome to the Course on Data Structures and Algorithms! This course will teach 
 ## Course Overview
 
 - **Course Duration:** 15 weeks
-- **Instructor:** [Lizawati binti Mi Yusuf](https://utmscholar.utm.my/Scholar/ScholarInfoDetails/WwO9?_gl=1*180c7oh*_ga*NTE5MTkwOTQ1LjE2ODE3NzYwNTY.*_ga_N3HJW8G3P7*MTY5MjA2NTUyMC4xOS4xLjE2OTIwNjU4NDguMC4wLjA.)
-- **Contact:** [lizawati@utm.my]
 - **Prerequisites:** Programming Technique 1 and Programming Technique 2
 
 ## Course Learning Outcomes (CLO)
@@ -120,7 +118,3 @@ This course contributes to the following Program Learning Outcomes:
 - [Drozdek, A. (2012). Data Structures and Algorithms in C++. Cengage Learning.](http://www.pkt.edu.my/pdf_sys/home/pdf/65)
 - [Miller, B., Ranum, D. and Pearce, J. (n.d.). Problem Solving with Algorithms and Data Structures using C++. Runestone.academy‌](https://runestone.academy/ns/books/published/cppds/index.html)
 - [Learn GitHub](https://github.com/drshahizan/learn-github)
-
-## Contact Information
-
-If you have any questions, please feel free to contact the instructor at [lizawati@utm.my].
