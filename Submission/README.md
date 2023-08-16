@@ -38,7 +38,7 @@ The folder structure you provided appears to be organized in a hierarchical mann
 - `github_id` is your folder or repository name.
 - `readme.md` is a Markdown file that serves as the readme for the repository. It usually contains information about the task, workflow, design, and documentation.
 
-Inside the `github_id` folder, there are *three* directories named `Assignment1`, `Assignment2`, and `Project`. Each of these directories represents a separate section or different tasks in the repository.
+Inside the `github_id` folder, there are **three** directories named `Assignment1`, `Assignment2`, and `Project`. Each of these directories represents a separate section or different tasks in the repository.
 
 Inside each `assignments/project` directory, you'll find the following structure:
 
