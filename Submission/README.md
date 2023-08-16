@@ -36,7 +36,7 @@ You must place your file in the submission folder. Within the `submission` folde
 The folder structure you provided appears to be organized in a hierarchical manner. Here's a description of each component:
 
 - `github_id` is your folder or repository name.
-- `readme.md` is a Markdown file that serves as the readme for the repository. It usually contains information about the project, instructions, and documentation.
+- `readme.md` is a Markdown file that serves as the readme for the repository. It usually contains information about the task, workflow, design, and documentation.
 
 Inside the `github_id` folder, there are *three* directories named `Assignment1`, `Assignment2`, and `Project`. Each of these directories represents a separate section or different tasks in the repository.
 
