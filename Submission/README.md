@@ -15,7 +15,7 @@ In this course, each student is required to complete **two assignments** ([Assig
 
 ## Assignment 1 📋
 
-- Each group must implement **sorting and searching algorithms** in your proposed system (case study).
+- Each group must implement **sorting and searching algorithms** in the proposed system (case study).
 - Data structure concepts and algorithms must be correctly implemented using the **C++ programming language**.
 - Determine the relevant classes/ structs associated with the proposed system. Each class/ struct must contain **at least five attributes (data)**.
 - Perform sorting and searching on the array of objects/ structs. You have the freedom to select appropriate sorting and searching methods and algorithms.
@@ -36,7 +36,7 @@ Option: ____
 - Write a comprehensive report (documentation) that includes an objective, a synopsis, a design (class design presented in a class diagram and/or algorithm design illustrated in pseudocode or a flow chart), and a description of how to implement data structure operations: sorting and searching.
 
 ## Assignment 2 📋
-- Each group must implement **linked-list** in your proposed system (case study).
+- Each group must implement **linked-list** in the proposed system (case study).
 - Data structure concepts and algorithms must be correctly implemented using the **C++ programming language**.
 - Determine the relevant classes/ structs associated with the proposed system. Each class/ struct must contain **at least five attributes (data)**.
 - Perform the following operations using a linked list:
