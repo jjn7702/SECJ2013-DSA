@@ -27,6 +27,12 @@ In this course, each student is required to complete **two assignments** ([Assig
 [3] By IC number
 Option: ____
 
+<<< Sorting Process >>>
+[1] By name
+[2] By age
+[3] By IC number
+Option: ____
+
 ## Submission📥
 
 ### Folder Structure
