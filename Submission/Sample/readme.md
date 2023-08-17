@@ -17,15 +17,15 @@ The Chronic Disease Management System is designed to address the effective manag
 
 - **Ahmad bin Rashid**
    - Matric Number: ABC123
-   - <img src="./Images/school-icon-png-14053.png" width=150px, height=150px, align="top">
+   - <a href="https://www.freeiconspng.com/img/14053" title="Image from freeiconspng.com"><img src="./Images/school-icon-png-14053.png" width=150px, height=150px, align="top">
 
 - **Lee Mei Ling**
    - Matric Number: DEF456
-   - ![Jane Smith](link_to_jane_smith_photo.jpg)
+   - <a href="https://www.freeiconspng.com/img/14053" title="Image from freeiconspng.com"><img src="./Images/school-icon-png-14053.png" width=150px, height=150px, align="top">
 
 - **Rakesh Kumar**
    - Matric Number: GHI789
-   - ![Michael Johnson](link_to_michael_johnson_photo.jpg)
+   - <a href="https://www.freeiconspng.com/img/14053" title="Image from freeiconspng.com"><img src="./Images/school-icon-png-14053.png" width=150px, height=150px, align="top">
 
 ## Findings
 
