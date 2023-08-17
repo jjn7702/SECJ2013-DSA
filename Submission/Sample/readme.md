@@ -6,17 +6,15 @@ The Chronic Disease Management System is designed to address the effective manag
 
 ## Prepared by
 
-The Chronic Disease Management System was prepared by the following team members:
-
-1. **John Doe**
+- **Ahmad bin Rashid**
    - Matric Number: ABC123
    - ![John Doe](link_to_john_doe_photo.jpg)
 
-2. **Jane Smith**
+- **Lee Mei Ling**
    - Matric Number: DEF456
    - ![Jane Smith](link_to_jane_smith_photo.jpg)
 
-3. **Michael Johnson**
+- **Rakesh Kumar**
    - Matric Number: GHI789
    - ![Michael Johnson](link_to_michael_johnson_photo.jpg)
 
