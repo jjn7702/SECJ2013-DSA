@@ -9,6 +9,18 @@ _Don't forget to hit the :star: if you like this repo._
 
 # Data Structures and Algorithms (SECJ2013)
 
+## Assignments and Project
+
+In this course, each student is required to complete two assignments (Assignment 1 and Assignment 2) and one project. All these tasks are to be performed in groups. Each group is tasked with proposing or selecting a system based on the predefined theme or from a list of proposed systems. Following that, you will be expected to apply data structure concepts to your proposed system, which will act as your case study.
+
+## Assignment 1
+
+- Each group must implement sorting and searching algorithms in your proposed system (case study).
+- Data structure concepts and algorithms must be correctly implemented using the C++ programming language.
+- Determine the relevant classes/structs associated with the proposed system. Each class/struct must contain at least five attributes (data).
+- Perform sorting and searching on the array of objects/structs. You have the freedom to select appropriate sorting and searching methods and algorithms.
+- Your program should give users a variety of options for sorting and searching. For example:
+
 ## Submission📥
 
 ### Folder Structure
