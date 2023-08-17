@@ -11,7 +11,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Assignments and Project 📚 
 
-In this course, each student is required to complete **two assignments** ([Assignment 1](#assignment-1) and Assignment 2) and one project. All these tasks are to be performed in groups. Each group is tasked with proposing or selecting a system based on the predefined theme or from a list of proposed systems. Following that, you will be expected to apply data structure concepts to your proposed system, which will act as your case study.
+In this course, each student is required to complete **two assignments** ([Assignment 1](#assignment-1) and [Assignment 2](#assignment-2)) and one [project](#project). All these tasks are to be performed in groups. Each group is tasked with proposing or selecting a system based on the predefined theme or from a list of proposed systems. Following that, you will be expected to apply data structure concepts to your proposed system, which will act as your case study.
 
 <a id="assignment-1"></a>
 ## Assignment 1 📋
@@ -35,6 +35,7 @@ Option: ____
 
 - Write a comprehensive report (documentation) that includes an objective, a synopsis, a design (class design presented in a class diagram and/or algorithm design illustrated in pseudocode or a flow chart), and a description of how to implement data structure operations: sorting and searching.
 
+<a id="assignment-2"></a>
 ## Assignment 2 📋
 - Each group must implement **linked-list** in the proposed system (case study).
 - Data structure concepts and algorithms must be correctly implemented using the **C++ programming language**.
@@ -51,6 +52,7 @@ Option: ____
 - Please use an input file to get data if necessary.
 - Write a complete report (documentation) that contains an objective, a synopsis, a design (class design provided in a class diagram and/or algorithm design demonstrated in pseudocode or a flow chart), and a description of how to implement a linked-list in the proposed system.
 
+<a id="project"></a>
 ## Project 📌
 
 ## Submission📥
