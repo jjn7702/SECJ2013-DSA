@@ -27,7 +27,7 @@ In this course, each student is required to complete **two assignments** ([Assig
 [2] By age
 [3] By IC number
 Option: ____
-`
+```
 
 ## Submission📥
 
