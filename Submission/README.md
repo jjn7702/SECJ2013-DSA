@@ -11,7 +11,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Assignments and Project 📚 
 
-In this course, each student is required to complete **two assignments** (Assignment 1 and Assignment 2) and one project. All these tasks are to be performed in groups. Each group is tasked with proposing or selecting a system based on the predefined theme or from a list of proposed systems. Following that, you will be expected to apply data structure concepts to your proposed system, which will act as your case study.
+In this course, each student is required to complete **two assignments** ([Assignment 1] and Assignment 2) and one project. All these tasks are to be performed in groups. Each group is tasked with proposing or selecting a system based on the predefined theme or from a list of proposed systems. Following that, you will be expected to apply data structure concepts to your proposed system, which will act as your case study.
 
 ## Assignment 1 📋
 
@@ -39,11 +39,11 @@ Option: ____
 - Data structure concepts and algorithms must be correctly implemented using the **C++ programming language**.
 - Determine the relevant classes/ structs associated with the proposed system. Each class/ struct must contain **at least five attributes (data)**.
 - Perform the following operations using a linked list:
-    - _**Add a New Node:** You must provide options for inserting the new node at the beginning, the middle (at any point), or the end of the list._
-    - _**Delete a Node:** You must provide options to delete the first node, a node in the middle (or at any position), or the last node in the list._
-    - _**Find a Node:** Allow the user to enter the search key based on the attributes mentioned in step (3)._
-    - _**Sort the List.**_
-    - _**Display All Nodes in the List.**_
+    - _**Add a new node:** You must provide options for inserting the new node at the beginning, the middle (at any point), or the end of the list._
+    - _**Delete a node:** You must provide options to delete the first node, a node in the middle (or at any position), or the last node in the list._
+    - _**Find a node:** Allow the user to enter the search key based on the attributes mentioned in step (3)._
+    - _**Sort the list.**_
+    - _**Display all nodes in the list.**_
 
 - You can select an appropriate linked-list algorithm.
 - Your program should have a user-friendly menu.
