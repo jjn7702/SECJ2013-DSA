@@ -30,8 +30,8 @@ Option: ____
 >>>**_Notes:_**
 >>>
 >* _Sort and search based on certain criteria/keys._
->* _Your program should include an easy-to-use menu._
->* _Use an input file to get data for your program._ </font>
+>* _Your program should provide an easy-to-use menu._
+>* _Use an input file to get data for your program._ 
 
 - Write a comprehensive report (documentation) that includes an objective, a synopsis, a design (class design presented in a class diagram and/or algorithm design illustrated in pseudocode or a flow chart), and a description of how to implement data structure operations: sorting and searching.
   
