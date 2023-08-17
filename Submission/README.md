@@ -40,14 +40,14 @@ Option: ____
 - Data structure concepts and algorithms must be correctly implemented using the **C++ programming language**.
 - Determine the relevant classes/ structs associated with the proposed system. Each class/ struct must contain **at least five attributes (data)**.
 - Perform the following operations using a linked list:
-    - **Add a New Node:** You must provide options for inserting the new node at the beginning, the middle (at any point), or the end of the list.
-    - **Delete a Node:** You must provide options to delete the first node, a node in the middle (or at any position), or the last node in the list.
-    - **Find a Node:** Allow the user to enter the search key based on the attributes mentioned in (2).
-    - **Sort the List.**
-    - **Display All Nodes in the List.**
+    - _**Add a New Node:** You must provide options for inserting the new node at the beginning, the middle (at any point), or the end of the list._
+    - _**Delete a Node:** You must provide options to delete the first node, a node in the middle (or at any position), or the last node in the list._
+    - _**Find a Node:** Allow the user to enter the search key based on the attributes mentioned in step (3)._
+    - _**Sort the List.**_
+    - _**Display All Nodes in the List.**_
 - Your program should have a user-friendly menu.
 - Please use an input file to get data if necessary.
-- Write a comprehensive report (documentation) that includes an objective, a synopsis, a design (class design presented in a class diagram and/or algorithm design illustrated in pseudocode or a flow chart), and a description of how to implement data structure operations: sorting and searching.
+- Write a complete report (documentation) that contains an objective, a synopsis, a design (class design provided in a class diagram and/or algorithm design demonstrated in pseudocode or a flow chart), and a description of how to implement a linked-list in the proposed system.
 
 ## Project 📌
 
