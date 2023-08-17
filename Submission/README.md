@@ -27,7 +27,7 @@ In this course, each student is required to complete **two assignments** ([Assig
 [3] By IC number
 Option: ____
 ```
-<small> #### _Notes:_
+<small>**_Notes:_** </small>
 * _Sort and search based on certain criteria/keys._
 * _Your program should include an easy-to-use menu._
 * _Use an input file to get data for your program._ </small>
