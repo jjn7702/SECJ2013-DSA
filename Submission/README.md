@@ -7,7 +7,7 @@
 
 _Don't forget to hit the :star: if you like this repo._
 
-# Data Structures and Algorithms (SECJ2013)
+# [Data Structures and Algorithms (SECJ2013)](/SECJ2013-DSA)
 
 ## Assignments and Project 📚 
 
