@@ -9,11 +9,11 @@ _Don't forget to hit the :star: if you like this repo._
 
 # Chronic Disease Management System
 
-## Description
+## Description 📝
 
 The Chronic Disease Management System is designed to address the effective management and monitoring of chronic diseases for patients. This system aims to provide healthcare professionals with tools to streamline patient information, treatment plans, and progress tracking, ultimately improving patient outcomes and quality of care.
 
-## Prepared by
+## Prepared by 🧑‍💻
 
 - **Ahmad bin Rashid**
    - Matric Number: ABC123
@@ -27,7 +27,7 @@ The Chronic Disease Management System is designed to address the effective manag
    - Matric Number: GHI789
    - <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/boy_4537022.png" width=100px, height=100px, align="top">
 
-## Findings
+## Findings 📊
 
 - Assignment 1
 - Assignment 2
