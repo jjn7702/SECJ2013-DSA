@@ -29,9 +29,9 @@ Option: ____
 ```
 >>**_Notes:_**
 >>
-* _Sort and search based on certain criteria/keys._
-* _Your program should include an easy-to-use menu._
-* _Use an input file to get data for your program._ </font>
+>* _Sort and search based on certain criteria/keys._
+>* _Your program should include an easy-to-use menu._
+>* _Use an input file to get data for your program._ </font>
 
 ## Submission📥
 
