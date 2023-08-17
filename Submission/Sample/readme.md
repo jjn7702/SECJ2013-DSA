@@ -27,6 +27,15 @@ The Chronic Disease Management System is designed to address the effective manag
    - Matric Number: GHI789
    - <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/boy_4537022.png" width=100px, height=100px, align="top">
 
+## Prepared by 🧑‍💻
+
+| Name             | Matric Number | Photo                                                         |
+| ---------------- | ------------- | ------------------------------------------------------------ |
+| **Ahmad bin Rashid**   | ABC123        | ![Ahmad bin Rashid](./Images/boy_4537038.png =100x100)     |
+| **Lee Mei Ling**       | DEF456        | ![Lee Mei Ling](./Images/girl_4537097.png =100x100)         |
+| **Rakesh Kumar**       | GHI789        | ![Rakesh Kumar](./Images/boy_4537022.png =100x100)         |
+
+
 ## Findings 📊
 
 - Assignment 1
