@@ -8,7 +8,7 @@ The Chronic Disease Management System is designed to address the effective manag
 
 - **Ahmad bin Rashid**
    - Matric Number: ABC123
-   - <img src="./Images/school-icon-png-14053.png" width=150px, height=200px>
+   - <img src="./Images/school-icon-png-14053.png" width=100px, height=150px>
 
 - **Lee Mei Ling**
    - Matric Number: DEF456
