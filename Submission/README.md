@@ -13,12 +13,12 @@ _Don't forget to hit the :star: if you like this repo._
 
 In this course, each student is required to complete **two assignments** ([Assignment 1](#assignment-1) and Assignment 2) and one project. All these tasks are to be performed in groups. Each group is tasked with proposing or selecting a system based on the predefined theme or from a list of proposed systems. Following that, you will be expected to apply data structure concepts to your proposed system, which will act as your case study.
 
-## Assignment 1 📝
+## Assignment 1 📋
 
 - Each group must implement **sorting and searching algorithms** in your proposed system (case study).
 - Data structure concepts and algorithms must be correctly implemented using the **C++ programming language**.
-- Determine the relevant classes/ structs associated with the proposed system. Each class/ struct must contain at least five attributes (data).
-- Perform sorting and searching on the array of objects/structs. You have the freedom to select appropriate sorting and searching methods and algorithms.
+- Determine the relevant classes/ structs associated with the proposed system. Each class/ struct must contain **at least five attributes (data)**.
+- Perform sorting and searching on the array of objects/ structs. You have the freedom to select appropriate sorting and searching methods and algorithms.
 - Your program should give users a variety of options for sorting and searching. For example:
 ```cpp
 <<< Sorting Process >>>
@@ -29,12 +29,16 @@ Option: ____
 ```
 >>>**_Notes:_**
 >>>
->* _Sort and search based on certain criteria/keys._
+>* _Sort and search based on certain criteria/ keys._
 >* _Your program should provide an easy-to-use menu._
 >* _Use an input file to get data for your program._ 
 
 - Write a comprehensive report (documentation) that includes an objective, a synopsis, a design (class design presented in a class diagram and/or algorithm design illustrated in pseudocode or a flow chart), and a description of how to implement data structure operations: sorting and searching.
-  
+
+## Assignment 2 📋
+
+## Project 📌
+
 ## Submission📥
 
 ### Folder Structure
@@ -80,7 +84,7 @@ In summary, this folder structure appears to be organizing a GitHub repository b
 
 | No | Name | Folder |
 | --- | --- | :---: |
-| _0_ | _Sample_ | <a href="adila90" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
+| _0_ | _Sample_ | <a href="Sample" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
 | 1 | Group 1 | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
 | 2 | Group 2 | <a href="group2" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
 | 3 | Group 3 | <a href="group3" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
