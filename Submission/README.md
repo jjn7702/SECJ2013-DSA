@@ -32,6 +32,9 @@ Option: ____
 * _Your program should include an easy-to-use menu._
 * _Use an input file to get data for your program._
 
+* Item 1
+* Item 2
+* Item 3
 
 ## Submission📥
 
