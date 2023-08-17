@@ -15,9 +15,9 @@ In this course, each student is required to complete **two assignments** ([Assig
 
 ## Assignment 1
 
-- Each group must implement sorting and searching algorithms in your proposed system (case study).
-- Data structure concepts and algorithms must be correctly implemented using the C++ programming language.
-- Determine the relevant classes/structs associated with the proposed system. Each class/struct must contain at least five attributes (data).
+- Each group must implement **sorting and searching algorithms** in your proposed system (case study).
+- Data structure concepts and algorithms must be correctly implemented using the **C++ programming language**.
+- Determine the relevant classes/ structs associated with the proposed system. Each class/ struct must contain at least five attributes (data).
 - Perform sorting and searching on the array of objects/structs. You have the freedom to select appropriate sorting and searching methods and algorithms.
 - Your program should give users a variety of options for sorting and searching. For example:
 ```cpp
@@ -27,6 +27,11 @@ In this course, each student is required to complete **two assignments** ([Assig
 [3] By IC number
 Option: ____
 ```
+Notes:
+- *Sort and search based on certain criteria/keys.*
+- *Your program should include an easy-to-use menu.*
+- *Use an input file to get data for your program.*
+
 ## Submission📥
 
 ### Folder Structure
