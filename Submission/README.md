@@ -27,7 +27,6 @@ In this course, each student is required to complete **two assignments** ([Assig
 [3] By IC number
 Option: ____
 
-
 ## Submission📥
 
 ### Folder Structure
