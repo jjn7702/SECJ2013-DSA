@@ -33,6 +33,8 @@ Option: ____
 >* _Your program should include an easy-to-use menu._
 >* _Use an input file to get data for your program._ </font>
 
+- Write a comprehensive report (documentation) that includes an objective, a synopsis, a design (class design presented in a class diagram and/or algorithm design illustrated in pseudocode or a flow chart), and a description of how to implement data structure operations: sorting and searching.
+  
 ## Submission📥
 
 ### Folder Structure
