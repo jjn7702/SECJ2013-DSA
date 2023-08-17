@@ -21,15 +21,15 @@ In this course, each student is required to complete **two assignments** ([Assig
 - Perform sorting and searching on the array of objects/structs. You have the freedom to select appropriate sorting and searching methods and algorithms.
 - Your program should give users a variety of options for sorting and searching. For example:
 
-# Sorting Process
+#### Sorting Process Example
 
-To sort the data, please select one of the following options:
+```cpp
+<<< Sorting Process >>>
+[1] By name
+[2] By age
+[3] By IC number
+Option: ____
 
-1. Sort By Name
-2. Sort By Age
-3. Sort By IC Number
-
-Please enter your choice: [ ]
 
 
 
