@@ -10,28 +10,6 @@ struct Patient {
     string disease;
 };
 
-// Function to display patient details
-void displayPatient(const Patient& p) {
-    cout << "Name: " << p.name << ", Age: " << p.age << ", Disease: " << p.disease << endl;
-}
-
-// Function to perform sorting based on patient names
-bool sortByPatientName(const Patient& p1, const Patient& p2) {
-    return p1.name < p2.name;
-}
-
-// Function to perform sorting based on patient keys
-bool sortPatient(const Patient& p1, const Patient& p2, int opt) {
-    switch (opt) {
-        case 1: return p1.name < p2.name;
-    }
-}
-
-// Function to perform searching based on patient names
-bool searchByPatientName(const Patient& p, const string& searchName) {
-    return p.name == searchName;
-}
-
 // Function to display main menu
 void displayMenu() {
     cout << "Chronic Disease Management System Menu" << endl;
@@ -43,6 +21,42 @@ void displayMenu() {
     cout << "Enter your choice: ";
 }
 
+// Function to display search menu
+void dispSearchMenu() {
+    cout << "Choose key to search: ";
+    cout << "1. Name" << endl;
+    cout << "2. Age" << endl;
+    cout << "3. Disease" << endl;
+}
+
+// Function to display patient details
+void displayPatient(const Patient& p) {
+    cout << "Name: " << p.name << ", Age: " << p.age << ", Disease: " << p.disease << endl;
+}
+
+// Function to perform sorting based on patient names
+bool sortByPatientName(const Patient& p1, const Patient& p2) {
+    return p1.name < p2.name;
+}
+
+// Function to perform sorting based on patient names
+bool sortByPatientName(const Patient& p1, const Patient& p2) {
+    
+    return p1.name < p2.name;
+    
+}
+
+// Function to perform searching based on patient keys
+bool searchPatient (const Patient& p, int opt) {
+    string searchKey;
+
+    switch (opt) {
+         case 1: return p.name == searchKey;
+         case 2: return p.age == stoi(searchKey);
+         case 3: return p.disease == searchKey;
+         default: 
+}
+
 int main() {
     vector<Patient> patients;
     
@@ -51,8 +65,7 @@ int main() {
     patients.push_back({"Linda", 30, "Hypertension"});
     patients.push_back({"David", 55, "Heart Disease"});
     
-    int choice;
-    string searchName;
+    int choice, searchOpt;
     
     do {
         displayMenu();
@@ -83,11 +96,7 @@ int main() {
                 break;
             }
             case 3: {
-                cout << "Choose key to search: ";
-                cout << "1. Add Patient" << endl;
-                cout << "2. Display Patients" << endl;
-                cout << "3. Search Patient by Name" << endl;
-                cin >> searchName;
+                cin >> searchOpt;
                 auto it = find_if(patients.begin(), patients.end(), [&](const Patient& p) {
                     return searchByPatientName(p, searchName);
                 });
