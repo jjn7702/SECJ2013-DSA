@@ -39,22 +39,19 @@ bool sortByPatientName(const Patient& p1, const Patient& p2) {
     return p1.name < p2.name;
 }
 
-// Function to perform sorting based on patient names
-bool sortByPatientName(const Patient& p1, const Patient& p2) {
-    
-    return p1.name < p2.name;
-    
-}
-
 // Function to perform searching based on patient keys
 bool searchPatient (const Patient& p, int opt) {
     string searchKey;
+
+    cout << "Enter your searching value: ";
+    getline(cin, searchKey);
 
     switch (opt) {
          case 1: return p.name == searchKey;
          case 2: return p.age == stoi(searchKey);
          case 3: return p.disease == searchKey;
-         default: 
+         default: return false;
+    }
 }
 
 int main() {
@@ -96,10 +93,12 @@ int main() {
                 break;
             }
             case 3: {
+                dispSearchMenu();
                 cin >> searchOpt;
                 auto it = find_if(patients.begin(), patients.end(), [&](const Patient& p) {
-                    return searchByPatientName(p, searchName);
+                    return searchPatient(p, searchOpt);
                 });
+
                 if (it != patients.end()) {
                     cout << "Patient found:" << endl;
                     displayPatient(*it);
