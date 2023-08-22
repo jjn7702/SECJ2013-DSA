@@ -20,9 +20,27 @@ bool sortByPatientName(const Patient& p1, const Patient& p2) {
     return p1.name < p2.name;
 }
 
+// Function to perform sorting based on patient keys
+bool sortPatient(const Patient& p1, const Patient& p2, int opt) {
+    switch (opt) {
+        case 1: return p1.name < p2.name;
+    }
+}
+
 // Function to perform searching based on patient names
 bool searchByPatientName(const Patient& p, const string& searchName) {
     return p.name == searchName;
+}
+
+// Function to display main menu
+void displayMenu() {
+    cout << "Chronic Disease Management System Menu" << endl;
+    cout << "1. Add Patient" << endl;
+    cout << "2. Display Patients" << endl;
+    cout << "3. Search Patient by Name" << endl;
+    cout << "4. Sort Patients by Name" << endl;
+    cout << "0. Exit" << endl;
+    cout << "Enter your choice: ";
 }
 
 int main() {
@@ -37,13 +55,7 @@ int main() {
     string searchName;
     
     do {
-        cout << "Chronic Disease Management System Menu" << endl;
-        cout << "1. Add Patient" << endl;
-        cout << "2. Display Patients" << endl;
-        cout << "3. Search Patient by Name" << endl;
-        cout << "4. Sort Patients by Name" << endl;
-        cout << "0. Exit" << endl;
-        cout << "Enter your choice: ";
+        displayMenu();
         cin >> choice;
         cout << endl;
 
@@ -53,6 +65,7 @@ int main() {
                 Patient newPatient;
                 cout << "Enter patient name: ";
                 getline(cin, newPatient.name); 
+                cin.ignore();
                 cout << "Enter patient age: ";
                 cin >> newPatient.age;
                 cout << "Enter patient disease: ";
@@ -70,7 +83,10 @@ int main() {
                 break;
             }
             case 3: {
-                cout << "Enter patient name to search: ";
+                cout << "Choose key to search: ";
+                cout << "1. Add Patient" << endl;
+                cout << "2. Display Patients" << endl;
+                cout << "3. Search Patient by Name" << endl;
                 cin >> searchName;
                 auto it = find_if(patients.begin(), patients.end(), [&](const Patient& p) {
                     return searchByPatientName(p, searchName);
