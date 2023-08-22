@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <algorithm>
 using namespace std;
 
@@ -23,10 +24,11 @@ void displayMenu() {
 
 // Function to display search menu
 void dispSearchMenu() {
-    cout << "Choose key to search: ";
+    cout << "Choose key to search: " << endl;
     cout << "1. Name" << endl;
     cout << "2. Age" << endl;
     cout << "3. Disease" << endl;
+    cout << "Enter your choice: ";
 }
 
 // Function to display patient details
@@ -40,13 +42,8 @@ bool sortByPatientName(const Patient& p1, const Patient& p2) {
 }
 
 // Function to perform searching based on patient keys
-bool searchPatient (const Patient& p, int opt) {
-    string searchKey;
-
-    cout << "Enter your searching value: ";
-    getline(cin, searchKey);
-
-    switch (opt) {
+bool searchPatient (const Patient& p, int opt, string searchKey) {
+     switch (opt) {
          case 1: return p.name == searchKey;
          case 2: return p.age == stoi(searchKey);
          case 3: return p.disease == searchKey;
@@ -63,10 +60,12 @@ int main() {
     patients.push_back({"David", 55, "Heart Disease"});
     
     int choice, searchOpt;
+    string searchKey;
     
     do {
         displayMenu();
         cin >> choice;
+        cin.ignore();
         cout << endl;
 
         
@@ -75,7 +74,6 @@ int main() {
                 Patient newPatient;
                 cout << "Enter patient name: ";
                 getline(cin, newPatient.name); 
-                cin.ignore();
                 cout << "Enter patient age: ";
                 cin >> newPatient.age;
                 cout << "Enter patient disease: ";
@@ -95,8 +93,12 @@ int main() {
             case 3: {
                 dispSearchMenu();
                 cin >> searchOpt;
+                cin.ignore();
+                cout << "Enter your searching value: ";
+                getline(cin, searchKey);
+
                 auto it = find_if(patients.begin(), patients.end(), [&](const Patient& p) {
-                    return searchPatient(p, searchOpt);
+                    return searchPatient(p, searchOpt, searchKey);
                 });
 
                 if (it != patients.end()) {
