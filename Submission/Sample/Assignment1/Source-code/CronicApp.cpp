@@ -52,7 +52,7 @@ int main() {
             case 1: {
                 Patient newPatient;
                 cout << "Enter patient name: ";
-                cin >> newPatient.name;
+                getline(cin, newPatient.name); 
                 cout << "Enter patient age: ";
                 cin >> newPatient.age;
                 cout << "Enter patient disease: ";
