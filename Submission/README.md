@@ -100,7 +100,7 @@ In summary, this folder structure appears to be organizing a GitHub repository b
 
 | No | Name | Assignment 1 | Assignment 2 | Project |
 | --- | --- | :---: | :---: | :---: |
-| _0_ |[Sample](../Submission/sec04/sample/ass1/readme.md) | <a href="../Submission/sec04/sample/ass1/readme.md" ><img src="../images/folder.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> |
+| _0_ |[Sample](../Submission/sec04/sample/ass1/readme.md) | <a href="../Submission/sec04/sample/ass1/readme.md" ><img src="../images/clipboard.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> |
 | 1 | Tempest | <a href="Tempest" ><img src="../images/folder.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> |
 | 2 | DACCrew | <a href="DACCrew" ><img src="../images/folder.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> |
 | 3 | DTD | <a href="DTD" ><img src="../images/folder.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> |
