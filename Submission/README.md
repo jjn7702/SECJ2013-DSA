@@ -96,10 +96,10 @@ Inside each `assignments/project` directory, you'll find the following structure
 
 In summary, this folder structure appears to be organizing a GitHub repository by dividing it into separate sections for different tasks. Each task has its own directory, including the md file, along with subdirectories for related files, such as images and source codes.
 
-### Your Folder
+### Section 02
 
-| No | Name | Folder |
-| --- | --- | :---: |
+| No | Name | Assignment 1 | Assignment 2 | Project |
+| --- | --- | --- | --- | :---: |
 | _0_ | _Sample_ | <a href="Sample" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
 | 1 | Group 1 | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
 | 2 | Group 2 | <a href="group2" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
