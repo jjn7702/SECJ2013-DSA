@@ -100,7 +100,7 @@ In summary, this folder structure appears to be organizing a GitHub repository b
 
 | No | Name | Assignment 1 | Assignment 2 | Project |
 | --- | --- | :---: | :---: | :---: |
-| _0_ |[Sample](../Submission/sec04/ass1/readme.md) | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
+| _0_ |[Sample](../Submission/sec04/sample/ass1/readme.md) | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
 | 1 | Group 1 | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
 | 2 | Group 2 | <a href="group2" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
 | 3 | Group 3 | <a href="group3" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
