@@ -106,6 +106,8 @@ In summary, this folder structure appears to be organizing a GitHub repository b
 | 3 | Group 3 | <a href="group3" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
 | 4 | Group 4 | <a href="group4" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
 | 5 | Group 5 | <a href="group5" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
+| 6 | Group 6 | <a href="group4" ><img src="../images/folder.png" width="24px" height="24px" ></a> | 
+| 7 | Group 7 | <a href="group5" ><img src="../images/folder.png" width="24px" height="24px" ></a> |
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/issues) for any improvements, suggestions or errors in the content.
