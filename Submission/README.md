@@ -58,10 +58,10 @@ Option: ____
 ## Submission📥
 
 ### Folder Structure
-You must place your file in the submission folder. Within the `submission` folder, create a folder called your  `github_id`. Suggested folder structure for the DSA tasks:
+You must place your file in the submission folder. Within the `submission` folder, create a folder called your  `group_name`. Suggested folder structure for the DSA tasks:
 
 ```
-📁github_id
+📁Submission/sec02/group_name
 ├── 📄readme.md
 ├── 📁Assignment1
 │   ├── 📄assignment1.md
