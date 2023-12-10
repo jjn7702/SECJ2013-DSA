@@ -115,7 +115,7 @@ In summary, this folder structure appears to be organizing a GitHub repository b
 
 | No | Name | Assignment 1 | Assignment 2 | Project |
 | --- | --- | :---: | :---: | :---: |
-| _0_ |[Sample](../Submission/sec04/sample/ass1/readme.md) | <a href="../Submission/sec04/sample/ass1/readme.md" ><img src="../images/clipboard.png" width="24px" height="24px" ></a> | <a href="Sample" ><img src="../images/assignment.png" width="24px" height="24px" ></a> | <a href="Sample" ><img src="../images/project-management.png" width="24px" height="24px" ></a> |
+| _0_ |[Sample](../Submission/sec04/sample/ass1/readme.md) | <a href="../Submission/sec04/sample/ass1/readme.md" ><img src="../images/clipboard.png" width="24px" height="24px" ></a> | <a href="Sample" ><img src="../images/inventory.png" width="24px" height="24px" ></a> | <a href="Sample" ><img src="../images/project-management.png" width="24px" height="24px" ></a> |
 | 1 | Center Point | <a href="Center Point" ><img src="../images/clipboard.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> |
 | 2 | Group 2 | <a href="group2" ><img src="../images/clipboard.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> |
 | 3 | Group 3 | <a href="group3" ><img src="../images/clipboard.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> | <a href="group1" ><img src="../images/folder.png" width="24px" height="24px" ></a> |
