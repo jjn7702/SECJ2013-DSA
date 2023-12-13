@@ -54,7 +54,7 @@ bool searchPatient (const Patient& p, int opt, string searchKey) {
 int main() {
     vector<Patient> patients;
     
-    cout << "testing" << endl;
+    cout << "testing lagi" << endl;
     
     // Sample data
     patients.push_back({"John", 45, "Diabetes"});
