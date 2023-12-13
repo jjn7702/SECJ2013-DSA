@@ -1,4 +1,3 @@
-//Testing
 #include <iostream>
 #include <vector>
 #include <string>
@@ -54,6 +53,8 @@ bool searchPatient (const Patient& p, int opt, string searchKey) {
 
 int main() {
     vector<Patient> patients;
+    
+    cout << "testong" << endl;
     
     // Sample data
     patients.push_back({"John", 45, "Diabetes"});
