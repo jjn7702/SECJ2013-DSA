@@ -26,7 +26,7 @@
 </p>
 
 <h3>Report Assignment 1</h3>
-<a href = "https://docs.google.com/document/d/1Zo1a1CUOtAN9jOG7cpsusQ4GQOKJwSBSsdrvTltsyAc/edit?usp=sharing" ></a> 
+<a href ="https://docs.google.com/document/d/1Zo1a1CUOtAN9jOG7cpsusQ4GQOKJwSBSsdrvTltsyAc/edit?usp=sharing"></a> 
 
 
 <h1>Assignment 2</h1>
