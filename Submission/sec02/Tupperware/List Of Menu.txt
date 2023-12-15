@@ -1,0 +1,28 @@
+TR01 Nasi Lemak RM5.00
+TR02 Nasi Goreng RM6.00
+TR03 Roti Canai 
+TR04 Roti Telur
+TR05 Soto
+TR06 Lontong
+TR07 Bihun Goreng
+TR08 Kueytiaw Goreng
+WE01 Chicken Chop
+WE02 FishnChip
+WE03 Lamb Chop
+WE04 Salted Egg Pasta
+WE05 Thai Pasta
+WE06 Chicken Pasta
+WE07 Seafood Pasta
+WE08 Chicken Lasagna
+WE09 Beef Lasagna
+DE01 Ice Cream
+DE02 Cendol
+DE03 ABC
+WE10 Double Special Burger
+DE04 Sagu Melaka
+TR09 Tomyam
+DE05 Chocolate Mousse
+WE11 Benjo
+DE06 Cream Krone
+WE12 MacnCheese
+
