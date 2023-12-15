@@ -7,17 +7,17 @@
 4. 
 </p>
 <p>
-1. Customer press enter to see the menu
-2. All menu displays based on alphabetical order for food id (default)
-3. System ask if want to choose order OR view in new way(sorting implemented) OR by search 
-4. Customer choose sorting view 
-5. System ask how the sorting based on (food id, type of dish, price)
-6. Customer choose one of the option
-7. System displays again the menu
-8. Customer choose the menu => Skip to number 12
-9. Customer search certain menu
-10. System display the food
-11. Customer choose the food => Skip to number 12
+1. Customer press enter to see the menu <br>
+2. All menu displays based on alphabetical order for food id (default) <br>
+3. System ask if want to choose order OR view in new way(sorting implemented) OR by search ****
+4. Customer choose sorting view <br>
+5. System ask how the sorting based on (food id, type of dish, price) <br>
+6. Customer choose one of the option <br>
+7. System displays again the menu <br>
+8. Customer choose the menu => Skip to number 12 <br>
+9. Customer search certain menu <br>
+10. System display the food <br>
+11. Customer choose the food => Skip to number 12 <br>
 12. The chosen menu is saved in the system
 13. System ask if want to continue order. yes => back to number 2 no => go to number 14
 14. Customer finished ordering
