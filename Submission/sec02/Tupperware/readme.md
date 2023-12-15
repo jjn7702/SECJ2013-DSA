@@ -25,6 +25,9 @@
 16. System displays the chosen menu, amount, price and total
 </p>
 
+<h3>Report Assignment 1</h3>
+<href ="https://docs.google.com/document/d/1Zo1a1CUOtAN9jOG7cpsusQ4GQOKJwSBSsdrvTltsyAc/edit?usp=sharing" >
+
 
 <h1>Assignment 2</h1>
 <h2>Sorting</h2>
@@ -33,3 +36,4 @@
 2. Customer (table number, number of orders, pax, bill)
 3.  
 </p>
+
