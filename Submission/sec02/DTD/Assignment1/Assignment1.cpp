@@ -141,7 +141,10 @@ int main() {
     Book books[N];
     int choice, sortChoice;
     int size = 0;
+    char yn1;
 
+
+    system("cls");
     cout << setw(40) << " ____________________________________" << endl;
     cout << setw(40) << "|                                    |" << endl;
     cout << setw(40) << "|   Welcome to Sort/Search by DTD!   |" << endl;
@@ -193,11 +196,24 @@ int main() {
             system("cls");
             cout << "Sorted Books (ISBN): " << endl;
             printBook(books, size);
+            
             break;
         default:
             cout << "Invalid choice" << endl;
             break;
         }
     }
+
+    system("pause");
+
+        system("cls");
+        cout << "Do you still want to use the program? (Y/N): ";
+        cin >> yn1;
+
+        if (yn1 == 'Y' || yn1 == 'y') {
+            main();
+        } else {
+            cout << "Thank you for using the program!" << endl;
+        }
     return 0;
 }
