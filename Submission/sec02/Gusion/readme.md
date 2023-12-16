@@ -17,7 +17,7 @@ The Chronic Disease Management System is designed to address the effective manag
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-| CHE MARHUMI BIN CHE AB RAHIM   | A22EC0147| <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/boy_4537038.png" width=80px, height=80px>     |
+| CHE MARHUMI BIN CHE AB RAHIM   | A22EC0147| <a href="[https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana](https://avatars.githubusercontent.com/u/128233086?s=400&u=48b4ee125f0a9c107b109af715c1990bb1fc6662&v=4)"><img src="./Images/boy_4537038.png" width=80px, height=80px>     |
 | Lee Mei Ling       | DEF456        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/girl_4537097.png" width=80px, height=80px>         |
 | Rakesh Kumar       | GHI789        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/boy_4537022.png" width=80px, height=80px>         |
 
