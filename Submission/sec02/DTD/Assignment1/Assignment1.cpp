@@ -54,14 +54,17 @@ public:
     }
 };
 
-int readFile(Book book[], int& size) { // read data from file
+int readFile(Book book[], int& size) { // read data from file 
     ifstream inputFile("Book.txt");
     string title, author, isbn;
     int year;
     int i = 0;
 
     if (inputFile.is_open()) {
-        while (getline(inputFile, title, ',') && getline(inputFile >> ws, author, ',') && (inputFile >> year, true)) {
+        while (!inputFile.eof()) {
+            getline(inputFile, title, ',');
+            getline(inputFile >> ws, author, ',');
+            inputFile >> year;
             inputFile.ignore();
             getline(inputFile >> ws, isbn);
             book[i].setTitle(title);
@@ -140,7 +143,7 @@ void printBook(Book books[], int size) {
 
 int main() {
     Book books[N];
-    int choice, sortChoice;
+    int choice, sortChoice, searchChoice;
     int size = 0;
     char yn1;
 
@@ -157,6 +160,7 @@ int main() {
     cout << "Please enter your choice: ";
     cin >> choice;
 
+//Start Sorting
     if (choice == 1) {
         system("cls");
         cout << setw(40) << " ____________________________________" << endl;
@@ -202,7 +206,12 @@ int main() {
         default:
             cout << "Invalid choice" << endl;
             break;
-        }
+        }//end sorting
+    }
+    
+    else 
+    {
+        cout << "Invalid choice" << endl;
     }
 
     system("pause");
