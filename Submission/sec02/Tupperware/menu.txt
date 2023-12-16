@@ -1,0 +1,28 @@
+TR01,Nasi Lemak,Traditional,5.00
+TR02,Nasi Goreng,Traditional,6.00
+TR03,Roti Canai,Traditional,1.00 
+TR04,Roti Telur,Traditional,1.50 
+TR05,Soto,Traditional,5.00
+TR06,Lontong,Traditional,7.00
+TR07,Bihun Goreng,Traditional,6.00
+TR08,Kueytiaw Goreng,Traditional,6.00
+WE01,Chicken Chop,Western,8.00
+WE02,FishnChip,Western,8.00
+WE03,Lamb Chop,Western,10.00
+WE04,Salted Egg Pasta,Western,12.00
+WE05,Thai Pasta,Western,12.00
+WE06,Chicken Pasta,Western,12.00
+WE07,Seafood Pasta,Western,12.00
+WE08,Chicken Lasagna,Western,10.00
+WE09,Beef Lasagna,Western,10.50
+DE01,Ice Cream,Dessert,1.50
+DE02,Cendol,Dessert,2.00
+DE03,ABC,Dessert,2.00
+WE10,Double Special Burger,Western,6.00
+DE04,Sagu Melaka,Dessert,2.00
+TR09,Tomyam,Traditional,6.00
+DE05,Chocolate Mousse,Dessert,5.00
+WE11,Benjo,Western,5.00
+DE06,Cream Krone,Dessert,6.00
+WE12,MacnCheese,Western,6.00
+
