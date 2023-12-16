@@ -122,8 +122,6 @@ void sortByISBN(Book books[], int size) {
 
 // Print
 void printBook(Book books[], int size) {
-    system("cls");
-    cout << "<<< Sorted Books >>>" << endl;
     cout << "-----------------------------------------------------------------------------------------------------------" << endl;
     cout << setw(50) << left << "| Title"
          << setw(30) << left << "| Author"
@@ -174,23 +172,32 @@ int main() {
         switch (sortChoice) {
         case 1:
             sortByTitle(books, size);
+            system("cls");
+            cout << "Sorted Books (Title): " << endl;
+            printBook(books, size);
             break;
         case 2:
             sortByAuthor(books, size);
+            system("cls");
+            cout << "Sorted Books (Author): " << endl;
+            printBook(books, size);
             break;
         case 3:
             sortByYear(books, size);
+            system("cls");
+            cout << "Sorted Books (Year Published): " << endl;
+            printBook(books, size);
             break;
         case 4:
             sortByISBN(books, size);
+            system("cls");
+            cout << "Sorted Books (ISBN): " << endl;
+            printBook(books, size);
             break;
         default:
             cout << "Invalid choice" << endl;
             break;
         }
-
-        cout << "Sorted books: " << endl;
-        printBook(books, size);
     }
     return 0;
 }
