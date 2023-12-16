@@ -5,28 +5,35 @@
 
 using namespace std;
 
-const int MAX_BOOKS = 10; // Adjust the maximum number of books as needed
+const int MAX_BOOKS = 10; 
 
 class Book {
-public:
+private:
     string title;
     string author;
     int publicationYear;
     string ISBN;
 
+public:
     // Default Constructor
     Book() : title(""), author(""), publicationYear(0), ISBN("") {}
 
     // Parameterized Constructor
     Book(const string& t, const string& a, int year, const string& isbn)
         : title(t), author(a), publicationYear(year), ISBN(isbn) {}
-};
 
-// Function to display a book
-void displayBook(const Book& book) {
-    cout << "Title: " << book.title << ", Author: " << book.author
-         << ", Year: " << book.publicationYear << ", ISBN: " << book.ISBN << endl;
-}
+    // Accessors
+    string getTitle() const { return title; }
+    string getAuthor() const { return author; }
+    int getPublicationYear() const { return publicationYear; }
+    string getISBN() const { return ISBN; }
+
+    // Display method
+    void displayBook() const {
+        cout << "Title: " << title << ", Author: " << author
+             << ", Year: " << publicationYear << ", ISBN: " << ISBN << endl;
+    }
+};
 
 // Function to swap two books
 void swapBooks(Book& a, Book& b) {
@@ -41,7 +48,7 @@ void sortBooks(Book books[], int size, int option) {
         case 1:
             for (int i = 0; i < size - 1; ++i) {
                 for (int j = 0; j < size - i - 1; ++j) {
-                    if (books[j].title > books[j + 1].title) {
+                    if (books[j].getTitle() > books[j + 1].getTitle()) {
                         swapBooks(books[j], books[j + 1]);
                     }
                 }
@@ -50,7 +57,7 @@ void sortBooks(Book books[], int size, int option) {
         case 2:
             for (int i = 0; i < size - 1; ++i) {
                 for (int j = 0; j < size - i - 1; ++j) {
-                    if (books[j].author > books[j + 1].author) {
+                    if (books[j].getAuthor() > books[j + 1].getAuthor()) {
                         swapBooks(books[j], books[j + 1]);
                     }
                 }
@@ -59,7 +66,7 @@ void sortBooks(Book books[], int size, int option) {
         case 3:
             for (int i = 0; i < size - 1; ++i) {
                 for (int j = 0; j < size - i - 1; ++j) {
-                    if (books[j].publicationYear > books[j + 1].publicationYear) {
+                    if (books[j].getPublicationYear() > books[j + 1].getPublicationYear()) {
                         swapBooks(books[j], books[j + 1]);
                     }
                 }
@@ -68,7 +75,7 @@ void sortBooks(Book books[], int size, int option) {
         case 4:
             for (int i = 0; i < size - 1; ++i) {
                 for (int j = 0; j < size - i - 1; ++j) {
-                    if (books[j].ISBN > books[j + 1].ISBN) {
+                    if (books[j].getISBN() > books[j + 1].getISBN()) {
                         swapBooks(books[j], books[j + 1]);
                     }
                 }
@@ -89,10 +96,10 @@ void printBooks(const Book books[], int size) {
          << setw(15) << left << "| ISBN" << " |" << endl;
     cout << "-----------------------------------------------------------------------------------------------------------" << endl;
     for (int i = 0; i < size; ++i) {
-        cout << setw(50) << left << "| " + books[i].title
-             << setw(30) << left << "| " + books[i].author
-             << setw(10) << left << "| " + to_string(books[i].publicationYear)
-             << setw(15) << left << "| " + books[i].ISBN + "|" << endl;
+        cout << setw(50) << left << "| " + books[i].getTitle()
+             << setw(30) << left << "| " + books[i].getAuthor()
+             << setw(10) << left << "| " + to_string(books[i].getPublicationYear())
+             << setw(15) << left << "| " + books[i].getISBN() + "|" << endl;
     }
     cout << "-----------------------------------------------------------------------------------------------------------" << endl;
 }
@@ -103,22 +110,23 @@ void searchBooks(const Book books[], int size, int option, const string& key) {
         case 1:
             // Search by title
             for (int i = 0; i < size; ++i) {
-                if (books[i].title == key) {
-                    displayBook(books[i]);
+                if (books[i].getTitle() == key) {
+                    books[i].displayBook();
                     return;
                 }
             }
             cout << "Book with title '" << key << "' not found." << endl;
             break;
         case 2:
-            // Implement search logic for other options (e.g., by author)
+            // Implement search logic for other options  author)
             break;
         case 3:
-            // Implement search logic for other options (e.g., by publication year)
+            // Implement search logic for other options by publication year)
             break;
         case 4:
-            // Implement search logic for other options (e.g., by ISBN)
+            // Implement search logic for other options by ISBN)
             break;
+
         default:
             cout << "Invalid option" << endl;
     }
@@ -136,7 +144,7 @@ int main() {
 
         while (getline(inputFile, title, ',') &&
                getline(inputFile >> ws, author, ',') &&
-               (inputFile >> year, true) &&
+            (inputFile >> year, true) &&
                getline(inputFile >> ws, isbn)) {
             books[numBooks++] = Book(title, author, year, isbn);
         }
