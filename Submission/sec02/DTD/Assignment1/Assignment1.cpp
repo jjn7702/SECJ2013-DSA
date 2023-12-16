@@ -120,6 +120,7 @@ void sortByISBN(Book books[], int size) {
     }
 }
 
+
 // Print
 void printBook(Book books[], int size) {
     cout << "-----------------------------------------------------------------------------------------------------------" << endl;
