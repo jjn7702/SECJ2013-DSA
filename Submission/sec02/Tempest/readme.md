@@ -7,17 +7,17 @@
 
 _Don't forget to hit the :star: if you like this repo._
 
-# Chronic Disease Management System
+# Task Management System
 
 ## Description 📝
 
-The Chronic Disease Management System is designed to address the effective management and monitoring of chronic diseases for patients. This system aims to provide healthcare professionals with tools to streamline patient information, treatment plans, and progress tracking, ultimately improving patient outcomes and quality of care.
+The task management system is designed and created to help the user to manage all the task that have been created. It also can help the user to see all the task in a neat arrangement of output. In this system, the language that will be used is C++ and there are several implementation that will be done such as sorting, searching, linked list and either stacked, queue or tree.
 
 ## Prepared by 🧑‍💻
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-| Ahmad bin Rashid   | ABC123        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Images/boy_4537038.png" width=80px, height=80px>     |
+| Muhammad Luqman Hakim Bin Mohd Rizaudin   | A22EC0086        | <a href="/img/luqman.jpg" title="luqman"><img src="/img/luqman.jpg" width=80px, height=80px>     |
 | Lee Mei Ling       | DEF456        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Images/girl_4537097.png" width=80px, height=80px>         |
 | Rakesh Kumar       | GHI789        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Images/boy_4537022.png" width=80px, height=80px>         |
 
