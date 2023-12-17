@@ -24,7 +24,7 @@ The task management system is designed and created to help the user to manage al
 
 ## Findings 📊
 
-- Assignment 1(#assignment1.md)
+- Assignment 1 <a href ="/assignment1/assignment1.md">
 - Assignment 2
 - Project
 
