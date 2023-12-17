@@ -11,7 +11,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Description 📝
 
-The Chronic Disease Management System is designed to address the effective management and monitoring of chronic diseases for patients. This system aims to provide healthcare professionals with tools to streamline patient information, treatment plans, and progress tracking, ultimately improving patient outcomes and quality of care.
+An Airline Reservation System is a computerized platform that facilitates the booking and management of airline tickets for passengers. It serves as the backbone for airline operations, helping both customers and airline staff interact with flight-related information.
 
 ## Prepared by 🧑‍💻
 
