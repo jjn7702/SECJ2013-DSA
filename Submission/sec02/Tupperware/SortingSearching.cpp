@@ -27,8 +27,21 @@ class Menu{
         string foodId;
         string name;
         string category;
-        double amount;
         double price;
+
+    public:
+        Menu(string foodId, string name, string category, double price)
+        : foodId(foodId), name(name), category(category), price(price) {}
+        
+        string getFoodId() const { return foodId; }
+        string getName() const { return name; }
+        string getCategory() const { return category; }
+        double getPrice() const { return price; }
+
+        void setFoodId(string foodId) { this->foodId = foodId; }
+        void setName(string name) { this->name = name; }
+        void setCategory(string category) { this->category = category; }
+        void setPrice(double price) { this->price = price; }
 };
 
 //PART WANO
@@ -81,25 +94,20 @@ void mergeSort(string foodArray[], int first, int last) {
         merge(foodArray, first, mid, last);
     } 
         dispItems(foodArray, first, last);
-    cout << endl;
+    //cout << endl;
 } 
 
 int main(){
 
 //testing
-    Menu try[] = WE05,Thai Pasta,Western,12.00
-                WE06,Chicken Pasta,Western,12.00
-                WE07,Seafood Pasta,Western,12.00
-                WE08,Chicken Lasagna,Western,10.00
-                WE09,Beef Lasagna,Western,10.50
-                DE01,Ice Cream,Dessert,1.50
-                DE02,Cendol,Dessert,2.00
-                DE03,ABC,Dessert,2.00
-                WE10,Double Special Burger,Western,6.00
-                DE04,Sagu Melaka,Dessert,2.00
-                TR09,Tomyam,Traditional,6.00
-                DE05,Chocolate Mousse,Dessert,5.00
-                WE11,Benjo,Western,5.00; 
+    Menu try[] = {Menu("WE05", "Thai Pasta", "Western", 12.00), 
+                   Menu("WE06", "Chicken Pasta", "Western", 12.00), 
+                   Menu("WE07", "Seafood Pasta", "Western", 12.00), 
+                   Menu("WE08", "Chicken Lasagna", "Western", 10.00), 
+                   Menu("WE09", "Beef Lasagna", "Western", 10.50), 
+                   Menu("DE01", "Ice Cream", "Dessert", 1.50), 
+                   Menu("DE02", "Cendol" ,"Dessert",2.00)};
+                   
     int choiceSort;
     cout << "1 - ALPHABET ORDER | 2 - price => ";
     cin >> choiceSort;
