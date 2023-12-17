@@ -45,57 +45,7 @@ class Menu{
 };
 
 //PART WANO
-void dispItems (string foodData[], int first, int last) {
-	for (int i = first; i <= last; i++)
-		cout << foodData[i] << "\t";
-	cout << endl;
-}
 
-void merge(string foodArray[], int first, int mid, int last) { 
-    string tempArray[SIZE]; 
-    int first1 = first; 
-    int last1 = mid; 
-    int first2 = mid + 1;
-    int last2 = last; 
-    int index = first1;
-
-
-    for (; (first1 <= last1) && (first2 <= last2); ++index) {
-        if (foodArray[first1] < foodArray[first2]) { 
-			foodArray[index] = foodArray[first1];
-			++first1; 
-        }
-        else { 
-			tempArray[index] = foodArray[first2];
-            ++first2; 
-        }
-    } // end for
-           
-	for (; first1 <= last1; ++first1, ++index)
-        tempArray[index] = foodArray[first1];
-    
-	for (; first2 <= last2; ++first2, ++index)
-        tempArray[index] = foodArray[first2];
-           
-	// copy the result back into the original array
-    for (index = first; index <= last; ++index)
-        foodArray[index] = tempArray[index];
-} // end merge function
-
-    
-void mergeSort(string foodArray[], int first, int last) { 
-    if (first < last) { 
-        int mid = (first + last)/2; 
-
-        mergeSort(foodArray, first, mid);
-
-        mergeSort(foodArray, mid+1, last);
- 
-        merge(foodArray, first, mid, last);
-    } 
-        dispItems(foodArray, first, last);
-    //cout << endl;
-} 
 
 int main(){
 
