@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
+#define SIZE 30
 using namespace std;
 
 
@@ -30,3 +30,11 @@ class Menu{
         double amount;
         double price;
 };
+
+//PART WANO
+void merge(string menuArray[], string str1, string str2){
+
+    string tempArray[SIZE];
+    string
+
+}
