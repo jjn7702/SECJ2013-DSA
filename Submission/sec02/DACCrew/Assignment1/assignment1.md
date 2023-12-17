@@ -1,17 +1,18 @@
 //Banking Transaction System
-#include<iostream>
-#include<iomanip>
-#include<string>
 
-using namespace std;
+	#include<iostream>
+	#include<iomanip>
+	#include<string>
 
-class Account
-{
+	using namespace std;
+
+	class Account
+	{
 	private:
 	string name;
 	string accNum;
 	string ic; 
-  string pin;
+  	string pin;
 	double accBalance;
 
 	public:
