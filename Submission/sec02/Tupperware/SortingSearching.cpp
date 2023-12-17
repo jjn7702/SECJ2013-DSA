@@ -39,14 +39,14 @@ void dispItems (string foodData[], int first, int last) {
 }
 
 void merge(string foodArray[], int first, int mid, int last) { 
-    string tempArray[SIZE]; // temp array
-    int first1 = first; // first subarray begin
-    int last1 = mid; // end of first subarray
-    int first2 = mid + 1; // secnd subarry begin
-    int last2 = last; // end of secnd subarry
+    string tempArray[SIZE]; 
+    int first1 = first; 
+    int last1 = mid; 
+    int first2 = mid + 1;
+    int last2 = last; 
     int index = first1;
-    // next available location in tempArray
-    cout << "merge(arr, " << first << ", " << mid << ", " << last << ")\n";
+
+
     for (; (first1 <= last1) && (first2 <= last2); ++index) {
         if (foodArray[first1] < foodArray[first2]) { 
 			foodArray[index] = foodArray[first1];
@@ -72,18 +72,50 @@ void merge(string foodArray[], int first, int mid, int last) {
     
 void mergeSort(string foodArray[], int first, int last) { 
     if (first < last) { 
-        // sort each half
-        int mid = (first + last)/2; // index of midpoint
+        int mid = (first + last)/2; 
 
-        // sort left half theArray[first..mid]
         mergeSort(foodArray, first, mid);
 
-        // sort right half theArray[mid+1..last]
         mergeSort(foodArray, mid+1, last);
  
-        // merge the two halves
         merge(foodArray, first, mid, last);
-    } // end if
-    dispItems(foodArray, first, last);
+    } 
+        dispItems(foodArray, first, last);
     cout << endl;
-} // end mergesort
+} 
+
+int main(){
+
+//testing
+    Menu try[] = WE05,Thai Pasta,Western,12.00
+                WE06,Chicken Pasta,Western,12.00
+                WE07,Seafood Pasta,Western,12.00
+                WE08,Chicken Lasagna,Western,10.00
+                WE09,Beef Lasagna,Western,10.50
+                DE01,Ice Cream,Dessert,1.50
+                DE02,Cendol,Dessert,2.00
+                DE03,ABC,Dessert,2.00
+                WE10,Double Special Burger,Western,6.00
+                DE04,Sagu Melaka,Dessert,2.00
+                TR09,Tomyam,Traditional,6.00
+                DE05,Chocolate Mousse,Dessert,5.00
+                WE11,Benjo,Western,5.00; 
+    int choiceSort;
+    cout << "1 - ALPHABET ORDER | 2 - price => ";
+    cin >> choiceSort;
+
+    //choice sorting
+    switch (choiceSort)
+    {
+    case 1:
+        // mergeSort(); 
+        break;
+    
+    case 2:
+        /* code */
+        break;
+    
+    default:
+        break;
+    }
+}
