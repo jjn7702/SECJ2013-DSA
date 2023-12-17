@@ -105,6 +105,7 @@ int main() {
     }
 
     //getline(nameFile, input);
+    menu.displayMenu();
 
     while (!nameFile.eof()){
         //cout << input << endl;
@@ -115,7 +116,6 @@ int main() {
         cout << foodName;
     }
 
-    //menu.displayMenu();
 
     // Ordering process
     char choice;

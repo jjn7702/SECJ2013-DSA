@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <iomanip>
 #define SIZE 30
 using namespace std;
 
@@ -45,7 +46,7 @@ class Menu{
 };
 
 //PART WANO
-    void sortByFoodId() {
+    void sortByFoodId(int menuSize) {
         for (int i = 0; i < menuSize - 1; ++i) {
             for (int j = 0; j < menuSize - i - 1; ++j) {
                 if (menuArray[j].foodId > menuArray[j + 1].foodId) {
