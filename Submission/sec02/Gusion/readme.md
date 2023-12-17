@@ -18,8 +18,8 @@ The Chronic Disease Management System is designed to address the effective manag
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
 | CHE MARHUMI BIN CHE AB RAHIM   | A22EC0147| <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/girl_4537097.png" width=80px, height=80px>     |
-| Dien       | DEF456        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/girl_4537097.png" width=80px, height=80px>         |
-| Imang       | GHI789        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/boy_4537022.png" width=80px, height=80px>         |
+| MUHAMMAD ARIFF DANISH BIN HASHNAN       | A22EC0204      | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/girl_4537097.png" width=80px, height=80px>         |
+| MUHAMMAD IMAN FIRDAUS BIN BAHARUDDIN       | A22EC0216       | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/boy_4537022.png" width=80px, height=80px>         |
 
 
 ## Findings 📊
