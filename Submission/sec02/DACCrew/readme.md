@@ -17,7 +17,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-|  Chai Yu Tong  |    A22EC0145     | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/" width=80px, height=80px>     |
+|  Chai Yu Tong  |    A22EC0145     | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Images/profile.jpg" title="Icon by Trazobanana"><img src="./Images/" width=80px, height=80px>     |
 |   Nur Farah Adibah binti Idris   |   A22EC0245      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Images/Farah.jpg" title="Icon by Trazobanana"><img src="./Images/Farah.jpg" width=80px, height=80px>         |
 |       |         | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/" width=80px, height=80px>         |
 
