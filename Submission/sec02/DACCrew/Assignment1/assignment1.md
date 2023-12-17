@@ -74,37 +74,37 @@
 		//display account details (all attributes)
 		//what have been done this withdraw/deposit
 	}
-};
-
-void swap()
-{
-
-}
-
-void quickSort()
-{
-
-}
-
-void partitionByName()
-{
+	};
 	
-}
+	void swap()
+	{
+	
+	}
+	
+	void quickSort()
+	{
+	
+	}
+	
+	void partitionByName()
+	{
+		
+	}
 
-void displaySortedData()
-{
-
-}
-
-int search()
-{
-
-}
-
-int main()
-{
-
-	return 0;
-}
-
+	void displaySortedData()
+	{
+	
+	}
+	
+	int search()
+	{
+	
+	}
+	
+	int main()
+	{
+	
+		return 0;
+	}
+	
 
