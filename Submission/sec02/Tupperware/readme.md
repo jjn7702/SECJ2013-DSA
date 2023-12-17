@@ -18,10 +18,10 @@
 9. Customer search certain menu <br>
 10. System display the food <br>
 11. Customer choose the food => Skip to number 12 <br>
-12. The chosen menu is saved in the system
-13. System ask if want to continue order. yes => back to number 2 no => go to number 14
-14. Customer finished ordering
-15. System calculate total
+12. The chosen menu is saved in the system<br>
+13. System ask if want to continue order. yes => back to number 2 no => go to number 14<br>
+14. Customer finished ordering<br>
+15. System calculate total<br>
 16. System displays the chosen menu, amount, price and total
 </p>
 
