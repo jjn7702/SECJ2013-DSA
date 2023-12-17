@@ -1,24 +1,9 @@
 #include <iostream>
 #include <fstream>
-<<<<<<< Updated upstream
-
-using namespace std;
-
-class Customer {
-    private:
-        int tableNum;
-        int numberOfOrders;
-        int pax;
-        double bill;
-};
-
-class Menu {
-    private:
-        string menuId;
-=======
 #include <string>
 
 using namespace std;
+
 
 class Customer{
     private:
@@ -40,7 +25,6 @@ class Customer{
 class Menu{
     private:
         string foodId;
->>>>>>> Stashed changes
         string name;
         string category;
         double amount;
