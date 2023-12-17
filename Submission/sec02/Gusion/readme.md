@@ -18,7 +18,8 @@ An Airline Reservation System is a computerized platform that facilitates the bo
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
 | CHE MARHUMI BIN CHE AB RAHIM   | A22EC0147| <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/girl_4537097.png" width=80px, height=80px>     |
-| MUHAMMAD ARIFF DANISH BIN HASHNAN       | A22EC0204      |   ![Image](https://github.com/users/ariffdanish/projects/1/assets/128231261/b1aa06e7-117a-4abc-a8ce-885f61740490) width=80px, height=80px>         |
+| MUHAMMAD ARIFF DANISH BIN HASHNAN       | A22EC0204      |   ![image](https://github.com/jjn7702/SECJ2013-DSA/assets/128231261/4690672d-55a9-400f-b4b7-0bee7d72bc96)
+ width=80px, height=80px>         |
 | MUHAMMAD IMAN FIRDAUS BIN BAHARUDDIN       | A22EC0216       | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/boy_4537022.png" width=80px, height=80px>         |
 
 
