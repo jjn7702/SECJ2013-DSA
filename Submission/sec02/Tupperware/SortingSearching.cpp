@@ -45,7 +45,15 @@ class Menu{
 };
 
 //PART WANO
-
+    void sortByFoodId() {
+        for (int i = 0; i < menuSize - 1; ++i) {
+            for (int j = 0; j < menuSize - i - 1; ++j) {
+                if (menuArray[j].foodId > menuArray[j + 1].foodId) {
+                    swap(menuArray[j], menuArray[j + 1]);
+                }
+            }
+        }
+    }
 
 int main(){
 
