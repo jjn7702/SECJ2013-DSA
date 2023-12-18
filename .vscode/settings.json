@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "fstream": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/workspaces/SECJ2013-DSA/Submission/sec04/The Trio"
 }
