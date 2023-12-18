@@ -18,7 +18,7 @@ The task management system is designed and created to help the user to manage al
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
 | Muhammad Luqman Hakim Bin Mohd Rizaudin   | A22EC0086        | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/luqman.jpg" title="luqman"><img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/luqman.jpg" width=80px, height=80px>     |
-| Lee Mei Ling       | DEF456        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Images/girl_4537097.png" width=80px, height=80px>         |
+| Muhammad Anas Bin Mohd Pikri       | DEF456        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Images/girl_4537097.png" width=80px, height=80px>         |
 | Rakesh Kumar       | GHI789        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Images/boy_4537022.png" width=80px, height=80px>         |
 
 
