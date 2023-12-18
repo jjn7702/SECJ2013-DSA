@@ -17,7 +17,120 @@ class Admin
         Admin(string id, string n, string p, string pn) : adminID(id), name(n), position(p), phoneNo(pn) {};
         string getadminID() const { return adminID; }
 };
+class Booking
+{
+    string checkInDate;
+    string checkOutDate;
+    int roomNo;
+    string roomType;
+    string ic;
+    double totalPrice;
 
+    public:
+        Booking(): checkInDate(""), checkOutDate(""), roomNo(0), roomType(""), ic(""), totalPrice(0.0) {};
+        Booking(string i, string o, int n, string t, string ic_, double p) : checkInDate(i), checkOutDate(o), roomNo(n), roomType(t), ic(ic_), totalPrice(p) {};
+        string getCheckInDate() const { return checkInDate; }
+        string getCheckOutDate() const { return checkOutDate; }
+        int getRoomNo() const { return roomNo; }
+        string getRoomType() const { return roomType; }
+        string getIC() const { return ic; }
+        double getTotalPrice() const { return totalPrice; }
+};
+
+void readBookingData(Booking b[], int size) {
+    ifstream bookinginpFile("booking.txt");
+    if (!bookinginpFile.is_open()) {
+        cout << "Unable to open file!" << endl;
+        return;
+    }
+
+    int count = 0;
+
+    string checkInDate;
+    string checkOutDate;
+    int roomNo;
+    string roomType;
+    string ic;
+    double totalPrice;
+
+    while (bookinginpFile >> checkInDate >> checkOutDate >> roomNo >> roomType >> ic >> totalPrice && count < size) {
+        b[count] = Booking(checkInDate, checkOutDate, roomNo, roomType, ic, totalPrice);
+        count++;
+    }
+
+    bookinginpFile.close();
+}
+
+template <typename H>
+void dispItems(H r[], int first, int last) {
+    cout << left << setw(12) << "Check-in" << setw(12) << "Check-out" << setw(10) << "Room No"
+         << setw(10) << "Room Type" << setw(15) << "IC" << setw(10) << "Total Price" << endl;
+	for (int i = first; i <= last; i++) {
+		cout << setw(12) << r[i].getCheckInDate() << setw(12) << r[i].getCheckOutDate()
+             << setw(10) << r[i].getRoomNo() << setw(10) << r[i].getRoomType()
+             << setw(15) << r[i].getIC() << fixed << setprecision(2) << setw(10) << r[i].getTotalPrice() << endl;
+	}
+    cout<<endl;
+}
+
+template <typename K>
+void merge(K r[], int first, int mid, int last) { 
+    K tempArray[MAXSIZE];
+    int first1 = first; 
+    int last1 = mid;
+    int first2 = mid + 1;
+    int last2 = last;
+    int index = first1;
+    
+    for (;(first1 <= last1) && (first2 <= last2); ++index) {
+        if (r[first1] < r[first2]) { 
+            tempArray[index] = r[first1];
+            ++first1; 
+        }
+        else { 
+            tempArray[index] = r[first2];
+            ++first2; 
+        }
+    }
+            
+    for (; first1 <= last1; ++first1, ++index)
+        tempArray[index] = r[first1];
+        
+    for (; first2 <= last2; ++first2, ++index)
+        tempArray[index] = r[first2];
+            
+    for (index = first; index <= last; ++index)
+        r[index] = tempArray[index];
+}
+template <typename K>
+void mergeDsc(K r[], int first, int mid, int last) { 
+    K tempArray[MAXSIZE];
+    int first1 = first; 
+    int last1 = mid;
+    int first2 = mid + 1;
+    int last2 = last;
+    int index = first1;
+    
+    for (;(first1 <= last1) && (first2 <= last2); ++index) {
+        if (r[first1] >= r[first2]) { 
+            tempArray[index] = r[first1];
+            ++first1; 
+        }
+        else { 
+            tempArray[index] = r[first2];
+            ++first2; 
+        }
+    }
+            
+    for (; first1 <= last1; ++first1, ++index)
+        tempArray[index] = r[first1];
+        
+    for (; first2 <= last2; ++first2, ++index)
+        tempArray[index] = r[first2];
+            
+    for (index = first; index <= last; ++index)
+        r[index] = tempArray[index];
+}
 template <typename T>
 void mergeSort(T r[], int first, int last) { 
     if (first < last) { 
