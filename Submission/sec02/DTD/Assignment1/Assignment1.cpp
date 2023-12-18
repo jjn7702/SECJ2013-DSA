@@ -155,7 +155,9 @@ int main() {
     cout << setw(40) << "|____________________________________|" << endl << endl;
 
     cout << setw(15) << "[1] Sorting" << endl;
-    cout << setw(17) << "[2] Searching" << endl << endl;
+    cout << setw(17) << "[2] Searching" << endl;
+    cout << setw(17) << "[3] Book List" << endl << endl;
+
 
     cout << "Please enter your choice: ";
     cin >> choice;
@@ -207,6 +209,14 @@ int main() {
             cout << "Invalid choice" << endl;
             break;
         }//end sorting
+    }
+
+    if (choice == 3)
+    {
+        readFile(books, size);
+        system("cls");
+        cout << "List of Books: " << endl;
+        printBook(books, size);
     }
     
     else 
