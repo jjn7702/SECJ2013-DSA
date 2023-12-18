@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <iomanip>
+#include <algorithm>
 #define SIZE 7
 using namespace std;
 
@@ -48,27 +49,20 @@ void displayMenu(Menu menuArray[]) {
 }
 
 //display food id in ASC
-void FoodIdASC(Menu menuArray[]){
-    Menu temp{"", "", "" , 0.00};
-
-    for(int i = 0; i < SIZE - 1; i++){
-        for(int j = 0; j < i - 1; j++){
-            if(menuArray[j].getFoodId() > menuArray[j + 1].getFoodId()){
-                temp.getFoodId() = menuArray[j].getFoodId();
-                menuArray[j].getFoodId() = menuArray[j + 1].getFoodId();
-                menuArray[j + 1].getFoodId() = temp.getFoodId();
-            } 
-        }   
-    }  displayMenu(menuArray); cout << endl;
+void swap(Menu &a, Menu &b){
+    Menu temp = a;
+    a = b;
+    b = temp;
 }
 
-void swapArrays(Menu menuArray[], Menu newArray[]){
-    for(int i = 0; i < SIZE; i++){
-        newArray[i] = menuArray[i];
-    }
+void FoodIdASC(Menu menuArray[]){
+    sort(menuArray, menuArray + SIZE, [](const Menu &a, const Menu &b){
+        return a.getFoodId() < b.getFoodId();
+    }); displayMenu(menuArray);
 }
 
 int main(){
+//testing
     Menu menuArray[] = {Menu("WE05", "Thai Pasta", "Western", 12.00), 
                    Menu("WE06", "Chicken Pasta", "Western", 12.00), 
                    Menu("WE07", "Seafood Pasta", "Western", 12.00), 
@@ -85,7 +79,13 @@ int main(){
     int choiceSort;
     cout << "1 - ALPHABET ORDER | 2 - price => ";
     cin >> choiceSort;
-
-    if (choiceSort == 1){FoodIdASC(menuArray); }
-    else if (choiceSort == 2);
+    switch (choiceSort)
+    {
+    case 1 :
+        FoodIdASC(menuArray);
+        break;
+    
+    case 2 :
+        break;
+    }
 }
