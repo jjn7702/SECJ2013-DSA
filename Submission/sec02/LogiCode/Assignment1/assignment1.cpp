@@ -61,18 +61,6 @@ void readBookingData(Booking b[], int size) {
     bookinginpFile.close();
 }
 
-template <typename H>
-void dispItems(H r[], int first, int last) {
-    cout << left << setw(12) << "Check-in" << setw(12) << "Check-out" << setw(10) << "Room No"
-         << setw(10) << "Room Type" << setw(15) << "IC" << setw(10) << "Total Price" << endl;
-	for (int i = first; i <= last; i++) {
-		cout << setw(12) << r[i].getCheckInDate() << setw(12) << r[i].getCheckOutDate()
-             << setw(10) << r[i].getRoomNo() << setw(10) << r[i].getRoomType()
-             << setw(15) << r[i].getIC() << fixed << setprecision(2) << setw(10) << r[i].getTotalPrice() << endl;
-	}
-    cout<<endl;
-}
-
 template <typename K>
 void merge(K r[], int first, int mid, int last) { 
     K tempArray[MAXSIZE];
