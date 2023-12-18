@@ -49,14 +49,17 @@ void displayMenu(Menu menuArray[]) {
 
 //display food id in ASC
 void FoodIdASC(Menu menuArray[]){
-    Menu newArray[]{NULL, NULL, NULL, 0};
+    Menu temp{"", "", "" , 0.00};
+
     for(int i = 0; i < SIZE - 1; i++){
         for(int j = 0; j < i - 1; j++){
             if(menuArray[j].getFoodId() > menuArray[j + 1].getFoodId()){
-                swap(menuArray[j], menuArray[j + 1]);
+                temp.getFoodId() = menuArray[j].getFoodId();
+                menuArray[j].getFoodId() = menuArray[j + 1].getFoodId();
+                menuArray[j + 1].getFoodId() = temp.getFoodId();
             } 
-        }  newArray[i] = menuArray[i];
-    }  displayMenu(newArray);
+        }   
+    }  displayMenu(menuArray); cout << endl;
 }
 
 void swapArrays(Menu menuArray[], Menu newArray[]){
