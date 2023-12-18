@@ -17,6 +17,7 @@ class Admin
         Admin(string id, string n, string p, string pn) : adminID(id), name(n), position(p), phoneNo(pn) {};
         string getadminID() const { return adminID; }
 };
+
 class Booking
 {
     string checkInDate;
@@ -61,6 +62,18 @@ void readBookingData(Booking b[], int size) {
     bookinginpFile.close();
 }
 
+template <typename H>
+void dispItems(H r[], int first, int last) {
+    cout << left << setw(12) << "Check-in" << setw(12) << "Check-out" << setw(10) << "Room No"
+         << setw(10) << "Room Type" << setw(15) << "IC" << setw(10) << "Total Price" << endl;
+	for (int i = first; i <= last; i++) {
+		cout << setw(12) << r[i].getCheckInDate() << setw(12) << r[i].getCheckOutDate()
+             << setw(10) << r[i].getRoomNo() << setw(10) << r[i].getRoomType()
+             << setw(15) << r[i].getIC() << fixed << setprecision(2) << setw(10) << r[i].getTotalPrice() << endl;
+	}
+    cout<<endl;
+}
+
 template <typename K>
 void merge(K r[], int first, int mid, int last) { 
     K tempArray[MAXSIZE];
@@ -90,6 +103,7 @@ void merge(K r[], int first, int mid, int last) {
     for (index = first; index <= last; ++index)
         r[index] = tempArray[index];
 }
+
 template <typename K>
 void mergeDsc(K r[], int first, int mid, int last) { 
     K tempArray[MAXSIZE];
@@ -119,6 +133,7 @@ void mergeDsc(K r[], int first, int mid, int last) {
     for (index = first; index <= last; ++index)
         r[index] = tempArray[index];
 }
+
 template <typename T>
 void mergeSort(T r[], int first, int last) { 
     if (first < last) { 
@@ -138,6 +153,7 @@ void mergeSortDsc(T r[], int first, int last) {
         mergeDsc(r, first, mid, last);
     }
 }
+
 void bookingMenu() {
 	int input;
     Booking* booking = new Booking[MAXSIZE];
@@ -289,4 +305,84 @@ do{
     
     } while (input!=6);
     delete [] booking;
+}
+
+void adminMenu() {
+    int option;
+    cout << "Admin Menu" << endl;
+    cout << "1. Check Booking Data" << endl;
+    cout << "2. Exit" << endl;
+    cout << "Enter your option: ";
+    cin >> option;
+
+    switch (option) {
+        case 1:
+            bookingMenu();
+            break;
+
+        case 2:
+            break;
+            
+        default:
+            cout << "Enter a valid option." << endl;
+            adminMenu();
+            break;
+    }
+}
+
+int SequenceSearch(const string& search_key, Admin a[], int array_size) {
+    int index = -1;
+    for (int p = 0; p < array_size; p++) {
+        if (search_key == a[p].getadminID()) {
+            index = p;
+            break;
+        }
+    }
+    return index;
+}
+
+int main()
+{
+    int role;
+    string input;
+    Booking b[MAXSIZE];
+
+    //Admin information file
+    const int SIZE = 50;
+    Admin a[SIZE];
+    ifstream inFile("admin.txt");
+
+    int count = 0;
+    string adminID, name, position, phoneNo;
+    while (count < SIZE && !inFile.eof()) {
+        inFile >> adminID;
+        getline(inFile, name, ',');
+        inFile >> position;
+        inFile >> phoneNo;
+        inFile.ignore();
+        a[count] = Admin(adminID, name, position, phoneNo);
+        count++;
+    }
+    inFile.close();
+    
+    //Menu for Admin
+    cout << "Welcome to LogiCode Hotel" << endl;
+    bool existence = false;
+	cout << "Please enter your admin ID: " << endl;
+    cin >> input;
+
+    int found = SequenceSearch(input, a, SIZE);
+    while (!existence) {
+        if (found != -1) {
+            existence = true;
+            cout << "\nSuccessfully verified!" << endl;
+            adminMenu();
+        } 
+        else {
+            cout << "Admin ID not found. Please enter a valid ID: ";
+            cin >> input;
+            found = SequenceSearch(input, a, SIZE);
+        }
+}
+    return 0;
 }
