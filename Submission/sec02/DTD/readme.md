@@ -26,6 +26,9 @@ The Library Management System is aiming to organize,store and manage library res
 7. The user can then choose to search the books specifically based on title,author (alphabetically from A-Z) year of publish or ISBN number
 8. After choosing either one and getting the results, the user can choose to exit the system , go back to the main menu where the user will need to choose either to sort or search, or search for books based on other attributes.
 
+<h3>Report Assignment 1</h3>
+<a href="https://docs.google.com/document/d/1-DMRS-LltyCGzyDk6D3rWw81yVV4hYLz/edit?usp=sharing&ouid=101274812867810218448&rtpof=true&sd=true"><img src="./images/file.png" width="35px" height="35px" ></a>
+
 
 
 # Assignment 2
