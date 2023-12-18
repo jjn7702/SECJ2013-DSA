@@ -104,16 +104,18 @@ int main() {
         return 0;
     }
 
-    //getline(nameFile, input);
-    menu.displayMenu();
+    getline(nameFile, input);
+    //menu.displayMenu();
 
     while (!nameFile.eof()){
         //cout << input << endl;
         //getline(nameFile, input);
         getline(nameFile, foodId, ',');
-        cout << foodId ;
+        //cout << foodId ;
         getline(nameFile, foodName, ',');
-        cout << foodName;
+        //cout << foodName;
+        getline(nameFile, category, ',');
+        nameFile >> price;
     }
 
 
