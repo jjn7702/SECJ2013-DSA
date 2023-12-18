@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iomanip>
 #include <stdlib.h>
+#include <istream>
 #define SIZE 10
 using namespace std;
 
@@ -43,11 +44,11 @@ public:
 
     void display()
     {
-        cout << left << setw(15) << invCode
-             << setw(15) << invName
-             << setw(15) << invType
-             << setw(10) << quantity
-             << setw(5) << fixed << setprecision(2) << price;
+        cout << left << setw(20) << invCode
+             << setw(20) << invName
+             << setw(20) << invType
+             << setw(15) << quantity
+             << setw(10) << fixed << setprecision(2) << price;
     }
 };
 
@@ -103,12 +104,23 @@ int sortMenu()
 // Display list
 void disList(Inventory inv[], int n)
 {
-    cout << "::Inventory List::\n"
-         << left << setw(15) << "Inventory Code"
-         << setw(15) << "Inventory Name"
-         << setw(15) << "Inventory Type"
-         << setw(10) << "Quantity"
-         << setw(5) << "Price" << endl;
+    
+    cout << "\t\t\t:::::::Inventory List:::::::\n"<<endl;
+    for(int i=0;i<84;i++){
+        cout<<"-";
+    }
+    cout<<endl;
+
+    cout << left << setw(20) << "Inventory Code"
+         << setw(20) << "Inventory Name"
+         << setw(20) << "Inventory Type"
+         << setw(15) << "Quantity"
+         << setw(10) << "Price" << endl;
+
+    for(int i=0;i<84;i++){
+        cout<<"-";
+    }
+    cout<<endl;
 
     for (int i = 0; i < n; i++)
     {
@@ -329,13 +341,22 @@ void seqSearch(Inventory data[], int n)
         break;
     }
 
-    cout << "\n::Search By " << searchType << endl
-         << "\n::Inventory List::\n"
-         << left << setw(15) << "Inventory Code"
-         << setw(15) << "Inventory Name"
-         << setw(15) << "Inventory Type"
-         << setw(10) << "Quantity"
-         << setw(5) << "Price" << endl;
+    cout << "\n::Search By " << searchType << endl<<endl
+         << "\t\t\t:::::::Inventory List:::::::\n"<<endl;
+         for(int i=0;i<84;i++){
+             cout<<"-";
+         }
+         cout<<endl;
+         cout<< left << setw(20) << "Inventory Code"
+             << setw(20) << "Inventory Name"
+             << setw(20) << "Inventory Type"
+             << setw(15) << "Quantity"
+             << setw(10) << "Price" << endl;
+
+        for(int i=0;i<84;i++){
+            cout<<"-";
+        }
+        cout<<endl;
 
     if (found)
     {
@@ -386,7 +407,7 @@ int main()
         counter++;
     }
 
-    cout << "WELCOME TO INVENTORY MANAGEMENT SYSTEM\n\n";
+    cout << "\n~~~~~~~~~~~~~~~~~~~~~  WELCOME TO INVENTORY MANAGEMENT SYSTEM  ~~~~~~~~~~~~~~~~~~~~~\n\n";
     disList(inv, counter);
     while (loop)
     {
