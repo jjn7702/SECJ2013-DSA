@@ -59,6 +59,7 @@ void FoodIdASC(Menu menuArray[]){
     sort(menuArray, menuArray + SIZE, [](const Menu &a, const Menu &b){
         return a.getFoodId() < b.getFoodId();
     });
+    displayMenu(menuArray);
 }
 
 int main(){
@@ -79,13 +80,7 @@ int main(){
     int choiceSort;
     cout << "1 - ALPHABET ORDER | 2 - price => ";
     cin >> choiceSort;
-    switch (choiceSort)
-    {
-    case 1 :
-        FoodIdASC(menuArray);
-        break;
-    
-    case 2 :
-        break;
-    }
+
+    if (choiceSort == 1){FoodIdASC(menuArray);}
+    else if (choiceSort == 2);
 }
