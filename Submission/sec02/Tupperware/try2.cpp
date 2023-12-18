@@ -2,7 +2,8 @@
 #include <fstream>
 #include <string>
 #include <iomanip>
-#define SIZE 30
+#include <algorithm>
+#define SIZE 7
 using namespace std;
 
 
@@ -28,18 +29,39 @@ class Menu{
         void setPrice(double price) { this->price = price; }
 };
 
-void displayMenu(Menu menuArray[], int size) {
-    for(int i = 0; i < size; i++) {
+void displayHeader(){
         cout << left;
-        cout << setw(10) <<menuArray[i].getFoodId() << " | " 
+        cout << setw(10) << "ID" << " | " 
+             << setw(21) << "NAME" << " | " 
+             << setw(10) << "TYPE" << " | " 
+             << fixed << "PRICE" << endl;
+        cout <<"---------------------------------------------------------" << endl;
+}
+
+void displayMenu(Menu menuArray[]) {
+    for(int i = 0; i < SIZE; i++) {
+        cout << left;
+        cout << setw(10) << menuArray[i].getFoodId() << " | " 
              << setw(21) << menuArray[i].getName() << " | " 
-             << setw(10) <<menuArray[i].getCategory() << " | " 
-             << fixed << setprecision(2) << setw(4) <<menuArray[i].getPrice() << endl;
+             << setw(10) << menuArray[i].getCategory() << " | " 
+             << fixed << setprecision(2) << setw(4) << menuArray[i].getPrice() << endl;
     }
 }
 
-int main(){
+//display food id in ASC
+void swap(Menu &a, Menu &b){
+    Menu temp = a;
+    a = b;
+    b = temp;
+}
 
+void FoodIdASC(Menu menuArray[]){
+    sort(menuArray, menuArray + SIZE, [](const Menu &a, const Menu &b){
+        return a.getFoodId() < b.getFoodId();
+    });
+}
+
+int main(){
 //testing
     Menu menuArray[] = {Menu("WE05", "Thai Pasta", "Western", 12.00), 
                    Menu("WE06", "Chicken Pasta", "Western", 12.00), 
@@ -49,11 +71,21 @@ int main(){
                    Menu("DE01", "Ice Cream", "Dessert", 1.50), 
                    Menu("DE02", "Cendol" ,"Dessert",2.00)};
 
-    displayMenu(menuArray, 7);                 
+    displayHeader();
+    displayMenu(menuArray);                 
     
     cout << endl << endl;
 
     int choiceSort;
     cout << "1 - ALPHABET ORDER | 2 - price => ";
     cin >> choiceSort;
+    switch (choiceSort)
+    {
+    case 1 :
+        FoodIdASC(menuArray);
+        break;
+    
+    case 2 :
+        break;
+    }
 }
