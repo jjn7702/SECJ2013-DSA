@@ -71,7 +71,8 @@ public:
 
 void displayMenu()
 {
-
+    system("cls"); // to clear the mess
+    cout << endl;
     cout << "                                   |" << endl;
     cout << "                                   |" << endl;
     cout << "                                   |" << endl;
@@ -83,7 +84,7 @@ void displayMenu()
     cout << "                     \\    /  ||/   H   \\||  \\    /" << endl;
     cout << "                      '--'   OO   O|O   OO   '--'" << endl;
 
-    cout << "<<< AIRPLANE RESERVATION SYSTEM >>>" << endl;
+    cout << "Airline Reservation System" << endl;
     cout << "[1] Display User" << endl;
     cout << "[2] Display Airline" << endl;
     cout << "[3] Display Reservation" << endl;
@@ -93,7 +94,7 @@ void displayMenu()
 
 void displaySelection()
 {
-    cout << "<<< Choose Option >>>" << endl;
+    cout << "Choose Option" << endl;
     cout << "[1] Sort Data" << endl;
     cout << "[2] Search Data" << endl;
     cout << "Option: ";
@@ -101,7 +102,7 @@ void displaySelection()
 
 void displaySortingUser()
 {
-    cout << "<<< Sorting User >>>" << endl;
+    cout << "Sorting User" << endl;
     cout << "[1] By Name" << endl;
     cout << "[2] By IC" << endl;
     cout << "[3] By Phone" << endl;
@@ -111,7 +112,7 @@ void displaySortingUser()
 
 void displaySortingAirline()
 {
-    cout << "<<< Sorting Airline >>>" << endl;
+    cout << "Sorting Airline" << endl;
     cout << "[1] By AirplaneID" << endl;
     cout << "[2] By Capacity" << endl;
     cout << "[3] By Company" << endl;
@@ -122,7 +123,7 @@ void displaySortingAirline()
 
 void displaySortingReservation()
 {
-    cout << "<<< Sorting Reservation >>>" << endl;
+    cout << "Sorting Reservation" << endl;
     cout << "[1] By ReservationID" << endl;
     cout << "[2] By DepartureTime" << endl;
     cout << "[3] By ArrivalTime" << endl;
@@ -133,7 +134,7 @@ void displaySortingReservation()
 
 void displaySeachingUser()
 {
-    cout << "<<< Searching User >>>" << endl;
+    cout << "Searching User" << endl;
     cout << "[1] By Name" << endl;
     cout << "[2] By IC" << endl;
     cout << "[3] By Phone" << endl;
@@ -143,7 +144,7 @@ void displaySeachingUser()
 
 void displaySeachingAirline()
 {
-    cout << "<<< Searching Airline >>>" << endl;
+    cout << "Searching Airline" << endl;
     cout << "[1] By AirplaneID" << endl;
     cout << "[2] By Capacity" << endl;
     cout << "[3] By Company" << endl;
@@ -154,7 +155,7 @@ void displaySeachingAirline()
 
 void displaySeachingReservation()
 {
-    cout << "<<< Searching Reservation >>>" << endl;
+    cout << "Searching Reservation" << endl;
     cout << "[1] By ReservationID" << endl;
     cout << "[2] By DepartureTime" << endl;
     cout << "[3] By ArrivalTime" << endl;
@@ -177,6 +178,7 @@ int main()
     {
         displayMenu();
         cin >> option;
+        cout << endl;
 
         if (option == 4)
         {
@@ -190,6 +192,7 @@ int main()
             int choice;
             displaySelection();
             cin >> choice;
+            cout << endl;
 
             while (choice != 3)
             {
@@ -197,11 +200,13 @@ int main()
                 {
                     displaySortingUser();
                     cin >> choice;
+                    cout << endl;
                 }
                 else if (choice == 2)
                 {
                     displaySeachingUser();
                     cin >> choice;
+                    cout << endl;
                 }
                 else
                     cout << "Invalid Choice" << endl;
@@ -216,6 +221,7 @@ int main()
             int choice;
             displaySelection();
             cin >> choice;
+            cout << endl;
 
             while (choice != 3)
             {
@@ -223,11 +229,13 @@ int main()
                 {
                     displaySortingAirline();
                     cin >> choice;
+                    cout << endl;
                 }
                 else if (choice == 2)
                 {
                     displaySeachingAirline();
                     cin >> choice;
+                    cout << endl;
                 }
                 else
                     cout << "Invalid Choice" << endl;
@@ -241,6 +249,7 @@ int main()
             int choice;
             displaySelection();
             cin >> choice;
+            cout << endl;
 
             while (choice != 3)
             {
@@ -248,11 +257,13 @@ int main()
                 {
                     displaySortingReservation();
                     cin >> choice;
+                    cout << endl;
                 }
                 else if (choice == 2)
                 {
                     displaySeachingReservation();
                     cin >> choice;
+                    cout << endl;
                 }
                 else
                     cout << "Invalid Choice" << endl;
