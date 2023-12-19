@@ -7,26 +7,26 @@ using namespace std;
 
 class Courier {
 private:
-    string name, parcelType, source, dest, stat;
-    int trackNum;
+    string name, parcelType, source, destination, status;
+    int trackingNum;
 
 public:
     Courier(string n = " ", string p = " ", string s = " ", string d = " ", string st = " ", int t = 0)
-        : name(n), parcelType(p), source(s), dest(d), stat(st), trackNum(t) {}
+        : name(n), parcelType(p), source(s), destination(d), status(st), trackingNum(t) {}
 
     void setName(string n) { name = n; }
     void setType(string p) { parcelType = p; }
     void setSource(string s) { source = s; }
-    void setDest(string d) { dest = d; }
-    void setStat(string st) { stat = st; }
-    void setTrackNum(int t) { trackNum = t; }
+    void setDest(string d) { destination = d; }
+    void setStat(string st) { status = st; }
+    void setTrackNum(int t) { trackingNum = t; }
 
     string getName() const { return name; }
     string getType() const { return parcelType; }
     string getSource() const { return source; }
-    string getDest() const { return dest; }
-    string getStat() const { return stat; }
-    int getTrackNum() const { return trackNum; }
+    string getDest() const { return destination; }
+    string getStat() const { return status; }
+    int getTrackNum() const { return trackingNum; }
 
  	int readFile(ifstream& file, Courier couriers[]) {
     	if (!file.is_open()) {
