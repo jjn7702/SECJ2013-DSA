@@ -4,7 +4,6 @@
 #include <iomanip>
 #include <algorithm>
 #define SIZE 27
-
 using namespace std;
 
 
@@ -106,24 +105,29 @@ void PriceASC(Menu menuArray[]){
 
 void searchByName(Menu menuArray[], const string& searchTerm) {
     bool found = false;
+
+    // Loop through the menu items
     for (int i = 0; i < SIZE; i++) {
-        if (menuArray[i].getName().find(searchTerm) != menuArray[i].getName().length()) {
+        // Check if the name contains the search term
+        if (menuArray[i].getName().find(searchTerm) != string::npos) {
             if (!found) {
-            displayHeader();
-            found = true;
-        }
-        cout << left;
-        cout << setw(10) << menuArray[i].getFoodId() << " | "
-            << setw(21) << menuArray[i].getName() << " | "
-            << setw(13) << menuArray[i].getCategory() << " | "
-            << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
+                displayHeader();
+                found = true;
+            }
+            cout << left;
+            cout << setw(10) << menuArray[i].getFoodId() << " | "
+                << setw(21) << menuArray[i].getName() << " | "
+                << setw(13) << menuArray[i].getCategory() << " | "
+                << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
         }
     }
-
+    
+        // Display a message if no matching items are found
     if (!found) {
-        cout << "No items found with the given name." << endl;
+        cout << "No items found with the specified name." << endl;
     }
 }
+
 
 int main(){
     Menu menuArray[SIZE];
@@ -134,12 +138,16 @@ int main(){
     string foodId, name, category;
     double price;
 
+do{
     system("cls");
     cout << "WELCOME TO TUPPERWARE!" << endl;
-    cout << "View Menu? : ";
+    cout << "View Menu? Y => yes | N => no: ";
     cin >> choice;
 
-    if (choice == 'Y' || choice == 'y') {
+    if (choice == 'N' || choice == 'n') 
+        break;
+    
+    else if (choice == 'Y' || choice == 'y') {
         nameFile.open("menu.txt", ios::in);
 
         if (!nameFile){
@@ -160,16 +168,15 @@ int main(){
         displayHeader();
         displayMenu(menuArray);
 
-    }
     
         cout << "\nDo you want to (V)iew in a new way, or (S)earch? ";
         cin >> choice;
 
         if (choice == 'V' || choice == 'v') {
             // View in a new way (sorting)
-            cout << "Sort by (F)ood ID, (C)ategory, or (P)rice? ";
+            cout << "Sort by Food ID or Price? ";
             int choiceSort;
-            cout << "1 - ALPHABET ORDER | 2 - price => ";
+            cout << "1 - ALPHABET ORDER | 2 - PRICE => ";
             cin >> choiceSort;
             switch (choiceSort)
             {
@@ -178,17 +185,41 @@ int main(){
                 break;
     
                 case 2 :
+                PriceASC(menuArray);
                     break;
                 }
-
-        else if (choice == 'S' || choice == 's') {
-            string searchTerm ;
-            cout << "Enter the food name you want to search: " ;
-            cin.ignore() ;
-            getline(cin, searchTerm) ;
-
-            searchByName(menuArray,searchTerm) ;
         }
+    } else {
+        cout << "Invalid input. Please enter Y or N.\n";
+    }  
+    
+    if (choice == 'V' || choice == 'v') {
+        // View in a new way (sorting)
+        cout << "Sort by Food ID or Price? ";
+        int choiceSort;
+        cout << "1 - ALPHABET ORDER | 2 - PRICE => ";
+        cin >> choiceSort;
+        switch (choiceSort) {
+            case 1:
+                FoodIdASC(menuArray);
+                break;
+
+            case 2:
+                PriceASC(menuArray);
+                break;
         }
-    return 0;
+    } else if (choice == 'S' || choice == 's') {
+        // Searching for a specific food by name
+        string searchTerm;
+        cout << "Enter the name of the food you want to search: ";
+        cin.ignore(); // Clear the newline character from the buffer
+        getline(cin, searchTerm);
+        searchByName(menuArray, searchTerm);
+    } else {
+        cout << "Invalid input. Please enter V or S.\n";
+    }
+    
+} while (true);
+
+return 0;
 }
