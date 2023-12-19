@@ -48,7 +48,17 @@ void displayMenu(Menu menuArray[]) {
     }
 }
 
-//display food id in ASC
+void printSortedResult(Menu menuArray[]){
+    for(int i = 0; i < SIZE; i++){
+        cout << left;
+        cout << setw(10) << menuArray[i].getFoodId() << " | " 
+             << setw(21) << menuArray[i].getName() << " | " 
+             << setw(10) << menuArray[i].getCategory() << " | " 
+             << fixed << setprecision(2) << setw(4) << menuArray[i].getPrice() << endl;
+    }
+}
+
+//selection sort
 void swap(Menu &a, Menu &b){
     Menu temp = a;
     a = b;
@@ -56,10 +66,43 @@ void swap(Menu &a, Menu &b){
 }
 
 void FoodIdASC(Menu menuArray[]){
-    sort(menuArray, menuArray + SIZE, [](const Menu &a, const Menu &b){
-        return a.getFoodId() < b.getFoodId();
-    }); displayMenu(menuArray);
+//    int n = sizeof(menuArray)/sizeof(menuArray[0]);
+    string fI[SIZE];
+    for(int last = SIZE - 1 ; last >= 1; --last){
+        
+        fI[last] = menuArray[last].getFoodId();
+        int largestIndex = 0;
+        for (int p = 1; p <= last; ++p){
+            if (menuArray[p].getFoodId() > menuArray[largestIndex].getFoodId())
+                largestIndex = p;
+        }
+        swap(menuArray[largestIndex], menuArray[last]);
+    } 
+    displayHeader();
+    printSortedResult(menuArray);
 }
+
+void PriceASC(Menu menuArray[]){
+//    int n = sizeof(menuArray)/sizeof(menuArray[0]);
+    string fI[SIZE];
+    for(int last = SIZE - 1 ; last >= 1; --last){
+        
+        fI[last] = menuArray[last].getPrice();
+        int largestIndex = 0;
+        for (int p = 1; p <= last; ++p){
+            if (menuArray[p].getPrice() > menuArray[largestIndex].getPrice())
+                largestIndex = p;
+        }
+        swap(menuArray[largestIndex], menuArray[last]);
+    } 
+    displayHeader();
+    printSortedResult(menuArray);
+}
+
+
+    /*sort(menuArray, menuArray + SIZE, [](const Menu &a, const Menu &b){
+        return a.getFoodId() < b.getFoodId();
+    }); displayMenu(menuArray);*/
 
 int main(){
 //testing
@@ -86,6 +129,7 @@ int main(){
         break;
     
     case 2 :
+        PriceASC(menuArray);
         break;
     }
 }
