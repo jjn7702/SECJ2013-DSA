@@ -129,56 +129,6 @@ void sortByName(Account bl[], int first, int last)
     }
 }
 
-int partitionIc(Account bl[], int first, int last)
-{
-    string pivot = bl[first].getIc();
-    Account temp;
-    int cutPoint;
-    int bottom = first;
-    int top = last;
-    int loop = true;
-
-    while (loop)
-    {
-        while (bl[top].getIc() > pivot)
-            top--;
-
-        while (bl[bottom].getIc() < pivot)
-            bottom++;
-
-        if (bottom < top)
-        {
-            temp = bl[top];
-            bl[top] = bl[bottom];
-            bl[bottom] = temp;
-        }
-        else
-        {
-            loop = false;
-            cutPoint = top;
-        }
-    }
-
-    return cutPoint;
-}
-
-void sortByIc(Account bl[], int first, int last)
-{
-    if (first < last)
-    {
-        int cut;
-        cut = partitionIc(bl, first, last);
-
-        if (cut != last)
-        {
-            sortByIc(bl, first, cut);
-            sortByIc(bl, cut + 1, last);
-        }
-        else
-            sortByIc(bl, first, cut);
-    }
-}
-
 int partitionAccNum(Account bl[], int first, int last)
 {
     string pivot = bl[first].getAccNum();
