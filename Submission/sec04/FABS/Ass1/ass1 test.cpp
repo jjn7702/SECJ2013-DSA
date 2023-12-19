@@ -166,8 +166,8 @@ int main() {
 
         switch (choice) {
             case 1:
- 					cout << "\n| Name              | Parcel Type   | Source         | Destination    | Status          | Tracking Number |\n"
-                         << "---------------------------------------------------------------------------------------------------------------------\n";
+ 				cout << "\n| Name              | Parcel Type   | Source         | Destination    | Status          | Tracking Number |\n"
+                     << "---------------------------------------------------------------------------------------------------------------------\n";
                 for (int i = 0; i < size; ++i) {
                     couriers[i].display();
                 }
