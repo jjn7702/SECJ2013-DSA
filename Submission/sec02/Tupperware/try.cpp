@@ -164,6 +164,7 @@ do{
         }
     } else {
         cout << "Invalid input. Please enter Y or N.\n";
+        return true;
     }  
     
 } while (true);
