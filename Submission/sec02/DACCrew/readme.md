@@ -22,10 +22,14 @@ _Don't forget to hit the :star: if you like this repo._
 |       |         | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/" width=80px, height=80px>         |
 
 ## Flow of system
-1.
+1. The user is prompted to input their choice.
+2. Based on the input, sorting and searching function are invoked.
+3. If sorting is chosen, the sorted results are displayed.
+4. If searching is chosen, the user is prompted to input the search criteria, and matching records are displayed.
+5. The system shuts down if the user chooses to quit.
 
 <h3>Report Assignment 1</h3>
-<a href="**https://docs.google.com/document/d/1-DMRS-LltyCGzyDk6D3rWw81yVV4hYLz/edit?usp=sharing&ouid=101274812867810218448&rtpof=true&sd=true**"><img src="./Images/download.png" width="35px" height="35px" ></a>
+<a href="https://docs.google.com/document/d/1-DMRS-LltyCGzyDk6D3rWw81yVV4hYLz/edit?usp=sharing&ouid=101274812867810218448&rtpof=true&sd=true"><img src="./Images/download.png" width="35px" height="35px" ></a>
 
 ## Findings 📊
 
