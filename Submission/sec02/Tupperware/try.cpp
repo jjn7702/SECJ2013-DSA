@@ -161,13 +161,16 @@ do{
                 PriceASC(menuArray);
                     break;
                 }
+            return false;
         }
     } else {
         cout << "Invalid input. Please enter Y or N.\n";
+        return true;
     }  
     
 } while (true);
 
 return 0;
+
 
 }
