@@ -80,5 +80,80 @@ void sortdate(Cust* cl[], int size){ //bubble sort
 
 
 // Task int main (Ariff)
+// main function
+int main() {
+    const int LIST_SIZE = 5;
+    string line;
+    int idx = 0;
+    Cust* custlist[LIST_SIZE];
 
+    fstream fileIn("booking.txt", ios::in);
+
+    if (!fileIn) {
+        cout << "File input/output error!\n";
+        return 1;
+
+    } 
+    else {
+        while (getline(fileIn, line)) {
+            // Use stringstream to parse the line
+            stringstream ss(line);
+            string name;
+            int day, month, years;
+            
+            ss >> name >> day;
+            // Ensure the next character is a dot (.)
+            if (ss.peek() == '.') {
+                ss.ignore();
+                ss >> month;
+            } 
+             if (ss.peek() == '.') {
+                ss.ignore();
+                ss >> years;
+                custlist[idx] = new Cust(name, day, month, years);
+                idx++;
+            }else {
+                cout << "Invalid date format in line: " << line << endl;
+            }
+        }
+    }
+    
+        
+        int opt = 0;
+
+        while (opt != 4) {
+            cout << "\n1. List results (original list)";
+            cout << "\n2. List results (sort by name)";
+            cout << "\n3. List results (sort by date of booking)";
+            cout << "\n4. Exit\n\n";
+            
+            cout << "Enter your choice [1, 2, 3, 4]: ";
+            cin >> opt;
+            
+            if (opt == 1) {
+                cout<<left<<setw(15)<<"Name"<<"Date of Booking"<<endl;
+                listcust(custlist, idx);
+            }
+
+            //sort by name
+            if (opt == 2) {
+                sortname(custlist, idx);
+                cout<<left<<setw(15)<<"Name"<<"Date of Booking"<<endl;
+                listcust(custlist, idx);
+            }
+
+            //sort by grade
+            if (opt == 3) {
+                sortdate(custlist, idx);
+                cout<<left<<setw(15)<<"Name"<<"Date of Booking"<<endl;
+                listcust(custlist, idx);
+            }
+
+            
+            if (opt != 4) system("pause");
+        }
+
+        fileIn.close();
+         return 0;
+    }
 
