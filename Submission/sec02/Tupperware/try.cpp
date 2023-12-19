@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <iomanip>
+#include <vector>
 #define SIZE 27
 using namespace std;
 
@@ -102,7 +103,7 @@ void PriceASC(Menu menuArray[]){
     printSortedResult(menuArray);
 }
 
-void makeOrder(Menu menuArray[]){
+void makeOrder(Menu menuArray[], vector<Menu>& orders){
     int orderChoice;
     cout << "Enter the number corresponding to the menu you want to order: ";
     cin >> orderChoice;
@@ -115,10 +116,20 @@ void makeOrder(Menu menuArray[]){
              << setw(21) << menuArray[orderChoice - 1].getName() << " | " 
              << setw(13) << menuArray[orderChoice - 1].getCategory() << " | " 
              << fixed << setprecision(2) << setw(4) << menuArray[orderChoice - 1].getPrice() << endl;
+
+             orders.push_back(menuArray[orderChoice - 1]);
     }
     else {
         cout << "Invalid menu choice.\n";
     }
+}
+
+double calculateTotal(const vector<Menu>& orders){
+    double total = 0.0;
+    for (const Menu& order : orders) {
+        total += order.getPrice();
+    }
+    return total;
 }
 
 int main(){
@@ -129,6 +140,7 @@ int main(){
     string foodId, name, category;
     double price;
     bool condition = true;
+    vector<Menu> orders;
 
 do{
     system("cls");
@@ -197,9 +209,12 @@ do{
         main();
     
     else if (choice == 'Y' || choice == 'y'){
-        makeOrder(menuArray);
+        makeOrder(menuArray, orders);
     }
 } while(true);
+
+double total = calculateTotal(orders);
+cout << "Total order amount: RM" << fixed << setprecision(2) << total << endl;
 
 
 
