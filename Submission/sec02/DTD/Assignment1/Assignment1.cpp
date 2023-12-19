@@ -123,6 +123,114 @@ void sortByISBN(Book books[], int size) {
     }
 }
 
+void displaySearchResultsHeader() {
+    cout << "-----------------------------------------------------------------------------------------------------------" << endl;
+    cout << "| Index |" << setw(40) << "Title" << setw(25) << "Author" << setw(10) << "Year" << setw(15) << "ISBN" << " |" << endl;
+    cout << "-----------------------------------------------------------------------------------------------------------" << endl;
+}
+
+void displayBookDetails(int index, const Book& book) {
+    cout << "| " << setw(5) << index << " | " << setw(38) << book.getTitle() << " | " << setw(23) << book.getAuthor() << " | "
+         << setw(8) << book.getYear() << " | " << setw(13) << book.getISBN() << " |" << endl;
+}
+
+void searchByTitle(Book books[], int size) {
+    string title;
+    bool found = false;
+    cout << "Enter the title of the book: ";
+    cin.ignore();
+    getline(cin, title);
+
+    system("cls");
+    displaySearchResultsHeader();
+
+    for (int i = 0; i < size; i++) {
+        if (books[i].getTitle() == title) {
+            displayBookDetails(i + 1, books[i]);
+            found = true;
+        }
+    }
+
+    if (!found) {
+        cout << "No books found with the title: " << title << endl;
+    }
+
+    cout << "-----------------------------------------------------------------------------------------------------------" << endl;
+}
+
+
+void searchByAuthor(Book books[], int size) {
+    string author;
+    bool found = false;
+    cout << "Enter the author of the book: ";
+    cin.ignore(); // ignore the newline character
+    getline(cin, author); // read the author with spaces
+
+    system("cls");
+    displaySearchResultsHeader();
+
+    for (int i = 0; i < size; i++) {
+        if (books[i].getAuthor() == author) { // Compare with book's author, not title
+            displayBookDetails(i + 1, books[i]);
+            found = true;
+        }
+    }
+    if (!found) {
+        cout << "No books found with the author: " << author << endl;
+    }
+
+    cout << "-----------------------------------------------------------------------------------------------------------" << endl;
+}
+
+
+void searchByYear(Book books[], int size) 
+{
+    int year;
+    bool found = false;
+    cout << "Enter the year of the book: ";
+    cin >> year;
+
+    system("cls");
+    displaySearchResultsHeader();
+
+    for (int i = 0; i < size; i++) {
+        if (books[i].getYear() == year) {
+           displayBookDetails(i + 1, books[i]);
+            found = true;
+        }
+    }
+    if (!found) {
+       cout << "No books found in the year of: " << year << endl;
+    }
+
+    cout << "-----------------------------------------------------------------------------------------------------------" << endl;
+}
+
+void searchByISBN(Book books[], int size) {
+    string isbn;
+    bool found = false;
+    cout << "Enter the ISBN of the book: ";
+    cin.ignore(); // ignore the newline character
+    getline(cin, isbn); // read the title with spaces
+
+    system("cls");
+    displaySearchResultsHeader();
+    for (int i = 0; i < size; i++) {
+        if (books[i].getISBN() == isbn) {
+            displayBookDetails(i + 1, books[i]);
+            found = true;
+        }
+    }
+    if (!found) {
+        cout << "No books found with the ISBN: " << isbn << endl;
+    }
+
+    cout << "-----------------------------------------------------------------------------------------------------------" << endl;
+}
+
+
+
+
 
 // Print
 void printBook(Book books[], int size) {
@@ -141,6 +249,7 @@ void printBook(Book books[], int size) {
     cout << "-----------------------------------------------------------------------------------------------------------" << endl;
 }
 
+
 int main() {
     Book books[N];
     int choice, sortChoice, searchChoice;
@@ -151,11 +260,13 @@ int main() {
     system("cls");
     cout << setw(40) << " ____________________________________" << endl;
     cout << setw(40) << "|                                    |" << endl;
-    cout << setw(40) << "|   Welcome to Sort/Search by DTD!   |" << endl;
+    cout << setw(40) << "|       Welcome to DTD Library!      |" << endl;
     cout << setw(40) << "|____________________________________|" << endl << endl;
 
     cout << setw(15) << "[1] Sorting" << endl;
-    cout << setw(17) << "[2] Searching" << endl << endl;
+    cout << setw(17) << "[2] Searching" << endl;
+    cout << setw(17) << "[3] Book List" << endl << endl;
+
 
     cout << "Please enter your choice: ";
     cin >> choice;
@@ -165,7 +276,7 @@ int main() {
         system("cls");
         cout << setw(40) << " ____________________________________" << endl;
         cout << setw(40) << "|                                    |" << endl;
-        cout << setw(40) << "|              Sorting               |" << endl;
+        cout << setw(40) << "|           Sorting Books            |" << endl;
         cout << setw(40) << "|____________________________________|" << endl << endl;
         cout << setw(15) << "[1] Sort by Title" << endl;
         cout << setw(17) << "[2] Sort by Author" << endl;
@@ -207,6 +318,54 @@ int main() {
             cout << "Invalid choice" << endl;
             break;
         }//end sorting
+    }
+    else if (choice == 2)
+    {
+        system("cls");
+        cout << setw(40) << " ____________________________________" << endl;
+        cout << setw(40) << "|                                    |" << endl;
+        cout << setw(40) << "|          Searching Books           |" << endl;
+        cout << setw(40) << "|____________________________________|" << endl << endl;
+        cout << setw(15) << "[1] Search by Title" << endl;
+        cout << setw(17) << "[2] Search by Author" << endl;
+        cout << setw(16) << "[3] Search by Year" << endl;
+        cout << setw(16) << "[4] Search by ISBN" << endl << endl;
+
+        cout << "Please enter your choice: ";
+        cin >> searchChoice;
+
+        readFile(books, size);
+
+        switch (searchChoice) {
+        case 1:
+            cout << "Searched Books (Title): " << endl; 
+            searchByTitle(books, size);
+            break;
+        case 2:
+            cout << "Searched Books (Author): " << endl;
+            searchByAuthor(books, size);
+            break;
+        case 3:
+            cout << "Searched Books (Year Published): " << endl;
+            searchByYear(books, size);
+            break;
+        case 4:
+            cout << "Searched Books (ISBN): " << endl;
+            searchByISBN(books, size);
+            break;
+        default:
+            cout << "Invalid choice" << endl;
+            break;
+        }//end searching
+    }
+    
+
+    else if (choice == 3)
+    {
+        readFile(books, size);
+        system("cls");
+        cout << "List of Books: " << endl;
+        printBook(books, size);
     }
     
     else 
