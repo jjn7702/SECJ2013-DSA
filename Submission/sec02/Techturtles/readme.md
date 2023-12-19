@@ -16,6 +16,7 @@ The Courier Service System
 | MUHAMMAD SAFWAN BIN MOHD AZMI       | A22EC0221        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="https://avatars.githubusercontent.com/u/128201537?v=4" width=80px, height=80px>         |
 
 ## Objective
+"The objective of this assignment is to design and implement a Courier Service System that allows users to interact with parcel data. The system should provide functionalities for adding new parcels, searching for parcels by tracking number using binary search, and sorting parcels based on different criteria using various sorting algorithms such as bubble sort, selection sort, and merge sort. The goal is to create an efficient and user-friendly system that displays relevant parcel information after performing sorting operations, providing users with the option to continue or exit the system ."
 
 ## Flow of system
 1. The user is prompted to the main menu of the Courier Service System.
