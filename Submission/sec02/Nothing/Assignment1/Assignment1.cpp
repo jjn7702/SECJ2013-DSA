@@ -31,6 +31,16 @@ class inventory{
         void print();
 };
 
+//default constructor
+inventory::inventory(){
+    itemNumber = 0;
+    itemName = "";
+    description = "";
+    quantity = 0;
+    cost = 0.0;
+    itemLocation = "";
+}
+
 void merge(inventory inv[], int low, int mid, int high){
     int i, j, k;
     int n1 = mid - low + 1;
