@@ -37,7 +37,7 @@ The Courier Service System
 
 ## Findings 📊
 
-- <a href="Submission/sec02/Techturtles/Assignment 1" >Assignment 1 
+- <a href="Assignment 1" >Assignment 1 
 - Assignment 2
 - Project
 
