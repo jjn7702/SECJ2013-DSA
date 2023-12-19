@@ -117,6 +117,28 @@ void mergeSort(Menu theArray[], int first, int last,int o) {
     }
 }
 
+int Search(string target,Menu theArray[],int size,int key){
+	int counter;
+	int index = -1;
+	if(key == 1 ){
+		for(counter = 0;  counter < size; counter++){
+			if(target == theArray[counter].getcode()){
+				index = counter;
+				break;
+			}
+		}
+	}
+	else if(key == 2){
+		for(counter = 0;  counter < size; counter++){
+			if(target == theArray[counter].getname()){
+				index = counter;
+				break;
+			}
+		}
+	}
+	return index;
+}
+
 int main(){
     string menu_code, menu_name, menu_type;
 	float menu_price;
