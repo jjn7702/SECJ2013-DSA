@@ -2,9 +2,9 @@
 #include <fstream>
 #include <string>
 #include <iomanip>
-//#include <algorithm>
-#define SIZE 27
 #include <algorithm>
+#define SIZE 27
+
 using namespace std;
 
 
