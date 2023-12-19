@@ -8,6 +8,8 @@
 #include<sstream>
 #include <fstream>
 #include<iomanip>
+#include <vector>
+#include <algorithm> // for std::tranform
 using namespace std;
 
 // Task Create Class (Iman)
@@ -121,7 +123,93 @@ void sortdate(Cust* cl[], int size){ //bubble sort
     }
 }
 
+// --------------------------------------------------------------------------------
 //Task function searching + file input (Che Marhumi)
+
+// Helper function to convert a string to lowercase
+std::string toLowercase(const std::string &str)
+{
+   std::string result = str;
+   std::transform(result.begin(), result.end(), result.begin(), ::tolower);
+   return result;
+}
+
+// searchByName function
+std::vector<int> searchByName(Cust *cl[], int size, const std::string &targetName)
+{
+   std::vector<int> foundIndices;
+
+   // Convert target name to lowercase
+   std::string lowercaseTarget = toLowercase(targetName);
+
+   for (int i = 0; i < size; i++)
+   {
+      // Convert name in Cust object to lowercase for comparison
+      std::string lowercaseName = toLowercase(cl[i]->getName());
+
+      if (lowercaseName == lowercaseTarget)
+      {
+         foundIndices.push_back(i);
+      }
+   }
+
+   return foundIndices;
+}
+
+// Search function for date
+std::vector<int> searchByDate(Cust *cl[], int size, int targetDate)
+{
+   std::vector<int> foundIndices;
+
+   for (int i = 0; i < size; i++)
+   {
+      if (cl[i]->getdate() == targetDate)
+      {
+         foundIndices.push_back(i);
+      }
+   }
+
+   return foundIndices;
+}
+
+// Search function for destination
+std::vector<int> searchByDestination(Cust *cl[], int size, const std::string &targetDestination)
+{
+   std::vector<int> foundIndices;
+
+   std::string lowercaseDestination = toLowercase(targetDestination);
+
+   for (int i = 0; i < size; i++)
+   {
+      std::string lowercaseDest = toLowercase(cl[i]->getDestination());
+      if (lowercaseDest == lowercaseDestination)
+      {
+         foundIndices.push_back(i);
+      }
+   }
+
+   return foundIndices;
+}
+
+// Search function for airline
+std::vector<int> searchByAirline(Cust *cl[], int size, const std::string &targetAirline)
+{
+   std::vector<int> foundIndices;
+
+   std::string lowercaseAirline = toLowercase(targetAirline);
+
+   for (int i = 0; i < size; i++)
+   {
+      std::string lowercaseAirlines = toLowercase(cl[i]->getAirlines());
+      if (lowercaseAirlines == lowercaseAirline)
+      {
+         foundIndices.push_back(i);
+      }
+   }
+
+   return foundIndices;
+}
+// ---------------------------------------------------------------------------------------------------
 
 
 
@@ -159,8 +247,10 @@ int main() {
                 ss >> destination >> airlines;
                 custlist[idx] = new Cust(name, day, month, years, destination, airlines);
                 idx++;
-            }else {
-                cout << "Invalid date format in line: " << line << endl;
+            }
+            else 
+            {
+              cout << "Invalid date format in line: " << line << endl;
             }
             
         }
@@ -168,19 +258,31 @@ int main() {
     
         
         int opt = 0;
+        std::string searchName, searchDestination, searchAirline;
+        int searchDate;  
 
-        while (opt != 4) {
+        while (opt != 10) {
             cout << "\n1. List results (original list)";
             cout << "\n2. List results (sort by name)";
             cout << "\n3. List results (sort by date of booking)";
             cout << "\n4. List results (sort by destination)";
             cout << "\n5. List results (sort by airlines)";
-            cout << "\n6. Exit\n\n";
+            cout << "\n---------------------------------------------" << endl;
+            cout << "6. Search Passenger (by name)";
+            cout << "\n7. Search Passenger (by date of booking)";
+            cout << "\n8. Search Passenger (by destination)";
+            cout << "\n9. Search Passenger (by airline)";
+            cout << "\n10. Exit\n\n";
             
             cout << "Enter your choice [1, 2, 3, 4]: ";
             cin >> opt;
 
             cout<<endl;
+
+            std::vector<int> foundIndices;
+            std::vector<int> foundDateIndices;
+            std::vector<int> foundDestIndices;
+            std::vector<int> foundAirlineIndices;
             
             if (opt == 1) {
                 cout<<">>>>>>>>>>>>>>>>>>>>>>>>>> BOOKING DETAILS <<<<<<<<<<<<<<<<<<<<<<<<<<<"<<endl;
