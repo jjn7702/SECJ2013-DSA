@@ -267,7 +267,7 @@ int main() {
 			case 2: {
 				cout << "\nEnter the number to search: ";
 				cin >> intKey;
-				index = searchInt(intKey, couriers, size);
+				index = SearchInt(intKey, couriers, size);
 				break;
 			}
 			default:
