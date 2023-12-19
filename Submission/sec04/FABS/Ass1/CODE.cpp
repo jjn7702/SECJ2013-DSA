@@ -11,21 +11,7 @@ private:
 	int trackingNum;
 
 public:
-    Courier(string n = " ", string p = " ", string s = " ", string d = " ", string st = " ", int t = 0)
-        : name(n), parcelType(p), source(s), destination(d), status(st), trackingNum(t) {}
-
-    void setName(string n) { name = n; }
-    void setType(string p) { parcelType = p; }
-    void setSource(string s) { source = s; }
-    void setDest(string d) { destination = d; }
-    void setStat(string st) { status = st; }
-    void setTrackNum(int t) { trackingNum = t; }
-
-    string getName() { return name; }
-    string getType() { return parcelType; }
-    string getSource() { return source; }
-    string getDest() { return destination; }
-    string getStat() { return status; }
+    
     int getTrackNum() { return trackingNum; }
     
  	int readFile(ifstream& file, Courier couriers[]) {
