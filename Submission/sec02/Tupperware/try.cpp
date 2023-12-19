@@ -54,7 +54,17 @@ void displayMenu(Menu menuArray[]) {
     }
 }
 
-//display food id in ASC
+void printSortedResult(Menu menuArray[]){
+    for(int i = 0; i < SIZE; i++){
+        cout << left;
+        cout << setw(10) << menuArray[i].getFoodId() << " | " 
+             << setw(21) << menuArray[i].getName() << " | " 
+             << setw(13) << menuArray[i].getCategory() << " | " 
+             << fixed << setprecision(2) << setw(4) << menuArray[i].getPrice() << endl;
+    }
+}
+
+//selection sort
 void swap(Menu &a, Menu &b){
     Menu temp = a;
     a = b;
@@ -62,9 +72,35 @@ void swap(Menu &a, Menu &b){
 }
 
 void FoodIdASC(Menu menuArray[]){
-    sort(menuArray, menuArray + SIZE, [](const Menu &a, const Menu &b){
-        return a.getFoodId() < b.getFoodId();
-    }); displayMenu(menuArray);
+    string fI[SIZE];
+    for(int last = SIZE - 1 ; last >= 1; --last){
+        
+        fI[last] = menuArray[last].getFoodId();
+        int largestIndex = 0;
+        for (int p = 1; p <= last; ++p){
+            if (menuArray[p].getFoodId() > menuArray[largestIndex].getFoodId())
+                largestIndex = p;
+        }
+        swap(menuArray[largestIndex], menuArray[last]);
+    } 
+    displayHeader();
+    printSortedResult(menuArray);
+}
+
+void PriceASC(Menu menuArray[]){
+    string fI[SIZE];
+    for(int last = SIZE - 1 ; last >= 1; --last){
+        
+        fI[last] = menuArray[last].getPrice();
+        int largestIndex = 0;
+        for (int p = 1; p <= last; ++p){
+            if (menuArray[p].getPrice() > menuArray[largestIndex].getPrice())
+                largestIndex = p;
+        }
+        swap(menuArray[largestIndex], menuArray[last]);
+    } 
+    displayHeader();
+    printSortedResult(menuArray);
 }
 
 int main(){
@@ -78,7 +114,7 @@ int main(){
 
     system("cls");
     cout << "WELCOME TO TUPPERWARE!" << endl;
-    cout << "View Menu? : ";
+    cout << "View Menu? Y => yes | N => no: ";
     cin >> choice;
 
     if (choice == 'Y' || choice == 'y') {
@@ -89,16 +125,9 @@ int main(){
             return 0;
         }
 
-        //getline(nameFile, input);
-        //menu.displayMenu();
-
         while (!nameFile.eof() && size < SIZE){
-            //cout << input << endl;
-            //getline(nameFile, input);
             getline(nameFile, foodId, ',');
-            //cout << foodId ;
             getline(nameFile, name, ',');
-            //cout << foodName;
             getline(nameFile, category, ',');
             nameFile >> price;
             nameFile.ignore();
@@ -116,9 +145,9 @@ int main(){
 
         if (choice == 'V' || choice == 'v') {
             // View in a new way (sorting)
-            cout << "Sort by (F)ood ID, (C)ategory, or (P)rice? ";
+            cout << "Sort by Food ID or Price? ";
             int choiceSort;
-            cout << "1 - ALPHABET ORDER | 2 - price => ";
+            cout << "1 - ALPHABET ORDER | 2 - PRICE => ";
             cin >> choiceSort;
             switch (choiceSort)
             {
@@ -127,6 +156,7 @@ int main(){
                 break;
     
                 case 2 :
+                PriceASC(menuArray);
                     break;
                 }
 
