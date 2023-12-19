@@ -204,3 +204,28 @@ int main(){
 				}
 				break;
 	}
+    cout << "Process:" << endl;
+	cout << "1. Order" << endl;
+	cout << "2. Search item" << endl;
+	cout << "Your choice: ";
+	cin >> option;
+	int Search_ans;
+	if(option == 2){
+		int key;
+		string target;
+	    cout << "What you want to search:" << endl;
+	    cout << "1. Code" << endl;
+	    cout << "2. Name" << endl;
+	    cout << "Your choice: ";
+	    cin >> key;
+	    cout << "Enter the code you want to search: ";
+		cin >> target;
+		Search_ans = Search(target,a,7,key);
+		if(Search_ans == -1){
+			cout << "Item cannot find" << endl;
+		}
+		else{
+			cout << "The item is at position " << Search_ans+1 << endl;
+		}
+	}
+}
