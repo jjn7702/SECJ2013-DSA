@@ -85,11 +85,19 @@ void displayMenu()
     cout << "                      '--'   OO   O|O   OO   '--'" << endl;
 
     cout << "Airline Reservation System" << endl;
+    cout << "[0] Make a reservation" << endl;
+    cout << "[1] Reservation Dashboard" << endl;
+    cout << "[4] Exit" << endl;
+    cout << "Option: ";
+}
+
+void displayReservationDashboard()
+{
+    cout << "Reservation Dashbord" << endl;
     cout << "[1] Display User" << endl;
     cout << "[2] Display Airline" << endl;
     cout << "[3] Display Reservation" << endl;
     cout << "[4] Exit" << endl;
-    cout << "Option: ";
 }
 
 void displaySelection()
@@ -171,7 +179,6 @@ void readFromFile()
 
 int main()
 {
-    readFromFile();
 
     int option;
     while (true)
@@ -187,90 +194,109 @@ int main()
 
         switch (option)
         {
+        case 0:
+        {
+            cout << "hello";
+        }
+        break;
         case 1:
         {
             int choice;
-            displaySelection();
+            displayReservationDashboard();
+
+            cout << endl
+                 << "Which operation would you like to choose?" << endl;
+            cout << "Option: ";
             cin >> choice;
             cout << endl;
 
-            while (choice != 3)
+            switch (option)
             {
-                if (choice == 1)
-                {
-                    displaySortingUser();
-                    cin >> choice;
-                    cout << endl;
-                }
-                else if (choice == 2)
-                {
-                    displaySeachingUser();
-                    cin >> choice;
-                    cout << endl;
-                }
-                else
-                    cout << "Invalid Choice" << endl;
-
-                break;
-            }
-        }
-        break;
-
-        case 2:
-        {
-            int choice;
-            displaySelection();
-            cin >> choice;
-            cout << endl;
-
-            while (choice != 3)
+            case 1:
             {
-                if (choice == 1)
+                while (choice != 3)
                 {
-                    displaySortingAirline();
-                    cin >> choice;
-                    cout << endl;
-                }
-                else if (choice == 2)
-                {
-                    displaySeachingAirline();
-                    cin >> choice;
-                    cout << endl;
-                }
-                else
-                    cout << "Invalid Choice" << endl;
-                break;
-            }
-        }
-        break;
+                    if (choice == 1)
+                    {
+                        displaySortingUser();
+                        cin >> choice;
+                        cout << endl;
+                    }
+                    else if (choice == 2)
+                    {
+                        displaySeachingUser();
+                        cin >> choice;
+                        cout << endl;
+                    }
+                    else
+                        cout << "Invalid Choice" << endl;
 
-        case 3:
-        {
-            int choice;
-            displaySelection();
-            cin >> choice;
-            cout << endl;
-
-            while (choice != 3)
-            {
-                if (choice == 1)
-                {
-                    displaySortingReservation();
-                    cin >> choice;
-                    cout << endl;
+                    break;
                 }
-                else if (choice == 2)
-                {
-                    displaySeachingReservation();
-                    cin >> choice;
-                    cout << endl;
-                }
-                else
-                    cout << "Invalid Choice" << endl;
-                break;
             }
             break;
+
+            case 2:
+            {
+                int choice;
+                displaySelection();
+                cin >> choice;
+                cout << endl;
+
+                while (choice != 3)
+                {
+                    if (choice == 1)
+                    {
+                        displaySortingAirline();
+                        cin >> choice;
+                        cout << endl;
+                    }
+                    else if (choice == 2)
+                    {
+                        displaySeachingAirline();
+                        cin >> choice;
+                        cout << endl;
+                    }
+                    else
+                        cout << "Invalid Choice" << endl;
+                    break;
+                }
+            }
+            break;
+
+            case 3:
+            {
+                int choice;
+                displaySelection();
+                cin >> choice;
+                cout << endl;
+
+                while (choice != 3)
+                {
+                    if (choice == 1)
+                    {
+                        displaySortingReservation();
+                        cin >> choice;
+                        cout << endl;
+                    }
+                    else if (choice == 2)
+                    {
+                        displaySeachingReservation();
+                        cin >> choice;
+                        cout << endl;
+                    }
+                    else
+                        cout << "Invalid Choice" << endl;
+                    break;
+                }
+                break;
+            }
+            default:
+                cout << "Invalid Choice" << endl;
+                return 1;
+            }
         }
+        break;
         default:
             cout << "Invalid Choice" << endl;
             return 1;
