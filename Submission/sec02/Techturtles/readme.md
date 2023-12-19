@@ -15,6 +15,7 @@ The Courier Service System
 | MUHAMMAD NUR AZHAR BIN MOHD YAZID      | A22EC0220        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="https://avatars.githubusercontent.com/u/128233352?v=4" width=80px, height=80px>         |
 | MUHAMMAD SAFWAN BIN MOHD AZMI       | A22EC0221        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="https://avatars.githubusercontent.com/u/128201537?v=4" width=80px, height=80px>         |
 
+## Objective
 
 ## Flow of system
 1. The user is prompted to the main menu of the Courier Service System.
