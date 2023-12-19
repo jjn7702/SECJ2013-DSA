@@ -21,10 +21,15 @@ _Don't forget to hit the :star: if you like this repo._
 |   Nur Farah Adibah binti Idris   |   A22EC0245      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Images/Farah.jpg" title="Icon by Trazobanana"><img src="./Images/Farah.jpg" width=80px, height=80px>         |
 |       |         | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/" width=80px, height=80px>         |
 
+## Flow of system
+1.
+
+<h3>Report Assignment 1</h3>
+<a href="**https://docs.google.com/document/d/1-DMRS-LltyCGzyDk6D3rWw81yVV4hYLz/edit?usp=sharing&ouid=101274812867810218448&rtpof=true&sd=true**"><img src="./images/file.png" width="35px" height="35px" ></a>
 
 ## Findings 📊
 
-- Assignment 1
+- <a href="Assignment 1">Assignment 1
 - Assignment 2
 - Project
 
