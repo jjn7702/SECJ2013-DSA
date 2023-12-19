@@ -78,6 +78,9 @@ void sortdate(Cust* cl[], int size){ //bubble sort
     }
 }
 
+//Task function searching + file input (Che Marhumi)
+
+
 
 // Task int main (Ariff)
 // main function
