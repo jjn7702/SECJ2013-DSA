@@ -11,7 +11,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Description 📝
 
-The Hospital Management System is developed to provide an effective management and monitoring of patient records in a hospital. This system aims to address healthcare professionals with tools to streamline patient information, contact information, and medical history, delivering quick and accurate patient record tracking.
+In order to effectively manage and monitor patients' records in hospitals, a hospital management system has been developed. This system is intended to help healthcare professionals simplify patient information, contacts and medical history with tools that will allow for quick and accurate monitoring of patients' records.
 
 ## Prepared by 🧑‍💻
 
