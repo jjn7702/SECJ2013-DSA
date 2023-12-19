@@ -32,3 +32,14 @@ The Courier Service System
 <h3>Report Assignment 1</h3>
 <a href="https://docs.google.com/document/d/1IBuotBV8MyPapQ3iG9L_BJigHuHo5fWuo8pLHKXZuRI/edit"><img src="./images/file.png" width="35px" height="35px" ></a>
 
+# Assignment 2
+
+
+## Findings 📊
+
+- <a href="Submission/sec02/Techturtles/Assignment 1" >Assignment 1 
+- Assignment 2
+- Project
+
+## Contribution 🛠️
+Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
