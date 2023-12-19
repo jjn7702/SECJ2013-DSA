@@ -46,5 +46,40 @@ class Menu{
 		}
 };
 int main(){
-    
+    string menu_code, menu_name, menu_type;
+	float menu_price;
+	Menu a [N];
+	int i = 0, option;
+	ifstream file("input.txt.txt");
+	if(!file){
+		cout << " Error opening file" << endl;
+	}
+	else{
+		cout << "File can run" << endl; // use for testing the file
+	}
+	
+	while(getline(file,menu_code,',')){
+		getline(file,menu_name,',');
+		getline(file,menu_type,',');
+		file >> menu_price;
+		file.ignore();
+		a[i].setcode(menu_code);
+		a[i].setname(menu_name);
+		a[i].settype(menu_type);
+		a[i].setprice(menu_price);
+		i++;
+	}
+	cout << "************ Welcome to BOBOBOY Restaurant's Ordering System ************" << endl << endl;
+	
+	int answer;
+	cout << "Select menu display type: " << endl;
+	cout << "1. Arrange the Menu by following the code (ascending order)" << endl;
+	cout << "2. Arrange the Menu by following the code (descending order)" << endl;
+	cout << "3. Arrange the Menu by following the name (ascending order)" << endl;
+	cout << "4. Arrange the Menu by following the name (descending order)" << endl;
+	cout << "Your choice: ";
+	cin >> answer;
+	cout << "-------------------------------------------------------------" << endl;
+	cout << "Code" << setw(17) << "Name" << setw(20) << "Type" << setw(20) << "Price(RM)" << endl;
+	cout << "-------------------------------------------------------------" << endl;
 }
