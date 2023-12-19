@@ -235,7 +235,7 @@ int main()
     menu(opt1,opt2,opt3); //User interface for the menu
     system("CLS");
 
-    switch(opt1)
+   switch(opt1)
     {
         case 1:
             switch(opt2)
@@ -258,12 +258,14 @@ int main()
         case 2:
             switch(opt2)
             {
-                case 1: Searching(c,3);
+                case 1: SearchingName(c,3);
+                        break;
+                case 2: SearchingFaculty(c,3);
                         break;
 
             }
             break;
-    }
+    
 
     display(c,3); //Displaying the candidates of election
     system("pause");
