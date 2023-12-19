@@ -11,7 +11,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Description 📝
 
-An Airline Reservation System is a computerized platform that facilitates the booking and management of airline tickets for passengers. It serves as the backbone for airline operations, helping both customers and airline staff interact with flight-related information.
+An Airline Reservation System is a computerized platform that facilitates the booking and management of airline tickets for passengers. It serves as the backbone for airline operations, helping airline staff interact with flight-related information.
 
 ## Prepared by 🧑‍💻
 
