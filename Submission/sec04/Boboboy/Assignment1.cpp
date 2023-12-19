@@ -2,8 +2,7 @@
 #include <iomanip>
 #include <fstream>
 #include <string>
-#define N 100
-
+#define N 7
 using namespace std;
 
 class Menu{
@@ -47,7 +46,7 @@ class Menu{
 };
 
 void merge(Menu theArray[], int first, int mid, int last,int o) {
-    Menu tempArray[N];
+    Menu tempArray[7];
     int first1 = first;
     int last1 = mid;
     int first2 = mid + 1;
@@ -148,9 +147,11 @@ int main(){
 	if(!file){
 		cout << " Error opening file" << endl;
 	}
+	/*
 	else{
 		cout << "File can run" << endl; // use for testing the file
 	}
+	*/
 	
 	while(getline(file,menu_code,',')){
 		getline(file,menu_name,',');
@@ -176,30 +177,29 @@ int main(){
 	cout << "-------------------------------------------------------------" << endl;
 	cout << "Code" << setw(17) << "Name" << setw(20) << "Type" << setw(20) << "Price(RM)" << endl;
 	cout << "-------------------------------------------------------------" << endl;
-}
     switch(answer){
-		case 1: mergeSort(a,0,6,answer);
-		        for(int i=0; i <7; i++){
+		case 1: mergeSort(a,0,N-1,answer);
+		        for(int i=0; i <N; i++){
 		        	a[i].printmenu();
 				}
 				break;
-		case 2: mergeSort(a,0,6,answer);
-		        for(int i=0; i <7; i++){
+		case 2: mergeSort(a,0,N-1,answer);
+		        for(int i=0; i <N; i++){
 		        	a[i].printmenu();
 				}	
 				break;
-		case 3: mergeSort(a,0,6,answer);
-		        for(int i=0; i <7; i++){
+		case 3: mergeSort(a,0,N-1,answer);
+		        for(int i=0; i <N; i++){
 		        	a[i].printmenu();
 		        }
 		        break;
-		case 4: mergeSort(a,0,6,answer);
-		        for(int i=0; i <7; i++){
+		case 4: mergeSort(a,0,N-1,answer);
+		        for(int i=0; i <N; i++){
 		        	a[i].printmenu();
 		        }
 		        break;
-		default:mergeSort(a,0,6,1);
-		        for(int i=0; i <7; i++){
+		default:mergeSort(a,0,N-1,1);
+		        for(int i=0; i <N; i++){
 		        	a[i].printmenu();
 				}
 				break;
@@ -220,7 +220,7 @@ int main(){
 	    cin >> key;
 	    cout << "Enter the code you want to search: ";
 		cin >> target;
-		Search_ans = Search(target,a,7,key);
+		Search_ans = Search(target,a,N,key);
 		if(Search_ans == -1){
 			cout << "Item cannot find" << endl;
 		}
