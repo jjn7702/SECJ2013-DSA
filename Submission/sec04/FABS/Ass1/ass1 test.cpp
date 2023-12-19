@@ -129,36 +129,37 @@ int partitionSortByName(Courier arr[], int first, int last) {
     int bottom = first - 1, top = last;
 
     while (true) {
-	while (arr[--top].getName() > pivot.getName());
-	while (arr[++bottom].getName() < pivot.getName());
-	if (bottom < top){
-		swap(arr[bottom], arr[top]);
-   	 }
-	else {
-	  break;
-	}
-    } 
+        while (arr[--top].getName() > pivot.getName());
+        while (arr[++bottom].getName() < pivot.getName());
+        if (bottom < top) {
+            swap(arr[bottom], arr[top]);
+        } else {
+            break;
+        }
+    }
     swap(arr[bottom], arr[last]);
+
     return bottom;
 }
 
 int partitionSortByType(Courier arr[], int first, int last) {
-	Courier pivot = arr[last];
-	int bottom = first - 1, top = last;
+    Courier pivot = arr[last];
+    int bottom = first - 1, top = last;
 
-	while(true) {
-		while (arr[--top].getType() > pivot.getType());
-	while (arr[++bottom].getType() < pivot.getType());
-	if (bottom < top){
-		swap(arr[bottom], arr[top]);
-   	 }
-	else {
-	  break;
-	}
-    } 
+    while (true) {
+        while (arr[--top].getType() > pivot.getType());
+        while (arr[++bottom].getType() < pivot.getType());
+        if (bottom < top) {
+            swap(arr[bottom], arr[top]);
+        } else {
+            break;
+        }
+    }
     swap(arr[bottom], arr[last]);
+
     return bottom;
 }
+
 
 void quickSortInt(Courier arr[], int first, int last) {
 	if (first < last) {

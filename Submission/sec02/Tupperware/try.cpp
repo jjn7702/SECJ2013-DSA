@@ -102,6 +102,25 @@ void PriceASC(Menu menuArray[]){
     printSortedResult(menuArray);
 }
 
+void makeOrder(Menu menuArray[]){
+    int orderChoice;
+    cout << "Enter the number corresponding to the menu you want to order: ";
+    cin >> orderChoice;
+
+    if (orderChoice >= 1 && orderChoice <= SIZE) {
+        cout << "You ordered:\n";
+        displayHeader();
+        cout << left;
+        cout << setw(10) << menuArray[orderChoice - 1].getFoodId() << " | " 
+             << setw(21) << menuArray[orderChoice - 1].getName() << " | " 
+             << setw(13) << menuArray[orderChoice - 1].getCategory() << " | " 
+             << fixed << setprecision(2) << setw(4) << menuArray[orderChoice - 1].getPrice() << endl;
+    }
+    else {
+        cout << "Invalid menu choice.\n";
+    }
+}
+
 int main(){
     Menu menuArray[SIZE];
     char choice;
