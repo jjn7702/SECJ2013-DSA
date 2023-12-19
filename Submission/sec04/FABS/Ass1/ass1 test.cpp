@@ -73,7 +73,7 @@ public:
 };
 
 
-int searchString(string key, Courier arr[], int size) {
+int SearchString(string key, Courier arr[], int size) {
     for (int i = 0; i < size; i++) {
 	if (arr[i].getName() == key || arr[i].getType() == key || arr[i].getSource() == key ||
 	    arr[i].getDest() == key || arr[i].getStat() == key) {
@@ -96,7 +96,7 @@ bool compareStrByName(Courier& a, Courier& b) {
      return a.getName() < b.getName();
 }
 
-bool compareStryByType(Courier& a, Courier& b) {
+bool compareStrByType(Courier& a, Courier& b) {
      return a.getType() < b.getType();
 }
 
@@ -147,8 +147,8 @@ int partitionSortByType(Courier arr[], int first, int last) {
 	int bottom = first - 1, top = last;
 
 	while(true) {
-		while (arr[--top].getName() > pivot.getName());
-	while (arr[++bottom].getName() < pivot.getName());
+		while (arr[--top].getType() > pivot.getType());
+	while (arr[++bottom].getType() < pivot.getType());
 	if (bottom < top){
 		swap(arr[bottom], arr[top]);
    	 }
@@ -173,10 +173,10 @@ void quickSortStr(Courier arr[], int first, int last, bool sortByType) {
 	if (first < last) {
 		int pivotIndex;
 		if (sortByType) {
-			pivotIndex = partitionStrByType(arr, first, last);
+			pivotIndex = partitionSortByType(arr, first, last);
 		}
 		else {
-			pivotIndex = partitionStrByName(arr, first, last);
+			pivotIndex = partitionSortByName(arr, first, last);
 		}
 
 	quickSortStr(arr, first, pivotIndex - 1, sortByType);
@@ -195,7 +195,6 @@ int main() {
 
     int choice, index, intKey;;
     string key;
-    int index = -1; // Move the declaration outside the switch statement
 
     do {
         cout << "Menu:\n"
@@ -274,6 +273,7 @@ int main() {
 			default:
 			cout << "Invalid search type choice.\n";
 			index = -1;
+		}
                		if (index != -1) {
         			cout << "\nCourier found at list number " << index+1 << ":\n";
        				cout << "\n| Name              | Parcel Type   | Source         | Destination    | Status          | Tracking Number |\n"
@@ -296,7 +296,7 @@ int main() {
             default:
                 cout << "Invalid choice. Please enter a valid option.\n";
         }
-
+	
     } while (choice != 4);
 
     return 0;
