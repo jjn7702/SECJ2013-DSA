@@ -91,6 +91,13 @@ void displayMenu()
     cout << "Option" << endl;
 }
 
+void displaySelection()
+{
+    cout << "<<< Choose Option >>>" << endl;
+    cout << "[1] Sort Data" << endl;
+    cout << "[2] Search Data" << endl;
+}
+
 void displaySortingUser()
 {
     cout << "<<< Sorting User >>>" << endl;
@@ -122,8 +129,138 @@ void displaySortingReservation()
     cout << "[5] By Location" << endl;
     cout << "Option" << endl;
 }
-// continue tmrw, forgot to sleep
+
+void displaySeachingUser()
+{
+    cout << "<<< Searching User >>>" << endl;
+    cout << "[5] By Name" << endl;
+    cout << "[6] By IC" << endl;
+    cout << "[7] By Phone" << endl;
+    cout << "[8] By Email" << endl;
+    cout << "Option" << endl;
+}
+
+void displaySeachingAirline()
+{
+    cout << "<<< Searching Airline >>>" << endl;
+    cout << "[6] By AirplaneID" << endl;
+    cout << "[7] By Capacity" << endl;
+    cout << "[8] By Company" << endl;
+    cout << "[9] By Class" << endl;
+    cout << "[10] By Food/Beverage" << endl;
+    cout << "Option" << endl;
+}
+
+void displaySeachingReservation()
+{
+    cout << "<<< Searching Reservation >>>" << endl;
+    cout << "[6] By ReservationID" << endl;
+    cout << "[7] By DepartureTime" << endl;
+    cout << "[8] By ArrivalTime" << endl;
+    cout << "[9] By Date" << endl;
+    cout << "[10] By Location" << endl;
+    cout << "Option" << endl;
+}
+
+void readFromFile()
+{
+    // read files
+}
+
 int main()
 {
-    displayMenu();
+    readFromFile();
+
+    int option;
+    while (true)
+    {
+        displayMenu();
+        cin >> option;
+
+        if (option == 4)
+        {
+            break;
+        }
+
+        switch (option)
+        {
+        case 1:
+        {
+            int choice;
+            displaySelection();
+            cin >> choice;
+
+            while (choice != 3)
+            {
+                switch (choice)
+                {
+                case 1:
+                    displaySortingUser();
+                    break;
+                case 2:
+                    displaySeachingUser();
+                    break;
+
+                default:
+                    cout << "Invalid Choice" << endl;
+                    return 1;
+                }
+            }
+            break;
+        }
+
+        case 2:
+        {
+            int choice;
+            displaySelection();
+            cin >> choice;
+
+            while (choice != 3)
+            {
+                switch (choice)
+                {
+                case 1:
+                    displaySortingAirline();
+                    break;
+                case 2:
+                    displaySeachingAirline();
+                    break;
+
+                default:
+                    cout << "Invalid Choice" << endl;
+                    return 1;
+                }
+            }
+            break;
+        }
+
+        case 3:
+        {
+            int choice;
+            displaySelection();
+            cin >> choice;
+
+            while (choice != 3)
+            {
+                switch (choice)
+                {
+                case 1:
+                    displaySortingReservation();
+                    break;
+                case 2:
+                    displaySeachingReservation();
+                    break;
+
+                default:
+                    cout << "Invalid Choice" << endl;
+                    return 1;
+                }
+            }
+            break;
+        }
+        default:
+            cout << "Invalid Choice" << endl;
+            return 1;
+        }
+    }
 }
