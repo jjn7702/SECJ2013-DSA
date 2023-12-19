@@ -36,13 +36,14 @@ class Menu{
 };
 
 void displayHeader(){
-        cout << left;
-        cout << setw(5) << "NO" << " | "
-             << setw(10) << "ID" << " | " 
-             << setw(21) << "NAME" << " | " 
-             << setw(13) << "TYPE" << " | " 
-             << fixed << "PRICE" << endl;
-        cout <<"---------------------------------------------------------" << endl;
+    cout << endl << endl;
+    cout << left;
+    cout << setw(5) << "NO" << " | "
+         << setw(10) << "ID" << " | " 
+         << setw(21) << "NAME" << " | " 
+         << setw(13) << "TYPE" << " | " 
+         << fixed << "PRICE" << endl;
+    cout <<"--------------------------------------------------------------" << endl;
 }
 
 void displayMenu(Menu menuArray[]) {
@@ -175,13 +176,13 @@ do{
         displayHeader();
         displayMenu(menuArray);
 
-    
+      
         cout << "\nDo you want to (V)iew in a new way, or (S)earch? ";
         cin >> choice;
 
         if (choice == 'V' || choice == 'v') {
             // View in a new way (sorting)
-            cout << "Sort by Food ID or Price? ";
+            cout << "\nSort by Food ID or Price? ";
             int choiceSort;
             cout << "1 - ALPHABET ORDER | 2 - PRICE => ";
             cin >> choiceSort;
@@ -198,14 +199,14 @@ do{
             condition = false;
         }
     } else {
-        cout << "Invalid input. Please enter Y or N.\n";
+        cout << "\nInvalid input. Please enter Y or N.\n";
         condition == true;
     }  
     
 } while (condition == true);
 
 do{
-    cout << "Do you want to make order? (Y/N): ";
+    cout << "\nDo you want to make order? (Y/N): ";
     cin >> choice;
 
     if (choice == 'N' || choice == 'n') 
@@ -217,7 +218,7 @@ do{
 } while(true);
 
 double total = calculateTotal(orders);
-cout << "Total order amount: RM" << fixed << setprecision(2) << total << endl;
+cout << "\nTotal order amount: RM" << fixed << setprecision(2) << total << endl;
 
 
 
