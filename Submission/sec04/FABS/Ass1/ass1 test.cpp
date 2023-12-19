@@ -226,7 +226,28 @@ int main() {
 		cin >> sortingChoice;
 
 		switch (sortingChoice) {
+			case 1:
+			quickSortStr(couriers, 0, size - 1, false);
+			break;
+
+			case 2:
+			quickSortStr(couriers, 0, size - 1, true);
+			break;
+
+			case 3:
+			quickSortInt(couriers, 0, size -1);
+			break;
+
+			default:
+			cout << "Invalid sorting choice.\n";
+			continue;
                 }                
+		cout << "\nCouriers sorted.\n";
+                cout << "\n| Name              | Parcel Type   | Source         | Destination    | Status          | Tracking Number |\n"
+                     << "---------------------------------------------------------------------------------------------------------------------\n";
+                for (int i = 0; i < size; ++i) {
+                    couriers[i].display();
+                }
                 break;
 
             case 3:
