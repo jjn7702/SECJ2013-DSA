@@ -1,14 +1,16 @@
 // Assignment 1 - SECJ2013 - 23241 (Assg1.cpp)
 // Group Members:
-// 1. Muhammad Iman Firdaus
-// 2. Muhammad Ariff Danish
-// 3. Che Marhumi
+// 1. Muhammad Iman Firdaus Bin Baharuddin
+// 2. Muhammad Ariff Danish Bin Hashnan
+// 3. Che Marhumi 
 #include <iostream>
 #include <string>
 #include<sstream>
 #include <fstream>
 #include<iomanip>
 using namespace std;
+
+// Task Create Class (Iman)
 class Cust
 {
     private:
@@ -75,5 +77,8 @@ void sortdate(Cust* cl[], int size){ //bubble sort
         }  
     }
 }
+
+
+// Task int main (Ariff)
 
 
