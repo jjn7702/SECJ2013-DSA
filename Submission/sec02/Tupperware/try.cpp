@@ -37,7 +37,8 @@ class Menu{
 
 void displayHeader(){
         cout << left;
-        cout << setw(10) << "ID" << " | " 
+        cout << setw(5) << "NO" << " | "
+             << setw(10) << "ID" << " | " 
              << setw(21) << "NAME" << " | " 
              << setw(13) << "TYPE" << " | " 
              << fixed << "PRICE" << endl;
@@ -47,7 +48,8 @@ void displayHeader(){
 void displayMenu(Menu menuArray[]) {
     for(int i = 0; i < SIZE; i++) {
         cout << left;
-        cout << setw(10) << menuArray[i].getFoodId() << " | " 
+        cout << setw(5) << (i+1) << " | " 
+             << setw(10) << menuArray[i].getFoodId() << " | " 
              << setw(21) << menuArray[i].getName() << " | " 
              << setw(13) << menuArray[i].getCategory() << " | " 
              << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
@@ -57,7 +59,8 @@ void displayMenu(Menu menuArray[]) {
 void printSortedResult(Menu menuArray[]){
     for(int i = 0; i < SIZE; i++){
         cout << left;
-        cout << setw(10) << menuArray[i].getFoodId() << " | " 
+        cout << setw(5) << (i+1) << " | "
+             << setw(10) << menuArray[i].getFoodId() << " | " 
              << setw(21) << menuArray[i].getName() << " | " 
              << setw(13) << menuArray[i].getCategory() << " | " 
              << fixed << setprecision(2) << setw(4) << menuArray[i].getPrice() << endl;
