@@ -3,6 +3,8 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <iomanip>
+// test
 
 using namespace std;
 
@@ -289,7 +291,8 @@ public:
     void
     displayMenu()
     {
-        // system("cls"); // to clear the mess
+        system("cls");     // to clear the mess
+        cout << "\033[1m"; // Start bold text
         cout << endl;
         cout << "                                   |" << endl;
         cout << "                                   |" << endl;
@@ -298,32 +301,41 @@ public:
         cout << "                                ' ___ '" << endl;
         cout << "                      ---------'  .-.  '---------" << endl;
         cout << "      _________________________'  '-'  '_________________________" << endl;
-        cout << "       ''''''-|---|--/    \\==][^',_m_,'^][==/    \\--|---|-'''''' " << endl;
-        cout << "                     \\    /  ||/   H   \\||  \\    /" << endl;
-        cout << "                      '--'   OO   O|O   OO   '--'" << endl;
+        cout << "      ''''''-|---|--/    \\==][^',_m_,'^][==/    \\--|---|-'''''' " << endl;
+        cout << "                    \\    /  ||/   H   \\||  \\    /" << endl;
+        cout << "                     '--'   OO   O|O   OO     '--'" << endl;
+        cout << endl;
 
-        cout << "Airline Reservation System" << endl;
-        cout << "[0] Make a reservation" << endl;
-        cout << "[1] Reservation Dashboard" << endl;
-        cout << "[2] Exit" << endl;
-        cout << "Option: ";
+        cout << setw(55) << "_____________________________________" << endl;
+        cout << setw(56) << "|      Airline Reservation System     |" << endl;
+        cout << setw(56) << "|      [0] Make a reservation         |" << endl;
+        cout << setw(56) << "|      [1] Reservation Dashboard      |" << endl;
+        cout << setw(56) << "|      [2] Exit                       |" << endl;
+        cout << setw(56) << "|_____________________________________|" << endl;
+        cout << endl;
+        cout << setw(37) << "Option: ";
     }
 
     void displayReservationDashboard()
     {
-        cout << "Reservation Dashboard" << endl;
-        cout << "[1] Display User" << endl;
-        cout << "[2] Display Airline" << endl;
-        cout << "[3] Display Reservation" << endl;
-        cout << "[4] Exit" << endl;
+        cout << setw(55) << "_____________________________________" << endl;
+        cout << setw(56) << "|      Reservation Dashboard          |" << endl;
+        cout << setw(56) << "|      [1] Display Use                |" << endl;
+        cout << setw(56) << "|      [2] Display Airline            |" << endl;
+        cout << setw(56) << "|      [3] Display Reservation        |" << endl;
+        cout << setw(56) << "|      [4] Exit                       |" << endl;
+        cout << setw(56) << "|_____________________________________|" << endl;
     }
 
     void displaySelection()
     {
-        cout << "Choose Option" << endl;
-        cout << "[1] Sort Data" << endl;
-        cout << "[2] Search Data" << endl;
-        cout << "Option: ";
+        cout << setw(55) << "_____________________________________" << endl;
+        cout << setw(56) << "|      Choose Option                  |" << endl;
+        cout << setw(56) << "|      [1] Sort Data                  |" << endl;
+        cout << setw(56) << "|      [2] Search Data                |" << endl;
+        cout << setw(56) << "|_____________________________________|" << endl;
+        cout << endl;
+        cout << setw(37) << "Option: ";
     }
 
     void displaySortingUser()
@@ -393,8 +405,35 @@ public:
     void makeReservation()
     {
         system("cls");
-        cout << "Welcome to Capybara International Airport (CiA)" << endl;
-        cout << "Where to travel?:  " << endl
+        cout << setw(40) << "                                               _" << endl;
+        cout << setw(40) << "                 ___                          (_)" << endl;
+        cout << setw(20) << "               _/XXX\\" << endl;
+        cout << setw(40) << "_             /XXXXXX\\_                                    __" << endl;
+        cout << setw(40) << "X\\__    __   /X XXXX XX\\                          _       /XX\\__      ___" << endl;
+        cout << setw(40) << "    \\__/  \\_/__       \\ \\                       _/X\\__   /XX XXX\\____/XXX\\" << endl;
+        cout << setw(40) << "  \\  ___   \\/  \\_      \\ \\               __   _/      \\_/  _/  -   __  -  \\" << endl;
+        cout << setw(40) << " ___/   \\__/   \\ \\__     \\__           /  \\_//  _ _ \\  \\     __  /  \\____/" << endl;
+        cout << setw(40) << "/  __    \\  /     \\ \\_   _//_\\___    __/    //           \\___/  \\/     __/" << endl;
+        cout << setw(40) << "__/_______\\________\\__\\_/________\\__/_/____/_____________/_______\\____/____" << endl;
+        cout << setw(32) << "                                  ___" << endl;
+        cout << setw(36) << "                                 /L|0\\" << endl;
+        cout << setw(38) << "                                /  |  \\" << endl;
+        cout << setw(40) << "                               /       \\" << endl;
+        cout << setw(40) << "                              /    |    \\" << endl;
+        cout << setw(40) << "                             /           \\" << endl;
+        cout << setw(40) << "                            /  __  | __   \\" << endl;
+        cout << setw(40) << "                           /  __/    \\__   \\" << endl;
+        cout << setw(40) << "                          /  /__   |  __\\   \\" << endl;
+        cout << setw(40) << "                         /___________________\\" << endl;
+        cout << setw(40) << "                         /          |         \\" << endl;
+        cout << setw(40) << "                              /   _|_   \\" << endl;
+        cout << setw(40) << "                      /      ____/___\\____     \\" << endl;
+        cout << setw(40) << "                      ___________[o0o]___________" << endl;
+        cout << setw(40) << "                               O   O   O" << endl;
+
+        cout << endl;
+        cout << setw(60) << "Welcome to Capybara International Airport (CiA)" << endl;
+        cout << setw(45) << "Where to travel?:  " << endl
              << endl;
     }
 };
@@ -506,8 +545,8 @@ int main()
             init.displayReservationDashboard();
 
             cout << endl
-                 << "Which operation would you like to choose?" << endl;
-            cout << "Option: ";
+                 << setw(57) << "Which operation would you like to choose?" << endl;
+            cout << setw(37) << "Option: ";
             cin >> choice;
             cout << endl;
 

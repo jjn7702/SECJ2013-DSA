@@ -126,9 +126,9 @@ int main(){
     char choice;
     int size = 0;
     fstream nameFile;
-    string input;
     string foodId, name, category;
     double price;
+    bool condition = true;
 
 do{
     system("cls");
@@ -180,14 +180,28 @@ do{
                 PriceASC(menuArray);
                     break;
                 }
-            return false;
+            condition = false;
         }
     } else {
         cout << "Invalid input. Please enter Y or N.\n";
-        return true;
+        condition == true;
     }  
     
-} while (true);
+} while (condition == true);
+
+do{
+    cout << "Do you want to make order? (Y/N): ";
+    cin >> choice;
+
+    if (choice == 'N' || choice == 'n') 
+        main();
+    
+    else if (choice == 'Y' || choice == 'y'){
+        makeOrder(menuArray);
+    }
+} while(true);
+
+
 
 return 0;
 
