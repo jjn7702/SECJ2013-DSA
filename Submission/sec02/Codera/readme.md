@@ -17,8 +17,8 @@ The Hospital Management System is developed to provide an effective management a
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-| Neo Zheng Weng   | A22EC0093        | <img src="../Images/neozhengweng_pic.jpg" width=80px, height=80px>     |
-| Joseph Lau Yeo Kai       | A22EC0055        | <img src="../Images/joseph_pic.jpeg" width=80px, height=80px>         |
+| Neo Zheng Weng   | A22EC0093        | <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Images/neozhengweng_pic.jpg" width=80px, height=80px>     |
+| Joseph Lau Yeo Kai       | A22EC0055        | <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Images/joseph_pic.jpeg" width=80px, height=80px>         |
 | Lee Yik Hong       |         | <img src="../Images/" width=80px, height=80px>         |
 
 
