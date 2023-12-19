@@ -42,16 +42,41 @@ void task::display()
 
 vector<int> SequenceSearchByTask(const string &key, const task T[], int size)//searching sequence by task
 {
+    vector<int> indices;
+    for (int i = 0; i < size; ++i)
+    {
+        if (T[i].gettask() == key)
+        {
+            indices.push_back(i);
+        }
+    }
+    return indices;
 }
 
 vector<int> SequenceSearchByDate(const string &key, const task T[], int size)//searching sequence by date
 {
-   
+   vector<int> indices;
+    for (int i = 0; i < size; ++i)
+    {
+        if (T[i].getday() + "-" + T[i].getmonth() + "-" + T[i].getyear() == key)
+        {
+            indices.push_back(i);
+        }
+    }
+    return indices;
 }
 
 vector<int> SequenceSearchByStatus(const string &key, const task T[], int size)//searching sequence by status
 {
-
+     vector<int> indices;
+    for (int i = 0; i < size; ++i)
+    {
+        if (T[i].getstatus() == key)
+        {
+            indices.push_back(i);
+        }
+    }
+    return indices;
 }
 
 int partitionByTaskasc(task T[], int first, int last)//partion task ascending
@@ -381,9 +406,11 @@ int main()
                 cout << "Enter the task to search: ";
                 cin.ignore(); // Ignore the newline character in the buffer
                 getline(cin, searchTask);
+
+                vector<int> taskIndices = SequenceSearchByTask(searchTask, t, 5);
                 
 
-                if ()
+                if (!taskIndices.empty())
                 {
                     cout << "Tasks found with key '" << searchTask << "':" << endl
                          << endl;
@@ -392,7 +419,7 @@ int main()
                     cout << left << setw(20) << "DAY";
                     cout << left << setw(2) << "|";
                     cout << left << setw(10) << "STATUS" << endl;
-                    for ()
+                    for (int index: taskIndices)
                     {
                         t[index].display();
                     }
@@ -412,8 +439,9 @@ int main()
                 cout << "Enter the date to search (DD-MM-YYYY): ";
                 cin >> searchdate;
 
+                vector<int> dateIndices = SequenceSearchByDate(searchdate, t, 5);
 
-                if ()
+                if (!dateIndices.empty())
                 {
                     cout << "Tasks found with key '" << searchdate << "':" << endl
                          << endl;
@@ -443,9 +471,10 @@ int main()
                 cout << "Please enter either TODO, DOING OR DONE" << endl;
                 cout << "Enter the status to search: ";
                 cin >> searchstatus;
-                
 
-                if ()
+                vector<int> statusIndices = SequenceSearchByStatus(searchstatus, t, 5);
+
+                if (!searchstatus.empty())
                 {
                     cout << "Tasks found with key '" << searchstatus << "':" << endl
                          << endl;

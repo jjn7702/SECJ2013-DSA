@@ -1,3 +1,16 @@
+//SECJ2013 DATA STRUCTURE AND ALGORITHMS 
+//SEM 1 2023/2024
+//Assignment 1
+//Section : 02
+//Lecturer : Ms. Lizawati binti Mi Yusuf
+
+//Group Name : LogiCode
+//Group Members : 
+//1. Ong Yi Yan (A22EC0101)
+//2. Tang Yan Qing (A22EC0109)
+//3. Koh Su Xuan (A22EC0060)
+//----------------------------------------
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -67,6 +80,7 @@ void dispItems(H r[], int first, int last) {
 	cout<<"______________________________________________________________________________"<<endl;
     cout << left << setw(14) << "|  Check-in  |" << setw(13) << "  Check-out |" << setw(10) << " Room No |"
          << setw(12) << " Room Type |" << setw(15) << " Customer  IC |" << setw(10) << " Total Price |" << endl;
+	cout<<"------------------------------------------------------------------------------"<<endl;
 	for (int i = first; i <= last; i++) {
 		cout << "| "<<setw(10) << r[i].getCheckInDate() <<" | "<< setw(10) << r[i].getCheckOutDate()
              <<" |   "<< setw(4) << r[i].getRoomNo() <<"  |   "<< setw(6) << r[i].getRoomType()
@@ -383,7 +397,7 @@ int main()
     while (!existence) {
         if (found != -1) {
             existence = true;
-            cout << "\nSuccessfully verified!" << endl;
+            cout << "\nSuccessfully verified!\n" << endl;
             adminMenu();
         } 
         else {
