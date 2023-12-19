@@ -31,6 +31,9 @@
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/0c1a3187-00d0-4620-a4ea-f61ce19b9dc5" width="70%" height="70%"><br>
   Figure 5: Flowchart of bookingMenu Function
   <br><br><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/e0b8b0e0-3925-42fe-95fd-f5bad720ddbc" width="40%" height="40%"><br>
+  Figure 6: Flowchart of readBookingData Function
+  <br><br><br>
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/8fad63ef-2fe0-42cc-afce-d9790634dae2" width="30%" height="30%"><br>
   Figure 7: Flowchart of mergeSort Function
   <br><br><br>
