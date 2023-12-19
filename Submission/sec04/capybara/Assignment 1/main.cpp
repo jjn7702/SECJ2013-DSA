@@ -292,10 +292,22 @@ int main()
                 {
                     if (choice == 1)
                     {
-                        init.displaySortingUser();
-                        cin >> choice;
-
+                        int selection;
+                        init.displaySelection();
+                        cin >> selection;
                         cout << endl;
+                        if (selection == 1)
+                        {
+                            init.displaySortingUser();
+                            cin >> choice;
+                            cout << endl;
+                        }
+                        else if (selection == 2)
+                        {
+                            init.displaySeachingUser();
+                            cin >> choice;
+                            cout << endl;
+                        }
 
                         for (const auto &user : users)
                         {
@@ -305,9 +317,42 @@ int main()
                     }
                     else if (choice == 2)
                     {
-                        init.displaySeachingUser();
-                        cin >> choice;
+                        int selection;
+                        init.displaySelection();
+                        cin >> selection;
                         cout << endl;
+                        if (selection == 1)
+                        {
+                            init.displaySortingAirline();
+                            cin >> choice;
+                            cout << endl;
+                        }
+                        else if (selection == 2)
+                        {
+                            init.displaySeachingAirline();
+                            cin >> choice;
+                            cout << endl;
+                        }
+                    }
+                    else if (choice == 3)
+                    {
+                        int selection;
+                        init.displaySelection();
+                        cin >> selection;
+                        cout << endl;
+
+                        if (selection == 1)
+                        {
+                            init.displaySortingReservation();
+                            cin >> choice;
+                            cout << endl;
+                        }
+                        else if (selection == 2)
+                        {
+                            init.displaySeachingReservation();
+                            cin >> choice;
+                            cout << endl;
+                        }
                     }
                     else
                         cout << "Invalid Choice" << endl;
