@@ -42,7 +42,7 @@
 
 <h1>Assignment 2</h1>
 <h2>Findings 📊</h2>
-- <a href="Assignment1" >Assignment 1 </a>
+- <a href="Assignment1" >Assignment 1 </a><br>
 - Assignment 2<br>
 - Project<br>
 
