@@ -9,6 +9,8 @@
 //1. Ong Yi Yan (A22EC0101)
 //2. Tang Yan Qing (A22EC0109)
 //3. Koh Su Xuan (A22EC0060)
+
+//Topic/ Case Study: Hotel Booking System
 //----------------------------------------
 
 #include <iostream>
