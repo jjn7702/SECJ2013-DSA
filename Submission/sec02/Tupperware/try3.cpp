@@ -66,7 +66,14 @@ void FoodIdASC(Menu menuArray[]){
     sort(menuArray, menuArray + SIZE, [](const Menu &a, const Menu &b){
         return a.getFoodId() < b.getFoodId();
     }); 
-	return displayMenu(menuArray);
+	displayMenu(menuArray);
+}
+
+void searchByName(Menu menuArray[], const string& searchTerm) {
+    bool found = false ;
+    for (int i = 0; i < SIZE; i++) {
+        if (menuArray[i].getName().find(searchTerm) != string::npos)
+    }
 }
 
 int main(){
