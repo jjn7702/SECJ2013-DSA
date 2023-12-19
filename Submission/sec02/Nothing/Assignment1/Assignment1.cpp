@@ -1,37 +1,287 @@
 #include<iostream>
 #include<fstream>
+#include<iomanip>
+#include<string>
 using namespace std;
 
-#define MAX 100
+#define MAX 1000
 
-//class inventory, must be more than 6 attributes
+//class
 class inventory{
-  private:
+    private:
         int itemNumber;
         string itemName;
         string description;
         int quantity;
         double cost;
-        char[] itemLocation; //rack A01, B02, etc.
-  public:
+        string itemLocation; //rack A01, B02, etc.
+    public:
         inventory();
-        inventory(int, string, string, int, double, char[]);
+        inventory(int, string, string, int, double, string);
         void setItemNumber(int);
         void setItemName(string);
         void setDescription(string);
         void setQuantity(int);
         void setCost(double);
-        void setItemLocation(char[]);
+        void setItemLocation(string);
         int getItemNumber();
         string getItemName();
         string getDescription();
         int getQuantity();
         double getCost();
-        char[] getItemLocation();
+        string getItemLocation();
         void print();
 };
 
-//default constructor
+//mergesort for accending
+void mergeSort(inventory[], int, int);
+void merge(inventory[], int, int, int);
+
+//quicksort for decending
+void quickSort(inventory[], int, int);
+int partition(inventory[], int, int);
+
+//binarySearch for itemNumber(int)
+int binarySearch(inventory[], int, int, int);
+//sequentialSearch for itemName and itemLocation(string)
+int SeqSearch(inventory[], int, const string&, bool);
+
+//check if the input is a number
+bool isNumber(string);
+
+
+int main(){
+    inventory inv[MAX];
+    string inp;
+    //read inventory from file
+    ifstream fin;
+    fin.open("inventory.txt");
+    if (!fin.is_open()) {
+        cout << "Error opening the file.\n";
+        system("pause");
+        return 0;
+    }
+    int i = 0;
+    while(!fin.eof()){
+        int itemNumber;
+        string itemName;
+        string description;
+        int quantity;
+        double cost;
+        string itemLocation;
+        fin >> itemNumber >> itemName >> description >> quantity >> cost >> itemLocation;
+        inv[i].setItemNumber(itemNumber);
+        inv[i].setItemName(itemName);
+        inv[i].setDescription(description);
+        inv[i].setQuantity(quantity);
+        inv[i].setCost(cost);
+        inv[i].setItemLocation(itemLocation);
+        i++;
+    }
+    fin.close();
+
+    while (true) {
+        int choice;
+        while(true){
+            system("cls");
+            cout << "1. Sort\n2. Search\n3. Exit\n\nSelect an option: ";
+            getline(cin, inp);
+            if(isNumber(inp)){
+                choice = stoi(inp);
+                break;
+            } 
+        }
+        if (choice == 1) {
+            int sortChoice = 0;
+            int orderChoice = 0;
+            while(true){
+                system("cls");
+                cout << "Sort by:\n1. Item Number\n2. Item Name\n3. Quantity\n4. Cost\n5. Item Location\n6. Back to menu\n\nSelect an option: ";
+                getline(cin, inp);
+                if(isNumber(inp)){
+                    sortChoice = stoi(inp);
+                    if(sortChoice>0 && sortChoice <6){
+                        while(true){
+                            system("cls");
+                            cout << "Sort by " 
+                                << (sortChoice == 1 ? "Item Number" : sortChoice == 2 ? "Item Name" : sortChoice == 3 ? "Quantity" : sortChoice == 4 ? "Cost" : "Item Location")
+                                <<" in:\n1. Ascending\n2. Descending\n3. Back\n4. Back to menu\n\nSelect an option: ";
+                            getline(cin, inp);
+                            if(isNumber(inp)){
+                                orderChoice = stoi(inp);
+                                if(orderChoice >0 && orderChoice <5) break;
+                            }
+                        }
+                        if(orderChoice == 4) sortChoice = 6;
+                        if(orderChoice != 3) break;
+                    }
+                    else if(sortChoice == 6) break;
+                    else{
+                        cout<< "Enter a valid input(1-6)\n";
+                        system("pause");
+                        system("cls");
+                    }
+                }
+            }
+
+            if (sortChoice == 1) {
+                if (orderChoice == 1) {
+                    mergeSort(inv, 0, i - 1);
+                } 
+                else if (orderChoice == 2) {
+                    quickSort(inv, 0, i - 1);
+                }
+            } 
+            else if (sortChoice == 2) {
+                if (orderChoice == 1) {
+                    mergeSort(inv, 0, i - 1);
+                } 
+                else if (orderChoice == 2) {
+                    quickSort(inv, 0, i - 1);
+                }
+            } 
+            else if (sortChoice == 3) {
+                if (orderChoice == 1) {
+                    mergeSort(inv, 0, i - 1);
+                } 
+                else if (orderChoice == 2) {
+                    quickSort(inv, 0, i - 1);
+                }
+            } 
+            else if (sortChoice == 4) {
+                if (orderChoice == 1) {
+                    mergeSort(inv, 0, i - 1);
+                } 
+                else if (orderChoice == 2) {
+                    quickSort(inv, 0, i - 1);
+                }
+            } 
+            else if (sortChoice == 5) {
+                if (orderChoice == 1) {
+                    mergeSort(inv, 0, i - 1);
+                } 
+                else if (orderChoice == 2) {
+                    quickSort(inv, 0, i - 1);
+                }
+            } 
+            else continue;
+
+            //print th output in a table format
+            system("cls");
+            cout << "Inventory:\n"
+                << setw(15) << left << "Item Number" 
+                << setw(15) << left << "Item Name" 
+                << setw(30) << left << "Description" 
+                << setw(15) << left << "Quantity" 
+                << setw(15) << left << "Cost" 
+                << setw(15) << left << "Item Location" << endl;
+            for (int j = 0; j < i; j++) {
+                inv[j].print();
+            }
+            cout<<endl<<endl;
+            system("pause");
+        } 
+        else if (choice == 2) {
+            int searchChoice;
+            while(true){
+                system("cls");
+                cout << "Search by:\n1. Item Number\n2. Item Name\n3. Item Location\n4. Back to menu\n\nSelect an option: ";
+                getline(cin, inp);
+                if(isNumber(inp)){
+                    searchChoice = stoi(inp);
+                    if(searchChoice>0 && searchChoice <5) break;
+                }
+            }
+                if (searchChoice == 1) {
+                    system("cls");
+                    cout << "Enter item number: ";
+                    int itemNumber;
+                    cin >> itemNumber;
+                    //sort the list for binary search
+                    mergeSort(inv, 0, i - 1);
+                    int index = binarySearch(inv, 0, i - 1, itemNumber);
+                    if (index == -1) {
+                        cout << "Item not found\n\n";
+                        system("pause");
+                    } 
+                    else {
+                        system("cls");
+                        cout << "Inventory:\n"
+                            << setw(15) << left << "Item Number" 
+                            << setw(15) << left << "Item Name" 
+                            << setw(30) << left << "Description" 
+                            << setw(15) << left << "Quantity" 
+                            << setw(15) << left << "Cost" 
+                            << setw(15) << left << "Item Location" << endl;
+                        inv[index].print();
+                        cout<<endl<<endl;
+                        system("pause");
+                    }
+                } 
+                else if (searchChoice == 2) {
+                    system("cls");
+                    cout << "Enter item name: ";
+                    string itemName;
+                    cin >> itemName;
+                    int index = SeqSearch(inv, i, itemName, false);
+                    if (index == -1) {
+                        cout << "Item not found\n\n";
+                        system("pause");
+                    } 
+                    else {
+                        system("cls");
+                        cout << "Inventory:\n"
+                            << setw(15) << left << "Item Number" 
+                            << setw(15) << left << "Item Name" 
+                            << setw(30) << left << "Description" 
+                            << setw(15) << left << "Quantity" 
+                            << setw(15) << left << "Cost" 
+                            << setw(15) << left << "Item Location" << endl;
+                        inv[index].print();
+                        cout<<endl<<endl;
+                        system("pause");
+                    }
+                } 
+                else if (searchChoice == 3) {
+                    system("cls");
+                    cout << "Enter item location: ";
+                    string itemLocation;
+                    cin >> itemLocation;
+                    int index = SeqSearch(inv, i, itemLocation, true);
+                    if (index == -1) {
+                        cout << "Item not found\n\n";
+                        system("pause");
+                    } 
+                    else {
+                        system("cls");
+                        cout << "Inventory:\n"
+                            << setw(15) << left << "Item Number" 
+                            << setw(15) << left << "Item Name" 
+                            << setw(30) << left << "Description" 
+                            << setw(15) << left << "Quantity" 
+                            << setw(15) << left << "Cost" 
+                            << setw(15) << left << "Item Location" << endl;
+                        inv[index].print();
+                        cout<<endl<<endl;
+                        system("pause");
+                    }
+                }
+                else continue;
+                cin.ignore();
+        } 
+        else if (choice == 3) {
+            break;
+        } 
+        else {
+            cout << "Invalid choice, enter input in the range 1-3 only!\n";
+            system("pause");
+        }
+    }
+    return 0;
+}
+
+
+//constructor
 inventory::inventory(){
     itemNumber = 0;
     itemName = "";
@@ -40,9 +290,7 @@ inventory::inventory(){
     cost = 0.0;
     itemLocation = "";
 }
-
-//constructor
-inventory::inventory(int itemNumber, string itemName, string description, int quantity, double cost, char[] itemLocation){
+inventory::inventory(int itemNumber, string itemName, string description, int quantity, double cost, string itemLocation){
     this->itemNumber = itemNumber;
     this->itemName = itemName;
     this->description = description;
@@ -51,28 +299,23 @@ inventory::inventory(int itemNumber, string itemName, string description, int qu
     this->itemLocation = itemLocation;
 }
 
-//setters
+//setter
 void inventory::setItemNumber(int itemNumber){
     this->itemNumber = itemNumber;
 }
-
 void inventory::setItemName(string itemName){
     this->itemName = itemName;
 }
-
 void inventory::setDescription(string description){
     this->description = description;
 }
-
-void inventorsy::setQuantity(int quantity){
+void inventory::setQuantity(int quantity){
     this->quantity = quantity;
 }
-
 void inventory::setCost(double cost){
     this->cost = cost;
 }
-
-void inventory::setItemLocation(char[] itemLocation){
+void inventory::setItemLocation(string itemLocation){
     this->itemLocation = itemLocation;
 }
 
@@ -80,70 +323,33 @@ void inventory::setItemLocation(char[] itemLocation){
 int inventory::getItemNumber(){
     return itemNumber;
 }
-
+string inventory::getItemLocation(){
+    return itemLocation;
+}
 string inventory::getItemName(){
     return itemName;
 }
-
 string inventory::getDescription(){
     return description;
 }
-
 int inventory::getQuantity(){
     return quantity;
 }
-
 double inventory::getCost(){
     return cost;
 }
-
-char[] inventory::getItemLocation(){
-    return itemLocation;
-}
-
-//print function
 void inventory::print(){
-    cout << "Item Number: " << itemNumber << endl;
-    cout << "Item Name: " << itemName << endl;
-    cout << "Description: " << description << endl;
-    cout << "Quantity: " << quantity << endl;
-    cout << "Cost: " << cost << endl;
-    cout << "Item Location: " << itemLocation << endl;
+    cout << setw(15) << left << itemNumber 
+    << setw(15) << left << itemName 
+    << setw(30) << left << description 
+    << setw(15) << left << quantity 
+    << fixed << setprecision(2) << setw(15) << left << cost 
+    << setw(15) << left << itemLocation << endl;
 }
 
-//mergesort accending
-void mergeSort(inventory[], int, int);
-void merge(inventory[], int, int, int);
 
-//quicksort decending
-void quickSort(inventory[], int, int);
-int partition(inventory[], int, int);
-
-//search
-int SortedSeqSearch(inventory[], int, int);
-
-int main(){
-    inventory inv[MAX];
-    //inventory from file
-    ifstream fin;
-    fin.open("inventory.txt");
-    int i = 0;
-    while(!fin.eof()){
-        fin >> inv[i].itemNumber;
-        fin >> inv[i].itemName;
-        fin >> inv[i].description;
-        fin >> inv[i].quantity;
-        fin >> inv[i].cost;
-        fin >> inv[i].itemLocation;
-        i++;
-    }
-    fin.close();
-    bool loop = true;
-    while(loop){
-            
-    }
-}
-
+//sorting
+//accending
 void mergeSort(inventory inv[], int low, int high){
     if(low < high){
         int mid = (low + high) / 2;
@@ -152,7 +358,6 @@ void mergeSort(inventory inv[], int low, int high){
         merge(inv, low, mid, high);
     }
 }
-
 void merge(inventory inv[], int low, int mid, int high){
     int i, j, k;
     int n1 = mid - low + 1;
@@ -190,7 +395,7 @@ void merge(inventory inv[], int low, int mid, int high){
     }
 }
 
-//quicksort decending
+//decending
 void quickSort(inventory inv[], int low, int high){
     if(low < high){
         int pi = partition(inv, low, high);
@@ -198,7 +403,6 @@ void quickSort(inventory inv[], int low, int high){
         quickSort(inv, pi + 1, high);
     }
 }
-
 int partition(inventory inv[], int low, int high){
     int pivot = inv[high].getItemNumber();
     int i = (low - 1);
@@ -216,16 +420,50 @@ int partition(inventory inv[], int low, int high){
     return (i + 1);
 }
 
+
 //search
-int SortedSeqSearch(inventory inv[], int n, int itemNumber){
-    int i = 0;
-    while(i < n && itemNumber > inv[i].getItemNumber()){
-        i++;
+int SeqSearch(inventory inv[], int n, const string& target, bool isLocation){
+    for(int i = 0; i < n; i++){
+        if(isLocation){
+            if(inv[i].getItemLocation() == target){
+                return i;
+            }
+        }
+        else{
+            if(inv[i].getItemName() == target){
+                return i;
+            }
+        }
     }
-    if(i < n && itemNumber == inv[i].getItemNumber()){
-        return i;
-    }
-    else{
+    return -1;
+}
+
+int binarySearch(inventory inv[], int low, int high, int target){
+    if(low > high){
         return -1;
     }
+    int mid = (low + high) / 2;
+    if(inv[mid].getItemNumber() == target){
+        return mid;
+    }
+    else if(inv[mid].getItemNumber() > target){
+        return binarySearch(inv, low, mid - 1, target);
+    }
+    else{
+        return binarySearch(inv, mid + 1, high, target);
+    }
+}
+
+
+//other function
+bool isNumber(string s){
+    for(int i = 0; i < s.length(); i++){
+        if(isdigit(s[i]) == false){
+            system("cls");
+            cout << "Invalid input, enter a numberic input!\n";
+            system("pause");
+            return false;
+        }
+    }
+    return true;
 }
