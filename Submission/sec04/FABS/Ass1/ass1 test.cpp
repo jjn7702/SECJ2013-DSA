@@ -29,6 +29,40 @@ public:
     string getStat() const { return stat; }
     int getTrackNum() const { return trackNum; }
 
+ 	int readFile(ifstream& file, Courier couriers[]) {
+    	if (!file.is_open()) {
+        	cout << "Error: Unable to open the file\n";
+        	return 0;
+  		}
+		int m = 0;
+    	while (getline(file, couriers[m].name, ',')){
+           getline(file, couriers[m].parcelType, ',') ;
+           getline(file, couriers[m].source, ',');
+           getline(file, couriers[m].destination, ',') ;
+           getline(file, couriers[m].status, ',');
+		   file >> couriers[m].trackingNum;  
+      	   file.ignore();
+       	   ++m;
+   		}
+    return m;
+}
+
+	void writeFile(string filename, Courier arr[]) {
+    	ofstream outFile(filename);
+
+    	if (!outFile.is_open()) {
+        	cout << "Error: Unable to open the file for writing\n";
+        	return;
+   		}
+
+    	for (int i = 0; i < size; ++i) {
+        	outFile << arr[i].getName() << ',' << arr[i].getType() << ',' << arr[i].getSource() << ',' 
+                	<< arr[i].getDest() << ',' << arr[i].getStat() << ',' << arr[i].getTrackNum() << '\n';
+    	}
+
+   		outFile.close();
+}
+
     void display() const {
         cout << left << setw(25) << name
              << setw(15) << parcelType
