@@ -55,8 +55,8 @@ In this assignment, the sorting and searching implementation will be used. User 
 
 ## Findings 📊
 
-- [Source Code](/source%20code/assignment1.cpp)
-- [Input File](/source%20code/task.txt)
+- [Source Code](./source%20code/assignment1.cpp)
+- [Input File](./source%20code/task.txt)
 - [Report]
 
 ## Contribution 🛠️
