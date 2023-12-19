@@ -259,7 +259,31 @@ int main() {
                 cin >> searchType;
 
 		switch (searchType) {
-                break;
+			case 1: {
+				cout << "\nEnter the keyword to search: ";
+				cin >> key;
+				index = SearchString(key, couriers, size);
+				break;
+			}
+			case 2: {
+				cout << "\nEnter the number to search: ";
+				cin >> intKey;
+				index = SearchInt(intKey, couriers, size);
+				break;
+			}
+			default:
+			cout << "Invalid search type choice.\n";
+			index = -1;
+               		if (index != -1) {
+        			cout << "\nCourier found at list number " << index+1 << ":\n";
+       				cout << "\n| Name              | Parcel Type   | Source         | Destination    | Status          | Tracking Number |\n"
+          				 << "---------------------------------------------------------------------------------------------------------------------\n";
+        			couriers[index].display();
+   				} 			
+				else {
+        			cout << "Courier not found.\n";
+   				}
+    			break;
 
             case 4:
                 for(int i = 0; i < size; i++)
