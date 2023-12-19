@@ -41,6 +41,16 @@ inventory::inventory(){
     itemLocation = "";
 }
 
+//constructor
+inventory::inventory(int itemNumber, string itemName, string description, int quantity, double cost, char[] itemLocation){
+    this->itemNumber = itemNumber;
+    this->itemName = itemName;
+    this->description = description;
+    this->quantity = quantity;
+    this->cost = cost;
+    this->itemLocation = itemLocation;
+}
+
 void merge(inventory inv[], int low, int mid, int high){
     int i, j, k;
     int n1 = mid - low + 1;
