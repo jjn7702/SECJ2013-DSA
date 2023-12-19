@@ -83,7 +83,7 @@ void FoodIdASC(Menu menuArray[]){
         }
         swap(menuArray[largestIndex], menuArray[last]);
     } 
-    displayHeader();
+    //displayHeader();
     printSortedResult(menuArray);
 }
 
@@ -99,7 +99,7 @@ void PriceASC(Menu menuArray[]){
         }
         swap(menuArray[largestIndex], menuArray[last]);
     } 
-    displayHeader();
+    //displayHeader();
     printSortedResult(menuArray);
 }
 
