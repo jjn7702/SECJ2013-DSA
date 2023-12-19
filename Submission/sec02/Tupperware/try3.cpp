@@ -83,7 +83,7 @@ void FoodIdASC(Menu menuArray[]){
         }
         swap(menuArray[largestIndex], menuArray[last]);
     } 
-    //displayHeader();
+    displayHeader();
     printSortedResult(menuArray);
 }
 
@@ -99,35 +99,9 @@ void PriceASC(Menu menuArray[]){
         }
         swap(menuArray[largestIndex], menuArray[last]);
     } 
-    //displayHeader();
+    displayHeader();
     printSortedResult(menuArray);
 }
-
-/*void searchByName(Menu menuArray[], const string &searchTerm) {
-    bool found = false;
-    displayHeader();
-    for (int i = 0; i < SIZE; i++) {
-        // Convert both the menu item name and search term to lowercase for case-insensitive search
-        string itemNameLower = menuArray[i].getName();
-        transform(itemNameLower.begin(), itemNameLower.end(), itemNameLower.begin(), ::tolower);
-        string searchTermLower = searchTerm;
-        transform(searchTermLower.begin(), searchTermLower.end(), searchTermLower.begin(), ::tolower);
-
-        // Check if the search term is found in the lowercase version of the menu item name
-        if (itemNameLower.find(searchTermLower) != string::npos) {
-            found = true;
-            cout << left;
-            cout << setw(10) << menuArray[i].getFoodId() << " | "
-                 << setw(21) << menuArray[i].getName() << " | "
-                 << setw(13) << menuArray[i].getCategory() << " | "
-                 << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
-        }
-    }
-
-    if (!found) {
-        cout << "No matching results found.\n";
-    }
-}*/
 
 void searchByName(Menu menuArray[], const string &searchTerm) {
     bool found = false;
@@ -221,9 +195,11 @@ do{
                 PriceASC(menuArray);
                     break;
                 }
+            return false ;
         }
     } else {
         cout << "Invalid input. Please enter Y or N.\n";
+        return true ;
     }  
     
     if (choice == 'V' || choice == 'v') {
