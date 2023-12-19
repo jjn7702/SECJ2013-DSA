@@ -122,6 +122,37 @@ int partition(inventory[], int, int);
 //search
 int SortedSeqSearch(inventory[], int, int);
 
+int main(){
+    inventory inv[MAX];
+    //inventory from file
+    ifstream fin;
+    fin.open("inventory.txt");
+    int i = 0;
+    while(!fin.eof()){
+        fin >> inv[i].itemNumber;
+        fin >> inv[i].itemName;
+        fin >> inv[i].description;
+        fin >> inv[i].quantity;
+        fin >> inv[i].cost;
+        fin >> inv[i].itemLocation;
+        i++;
+    }
+    fin.close();
+    bool loop = true;
+    while(loop){
+            
+    }
+}
+
+void mergeSort(inventory inv[], int low, int high){
+    if(low < high){
+        int mid = (low + high) / 2;
+        mergeSort(inv, low, mid);
+        mergeSort(inv, mid + 1, high);
+        merge(inv, low, mid, high);
+    }
+}
+
 void merge(inventory inv[], int low, int mid, int high){
     int i, j, k;
     int n1 = mid - low + 1;
@@ -197,4 +228,4 @@ int SortedSeqSearch(inventory inv[], int n, int itemNumber){
     else{
         return -1;
     }
-}A
+}
