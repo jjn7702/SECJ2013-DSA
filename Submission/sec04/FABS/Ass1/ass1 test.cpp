@@ -66,9 +66,9 @@ public:
         cout << left << setw(25) << name
              << setw(15) << parcelType
              << setw(15) << source
-             << setw(18) << dest
-             << setw(16) << stat
-             << setw(15) << trackNum << endl;
+             << setw(18) << destination
+             << setw(16) << status
+             << setw(15) << trackingNum << endl;
     }
 };
 
@@ -96,7 +96,7 @@ bool compareStrByName(Courier& a, Courier& b) {
      return a.getName() < b.getName();
 }
 
-bool compareStryByType(Courier& a, courier& b) {
+bool compareStryByType(Courier& a, Courier& b) {
      return a.getType() < b.getType();
 }
 
@@ -144,7 +144,7 @@ int partitionSortByName(Courier arr[], int first, int last) {
 
 int partitionSortByType(Courier arr[], int first, int last) {
 	Courier pivot = arr[last];
-	int bottom = first - 1; top = last;
+	int bottom = first - 1, top = last;
 
 	while(true) {
 		while (arr[--top].getName() > pivot.getName());
