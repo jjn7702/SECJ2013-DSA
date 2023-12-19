@@ -165,6 +165,15 @@ int main(){
                 cout << "Food ID not found.\n";
             }
         }*/
+
+        else if (choice == 'S' || choice == 's') {
+            string searchTerm ;
+            cout << "Enter the food name you want to search: " ;
+            cin.ignore() ;
+            getline(cin, searchTerm) ;
+
+            searchByName(menuArray,searchTerm) ;
+        }
         }
     
 
