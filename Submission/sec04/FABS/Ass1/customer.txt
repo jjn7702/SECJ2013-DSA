@@ -1,11 +1,11 @@
-Sarah,shirt,Kuala Lumpur,Johor Bahru,Yes,123500
+Sarah,shirt,KL,Johor,Yes,123500
 Ziera,book,Selangor,Muar,No,654879
-Abduh,shoes,Pulau Pinang,Melaka,Yes,548821
+Abduh,shoes,Pineng,Melaka,Yes,548821
 Ali,ball,Sarawak,Sabah,No,498678
 Luvia,phone,Perak,Senai,No,789092
-Putra,laptop,Kuala Lumpur,Ayer Hitam,Yes,234539
-Lisa,watch,Pasir Gudang,Tangkak,Yes,876565
+Putra,laptop,KL,Serdang,Yes,234539
+Lisa,watch,Desaru,Tangkak,Yes,876565
 Kamarudin,hat,Ipoh,Sabah,No,432121
-Sofea,glasses,Rompin,Sungai Petani,Yes,567837
-Omar,camera,Karak,Alor Gajah,No,987602
+Sofea,glasses,Rompin,Genting,Yes,567837
+Omar,camera,Karak,Rengit,No,987602
 
