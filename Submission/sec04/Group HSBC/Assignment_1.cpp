@@ -6,7 +6,7 @@
 using namespace std;
 
 class Account{
-	private:
+	public:
 		string account_number;
 		double balance;
 		string transaction_date;
@@ -14,8 +14,7 @@ class Account{
 		double transaction_amount;
 		string target_account; //for transfer
 	
-	public:
-		Account(string an, double b) : account_number(an), balance(b) {}
+		Account(string an = "", double b = 0.0) : account_number(an), balance(b) {}
 		
 		void setTransactionDate(string d){ transaction_date = d; }
 		
@@ -52,6 +51,28 @@ int partition(Account acc[], int first, int last, int type)
 
 	 while (loop)
     {
+
+        if(type == 2)
+        {
+            while (acc[top].transaction_date < pivot.transaction_date) { top--; }
+            while (acc[bottom].transaction_date > pivot.transaction_date) { bottom++; }
+        }
+        else if(type == 3)
+        {   
+            while (acc[top].transaction_date > pivot.transaction_date) { top--; }
+            while (acc[bottom].transaction_date < pivot.transaction_date) { bottom++; }
+        }
+        else if(type == 4)
+        {
+            while (acc[top].balance > pivot.balance) { top--; }
+            while (acc[bottom].balance < pivot.balance) { bottom++; }
+        }
+		else
+        {
+            while (acc[top].balance < pivot.balance) { top--; }
+            while (acc[bottom].balance > pivot.balance) { bottom++; }
+        }
+        
 
         if (bottom < top)
         {
