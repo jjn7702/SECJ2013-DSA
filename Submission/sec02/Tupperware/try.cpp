@@ -1,154 +1,136 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
+#include <iomanip>
+#include <algorithm>
+#define SIZE 27
 using namespace std;
 
-struct Food {
-    string foodId;
-    string foodName;
-    string category;
-    double price;
+
+class Menu{
+    private:
+        string foodId;
+        string name;
+        string category;
+        double price;
+
+    public:
+        Menu() {
+            foodId = "";
+            name = "";
+            category = "";
+            price = 0.0;
+        }
+        Menu(string foodId, string name, string category, double price)
+        : foodId(foodId), name(name), category(category), price(price) {}
+        
+        string getFoodId() const { return foodId; }
+        string getName() const { return name; }
+        string getCategory() const { return category; }
+        double getPrice() const { return price; }
+
+        void setFoodId(string foodId) { this->foodId = foodId; }
+        void setName(string name) { this->name = name; }
+        void setCategory(string category) { this->category = category; }
+        void setPrice(double price) { this->price = price; }
 };
 
-class Menu {
-private:
-    Food menuArray[50];
-    int menuSize;
+void displayHeader(){
+        cout << left;
+        cout << setw(10) << "ID" << " | " 
+             << setw(21) << "NAME" << " | " 
+             << setw(13) << "TYPE" << " | " 
+             << fixed << "PRICE" << endl;
+        cout <<"---------------------------------------------------------" << endl;
+}
 
-public:
-    Menu() : menuSize(0) {}
-
-    /*void loadMenuFromFile(const std::string& filename) {
-        std::ifstream file(filename);
-        if (!file) {
-            std::cerr << "Error opening file: " << filename << std::endl;
-            return;
-        }
-
-        while (file >> menuArray[menuSize].foodId >> menuArray[menuSize].foodName
-                      >> menuArray[menuSize].category >> menuArray[menuSize].price) {
-            ++menuSize;
-            if (menuSize >= 50) {
-                std::cerr << "Warning: Maximum menu size reached." << std::endl;
-                break;
-            }
-        }
-
-        file.close();
-        std::cout << "Menu loaded successfully. Size: " << menuSize << std::endl;
-    }*/
-
-    void displayMenu() const {
-        cout << "Food ID | Food Name | Category | Price\n";
-        cout << "------------------------------------------\n";
-        for (int i = 0; i < menuSize; ++i) {
-            cout << menuArray[i].foodId << " | " << menuArray[i].foodName << " | "
-                << menuArray[i].category << " | " << menuArray[i].price << '\n';
-        }
+void displayMenu(Menu menuArray[]) {
+    for(int i = 0; i < SIZE; i++) {
+        cout << left;
+        cout << setw(10) << menuArray[i].getFoodId() << " | " 
+             << setw(21) << menuArray[i].getName() << " | " 
+             << setw(13) << menuArray[i].getCategory() << " | " 
+             << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
     }
+}
 
-    // Bubble sort
-    void sortByFoodId() {
-        for (int i = 0; i < menuSize - 1; ++i) {
-            for (int j = 0; j < menuSize - i - 1; ++j) {
-                if (menuArray[j].foodId > menuArray[j + 1].foodId) {
-                    swap(menuArray[j], menuArray[j + 1]);
-                }
-            }
-        }
-    }
+//display food id in ASC
+void swap(Menu &a, Menu &b){
+    Menu temp = a;
+    a = b;
+    b = temp;
+}
 
-    // Manual search
-    bool searchByFoodId(const std::string& targetFoodId) const {
-        for (int i = 0; i < menuSize; ++i) {
-            if (menuArray[i].foodId == targetFoodId) {
-                return true;
-            }
-        }
-        return false;
-    }
-};
+void FoodIdASC(Menu menuArray[]){
+    sort(menuArray, menuArray + SIZE, [](const Menu &a, const Menu &b){
+        return a.getFoodId() < b.getFoodId();
+    }); displayMenu(menuArray);
+}
 
-class Order {
-private:
-    string foodId;
-    int amount;
-
-public:
-    Order(const string& id, int count) : foodId(id), amount(count) {}
-
-    // Getter functions
-    string getFoodId() const {
-        return foodId;
-    }
-
-    int getAmount() const {
-        return amount;
-    }
-};
-
-int main() {
-    // Display the menu initially
-    Menu menu;
+int main(){
+    Menu menuArray[SIZE];
+    char choice;
+    int size = 0;
     fstream nameFile;
     string input;
-    string foodId, foodName, category;
+    string foodId, name, category;
     double price;
-    //menu.loadMenuFromFile("menu.txt");
 
-    nameFile.open("menu.txt", ios::in);
+    system("cls");
+    cout << "WELCOME TO TUPPERWARE!" << endl;
+    cout << "View Menu? : ";
+    cin >> choice;
 
-    if (!nameFile){
-        cout << "ERROR: Cannot open file." << endl;
-        return 0;
-    }
+    if (choice == 'Y' || choice == 'y') {
+        nameFile.open("menu.txt", ios::in);
 
-    //getline(nameFile, input);
-    menu.displayMenu();
+        if (!nameFile){
+            cout << "ERROR: Cannot open file." << endl;
+            return 0;
+        }
 
-    while (!nameFile.eof()){
-        //cout << input << endl;
         //getline(nameFile, input);
-        getline(nameFile, foodId, ',');
-        cout << foodId ;
-        getline(nameFile, foodName, ',');
-        cout << foodName;
+        //menu.displayMenu();
+
+        while (!nameFile.eof() && size < SIZE){
+            //cout << input << endl;
+            //getline(nameFile, input);
+            getline(nameFile, foodId, ',');
+            //cout << foodId ;
+            getline(nameFile, name, ',');
+            //cout << foodName;
+            getline(nameFile, category, ',');
+            nameFile >> price;
+            nameFile.ignore();
+
+            menuArray[size++] = Menu(foodId, name, category, price);
+        }
+        nameFile.close();
+        displayHeader();
+        displayMenu(menuArray);
+
     }
-
-
-    // Ordering process
-    char choice;
-    do {
-        cout << "\nDo you want to (C)hoose, (V)iew in a new way, or (S)earch? ";
+    
+        cout << "\nDo you want to (V)iew in a new way, or (S)earch? ";
         cin >> choice;
 
-        if (choice == 'C' || choice == 'c') {
-            // Choose order
-            string chosenFoodId;
-            int amount;
-            cout << "Enter the Food ID you want to order: ";
-            cin >> chosenFoodId;
-            cout << "Enter the amount: ";
-            cin >> amount;
-
-            // Create an Order object and save it
-            Order order(chosenFoodId, amount);
-
-            // Save the order to a file or another data structure
-            // ...
-
-        } else if (choice == 'V' || choice == 'v') {
+        if (choice == 'V' || choice == 'v') {
             // View in a new way (sorting)
             cout << "Sort by (F)ood ID, (C)ategory, or (P)rice? ";
-            cin >> choice;
-            if (choice == 'F' || choice == 'f') {
-                menu.sortByFoodId();
-            }
+            int choiceSort;
+            cout << "1 - ALPHABET ORDER | 2 - price => ";
+            cin >> choiceSort;
+            switch (choiceSort)
+            {
+                case 1 :
+                FoodIdASC(menuArray);
+                break;
+    
+                case 2 :
+                    break;
+                }
 
-            menu.displayMenu();
-
-        } else if (choice == 'S' || choice == 's') {
+        /*} else if (choice == 'S' || choice == 's') {
             // Searching for a specific food
             string targetFoodId;
             cout << "Enter the Food ID you want to search: ";
@@ -159,8 +141,36 @@ int main() {
             } else {
                 cout << "Food ID not found.\n";
             }
+        }*/
         }
-    } while (choice != 'Q' && choice != 'q');
+    
 
     return 0;
+
+//testing
+    /*Menu menuArray[] = {Menu("WE05", "Thai Pasta", "Western", 12.00), 
+                   Menu("WE06", "Chicken Pasta", "Western", 12.00), 
+                   Menu("WE07", "Seafood Pasta", "Western", 12.00), 
+                   Menu("WE08", "Chicken Lasagna", "Western", 10.00), 
+                   Menu("WE09", "Beef Lasagna", "Western", 10.50), 
+                   Menu("DE01", "Ice Cream", "Dessert", 1.50), 
+                   Menu("DE02", "Cendol" ,"Dessert",2.00)};
+
+    displayHeader();
+    displayMenu(menuArray);                 
+    
+    cout << endl << endl;
+
+    int choiceSort;
+    cout << "1 - ALPHABET ORDER | 2 - price => ";
+    cin >> choiceSort;
+    switch (choiceSort)
+    {
+    case 1 :
+        FoodIdASC(menuArray);
+        break;
+    
+    case 2 :
+        break;
+    }*/
 }

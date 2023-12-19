@@ -1,7 +1,7 @@
 TR01,Nasi Lemak,Traditional,5.00
 TR02,Nasi Goreng,Traditional,6.00
-TR03,Roti Canai,Traditional,1.00 
-TR04,Roti Telur,Traditional,1.50 
+TR03,Roti Canai,Traditional,1.00
+TR04,Roti Telur,Traditional,1.50
 TR05,Soto,Traditional,5.00
 TR06,Lontong,Traditional,7.00
 TR07,Bihun Goreng,Traditional,6.00

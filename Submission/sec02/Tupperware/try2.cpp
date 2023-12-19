@@ -58,7 +58,7 @@ void swap(Menu &a, Menu &b){
 void FoodIdASC(Menu menuArray[]){
     sort(menuArray, menuArray + SIZE, [](const Menu &a, const Menu &b){
         return a.getFoodId() < b.getFoodId();
-    });
+    }); displayMenu(menuArray);
 }
 
 int main(){

@@ -15,7 +15,7 @@ The Hotel Booking System is designed to manage room bookings in a hotel. This sy
 
 ## Findings 📊
 
-- Assignment 1
+- [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec02/LogiCode/Assignment1)
 - Assignment 2
 - Project
 
