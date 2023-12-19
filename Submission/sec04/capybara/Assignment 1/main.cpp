@@ -1,5 +1,9 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include <fstream>
+#include <sstream>
+
 using namespace std;
 
 class User
@@ -29,20 +33,16 @@ private:
     string AirplaneID;
     string Capacity;
     string Company;
-    string Class;
-    string FoodBeverage;
 
 public:
-    Airline(string AirplaneID, string Capacity, string Company, string Class, string FoodBeverage)
-        : AirplaneID(AirplaneID), Capacity(Capacity), Company(Company), Class(Class), FoodBeverage(FoodBeverage) {}
+    Airline(string AirplaneID, string Capacity, string Company)
+        : AirplaneID(AirplaneID), Capacity(Capacity), Company(Company) {}
 
     void display() const
     {
         cout << "AirplaneID: " << AirplaneID << endl;
         cout << "Plane Max Capacity: " << Capacity << endl;
         cout << "Plane Brand: " << Company << endl;
-        cout << "Plane Class: " << Class << endl;
-        cout << "Number customer require MEALS: " << FoodBeverage << endl;
     }
 };
 
@@ -54,10 +54,11 @@ private:
     string ArrivalTime;
     string Date;
     string Location;
+    string Class;
 
 public:
-    Reservation(string ReservationID, string DepartureTime, string ArrivalTime, string Date, string Location)
-        : ReservationID(ReservationID), DepartureTime(DepartureTime), ArrivalTime(ArrivalTime), Date(Date), Location(Location) {}
+    Reservation(string ReservationID, string DepartureTime, string ArrivalTime, string Date, string Location, string Class)
+        : ReservationID(ReservationID), DepartureTime(DepartureTime), ArrivalTime(ArrivalTime), Date(Date), Location(Location), Class(Class) {}
 
     void display() const
     {
@@ -66,6 +67,7 @@ public:
         cout << "Estimated Arrival Time: " << ArrivalTime << endl;
         cout << "Reservation Date: " << Date << endl;
         cout << "Arrival Destination: " << Location << endl;
+        cout << "Class: " << Class << endl;
     }
 };
 
@@ -91,7 +93,7 @@ public:
         cout << "Airline Reservation System" << endl;
         cout << "[0] Make a reservation" << endl;
         cout << "[1] Reservation Dashboard" << endl;
-        cout << "[4] Exit" << endl;
+        cout << "[2] Exit" << endl;
         cout << "Option: ";
     }
 
@@ -182,8 +184,73 @@ public:
     }
 };
 
+void LoadFiles(vector<User> users, vector<Airline> airline, vector<Reservation> reservation)
+{
+    ifstream userFile("/data/user.csv");
+    string lineUser;
+
+    getline(userFile, lineUser); // skip the headings
+
+    while (getline(userFile, lineUser))
+    {
+        string name, ic, phone, email;
+        stringstream ss(lineUser); // get the whole line
+        getline(ss, name, ',');
+        getline(ss, ic, ',');
+        getline(ss, phone, ',');
+        getline(ss, email, ',');
+
+        users.push_back(User(name, ic, phone, email));
+    }
+    userFile.close();
+
+    ifstream airlineFile("/data/airline.csv");
+    string lineAirline;
+
+    getline(airlineFile, lineAirline); // skip the headings
+
+    while (getline(airlineFile, lineAirline))
+    {
+        string airplaneId, capacity, company;
+        stringstream ss(lineAirline); // get the whole line
+        getline(ss, airplaneId, ',');
+        getline(ss, capacity, ',');
+        getline(ss, company, ',');
+
+        airline.push_back(Airline(airplaneId, capacity, company));
+    }
+    userFile.close();
+
+    ifstream reservationFile("/data/reservation.csv");
+    string lineReservation;
+
+    getline(airlineFile, lineReservation); // skip the headings
+
+    while (getline(airlineFile, lineReservation))
+    {
+        string reservationId, departureTime, arrivalTime, date, location, Class;
+        stringstream ss(lineReservation); // get the whole line
+        getline(ss, reservationId, ',');
+        getline(ss, departureTime, ',');
+        getline(ss, arrivalTime, ',');
+        getline(ss, date, ',');
+        getline(ss, location, ',');
+        getline(ss, Class, ',');
+
+        reservation.push_back(Reservation(reservationId, departureTime, arrivalTime, date, location, Class));
+    }
+    userFile.close();
+};
+
 int main()
 {
+
+    vector<User> users;
+    vector<Airline> airlines;
+    vector<Reservation> reservations;
+
+    LoadFiles(users, airlines, reservations);
+
     Init init;
     int option;
     while (true)
@@ -192,7 +259,7 @@ int main()
         cin >> option;
         cout << endl;
 
-        if (option == 4)
+        if (option == 2)
         {
             break;
         }
