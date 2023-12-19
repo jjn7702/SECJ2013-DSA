@@ -12,10 +12,10 @@
 
 <h2>Flow of system</h2>
 <p> 
-1. Menu (food id, name, type of dish, amount, price)
-2. Customer (table number, number of orders, pax, bill)
-3. Sort based on alphabetical order(food names and/or type of dish)
-4. 
+1. Menu (food id, name, type of dish, amount, price)<br>
+2. Customer (table number, number of orders, pax, bill)<br>
+3. Sort based on alphabetical order(food names and/or type of dish)<br>
+
 </p>
 <p>
 1. Customer press enter to see the menu <br>
