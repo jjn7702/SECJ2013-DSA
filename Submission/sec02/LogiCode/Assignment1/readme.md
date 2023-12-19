@@ -22,6 +22,9 @@
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/3751215f-0055-451b-abe3-d813a1558362" width="70%" height="70%"><br>
   Figure 2: Flowchart of Main Function
   <br><br><br>
+  <img src="" width="70%" height="70%"><br>
+  Figure 3: Flowchart of SequenceSearch Function
+  <br><br><br>
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/3b7da027-72df-49f0-9a8a-ed5e9260202a" width="30%" height="30%"><br>
   Figure 4: Flowchart of adminMenu Function
   <br><br><br>
