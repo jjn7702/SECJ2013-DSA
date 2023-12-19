@@ -25,7 +25,7 @@ _Don't forget to hit the :star: if you like this repo._
 1.
 
 <h3>Report Assignment 1</h3>
-<a href="**https://docs.google.com/document/d/1-DMRS-LltyCGzyDk6D3rWw81yVV4hYLz/edit?usp=sharing&ouid=101274812867810218448&rtpof=true&sd=true**"><img src="./images/file.png" width="35px" height="35px" ></a>
+<a href="**https://docs.google.com/document/d/1-DMRS-LltyCGzyDk6D3rWw81yVV4hYLz/edit?usp=sharing&ouid=101274812867810218448&rtpof=true&sd=true**"><img src="./images/download.png" width="35px" height="35px" ></a>
 
 ## Findings 📊
 
