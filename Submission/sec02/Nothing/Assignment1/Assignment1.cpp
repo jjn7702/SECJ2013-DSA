@@ -2,6 +2,9 @@
 #include<fstream>
 #include<iomanip>
 #include<string>
+#include <unistd.h>
+#include<chrono>
+#include<thread>
 using namespace std;
 
 #define MAX 1000
@@ -80,11 +83,17 @@ int main(){
     }
     fin.close();
 
+    //welcome screen
+    system("cls");
+    cout << "Inventory Management System\n\nWelcome...\n\n";
+    //delay half second
+    this_thread::sleep_for(chrono::milliseconds(500));
+
     while (true) {
         int choice;
         while(true){
             system("cls");
-            cout << "1. Sort\n2. Search\n3. Exit\n\nSelect an option: ";
+            cout << "Inventory Management System\n\nMain Menu:\n1. Sort\n2. Search\n3. Exit\n\nSelect an option: ";
             getline(cin, inp);
             if(isNumber(inp)){
                 choice = stoi(inp);
@@ -96,14 +105,14 @@ int main(){
             int orderChoice = 0;
             while(true){
                 system("cls");
-                cout << "Sort by:\n1. Item Number\n2. Item Name\n3. Quantity\n4. Cost\n5. Item Location\n6. Back to menu\n\nSelect an option: ";
+                cout << "Inventory Management System\n\nSort by:\n1. Item Number\n2. Item Name\n3. Quantity\n4. Cost\n5. Item Location\n6. Back to menu\n\nSelect an option: ";
                 getline(cin, inp);
                 if(isNumber(inp)){
                     sortChoice = stoi(inp);
                     if(sortChoice>0 && sortChoice <6){
                         while(true){
                             system("cls");
-                            cout << "Sort by " 
+                            cout << "Inventory Management System\n\nSort by " 
                                 << (sortChoice == 1 ? "Item Number" : sortChoice == 2 ? "Item Name" : sortChoice == 3 ? "Quantity" : sortChoice == 4 ? "Cost" : "Item Location")
                                 <<" in:\n1. Ascending\n2. Descending\n3. Back\n4. Back to menu\n\nSelect an option: ";
                             getline(cin, inp);
@@ -168,7 +177,7 @@ int main(){
 
             //print th output in a table format
             system("cls");
-            cout << "Inventory:\n"
+            cout << "Inventory Management System\n\nInventory:\n"
                 << setw(15) << left << "Item Number" 
                 << setw(15) << left << "Item Name" 
                 << setw(30) << left << "Description" 
@@ -185,7 +194,7 @@ int main(){
             int searchChoice;
             while(true){
                 system("cls");
-                cout << "Search by:\n1. Item Number\n2. Item Name\n3. Item Location\n4. Back to menu\n\nSelect an option: ";
+                cout << "Inventory Management System\n\nSearch by:\n1. Item Number\n2. Item Name\n3. Item Location\n4. Back to menu\n\nSelect an option: ";
                 getline(cin, inp);
                 if(isNumber(inp)){
                     searchChoice = stoi(inp);
@@ -194,19 +203,22 @@ int main(){
             }
                 if (searchChoice == 1) {
                     system("cls");
-                    cout << "Enter item number: ";
+                    cout << "Inventory Management System\n\nEnter item number: ";
                     int itemNumber;
                     cin >> itemNumber;
                     //sort the list for binary search
                     mergeSort(inv, 0, i - 1);
                     int index = binarySearch(inv, 0, i - 1, itemNumber);
                     if (index == -1) {
-                        cout << "Item not found\n\n";
+                        system("cls");
+                        cout << "Inventory Management System\n\nItem with item number "
+                            << itemNumber
+                            <<" not found\n\n";
                         system("pause");
                     } 
                     else {
                         system("cls");
-                        cout << "Inventory:\n"
+                        cout << "Inventory Management System\n\nInventory:\n"
                             << setw(15) << left << "Item Number" 
                             << setw(15) << left << "Item Name" 
                             << setw(30) << left << "Description" 
@@ -225,7 +237,10 @@ int main(){
                     cin >> itemName;
                     int index = SeqSearch(inv, i, itemName, false);
                     if (index == -1) {
-                        cout << "Item not found\n\n";
+                        system("cls");
+                        cout << "Inventory Management System\n\nItem with item name "
+                            << itemName
+                            <<" not found\n\n";
                         system("pause");
                     } 
                     else {
@@ -244,14 +259,17 @@ int main(){
                 } 
                 else if (searchChoice == 3) {
                     system("cls");
-                    cout << "Enter item location: ";
+                    cout << "Inventory Management System\n\nEnter item location: ";
                     string itemLocation;
                     cin >> itemLocation;
                     int index = SeqSearch(inv, i, itemLocation, true);
                     if (index == -1) {
-                        cout << "Item not found\n\n";
+                        system("cls");
+                        cout << "Inventory Management System\n\nItem with item location "
+                            << itemLocation
+                            <<" not found\n\n";
                         system("pause");
-                    } 
+                    }
                     else {
                         system("cls");
                         cout << "Inventory:\n"
@@ -277,6 +295,10 @@ int main(){
             system("pause");
         }
     }
+    system("cls");
+    cout << "Inventory Management System\n\nThank you for using the system!\nExiting...\n";
+    sleep(1);
+    system("cls");
     return 0;
 }
 
@@ -459,7 +481,6 @@ int binarySearch(inventory inv[], int low, int high, int target){
 bool isNumber(string s){
     for(int i = 0; i < s.length(); i++){
         if(isdigit(s[i]) == false){
-            system("cls");
             cout << "Invalid input, enter a numberic input!\n";
             system("pause");
             return false;
