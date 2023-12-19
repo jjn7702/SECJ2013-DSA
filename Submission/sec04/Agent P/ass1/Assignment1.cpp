@@ -29,6 +29,129 @@ class Candidate
         string getIC(){return ic;}
         string getPhone(){return phone;}
 };
+void NameAscending(Candidate c[],int size)
+{
+    Candidate temp;
+    for(int last=size-1;last>=1;last--)
+    {
+        int largeIndex = 0;
+
+        for(int x=1;x<=last;x++)
+        {
+            if(c[x].getName()>c[largeIndex].getName())
+                largeIndex = x;
+        }
+
+        //cout<<c[largeIndex].getName()<<endl;
+        Candidate temp = c[largeIndex];
+        c[largeIndex] = c[last];
+        c[last] = temp;
+    }
+}
+
+void NameDescending(Candidate c[],int size)
+{
+    Candidate temp;
+    for(int last=size-1;last>=1;last--)
+    {
+        int smallIndex = 0;
+
+        for(int x=1;x<=last;x++)
+        {
+            if(c[x].getName()<c[smallIndex].getName())
+                smallIndex = x;
+        }
+
+        //cout<<c[smallIndex].getName()<<endl;
+        Candidate temp = c[smallIndex];
+        c[smallIndex] = c[last];
+        c[last] = temp;
+    }
+}
+
+void SearchingName(Candidate c[],int size)
+{
+    string key;
+    cout<<"Please enter the name you want to search for : ";
+    cin>>key;
+    for(int i=0;i<size;i++)
+    {
+        if(c[i].getName() == key)
+        {
+            cout<<"Record Found   : "<<endl;
+            cout<<"Name           : "<<c[i].getName()<<endl;
+            cout<<"Faculty        : "<<c[i].getFaculty()<<endl;
+            cout<<"IC             : "<<c[i].getIC()<<endl;
+            cout<<"Age            : "<<c[i].getAge()<<endl;
+            cout<<"Vote Collected : "<<c[i].getVoteCount()<<endl;
+            cout<<"Phone number   : "<<c[i].getPhone()<<endl;
+            break;
+        }
+    }
+}
+
+void FacultyAscending(Candidate c[],int size)
+{
+    Candidate temp;
+    bool sorted=false;
+
+    for(int pass=1;(pass<size)&&!sorted;pass++)
+    {
+        sorted = true;
+        for(int j=0;j<size-pass;j++)
+        {
+            if(c[j].getFaculty() > c[j+1].getFaculty())
+            {
+                temp = c[j];
+                c[j] = c[j+1];
+                c[j+1] = temp;
+                sorted = false;
+            }
+        }
+    }
+}
+
+void FacultyDescending(Candidate c[],int size)
+{
+    Candidate temp;
+    bool sorted=false;
+
+    for(int pass=1;(pass<size)&&!sorted;pass++)
+    {
+        sorted = true;
+        for(int j=0;j<size-pass;j++)
+        {
+            if(c[j].getFaculty() < c[j+1].getFaculty())
+            {
+                temp = c[j];
+                c[j] = c[j+1];
+                c[j+1] = temp;
+                sorted = false;
+            }
+        }
+    }
+}
+
+void SearchingFaculty(Candidate c[],int size)
+{
+    string key;
+    cout<<"Please enter the faculty you want to search for : ";
+    cin>>key;
+    for(int i=0;i<size;i++)
+    {
+        if(c[i].getFaculty() == key)
+        {
+            cout<<"\nRecord Found   : "<<endl;
+            cout<<"Name           : "<<c[i].getName()<<endl;
+            cout<<"Faculty        : "<<c[i].getFaculty()<<endl;
+            cout<<"IC             : "<<c[i].getIC()<<endl;
+            cout<<"Age            : "<<c[i].getAge()<<endl;
+            cout<<"Vote Collected : "<<c[i].getVoteCount()<<endl;
+            cout<<"Phone number   : "<<c[i].getPhone()<<endl;
+            break;
+        }
+    }
+}
 
 void menu(int &opt1,int &opt2,int &opt3)
 {
