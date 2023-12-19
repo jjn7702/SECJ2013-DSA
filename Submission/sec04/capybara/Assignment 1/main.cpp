@@ -18,6 +18,11 @@ public:
     User(string Name, string IC, string Phone, string Email)
         : Name(Name), IC(IC), Phone(Phone), Email(Email) {}
 
+    string getName() const { return Name; }
+    string getIC() const { return IC; }
+    string getPhone() const { return Phone; }
+    string getEmail() const { return Email; }
+
     void display() const
     {
 
@@ -179,6 +184,49 @@ public:
         cout << "Option: ";
     }
 
+    int binarySearchUser(const vector<User> &users, const string &key, int left, int right, int option)
+    {
+        while (left <= right)
+        {
+            int mid = left + (right - left) / 2;
+
+            switch (option)
+            {
+            case 1:
+                if (users[mid].getName() == key)
+                    return mid;
+                break;
+            case 2:
+                if (users[mid].getIC() == key)
+                    return mid;
+                break;
+            case 3:
+                if (users[mid].getPhone() == key)
+                    return mid;
+                break;
+            case 4:
+                if (users[mid].getEmail() == key)
+                    return mid;
+                break;
+            default:
+                break;
+            }
+
+            if (option == 1 && users[mid].getName() < key)
+                left = mid + 1;
+            else if (option == 2 && users[mid].getIC() < key)
+                left = mid + 1;
+            else if (option == 3 && users[mid].getPhone() < key)
+                left = mid + 1;
+            else if (option == 4 && users[mid].getEmail() < key)
+                left = mid + 1;
+            else
+                right = mid - 1;
+        }
+
+        return -1; // Not found
+    }
+
     void readFromFile()
     {
         // read files
@@ -304,9 +352,28 @@ int main()
                         }
                         else if (selection == 2)
                         {
-                            init.displaySeachingUser();
-                            cin >> choice;
-                            cout << endl;
+                            // init.displaySeachingUser();
+                            // cin >> choice;
+                            // cout << endl;
+
+                            string key;
+                            cout << "Enter search key: ";
+                            cin.ignore(); // Ignore the newline character left in the buffer
+                            getline(cin, key);
+
+                            // Perform binary search
+                            int result = init.binarySearchUser(users, key, 0, users.size() - 1, choice);
+
+                            // Display result
+                            if (result != -1)
+                            {
+                                cout << "User found at index " << result << ":" << endl;
+                                users[result].display();
+                            }
+                            else
+                            {
+                                cout << "User not found." << endl;
+                            }
                         }
 
                         for (const auto &user : users)
