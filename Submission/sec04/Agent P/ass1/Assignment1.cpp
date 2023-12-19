@@ -160,8 +160,7 @@ void menu(int &opt1,int &opt2,int &opt3)
     cout<<"You want to do sorting or searching : ";
     cin>>opt1;
     }while(opt1<1 || opt1>2);
-    system("CLS");
-
+    
     switch(opt1)
     {
         case 1 : do{
@@ -183,8 +182,7 @@ void menu(int &opt1,int &opt2,int &opt3)
     cout<<"You want ascending or desending order : ";
     cin>>opt3;
     }while(opt3<1 || opt3>2);
-    system("CLS");
-
+    
 }
 
 void display(Candidate c[],int size)
@@ -202,7 +200,7 @@ void display(Candidate c[],int size)
 int main()
 {
     Candidate c[10];
-    ifstream in("cand.txt");
+    ifstream in("cand.csv");
     string name,faculty,phone,ic;
     int id,age,vote;
     int i = 0;
@@ -233,7 +231,7 @@ int main()
 
     int opt1,opt2,opt3; //Storing user selection options
     menu(opt1,opt2,opt3); //User interface for the menu
-    system("CLS");
+    
 
    switch(opt1)
     {
@@ -262,13 +260,11 @@ int main()
                         break;
                 case 2: SearchingFaculty(c,3);
                         break;
-
             }
             break;
+    }
     
 
-    display(c,3); //Displaying the candidates of election
-    system("pause");
+    //display(c,3); //Displaying the candidates of election
     return 0;
-
 }
