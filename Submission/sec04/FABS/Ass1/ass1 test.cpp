@@ -1,15 +1,15 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <vector>
 #include <iomanip>
 
 using namespace std;
+const int size = 10;
 
 class Courier {
 private:
-    string name, parcelType, source, dest, stat;
-    int trackNum;
+    string name, parcelType, source, destination, status;
+    int trackingNum;
 
 public:
     Courier(string n = " ", string p = " ", string s = " ", string d = " ", string st = " ", int t = 0)
@@ -145,21 +145,21 @@ void writeData(const string& filename, const vector<Courier>& couriers) {
 }
 
 int main() {
-    string filename;
-    cout << "Enter the input file name: ";
-    cin >> filename;
+    Courier couriers[size];
+    ifstream file("customer.txt");
 
-    vector<Courier> couriers = readData(filename);
-
-    int choice;
-    string searchKey;
-    int index = -1; // Move the declaration outside the switch statement
+    for(int i = 0; i < size; i++){
+        couriers[i].readFile(file, couriers);
+    }
+    
+    int choice, index, intKey;
+    string key;
 
     do {
-        cout << "\nMenu:\n"
+        cout << "Menu:\n"
              << "[1] View all couriers\n"
-             << "[2] Sort couriers by tracking number (using mergesort)\n"
-             << "[3] Search courier by name\n"
+             << "[2] Sort couriers (ascending)\n"
+             << "[3] Search courier\n"
              << "[4] Exit\n"
              << "Enter your choice:";
         cin >> choice;
@@ -168,36 +168,46 @@ int main() {
             case 1:
  					cout << "\n| Name              | Parcel Type   | Source         | Destination    | Status          | Tracking Number |\n"
                          << "---------------------------------------------------------------------------------------------------------------------\n";
-                for (const Courier& c : couriers) {
-                    c.display();
+                for (int i = 0; i < size; ++i) {
+                    couriers[i].display();
                 }
+                cout << endl;
                 break;
 
             case 2:
-                mergeSort(couriers, 0, couriers.size() - 1);
-                cout << "Couriers sorted by tracking number using mergesort.\n";
-                cout << "\n| Name              | Parcel Type   | Source         | Destination    | Status          | Tracking Number |\n"
-                     << "---------------------------------------------------------------------------------------------------------------------\n";
-                for (const Courier& c : couriers) {
-                    c.display();
-                }                
-                break;
+                cout << "\nSorting options:\n"
+                     << "[1] Sort by Name\n"
+                     << "[2] Sort by Parcel Type\n"
+                     << "[3] Sort by Tracking Number\n"
+                int sortingChoice;
+                cin >> sortingChoice;
+                                
+                
 
             case 3:
-                cout << "Enter the name to search: ";
-                cin >> searchKey;
-                index = linearSearch(couriers, searchKey);
-                if (index != -1) {
-                    cout << "Courier found at index " << index << ":\n";
-                    cout << "\n| Name              | Parcel Type   | Source         | Destination    | Status          | Tracking Number |\n"
-                         << "---------------------------------------------------------------------------------------------------------------------\n";
+                cout << "\nChoose search type:\n"
+                     << "[1] Search by string\n"
+                     << "Enter your choice: ";
+                int searchType;
+                cin >> searchtype;
+                
+                switch (searchType) {
+                    case 1: {
+                    cout << "\nEnter the keyword to search: ";
+                    cin >> key;
                     couriers[index].display();
-                } else {
-                    cout << "name not found.\n";
+                    case 2: {
+                    cout << "\nEnter the number to search: ";
+         			cin >> intKey;
+                } 
                 }
                 break;
 
             case 4:
+                for(int i = 0; i < size; i++)
+                couriers[i].writeFile("sorted_couriers.txt, couriers);
+
+                cout << "\nData hasbeen written to sorted_couriers.txt\n";
                 cout << "Exiting program.\n";
                 break;
 
@@ -207,8 +217,6 @@ int main() {
 
     } while (choice != 4);
 
-    // Save sorted data back to the file
-    //writeData(filename, couriers);
-
     return 0;
 }
+
