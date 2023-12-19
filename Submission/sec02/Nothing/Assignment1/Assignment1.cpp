@@ -13,7 +13,23 @@ class inventory{
         int quantity;
         double cost;
         char[] itemLocation; //rack A01, B02, etc.
-
+  public:
+        inventory();
+        inventory(int, string, string, int, double, char[]);
+        void setItemNumber(int);
+        void setItemName(string);
+        void setDescription(string);
+        void setQuantity(int);
+        void setCost(double);
+        void setItemLocation(char[]);
+        int getItemNumber();
+        string getItemName();
+        string getDescription();
+        int getQuantity();
+        double getCost();
+        char[] getItemLocation();
+        void print();
+};
 
 void merge(inventory inv[], int low, int mid, int high){
     int i, j, k;
