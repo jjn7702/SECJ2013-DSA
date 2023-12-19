@@ -85,7 +85,7 @@ void sortdate(Cust* cl[], int size){ //bubble sort
 // Task int main (Ariff)
 // main function
 int main() {
-    const int LIST_SIZE = 5;
+    const int LIST_SIZE = 10;
     string line;
     int idx = 0;
     Cust* custlist[LIST_SIZE];
@@ -101,7 +101,7 @@ int main() {
         while (getline(fileIn, line)) {
             // Use stringstream to parse the line
             stringstream ss(line);
-            string name;
+            string name, destination, airlines;
             int day, month, years;
             
             ss >> name >> day;
@@ -113,11 +113,13 @@ int main() {
              if (ss.peek() == '.') {
                 ss.ignore();
                 ss >> years;
-                custlist[idx] = new Cust(name, day, month, years);
+                ss >> destination >> airlines;
+                custlist[idx] = new Cust(name, day, month, years, destination, airlines);
                 idx++;
             }else {
                 cout << "Invalid date format in line: " << line << endl;
             }
+            
         }
     }
     
@@ -128,35 +130,73 @@ int main() {
             cout << "\n1. List results (original list)";
             cout << "\n2. List results (sort by name)";
             cout << "\n3. List results (sort by date of booking)";
-            cout << "\n4. Exit\n\n";
+            cout << "\n4. List results (sort by destination)";
+            cout << "\n5. List results (sort by airlines)";
+            cout << "\n6. Exit\n\n";
             
             cout << "Enter your choice [1, 2, 3, 4]: ";
             cin >> opt;
+
+            cout<<endl;
             
             if (opt == 1) {
-                cout<<left<<setw(15)<<"Name"<<"Date of Booking"<<endl;
+                cout<<">>>>>>>>>>>>>>>>>>>>>>>>>> BOOKING DETAILS <<<<<<<<<<<<<<<<<<<<<<<<<<<"<<endl;
+                cout<<"----------------------------------------------------------------------"<<endl;
+                cout<<left<<setw(15)<<"Name"<<"Date of Booking"<<"\t\tDestination"<<"\tAirlines"<<endl;
+                cout<<"----------------------------------------------------------------------"<<endl;
                 listcust(custlist, idx);
+                cout<<endl;
             }
 
             //sort by name
             if (opt == 2) {
                 sortname(custlist, idx);
-                cout<<left<<setw(15)<<"Name"<<"Date of Booking"<<endl;
+                cout<<"BOOKING DETAILS"<<endl;
+                cout<<"----------------------------------------------------------------------"<<endl;
+                cout<<left<<setw(15)<<"Name"<<"Date of Booking"<<"\t\tDestination"<<"\tAirlines"<<endl;
+                cout<<"----------------------------------------------------------------------"<<endl;
                 listcust(custlist, idx);
+                cout<<endl;
             }
 
             //sort by grade
             if (opt == 3) {
                 sortdate(custlist, idx);
-                cout<<left<<setw(15)<<"Name"<<"Date of Booking"<<endl;
+                cout<<"BOOKING DETAILS"<<endl;
+                cout<<"----------------------------------------------------------------------"<<endl;
+                cout<<left<<setw(15)<<"Name"<<"Date of Booking"<<"\t\tDestination"<<"\tAirlines"<<endl;
+                cout<<"----------------------------------------------------------------------"<<endl;
                 listcust(custlist, idx);
+                cout<<endl;
+            }
+
+            //sort by grade
+            if (opt == 4) {
+                sortDestination(custlist, idx);
+                cout<<"BOOKING DETAILS"<<endl;
+                cout<<"----------------------------------------------------------------------"<<endl;
+                cout<<left<<setw(15)<<"Name"<<"Date of Booking"<<"\t\tDestination"<<"\tAirlines"<<endl;
+                cout<<"----------------------------------------------------------------------"<<endl;
+                listcust(custlist, idx);
+                cout<<endl;
+            }
+
+            //sort by grade
+            if (opt == 5) {
+                sortAirlines(custlist, idx);
+                cout<<"BOOKING DETAILS"<<endl;
+                cout<<"----------------------------------------------------------------------"<<endl;
+                cout<<left<<setw(15)<<"Name"<<"Date of Booking"<<"\t\tDestination"<<"\tAirlines"<<endl;
+                cout<<"----------------------------------------------------------------------"<<endl;
+                listcust(custlist, idx);
+                cout<<endl;
             }
 
             
-            if (opt != 4) system("pause");
+
+            if (opt != 6) system("pause");
         }
 
         fileIn.close();
          return 0;
     }
-
