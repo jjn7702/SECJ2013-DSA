@@ -123,25 +123,29 @@ void sortByISBN(Book books[], int size) {
     }
 }
 
+// Print Search Results
 void displaySearchResultsHeader() {
     cout << "-----------------------------------------------------------------------------------------------------------" << endl;
     cout << "| Index |" << setw(40) << "Title" << setw(25) << "Author" << setw(10) << "Year" << setw(15) << "ISBN" << " |" << endl;
     cout << "-----------------------------------------------------------------------------------------------------------" << endl;
 }
 
+// Print Book Details of search results
 void displayBookDetails(int index, const Book& book) {
     cout << "| " << setw(5) << index << " | " << setw(38) << book.getTitle() << " | " << setw(23) << book.getAuthor() << " | "
          << setw(8) << book.getYear() << " | " << setw(13) << book.getISBN() << " |" << endl;
-}
+} 
 
+//Start Searching
 void searchByTitle(Book books[], int size) {
     string title;
     bool found = false;
     cout << "Enter the title of the book: ";
-    cin.ignore();
-    getline(cin, title);
+    cin.ignore(); // ignore the newline character
+    getline(cin, title); // read the title with spaces
 
     system("cls");
+    cout << "Searched Books (Title): " << endl;
     displaySearchResultsHeader();
 
     for (int i = 0; i < size; i++) {
@@ -167,10 +171,11 @@ void searchByAuthor(Book books[], int size) {
     getline(cin, author); // read the author with spaces
 
     system("cls");
+    cout << "Searched Books (Author): " << endl;
     displaySearchResultsHeader();
 
     for (int i = 0; i < size; i++) {
-        if (books[i].getAuthor() == author) { // Compare with book's author, not title
+        if (books[i].getAuthor() == author) { 
             displayBookDetails(i + 1, books[i]);
             found = true;
         }
@@ -191,6 +196,7 @@ void searchByYear(Book books[], int size)
     cin >> year;
 
     system("cls");
+    cout << "Searched Books (Year Published): " << endl;
     displaySearchResultsHeader();
 
     for (int i = 0; i < size; i++) {
@@ -214,7 +220,9 @@ void searchByISBN(Book books[], int size) {
     getline(cin, isbn); // read the title with spaces
 
     system("cls");
+    cout << "Searched Books (ISBN): " << endl;
     displaySearchResultsHeader();
+
     for (int i = 0; i < size; i++) {
         if (books[i].getISBN() == isbn) {
             displayBookDetails(i + 1, books[i]);
@@ -226,7 +234,7 @@ void searchByISBN(Book books[], int size) {
     }
 
     cout << "-----------------------------------------------------------------------------------------------------------" << endl;
-}
+} //end searching
 
 
 
@@ -336,21 +344,17 @@ int main() {
 
         readFile(books, size);
 
-        switch (searchChoice) {
+       switch (searchChoice) {
         case 1:
-            cout << "Searched Books (Title): " << endl; 
             searchByTitle(books, size);
             break;
         case 2:
-            cout << "Searched Books (Author): " << endl;
             searchByAuthor(books, size);
             break;
         case 3:
-            cout << "Searched Books (Year Published): " << endl;
             searchByYear(books, size);
             break;
         case 4:
-            cout << "Searched Books (ISBN): " << endl;
             searchByISBN(books, size);
             break;
         default:
