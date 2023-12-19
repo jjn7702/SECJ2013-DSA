@@ -160,14 +160,14 @@ void bookingMenu() {
     do{
         readBookingData(booking, MAXSIZE);
 	    
-        cout << "Sort bookings by " << endl;
+        cout << "\nSort bookings by " << endl;
         cout << "1. Room Type" << endl;
         cout << "2. Room Price (Low to High)" << endl;
         cout << "3. Room Price (High to Low)" << endl;
         cout << "4. Latest Check-In Date" << endl;
         cout << "5. Earliest Check-In Date" << endl;
         cout << "6. Exit" << endl;
-        cout << "Enter your option: " << endl;
+        cout << "Enter your option: ";
         cin >> input;
 
         switch(input) {
@@ -224,7 +224,7 @@ void bookingMenu() {
 
             case 3:
             {
-                cout<<"Sort by Room Price (High to Low):"<<endl;
+                cout<<"\nSort by Room Price (High to Low):"<<endl;
                 double price[MAXSIZE];
                 for (int i = 0; i < MAXSIZE; ++i) {
                         price[i] = booking[i].getTotalPrice();
@@ -250,7 +250,7 @@ void bookingMenu() {
                 
             case 4:
             {
-                cout<<"Sort by Latest Check-In Date:"<<endl;
+                cout<<"\nSort by Latest Check-In Date:"<<endl;
                 string date[MAXSIZE];
                 for (int i = 0; i < MAXSIZE; ++i) {
                         date[i] = booking[i].getCheckInDate();
@@ -276,7 +276,7 @@ void bookingMenu() {
                 
             case 5:
             {
-                cout << "Sort by Earliest Check-In Date:" << endl;
+                cout << "\nSort by Earliest Check-In Date:" << endl;
                 string checkinDate[MAXSIZE];
                 for (int i = 0; i < MAXSIZE; ++i) {
                     checkinDate[i] = booking[i].getCheckInDate();
@@ -367,9 +367,11 @@ int main()
     inFile.close();
     
     //Menu for Admin
-    cout << "Welcome to LogiCode Hotel" << endl;
+    cout <<"---------------------------------" <<endl;
+    cout <<"LogiCode Hotel Management System" <<endl;
+    cout <<"---------------------------------" <<endl;
     bool existence = false;
-	cout << "Please enter your admin ID: " << endl;
+    cout << "Admin ID: ";
     cin >> input;
 
     int found = SequenceSearch(input, a, SIZE);
