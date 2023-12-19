@@ -56,61 +56,185 @@ vector<int> SequenceSearchByStatus(const string &key, const task T[], int size)/
 
 int partitionByTaskasc(task T[], int first, int last)//partion task ascending
 {
+    string pivot= T[last].gettask();
+    int i=(first - 1);
+
+    for(int j= first; j<=last-1 ; j++)
+    {
+        if (T[j].gettask()<pivot)
+        {
+            i++;
+            swap(T[i], T[j]);
+        }
+    }
+
+    swap(T[i +1], T[last]);
+    return (i+1);
 
 }
 
 void quicksortByTaskasc(task T[], int first, int last)//quicksort task ascending
 {
+    if (first<last)
+    {
+        int pi= partitionByTaskasc(T, first, last);
+        quicksortByTaskasc(T,first, pi - 1);
+        quicksortByTaskasc(T,pi + 1, last);
+    }
 
 }
 
 int partitionByDateasc(task T[], int first, int last)//partion date ascending
 {
+    string pivot=T[last].getyear() + T[last].getmonth() + T[last].getday();
+    int i=(first-1);
+
+    for (int j=first; j<=last-1; j++)
+    {
+        string currentDate=T[j].getyear() + T[j].getmonth() + T[j].getday();
+        if (currentDate<pivot)
+        {
+            i++;
+            swap(T[i],T[j]);
+        }
+    }
+    swap(T[i+1], T[last]);
+    return (i+1);
 
 }
 
 void quicksortByDateasc(task T[], int first, int last)//quicksort date ascending
 {
+    if (first<last)
+    {
+        int pi=partitionByDateasc(T,first,last);
+        quicksortByDateasc(T,first,pi-1);
+        quicksortByDateasc(T,pi+1,last);
+    }
 
 }
 
 int partitionByStatusasc(task T[], int first, int last)//partion status ascending
 {
+    string pivot = T[last].getstatus();
+    int i = (first - 1);
+
+    for (int j=first; j<=last-1;j++)
+    {
+        if(T[j].getstatus()<pivot)
+        {
+            i++;
+            swap(T[i],T[j]);
+        }
+    }
+
+    swap(T[i+1],T[last]);
+    return (i+1);
 
 }
 
 void quicksortByStatusasc(task T[], int first, int last)//quicksort status ascending
 {
+    if(first<last)
+    {
+        int pi = partitionByStatusasc(T, first, last);
+        quicksortByStatusasc(T, first, pi - 1);
+        quicksortByStatusasc(T,pi + 1, last);
+    }
 
 }
 
 int partitionByTaskdec(task T[], int first, int last)//partion task descending
 {
+    string pivot = T[last].gettask();
+    int i = (first - 1);
+    
+    for (int j=first; j<=last -1; j++)
+    {
+        if(T[j].gettask()>pivot)
+        {
+            i++;
+            swap(T[i], T[j]);
+        }
+    }
+    swap(T[i+1],T[last]);
+    return (i+1);
 
 }
 
 void quicksortByTaskdec(task T[], int first, int last)//quicksort task descending
 {
+    if (first<last)
+    {
+        int pi= partitionByTaskdec(T,first,last);
+        quicksortByTaskdec(T,first,pi-1);
+        quicksortByTaskdec(T,pi + 1, last);
+
+    }
 
 }
 
 int partitionByDatedec(task T[], int first, int last)//partion date descending
 {
+    string pivot=T[last].getyear() + T[last].getmonth() + T[last].getday();
+    int i=(first - 1);
+
+    for (int j= first; j<=last - 1; j++)
+    {
+        string currentDate= T[j].getyear() + T[j].getmonth() + T[j].getday();
+        if (currentDate < pivot)
+        {
+            i++;
+
+            swap(T[i], T[j]);
+        }
+    }
+
+    swap(T[i + 1], T[last]);
+    return (i+1);
+
 
 }
 
 void quicksortByDatedec(task T[], int first, int last)//quicksort date descending
 {
+    if(first<last)
+    {
+        int pi = partitionByDateasc(T,first,last);
+        quicksortByDatedec(T,first,pi - 1);
+        quicksortByDatedec(T,pi + 1, last);
+    }
 
 }
 
 int partitionByStatusdec(task T[], int first, int last)//partion status descending
 {
+    string pivot= T[last].getstatus();
+    int i=(first - 1);
+
+    for(int j=first;j<=last - 1; j++)
+    {
+        if(T[j].getstatus()>pivot)
+        {
+            i++;
+            swap(T[i], T[j]);
+        }
+    }
+    swap(T[i+1], T[last]);
+    return(i+1);
+
 
 }
 
 void quicksortByStatusdec(task T[], int first, int last)//quicksort status descending
 {
+    if(first<last)
+    {
+        int pi=partitionByStatusdec(T, first, last);
+        quicksortByStatusdec(T,first,pi - 1);
+        quicksortByStatusdec(T,pi + 1,last);
+
+    }
 
 }
 
@@ -188,27 +312,28 @@ int main()
             {
             case 1:
                 // Sort by ascending task
+                quicksortByTaskasc(t,0,4);
                 
                 break;
             case 2:
                 // Sort by ascending date
-                
+                quicksortByDateasc(t,0,4);
                 break;
             case 3:
                 // Sort by ascending status
-                
+                quicksortByStatusasc(t,0,4);
                 break;
             case 4:
                 // Sort by descending task
-                
+                quicksortByTaskdec(t,0,4);
                 break;
             case 5:
                 // Sort by descending date
-                
+                quicksortByDatedec(t,0,4);
                 break;
             case 6:
                 // Sort by descending status
-                
+                quicksortByStatusdec(t,0,4);
                 break;
             case 7:
                 // Exit sorting process

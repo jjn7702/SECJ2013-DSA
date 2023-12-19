@@ -103,32 +103,7 @@ void PriceASC(Menu menuArray[]){
     printSortedResult(menuArray);
 }
 
-/*void searchByName(Menu menuArray[], const string& searchTerm) {
-    bool found = false;
-
-    // Loop through the menu items
-    for (int i = 0; i < SIZE; i++) {
-        // Check if the name contains the search term
-        if (menuArray[i].getName().find(searchTerm) != string::npos) {
-            if (!found) {
-                displayHeader();
-                found = true;
-            }
-            cout << left;
-            cout << setw(10) << menuArray[i].getFoodId() << " | "
-                << setw(21) << menuArray[i].getName() << " | "
-                << setw(13) << menuArray[i].getCategory() << " | "
-                << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
-        }
-    }
-    
-        // Display a message if no matching items are found
-    if (!found) {
-        cout << "No items found with the specified name." << endl;
-    }
-}*/
-
-void searchByName(Menu menuArray[], const string &searchTerm) {
+/*void searchByName(Menu menuArray[], const string &searchTerm) {
     bool found = false;
     displayHeader();
     for (int i = 0; i < SIZE; i++) {
@@ -152,82 +127,42 @@ void searchByName(Menu menuArray[], const string &searchTerm) {
     if (!found) {
         cout << "No matching results found.\n";
     }
-}
+}*/
 
-int main() {
-    Menu menuArray[SIZE];
-    char choice;
-    int size = 0;
-    fstream nameFile;
-    string input;
-    string foodId, name, category;
-    double price;
-    
-    do {
-        system("cls");
-        cout << "WELCOME TO TUPPERWARE!" << endl;
-        cout << "View Menu? Y => yes | N => no: ";
-        cin >> choice;
-
-        if (choice == 'N' || choice == 'n') 
-            break;
-        else if (choice == 'Y' || choice == 'y') {
-            nameFile.open("menu.txt", ios::in);
-
-            if (!nameFile) {
-                cout << "ERROR: Cannot open file." << endl;
-                return 0;
+void searchByName(Menu menuArray[], const string &searchTerm) {
+    bool found = false;
+    for (int i = 0; i < SIZE; ++i) {
+        if (menuArray[i].getName().find(searchTerm) != string::npos) {
+            if (!found) {
+                cout << left;
+                cout << setw(10) << "ID" << " | "
+                     << setw(21) << "NAME" << " | "
+                     << setw(13) << "CATEGORY" << " | "
+                     << fixed << setprecision(2) << setw(6) << "PRICE" << endl;
+                cout << "---------------------------------------------------------" << endl;
+                found = true;
             }
-
-            while (!nameFile.eof() && size < SIZE) {
-                getline(nameFile, foodId, ',');
-                getline(nameFile, name, ',');
-                getline(nameFile, category, ',');
-                nameFile >> price;
-                nameFile.ignore();
-
-                menuArray[size++] = Menu(foodId, name, category, price);
-            }
-            nameFile.close();
-            displayHeader();
-            displayMenu(menuArray);
-
-            cout << "\nDo you want to (V)iew in a new way, or (S)earch? ";
-            cin >> choice;
-
-            if (choice == 'V' || choice == 'v') {
-                // View in a new way (sorting)
-                cout << "Sort by Food ID or Price? ";
-                int choiceSort;
-                cout << "1 - ALPHABET ORDER | 2 - PRICE => ";
-                cin >> choiceSort;
-                switch (choiceSort) {
-                    case 1:
-                        FoodIdASC(menuArray);
-                        break;
-
-                    case 2:
-                        PriceASC(menuArray);
-                        break;
-                }
-            } else if (choice == 'S' || choice == 's') {
-                // Searching for a specific food by name
-                string targetName;
-                cout << "Enter the food name you want to search: ";
-                cin.ignore();  // Ignore any newline characters left in the input buffer
-                getline(cin, targetName);
-
-                // Call the searchByName function
-                searchByName(menuArray, targetName);
-            }
-        } else {
-            cout << "Invalid input. Please enter Y or N.\n";
+            cout << setw(10) << menuArray[i].getFoodId() << " | "
+                << setw(21) << menuArray[i].getName() << " | "
+                << setw(13) << menuArray[i].getCategory() << " | "
+                << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
         }
-    } while (true);
+    }
 
-    return 0;
+    if (!found) {
+        cout << "No matching food found.\n";
+    } else {
+        // Additional actions after displaying search results
+        string orderChoice;
+        cout << "What do you want to order? (Enter Food ID): ";
+        cin >> orderChoice;
+
+        // Implement further actions based on the orderChoice, e.g., place an order, etc.
+        // You can add more logic here based on your requirements.
+    }
 }
-/*int main(){
+
+int main(){
     Menu menuArray[SIZE];
     char choice;
     int size = 0;
@@ -308,10 +243,10 @@ do{
         }
     } else if (choice == 'S' || choice == 's') {
         // Searching for a specific food by name
-        string searchTerm;
+        string targetName;
         cout << "Enter the name of the food you want to search: ";
         cin.ignore(); // Clear the newline character from the buffer
-        getline(cin, searchTerm);
+        getline(cin, targetName);
         searchByName(menuArray, targetName);
     } else {
         cout << "Invalid input. Please enter V or S.\n";
@@ -320,4 +255,4 @@ do{
 } while (true);
 
 return 0;
-}*/
+}
