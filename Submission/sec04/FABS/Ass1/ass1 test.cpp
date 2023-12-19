@@ -72,109 +72,116 @@ public:
     }
 };
 
-// Merge function for mergesort
-template <typename T>
-void merge(vector<T>& data, int left, int mid, int right) {
-    int n1 = mid - left + 1;
-    int n2 = right - mid;
 
-    vector<T> leftArray(n1);
-    vector<T> rightArray(n2);
-
-    for (int i = 0; i < n1; i++) {
-        leftArray[i] = data[left + i];
+int searchString(string key, Courier arr[], int size) {
+    for (int i = 0; i < size; i++) {
+	if (arr[i].getName() == key || arr[i].getType() == key || arr[i].getSource() == key ||
+	    arr[i].getDest() == key || arr[i].getStat() == key) {
+	    return i;
+	}
     }
-
-    for (int j = 0; j < n2; j++) {
-        rightArray[j] = data[mid + 1 + j];
-    }
-
-    int i = 0;
-    int j = 0;
-    int k = left;
-
-    while (i < n1 && j < n2) {
-        if (leftArray[i].getTrackNum() <= rightArray[j].getTrackNum()) {
-            data[k] = leftArray[i];
-            i++;
-        } else {
-            data[k] = rightArray[j];
-            j++;
-        }
-        k++;
-    }
-
-    while (i < n1) {
-        data[k] = leftArray[i];
-        i++;
-        k++;
-    }
-
-    while (j < n2) {
-        data[k] = rightArray[j];
-        j++;
-        k++;
-    }
+return -1;
 }
 
-// Mergesort algorithm
-template <typename T>
-void mergeSort(vector<T>& data, int left, int right) {
-    if (left < right) {
-        int mid = left + (right - left) / 2;
-
-        mergeSort(data, left, mid);
-        mergeSort(data, mid + 1, right);
-
-        merge(data, left, mid, right);
+int SearchInt(int key, Courier arr[], int size) {
+    for (int i = 0; i < size; ++i) {
+	if (arr[i].getTrackNum() == key) {
+	    return i;
+	}
     }
+return -1;
 }
 
-template <typename T>
-int linearSearch(const vector<T>& data, const string& key) {
-    for (size_t i = 0; i < data.size(); ++i) {
-        if (data[i].getName() == key) {
-            return i; // Return the index if found
-        }
-    }
-    return -1; // Return -1 if not found
+bool compareStrByName(Courier& a, Courier& b) {
+     return a.getName() < b.getName();
 }
 
-vector<Courier> readData(const string& filename) {
-    ifstream file(filename);
-    if (!file) {
-        cout << "Error opening file: " << filename << endl;
-        exit(0);
-    }
-
-    vector<Courier> couriers;
-    string n, p, s, d, st;
-    int t;
-    while (file >> n >> p >> s >> d >> st >> t) {
-        couriers.emplace_back(n, p, s, d, st, t);
-    }
-
-    file.close();
-    return couriers;
+bool compareStryByType(Courier& a, courier& b) {
+     return a.getType() < b.getType();
 }
 
-void writeData(const string& filename, const vector<Courier>& couriers) {
-    ofstream file(filename);
-    if (!file) {
-        cout << "Error opening file: " << filename << endl;
-        exit(0);
-    }
+void swap(Courier& a, Courier& b) {
+     Courier temp = a;
+     a = b;
+     b = temp;
+}
 
-    for (const Courier& c : couriers) {
-        file << c.getName() << " "
-             << c.getType() << " "
-             << c.getSource() << " "
-             << c.getDest() << " "
-             << c.getStat() << " "
-             << c.getTrackNum() << endl;
-    }
+int partitionInt(Courier arr[], int first, int last) {
+    int pivot = arr[last].getTrackNum();
+    int bottom = first - 1, top = last;
 
-    file.close();
+    while (true) {
+	while (arr[--top].getTrackNum() > pivot);
+	while (arr[++bottom].getTrackNum() < pivot);
+	if (bottom < top) {
+		swap(arr[bottom], arr[top]);
+    	}
+	else {
+	  break;
+	}
+    }  
+    swap(arr[bottom], arr[last]);
+    return bottom;
+}
+
+int partitionSortByName(Courier arr[], int first, int last) {
+    Courier pivot = arr[last];
+    int bottom = first - 1, top = last;
+
+    while (true) {
+	while (arr[--top].getName() > pivot.getName());
+	while (arr[++bottom].getName() < pivot.getName());
+	if (bottom < top){
+		swap(arr[bottom], arr[top]);
+   	 }
+	else {
+	  break;
+	}
+    } 
+    swap(arr[bottom], arr[last]);
+    return bottom;
+}
+
+int partitionSortByType(Courier arr[], int first, int last) {
+	Courier pivot = arr[last];
+	int bottom = first - 1; top = last;
+
+	while(true) {
+		while (arr[--top].getName() > pivot.getName());
+	while (arr[++bottom].getName() < pivot.getName());
+	if (bottom < top){
+		swap(arr[bottom], arr[top]);
+   	 }
+	else {
+	  break;
+	}
+    } 
+    swap(arr[bottom], arr[last]);
+    return bottom;
+}
+
+void quickSortInt(Courier arr[], int first, int last) {
+	if (first < last) {
+		int pivot = partitionInt(arr, first, last);
+
+	quickSortInt(arr, first, pivot - 1);
+	quickSortInt(arr, pivot + 1, last);
+	}
+}
+
+void quickSortStr(Courier arr[], int first, int last, bool sortByType) {
+	if (first < last) {
+		int pivotIndex;
+		if (sortByType) {
+			pivotIndex = partitionStrByType(arr, first, last);
+		}
+		else {
+			pivotIndex = partitionStrByName(arr, first, last);
+		}
+
+	quickSortStr(arr, first, pivotIndex - 1, sortByType);
+	quickSortStr(arr, pivotIndex + 1, last, sortByType);
+	}
 }
 
 int main() {
