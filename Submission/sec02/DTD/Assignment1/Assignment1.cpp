@@ -260,7 +260,7 @@ int main() {
     system("cls");
     cout << setw(40) << " ____________________________________" << endl;
     cout << setw(40) << "|                                    |" << endl;
-    cout << setw(40) << "|   Welcome to Sort/Search by DTD!   |" << endl;
+    cout << setw(40) << "|       Welcome to DTD Library!      |" << endl;
     cout << setw(40) << "|____________________________________|" << endl << endl;
 
     cout << setw(15) << "[1] Sorting" << endl;
@@ -276,7 +276,7 @@ int main() {
         system("cls");
         cout << setw(40) << " ____________________________________" << endl;
         cout << setw(40) << "|                                    |" << endl;
-        cout << setw(40) << "|              Sorting               |" << endl;
+        cout << setw(40) << "|           Sorting Books            |" << endl;
         cout << setw(40) << "|____________________________________|" << endl << endl;
         cout << setw(15) << "[1] Sort by Title" << endl;
         cout << setw(17) << "[2] Sort by Author" << endl;
@@ -324,7 +324,7 @@ int main() {
         system("cls");
         cout << setw(40) << " ____________________________________" << endl;
         cout << setw(40) << "|                                    |" << endl;
-        cout << setw(40) << "|              Searching             |" << endl;
+        cout << setw(40) << "|          Searching Books           |" << endl;
         cout << setw(40) << "|____________________________________|" << endl << endl;
         cout << setw(15) << "[1] Search by Title" << endl;
         cout << setw(17) << "[2] Search by Author" << endl;
