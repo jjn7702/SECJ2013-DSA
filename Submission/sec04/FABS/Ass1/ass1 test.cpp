@@ -96,7 +96,7 @@ bool compareStrByName(Courier& a, Courier& b) {
      return a.getName() < b.getName();
 }
 
-bool compareStryByType(Courier& a, Courier& b) {
+bool compareStrByType(Courier& a, Courier& b) {
      return a.getType() < b.getType();
 }
 
@@ -147,8 +147,8 @@ int partitionSortByType(Courier arr[], int first, int last) {
 	int bottom = first - 1, top = last;
 
 	while(true) {
-		while (arr[--top].getName() > pivot.getName());
-	while (arr[++bottom].getName() < pivot.getName());
+		while (arr[--top].getType() > pivot.getType());
+	while (arr[++bottom].getType() < pivot.getType());
 	if (bottom < top){
 		swap(arr[bottom], arr[top]);
    	 }
