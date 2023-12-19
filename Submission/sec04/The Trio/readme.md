@@ -7,19 +7,19 @@
 
 _Don't forget to hit the :star: if you like this repo._
 
-# Hospital Management System
+# Hotel Booking System
 
 ## Description 📝
 
-The Hospital Management System is developed to provide an effective management and monitoring of patient records in a hospital. This system aims to address healthcare professionals with tools to streamline patient information, contact information, and medical history, delivering quick and accurate patient record tracking.
+Hotel booking systems where designed to streamline the process of hotel booking, providing customers with an efficient platform for booking accomodations.
 
 ## Prepared by 🧑‍💻
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-| Neo Zheng Weng   | A22EC0093        | <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Images/neozhengweng_pic.jpg" width=80px, height=80px>     |
-| Joseph Lau Yeo Kai       | A22EC0055        | <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Images/joseph_pic.jpeg" width=80px, height=80px>         |
-| Lee Yik Hong       |         | <img src="../Images/" width=80px, height=80px>         |
+| EDDY KOH WEI HEN   | A22EC0154       | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/boy_4537038.png" width=80px, height=80px>     |
+| NUR HAFIZAH BINTI JAFRI | A22EC5022        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/girl_4537097.png" width=80px, height=80px>         |
+| NURSYUHADA BINTI BADREN      | A22EC0253       | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/boy_4537022.png" width=80px, height=80px>         |
 
 
 ## Findings 📊
@@ -33,5 +33,3 @@ Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Samp
 
 [![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fjjn7702&labelColor=%23697689&countColor=%23555555&style=plastic)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fjjn7702)
 ![](https://hit.yhype.me/github/profile?user_id=81284918)
-
-
