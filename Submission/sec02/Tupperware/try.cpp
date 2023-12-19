@@ -112,12 +112,16 @@ int main(){
     string foodId, name, category;
     double price;
 
+do{
     system("cls");
     cout << "WELCOME TO TUPPERWARE!" << endl;
     cout << "View Menu? Y => yes | N => no: ";
     cin >> choice;
 
-    if (choice == 'Y' || choice == 'y') {
+    if (choice == 'N' || choice == 'n') 
+        break;
+    
+    else if (choice == 'Y' || choice == 'y') {
         nameFile.open("menu.txt", ios::in);
 
         if (!nameFile){
@@ -138,7 +142,6 @@ int main(){
         displayHeader();
         displayMenu(menuArray);
 
-    }
     
         cout << "\nDo you want to (V)iew in a new way, or (S)earch? ";
         cin >> choice;
@@ -159,23 +162,14 @@ int main(){
                 PriceASC(menuArray);
                     break;
                 }
-
-        /*} else if (choice == 'S' || choice == 's') {
-            // Searching for a specific food
-            string targetFoodId;
-            cout << "Enter the Food ID you want to search: ";
-            cin >> targetFoodId;
-
-            if (menu.searchByFoodId(targetFoodId)) {
-                cout << "Food ID found!\n";
-            } else {
-                cout << "Food ID not found.\n";
-            }
-        }*/
         }
+    } else {
+        cout << "Invalid input. Please enter Y or N.\n";
+    }  
     
+} while (true);
 
-    return 0;
+return 0;
 
 //testing
     /*Menu menuArray[] = {Menu("WE05", "Thai Pasta", "Western", 12.00), 
