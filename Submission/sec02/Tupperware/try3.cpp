@@ -72,17 +72,17 @@ void FoodIdASC(Menu menuArray[]){
 void searchByName(Menu menuArray[], const string& searchTerm) {
     bool found = false;
     for (int i = 0; i < SIZE; i++) {
-        if (menuArray[i].getName().find(searchTerm) != string::npos) {
+        if (menuArray[i].getName().find(searchTerm) != menuArray[i].getName().length()) {
             if (!found) {
-                displayHeader();
-                found = true;
-            }
-            cout << left;
-            cout << setw(10) << menuArray[i].getFoodId() << " | "
-                << setw(21) << menuArray[i].getName() << " | "
-                << setw(13) << menuArray[i].getCategory() << " | "
-                << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
-        }
+        displayHeader();
+        found = true;
+    }
+    cout << left;
+    cout << setw(10) << menuArray[i].getFoodId() << " | "
+        << setw(21) << menuArray[i].getName() << " | "
+        << setw(13) << menuArray[i].getCategory() << " | "
+        << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
+}
     }
 
     if (!found) {
