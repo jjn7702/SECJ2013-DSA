@@ -112,6 +112,36 @@ int main()
     menu(opt1,opt2,opt3); //User interface for the menu
     system("CLS");
 
+    switch(opt1)
+    {
+        case 1:
+            switch(opt2)
+            {
+                case 1 : if(opt3 == 1)
+                            NameAscending(c,3);
+                         else
+                            NameDescending(c,3);
+                        display(c,3);
+                        break;
+                case 2: if(opt3 == 1)
+                            FacultyAscending(c,3);
+                         else
+                            FacultyDescending(c,3);
+                        display(c,3);
+                        break;
+            }
+            break;
+        
+        case 2:
+            switch(opt2)
+            {
+                case 1: Searching(c,3);
+                        break;
+
+            }
+            break;
+    }
+
     display(c,3); //Displaying the candidates of election
     system("pause");
     return 0;
