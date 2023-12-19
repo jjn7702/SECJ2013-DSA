@@ -1,0 +1,28 @@
+{
+    "configurations": [{
+        "name": "MinGW",
+        "intelliSenseMode": "clang-x64",
+        "compilerPath": "C:/ProgramData/chocolatey/lib/mingw/tools/install/mingw64/bin/gcc.exe",
+        "includePath": [
+            "${workspaceFolder}",
+            "C:/ProgramData/chocolatey/lib/mingw/tools/install/mingw64/lib/gcc/x86_64-w64-mingw32/11.2.0/include"
+        ],
+
+        "defines": [
+            "_DEBUG"
+        ],
+        "browse": {
+            "path": [
+                "C:/ProgramData/chocolatey/lib/mingw/tools/install/mingw64/lib/gcc/x86_64-w64-mingw32/11.2.0/include",
+                "C:/ProgramData/chocolatey/lib/mingw/tools/install/mingw64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed",
+                "C:/ProgramData/chocolatey/lib/mingw/tools/install/mingw64/include",
+                "${workspaceFolder}"
+            ],
+            "limitSymbolsToIncludedHeaders": true,
+            "databaseFilename": ""
+        },
+        "cStandard": "c11",
+        "cppStandard": "c++17"
+    }],
+    "version": 4
+}

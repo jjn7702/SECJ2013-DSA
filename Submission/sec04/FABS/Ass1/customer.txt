@@ -1,11 +1,11 @@
-sarah,shirt,kl,jb,yes,1235
-ziera,book,sel,muo,no,6548
-abduh,shoes,pk,utm,yes,5488
-ali,ball,kamek,kk,no,4986
-jessica,phone,pen,an,no,7890
-rahman,laptop,kl,tk,yes,2345
-emily,watch,joho,th,yes,8765
-kamal,hat,ipoh,re,no,4321
-aisha,glasses,kuchin,ku,yes,5678
-mohammed,camera,langka,pk,no,9876
+Sarah Sofea,shirt,Kuala Lumpur,Johor Bahru,yes,123500
+Ziera Nisha,book,Selangor,Muar,no,654879
+Muhammad Abduh,shoes,Pulau Pinang,Melaka,yes,548821
+Mohd Ali,ball,Sarawak,Sabah,no,498678
+Jessica Luvia,phone,Perak,Senai,no,789092
+Rahman Putra,laptop,Kuala Lumpur,Ayer Hitam,yes,234539
+Emily Lisa,watch,,Pasir Gudang,Tangkak,yes,876565
+Kamal Kamarudin,hat,Ipoh,Sabah,no,432121
+Aisha Sofea,glasses,Rompin,Sungai Petani,yes,567837
+Mohammed Omar,camera,Karak,Alor Gajah,no,987602
 
