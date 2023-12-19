@@ -17,22 +17,22 @@ class Account
 	Account (string n="", string a=0, string i="", double b=0.0)
 		:name(n),accNum(a),ic(i),accBalance(b){}
 
-	string getName(string name)
+	string getName()
 	{
 		return name;  
 	}
 
-	string getAccNum(string accNum)
+	string getAccNum()
 	{
 		return accNum;
 	}
 
-	string getIc(string ic)
+	string getIc()
 	{
 		return ic;
 	}
 
-	double getBalance(double accBalance)
+	double getBalance()
 	{
 		return accBalance;
 	}
