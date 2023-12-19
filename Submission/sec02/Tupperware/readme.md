@@ -1,5 +1,16 @@
+<h1>Restaurant Management System</h1>
 <h1>Assignment 1</h1>
-<h2>Sorting</h2>
+<h2>Description 📝</h2>
+
+<h2> Prepared by 🧑‍💻</h2>
+
+| Name             | Matric Number | Photo                                                         |
+| :---------------- | :-------------: | :------------------------------------------------------------: |
+| WAN NUR SOFEA BINTI MOHD HASBULLAH   | A22EC0115        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="" width=80px, height=80px>     |
+| NADHRAH NURSABRINA BINTI ZULAINI     | A22EC0224        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="" width=80px, height=80px>         |
+| NUR ALEYSHA QURRATU'AINI BINTI MAT SALLEH       | A22EC0241        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="" width=80px, height=80px>         |
+
+<h2>Flow of system</h2>
 <p> 
 1. Menu (food id, name, type of dish, amount, price)
 2. Customer (table number, number of orders, pax, bill)
@@ -30,10 +41,8 @@
 
 
 <h1>Assignment 2</h1>
-<h2>Sorting</h2>
-<p> 
-1. Menu (name, type of dish, amount, price)
-2. Customer (table number, number of orders, pax, bill)
-3.  
-</p>
+<h2>Findings 📊</h2>
+- <a href="Assignment1" >Assignment 1 
+- Assignment 2
+- Project
 
