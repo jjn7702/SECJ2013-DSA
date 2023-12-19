@@ -43,6 +43,6 @@
 <h1>Assignment 2</h1>
 <h2>Findings 📊</h2>
 - <a href="Assignment1" >Assignment 1 </a>
-- Assignment 2
-- Project
+- Assignment 2<br>
+- Project<br>
 
