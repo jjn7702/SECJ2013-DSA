@@ -1,0 +1,10 @@
+abduh,shoes,pk,utm,yes,5488
+aisha,glasses,kuchin,ku,yes,5678
+ali,ball,kamek,kk,no,4986
+emily,watch,joho,th,yes,8765
+jessica,phone,pen,an,no,7890
+kamal,hat,ipoh,re,no,4321
+mohammed,camera,langka,pk,no,9876
+rahman,laptop,kl,tk,yes,2345
+sarah,shirt,kl,jb,yes,1235
+ziera,book,sel,muo,no,6548

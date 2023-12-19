@@ -7,19 +7,19 @@
 
 _Don't forget to hit the :star: if you like this repo._
 
-# Airline Reservation System
+# Hotel Booking System
 
 ## Description 📝
 
-An Airline Reservation System is a computerized platform that facilitates the booking and management of airline tickets for passengers. It serves as the backbone for airline operations, helping airline staff interact with flight-related information.
+Hotel booking systems where designed to streamline the process of hotel booking, providing customers with an efficient platform for booking accomodations.
 
 ## Prepared by 🧑‍💻
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-| CHE MARHUMI BIN CHE AB RAHIM   | A22EC0147|      |
-| MUHAMMAD ARIFF DANISH BIN HASHNAN       | A22EC0204      |           |
-| MUHAMMAD IMAN FIRDAUS BIN BAHARUDDIN       | A22EC0216       |         |
+| EDDY KOH WEI HEN   | A22EC0154       | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/boy_4537038.png" width=80px, height=80px>     |
+| NUR HAFIZAH BINTI JAFRI | A22EC5022        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/girl_4537097.png" width=80px, height=80px>         |
+| NURSYUHADA BINTI BADREN      | A22EC0253       | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/boy_4537022.png" width=80px, height=80px>         |
 
 
 ## Findings 📊

@@ -1,13 +1,12 @@
 #include<iostream>
 #include<fstream>
 #include<string>
-#include<vector>
 #include<iomanip>
 
 using namespace std;
 
 class Account{
-	private:
+	public:
 		string account_number;
 		double balance;
 		string transaction_date;
@@ -15,8 +14,7 @@ class Account{
 		double transaction_amount;
 		string target_account; //for transfer
 	
-	public:
-		Account(string an, double b) : account_number(an), balance(b) {}
+		Account(string an = "", double b = 0.0) : account_number(an), balance(b) {}
 		
 		void setTransactionDate(string d){ transaction_date = d; }
 		
@@ -42,65 +40,102 @@ class Account{
 };
 
 
-template <typename T>
-int partition(vector<T>& data, int first, int last) {
-    T pivot, temp;
+int partition(Account acc[], int first, int last, int type)
+{
+    Account pivot = acc[first];
+    Account temp;
     int loop, cutPoint, bottom, top;
 
-    pivot = data[first];
+    bottom = first; top = last;
+    loop = 1;
 
-    bottom = first;
-    top = last;
+	 while (loop)
+    {
 
-    while (bottom < top) {
-        while (data[top] < pivot)
-            top--;
+        if(type == 2)
+        {
+            while (acc[top].transaction_date < pivot.transaction_date) { top--; }
+            while (acc[bottom].transaction_date > pivot.transaction_date) { bottom++; }
+        }
+        else if(type == 3)
+        {   
+            while (acc[top].transaction_date > pivot.transaction_date) { top--; }
+            while (acc[bottom].transaction_date < pivot.transaction_date) { bottom++; }
+        }
+        else if(type == 4)
+        {
+            while (acc[top].balance > pivot.balance) { top--; }
+            while (acc[bottom].balance < pivot.balance) { bottom++; }
+        }
+		else
+        {
+            while (acc[top].balance < pivot.balance) { top--; }
+            while (acc[bottom].balance > pivot.balance) { bottom++; }
+        }
+        
 
-        while (data[bottom] > pivot)
-            bottom++;
-
-        if (bottom < top) {
-            temp = data[bottom];
-            data[bottom] = data[top];
-            data[top] = temp;
+        if (bottom < top)
+        {
+            temp = acc[bottom];
+            acc[bottom] = acc[top];
+            acc[top] = temp;
+        }
+        else
+        {
+            loop = 0;
+            cutPoint = top;
         }
     }
-
-    cutPoint = top;
-
     return cutPoint;
 }
 
-template <typename T>
-void quickSort(vector<T>& data, int first, int last) {
-    if (first < last) {
-        int cut = partition(data, first, last);
-        quickSort(data, first, cut);
-        quickSort(data, cut + 1, last);
+void quickSort(Account acc[], int first , int last, int type)
+{
+    int cut;
+    if (first < last)
+    {
+        cut = partition(acc, first, last, type);
+        quickSort(acc, first, cut, type);
+        quickSort(acc, cut+1, last, type);
     }
 }
 
-vector<Account> read_data(const string& filename){
+int searchAcc(Account acc[], string searchKey, int n)
+{
+	int index = -1;
+
+	for(int i =0; i < n; i++)
+	{
+		if(searchKey == acc[i].account_number)
+		{
+			index = i;
+			break;
+		}
+	}
+
+	return index;
+}
+
+int read_data(Account acc[], const string& filename){
 	
 	string an, type, d, target;
 	double b, amt;
+	int n = 0;
 	ifstream f1(filename);
 	if(!f1){
 		cout<<"Error opening file: "<<filename<<endl;
 		exit(0);
 	}
 	
-	vector<Account> acc;
-	while(getline(f1,an,',')){
-		f1>>b;
+	while(getline(f1,acc[n].account_number,',')){
+		f1>>acc[n].balance;
 		f1.ignore(); //ignore the comma
-		Account a(an,b);
 		
 		getline(f1,d,',');
-		a.setTransactionDate(d);
+		acc[n].setTransactionDate(d);
 		
 		getline(f1,type,',');
-		a.setTransactionType(type);
+		acc[n].setTransactionType(type);
 		
 		if(type == "DEPOSIT" || type == "WITHDRAWAL"){
 			f1>>amt;
@@ -108,38 +143,14 @@ vector<Account> read_data(const string& filename){
 		else if(type == "TRANSFER"){
 			getline(f1,target,',');
 			f1>>amt;
-			a.setTargetAccount(target);
+			acc[n].setTargetAccount(target);
 		}
 		f1.ignore();
-		a.setTransactionAmount(amt);
-		acc.push_back(a);
+		acc[n].setTransactionAmount(amt);
+		n++;
+
 	}
 	
 	f1.close();
-	return acc;
-}
-
-int main(){
-	string filename;
-	
-	cout<<"Enter the input file name: ";
-	cin>>filename;
-	vector<Account> account = read_data(filename);
-	cout<<"--------------------------------------------------------------------------------------------------------------\n"
-		<<"| Account Number | Balance(RM) | Transaction Date | Transaction Type | Amount(RM) | Transfered Account Number |\n"
-		<<"--------------------------------------------------------------------------------------------------------------\n";
-	for(Account& a: account){
-		a.printDetails();
-	}
-	
-	int choice;
-	cout<<"\nChoose an option:\n"
-		<<"1. View all the transaction without sorting\n"
-		<<"2. View transactions sorted by date(oldest to newest)\n"
-		<<"3. View transactions sorted by date(newest to oldest)\n"
-		<<"4. View transactions sorted by balance(fewest to greatest)\n"
-		<<"5. View transactions sorted by balance(greatest to fewest)\n"
-		<<"Enter your choice: ";
-	cin>>choice;
-	return 0;
+	return n;
 }

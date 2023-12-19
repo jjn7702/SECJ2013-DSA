@@ -1,79 +1,89 @@
-#include<iostream>
-#include<iomanip>
-#include<string>
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <iomanip>
 
 using namespace std;
 
-class Account
+void dispHeader()
 {
-	private:
-	string name;
-	string accNum;
-	string ic; 
-  string pin;
-	double accBalance;
+    for(int i = 0; i < 106; i++)
+        cout << "-";
+    cout << endl;
+    cout << setw(50) << left << "| Name " << "|" 
+             << setw(20) << " Account Number " << "|" 
+             << setw(14) << " Ic Number " << "|" 
+             << setw(18) << " Account Balance " << "|" << endl;
+    for(int i = 0; i < 106 ; i++)
+        cout << "-";
+    cout << endl;
+}
 
-	public:
-	Account (string n="", string a=0, string i="", double b=0.0)
-		:name(n),accNum(a),ic(i),accBalance(b){}
+class Bank
+{
+private:
+    string accNum;
+    double accBalance;
+    string pin;
+    string accName;
+    string ic;
 
-	string getName()
-	{
-		return name;  
-	}
+public:
+    Bank(int a = 0, double b = 0, string n = "", int ic = 0)
+    {
+        accNum = a;
+        accBalance = b;
+        accName = n;
+        ic = ic;
+    }
 
-	string getAccNum()
-	{
-		return accNum;
-	}
+    void setName(string name) { accName = name; }
+    string getName() const { return accName; }
+    void setAccNum(string num) { accNum = num; }
+    string getAccNum() const { return accNum; }
+    void setIc(string num) { ic = num; }
+    string getIc() const { return ic; }
+    void setBalance(double g) { accBalance = g; }
+    double getBalance() const { return accBalance; }
 
-	string getIc()
-	{
-		return ic;
-	}
+    void withdraw(double amount)
+    {
+        try
+        {
+            if (amount <= 0)
+                throw invalid_argument("Invalid withdrawal amount: Amount must be positive.");
+            if (accBalance < amount)
+                throw runtime_error("Insufficient funds for withdrawal.");
+            accBalance -= amount;
+            cout << "Withdrawal of RM" << amount << " successful." << endl;
+        }
+        catch (const exception &e)
+        { cerr << "Error: " << e.what() << endl; }
+            
+    }
 
-	double getBalance()
-	{
-		return accBalance;
-	}
+    void deposit(double depo)
+    {
+        accBalance += depo;
+    }
 
-	void setName(string name)
-	{
-		name = name;
-	}
+    /*void transfer(Account &A, float c)
+    {
+        accBalance -= c;
+        A.deposit(c);
+    }*/
 
-	void setAccNum(string accNum)
-	{
-		accNum = accNum;
-	}
-
-	void setName(string ic)
-	{
-		ic = ic;
-	}
-
-	void setName(string name)
-	{
-		name = name;
-	}
-
-	void Withdraw()
-	{
-
-	}
-
-	void Deposit()
-	{
-
-	}
-
-	void display()
-	{
-		//display account details (all attributes)
-		//what have been done this withdraw/deposit
-	}
+    void displaySort()
+    {
+        cout << "| " << setw(48) << accName
+             << "| " << setw(19) << accNum
+             << "| " << setw(13) << ic
+             << "| " << setw(17) << accBalance << "|" << endl;
+        for(int i = 0; i < 106 ; i++)
+            cout << "-";
+        cout << endl;   
+    }
 };
-
 
 int partitionName(Account bl[], int first, int last)
 {
@@ -254,5 +264,113 @@ void sortByBal(Account bl[], int first, int last)
     }
 }
 
+int main()
+{
+    Bank bankList[100];
+    fstream fileIn("Bank.txt", ios::in);
+    string name, num, ic;
+    float bal;
+    int opt;
 
+    if (!fileIn)
+    {
+        cout << "File input/output error!\n";
+        return 1;
+    }
+    else
+    {
+        for (int a = 0; a < 4; a++)
+        {
+            getline(fileIn, name, '|');
+            getline(fileIn, num, '|');
+            getline(fileIn, ic, '|');
+            fileIn >> bal;
+            fileIn.ignore();
+            bankList[a].setName(name);
+            bankList[a].setAccNum(num);
+            bankList[a].setIc(ic);
+            bankList[a].setBalance(bal);
 
+            // s[a].display();
+        }
+    }
+        fileIn.close();
+
+        cout << ":: SORTING INTO ASCENDING ORDER ::" << endl;
+        cout << "[1] Sort by Name" << endl;
+        cout << "[2] Sort by Account Number" << endl;
+        cout << "[3] Sort by IC Number" << endl;
+        cout << "[4] Sort by Balance" << endl << endl;
+
+        cout << ":: SEARCH BY ::" << endl;
+        cout << "[5] Search by Name" << endl;
+        cout << "[5] Search by Account Number" << endl;
+        cout << "[6] Search by IC Number" << endl << endl;
+
+        cout << ":: OTHER ACTION ::" << endl;
+        cout << "[7] Quit" << endl;
+        cout << "OPTION >> ";
+        cin >> opt;
+
+        if(opt >= 1 && opt <= 4)
+        {
+            switch (opt)
+            {
+                case 1:
+                    cout << "Sort by name" << endl;
+                    dispHeader();
+                    sortByName(bankList, 0, 3);
+                    break;
+                case 2:
+                    cout << "Sort by Account Number" << endl;
+                    dispHeader();
+                    sortByAccNum(bankList, 0, 3);
+                    break;
+                case 3:
+                    cout << "Sort by IC Number" << endl;
+                    dispHeader();
+                    sortByIc(bankList, 0, 3);
+                    break;
+                default:
+                    cout << "Sort by account balance" << endl;
+                    dispHeader();
+                    sortByBal(bankList, 0, 3);
+                    break;
+            }
+            // Display the sorted results
+            for (int z = 0; z < 4; z++)
+                bankList[z].displaySort();
+        }
+        else if(opt >= 5 && opt <= 7)
+        {
+            if(opt == 5)
+            {
+                string searchName;
+                cout << "Enter the name to search: ";
+                cin.ignore(); 
+                getline(cin, searchName);
+                searchByName(bankList, 4, searchName);
+            }
+            else if(opt == 6)
+            {
+                string searchAccNum;
+                cout << "Enter the account number to search: ";
+                cin.ignore(); // Ignore newline character in the input buffer
+                getline(cin, searchAccNum);
+                searchByAccNum(bankList, 4, searchAccNum);
+            }
+            else
+            {
+                string searchIc;
+                cout << "Enter the IC number to search: ";
+                cin.ignore();
+                getline(cin, searchIc);
+                searchByIc(bankList, 4, searchIc);
+            }
+        }
+        else
+        {
+            cout << "Shutting down system...";
+            return 0;
+        }
+}
