@@ -4,7 +4,7 @@
 
 
 ## Description 📝
-The Courier Service System 
+The Courier Service System is specially designed for the administrator of TechTurtles Parcel System. The system's objectives are mainly to sort parcels efficiently based on their status, shipping option or tracking number. Moreover, it also helps the administrator to add a new parcel into the system. Not to mention, the admin will be able to search the intended parcel based on the parcel’s tracking number.
 
 
 ## Prepared by 🧑‍💻
@@ -15,19 +15,17 @@ The Courier Service System
 | MUHAMMAD NUR AZHAR BIN MOHD YAZID      | A22EC0220        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="https://avatars.githubusercontent.com/u/128233352?v=4" width=80px, height=80px>         |
 | MUHAMMAD SAFWAN BIN MOHD AZMI       | A22EC0221        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="https://avatars.githubusercontent.com/u/128201537?v=4" width=80px, height=80px>         |
 
-## Objective
-"The objective of this assignment is to design and implement a Courier Service System that allows users to interact with parcel data. The system should provide functionalities for adding new parcels, searching for parcels by tracking number using binary search, and sorting parcels based on different criteria using various sorting algorithms such as bubble sort, selection sort, and merge sort. The goal is to create an efficient and user-friendly system that displays relevant parcel information after performing sorting operations, providing users with the option to continue or exit the system ."
 
 ## Flow of system
 1. The user is prompted to the main menu of the Courier Service System.
 2. The system displays a welcome message to the users.
 3. The system can choose 5 options.
    - 3.1. If the user choose case '1', the user will choose to add a new parcel to the system.
-   - 3.2. If the user choose case '2', the user wants to search for a particular parcel by using parcel tracking number as the input. (binary search)
-   - 3.3. If the user choose case '3', the user will prompt the system to sort the parcels’ status (complete or incomplete). The system will give the user two options: either to sort in ascending or descending order. (bubble sort)
-   - 3.4. If the user choose case '4', the user will prompt the system to sort the parcels’ shipping options. The system will give the user two options: bulky and heavy delivery or standard delivery. (selection sort)
-   - 3.5. If the user choose case '5', the user will prompt the system to sort the parcels’ tracking number. The system will give the user two options: either to sort in ascending or descending order. (merge sort)
-4. After the sorting has been done, the system will display tracking number, address, sender name, receiver name, status (complete / incomplete), or shipping option.
+   - 3.2. If the user choose case '2', the user wants to search for a particular parcel by using parcel tracking number as the input.
+   - 3.3. If the user choose case '3', the user will prompt the system to sort the parcels’ status (complete or incomplete). The system will give the user two options: either to sort in ascending or descending order.
+   - 3.4. If the user choose case '4', the user will prompt the system to sort the parcels’ shipping options. The system will give the user two options: bulky and heavy delivery or standard delivery.
+   - 3.5. If the user choose case '5', the user will prompt the system to sort the parcels’ tracking number. The system will give the user two options: either to sort in ascending or descending order.
+4. After the sorting has been done, the system will display tracking number, address, sender name, receiver name, status (complete or incomplete), or shipping option.
 5. After that, the system will prompt the user either to continue or quit the system.
 
 
