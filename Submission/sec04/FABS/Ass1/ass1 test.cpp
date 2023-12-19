@@ -29,7 +29,7 @@ public:
     string getStat() const { return stat; }
     int getTrackNum() const { return trackNum; }
 
- 	int readFile(ifstream& file, Courier couriers[]) {
+    int readFile(ifstream& file, Courier couriers[]) {
     	if (!file.is_open()) {
         	cout << "Error: Unable to open the file\n";
         	return 0;
@@ -47,7 +47,7 @@ public:
         return m;
      }
 
-	void writeFile(string filename, Courier arr[]) {
+   void writeFile(string filename, Courier arr[]) {
     	ofstream outFile(filename);
 
     	if (!outFile.is_open()) {
