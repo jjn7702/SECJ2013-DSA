@@ -13,7 +13,114 @@ class inventory{
         int quantity;
         double cost;
         char[] itemLocation; //rack A01, B02, etc.
+  public:
+        inventory();
+        inventory(int, string, string, int, double, char[]);
+        void setItemNumber(int);
+        void setItemName(string);
+        void setDescription(string);
+        void setQuantity(int);
+        void setCost(double);
+        void setItemLocation(char[]);
+        int getItemNumber();
+        string getItemName();
+        string getDescription();
+        int getQuantity();
+        double getCost();
+        char[] getItemLocation();
+        void print();
+};
 
+//default constructor
+inventory::inventory(){
+    itemNumber = 0;
+    itemName = "";
+    description = "";
+    quantity = 0;
+    cost = 0.0;
+    itemLocation = "";
+}
+
+//constructor
+inventory::inventory(int itemNumber, string itemName, string description, int quantity, double cost, char[] itemLocation){
+    this->itemNumber = itemNumber;
+    this->itemName = itemName;
+    this->description = description;
+    this->quantity = quantity;
+    this->cost = cost;
+    this->itemLocation = itemLocation;
+}
+
+//setters
+void inventory::setItemNumber(int itemNumber){
+    this->itemNumber = itemNumber;
+}
+
+void inventory::setItemName(string itemName){
+    this->itemName = itemName;
+}
+
+void inventory::setDescription(string description){
+    this->description = description;
+}
+
+void inventorsy::setQuantity(int quantity){
+    this->quantity = quantity;
+}
+
+void inventory::setCost(double cost){
+    this->cost = cost;
+}
+
+void inventory::setItemLocation(char[] itemLocation){
+    this->itemLocation = itemLocation;
+}
+
+//getters
+int inventory::getItemNumber(){
+    return itemNumber;
+}
+
+string inventory::getItemName(){
+    return itemName;
+}
+
+string inventory::getDescription(){
+    return description;
+}
+
+int inventory::getQuantity(){
+    return quantity;
+}
+
+double inventory::getCost(){
+    return cost;
+}
+
+char[] inventory::getItemLocation(){
+    return itemLocation;
+}
+
+//print function
+void inventory::print(){
+    cout << "Item Number: " << itemNumber << endl;
+    cout << "Item Name: " << itemName << endl;
+    cout << "Description: " << description << endl;
+    cout << "Quantity: " << quantity << endl;
+    cout << "Cost: " << cost << endl;
+    cout << "Item Location: " << itemLocation << endl;
+}
+
+//mergesort accending
+void mergeSort(inventory[], int, int);
+void merge(inventory[], int, int, int);
+
+//quicksort decending
+void quickSort(inventory[], int, int);
+int partition(inventory[], int, int);
+
+//search
+int SortedSeqSearch(inventory[], int, int);
 
 void merge(inventory inv[], int low, int mid, int high){
     int i, j, k;
