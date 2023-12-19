@@ -55,9 +55,9 @@ In this assignment, the sorting and searching implementation will be used. User 
 
 ## Findings 📊
 
-- souce code
-- input dile
-- report
+- [Source Code](/source%20code/assignment1.cpp)
+- [Input File](/source%20code/task.txt)
+- [Report]
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
