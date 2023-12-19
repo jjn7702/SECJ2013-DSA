@@ -155,3 +155,30 @@ int main(){
 	cout << "Code" << setw(17) << "Name" << setw(20) << "Type" << setw(20) << "Price(RM)" << endl;
 	cout << "-------------------------------------------------------------" << endl;
 }
+    switch(answer){
+		case 1: mergeSort(a,0,6,answer);
+		        for(int i=0; i <7; i++){
+		        	a[i].printmenu();
+				}
+				break;
+		case 2: mergeSort(a,0,6,answer);
+		        for(int i=0; i <7; i++){
+		        	a[i].printmenu();
+				}	
+				break;
+		case 3: mergeSort(a,0,6,answer);
+		        for(int i=0; i <7; i++){
+		        	a[i].printmenu();
+		        }
+		        break;
+		case 4: mergeSort(a,0,6,answer);
+		        for(int i=0; i <7; i++){
+		        	a[i].printmenu();
+		        }
+		        break;
+		default:mergeSort(a,0,6,1);
+		        for(int i=0; i <7; i++){
+		        	a[i].printmenu();
+				}
+				break;
+	}
