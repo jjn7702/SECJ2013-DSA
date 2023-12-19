@@ -2,7 +2,6 @@
 #include <fstream>
 #include <string>
 #include <iomanip>
-#include <algorithm>
 #define SIZE 27
 using namespace std;
 
@@ -171,30 +170,4 @@ do{
 
 return 0;
 
-//testing
-    /*Menu menuArray[] = {Menu("WE05", "Thai Pasta", "Western", 12.00), 
-                   Menu("WE06", "Chicken Pasta", "Western", 12.00), 
-                   Menu("WE07", "Seafood Pasta", "Western", 12.00), 
-                   Menu("WE08", "Chicken Lasagna", "Western", 10.00), 
-                   Menu("WE09", "Beef Lasagna", "Western", 10.50), 
-                   Menu("DE01", "Ice Cream", "Dessert", 1.50), 
-                   Menu("DE02", "Cendol" ,"Dessert",2.00)};
-
-    displayHeader();
-    displayMenu(menuArray);                 
-    
-    cout << endl << endl;
-
-    int choiceSort;
-    cout << "1 - ALPHABET ORDER | 2 - price => ";
-    cin >> choiceSort;
-    switch (choiceSort)
-    {
-    case 1 :
-        FoodIdASC(menuArray);
-        break;
-    
-    case 2 :
-        break;
-    }*/
 }
