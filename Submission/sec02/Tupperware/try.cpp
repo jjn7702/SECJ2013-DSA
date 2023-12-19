@@ -2,7 +2,6 @@
 #include <fstream>
 #include <string>
 #include <iomanip>
-#include <algorithm>
 #define SIZE 27
 using namespace std;
 
@@ -103,6 +102,25 @@ void PriceASC(Menu menuArray[]){
     printSortedResult(menuArray);
 }
 
+void makeOrder(Menu menuArray[]){
+    int orderChoice;
+    cout << "Enter the number corresponding to the menu you want to order: ";
+    cin >> orderChoice;
+
+    if (orderChoice >= 1 && orderChoice <= SIZE) {
+        cout << "You ordered:\n";
+        displayHeader();
+        cout << left;
+        cout << setw(10) << menuArray[orderChoice - 1].getFoodId() << " | " 
+             << setw(21) << menuArray[orderChoice - 1].getName() << " | " 
+             << setw(13) << menuArray[orderChoice - 1].getCategory() << " | " 
+             << fixed << setprecision(2) << setw(4) << menuArray[orderChoice - 1].getPrice() << endl;
+    }
+    else {
+        cout << "Invalid menu choice.\n";
+    }
+}
+
 int main(){
     Menu menuArray[SIZE];
     char choice;
@@ -112,12 +130,16 @@ int main(){
     string foodId, name, category;
     double price;
 
+do{
     system("cls");
     cout << "WELCOME TO TUPPERWARE!" << endl;
     cout << "View Menu? Y => yes | N => no: ";
     cin >> choice;
 
-    if (choice == 'Y' || choice == 'y') {
+    if (choice == 'N' || choice == 'n') 
+        break;
+    
+    else if (choice == 'Y' || choice == 'y') {
         nameFile.open("menu.txt", ios::in);
 
         if (!nameFile){
@@ -138,7 +160,6 @@ int main(){
         displayHeader();
         displayMenu(menuArray);
 
-    }
     
         cout << "\nDo you want to (V)iew in a new way, or (S)earch? ";
         cin >> choice;
@@ -159,48 +180,16 @@ int main(){
                 PriceASC(menuArray);
                     break;
                 }
-
-        /*} else if (choice == 'S' || choice == 's') {
-            // Searching for a specific food
-            string targetFoodId;
-            cout << "Enter the Food ID you want to search: ";
-            cin >> targetFoodId;
-
-            if (menu.searchByFoodId(targetFoodId)) {
-                cout << "Food ID found!\n";
-            } else {
-                cout << "Food ID not found.\n";
-            }
-        }*/
+            return false;
         }
+    } else {
+        cout << "Invalid input. Please enter Y or N.\n";
+        return true;
+    }  
     
+} while (true);
 
-    return 0;
+return 0;
 
-//testing
-    /*Menu menuArray[] = {Menu("WE05", "Thai Pasta", "Western", 12.00), 
-                   Menu("WE06", "Chicken Pasta", "Western", 12.00), 
-                   Menu("WE07", "Seafood Pasta", "Western", 12.00), 
-                   Menu("WE08", "Chicken Lasagna", "Western", 10.00), 
-                   Menu("WE09", "Beef Lasagna", "Western", 10.50), 
-                   Menu("DE01", "Ice Cream", "Dessert", 1.50), 
-                   Menu("DE02", "Cendol" ,"Dessert",2.00)};
 
-    displayHeader();
-    displayMenu(menuArray);                 
-    
-    cout << endl << endl;
-
-    int choiceSort;
-    cout << "1 - ALPHABET ORDER | 2 - price => ";
-    cin >> choiceSort;
-    switch (choiceSort)
-    {
-    case 1 :
-        FoodIdASC(menuArray);
-        break;
-    
-    case 2 :
-        break;
-    }*/
 }

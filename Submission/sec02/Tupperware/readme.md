@@ -1,10 +1,21 @@
+<h1>Restaurant Management System</h1>
 <h1>Assignment 1</h1>
-<h2>Sorting</h2>
+<h2>Description 📝</h2>
+
+<h2> Prepared by 🧑‍💻</h2>
+
+| Name             | Matric Number | Photo                                                         |
+| :---------------- | :-------------: | :------------------------------------------------------------: |
+| WAN NUR SOFEA BINTI MOHD HASBULLAH   | A22EC0115        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="" width=80px, height=80px>     |
+| NADHRAH NURSABRINA BINTI ZULAINI     | A22EC0224        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="https://github.com/drshahizan/software-engineering/blob/main/proposal/submission/sec02/Alpha/Photo/kad%20matrik.jpg?raw=true" width=100px, height=100px>         |
+| NUR ALEYSHA QURRATU'AINI BINTI MAT SALLEH       | A22EC0241        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="https://github.com/drshahizan/software-engineering/blob/main/proposal/submission/sec02/Alpha/Photo/GAMBAR%20KAD%20MATRIK%20UTM.jpeg?raw=true" width=100px, height=100px>         |
+
+<h2>Flow of system</h2>
 <p> 
-1. Menu (food id, name, type of dish, amount, price)
-2. Customer (table number, number of orders, pax, bill)
-3. Sort based on alphabetical order(food names and/or type of dish)
-4. 
+1. Menu (food id, name, type of dish, amount, price)<br>
+2. Customer (table number, number of orders, pax, bill)<br>
+3. Sort based on alphabetical order(food names and/or type of dish)<br>
+
 </p>
 <p>
 1. Customer press enter to see the menu <br>
@@ -30,10 +41,14 @@
 
 
 <h1>Assignment 2</h1>
-<h2>Sorting</h2>
-<p> 
-1. Menu (name, type of dish, amount, price)
-2. Customer (table number, number of orders, pax, bill)
-3.  
-</p>
+<h2>Findings 📊</h2>
+- <a href="Assignment1" >Assignment 1 </a><br>
+- Assignment 2<br>
+- Project<br>
+
+## Contribution 🛠️
+Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
+
+[![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fjjn7702&labelColor=%23697689&countColor=%23555555&style=plastic)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fjjn7702)
+![](https://hit.yhype.me/github/profile?user_id=81284918)
 

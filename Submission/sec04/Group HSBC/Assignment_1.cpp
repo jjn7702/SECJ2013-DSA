@@ -6,7 +6,7 @@
 using namespace std;
 
 class Account{
-	private:
+	public:
 		string account_number;
 		double balance;
 		string transaction_date;
@@ -14,8 +14,7 @@ class Account{
 		double transaction_amount;
 		string target_account; //for transfer
 	
-	public:
-		Account(string an, double b) : account_number(an), balance(b) {}
+		Account(string an = "", double b = 0.0) : account_number(an), balance(b) {}
 		
 		void setTransactionDate(string d){ transaction_date = d; }
 		
@@ -52,6 +51,28 @@ int partition(Account acc[], int first, int last, int type)
 
 	 while (loop)
     {
+
+        if(type == 2)
+        {
+            while (acc[top].transaction_date < pivot.transaction_date) { top--; }
+            while (acc[bottom].transaction_date > pivot.transaction_date) { bottom++; }
+        }
+        else if(type == 3)
+        {   
+            while (acc[top].transaction_date > pivot.transaction_date) { top--; }
+            while (acc[bottom].transaction_date < pivot.transaction_date) { bottom++; }
+        }
+        else if(type == 4)
+        {
+            while (acc[top].balance > pivot.balance) { top--; }
+            while (acc[bottom].balance < pivot.balance) { bottom++; }
+        }
+		else
+        {
+            while (acc[top].balance < pivot.balance) { top--; }
+            while (acc[bottom].balance > pivot.balance) { bottom++; }
+        }
+        
 
         if (bottom < top)
         {
@@ -93,4 +114,43 @@ int searchAcc(Account acc[], string searchKey, int n)
 	}
 
 	return index;
+}
+
+int read_data(Account acc[], const string& filename){
+	
+	string an, type, d, target;
+	double b, amt;
+	int n = 0;
+	ifstream f1(filename);
+	if(!f1){
+		cout<<"Error opening file: "<<filename<<endl;
+		exit(0);
+	}
+	
+	while(getline(f1,acc[n].account_number,',')){
+		f1>>acc[n].balance;
+		f1.ignore(); //ignore the comma
+		
+		getline(f1,d,',');
+		acc[n].setTransactionDate(d);
+		
+		getline(f1,type,',');
+		acc[n].setTransactionType(type);
+		
+		if(type == "DEPOSIT" || type == "WITHDRAWAL"){
+			f1>>amt;
+		}
+		else if(type == "TRANSFER"){
+			getline(f1,target,',');
+			f1>>amt;
+			acc[n].setTargetAccount(target);
+		}
+		f1.ignore();
+		acc[n].setTransactionAmount(amt);
+		n++;
+
+	}
+	
+	f1.close();
+	return n;
 }

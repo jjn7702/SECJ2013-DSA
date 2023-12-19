@@ -64,13 +64,16 @@ void readBookingData(Booking b[], int size) {
 
 template <typename H>
 void dispItems(H r[], int first, int last) {
-    cout << left << setw(12) << "Check-in" << setw(12) << "Check-out" << setw(10) << "Room No"
-         << setw(10) << "Room Type" << setw(15) << "IC" << setw(10) << "Total Price" << endl;
+	cout<<"______________________________________________________________________________"<<endl;
+    cout << left << setw(14) << "|  Check-in  |" << setw(13) << "  Check-out |" << setw(10) << " Room No |"
+         << setw(12) << " Room Type |" << setw(15) << " Customer  IC |" << setw(10) << " Total Price |" << endl;
 	for (int i = first; i <= last; i++) {
-		cout << setw(12) << r[i].getCheckInDate() << setw(12) << r[i].getCheckOutDate()
-             << setw(10) << r[i].getRoomNo() << setw(10) << r[i].getRoomType()
-             << setw(15) << r[i].getIC() << fixed << setprecision(2) << setw(10) << r[i].getTotalPrice() << endl;
+		cout << "| "<<setw(10) << r[i].getCheckInDate() <<" | "<< setw(10) << r[i].getCheckOutDate()
+             <<" |   "<< setw(4) << r[i].getRoomNo() <<"  |   "<< setw(6) << r[i].getRoomType()
+             <<"  | "<< setw(12) << r[i].getIC() <<" |    "<< fixed << setprecision(2) << setw(5) << r[i].getTotalPrice()
+			 <<"   |" << endl;
 	}
+	cout<<"------------------------------------------------------------------------------"<<endl;
     cout<<endl;
 }
 
@@ -167,9 +170,10 @@ void bookingMenu() {
         cout << "4. Latest Check-In Date" << endl;
         cout << "5. Earliest Check-In Date" << endl;
         cout << "6. Exit" << endl;
-        cout << "Enter your option: " << endl;
+        cout << "Enter your option: ";
         cin >> input;
-
+		cout<<endl;
+		
         switch(input) {
             case 1:
             {
@@ -224,7 +228,7 @@ void bookingMenu() {
 
             case 3:
             {
-                cout<<"Sort by Room Price (High to Low):"<<endl;
+                cout<<"\nSort by Room Price (High to Low):"<<endl;
                 double price[MAXSIZE];
                 for (int i = 0; i < MAXSIZE; ++i) {
                         price[i] = booking[i].getTotalPrice();
@@ -250,7 +254,7 @@ void bookingMenu() {
                 
             case 4:
             {
-                cout<<"Sort by Latest Check-In Date:"<<endl;
+                cout<<"\nSort by Latest Check-In Date:"<<endl;
                 string date[MAXSIZE];
                 for (int i = 0; i < MAXSIZE; ++i) {
                         date[i] = booking[i].getCheckInDate();
@@ -276,7 +280,7 @@ void bookingMenu() {
                 
             case 5:
             {
-                cout << "Sort by Earliest Check-In Date:" << endl;
+                cout << "\nSort by Earliest Check-In Date:" << endl;
                 string checkinDate[MAXSIZE];
                 for (int i = 0; i < MAXSIZE; ++i) {
                     checkinDate[i] = booking[i].getCheckInDate();
@@ -315,6 +319,7 @@ void adminMenu() {
     cout << "2. Exit" << endl;
     cout << "Enter your option: ";
     cin >> option;
+    cout<<endl;
 
     switch (option) {
         case 1:
@@ -367,9 +372,11 @@ int main()
     inFile.close();
     
     //Menu for Admin
-    cout << "Welcome to LogiCode Hotel" << endl;
+    cout <<"---------------------------------" <<endl;
+    cout <<"LogiCode Hotel Management System" <<endl;
+    cout <<"---------------------------------" <<endl;
     bool existence = false;
-	cout << "Please enter your admin ID: " << endl;
+    cout << "Admin ID: ";
     cin >> input;
 
     int found = SequenceSearch(input, a, SIZE);
