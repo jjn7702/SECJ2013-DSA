@@ -90,7 +90,7 @@ int main() {
         cout << endl;
 
         switch (choice) {
-        case 1: { 
+        case 1: {   if (count < ARRAY_SIZE)
             
             }
             else {
@@ -104,4 +104,3 @@ int main() {
 
     return 0;
 }
-
