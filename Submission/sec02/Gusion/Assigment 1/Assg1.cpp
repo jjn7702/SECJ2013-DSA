@@ -1,8 +1,8 @@
 // Assignment 1 - SECJ2013 - 23241 (Assg1.cpp)
 // Group Members:
-// 1. Muhammad Iman Firdaus Bin Baharuddin
-// 2. Muhammad Ariff Danish Bin Hashnan
-// 3. Che Marhumi 
+// 1. Muhammad Iman Firdaus Bin Baharuddin A22EC0216
+// 2. Muhammad Ariff Danish Bin Hashnan A22EC0204
+// 3. Che Marhumi Bin Che AB Rahim A22EC0147
 #include <iostream>
 #include <string>
 #include<sstream>
