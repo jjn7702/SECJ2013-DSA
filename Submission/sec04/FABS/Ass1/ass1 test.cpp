@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 #include <iomanip>
-
+const int size = 10;
 using namespace std;
 
 class Courier {
