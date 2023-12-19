@@ -154,7 +154,7 @@ void searchByName(Menu menuArray[], const string &searchTerm) {
     }
 }
 
-int main() {
+/*int main() {
     Menu menuArray[SIZE];
     char choice;
     int size = 0;
@@ -226,8 +226,8 @@ int main() {
     } while (true);
 
     return 0;
-}
-/*int main(){
+}*/
+int main(){
     Menu menuArray[SIZE];
     char choice;
     int size = 0;
@@ -308,10 +308,10 @@ do{
         }
     } else if (choice == 'S' || choice == 's') {
         // Searching for a specific food by name
-        string searchTerm;
+        string targetName;
         cout << "Enter the name of the food you want to search: ";
         cin.ignore(); // Clear the newline character from the buffer
-        getline(cin, searchTerm);
+        getline(cin, targetName);
         searchByName(menuArray, targetName);
     } else {
         cout << "Invalid input. Please enter V or S.\n";
@@ -320,4 +320,4 @@ do{
 } while (true);
 
 return 0;
-}*/
+}
