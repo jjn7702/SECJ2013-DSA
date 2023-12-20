@@ -1,8 +1,33 @@
 #include <iostream>
 #include <iomanip>
 using namespace std ;
-123
-
+class Customer{
+	private:
+		// Attributes
+		string name ;
+		int age ;
+		string IC ;
+		string phoneNum ;
+		int roomNum ; 
+		string checkInDate ;
+		
+	public:
+		// Mutator
+		void setName(string n){ name = n ; }
+		void setAge(int a){ age = a ; }
+		void setIC(string ic){ IC = ic ; }
+		void setPhone(string p){ phoneNum = p ; }
+		void setNum(int r){ roomNum = r ; }
+		void setDate(string d){ checkInDate = d ; }
+		
+		// Accessor
+		string getName(){ return name ; }
+		int getAge(){ return age ; }
+		string getIC(){ return IC ; }
+		string getPhone(){ return phoneNum ; }
+		int getNum(){ return roomNum ; }
+		string getDate(){ return checkInDate ; }
+};
 // Menu for Sorting
 int menuSort()
 {
