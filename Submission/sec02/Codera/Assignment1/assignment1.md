@@ -38,6 +38,8 @@ Ultimately, our Hospital Management System aims to optimize healthcare workflows
 
 ## Findings 📊
 - [Report]()
+- [Source Code]()
+- [Input File]()
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
