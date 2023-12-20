@@ -20,7 +20,7 @@ The Hotel Booking System is designed for hotel administrators to manage bookings
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/b7b1299f-ead1-4e66-ad2e-95b901f4f03c" width="3%" height="3%"> Class Diagram
 <p align="center">
-<img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/c058aa3c-edbb-4ac7-abcf-e4e15ad63970" width="80%">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/c058aa3c-edbb-4ac7-abcf-e4e15ad63970" width="80%"><br>
 Figure 1: Class Diagram of Hotel Booking System
 </p>
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/8b3596b0-7214-4cc8-b868-9ab2a0314386" width="3%" height="3%"> Flowchart
