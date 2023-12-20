@@ -57,34 +57,23 @@ During execution, this program will display a menu with options for viewing all 
 
 #### MAIN FUNCTION
 
-Read customer information from an input file (customer.txt).
-Then, show the menu for view all data of customers option, sorting (ascending) option, searching option and exit option.
-
-2.1 Option 1: Display all data of customers from input file
-2.2 Option 2: Pass the customers data to Sorting function:
-2.2.1 Pass the customers' data to the quickSortStr() function and then pass
-it to partitionStrByName() function to sort the data by name, and
-then pass the sorted data to the display() function to display 
-the sorting result.
-2.2.2 Pass the customers' data to the quickSortStr() function and then pass
-it to partitionStrByType() function to sort the data by name, and
-then pass the sorted data to the display() function to display 
-the sorting result.
-2.2.3 Pass the customers' data to the quickSortInt() function and then pass
-it to partitionInt() function to sort the data by name, and
-then pass the sorted data to the display() function to display 
-the sorting result.
-2.3 Option 3: Pass the customers data to Searching function:
-2.3.1 Pass the customers' data to the SearchString() function to search data
-by name, type of parcel, source, destination, or status delivery. Then
-pass the searched data to the display() function to display the
-search result.
-2.3.2 Pass the customers' data to the SearchInt() function to search data
-by tracking numbers. Then pass the searched data to the display()
-function to display the searching result.
+1. Read customer information from an input file (customer.txt).
+2. Then, show the menu for view all data of customers option, sorting (ascending) option, searching option and exit option.
+   2.1 Option 1: Display all data of customers from input file
+   2.2 Option 2: Pass the customers data to Sorting function:
+   	2.2.1 Pass the customers' data to the quickSortStr() function and then pass it to partitionStrByName() function to
+   	sort the data by name, and then pass the sorted data to the display() function to display the sorting result.
+   	2.2.2 Pass the customers' data to the quickSortStr() function and then pass it to partitionStrByType() function to
+   	sort the data by name, and then pass the sorted data to the display() function to display the sorting result.
+   	2.2.3 Pass the customers' data to the quickSortInt() function and then pass it to partitionInt() function to sort
+   	the data by name, and then pass the sorted data to the display() function to display the sorting result.
+   2.3 Option 3: Pass the customers data to Searching function:
+   	2.3.1 Pass the customers' data to the SearchString() function to search data by name, type of parcel, source, 		destination, or status delivery. Then pass the searched data to the display() function to display the search result.
+   	2.3.2 Pass the customers' data to the SearchInt() function to search data by tracking numbers. Then pass the
+   	searched data to the display() function to display the searching result.
 2.4 Option 4: Exit the system
 2.5 Ask users to choose the valid option.
-3. End
+4. End
 
 
 #### SORTING FUNCTION
@@ -107,9 +96,9 @@ This program also implements two search functions which are SearchString() funct
 
 1. Get the option from the main function.
 2. From the option, the data will be searched by corresponding function either search by name, destination, source, parcel type or tracking number.
-   2.1 The searching function uses a compare search technique to search customers data based on the option that was chosen 	by the customer.
-   2.2 Option 1: SearchString() function: search data only for String type (name, source, destination, status, parcel type).
-   2.3 Option 2: SearchInt() function: search data only for Int type (tracking numbers).
+   	2.1 The searching function uses a compare search technique to search customers data based on the option that was 	chosen 	by the customer.
+   	2.2 Option 1: SearchString() function: search data only for String type (name, source, destination, status, parcel 	type).
+   	2.3 Option 2: SearchInt() function: search data only for Int type (tracking numbers).
 
 #### DISPLAY FUNCTION
 
