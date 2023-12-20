@@ -12,12 +12,7 @@
 | NUR ALEYSHA QURRATU'AINI BINTI MAT SALLEH       | A22EC0241        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="https://github.com/drshahizan/software-engineering/blob/main/proposal/submission/sec02/Alpha/Photo/GAMBAR%20KAD%20MATRIK%20UTM.jpeg?raw=true" width=100px, height=100px>         |
 
 <h2>Flow of system</h2>
-<p> 
-1. Menu (food id, name, type of dish, amount, price)<br>
-2. Customer (table number, number of orders, pax, bill)<br>
-3. Sort based on alphabetical order(food names and/or type of dish)<br>
 
-</p>
 <p>
 1. Customer press enter to see the menu <br>
 2. All menu displays based on alphabetical order for food id (default) <br>
