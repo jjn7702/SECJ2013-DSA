@@ -11,9 +11,21 @@ _Don't forget to hit the :star: if you like this repo._
 ## Objective
 The objective for this task management system is to create an easier method to access the data in the system specifically based on the user. By implementing sorting technique, user can easily review the content or data in the system by sorting it by alphabet, date or even status which user can choose to sort it by ascending or descending order following the user needs. The implementation of the searching technique will be use by user when user want to search any specific row or rows of data in the system without taking a longer time scrolling and searching the data through the system one by one.
 
-## Description 📝
+## Sypnosis 📝
 
-In this assignment, the sorting and searching implementation will be used. User can search the task that have been inserted and can sort it according to the choices which are sorting it according to ascending alphabet and vice versa, sort it according to the ascending date and vice versa and sort it according to the status of the task such as complete, todo, od doing.
+This assignment describes how to implement key features into a task management system, with a focus on sorting and searching operations. The system enables users to effectively locate and organise their tasks. Users can arrange tasks alphabetically in ascending or descending order using the sorting functionality, ensuring a structured view based on task titles. Furthermore, the system includes chronological sorting, which allows tasks to be organised by due dates in both ascending and descending order. Furthermore, users can sort tasks by status, whether completed, pending, or in progress, providing a comprehensive overview categorised by task status.
+
+Implementing search functionality improves user accessibility by allowing users to quickly retrieve specific tasks. This feature allows for a quick and precise search through the inserted data.
+
+## Design 🎨
+
+1. Class Diagram
+
+<img src="/img/WhatsApp Image 2023-12-19 at 23.15.22_be46db66.jpg">
+
+2. Flowchart
+
+<img src="/img/WhatsApp Image 2023-12-19 at 22.34.51_ea03ef95.jpg">
 
 ## Flow of Event 💹
 
