@@ -33,6 +33,8 @@ The Inventory Management System is aiming to organize, store and manage library 
 
 # Assignment 2
 
+# Project
+
 
 ## Findings 📊
 
