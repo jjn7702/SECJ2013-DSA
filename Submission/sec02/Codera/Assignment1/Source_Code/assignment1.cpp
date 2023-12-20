@@ -165,3 +165,431 @@ void dispHeader()
         cout << "-";
     cout << endl;
 }
+
+// sorting
+void mergeByName(Patient pat[], int first, int mid, int last)
+{
+    int size = last - first + 1;
+    Patient *tempArray = new Patient[size];
+
+    int first1 = first;
+    int last1 = mid;
+    int first2 = mid + 1;
+    int last2 = last;
+    int index = 0;
+
+    while (first1 <= last1 && first2 <= last2)
+    {
+        if (pat[first1].getName() < pat[first2].getName())
+        {
+            tempArray[index] = pat[first1];
+            ++first1;
+        }
+        else
+        {
+            tempArray[index] = pat[first2];
+            ++first2;
+        }
+        ++index;
+    }
+
+    while (first1 <= last1)
+    {
+        tempArray[index] = pat[first1];
+        ++first1;
+        ++index;
+    }
+
+    while (first2 <= last2)
+    {
+        tempArray[index] = pat[first2];
+        ++first2;
+        ++index;
+    }
+
+    for (int i = 0; i < size; ++i)
+    {
+        pat[first + i] = tempArray[i];
+    }
+
+    delete[] tempArray;
+}
+
+void mergeSortByName(Patient pat[], int first, int last)
+{
+    if (first < last)
+    {
+        int mid = first + (last - first) / 2;
+
+        mergeSortByName(pat, first, mid);
+        mergeSortByName(pat, mid + 1, last);
+
+        mergeByName(pat, first, mid, last);
+    }
+}
+
+void mergeByIC(Patient pat[], int first, int mid, int last)
+{
+    int size = last - first + 1;
+    Patient *tempArray = new Patient[size];
+
+    int first1 = first;
+    int last1 = mid;
+    int first2 = mid + 1;
+    int last2 = last;
+    int index = 0;
+
+    while (first1 <= last1 && first2 <= last2)
+    {
+        if (pat[first1].getIC() < pat[first2].getIC())
+        {
+            tempArray[index] = pat[first1];
+            ++first1;
+        }
+        else
+        {
+            tempArray[index] = pat[first2];
+            ++first2;
+        }
+        ++index;
+    }
+
+    while (first1 <= last1)
+    {
+        tempArray[index] = pat[first1];
+        ++first1;
+        ++index;
+    }
+
+    while (first2 <= last2)
+    {
+        tempArray[index] = pat[first2];
+        ++first2;
+        ++index;
+    }
+
+    for (int i = 0; i < size; ++i)
+    {
+        pat[first + i] = tempArray[i];
+    }
+
+    delete[] tempArray;
+}
+
+void mergeSortByIC(Patient pat[], int first, int last)
+{
+    if (first < last)
+    {
+        int mid = first + (last - first) / 2;
+
+        mergeSortByIC(pat, first, mid);
+        mergeSortByIC(pat, mid + 1, last);
+
+        mergeByIC(pat, first, mid, last);
+    }
+}
+
+void mergeByAge(Patient pat[], int first, int mid, int last)
+{
+    int size = last - first + 1;
+    Patient *tempArray = new Patient[size];
+
+    int first1 = first;
+    int last1 = mid;
+    int first2 = mid + 1;
+    int last2 = last;
+    int index = 0;
+
+    while (first1 <= last1 && first2 <= last2)
+    {
+        if (pat[first1].getAge() < pat[first2].getAge())
+        {
+            tempArray[index] = pat[first1];
+            ++first1;
+        }
+        else
+        {
+            tempArray[index] = pat[first2];
+            ++first2;
+        }
+        ++index;
+    }
+
+    while (first1 <= last1)
+    {
+        tempArray[index] = pat[first1];
+        ++first1;
+        ++index;
+    }
+
+    while (first2 <= last2)
+    {
+        tempArray[index] = pat[first2];
+        ++first2;
+        ++index;
+    }
+
+    for (int i = 0; i < size; ++i)
+    {
+        pat[first + i] = tempArray[i];
+    }
+
+    delete[] tempArray;
+}
+
+void mergeSortByAge(Patient pat[], int first, int last)
+{
+    if (first < last)
+    {
+        int mid = first + (last - first) / 2;
+
+        mergeSortByAge(pat, first, mid);
+        mergeSortByAge(pat, mid + 1, last);
+
+        mergeByAge(pat, first, mid, last);
+    }
+}
+
+void mergeByGender(Patient pat[], int first, int mid, int last)
+{
+    int size = last - first + 1;
+    Patient *tempArray = new Patient[size];
+
+    int first1 = first;
+    int last1 = mid;
+    int first2 = mid + 1;
+    int last2 = last;
+    int index = 0;
+
+    while (first1 <= last1 && first2 <= last2)
+    {
+        if (pat[first1].getGender() < pat[first2].getGender())
+        {
+            tempArray[index] = pat[first1];
+            ++first1;
+        }
+        else
+        {
+            tempArray[index] = pat[first2];
+            ++first2;
+        }
+        ++index;
+    }
+
+    while (first1 <= last1)
+    {
+        tempArray[index] = pat[first1];
+        ++first1;
+        ++index;
+    }
+
+    while (first2 <= last2)
+    {
+        tempArray[index] = pat[first2];
+        ++first2;
+        ++index;
+    }
+
+    for (int i = 0; i < size; ++i)
+    {
+        pat[first + i] = tempArray[i];
+    }
+
+    delete[] tempArray;
+}
+
+void mergeSortByGender(Patient pat[], int first, int last)
+{
+    if (first < last)
+    {
+        int mid = first + (last - first) / 2;
+
+        mergeSortByGender(pat, first, mid);
+        mergeSortByGender(pat, mid + 1, last);
+
+        mergeByGender(pat, first, mid, last);
+    }
+}
+
+void mergeByContactNum(Patient pat[], int first, int mid, int last)
+{
+    int size = last - first + 1;
+    Patient *tempArray = new Patient[size];
+
+    int first1 = first;
+    int last1 = mid;
+    int first2 = mid + 1;
+    int last2 = last;
+    int index = 0;
+
+    while (first1 <= last1 && first2 <= last2)
+    {
+        if (pat[first1].getContactNum() < pat[first2].getContactNum())
+        {
+            tempArray[index] = pat[first1];
+            ++first1;
+        }
+        else
+        {
+            tempArray[index] = pat[first2];
+            ++first2;
+        }
+        ++index;
+    }
+
+    while (first1 <= last1)
+    {
+        tempArray[index] = pat[first1];
+        ++first1;
+        ++index;
+    }
+
+    while (first2 <= last2)
+    {
+        tempArray[index] = pat[first2];
+        ++first2;
+        ++index;
+    }
+
+    for (int i = 0; i < size; ++i)
+    {
+        pat[first + i] = tempArray[i];
+    }
+
+    delete[] tempArray;
+}
+
+void mergeSortByContactNum(Patient pat[], int first, int last)
+{
+    if (first < last)
+    {
+        int mid = first + (last - first) / 2;
+
+        mergeSortByContactNum(pat, first, mid);
+        mergeSortByContactNum(pat, mid + 1, last);
+
+        mergeByContactNum(pat, first, mid, last);
+    }
+}
+
+void mergeByDisease(Patient pat[], int first, int mid, int last)
+{
+    int size = last - first + 1;
+    Patient *tempArray = new Patient[size];
+
+    int first1 = first;
+    int last1 = mid;
+    int first2 = mid + 1;
+    int last2 = last;
+    int index = 0;
+
+    while (first1 <= last1 && first2 <= last2)
+    {
+        if (pat[first1].getDisease() < pat[first2].getDisease())
+        {
+            tempArray[index] = pat[first1];
+            ++first1;
+        }
+        else
+        {
+            tempArray[index] = pat[first2];
+            ++first2;
+        }
+        ++index;
+    }
+
+    while (first1 <= last1)
+    {
+        tempArray[index] = pat[first1];
+        ++first1;
+        ++index;
+    }
+
+    while (first2 <= last2)
+    {
+        tempArray[index] = pat[first2];
+        ++first2;
+        ++index;
+    }
+
+    for (int i = 0; i < size; ++i)
+    {
+        pat[first + i] = tempArray[i];
+    }
+
+    delete[] tempArray;
+}
+
+void mergeSortByDisease(Patient pat[], int first, int last)
+{
+    if (first < last)
+    {
+        int mid = first + (last - first) / 2;
+
+        mergeSortByDisease(pat, first, mid);
+        mergeSortByDisease(pat, mid + 1, last);
+
+        mergeByDisease(pat, first, mid, last);
+    }
+}
+
+void mergeByDate(Patient pat[], int first, int mid, int last)
+{
+    int size = last - first + 1;
+    Patient *tempArray = new Patient[size];
+
+    int first1 = first;
+    int last1 = mid;
+    int first2 = mid + 1;
+    int last2 = last;
+    int index = 0;
+
+    while (first1 <= last1 && first2 <= last2)
+    {
+        if (pat[first1].getDate() < pat[first2].getDate())
+        {
+            tempArray[index] = pat[first1];
+            ++first1;
+        }
+        else
+        {
+            tempArray[index] = pat[first2];
+            ++first2;
+        }
+        ++index;
+    }
+
+    while (first1 <= last1)
+    {
+        tempArray[index] = pat[first1];
+        ++first1;
+        ++index;
+    }
+
+    while (first2 <= last2)
+    {
+        tempArray[index] = pat[first2];
+        ++first2;
+        ++index;
+    }
+
+    for (int i = 0; i < size; ++i)
+    {
+        pat[first + i] = tempArray[i];
+    }
+
+    delete[] tempArray;
+}
+
+void mergeSortByDate(Patient pat[], int first, int last)
+{
+    if (first < last)
+    {
+        int mid = first + (last - first) / 2;
+
+        mergeSortByDate(pat, first, mid);
+        mergeSortByDate(pat, mid + 1, last);
+
+        mergeByDate(pat, first, mid, last);
+    }
+}
