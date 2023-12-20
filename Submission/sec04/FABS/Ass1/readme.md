@@ -9,9 +9,20 @@
 ## Appendix :red_circle:
 -[Objective](#-Objective)
 
-## Objective
+## Objective :heavy_check_mark:
 
-Objectives.....
+The main objective for developing the courier management system is to ease the courier and customer. The courier management system is designed to make sure a delivery services run smoothly and gets packages to their destination safely and on time. This system aims to provide parcel tracking and tracing, customer satisfaction, customer self-service essentially helping and improving courier quality.
+
+There are few features in the courier management system which is 
+
+### 1.View courier available
+Displaying all courier information available including name, parcel type, source, destination, status and tracking number.
+
+### 2.Sort and arrange couriers 
+
+
+
+
 
 ## Sypnosis 📝
 
