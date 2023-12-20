@@ -10,10 +10,14 @@ _Don't forget to hit the :star: if you like this repo._
 # Inventory Management System - Assignment 1
 ## Objective
 Our objectives for this assignment are:
+
 a. To manage hotel booking system
+
 b. To help the hotel administrator check the customer's reservation details by sort the
    customers’ information
+
 c. To search specific customers’ details
+
 d. To simplify the booking details
 
 
@@ -24,9 +28,6 @@ accommodations. The assignment is for the hotel administrator to manage the room
 booking details of customers. Using sorting and searching algorithms for effective data
 management, the Hotel Booking System provides an effective solution for admins and
 customers.
-
-
-## Flow of Event 💹
 
 
 
