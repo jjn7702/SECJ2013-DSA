@@ -28,6 +28,8 @@ In order to effectively manage and monitor patients' records in hospitals, a hos
 - To manage and monitor patient records effectively.
 - To provide the healthcare professionals a tool to streamline patient information, contact information, and medical history.
 
+## Class Diagram
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Images/DSA.jpg"><br>
 
 ## Findings 📊
 - [Report]()
