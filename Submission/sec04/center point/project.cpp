@@ -3,6 +3,8 @@
 #include <iomanip>
 #include <stdlib.h>
 #include <istream>
+#include <cctype>
+#include <string>
 #define SIZE 10
 using namespace std;
 
@@ -75,6 +77,8 @@ int menu()
          << "[5] By Price" << endl
          << "Option: ";
     cin >> choice;
+    if (choice < 1 || choice > 5)
+        throw "Please enter valid sort choice!!!";
     system("CLS");
     return choice;
 }
@@ -86,6 +90,8 @@ int menuSearch()
          << "[2] By Inventory Name" << endl
          << "Option: ";
     cin >> choice;
+    if (choice != 1 && choice != 2)
+        throw "Please enter valid search choice!!!";
     system("CLS");
     return choice;
 }
@@ -97,6 +103,8 @@ int sortMenu()
          << "[2] Descending\n"
          << "Your Option: ";
     cin >> orderChoice;
+    if (orderChoice != 1 && orderChoice != 2)
+        throw "Please enter valid order choice!!!";
     system("CLS");
     return orderChoice;
 }
@@ -104,12 +112,14 @@ int sortMenu()
 // Display list
 void disList(Inventory inv[], int n)
 {
-    
-    cout << "\t\t\t:::::::Inventory List:::::::\n"<<endl;
-    for(int i=0;i<84;i++){
-        cout<<"-";
+
+    cout << "\t\t\t:::::::Inventory List:::::::\n"
+         << endl;
+    for (int i = 0; i < 84; i++)
+    {
+        cout << "-";
     }
-    cout<<endl;
+    cout << endl;
 
     cout << left << setw(20) << "Inventory Code"
          << setw(20) << "Inventory Name"
@@ -117,10 +127,11 @@ void disList(Inventory inv[], int n)
          << setw(15) << "Quantity"
          << setw(10) << "Price" << endl;
 
-    for(int i=0;i<84;i++){
-        cout<<"-";
+    for (int i = 0; i < 84; i++)
+    {
+        cout << "-";
     }
-    cout<<endl;
+    cout << endl;
 
     for (int i = 0; i < n; i++)
     {
@@ -133,8 +144,18 @@ void disList(Inventory inv[], int n)
 // Improved Bubble Sort
 void sort(Inventory data[], int n)
 {
-    int sortChoice = menu();
-    int orderChoice = sortMenu();
+    int sortChoice, orderChoice;
+    try
+    {
+        sortChoice = menu();
+        orderChoice = sortMenu();
+    }
+    catch (const char *msg)
+    {
+        cout << "Error: " << msg << endl
+             << endl;
+        return;
+    }
     bool sorted = false;
     string sortType;
     for (int p = 1; (p < n) && !sorted; ++p)
@@ -156,7 +177,7 @@ void sort(Inventory data[], int n)
                         sorted = false;
                     }
                 }
-                else if (orderChoice == 2)
+                else
                 {
                     if (data[x].getCode() < data[x + 1].getCode())
                     {
@@ -165,10 +186,6 @@ void sort(Inventory data[], int n)
                         data[x + 1] = temp;
                         sorted = false;
                     }
-                }
-                else
-                {
-                    break;
                 }
                 break;
             case 2:
@@ -183,7 +200,7 @@ void sort(Inventory data[], int n)
                         sorted = false;
                     }
                 }
-                else if (orderChoice == 2)
+                else
                 {
                     if (data[x].getName() < data[x + 1].getName())
                     {
@@ -192,10 +209,6 @@ void sort(Inventory data[], int n)
                         data[x + 1] = temp;
                         sorted = false;
                     }
-                }
-                else
-                {
-                    break;
                 }
                 break;
 
@@ -221,10 +234,6 @@ void sort(Inventory data[], int n)
                         sorted = false;
                     }
                 }
-                else
-                {
-                    break;
-                }
                 break;
 
             case 4:
@@ -239,7 +248,7 @@ void sort(Inventory data[], int n)
                         sorted = false;
                     }
                 }
-                else if (orderChoice == 2)
+                else
                 {
                     if (data[x].getQuantity() < data[x + 1].getQuantity())
                     {
@@ -249,13 +258,9 @@ void sort(Inventory data[], int n)
                         sorted = false;
                     }
                 }
-                else
-                {
-                    break;
-                }
                 break;
 
-            case 5:
+            default:
                 sortType = "Price";
                 if (orderChoice == 1)
                 {
@@ -267,7 +272,7 @@ void sort(Inventory data[], int n)
                         sorted = false;
                     }
                 }
-                else if (orderChoice == 2)
+                else
                 {
                     if (data[x].getPrice() < data[x + 1].getPrice())
                     {
@@ -277,15 +282,6 @@ void sort(Inventory data[], int n)
                         sorted = false;
                     }
                 }
-                else
-                {
-                    break;
-                }
-                break;
-
-            default:
-                cout << "Enter a valid choice!!!\n";
-                break;
             }
         }
     }
@@ -294,7 +290,7 @@ void sort(Inventory data[], int n)
     {
         cout << " in Ascending Order\n";
     }
-    else if (orderChoice == 2)
+    else
     {
         cout << " in Descending Order\n";
     }
@@ -308,10 +304,24 @@ void seqSearch(Inventory data[], int n)
     int index = -1;
     string searchType, searchKey;
 
-    int searchChoice = menuSearch();
+    int searchChoice;
+    try
+    {
+        searchChoice = menuSearch();
+    }
+    catch (const char *msg)
+    {
+        cout << "Error: " << msg << endl
+             << endl;
+        return;
+    }
     cout << "Enter your search key: ";
     cin.ignore();
     getline(cin, searchKey);
+
+    // no case sensitive
+    for (int j = 0; j < searchKey.size(); j++)
+        searchKey[j] = tolower(searchKey[j]);
 
     switch (searchChoice)
     {
@@ -319,18 +329,11 @@ void seqSearch(Inventory data[], int n)
         searchType = "Inventory Code";
         for (int i = 0; i < n; i++)
         {
-            if (data[i].getCode() == searchKey)
-            {
-                index = i;
-                found = true;
-            }
-        }
-        break;
-    case 2:
-        searchType = "Inventory Name";
-        for (int i = 0; i < n; i++)
-        {
-            if (data[i].getName() == searchKey)
+            // no case sensitive
+            string temp = data[i].getCode();
+            for (int j = 0; j < data[i].getCode().size(); j++)
+                temp[j] = tolower(temp[j]);
+            if (temp == searchKey)
             {
                 index = i;
                 found = true;
@@ -338,25 +341,41 @@ void seqSearch(Inventory data[], int n)
         }
         break;
     default:
-        break;
+        searchType = "Inventory Name";
+        for (int i = 0; i < n; i++)
+        { // no case sensitive
+            string temp = data[i].getName();
+            for (int j = 0; j < data[i].getName().size(); j++)
+                temp[j] = tolower(temp[j]);
+
+            if (temp == searchKey)
+            {
+                index = i;
+                found = true;
+            }
+        }
     }
 
-    cout << "\n::Search By " << searchType << endl<<endl
-         << "\t\t\t:::::::Inventory List:::::::\n"<<endl;
-         for(int i=0;i<84;i++){
-             cout<<"-";
-         }
-         cout<<endl;
-         cout<< left << setw(20) << "Inventory Code"
-             << setw(20) << "Inventory Name"
-             << setw(20) << "Inventory Type"
-             << setw(15) << "Quantity"
-             << setw(10) << "Price" << endl;
+    cout << "\n::Search By " << searchType << endl
+         << endl
+         << "\t\t\t:::::::Inventory List:::::::\n"
+         << endl;
+    for (int i = 0; i < 84; i++)
+    {
+        cout << "-";
+    }
+    cout << endl;
+    cout << left << setw(20) << "Inventory Code"
+         << setw(20) << "Inventory Name"
+         << setw(20) << "Inventory Type"
+         << setw(15) << "Quantity"
+         << setw(10) << "Price" << endl;
 
-        for(int i=0;i<84;i++){
-            cout<<"-";
-        }
-        cout<<endl;
+    for (int i = 0; i < 84; i++)
+    {
+        cout << "-";
+    }
+    cout << endl;
 
     if (found)
     {
