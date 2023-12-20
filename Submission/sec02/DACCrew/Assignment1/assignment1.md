@@ -80,7 +80,6 @@ The searching functions are defined to search for records in the array based on 
 <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Assignment1/files/images/class.jpg">
 
 ### 2.2 System Algorithm Design
-Explain the high-level design of algorithms used in your system.
 <br><br>
 1. Start. <br>
 2. Display menu.<br>
