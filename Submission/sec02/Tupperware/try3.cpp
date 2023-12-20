@@ -249,7 +249,7 @@ void searchAndOrder(Menu menuArray[]) {
 
             if (addToCartChoice == 'Y' || addToCartChoice == 'y') {
                 // Add the ordered item to the cart
-                orders.push_back(menuArray[i]);
+                //orders.push_back(menuArray[i]);
                 cout << "Item added to cart!" << endl;
             }
             else if(addToCartChoice == 'N' || addToCartChoice == 'n'){
@@ -262,13 +262,13 @@ void searchAndOrder(Menu menuArray[]) {
     }
 }
 
-double calculateTotal(const vector<Menu>& orders) {
+/*double calculateTotal(const vector<Menu>& orders) {
     double total = 0.0;
     for (const Menu& order : orders) {
         total += order.getPrice();
     }
     return total;
-}
+}*/
 
 int main() {
     Menu menuArray[SIZE];
@@ -280,7 +280,6 @@ int main() {
     bool condition = true;
     vector<Menu> orders;
 
-    do {
         system("cls");
         cout << "WELCOME TO TUPPERWARE!" << endl;
         nameFile.open("menu.txt", ios::in);
@@ -329,7 +328,6 @@ int main() {
         } else 
             cout << "Invalid input. Please enter V or S.\n";
 
-    } while (true);
 
 do{
     cout << "\nDo you want to make order? (Y/N): ";
@@ -343,8 +341,8 @@ do{
     }
 } while(true);
 
-double total = calculateTotal(orders);
-cout << "\nTotal order amount: RM" << fixed << setprecision(2) << total << endl;
+//double total = calculateTotal(orders);
+//cout << "\nTotal order amount: RM" << fixed << setprecision(2) << total << endl;
 
     return 0;
 }
