@@ -9,9 +9,9 @@
 
 ## Appendix :red_circle:
 
-- [Objectives](##-objectives)
-- [Synopsis](##-synopsis)
-- [Design](##-flowchart)
+- [Objectives](##-Objectives)
+- [Synopsis](##-Synopsis)
+- [Design](##-Flowchart)
 
 
 
