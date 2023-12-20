@@ -18,7 +18,7 @@ In our data structure and algorithm assignment 1, the main objectives of develop
 
 ## Synopsis📝
 
-The inventory management system is essential for one business or organization to track or manage its warehouse. Our inventory management system is designed to search or organize (sort) the inventory by its certain keys such as code, name, type, quantity, price in either ascending or descending order. These two methods are important because they not only save time but also offer convenience to users in managing the inventory effectively.
+The inventory management system is essential for one business or organization to track or manage its warehouse. Our inventory management system is designed to 𝘀𝗲𝗮𝗿𝗰𝗵 or 𝗼𝗿𝗴𝗮𝗻𝗶𝘇𝗲 (𝘀𝗼𝗿𝘁) the inventory by its certain keys such as 𝗰𝗼𝗱𝗲, 𝗻𝗮𝗺𝗲, 𝘁𝘆𝗽𝗲, 𝗾𝘂𝗮𝗻𝘁𝗶𝘁𝘆, 𝗽𝗿𝗶𝗰𝗲 in either 𝗮𝘀𝗰𝗲𝗻𝗱𝗶𝗻𝗴 𝗼𝗿 𝗱𝗲𝘀𝗰𝗲𝗻𝗱𝗶𝗻𝗴 𝗼𝗿𝗱𝗲𝗿. These two methods are important because they not only save time but also offer convenience to users in managing the inventory effectively.
 
 
 
