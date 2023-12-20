@@ -12,6 +12,7 @@
 - [Objectives](#Objectives)
 - [Synopsis](#synopsis)
 - [Design](#design)
+- [Findings](#findings)
 
 ## Objectives <a name="objectives"></a> :heavy_check_mark:
 
@@ -114,7 +115,7 @@ This program also implements two search functions which are SearchString() funct
 
 Display the unsorted data from the file (customer.txt) that has been read or display sorted data and searched data based on users option.
 
-## Findings 📊
+## Findings <a name="findings"></a>📊
 
 - [Source code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass1/ASS1.cpp)
 - [Input file](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass1/customer.txt)
