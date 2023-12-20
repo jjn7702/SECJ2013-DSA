@@ -12,6 +12,7 @@
 - [Objectives](#Objectives)
 - [Synopsis](#synopsis)
 - [Design](#design)
+- [Assigment Report](#report)
 - [Findings](#findings)
 
 ## Objectives <a name="objectives"></a> :heavy_check_mark:
