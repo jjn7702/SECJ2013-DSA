@@ -301,8 +301,76 @@ int menuSearch()
 	return option ;
 }
 
+// Search key based on age or room number
+void Search2(int searchKey, Customer data[], int size)
+{ 
+	int index = -1 ; //-1 means record is not found
+	for(int i = 0; i < size; i++)
+	{ 
+		if(searchKey == data[i].getAge())
+		{ 
+			index = i; // assign current array index
+			break; //terminate searching
+		}
+		else if(searchKey == data[i].getNum())
+		{ 
+			index = i; // assign current array index
+			break; //terminate searching
+		}
+	} //end for
+	
+	if(index == -1) // If the key not found
+		cout << "\nNot found..." << endl ;
+	else
+	{	// Display the information after searching if found
+		cout << "\nName: " << data[index].getName() << endl
+			 << "Age: " << data[index].getAge() << endl
+	 		 << "IC Number: " << data[index].getIC() << endl
+			 << "Phone Number: " << data[index].getPhone() << endl 
+			 << "Room Number: " << data[index].getNum() << endl 
+			 << "Check In Date: " << data[index].getDate() << endl ;	
+	}	
+} //end of search for age or room number
+
 int main()
 {
+	Customer customer[100] ;
+	int custNum = 0 ;
+	string name, IC, phoneNum, date ;
+	int age, room ; 
+	
+	// file as database
+	ifstream input("Assignment_1.txt") ;
+
+    if(!input) 
+	{
+        cout << "Cannot open the file\n" ;
+        return 1;
+    }
+	// Get input
+    while(getline(input, name, '/'))
+	{
+		input >> age ;
+		input.ignore() ;
+		getline(input, IC, '/') ;
+		getline(input, phoneNum, '/') ;
+		input >> room ;
+		input.ignore() ;
+		input >> date ;
+		input.ignore() ;
+		
+		customer[custNum].setName(name) ;
+		customer[custNum].setAge(age) ;
+		customer[custNum].setIC(IC) ;
+		customer[custNum].setPhone(phoneNum) ;
+		customer[custNum].setNum(room) ;
+		customer[custNum].setDate(date) ;
+				        
+		custNum++ ;
+    }
+
+    input.close() ; // close the input file
+
 	MenuLoop1: // For looping if key in invalid option
     int option = menuSort() ;
     
