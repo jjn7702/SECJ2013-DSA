@@ -6,7 +6,7 @@
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-| WAN NUR SOFEA BINTI MOHD HASBULLAH   | A22EC0115        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="https://github.com/wannursofea/Mypicture/blob/main/UTM_GAMBAR_ID_CARD-removebg-preview.png?raw=true" width=80px, height=80px>     |
+| WAN NUR SOFEA BINTI MOHD HASBULLAH   | A22EC0115        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="https://github.com/wannursofea/Mypicture/blob/main/UTM_GAMBAR_ID_CARD-removebg-preview.png?raw=true" width=100px, height=100px>     |
 | NADHRAH NURSABRINA BINTI ZULAINI     | A22EC0224        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="https://github.com/drshahizan/software-engineering/blob/main/proposal/submission/sec02/Alpha/Photo/kad%20matrik.jpg?raw=true" width=100px, height=100px>         |
 | NUR ALEYSHA QURRATU'AINI BINTI MAT SALLEH       | A22EC0241        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="https://github.com/drshahizan/software-engineering/blob/main/proposal/submission/sec02/Alpha/Photo/GAMBAR%20KAD%20MATRIK%20UTM.jpeg?raw=true" width=100px, height=100px>         |
 
