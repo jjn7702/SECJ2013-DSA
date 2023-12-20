@@ -1,23 +1,29 @@
+# Assignment 1
+
 ### Table of Contents
-- [Objectives](#1-objectives)
-- [Synopsis](#2-synopsis)
-- [Class Diagram](#3-class-diagram)
-- [Flowchart](#4-flowchart)
-- [Description of how to implement data structure operations: Sorting and Searching](#5-description-of-how-to-implement-data-structure-operations-sorting-and-searching)
+- [Objectives](#-objectives)
+- [Synopsis](#-synopsis)
+- [Class Diagram](#-class-diagram)
+- [Flowchart](#-flowchart)
+- [Description of how to implement data structure operations: Sorting and Searching](#-description-of-how-to-implement-data-structure-operations-sorting-and-searching)
+
+<br>
 
 
-### 1. Objectives:
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/bc7e2df3-d20d-457c-b9fb-e0574b6a740e" width="3%" height="3%"> Objectives:
 <li>To simulate an actual Hotel Booking System in a way that administrators can use it to manage the room bookings in a hotel.</li>
 <li>To improve understanding and enhance application of data structures: sorting and searching in a real-world scenario.</li>
 <li>To utilize file mechanisms in C++ to read and write data from/ to external files as a simulation of the database of the system.</li>
 
-### 2. Synopsis
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/ac62ef65-848d-41a6-97c2-1ff40be8ecd3" width="3%" height="3%"> Synopsis
+The Hotel Booking System is designed for hotel administrators to manage bookings. By using file input operations, the system reads the files containing admin information and booking information. Admin’s ID, name, position and phone number are stored in Admin class while check-in date, check-out date, room number, room type and total price of booking are stored in Booking class. Then requiring admin ID from the user to achieve authentication. The verification is carried out through sequential searching of ID input in Admin class. With the menu provided, admin is able to sort bookings ascendingly or descendingly based on check-in date, check-out date, room type and total price with  merge sort techniques implemented.
 
-
-### 3. Class Diagram
-
-
-### 4. Flowchart
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/b7b1299f-ead1-4e66-ad2e-95b901f4f03c" width="3%" height="3%"> Class Diagram
+<p align="center">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/c058aa3c-edbb-4ac7-abcf-e4e15ad63970" width="80%"><br>
+Figure 1: Class Diagram of Hotel Booking System
+</p>
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/8b3596b0-7214-4cc8-b868-9ab2a0314386" width="3%" height="3%"> Flowchart
 <p align="center">
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/3751215f-0055-451b-abe3-d813a1558362" width="70%" height="70%"><br>
   Figure 2: Flowchart of Main Function
@@ -43,12 +49,18 @@
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/a13ec04c-8d31-4108-90b0-5e898a19f602" width="40%" height="40%"><br>
   Figure 9: Flowchart of dispItems Function
   <br><br><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/aee4657a-2aa4-4d8e-a3f8-1b593cbe464e" width="30%" height="30%"><br>
+  Figure 10: Flowchart of mergeSortDsc Function
+  <br><br><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/b3db9b85-0a5b-49d7-a162-efa99e4db789" width="70%" height="70%"><br>
+  Figure 11: Flowchart of mergeDsc Function
+  <br><br><br>
 </p>
 
 
 
 
-### 5. Description of how to implement data structure operations: Sorting and Searching
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/fabaacbe-18c1-4f64-a3a5-e1b40e910e71" width="4%" height="4%"> Description of how to implement data structure operations: Sorting and Searching
 ##### 1. Sorting
 
 In the Hotel Booking System, we have implemented Advanced Sort - Merge Sort which is using the Divide and Conquer Sorting Strategy in the mergeSort(), mergeSortDsc(), merge() and mergeDsc() functions. This data structure operation works by dividing an array into halves, sort each half and merge the sorted halves into one sorted array. 

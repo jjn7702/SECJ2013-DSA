@@ -23,15 +23,103 @@ public:
     Menu(string foodId, string name, string category, double price)
         : foodId(foodId), name(name), category(category), price(price) {}
 
-    string getFoodId() const { return foodId; }
-    string getName() const { return name; }
-    string getCategory() const { return category; }
-    double getPrice() const { return price; }
+    	string getFoodId() const { return foodId; }
+        string getName() const { return name; }
+        string getCategory() const { return category; }
+        double getPrice() const { return price; }
 
-    void setFoodId(string foodId) { this->foodId = foodId; }
-    void setName(string name) { this->name = name; }
-    void setCategory(string category) { this->category = category; }
-    void setPrice(double price) { this->price = price; }
+        void setFoodId(string foodId) { this->foodId = foodId; }
+        void setName(string name) { this->name = name; }
+        void setCategory(string category) { this->category = category; }
+        void setPrice(double price) { this->price = price; }
+
+    void displayHeader() {
+        cout << left;
+        cout << setw(10) << "ID" << " | "
+             << setw(21) << "NAME" << " | "
+             << setw(13) << "TYPE" << " | "
+             << fixed << "PRICE" << endl;
+        cout << "---------------------------------------------------------" << endl;
+    }
+
+    void displayMenu(Menu menuArray[]) {
+        for (int i = 0; i < SIZE; i++) {
+            cout << left;
+            cout << setw(10) << menuArray[i].getFoodId() << " | "
+                 << setw(21) << menuArray[i].getName() << " | "
+                 << setw(13) << menuArray[i].getCategory() << " | "
+                 << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
+        }
+    }
+
+    void printSortedResult(Menu menuArray[]) {
+        for (int i = 0; i < SIZE; i++) {
+            cout << left;
+            cout << setw(10) << menuArray[i].getFoodId() << " | "
+                 << setw(21) << menuArray[i].getName() << " | "
+                 << setw(13) << menuArray[i].getCategory() << " | "
+                 << fixed << setprecision(2) << setw(4) << menuArray[i].getPrice() << endl;
+        }
+    }
+
+    void swap(Menu& a, Menu& b) {
+        Menu temp = a;
+        a = b;
+        b = temp;
+    }
+
+    void FoodIdASC(Menu menuArray[]) {
+        string fI[SIZE];
+        for (int last = SIZE - 1; last >= 1; --last) {
+
+            fI[last] = menuArray[last].getFoodId();
+            int largestIndex = 0;
+            for (int p = 1; p <= last; ++p) {
+                if (menuArray[p].getFoodId() > menuArray[largestIndex].getFoodId())
+                    largestIndex = p;
+            }
+            swap(menuArray[largestIndex], menuArray[last]);
+        }
+        displayHeader();
+        printSortedResult(menuArray);
+    }
+
+    void PriceASC(Menu menuArray[]) {
+        string fI[SIZE];
+        for (int last = SIZE - 1; last >= 1; --last) {
+
+            fI[last] = menuArray[last].getPrice();
+            int largestIndex = 0;
+            for (int p = 1; p <= last; ++p) {
+                if (menuArray[p].getPrice() > menuArray[largestIndex].getPrice())
+                    largestIndex = p;
+            }
+            swap(menuArray[largestIndex], menuArray[last]);
+        }
+        displayHeader();
+        printSortedResult(menuArray);
+    }
+
+    void makeOrder(Menu menuArray[], vector<Menu>& orders) {
+        int orderChoice;
+        cout << "Enter the number corresponding to the menu you want to order: ";
+        cin >> orderChoice;
+
+        if (orderChoice >= 1 && orderChoice <= SIZE) {
+            // Display the ordered item
+            displayHeader();
+            cout << left;
+            cout << setw(10) << menuArray[orderChoice - 1].getFoodId() << " | "
+                 << setw(21) << menuArray[orderChoice - 1].getName() << " | "
+                 << setw(13) << menuArray[orderChoice - 1].getCategory() << " | "
+                 << fixed << setprecision(2) << setw(4) << menuArray[orderChoice - 1].getPrice() << endl;
+
+            // Add the ordered item to the cart
+            orders.push_back(menuArray[orderChoice - 1]);
+        } else {
+            cout << "Invalid menu choice.\n";
+        }
+    }
 };
 
 void displayHeader() {
@@ -160,7 +248,8 @@ void searchAndOrder(Menu menuArray[]) {
             cin >> addToCartChoice;
 
             if (addToCartChoice == 'Y' || addToCartChoice == 'y') {
-                // Add code to handle adding to the cart
+                // Add the ordered item to the cart
+                orders.push_back(menuArray[i]);
                 cout << "Item added to cart!" << endl;
             }
             else if(addToCartChoice == 'N' || addToCartChoice == 'n'){
@@ -171,6 +260,14 @@ void searchAndOrder(Menu menuArray[]) {
     if (!found) {
         cout << "No matching items found.\n";
     }
+}
+
+double calculateTotal(const vector<Menu>& orders) {
+    double total = 0.0;
+    for (const Menu& order : orders) {
+        total += order.getPrice();
+    }
+    return total;
 }
 
 int main() {
@@ -232,11 +329,7 @@ int main() {
         } else 
             cout << "Invalid input. Please enter V or S.\n";
 
-    } while (condition == true);
-    
-    do{
-    cout << "Do you want to make order? (Y/N): ";
-    cin >> choice;
+    } while (true);
 
     if (choice == 'N' || choice == 'n') 
         break;
@@ -244,7 +337,6 @@ int main() {
     else if (choice == 'Y' || choice == 'y'){
         makeOrder(menuArray, orders);
     }
-} while(true);
 
 double total = calculateTotal(orders);
 cout << "\nTotal order amount: RM" << fixed << setprecision(2) << total << endl;

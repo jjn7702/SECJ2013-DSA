@@ -106,6 +106,8 @@ void SearchingName(Candidate c[],int size)
             cout<<"Matric Number  : "<<c[i].getMatric()<<endl;
             found = true;
         }
+        else 
+            found = false;
     }
 
     if(found == false)
