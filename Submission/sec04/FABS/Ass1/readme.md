@@ -5,8 +5,6 @@
 [![Contributors Badge](https://img.shields.io/github/contributors/jjn7702/SECJ2013-DSA?color=2b9348)](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/graphs/contributors)
 ![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fjjn7702%2FSECJ2013-DSA%2FSubmission%2FSample&labelColor=%23d9e3f0&countColor=%23697689&style=flat)
 
-_Don't forget to hit the :star: if you like this repo._
-
 # Courier Management System - Assignment 1
 ## Objective
 
@@ -29,9 +27,7 @@ Synopsis.....
 
 ## Findings 📊
 
-- [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/FABS/Ass1)
-- [Assignment 2](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/FABS/Ass2)
-- [Project](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/FABS/Project)
+- [Source Code]([https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/FABS/Ass1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass1/ASS1.cpp))
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
