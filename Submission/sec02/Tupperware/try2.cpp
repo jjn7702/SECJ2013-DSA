@@ -202,7 +202,8 @@ void makeOrder(Menu menuArray[], vector<Menu>& orders){
         cout << "You ordered:\n";
         displayHeader();
         cout << left;
-        cout << setw(10) << menuArray[orderChoice - 1].getFoodId() << " | " 
+        cout << setw(5) << orderChoice << " | "
+             << setw(10) << menuArray[orderChoice - 1].getFoodId() << " | " 
              << setw(21) << menuArray[orderChoice - 1].getName() << " | " 
              << setw(13) << menuArray[orderChoice - 1].getCategory() << " | " 
              << fixed << setprecision(2) << setw(4) << menuArray[orderChoice - 1].getPrice() << endl;
@@ -262,13 +263,6 @@ void searchAndOrder(Menu menuArray[]) {
     }
 }
 
-double calculateTotal(const vector<Menu>& orders) {
-    double total = 0.0;
-    for (const Menu& order : orders) {
-        total += order.getPrice();
-    }
-    return total;
-}
 
 int main() {
     Menu menuArray[SIZE];
@@ -280,7 +274,6 @@ int main() {
     bool condition = true;
     vector<Menu> orders;
 
-    do {
         system("cls");
         cout << "WELCOME TO TUPPERWARE!" << endl;
         nameFile.open("menu.txt", ios::in);
@@ -322,21 +315,19 @@ int main() {
                 break;
             }
             
-            condition = false ;
         } else if (choice == 'S' || choice == 's') {
                 // Searching for a specific food and ordering
             searchAndOrder(menuArray);
         } else 
             cout << "Invalid input. Please enter V or S.\n";
 
-    } while (true);
 
 do{
     cout << "\nDo you want to make order? (Y/N): ";
     cin >> choice;
 
     if (choice == 'N' || choice == 'n') 
-        main();
+        break;
     
     else if (choice == 'Y' || choice == 'y'){
         makeOrder(menuArray, orders);
