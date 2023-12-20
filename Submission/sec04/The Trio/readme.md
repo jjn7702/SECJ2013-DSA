@@ -35,5 +35,3 @@ Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Samp
 ![](https://hit.yhype.me/github/profile?user_id=81284918)
 
 
-## Design 💭
-- Class Diagram 
