@@ -1,7 +1,7 @@
 # Election Management System
 
 ### Table of Contents
--[Introduction](#-introduction)
+- [Introduction](#-introduction)
 - [Objectives](#-objectives)
 - [Synopsis](#-synopsis)
 - [Class Diagram](#-class-diagram)
