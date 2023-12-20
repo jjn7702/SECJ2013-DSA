@@ -646,7 +646,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="Z6kkUY7W0jmZs9z1XAER" name="OTHER FUNCTION">
-        <mxGraphModel dx="525" dy="381" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1282" dy="931" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -796,6 +796,33 @@
                 </mxCell>
                 <mxCell id="VMK_JOLI38j_ruiSTltt-15" value="FALSE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
                     <mxGeometry x="326" y="272" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="VMK_JOLI38j_ruiSTltt-18" value="" style="edgeStyle=none;rounded=0;html=1;" edge="1" parent="1" source="VMK_JOLI38j_ruiSTltt-16" target="VMK_JOLI38j_ruiSTltt-17">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="VMK_JOLI38j_ruiSTltt-16" value="calculateTotal(orders)" style="rounded=1;whiteSpace=wrap;html=1;glass=0;labelBackgroundColor=none;fillColor=#dae8fc;arcSize=50;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="620" y="453" width="140" height="37.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="VMK_JOLI38j_ruiSTltt-20" value="" style="edgeStyle=none;rounded=0;html=1;" edge="1" parent="1" source="VMK_JOLI38j_ruiSTltt-17" target="VMK_JOLI38j_ruiSTltt-19">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="VMK_JOLI38j_ruiSTltt-17" value="total = 0.0" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="645" y="511" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="VMK_JOLI38j_ruiSTltt-22" value="" style="edgeStyle=none;rounded=0;html=1;" edge="1" parent="1" source="VMK_JOLI38j_ruiSTltt-19" target="VMK_JOLI38j_ruiSTltt-21">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="VMK_JOLI38j_ruiSTltt-19" value="(const Menu&amp;amp; order : order)" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="610" y="564" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="VMK_JOLI38j_ruiSTltt-24" value="" style="edgeStyle=none;rounded=0;html=1;" edge="1" parent="1" source="VMK_JOLI38j_ruiSTltt-21" target="VMK_JOLI38j_ruiSTltt-23">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="VMK_JOLI38j_ruiSTltt-21" value="total += order.getPrice()" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="630" y="670" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="VMK_JOLI38j_ruiSTltt-23" value="Return total" style="rounded=1;whiteSpace=wrap;html=1;glass=0;labelBackgroundColor=none;fillColor=#dae8fc;arcSize=50;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="750.25" width="80" height="37.5" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
