@@ -474,7 +474,7 @@ void quickSort(inventory inv[], int first, int last, int choice){
     int cut;
     if(first < last){
         cut = partition(inv, first, last, choice);
-        quickSort(inv, first, cut - 1, choice);
+        quickSort(inv, first, cut, choice);
         quickSort(inv, cut + 1, last, choice);
     }
 }
