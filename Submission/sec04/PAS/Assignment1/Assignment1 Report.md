@@ -19,6 +19,7 @@ The Library Management System is designed to manage and view the library’s boo
 ### Class Diagram
 ![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Assignment1/Images/class_diagram.PNG)
 ### Flowchart
+![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Assignment1/Images/flowchart.jpg)
 
 ## Description
 
