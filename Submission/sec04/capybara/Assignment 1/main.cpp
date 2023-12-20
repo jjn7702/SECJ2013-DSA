@@ -511,20 +511,21 @@ void LoadFiles(vector<User> &users, vector<Airline> &airline, vector<Reservation
     reservationFile.close();
 };
 
-int binarySearchByName(const std::vector<User> &users, const std::string &name)
+template <typename T, typename Key>
+int binarySearch(const vector<T> &items, const Key &key)
 {
     int low = 0;
-    int high = users.size() - 1;
+    int high = items.size() - 1;
 
     while (low <= high)
     {
         int mid = low + (high - low) / 2;
 
-        if (users[mid].getName() == name)
+        if (items[mid] == key)
         {
-            return mid; // User found at index mid
+            return mid; // Item found at index mid
         }
-        else if (users[mid].getName() < name)
+        else if (items[mid] < key)
         {
             low = mid + 1;
         }
@@ -534,293 +535,7 @@ int binarySearchByName(const std::vector<User> &users, const std::string &name)
         }
     }
 
-    return -1; // User not found
-}
-
-int binarySearchByIC(const std::vector<User> &users, const std::string &IC)
-{
-    int low = 0;
-    int high = users.size() - 1;
-
-    while (low <= high)
-    {
-        int mid = low + (high - low) / 2;
-
-        if (users[mid].getIC() == IC)
-        {
-            return mid; // User found at index mid
-        }
-        else if (users[mid].getIC() < IC)
-        {
-            low = mid + 1;
-        }
-        else
-        {
-            high = mid - 1;
-        }
-    }
-
-    return -1; // User not found
-}
-
-int binarySearchByPhone(const std::vector<User> &users, const std::string &Phone)
-{
-    int low = 0;
-    int high = users.size() - 1;
-
-    while (low <= high)
-    {
-        int mid = low + (high - low) / 2;
-
-        if (users[mid].getPhone() == Phone)
-        {
-            return mid; // User found at index mid
-        }
-        else if (users[mid].getPhone() < Phone)
-        {
-            low = mid + 1;
-        }
-        else
-        {
-            high = mid - 1;
-        }
-    }
-
-    return -1; // User not found
-}
-
-int binarySearchByEmail(const std::vector<User> &users, const std::string &Email)
-{
-    int low = 0;
-    int high = users.size() - 1;
-
-    while (low <= high)
-    {
-        int mid = low + (high - low) / 2;
-
-        if (users[mid].getEmail() == Email)
-        {
-            return mid; // User found at index mid
-        }
-        else if (users[mid].getEmail() < Email)
-        {
-            low = mid + 1;
-        }
-        else
-        {
-            high = mid - 1;
-        }
-    }
-
-    return -1; // User not found
-}
-
-int binarySearchByAirplaneID(std::vector<Airline> &airlines, const std::string &AirplaneID)
-{
-    int low = 0;
-    int high = airlines.size() - 1;
-
-    while (low <= high)
-    {
-        int mid = low + (high - low) / 2;
-
-        if (airlines[mid].getAirplaneID() == AirplaneID)
-        {
-            return mid; // User found at index mid
-        }
-        else if (airlines[mid].getAirplaneID() < AirplaneID)
-        {
-            low = mid + 1;
-        }
-        else
-        {
-            high = mid - 1;
-        }
-    }
-
-    return -1; // User not found
-}
-
-int binarySearchByCapacity(std::vector<Airline> &airlines, const std::string &Capacity)
-{
-    int low = 0;
-    int high = airlines.size() - 1;
-
-    while (low <= high)
-    {
-        int mid = low + (high - low) / 2;
-
-        if (airlines[mid].getCapacity() == Capacity)
-        {
-            return mid; // User found at index mid
-        }
-        else if (airlines[mid].getCapacity() < Capacity)
-        {
-            low = mid + 1;
-        }
-        else
-        {
-            high = mid - 1;
-        }
-    }
-
-    return -1; // User not found
-}
-
-int binarySearchByCompany(std::vector<Airline> &airlines, const std::string &Company)
-{
-    int low = 0;
-    int high = airlines.size() - 1;
-
-    while (low <= high)
-    {
-        int mid = low + (high - low) / 2;
-
-        if (airlines[mid].getCompany() == Company)
-        {
-            return mid; // User found at index mid
-        }
-        else if (airlines[mid].getCompany() < Company)
-        {
-            low = mid + 1;
-        }
-        else
-        {
-            high = mid - 1;
-        }
-    }
-
-    return -1; // User not found
-}
-
-int binarySearchByReservationID(std::vector<Reservation> &reservations, const std::string &ReservationID)
-{
-    int low = 0;
-    int high = reservations.size() - 1;
-
-    while (low <= high)
-    {
-        int mid = low + (high - low) / 2;
-
-        if (reservations[mid].getReservationID() == ReservationID)
-        {
-            return mid; // User found at index mid
-        }
-        else if (reservations[mid].getReservationID() < ReservationID)
-        {
-            low = mid + 1;
-        }
-        else
-        {
-            high = mid - 1;
-        }
-    }
-
-    return -1; // User not found
-}
-
-int binarySearchByDepartureTime(std::vector<Reservation> &reservations, const std::string &DepartureTime)
-{
-    int low = 0;
-    int high = reservations.size() - 1;
-
-    while (low <= high)
-    {
-        int mid = low + (high - low) / 2;
-
-        if (reservations[mid].getDepartureTime() == DepartureTime)
-        {
-            return mid; // User found at index mid
-        }
-        else if (reservations[mid].getDepartureTime() < DepartureTime)
-        {
-            low = mid + 1;
-        }
-        else
-        {
-            high = mid - 1;
-        }
-    }
-
-    return -1; // User not found
-}
-
-int binarySearchByArrivalTime(std::vector<Reservation> &reservations, const std::string &ArrivalTime)
-{
-    int low = 0;
-    int high = reservations.size() - 1;
-
-    while (low <= high)
-    {
-        int mid = low + (high - low) / 2;
-
-        if (reservations[mid].getArrivalTime() == ArrivalTime)
-        {
-            return mid; // User found at index mid
-        }
-        else if (reservations[mid].getArrivalTime() < ArrivalTime)
-        {
-            low = mid + 1;
-        }
-        else
-        {
-            high = mid - 1;
-        }
-    }
-
-    return -1; // User not found
-}
-
-int binarySearchByDate(std::vector<Reservation> &reservations, const std::string &Date)
-{
-    int low = 0;
-    int high = reservations.size() - 1;
-
-    while (low <= high)
-    {
-        int mid = low + (high - low) / 2;
-
-        if (reservations[mid].getDate() == Date)
-        {
-            return mid; // User found at index mid
-        }
-        else if (reservations[mid].getDate() < Date)
-        {
-            low = mid + 1;
-        }
-        else
-        {
-            high = mid - 1;
-        }
-    }
-
-    return -1; // User not found
-}
-
-int binarySearchByLocation(std::vector<Reservation> &reservations, const std::string &Location)
-{
-    int low = 0;
-    int high = reservations.size() - 1;
-
-    while (low <= high)
-    {
-        int mid = low + (high - low) / 2;
-
-        if (reservations[mid].getLocation() == Location)
-        {
-            return mid; // User found at index mid
-        }
-        else if (reservations[mid].getLocation() < Location)
-        {
-            low = mid + 1;
-        }
-        else
-        {
-            high = mid - 1;
-        }
-    }
-
-    return -1; // User not found
+    return -1; // Item not found
 }
 
 int main()
@@ -928,7 +643,7 @@ int main()
 
                                 getline(cin, IC);
                                 quickSortUsers(users, 0, users.size() - 1, 1);
-                                found = binarySearchByIC(users, IC);
+                                found = binarySearch(users, IC);
 
                                 users[found].displayBodo();
                             }
@@ -941,7 +656,7 @@ int main()
 
                                 getline(cin, Phone);
                                 quickSortUsers(users, 0, users.size() - 1, 1);
-                                found = binarySearchByPhone(users, Phone);
+                                found = binarySearch(users, Phone);
 
                                 users[found].displayBodo();
                             }
@@ -954,7 +669,7 @@ int main()
 
                                 getline(cin, Email);
                                 quickSortUsers(users, 0, users.size() - 1, 1);
-                                found = binarySearchByEmail(users, Email);
+                                found = binarySearch(users, Email);
 
                                 users[found].displayBodo();
                             }
@@ -992,7 +707,7 @@ int main()
                                 cin.ignore();
                                 getline(cin, AirplaneID);
                                 quickSortAirline(airlines, 0, airlines.size() - 1, 1);
-                                found = binarySearchByAirplaneID(airlines, AirplaneID);
+                                found = binarySearch(airlines, AirplaneID);
 
                                 users[found].displayBodo();
                             }
@@ -1005,7 +720,7 @@ int main()
                                 cin.ignore();
                                 getline(cin, Capacity);
                                 quickSortAirline(airlines, 0, airlines.size() - 1, 1);
-                                found = binarySearchByCapacity(airlines, Capacity);
+                                found = binarySearch(airlines, Capacity);
 
                                 users[found].displayBodo();
                             }
@@ -1018,7 +733,7 @@ int main()
                                 cin.ignore();
                                 getline(cin, Company);
                                 quickSortAirline(airlines, 0, airlines.size() - 1, 1);
-                                found = binarySearchByCompany(airlines, Company);
+                                found = binarySearch(airlines, Company);
 
                                 users[found].displayBodo();
                             }
@@ -1057,7 +772,7 @@ int main()
                                 cin.ignore();
                                 getline(cin, ReservationID);
                                 quickSortReservation(reservations, 0, reservations.size() - 1, 1);
-                                found = binarySearchByReservationID(reservations, ReservationID);
+                                found = binarySearch(reservations, ReservationID);
 
                                 users[found].displayBodo();
                             }
@@ -1070,7 +785,7 @@ int main()
                                 cin.ignore();
                                 getline(cin, DepartureTime);
                                 quickSortReservation(reservations, 0, reservations.size() - 1, 1);
-                                found = binarySearchByDepartureTime(reservations, DepartureTime);
+                                found = binarySearch(reservations, DepartureTime);
 
                                 users[found].displayBodo();
                             }
@@ -1083,7 +798,7 @@ int main()
                                 cin.ignore();
                                 getline(cin, ArrivalTime);
                                 quickSortReservation(reservations, 0, reservations.size() - 1, 1);
-                                found = binarySearchByArrivalTime(reservations, ArrivalTime);
+                                found = binarySearch(reservations, ArrivalTime);
 
                                 users[found].displayBodo();
                             }
@@ -1096,7 +811,7 @@ int main()
                                 cin.ignore();
                                 getline(cin, Date);
                                 quickSortReservation(reservations, 0, reservations.size() - 1, 1);
-                                found = binarySearchByDate(reservations, Date);
+                                found = binarySearch(reservations, Date);
 
                                 users[found].displayBodo();
                             }
@@ -1109,7 +824,7 @@ int main()
                                 cin.ignore();
                                 getline(cin, Location);
                                 quickSortReservation(reservations, 0, reservations.size() - 1, 1);
-                                found = binarySearchByLocation(reservations, Location);
+                                found = binarySearch(reservations, Location);
 
                                 users[found].displayBodo();
                             }
