@@ -104,6 +104,21 @@ This program also implements two search functions which are SearchString() funct
 
 Display the unsorted data from the file (customer.txt) that has been read or display sorted data and searched data based on users option.
 
+## Assignment Report <a name="report"></a> 🔔
+
+Submission date: 20-Dec-2023 03:37AM (UTC-0800)
+
+Submisstion ID: 2263089782
+
+File name: ASSIGMENT_1_DSA_FABS_1.pdf
+
+Word coun: 1008
+
+Character count: 5285
+
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/b61a33a43887545caac58fe75a6d83fb567522e5/Submission/sec04/FABS/Ass1/Images/AssignmentReport.jpg)
+
+
 ## Findings <a name="findings"></a>📊
 
 - [Source code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass1/ASS1.cpp)
