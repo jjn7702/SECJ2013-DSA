@@ -9,9 +9,9 @@
 
 ## Appendix :red_circle:
 
-- [Objectives](-#Objectives)
-- [Synopsis](-#synopsis)
-- [Design](-#design)
+- [Objectives](##Objectives)
+- [Synopsis](##synopsis)
+- [Design](##design)
 
 ## [Objectives](#objectives) :heavy_check_mark:
 
