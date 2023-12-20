@@ -43,6 +43,12 @@
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/a13ec04c-8d31-4108-90b0-5e898a19f602" width="40%" height="40%"><br>
   Figure 9: Flowchart of dispItems Function
   <br><br><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/aee4657a-2aa4-4d8e-a3f8-1b593cbe464e" width="30%" height="30%"><br>
+  Figure 10: Flowchart of mergeSortDsc Function
+  <br><br><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/b3db9b85-0a5b-49d7-a162-efa99e4db789" width="70%" height="70%"><br>
+  Figure 11: Flowchart of mergeDsc Function
+  <br><br><br>
 </p>
 
 
