@@ -34,7 +34,8 @@ Figure 1: Class Diagram of Restaurant Management System
     <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/System%20Design/classDiagramass1-Page-4.png?raw=true"><br>
     <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/System%20Design/classDiagramass1-Page-3.drawio.png?raw=true"><br>
     <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/System%20Design/classDiagramass1-Page-7.png?raw=true"><br>
-    <img src="">
+    <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/System%20Design/classDiagramass1-Page-5.png?raw=true">
+    <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/System%20Design/classDiagramass1-Page-8.png?raw=true">
   <br><br><br>
 </p>
 
