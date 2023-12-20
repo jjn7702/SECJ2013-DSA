@@ -126,13 +126,11 @@ void searchAndOrder(Menu menuArray[], vector<Menu>& orders) {
                  << fixed << setprecision(2) << setw(4) << menuArray[i].getPrice() << endl;
                  found = true;
             }
-            // Ask the user if they want to add the order to the cart
             char addToCartChoice;
             cout << "Do you want to add this item to the cart? (Y/N): ";
             cin >> addToCartChoice;
 
             if (addToCartChoice == 'Y' || addToCartChoice == 'y') {
-                // Add the ordered item to the cart
                 orders.push_back(menuArray[i]);
                 cout << "Item added to cart!" << endl;
             }
@@ -179,28 +177,23 @@ double calculateTotal(const vector<Menu>& orders){
 // GENERATE RECEIPT SECTION
 void generateReceipt(const vector<Menu>& orders, double total) {
     cout << "\nReceipt:\n";
-    cout << "+------------------------------------------------------------------+" << endl;
-    cout << "| ID         | NAME                     | TYPE          | QTY | PRICE |" << endl;
-    cout << "+------------------------------------------------------------------+" << endl;
+    cout << "+------------------------------------------------------------+" << endl;
     cout << left;
     cout << setw(10) << "ID" 
          << setw(21) << "NAME" 
          << setw(13) << "TYPE" 
          << setw(13) << "QUANTITY" 
          << fixed << "PRICE" << endl;
-    cout << "---------------------------------------------------------" << endl;
+    cout << "+------------------------------------------------------------+" << endl;
 
-    // Iterate through orders to count items
-    for (size_t i = 0; i < orders.size(); ++i) {
-        // Check if the item is already in orders
+    for (int i = 0; i < orders.size(); ++i) {
         int count = 1;
-        for (size_t j = i + 1; j < orders.size(); ++j) {
+        for (int j = i + 1; j < orders.size(); ++j) {
             if (orders[i].getFoodId() == orders[j].getFoodId()) {
                 ++count;
             }
         }
 
-        // Print the item information
         if (count > 0) {
             cout << setw(10) << orders[i].getFoodId() 
                  << setw(21) << orders[i].getName() 
@@ -209,7 +202,6 @@ void generateReceipt(const vector<Menu>& orders, double total) {
                  << fixed << setprecision(2) << setw(4) << orders[i].getPrice() << endl;
         }
 
-        // Skip the repeated items
         for (size_t j = i + 1; j < orders.size(); ++j) {
             if (orders[i].getFoodId() == orders[j].getFoodId()) {
                 i = j;
@@ -261,7 +253,6 @@ int main() {
             cin >> choice;
 
             if (choice == 'V' || choice == 'v') {
-                // View in a new way (sorting)
                 cout << "Sort by Food ID or Price? ";
                 int choiceSort;
                 cout << "1 - ALPHABET ORDER | 2 - PRICE => ";
@@ -276,7 +267,6 @@ int main() {
                     break;
                 }
             } else if (choice == 'S' || choice == 's') {
-                // Searching for a specific food and ordering
                 searchAndOrder(menuArray, orders);
             } else {
                 cout << "Invalid input. Please enter V or S.\n";
@@ -294,7 +284,6 @@ do{
     }
 } while(true);
 
-    // Check if any order is made
     if (!orders.empty()) {
         cout << "\nYour Orders:\n";
         displayHeader();
