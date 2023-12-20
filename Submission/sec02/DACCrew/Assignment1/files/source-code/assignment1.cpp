@@ -313,6 +313,67 @@ void sortByBal(Bank bl[], int first, int last)
     }
 }
 
+//Searching
+void searchByName(Bank bl[], int size, const string& searchName)
+{
+    bool found = false;
+
+    cout << "Search Results for Name: " << searchName << endl;
+
+    for (int i = 0; i < size; i++)
+    {
+        if (bl[i].getName() == searchName)
+        {
+            dispHeader();
+            bl[i].displaySort();
+            found = true;
+        }
+    }
+
+    if (!found)
+        cout << "No matching records found for the given name." << endl;
+}
+
+void searchByAccNum(Bank bl[], int size, const string& searchAccNum)
+{
+    bool found = false;
+
+    cout << "Search Results for Account Number: " << searchAccNum << endl;
+
+    for (int i = 0; i < size; i++)
+    {
+        if (bl[i].getAccNum() == searchAccNum)
+        {
+            dispHeader();
+            bl[i].displaySort();
+            found = true;
+        }
+    }
+
+    if (!found)
+        cout << "No matching records found for the given account number." << endl;
+}
+
+void searchByIc(Bank bl[], int size, const string& searchIc)
+{
+    bool found = false;
+
+    cout << "Search Results for IC Number: " << searchIc << endl;
+
+    for (int i = 0; i < size; i++)
+    {
+        if (bl[i].getIc() == searchIc)
+        {
+            dispHeader();
+            bl[i].displaySort();
+            found = true;
+        }
+    }
+
+    if (!found)
+        cout << "No matching records found for the given IC number." << endl;
+}
+
 int main()
 {
     Bank bankList[100];
@@ -402,7 +463,7 @@ int main()
                 cout << "Enter the name to search: ";
                 cin.ignore(); 
                 getline(cin, searchName);
-                searchByName(bankList, idx, searchName);
+                searchByName(bankList, 4, searchName);
             }
             else if(opt == 6)
             {
@@ -410,7 +471,7 @@ int main()
                 cout << "Enter the account number to search: ";
                 cin.ignore(); // Ignore newline character in the input buffer
                 getline(cin, searchAccNum);
-                searchByAccNum(bankList, idx, searchAccNum);
+                searchByAccNum(bankList, 4, searchAccNum);
             }
             else
             {
@@ -418,12 +479,12 @@ int main()
                 cout << "Enter the IC number to search: ";
                 cin.ignore();
                 getline(cin, searchIc);
-                searchByIc(bankList, idx, searchIc);
+                searchByIc(bankList, 4, searchIc);
             }
         }
         else
         {
             cout << "Shutting down system...";
             return 0;
-        }*/
+        }
 }
