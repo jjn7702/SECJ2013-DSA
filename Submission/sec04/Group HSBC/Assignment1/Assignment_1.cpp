@@ -159,3 +159,77 @@ int read_data(Account acc[], const string& filename)
 	f1.close();
 	return n;
 }
+
+int main(){
+	string filename;
+	
+	cout<<"Enter the input file name: ";
+	cin>>filename;
+	Account account[99];
+	int count = read_data(account, filename);
+	system("cls");
+	
+	bool menu = 1;
+	while(menu)
+	{
+		int choice1, choice2;
+		do
+		{
+			cout << "Menu of Account Checking : " << endl
+				<< "1. Account Searching" << endl
+				<< "2. Account List" << endl
+				<< "Enter your choice: ";
+			cin >> choice1;
+			system("cls");
+
+		} while (choice1 != 1 && choice1 != 2);
+
+		if(choice1 == 1)
+		{
+			string accountSearch;
+			cout << "Account : ";
+			cin >>accountSearch;
+			system("cls");
+
+			cout << "Searched Account Details : \n";
+			cout<<"--------------------------------------------------------------------------------------------------------------\n"
+			<<"| Account Number | Balance(RM) | Transaction Date | Transaction Type | Amount(RM) | Transfered Account Number |\n"
+			<<"--------------------------------------------------------------------------------------------------------------\n";
+			account[searchAcc(account, accountSearch, count)].printDetails();
+		}
+
+		else{
+            do{
+                cout<<"Choose an option:\n"
+                    <<"1. View all the transaction without sorting\n"
+                    <<"2. View transactions sorted by date(oldest to newest)\n"
+                    <<"3. View transactions sorted by date(newest to oldest)\n"
+                    <<"4. View transactions sorted by balance(fewest to greatest)\n"
+                    <<"5. View transactions sorted by balance(greatest to fewest)\n"
+                    <<"Enter your choice: ";
+                cin>>choice2;
+                system("cls");
+            } while (choice2 <= 0 && choice2 >= 6);
+
+            if(choice2 > 1 && choice2 < 6)
+            {
+                quickSort(account, 0, count, choice2);
+                cout << "Sorted Listed\n";
+            }
+
+            cout<<"--------------------------------------------------------------------------------------------------------------\n"
+            <<"| Account Number | Balance(RM) | Transaction Date | Transaction Type | Amount(RM) | Transfered Account Number |\n"
+            <<"--------------------------------------------------------------------------------------------------------------\n";
+            for(int i =0; i < count; i++){
+                account[i].printDetails();
+            }
+        }
+
+		cout << "\n\n\n\nBack to menu (1: yes / 0: no) : ";
+		cin >> menu;
+		system("cls"); 
+	}
+		
+	system("pause");
+	return 0;
+}

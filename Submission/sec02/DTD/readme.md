@@ -42,4 +42,3 @@ The Library Management System is aiming to organize,store and manage library res
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
-

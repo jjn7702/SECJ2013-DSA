@@ -331,7 +331,7 @@ void menu(int &opt1,int &opt2,int &opt3)
     switch(opt1)
     {
         case 1 : do{
-                 cout<<"[1] Name \n[2] Faculty \n[3] IC \n[4] Age \n[5] ID \n[6] Vote Count"<<endl;
+                 cout<<"[1] Name \n[2] Faculty \n[3] IC \n[4] Age \n[5] Matric Number \n[6] Vote Count"<<endl;
                  cout<<"Please choose the sorting category : ";
                  cin>>opt2;
                  cout<<endl;
@@ -344,7 +344,7 @@ void menu(int &opt1,int &opt2,int &opt3)
                 }while(opt3<1 || opt3>2);
                  break;
         case 2 : do{
-                 cout<<"[1] Name \n[2] Faculty \n[3] IC \n[4] Age \n[5] ID \n[6] Vote Count"<<endl;
+                 cout<<"[1] Name \n[2] Faculty \n[3] IC \n[4] Age \n[5] Matric Number \n[6] Vote Count"<<endl;
                  cout<<"Please choose the searching category : ";
                  cin>>opt2;
                  cout<<endl;
