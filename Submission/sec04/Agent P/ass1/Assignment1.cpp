@@ -85,6 +85,7 @@ void SearchingName(Candidate c[],int size)
 
     for(int i=0;i<size;i++)
     {
+        found = false;
         string name = c[i].getName();
 
         for(int i=0;i<name.size();i++)
@@ -94,7 +95,7 @@ void SearchingName(Candidate c[],int size)
 
         if(name == key)
         {
-            cout<<"\nRecord Found    "<<endl;
+            cout<<"\nRecord Found!    "<<endl;
             cout<<"-------------"<<endl;
             cout<<"Name           : "<<c[i].getName()<<endl;
             cout<<"Faculty        : "<<c[i].getFaculty()<<endl;
@@ -104,7 +105,6 @@ void SearchingName(Candidate c[],int size)
             cout<<"Phone number   : "<<c[i].getPhone()<<endl;
             cout<<"Matric Number  : "<<c[i].getMatric()<<endl;
             found = true;
-            break;
         }
     }
 
@@ -176,7 +176,7 @@ void SearchingFaculty(Candidate c[],int size)
         }
         if(faculty == key)
         {
-            cout<<"\nRecord Found   : "<<endl;
+            cout<<"\nRecord Found! "<<endl;
             cout<<"Name           : "<<c[i].getName()<<endl;
             cout<<"Faculty        : "<<c[i].getFaculty()<<endl;
             cout<<"IC             : "<<c[i].getIC()<<endl;
@@ -185,11 +185,12 @@ void SearchingFaculty(Candidate c[],int size)
             cout<<"Phone number   : "<<c[i].getPhone()<<endl;
             cout<<"Matric Number  : "<<c[i].getMatric()<<endl;
             found = true;
-            break;
         }
+        else 
+            found = false;
     }
 
-    if(found == false)
+    if(!found)
         cout<<"Data not found!"<<endl;
 }
 
