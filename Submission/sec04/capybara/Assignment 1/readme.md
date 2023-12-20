@@ -2,9 +2,9 @@
 
 - [Objectives](#objectives-)
 - [Synopsis](#synopsis-)
-- [Flow Chart](#-flow-chart)
-- [Sorting Algorithm](#-sorting-algorithm)
-- [Searching Method](#-searching-method)
+- [Flow Chart](#flow-chart-)
+- [Sorting Algorithm](#sorting-algorithm-)
+- [Searching Method](#searching-method-)
    
 ## Objectives 🌈
 
