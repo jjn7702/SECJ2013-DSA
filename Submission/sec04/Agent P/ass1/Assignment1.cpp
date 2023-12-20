@@ -540,37 +540,51 @@ int main()
                             cout <<"Sorted in DESCENDING -> NAME" << endl;
                             NameDescending(c,i);
                          }
-                        //display(c,i);
                         break;
-                case 2: if(opt3 == 1)
+                case 2: if(opt3 == 1){
+                            cout <<"Sorted in ASCENDING -> FACULTY" << endl;
                             FacultyAscending(c,i);
-                         else
+                        }
+                         else{
+                            cout <<"Sorted in DESCENDING -> FACULTY" << endl;
                             FacultyDescending(c,i);
-                        //display(c,i);
+                         }
                         break;
-                case 3: if(opt3 == 1)
+                case 3: if(opt3 == 1){
+                            cout <<"Sorted in ASCENDING -> IC" << endl;
                             ICAscend(c,i);
-                         else
+                        }
+                         else{
+                            cout <<"Sorted in DESCENDING -> IC" << endl;
                             ICDescend(c,i);
-                        //display(c,i);
+                         }
                         break;
-                case 4 : if(opt3==1)
+                case 4 : if(opt3==1){
+                            cout <<"Sorted in ASCENDING -> AGE" << endl;
                             AgeAsc(c,i);
-                         else
+                        }
+                         else{
+                            cout <<"Sorted in DESCENDING -> AGE" << endl;
                             AgeDes(c,i);
-                        //display(c,i);
+                         }
                         break;
-                case 5 : if(opt3==1)
+                case 5 : if(opt3==1){
+                            cout <<"Sorted in ASCENDING -> MATRIC NUMBER" << endl;
                             MatAsc(c,i);
-                         else
+                        }
+                         else{
+                            cout <<"Sorted in DESCENDING -> MATRIC NUMBER" << endl;
                             MatDes(c,i);
-                        //display(c,i);
+                         }
                         break;
-                case 6 : if(opt3==1)
+                case 6 : if(opt3==1){
+                            cout <<"Sorted in ASCENDING -> VOTE COUNT" << endl;
                             VoteCountAscend(c,i);
-                         else
+                        }
+                         else{
+                            cout <<"Sorted in DESCENDING -> VOTE COUNT" << endl;
                             VoteCountDescend(c,i);
-                        //display(c,i);
+                         }
                         break;
 
             }
