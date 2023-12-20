@@ -6,11 +6,13 @@
 ![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fjjn7702%2FSECJ2013-DSA%2FSubmission%2FSample&labelColor=%23d9e3f0&countColor=%23697689&style=flat)
 
 # Courier Management System - Assignment 1
-## Appendix :red_circle:
--[Objective](#-Objective)
--[Synopsis](#-Synopsis)
 
-## Objective :heavy_check_mark:
+## Appendix :red_circle:
+[Objectives](#-Objectives)
+
+
+
+## Objectives :heavy_check_mark:
 
 The main objective for developing the courier management system is to ease the courier and customer. The courier management system is designed to make sure a delivery services run smoothly and gets packages to their destination safely and on time. This system aims to provide parcel tracking and tracing, customer satisfaction, customer self-service essentially helping and improving courier quality. The system also carry out a user-friendly interface for ease of use with menu-driven system that guides users through the entire process until users choose to exit the program. The system implement data hiding concept to ensure data integrity during file operation. Data hiding guarantees exclusive data access to class members only and protects and maintains object integrity by preventing intended or unintended changes and intrusions.
 
