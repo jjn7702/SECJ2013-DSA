@@ -116,18 +116,21 @@ int searchAcc(Account acc[], string searchKey, int n)
 	return index;
 }
 
-int read_data(Account acc[], const string& filename){
+int read_data(Account acc[], const string& filename)
+{
 	
 	string an, type, d, target;
 	double b, amt;
 	int n = 0;
 	ifstream f1(filename);
-	if(!f1){
+	if(!f1)
+	{
 		cout<<"Error opening file: "<<filename<<endl;
 		exit(0);
 	}
 	
-	while(getline(f1,acc[n].account_number,',')){
+	while(getline(f1,acc[n].account_number,','))
+	{
 		f1>>acc[n].balance;
 		f1.ignore(); //ignore the comma
 		
@@ -137,10 +140,12 @@ int read_data(Account acc[], const string& filename){
 		getline(f1,type,',');
 		acc[n].setTransactionType(type);
 		
-		if(type == "DEPOSIT" || type == "WITHDRAWAL"){
+		if(type == "DEPOSIT" || type == "WITHDRAWAL")
+		{
 			f1>>amt;
 		}
-		else if(type == "TRANSFER"){
+		else if(type == "TRANSFER")
+		{
 			getline(f1,target,',');
 			f1>>amt;
 			acc[n].setTargetAccount(target);
