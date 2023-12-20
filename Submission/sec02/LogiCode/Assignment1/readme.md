@@ -19,7 +19,7 @@
 The Hotel Booking System is designed for hotel administrators to manage bookings. By using file input operations, the system reads the files containing admin information and booking information. Admin’s ID, name, position and phone number are stored in Admin class while check-in date, check-out date, room number, room type and total price of booking are stored in Booking class. Then requiring admin ID from the user to achieve authentication. The verification is carried out through sequential searching of ID input in Admin class. With the menu provided, admin is able to sort bookings ascendingly or descendingly based on check-in date, check-out date, room type and total price with  merge sort techniques implemented.
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/b7b1299f-ead1-4e66-ad2e-95b901f4f03c" width="3%" height="3%"> Class Diagram
-https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/c058aa3c-edbb-4ac7-abcf-e4e15ad63970
+<img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/c058aa3c-edbb-4ac7-abcf-e4e15ad63970" width='30%>
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/8b3596b0-7214-4cc8-b868-9ab2a0314386" width="3%" height="3%"> Flowchart
 <p align="center">
