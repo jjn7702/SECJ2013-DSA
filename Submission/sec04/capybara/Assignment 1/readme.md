@@ -2,15 +2,15 @@
 
 ## Objectives
 
-The purpose of this system is to provide an easy-to-go reservation system for people looking to travel abroad. We boil down our system to only one function because that is the main function that most people will use when tinkering with getting an aeroplane ticket.
+The purpose of this system is to provide an easy-to-go administration reservation system for the admins looking to monitor customers ticketing purchases. We boil down our system to only one function because that is the main function that most administrators will use when tinkering with monitoring aeroplane tickets.
 
-The goal that we wish to achieve here is a boost in the number of people using our aeroplane ticketing system while simultaneously being better able to see our code implementation in real-life exemplars. By providing efficient sorting and searching methods and checking their available database will not be a hassle.
+The goal that we wish to achieve here is a efficiently aid administrators in analyzing the number of people using our aeroplane ticketing system while simultaneously being better able to see our code implementation in real-life exemplars. Providing efficient sorting and searching methods and checking their available database will not be a hassle.
 
 ## Synopsis
 
-There are three categories of sorting and searching that we implement that being; airline, reservation and user. In each of these categories/classes, there are more than 3 data that are associated with them. For example, in airline classes, the data types are name, IC, phone and email, and users can sort and search according to these data(s) only. In Reservation cases, there are the data types of AirplneID, Company and Capacity. Whereas for Users classes, there are the data types of ReservationID, DepartureTime, ArrivalTime, Date, Location and Class. 
+There are three categories of sorting and searching functions that we implement that being; airlines, reservations and users. In each of these categories/classes, there are more than 3 data that are associated with them. For example, in airline classes, the data types are name, IC, phone and email, and users can sort and search according to these data(s) only. In Reservation cases, there are the data types of AirplneID, Company and Capacity. Whereas for Users classes, there are the data types of ReservationID, DepartureTime, ArrivalTime, Date, Location and Class. 
 
-For our reservation dashboard, this function is basically like a reservoir of information regarding people who are booking their aeroplane tickets. This function allows users to sort the database of those who purchased their tickets according to the available option. The type of sorting system that we apply is the quicksort method, henceforth it is efficient and time-saving.
+For our reservation dashboard, this function is basically like a reservoir of information regarding people who are booking their aeroplane tickets. This function allows administrators to sort the database of those who purchased their tickets according to the available option. The type of sorting system that we apply is the quicksort method, henceforth it is efficient and time-saving.
 
 ## Flow Chart
 

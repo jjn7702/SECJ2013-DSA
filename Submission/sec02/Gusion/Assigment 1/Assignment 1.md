@@ -71,7 +71,7 @@ This flow represents a basic sequence of events, and the actual program may have
 
 - [Source Code](./Source-code/Assg1.cpp)
 - [Input File](./Source-code/booking.txt)
-- [Report]
+- [Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Gusion/Assigment%201/Assignment%201%20DSA%20Gusion.pdf)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.

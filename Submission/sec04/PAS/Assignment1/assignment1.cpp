@@ -120,11 +120,11 @@ void selection(Book list[], int n, int op, int opt)
 			//Ascending
 			if (opt == 1) {
 				for (int p = 1; p <= last; ++p) {
-            		if (list[p].getID() > list[largest].getID())
-                		largest = p;
-        		}
-        		swap(list[largest], list[last]);
-        	break;
+            				if (list[p].getID() > list[largest].getID())
+                				largest = p;
+        			}
+        			swap(list[largest], list[last]);
+        		break;
 			}
 			//Descending
 			else {
@@ -139,10 +139,10 @@ void selection(Book list[], int n, int op, int opt)
 		case 2: //Sort by Title
 			if (opt == 1) {
 				for (int p = 1; p <= last; ++p) {
-            		if (list[p].getName() > list[largest].getName())
-				largest = p;
-        		}
-        		swap(list[largest], list[last]);
+            				if (list[p].getName() > list[largest].getName())
+						largest = p;
+        			}
+        			swap(list[largest], list[last]);
         		break;
 			}
 			
@@ -158,11 +158,11 @@ void selection(Book list[], int n, int op, int opt)
 		case 3: //Sort by Author
 			if (opt == 1) {
 				for (int p = 1; p <= last; ++p) {
-            		if (list[p].getAuthor() > list[largest].getAuthor())
-                		largest = p;
-        		}
-        		swap(list[largest], list[last]);
-        	break;
+            				if (list[p].getAuthor() > list[largest].getAuthor())
+                				largest = p;
+        			}
+        			swap(list[largest], list[last]);
+        		break;
 			}
 			
 			else {
@@ -177,11 +177,11 @@ void selection(Book list[], int n, int op, int opt)
 		case 4: //Sort by Genre
 			if (opt == 1) {
 				for (int p = 1; p <= last; ++p) {
-            		if (list[p].getGenre() > list[largest].getGenre())
-                		largest = p;
-        		}
-        		swap(list[largest], list[last]);
-        	break;
+            				if (list[p].getGenre() > list[largest].getGenre())
+                				largest = p;
+        			}
+        			swap(list[largest], list[last]);
+        		break;
 			}
 			
 			else {
@@ -287,4 +287,138 @@ void searchAuthor(Book b[]){
 	}
 	else
 		cout << "Invalid Book Genre";
+}
+
+void searchGenre(Book b[]){
+	int i;
+	string genre;
+	bool found = false;
+	cout << "Enter the book Genre: ";
+	cin.ignore();
+	getline(cin, genre);
+	
+	for(i=0; i<N; i++){
+		if(genre == b[i].getGenre()){
+			found = true;
+			break;
+		}
+	}
+	if(found == true){
+		cout << "\nThis is the book you are looking for:\n";
+		header();
+		b[i].printBooks();
+	}
+	else
+		cout << "Invalid Id";
+}
+
+void searchYear(Book b[]){
+	int i, year;
+	bool found = false;
+	cout << "Enter the year: ";
+	cin >> year;
+	
+	for(i=0; i<N; i++){
+		if(year == b[i].getYear()){
+			found = true;
+			break;
+		}
+	}
+	if(found == true){
+		cout << "\nThis is the book you are looking for:\n";
+		header();
+		b[i].printBooks();
+	}
+	else
+		cout << "Invalid Year";
+}
+
+int main() {
+	Book bookList[N];
+	string id[N], name[N], author[N], genre[N];
+	int year[N];
+	ifstream inp("inp.txt");
+	if(!inp) {
+		cout << "Error!\n";
+		break;
+	}
+	
+	header();
+		 
+	for (int i = 0; i < N; i++) {
+	    	getline(inp, id[i], ',');
+	    	getline(inp, name[i], ',');
+	        getline(inp, author[i], ',');
+	        inp >> year[i];
+	        inp.ignore();
+	        getline(inp, genre[i]);
+	        bookList[i].setID(id[i]);
+	        bookList[i].setName(name[i]);
+	        bookList[i].setAuthor(author[i]);
+	        bookList[i].setYear(year[i]);
+	        bookList[i].setGenre(genre[i]);
+	        bookList[i].printBooks();
+	}
+	
+	int op1,op2,op3,op4;
+	
+	do {
+		mainOption();
+		cin >> op1;
+		
+		if (op1 < 1 || op1 > 3) {
+        		cout << "\nPlease enter a valid option." << endl;
+    		}
+		
+		switch(op1) {
+		case 1: //Sorting
+			sortingOption(); //Select criteria
+			cin >> op2;
+			
+			if (op1 < 1 || op1 > 5) {
+        			cout << "\nPlease enter a valid option." << endl;
+    			}
+		
+			sortOrderOption(); //Select Ascending or Descending
+			cin >> op3;
+			
+			if (op1 < 1 || op1 > 2) {
+        			cout << "\nPlease enter a valid option." << endl;
+    			}
+		
+			selection(bookList, N, op2, op3);
+			break;
+		
+		case 2: //Searching
+			searchingOption(); //Select criteria
+			cin >> op4;
+			
+			if (op1 < 1 || op1 > 4) {
+        			cout << "\nPlease enter a valid option." << endl;
+    			}
+			
+			switch(op4){
+				case 1: //Search by ID
+					searchId(bookList);
+					break;
+				case 2: //Search by Title
+					searchName(bookList);
+					break;
+				case 3: //Search by Author
+					searchAuthor(bookList);
+					break;
+				case 4: //Search by Genre
+					searchGenre(bookList);
+					break;
+				case 5: //Search by Year
+					searchYear(bookList);
+					break;
+			}
+		
+		case 3: //Exit
+			break;
+		}
+	} while(op1 != 3);
+	
+	return 0;
 }
