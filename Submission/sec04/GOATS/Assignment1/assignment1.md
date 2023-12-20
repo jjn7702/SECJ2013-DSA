@@ -24,6 +24,7 @@ A Hospital Management System is a software system designed to manage doctor and 
 
 ## Flow Chart
 
+![Alt text](../images/Flowchart.jpg)
 
 ## Sorting Algorithm
 
