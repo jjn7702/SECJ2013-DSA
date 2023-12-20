@@ -265,6 +265,9 @@ int main() {
                 case 2:
                     PriceASC(menuArray);
                     break;
+
+                default:
+                    break;
                 }
             } else if (choice == 'S' || choice == 's') {
                 searchAndOrder(menuArray, orders);
@@ -302,14 +305,11 @@ do{
 
         double total = calculateTotal(orders); 
         cout << "\nTotal order amount: RM" << fixed << setprecision(2) << total << endl;
-    } else {
-        cout << "No orders made.\n";
-    }
-
-    if (!orders.empty()) {
         generateReceipt(orders, calculateTotal(orders));
     } else {
         cout << "No orders made.\n";
     }
+
+
     return 0;
 }
