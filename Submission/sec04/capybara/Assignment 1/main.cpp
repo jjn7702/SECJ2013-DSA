@@ -11,6 +11,15 @@ class User;
 class Airline;
 class Reservation;
 
+int partitionUsers(vector<User> &users, int bottom, int top, int choice);
+void quickSortUsers(vector<User> &users, int bottom, int top, int choice);
+
+int partitionAirline(vector<Airline> &airlines, int bottom, int top, int choice);
+void quickSortAirline(vector<Airline> &airlines, int bottom, int top, int choice);
+
+int partitionReservation(vector<Reservation> &reservations, int bottom, int top, int choice);
+void quickSortReservation(vector<Reservation> &reservations, int bottom, int top, int choice);
+
 class User
 {
 private:
