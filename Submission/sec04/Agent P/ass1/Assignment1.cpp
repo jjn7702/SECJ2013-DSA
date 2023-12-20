@@ -421,15 +421,31 @@ int main()
                             FacultyDescending(c,i);
                         display(c,i);
                         break;
-                case 3 : if(opt3==1)
+                case 3: if(opt3 == 1)
                             ICAscend(c,i);
-                         else 
+                         else
                             ICDescend(c,i);
                         display(c,i);
+                        break;
+                case 4 : if(opt3==1)
+                            AgeAsc(c,i);
+                         else
+                            AgeDes(c,i);
+                        display(c,i);
+                        break;
+                case 5 : if(opt3==1)
+                            MatAsc(c,i);
+                         else
+                            MatDes(c,i);
+                        display(c,i);
+                        break;
                 case 6 : if(opt3==1)
                             VoteCountAscend(c,i);
-                         else 
+                         else
                             VoteCountDescend(c,i);
+                        display(c,i);
+                        break;
+
             }
             break;
         
@@ -442,12 +458,17 @@ int main()
                         break;
                 case 3: searchingIC(c,i);
                         break;
+                case 4: searchingAge(c,i);
+                        break;
+                case 5: searchingMat(c,i);
+                        break;
                 case 6: searchingVoteCount(c,i);
                         break;
             }
             break;
     }
     
+
 
     //display(c,3); //Displaying the candidates of election
     return 0;
