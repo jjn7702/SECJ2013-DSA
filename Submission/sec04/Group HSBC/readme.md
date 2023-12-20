@@ -7,10 +7,10 @@
 
 _Don't forget to hit the :star: if you like this repo._
 
-# Restaurant Management System
+# Banking System
 
 ## Description 📝
-The main goal of BOBOBOY's Restaurant Management System (RMS) is to improve and optimize order management's general effectiveness in a restaurant setting. The goal of this system is to offer a complete and user-friendly platform that facilitates order processing, lowers user input mistakes, and makes ordering food for the kitchen simpler and more transparent. The order placement, order tracking, and payment system are crucial components of our RMS. All implementations aimed at streamlining operational procedures and ensuring customer and restaurant staff satisfaction. The RMS will interact with our restaurant operations, manage orders effectively, eliminate waiting times to ensure food quality, and contribute to the establishment's overall performance and profitability.
+The main goal of HSBC's Banking System is to enhance the user experience and smoothen the flow of control of the system. The purpose of this system is to help users can enjoy the new system which is user-friendly and easier to use compare to others. The bank transaction and trackking transaction information are main components of our HSBC system. All the implementation of different algorithms in this system is aim to enhance the user's experience and stablelise this system.
 
 ## Prepared by 🧑‍💻
 
@@ -32,3 +32,4 @@ Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Samp
 
 [![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fjjn7702&labelColor=%23697689&countColor=%23555555&style=plastic)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fjjn7702)
 ![](https://hit.yhype.me/github/profile?user_id=81284918)
+
