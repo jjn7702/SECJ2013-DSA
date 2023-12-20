@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <iomanip>
+
 using namespace std ;
 class Customer{
 	private:
@@ -30,6 +31,7 @@ class Customer{
 		int getNum(){ return roomNum ; }
 		string getDate(){ return checkInDate ; }
 };
+
 // Menu for Sorting
 int menuSort()
 {
@@ -322,8 +324,6 @@ void SortingDate(Customer data[], int size)
 	}
 } // end of sort based on check in date
 
-
-
 // Menu for Searching
 int menuSearch()
 {
@@ -383,7 +383,6 @@ void Search(string searchKey, Customer data[], int size)
 			 << "CheckInDate: " << data[index].getDate() << endl ;	
 	}	
 } //end of search for name, IC number, phone number, check in date
-
 
 // Search key based on age or room number
 void Search2(int searchKey, Customer data[], int size)
