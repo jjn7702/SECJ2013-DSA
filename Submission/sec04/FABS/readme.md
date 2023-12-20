@@ -24,9 +24,9 @@ The Courier Management System is designed to
 
 ## Findings 📊
 
-- Assignment 1
-- Assignment 2
-- Project
+- [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/FABS/Ass1)
+- [Assignment 2](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/FABS/Ass2)
+- [Project](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/FABS/Project)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
