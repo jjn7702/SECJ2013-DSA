@@ -286,7 +286,14 @@ do{
 
     if (!orders.empty()) {
         cout << "\nYour Orders:\n";
-        displayHeader();
+    cout << "+------------------------------------------------------------+" << endl;
+    cout << left;
+    cout << setw(10) << "ID" 
+         << setw(21) << "NAME" 
+         << setw(13) << "TYPE" 
+         << setw(13) << "QUANTITY" 
+         << fixed << "PRICE" << endl;
+    cout << "+------------------------------------------------------------+" << endl;
         for (const Menu& order : orders) {
             cout << left;
             cout << setw(10) << order.getFoodId() << " | "
