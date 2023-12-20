@@ -125,7 +125,7 @@ Character count: 5285
 - [Source code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass1/ASS1.cpp)
 - [Input file](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass1/customer.txt)
 - [Output file](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass1/sorted_couriers.txt)
-- [Assignment1PDF](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass1/ASSIGNMENT%201%20DSA%20(FABS).pdf)
+- [Assignment1PDF](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass1/ASSIGNMENT%201%20DSA%20(FABS)%20(1).pdf)
 - [Assigment report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass1/Assignment%20report.pdf)
 
 ## Contribution 🛠️
