@@ -85,10 +85,10 @@ public:
     }
 };
 
-int partitionName(Account bl[], int first, int last)
+int partitionName(Bank bl[], int first, int last)
 {
     string pivot = bl[first].getName();
-    Account temp;
+    Bank temp;
     int cutPoint;
     int bottom = first;
     int top = last;
@@ -122,7 +122,7 @@ int partitionName(Account bl[], int first, int last)
     return cutPoint;
 }
 
-void sortByName(Account bl[], int first, int last)
+void sortByName(Bank bl[], int first, int last)
 {
     if (first < last)
     {
@@ -139,10 +139,10 @@ void sortByName(Account bl[], int first, int last)
     }
 }
 
-int partitionAccNum(Account bl[], int first, int last)
+int partitionAccNum(Bank bl[], int first, int last)
 {
     string pivot = bl[first].getAccNum();
-    Account temp;
+    Bank temp;
     int cutPoint;
     int bottom = first;
     int top = last;
@@ -172,7 +172,7 @@ int partitionAccNum(Account bl[], int first, int last)
     return cutPoint;
 }
 
-void sortByAccNum(Account bl[], int first, int last)
+void sortByAccNum(Bank bl[], int first, int last)
 {
     if (first < last)
     {
@@ -188,11 +188,60 @@ void sortByAccNum(Account bl[], int first, int last)
             sortByAccNum(bl, first, cut);
     }
 }
-int partitionBal(Account bl[], int first, int last)
+int partitionIc(Bank bl[], int first, int last)
+{
+    string pivot = bl[first].getIc();
+    Bank temp;
+    int cutPoint;
+    int bottom = first;
+    int top = last;
+    int loop = true;
+
+    while (loop)
+    {
+        while (bl[top].getIc() > pivot)
+            top--;
+
+        while (bl[bottom].getIc() < pivot)
+            bottom++;
+
+        if (bottom < top)
+        {
+            temp = bl[top];
+            bl[top] = bl[bottom];
+            bl[bottom] = temp;
+        }
+        else
+        {
+            loop = false;
+            cutPoint = top;
+        }
+    }
+
+    return cutPoint;
+}
+
+void sortByIc(Bank bl[], int first, int last)
+{
+    if (first < last)
+    {
+        int cut;
+        cut = partitionIc(bl, first, last);
+
+        if (cut != last)
+        {
+            sortByIc(bl, first, cut);
+            sortByAccNum(bl, cut + 1, last);
+        }
+        else
+            sortByIc(bl, first, cut);
+    }
+}
+int partitionBal(Bank bl[], int first, int last)
 {
     int pivotI = (first + last) / 2;
     double pivot = bl[pivotI].getBalance();
-    Account temp;
+    Bank temp;
     int cutPoint;
     int bottom = first;
     int top = last;
@@ -247,7 +296,7 @@ int partitionBal(Account bl[], int first, int last)
     return cutPoint;
 }
 
-void sortByBal(Account bl[], int first, int last)
+void sortByBal(Bank bl[], int first, int last)
 {
     if (first < last)
     {
@@ -340,7 +389,7 @@ int main()
             // Display the sorted results
             for (int z = 0; z < 4; z++)
                 bankList[z].displaySort();
-        }
+        }/*
         else if(opt >= 5 && opt <= 7)
         {
             if(opt == 5)
@@ -372,5 +421,5 @@ int main()
         {
             cout << "Shutting down system...";
             return 0;
-        }
+        }*/
 }
