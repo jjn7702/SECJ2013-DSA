@@ -42,7 +42,7 @@ In the coding, the selection concept is utilised to sort the data from the file.
 
 FoodIDASC function sorts the food id based on alphabetical order from A-Z. After the looping ends, the list of menus will display the food id, name of the food, category of the food, and also the price in table format. A column of numbers is also added on the top left table to ease customers for the next operation, which is selecting an order based on the number on the displayed menu.
 
-	PriceASD function sorts the price for each food on the menu from the lowest to the highest price. After the looping ends, the list of menus will display the same information(food id, name of the food, category of the food, and price) in table format. A column of numbers is also included for the ease of customers. 
+PriceASD function sorts the price for each food on the menu from the lowest to the highest price. After the looping ends, the list of menus will display the same information(food id, name of the food, category of the food, and price) in table format. A column of numbers is also included for the ease of customers. 
 
 
 <br>
