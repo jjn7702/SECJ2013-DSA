@@ -17,7 +17,7 @@ For our reservation dashboard, this function is basically like a reservoir of in
 
 ## Flow Chart
 
-![Alt text](Submission/sec04/capybara/Image/photo_5_2023-12-20_18-15-50.jpg)
+![Alt text](../Image/photo_5_2023-12-20_18-15-50.jpg)
 
 ## Sorting Algorithm
 
