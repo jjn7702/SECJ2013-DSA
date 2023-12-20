@@ -8,10 +8,11 @@
 # Courier Management System - Assignment 1
 ## Appendix :red_circle:
 -[Objective](#-Objective)
+-[Synopsis](#-Synopsis)
 
 ## Objective :heavy_check_mark:
 
-The main objective for developing the courier management system is to ease the courier and customer. The courier management system is designed to make sure a delivery services run smoothly and gets packages to their destination safely and on time. This system aims to provide parcel tracking and tracing, customer satisfaction, customer self-service essentially helping and improving courier quality.
+The main objective for developing the courier management system is to ease the courier and customer. The courier management system is designed to make sure a delivery services run smoothly and gets packages to their destination safely and on time. This system aims to provide parcel tracking and tracing, customer satisfaction, customer self-service essentially helping and improving courier quality. The system also carry out a user-friendly interface for ease of use with menu-driven system that guides users through the entire process until users choose to exit the program. The system implement data hiding concept to ensure data integrity during file operation. Data hiding guarantees exclusive data access to class members only and protects and maintains object integrity by preventing intended or unintended changes and intrusions.
 
 There are few features in the courier management system which is 
 
@@ -29,8 +30,11 @@ Note that all three options are in ascending order and the algorithm used is a q
 
 #### 3. Search courier information
 
+Can search any data that existed in the list whether name, parcel type, source, destination, status or tracking number. The algorithm used is a simple linear search.
 
+#### 4. Write the arranged and sorted data
 
+The new sorted and arranged data about couriers will be stored into new file name "sorted_couriers.txt".
 
 
 ## Sypnosis 📝
