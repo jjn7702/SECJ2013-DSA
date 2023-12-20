@@ -239,6 +239,10 @@ int main(){
     Patient pateint[size];
     Doctor doctor[size];
 
+    // input from file
+    getDataPatient(pateint, size);
+    getDataDoc(doctor, size);
+
     Sorter sort;
     
     int userType;
