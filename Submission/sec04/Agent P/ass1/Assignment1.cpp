@@ -7,12 +7,12 @@ using namespace std;
 
 class Candidate
 {
-    string name,faculty,phone,ic;
+    string name,faculty,phone,ic,matric;
     int age,voteCount;
 
     public:
         Candidate(){}
-        Candidate(string n,string f,int a,string ic,string p,int v)
+        Candidate(string n,string f,int a,string ic,string p,int v,string m)
         {
             name = n;
             faculty = f;
@@ -20,6 +20,7 @@ class Candidate
             this->ic = ic;
             phone = p;
             voteCount = v;
+            matric = m;
         }
 
         string getName(){return name;}
@@ -28,7 +29,9 @@ class Candidate
         int getVoteCount(){return voteCount;}
         string getIC(){return ic;}
         string getPhone(){return phone;}
+        string getMatric(){return matric;}
 };
+
 void NameAscending(Candidate c[],int size)
 {
     Candidate temp;
@@ -72,22 +75,42 @@ void NameDescending(Candidate c[],int size)
 void SearchingName(Candidate c[],int size)
 {
     string key;
+    bool found = false;
     cout<<"Please enter the name you want to search for : ";
     cin>>key;
+
+    for(int i=0;i<key.size();i++)
+    {
+        key[i] = tolower(key[i]);
+    }
+
     for(int i=0;i<size;i++)
     {
-        if(c[i].getName() == key)
+        string name = c[i].getName();
+
+        for(int i=0;i<name.size();i++)
         {
-            cout<<"Record Found   : "<<endl;
+            name[i] = tolower(name[i]);
+        }
+
+        if(name == key)
+        {
+            cout<<"\nRecord Found    "<<endl;
+            cout<<"-------------"<<endl;
             cout<<"Name           : "<<c[i].getName()<<endl;
             cout<<"Faculty        : "<<c[i].getFaculty()<<endl;
             cout<<"IC             : "<<c[i].getIC()<<endl;
             cout<<"Age            : "<<c[i].getAge()<<endl;
             cout<<"Vote Collected : "<<c[i].getVoteCount()<<endl;
             cout<<"Phone number   : "<<c[i].getPhone()<<endl;
+            cout<<"Matric Number  : "<<c[i].getMatric()<<endl;
+            found = true;
             break;
         }
     }
+
+    if(found == false)
+        cout<<"Data not found!"<<endl;
 }
 
 void FacultyAscending(Candidate c[],int size)
@@ -135,11 +158,24 @@ void FacultyDescending(Candidate c[],int size)
 void SearchingFaculty(Candidate c[],int size)
 {
     string key;
+    bool found = false;
     cout<<"Please enter the faculty you want to search for : ";
     cin>>key;
+
+    for(int i=0;i<key.size();i++)
+    {
+        key[i] = tolower(key[i]);
+    }
+
     for(int i=0;i<size;i++)
     {
-        if(c[i].getFaculty() == key)
+        string faculty = c[i].getFaculty();
+
+        for(int i=0;i<faculty.size();i++)
+        {
+            faculty[i] = tolower(faculty[i]);
+        }
+        if(faculty == key)
         {
             cout<<"\nRecord Found   : "<<endl;
             cout<<"Name           : "<<c[i].getName()<<endl;
@@ -148,9 +184,14 @@ void SearchingFaculty(Candidate c[],int size)
             cout<<"Age            : "<<c[i].getAge()<<endl;
             cout<<"Vote Collected : "<<c[i].getVoteCount()<<endl;
             cout<<"Phone number   : "<<c[i].getPhone()<<endl;
+            cout<<"Matric Number  : "<<c[i].getMatric()<<endl;
+            found = true;
             break;
         }
     }
+
+    if(found == false)
+        cout<<"Data not found!"<<endl;
 }
 
 void menu(int &opt1,int &opt2,int &opt3)
@@ -168,6 +209,11 @@ void menu(int &opt1,int &opt2,int &opt3)
                  cout<<"Please choose the sorting category : ";
                  cin>>opt2;
                  }while(opt2<1 || opt2>6);
+                 do{
+                    cout<<"[1] Ascending Order \n[2] Descending Order"<<endl;
+                    cout<<"You want ascending or desending order : ";
+                    cin>>opt3;
+                }while(opt3<1 || opt3>2);
                  break;
         case 2 : do{
                  cout<<"[1] Name \n[2] Faculty \n[3] IC \n[4] Age \n[5] ID \n[6] Vote Count"<<endl;
@@ -177,23 +223,18 @@ void menu(int &opt1,int &opt2,int &opt3)
                  break;
     }
 
-    do{
-    cout<<"[1] Ascending Order \n[2] Descending Order"<<endl;
-    cout<<"You want ascending or desending order : ";
-    cin>>opt3;
-    }while(opt3<1 || opt3>2);
+    
     
 }
-
 void display(Candidate c[],int size)
 {
-    cout<<"----------------------------------------------------------------------------------------------------------------"<<endl;
-    cout<<"|       Name       "<<" | "<<"      Faculty      "<<" | "<<"      IC     "<<" | "<<"   Age  "<<" | "<<" | "<<"  Vote Count  "<<" | "<<"Phone Number"<<" | "<<endl;
-    cout<<"----------------------------------------------------------------------------------------------------------------"<<endl;
+    cout<<"--------------------------------------------------------------------------------------------------------------------------"<<endl;
+    cout<<"|       Name       "<<" | "<<"      Faculty      "<<" | "<<"      IC     "<<" | "<<"   Age  "<<" | "<<"   Matric Number  "<<" | "<<"  Vote Count  "<<" | "<<"Phone Number"<<" | "<<endl;
+    cout<<"--------------------------------------------------------------------------------------------------------------------------"<<endl;
     for(int i=0;i<size;i++)
     {
-        cout<<left<<"|  "<<setw(16)<<c[i].getName()<<" |       "<<setw(13)<<c[i].getFaculty()<<" |  "<<setw(8)<<c[i].getIC()<<" |     "<<setw(4)<<c[i].getAge()<<" |    "<<setw(9)<<c[i].getVoteCount()<< "|  "<<setw(10)<<c[i].getPhone()<<"  |"<<endl;
-        cout<<"----------------------------------------------------------------------------------------------------------------"<<endl;
+        cout<<left<<"|  "<<setw(16)<<c[i].getName()<<" |       "<<setw(13)<<c[i].getFaculty()<<" |  "<<setw(8)<<c[i].getIC()<<" |     "<<setw(4)<<c[i].getAge()<<" |    "<<setw(16)<<c[i].getMatric()<<"|       "<<setw(9)<<c[i].getVoteCount()<<"|  "<<setw(10)<<c[i].getPhone()<<"  |"<<endl;
+        cout<<"--------------------------------------------------------------------------------------------------------------------------"<<endl;
 }
 }
 
@@ -201,7 +242,7 @@ int main()
 {
     Candidate c[10];
     ifstream in("cand.csv");
-    string name,faculty,phone,ic;
+    string name,faculty,phone,ic,matric;
     int id,age,vote;
     int i = 0;
 
@@ -220,8 +261,9 @@ int main()
         getline(in,ic,',');
         getline(in,phone,',');
         in>>vote;
-        cout<<name<<" "<<faculty<<" "<<phone<<" "<<ic<<" "<<" "<<age<<" "<<vote<<endl;
-        c[i] = Candidate(name,faculty,age,ic,phone,vote);
+        in.ignore();
+        getline(in,matric,'\n');
+        c[i] = Candidate(name,faculty,age,ic,phone,vote,matric);
         getline(in,name,',');
         i++;
         //cout<<c[i].getIC()<<c[i].getName()<<" "<<c[i].getFaculty()<<" "<<c[i].getAge()<<" "<<c[i].getId()<<" "<<c[i].getIC()<<" "<<c[i].getPhone()<<" "<<c[i].getVoteCount()<<endl;
