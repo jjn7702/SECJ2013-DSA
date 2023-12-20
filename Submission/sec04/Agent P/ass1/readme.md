@@ -9,7 +9,7 @@
 - [Description of how to implement data structure operations: Sorting and Searching](#-description-of-how-to-implement-data-structure-operations-sorting-and-searching)
 - [Findings](#-Findings)
 
-###<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/project-management.png" width="3%" height="3%"> Introduction
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/project-management.png" width="3%" height="3%"> Introduction
 As from the agent P group we decided to develop an election management system for   UTM. From this system UTM can  handle the elections easily and efficiently. For assignment 1 we had developed a class for candidates which contain 7 attributes which define a candidate. The attributes are name , age , identification number , phone number , vote count , faculty and matric number. 
   
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/bc7e2df3-d20d-457c-b9fb-e0574b6a740e" width="3%" height="3%"> Objectives:
