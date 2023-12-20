@@ -50,8 +50,8 @@ Students will be asked to enter the Matric number they want to search for and th
 
 ## Findings 📊
 
-- [Source Code](/ass1/Assignment1.cpp)
-- [Input File](/ass1/cand.csv)
+- [Source Code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/ass1/Assignment1.cpp)
+- [Input File](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/ass1/Assignment1.cpp)
 - [Report]()
 
 
