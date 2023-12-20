@@ -197,10 +197,10 @@ void SearchingFaculty(Candidate c[],int size)
 void menu(int &opt1,int &opt2,int &opt3)
 {
     do{
-    cout<<"[1] Sort \n[2] Search"<<endl;
+    cout<<"[1] Sort \n[2] Search \n[3] Quit"<<endl;
     cout<<"You want to do sorting or searching : ";
     cin>>opt1;
-    }while(opt1<1 || opt1>2);
+    }while(opt1<1 || opt1>3);
     
     switch(opt1)
     {
@@ -221,6 +221,8 @@ void menu(int &opt1,int &opt2,int &opt3)
                  cin>>opt2;
                  }while(opt2<1 || opt2>6);
                  break;
+
+        case 3 : return 0;
     }
 
     
@@ -266,7 +268,6 @@ int main()
         c[i] = Candidate(name,faculty,age,ic,phone,vote,matric);
         getline(in,name,',');
         i++;
-        //cout<<c[i].getIC()<<c[i].getName()<<" "<<c[i].getFaculty()<<" "<<c[i].getAge()<<" "<<c[i].getId()<<" "<<c[i].getIC()<<" "<<c[i].getPhone()<<" "<<c[i].getVoteCount()<<endl;
     }
 
 
