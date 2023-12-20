@@ -28,6 +28,17 @@ Election Management System is a system that can help students in UTM to view the
 
 ![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/photo_6057581772625000910_y.jpg)
 
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/fabaacbe-18c1-4f64-a3a5-e1b40e910e71" width="4%" height="4%"> Description of how to implement data structure operations: Sorting and Searching
+##### 1. Sorting
+1.1.4 Sorting by Age
+
+	   For sorting by Age, we implemented insertion sorting. There are two functions for this sort, one for ascending order and another one for descending order. The algorithm will compare the candidates age (int) and arrange it following the ascending or descending order.
+
+1.1.5 Sorting  by Matric Number
+
+    For sorting by 	Matric Number, we implemented selection sorting. There are two functions for this sort, one for ascending order and another one for descending order. The algorithm will compare the candidate’s Matric number (string) and arrange it following the ascending or descending order.
+    
+##### 2. Searching
 
 ## Findings 📊
 
