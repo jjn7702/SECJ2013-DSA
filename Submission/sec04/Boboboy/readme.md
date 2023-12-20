@@ -17,7 +17,7 @@ The main goal of BOBOBOY's Restaurant Management System (RMS) is to improve and 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
 |  Tay Shun Wei  |    A22EC0110     | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Images/photo_2023-12-20_13-55-45.jpg" title="Icon by Trazobanana"><img src="./Images/" width=80px, height=80px>     |
-|   AERON GOH MING LUN   |   A22EC0033      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Images/photo_2023-12-20_13-55-45.jpg" title="Icon by Trazobanana"><img src="./Images/" width=80px, height=80px>         |
+|   AERON GOH MING LUN   |   A22EC0033      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Images/rsz_1rsz_1img_0290.jpg" title="Icon by Trazobanana"><img src="./Images/rsz_1rsz_1img_0290.jpg" width=80px, height=80px>         |
 |  LIN CHONG HUI     |   A22EC0184      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Images/photo_2023-12-20_13-55-45.jpg" title="Icon by Trazobanana"><img src="./Images/photo_2023-12-20_13-55-45.jpg" width=80px, height=80px>         |
 
 
