@@ -30,41 +30,41 @@
    We will develop a Banking transaction system focusing on sorting and searching operations using fundamental data structure concepts. This system is designed to perform basic transaction operations, including depositing money into user accounts, enabling withdrawal, and facilitating money transfers between accounts. The sorting operations encompass arranging data by name, Identification Card number, account number and balance in ascending order. Additionally, this system supports searching operations based on account holder's names and account numbers, allowing users to locate their accounts using unique identifiers.
 ###The existing class and its attributes:
 Bank 
-AccName : the name of the account holder <string>
-AccNum : the account number <string>
-IC : the identity card number of the account holder <string>
-AccBalance : the quantity of the amount of money in the account <double>
+- AccName : the name of the account holder <string>
+- AccNum : the account number <string>
+- IC : the identity card number of the account holder <string>
+- AccBalance : the quantity of the amount of money in the account <double>
 
 
-The existing data structure:
-Array
+The existing data structure:<br><br>
+**1. Array**<br>
 The array, in this case, stores a list of Accounts with their holder’s name, account number, IC number, and Balance. The searching operations iterate through this array to find specific records based on criteria such as name, account number, and IC number.
-Bank[100]
-stores a list of user name, account number, IC and balance
+<br>Bank[100]
+<br>stores a list of user name, account number, IC and balance
 
 
-Sorting
-The sorting function is defined to sort an array of ‘Bank’ objects on different criteria. These functions use various partitioning techniques, such as quickSort.
+**2. Sorting**<br>
+The sorting function is defined to sort an array of ‘Bank’ objects on different criteria. These functions use various partitioning techniques, such as quickSort.<br>
 
-'partitionName'
-partitions the array based on the name attributes during sorting
-'sortByName'
-sorts the array ‘Bank’ objects based on the account name
-'partitionIC'
-partitions the array based on the IC attributes during sorting
-'sortByIC'
-sorts the array ‘Bank’ objects based on the IC
-'partitionAccNum'
-partitions the array based on the account number attributes during sorting
-'sortByAccNum'
-sorts the array ‘Bank’ objects based on the account number
-'partitionBal'
-partitions the array based on the balance attributes during sorting
-'sortByBal'
-sorts the array ‘Bank’ objects based on the account balance
+partitionName
+partitions the array based on the name attributes during sorting <br>
+'sortByName' <br>
+sorts the array ‘Bank’ objects based on the account name <br>
+'partitionIC' <br>
+partitions the array based on the IC attributes during sorting <br>
+'sortByIC' <br>
+sorts the array ‘Bank’ objects based on the IC <br>
+'partitionAccNum' <br>
+partitions the array based on the account number attributes during sorting <br>
+'sortByAccNum' <br>
+sorts the array ‘Bank’ objects based on the account number <br>
+'partitionBal' <br>
+partitions the array based on the balance attributes during sorting <br>
+'sortByBal' <br>
+sorts the array ‘Bank’ objects based on the account balance <br>
 
 
-Searching:
+**3. Searching**
 The searching functions are defined to search for records in the array based on name, account number and IC. These functions will iterate through the array and display matching records if found.
 
 searchByName
@@ -82,26 +82,26 @@ Describe the design of the system classes, if applicable.
 
 ### 2.2 System Algorithm Design
 Explain the high-level design of algorithms used in your system.
-
-1. Start. 
-2. Display menu.
-3. User input choice
-4. If choice == 1
-   4.1 Display Sort by name<br>
+<br><br>
+1. Start. <br>
+2. Display menu.<br>
+3. User input choice<br>
+4. If choice == 1<br>
+   4.1 Display Sort by name <br>
        4.1.1 Else if choice == 2 <br>
-             4.1.1.1 Display Sort by Account Number
-       4.1.2 Else if choice == 3
-             4.1.2.1 Display Sort by IC Number
-       4.1.3 Else if choice == 4
-             4.1.3.1 Display Sort by Account Balance
-       4.1.4 Else if choice == 5
-             4.1.4.1 Display Search by Name
-       4.1.5 Else if choice == 6
-             4.1.5.1 Display Search by Account Number
-       4.1.6 Else if choice == 7
-             4.1.6.1 Display Search by IC Number
-       4.1.7 Else 
-             4.1.7.1 Exit
+             4.1.1.1 Display Sort by Account Number <br>
+       4.1.2 Else if choice == 3 <br>
+                4.1.2.1 Display Sort by IC Number <br>
+       4.1.3 Else if choice == 4 <br>
+                4.1.3.1 Display Sort by Account Balance <br>
+       4.1.4 Else if choice == 5 <br>
+                4.1.4.1 Display Search by Name 
+      <br> 4.1.5 Else if choice == 6
+              <br>  4.1.5.1 Display Search by Account Number
+      <br> 4.1.6 Else if choice == 7
+               <br> 4.1.6.1 Display Search by IC Number
+      <br> 4.1.7 Else 
+              <br>  4.1.7.1 Exit
 5. End
 
 
