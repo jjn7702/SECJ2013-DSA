@@ -7,10 +7,15 @@
 
 _Don't forget to hit the :star: if you like this repo._
 
-# Restaurant Management System
+# Assignment 1
 
-## Description 📝
-The main goal of BOBOBOY's Restaurant Management System (RMS) is to improve and optimize order management's general effectiveness in a restaurant setting. The goal of this system is to offer a complete and user-friendly platform that facilitates order processing, lowers user input mistakes, and makes ordering food for the kitchen simpler and more transparent. The order placement, order tracking, and payment system are crucial components of our RMS. All implementations aimed at streamlining operational procedures and ensuring customer and restaurant staff satisfaction. The RMS will interact with our restaurant operations, manage orders effectively, eliminate waiting times to ensure food quality, and contribute to the establishment's overall performance and profitability.
+## Objective
+The main objective of  BOBOBOY's Restaurant Management System (RMS) is to optimize the order management system with effectiveness features and to minimize the time to get through our ordering system. Our system is created for a full process from ordering to payment session and it can be done via through the system and the customers can get the food in the best condition without wasting any time on waiting or getting used to the system. 
+All the features, panel and functions are to make sure the customers have good feedback to our restaurant and satisfy not only about the food, but also the whole system and environment of the BOBOBOY restaurant.
+
+## Synopsis
+In a restaurant, it is most important that RMS should be user friendly and show a detailed menu in a simple way. Besides, the customer's emotion is very important as they want to get the food they ordered as fast as possible. In BOBOBOY restaurant, the RMS contained two main functions in the menu which is sorting and searching. The purpose of implementing these two functions is because we want the customers to look through the menu based on their favorite arrangement such as food name with ascending alphabet arrangement. . After that, if they cannot find what specific food they want on the menu, they can type the details or info about that food on the search panel and it will show the position of that product so next time they can straight away order from the menu without wasting time.. All of these are to make our customers like the ordering system of BOBOBOY restaurants and they feel easy and simple when ordering their desired food.
+
 
 ## Prepared by 🧑‍💻
 
