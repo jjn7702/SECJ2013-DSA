@@ -281,16 +281,16 @@ int main()
             switch(opt2)
             {
                 case 1 : if(opt3 == 1)
-                            NameAscending(c,3);
+                            NameAscending(c,i);
                          else
-                            NameDescending(c,3);
-                        display(c,3);
+                            NameDescending(c,i);
+                        display(c,i);
                         break;
                 case 2: if(opt3 == 1)
-                            FacultyAscending(c,3);
+                            FacultyAscending(c,i);
                          else
-                            FacultyDescending(c,3);
-                        display(c,3);
+                            FacultyDescending(c,i);
+                        display(c,i);
                         break;
             }
             break;
@@ -298,9 +298,9 @@ int main()
         case 2:
             switch(opt2)
             {
-                case 1: SearchingName(c,3);
+                case 1: SearchingName(c,i);
                         break;
-                case 2: SearchingFaculty(c,3);
+                case 2: SearchingFaculty(c,i);
                         break;
             }
             break;
