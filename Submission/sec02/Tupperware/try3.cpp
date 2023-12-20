@@ -311,6 +311,7 @@ void generateReceipt(const vector<Menu>& orders, double total) {
     for (size_t i = 0; i < orders.size(); ++i) {
         // Check if the item is already in orders
         int count = 1;
+        cout << "size of order\n" << orders.size();
         for (size_t j = i + 1; j < orders.size(); ++j) {
             if (orders[i].getFoodId() == orders[j].getFoodId()) {
                 ++count;
