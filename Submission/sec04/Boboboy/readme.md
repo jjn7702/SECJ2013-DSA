@@ -10,8 +10,7 @@ _Don't forget to hit the :star: if you like this repo._
 # Restaurant System
 
 ## Description 📝
-
-
+Restaurant Management System (RMS) is to streamline and enhance the overall efficiency of order management in the restaurant environment. The system aims to provide a comprehensive and user-friendly platform that facilitates seamless order processing, reduces manual errors, and ultimately enhances the overall dining experience for both customers and restaurant staff.
 
 ## Prepared by 🧑‍💻
 
