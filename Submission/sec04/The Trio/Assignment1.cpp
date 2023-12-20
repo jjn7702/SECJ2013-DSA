@@ -80,6 +80,46 @@ void display(Customer data[], int size, string option)
 	}
 }
 
+// Sort customers based on name
+void SortingName(Customer data[], int size)
+{        
+	Customer temp;
+	bool sorted = false; 
+		    
+	for(int pass = 1 ; (pass < size) && !sorted ; ++pass)
+	{
+		sorted = true; // end the loop if all data is been sorted 
+		for(int x = 0; x < size-pass; x++)
+		{
+		    if(data[x].getName() > data[x+1].getName())
+			{
+		        temp.setName(data[x].getName()) ;
+		        temp.setAge(data[x].getAge()) ;
+		        temp.setIC(data[x].getIC()) ;
+		        temp.setPhone(data[x].getPhone()) ;
+		        temp.setNum(data[x].getNum()) ;
+		        temp.setDate(data[x].getDate()) ;
+		        
+		        data[x].setName(data[x+1].getName()) ;
+		        data[x].setAge(data[x+1].getAge()) ;
+		        data[x].setIC(data[x+1].getIC()) ;
+		        data[x].setPhone(data[x+1].getPhone()) ;
+		        data[x].setNum(data[x+1].getNum()) ;
+		        data[x].setDate(data[x+1].getDate()) ;
+		        
+		        data[x+1].setName(temp.getName()) ;
+		        data[x+1].setAge(temp.getAge()) ;
+		        data[x+1].setIC(temp.getIC()) ;
+		        data[x+1].setPhone(temp.getPhone()) ;
+		        data[x+1].setNum(temp.getNum()) ;
+		        data[x+1].setDate(temp.getDate()) ;
+		        
+		        sorted = false; // for control the loop
+		    }
+		}
+	}
+} // end of sort based on name
+
 // Sort customers based on age
 void SortingAge(Customer data[], int size)
 {        
