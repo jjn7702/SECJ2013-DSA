@@ -1,6 +1,6 @@
 # Assignment 1
 
-# Library Management System
+# Inventory Management System
 
 
 ## Description 📝
