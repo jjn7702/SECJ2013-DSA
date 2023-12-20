@@ -106,36 +106,6 @@ void PriceASC(Menu menuArray[]) {
     printSortedResult(menuArray);
 }
 
-void makeOrder(Menu menuArray[], vector<Menu>& orders){
-    int orderChoice;
-    cout << "Enter the number corresponding to the menu you want to order: ";
-    cin >> orderChoice;
-
-    if (orderChoice >= 1 && orderChoice <= SIZE) {
-        cout << "You ordered:\n";
-        displayHeader();
-        cout << left;
-        cout << setw(5) << orderChoice << " | "
-             << setw(10) << menuArray[orderChoice - 1].getFoodId() << " | " 
-             << setw(21) << menuArray[orderChoice - 1].getName() << " | " 
-             << setw(13) << menuArray[orderChoice - 1].getCategory() << " | " 
-             << fixed << setprecision(2) << setw(4) << menuArray[orderChoice - 1].getPrice() << endl;
-
-             orders.push_back(menuArray[orderChoice - 1]);
-    }
-    else {
-        cout << "Invalid menu choice.\n";
-    }
-}
-
-double calculateTotal(const vector<Menu>& orders){
-    double total = 0.0;
-    for (const Menu& order : orders) {
-        total += order.getPrice();
-    }
-    return total;
-}
-
 void searchAndOrder(Menu menuArray[], vector<Menu>& orders) {
     string searchTerm;
     cout << "Enter the food name you want to search: ";
@@ -171,6 +141,37 @@ void searchAndOrder(Menu menuArray[], vector<Menu>& orders) {
         cout << "No matching items found.\n";
     }
 }
+
+void makeOrder(Menu menuArray[], vector<Menu>& orders){
+    int orderChoice;
+    cout << "Enter the number corresponding to the menu you want to order: ";
+    cin >> orderChoice;
+
+    if (orderChoice >= 1 && orderChoice <= SIZE) {
+        cout << "You ordered:\n";
+        displayHeader();
+        cout << left;
+        cout << setw(5) << orderChoice << " | "
+             << setw(10) << menuArray[orderChoice - 1].getFoodId() << " | " 
+             << setw(21) << menuArray[orderChoice - 1].getName() << " | " 
+             << setw(13) << menuArray[orderChoice - 1].getCategory() << " | " 
+             << fixed << setprecision(2) << setw(4) << menuArray[orderChoice - 1].getPrice() << endl;
+
+             orders.push_back(menuArray[orderChoice - 1]);
+    }
+    else {
+        cout << "Invalid menu choice.\n";
+    }
+}
+
+double calculateTotal(const vector<Menu>& orders){
+    double total = 0.0;
+    for (const Menu& order : orders) {
+        total += order.getPrice();
+    }
+    return total;
+}
+
 
 
 void generateReceipt(const vector<Menu>& orders, double total) {
