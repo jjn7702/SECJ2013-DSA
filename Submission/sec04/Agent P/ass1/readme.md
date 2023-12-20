@@ -75,7 +75,7 @@ Students will be asked to enter the Age they want to search for and the function
 2.1.5 Search for Matric Num
 Students will be asked to enter the Matric number they want to search for and the function will display the candidate and if the Matric number they searched for was not found, a message will be displayed. 
 
-5.2.6 Search for Vote Count
+2.2.6 Search for Vote Count
 We have implemented sequential search for searching by vote count to get the candidate’s detail based on the IC entered by the user.User will be asked to enter the vote count of the candidate they want to search for and if the function found a match,it will display the candidate’s information,but if the vote count does not match with any of the candidate’s IC,it will display “Data entered not found!”.
 
 
