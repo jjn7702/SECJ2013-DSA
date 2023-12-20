@@ -23,7 +23,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 
 <h3>Report Assignment 1</h3>
-<a href=" "><img src="./Images/download.png" width="35px" height="35px" ></a>
+<a href="https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/Boboboy/Assignment%201"><img src="./Images/download.png" width="35px" height="35px" ></a>
 
 ## Findings 📊
 
