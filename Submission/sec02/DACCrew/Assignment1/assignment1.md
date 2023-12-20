@@ -7,16 +7,16 @@
 |      |  |
 
 ## Table of Contents
-1. [Introduction](#introduction)
-   - [1.1 Objective of Project](#objective-of-project)
-   - [1.2 Synopsis of Project](#synopsis-of-project)
+1. [Introduction](#Introduction)
+   - 1.1[ Objective of Project](#11-Objective-of-Project)
+   - 1.2[ Synopsis of Project](#12-Synopsis-of-Project)
 
 2. [System Design](#system-design)
-   - [2.1 System Class Design](#system-class-design)
-   - [2.2 System Algorithm Design](#system-algorithm-design)
-   - [2.3 Data Structure Operation](#data-structure-operation)
-       - [2.3.1 Sorting Process](#sorting-process)
-       - [2.3.2 Searching Process](#searching-process)
+   - 2.1[ System Class Design](#21-System-Class-Design)
+   - 2.2 [System Algorithm Design](#22-System-Algorithm-Design)
+   - 2.3[ Data Structure Operation](#23-Data-Structure-Operation)
+       - 2.3.1[ Sorting Process](#231-Sorting-Process)
+       - 2.3.2[ Searching Process](#232-Searching-Process)
 
 ## Introduction
 ### 1.1 Objective of Project
