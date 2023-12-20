@@ -61,21 +61,27 @@ Sorting by vote count is implemented using insertion sorting algorithm.There are
 ##### 2. Searching
 
 2.1.1 Search for name
+
 For searching by name, we have implemented sequential search to get the details of the candidate based on the name entered by the user. We have implemented the sequential in this searching function because it can be used in both sorted and unsorted lists. If the entered key was successfully found in the list it will display the details to the corresponding name. If the data not found in the array it will display the message “Data not found”.
 
 2.1.2 Search for faculty
+
 For searching by name, we have implemented sequential search to get the details of the candidate based on the name entered by the user. We have implemented the sequential in this searching function because it can be used in both sorted and unsorted lists. If the entered key was successfully found in the list it will display the details to the corresponding name. If the data not found in the array it will display the message “Data not found”.
 
 2.2.3 Search for IC
+
 We have implemented sequential search for searching by IC to get the candidate’s detail based on the IC entered by the user.User will be asked to enter the IC of the candidate they want to search for and if the function found a match,it will display the candidate’s information,but if the IC does not match with any of the candidate’s IC,it will display “Data entered not found!”.
 
 2.1.4 Search for Age
+
 Students will be asked to enter the Age they want to search for and the function will display the candidate(s) and if the age they searched for was not found, a message will be displayed. 
 
 2.1.5 Search for Matric Num
+
 Students will be asked to enter the Matric number they want to search for and the function will display the candidate and if the Matric number they searched for was not found, a message will be displayed. 
 
 2.2.6 Search for Vote Count
+
 We have implemented sequential search for searching by vote count to get the candidate’s detail based on the IC entered by the user.User will be asked to enter the vote count of the candidate they want to search for and if the function found a match,it will display the candidate’s information,but if the vote count does not match with any of the candidate’s IC,it will display “Data entered not found!”.
 
 
