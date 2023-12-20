@@ -24,9 +24,9 @@ The Inventory Management System is a C++ program designed to efficiently manage 
 
 ## Findings 📊
 
-- [Source code]()
-- [Inputfile]()
-- Report
+- [Source code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Assignment1/Assignment1.cpp)
+- [Inputfile](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Assignment1/inventory.txt)
+- [Report](https://liveutm-my.sharepoint.com/:w:/g/personal/gohyang_live_utm_my/EbJmJgSrYGVGoqGdawd4zv0BWrYCpVwkQh_qHuz98ZVKPQ?e=MN48xn)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
