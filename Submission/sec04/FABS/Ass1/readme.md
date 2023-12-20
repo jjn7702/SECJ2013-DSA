@@ -9,6 +9,7 @@
 
 ## Appendix :red_circle:
 [Objectives](#-Objectives)
+[Synopsis](#-Synopsis)
 
 
 
