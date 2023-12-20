@@ -115,5 +115,8 @@ The sortByName() function sorts the array of Bank objects according to the accNa
 
 
 #### 2.3.2 Searching Process
+The system is applying the sequential search technique to search for the data. Data can be searched through the attribute. If the data exists, the whole piece of details will be returned as the output after the search process has been performed. On the other hand, if no such data exists in the array, the system will print out the error message. 
+
+In this process, users can search for their intended data by Name, Account Number, and IC Number. Therefore, there exist three search functions for each attribute. The functions included are searchByName(), searchByAccNum(), and searchByIc(). After the user chooses the method of searching, the system will request for an input. Then, the system iterates through the Bank array object starting from index 0 and makes a comparison with user input. The system will display the complete information about the account if a match is found. The searching process will continue until the last object in the array. 
 
 
