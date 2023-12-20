@@ -7,26 +7,40 @@
 
 _Don't forget to hit the :star: if you like this repo._
 
-# Courier Management System
+# Courier Management System - Assignment 1
+## Objective
 
-## Description 📝
+Objectives.....
 
-The Courier Management System is designed to address
+## Sypnosis 📝
+
+Synopsis.....
+
+
+## Design 🎨
+
+1. Flowchart
+
+![1]()
+
+## Design Description 💹
+
+.................
 
 ## Prepared by 🧑‍💻
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-| Sarah Sofea binti Anuar  | A22EC0104        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Images/boy_4537038.png" width=80px, height=80px>     |
-| Farah Hazirah Nisha binti Abd Latif       | A22EC0159       | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Images/girl_4537097.png" width=80px, height=80px>         |
-| Muhammad Abduh bin Abdul Ba'ari       | A22EC0199        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Images/boy_4537022.png" width=80px, height=80px>         |
+| Sarah Sofea binti Anuar  | A22EC0104        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/sarah.jpeg" width=80px, height=80px>     |
+| Farah Hazirah Nisha binti Abd Latif       | A22EC0159       | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="../Images/girl_4537097.png" width=80px, height=80px>          |
+| Muhammad Abduh bin Abdul Ba'ari       | A22EC0199        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/Abd.jpg" width=80px, height=80px>         |
 
 
 ## Findings 📊
 
-- Assignment 1
-- Assignment 2
-- Project
+- [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/FABS/Ass1)
+- [Assignment 2](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/FABS/Ass2)
+- [Project](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/FABS/Project)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
