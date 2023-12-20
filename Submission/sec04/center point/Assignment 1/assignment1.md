@@ -11,7 +11,7 @@ _Don't forget to hit the :star: if you like this repo._
 ## Objective
 The objective for this task management system is to create an easier method to access the data in the system specifically based on the user. By implementing sorting technique, user can easily review the content or data in the system by sorting it by alphabet, date or even status which user can choose to sort it by ascending or descending order following the user needs. The implementation of the searching technique will be use by user when user want to search any specific row or rows of data in the system without taking a longer time scrolling and searching the data through the system one by one.
 
-## Description 📝
+## Synopsis📝
 
 In this assignment, the sorting and searching implementation will be used. User can search the task that have been inserted and can sort it according to the choices which are sorting it according to ascending alphabet and vice versa, sort it according to the ascending date and vice versa and sort it according to the status of the task such as complete, todo, od doing.
 
@@ -44,15 +44,6 @@ In this assignment, the sorting and searching implementation will be used. User 
 10. The user can exit to the program when user choose exit option in main menu
 
 11. All the inventory list data would be stored in output file.
-
-## Prepared by 🧑‍💻
-
-| Name             | Matric Number | Photo                                                         |
-| :---------------- | :-------------: | :------------------------------------------------------------: |
-| Lim Si Ni          | A22EC0070        | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/luqman.jpg" title="luqman"><img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/luqman.jpg" width=80px, height=80px>     |
-| Ong Kai Xuen       | A22EC0100        | <a href="https://avatars.githubusercontent.com/u/116987481?v=4" title="Icon by Trazobanana"><img src="https://avatars.githubusercontent.com/u/116987481?v=4" width=80px, height=80px>         |
-| Soh Fei Zhen       | A22EC0272       | <a href="https://avatars.githubusercontent.com/u/128279457?v=4" title="Anas"><img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/SOH FEI ZHEN.jpg" width=80px, height=80px> |
-
 
 ## Findings 📊
 
