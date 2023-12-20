@@ -86,7 +86,7 @@ Explain the high-level design of algorithms used in your system.
 Discuss how data structures are used in your project.
 
 #### 2.3.1 Sorting Process
-As for the sorting process, we will use a quicksort method in the banking system. Quicksort is a divide-and-conquer algorithm in which the strategy is to choose a pivot (the first element in the array) and then partition the array about the pivot. Quicksort involves using items less than the pivot value on the left, while items bigger than the pivot will be on the right. Thus pivot is now in the correctly sorted position. 
+As for the sorting process, we will use a quicksort method in the banking system. Quicksort is a divide-and-conquer algorithm that involves choosing a pivot and then partitioning the array around the pivot. Quicksort involves moving elements less than the pivot value on the left, while items bigger than the pivot will be on the right. Thus, the pivot is now in the correctly sorted position. 
 
 Below is the description of the key components of each sorting function and how they contribute to organizing the data.
 ##### 1. Sorting by Name (sortByName()):
@@ -108,8 +108,8 @@ Below is the description of the key components of each sorting function and how 
 Handling Equal Balances: It considers cases where balances are equal by comparing the account names to maintain stability in sorting.
 
 ##### 4. Partitioning Functions (partitionName(), partitionIc(), partitionAccNum(), partitionBal()):
-- Description: These functions are integral to the quicksort algorithm. They determine a pivot element and rearrange the elements in the array such that elements smaller than the pivot come before it, and elements greater than the pivot come after it.
-- Pivot Selection: The pivot is selected differently in each partitioning function based on the sorted attribute.
+- Description: These functions are integral to the quicksort algorithm. They determine a pivot element. In this case, the first element became the pivot. The elements in the Bank array that are less than the pivot are moved to be before the pivot, and elements bigger than the pivot value move to be after the pivot.
+
 
 #### 2.3.2 Searching Process
 Describe the searching process in your system.
