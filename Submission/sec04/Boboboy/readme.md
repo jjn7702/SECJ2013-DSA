@@ -7,7 +7,7 @@
 
 _Don't forget to hit the :star: if you like this repo._
 
-# Restaurant System
+# Restaurant Management System
 
 ## Description 📝
 Restaurant Management System (RMS) is to streamline and enhance the overall efficiency of order management in the restaurant environment. The system aims to provide a comprehensive and user-friendly platform that facilitates seamless order processing, reduces manual errors, and ultimately enhances the overall dining experience for both customers and restaurant staff.
@@ -26,7 +26,7 @@ Restaurant Management System (RMS) is to streamline and enhance the overall effi
 
 ## Findings 📊
 
-- Assignment 1
+- [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/Boboboy/Assignment%201)
 - Assignment 2
 - Project
 

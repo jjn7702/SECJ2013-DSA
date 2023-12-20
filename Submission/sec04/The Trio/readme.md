@@ -24,7 +24,7 @@ Hotel booking systems where designed to streamline the process of hotel booking,
 
 ## Findings 📊
 
-- Assignment 1
+- [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/The%20Trio/Assignment%201)
 - Assignment 2
 - Project
 
