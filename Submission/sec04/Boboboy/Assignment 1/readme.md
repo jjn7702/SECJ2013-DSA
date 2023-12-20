@@ -22,7 +22,7 @@ The main goal of BOBOBOY's Restaurant Management System (RMS) is to improve and 
 
 ## Findings 📊
 
-- [Source code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%201/Assignment1.cpp)
+- [Source code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%201/SourceCode/Assignment1.cpp)
 - [Inputfile](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%201/input.txt.txt)
 - Report
 
