@@ -21,7 +21,7 @@ The types of data structures used in this system are sorting and searching. The 
 ## System Design
 ### Class Diagram
 <p align="center">
-<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/System%20Design/classDiagram.png?raw=true" width="80%"><br>
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/System%20Design/classDiagram.png?raw=true" width="30%"><br>
 Figure 1: Class Diagram of Restaurant Management System
 </p>
 
