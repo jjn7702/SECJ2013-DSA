@@ -17,32 +17,33 @@ In this assignment, the sorting and searching implementation will be used. User 
 
 ## Flow of Event 💹
 
-1. User will be directed to the main menu of the task management system. In the main menu user can see all the task with its date and status. User will also can see the option menu that have the sorting or searching option.
+1. User will be displayed the inventory list including all the inventory details: code, name, type, quantity and price. User will be directed to the main menu of the inventory management system. In the main menu user can choose either want to sort or search inventory as well as exit the program.
 
-2. If the user click on the sorting option, the system will redirect the user to the next option menu where the user can choose to sort the data in either of these manner which are:
+2. If the user click on the sorting option, the system will redirect the user to the next sort menu where the user can choose to sort the data in either of these manner which are:
 
-    1. Ascending Alphabet
-    2. Descending Alphabet
-    3. Ascending Date
-    4. Descending Date
-    5. Ascending Status
-    6. Descending Status
-    (* notes: For the Status the arrangement of level will be from todo, doing and completed)
+    1. code
+    2. name 
+    3. type
+    4. quantity
+    5. price
+       
+3. The system will redirect the user to the next order menu where the user can choose to sort the data in either ascending or descending order.
 
-3. After choosing the option, the system will show the output based on the option that have been chosen by the user.
+4. After choosing the options, the system will show the output based on the option that have been chosen by the user.
 
-4. The user can exit to the main menu and will be showed again the first event. There the user can choose again which option that the user wants.
+5. The user would be back to the main menu to have their next operations.
 
-5. If the user choose the second option which is searching, the system will redirect the user to the next option menu.
+6. If the user click on the searching option, the system will redirect the user to the next search menu where the user can choose to search the data in either manner of code or name.
 
-6. In the searching menu option the user can enter any of these searching option to see if the task that the user want to see is in the list. The options are:
-    1. Search by using the alphabet
-    2. Search by using the date
-    3. Search by using the status
+7. After choosing the option, the system will ask the user to key in the search key
+  
+8. The system will show the output based on the option and search key that have been entered by the user.
+   
+9. The user would be back to the main menu to have their next operations.
 
-7. After choosing the option, the system will show the output based on the option that have been chosen by the user.
+10. The user can exit to the program when user choose exit option in main menu
 
-8. The user can exit to the main menu and will be showed again the first event. There the user can choose again which option that the user wants.
+11. All the inventory list data would be stored in output file.
 
 ## Prepared by 🧑‍💻
 
@@ -50,7 +51,7 @@ In this assignment, the sorting and searching implementation will be used. User 
 | :---------------- | :-------------: | :------------------------------------------------------------: |
 | Lim Si Ni          | A22EC0070        | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/luqman.jpg" title="luqman"><img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/luqman.jpg" width=80px, height=80px>     |
 | Ong Kai Xuen       | A22EC0100        | <a href="https://avatars.githubusercontent.com/u/116987481?v=4" title="Icon by Trazobanana"><img src="https://avatars.githubusercontent.com/u/116987481?v=4" width=80px, height=80px>         |
-| Soh Fei Zhen       | A22EC0272       | <a href="https://avatars.githubusercontent.com/u/128279457?v=4" title="Anas"><img src="https://avatars.githubusercontent.com/u/128279457?v=4" width=80px, height=80px> |
+| Soh Fei Zhen       | A22EC0272       | <a href="https://avatars.githubusercontent.com/u/128279457?v=4" title="Anas"><img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/SOH FEI ZHEN.jpg" width=80px, height=80px> |
 
 
 ## Findings 📊
