@@ -24,7 +24,7 @@ An Airline Reservation System is a computerized platform that facilitates the bo
 
 ## Findings 📊
 
-- [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec02/Gusion/Assigment%201)
+- [Assignment 1](./Assignment 1/Assignment 1.md)
 - Assignment 2
 - Project
 
