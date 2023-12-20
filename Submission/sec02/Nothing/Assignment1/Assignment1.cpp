@@ -484,7 +484,6 @@ int partition(inventory inv[], int first, int last, int choice){
     if(choice == 1){
         int pivot = inv[first].getItemNumber();
         while(true){
-            //decending
             while(inv[bottom].getItemNumber() > pivot){
                 bottom++;
             }
