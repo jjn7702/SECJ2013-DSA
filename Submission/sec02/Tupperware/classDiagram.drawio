@@ -646,7 +646,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="Z6kkUY7W0jmZs9z1XAER" name="OTHER FUNCTION">
-        <mxGraphModel dx="525" dy="381" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="502" dy="364" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -862,6 +862,9 @@
                 <mxCell id="EHPM5Mw00xczgB7-wCTA-14" value="" style="edgeStyle=none;rounded=0;html=1;" edge="1" parent="1" source="EHPM5Mw00xczgB7-wCTA-9" target="EHPM5Mw00xczgB7-wCTA-13">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-29" value="" style="edgeStyle=none;rounded=0;html=1;" edge="1" parent="1" source="EHPM5Mw00xczgB7-wCTA-9" target="EHPM5Mw00xczgB7-wCTA-28">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
                 <mxCell id="EHPM5Mw00xczgB7-wCTA-9" value="j &amp;lt; orders.size()" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="552.5" y="1110" width="115" height="80" as="geometry"/>
                 </mxCell>
@@ -871,8 +874,55 @@
                 <mxCell id="EHPM5Mw00xczgB7-wCTA-10" value="count = 1&lt;br&gt;j = 0" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="575" y="1020" width="70" height="40" as="geometry"/>
                 </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-20" value="" style="edgeStyle=none;rounded=0;html=1;" edge="1" parent="1" source="EHPM5Mw00xczgB7-wCTA-13" target="EHPM5Mw00xczgB7-wCTA-19">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-26" style="edgeStyle=none;rounded=0;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="EHPM5Mw00xczgB7-wCTA-13">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="470" y="1265" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
                 <mxCell id="EHPM5Mw00xczgB7-wCTA-13" value="orders[i].getFoodId() == orders[j].getFoodId()" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="530.5" y="1220" width="159" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-17" style="edgeStyle=none;rounded=0;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="EHPM5Mw00xczgB7-wCTA-15">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="610" y="1090" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="472" y="1090"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-15" value="++j" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="1170" width="64" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-21" style="edgeStyle=none;rounded=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="EHPM5Mw00xczgB7-wCTA-19" target="EHPM5Mw00xczgB7-wCTA-15">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="472" y="1350"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-19" value="++count" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="578" y="1340" width="64" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-23" value="FALSE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="1240" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-24" value="TRUE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="610" y="1310" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-25" value="TRUE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="610" y="1190" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-27" value="TRUE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="990" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-28" value="count &amp;gt; 0" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="760" y="1110" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-30" value="orderChoice&lt;br&gt;menuArray[orderChoice].getFoodId()&lt;br&gt;menuArray[orderChoice].getName()&lt;br&gt;menuArray[orderChoice].getCategory()&lt;br&gt;menuArray[orderChoice].getPrice()" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="750" y="1240" width="243" height="92" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

@@ -18,7 +18,7 @@ Hotel booking systems where designed to streamline the process of hotel booking,
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
 | EDDY KOH WEI HEN   | A22EC0154       | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/The%20Trio/Images/Eddy.jpg" title="Icon by Trazobanana"><img src="./Images/Eddy.jpg" width=80px, height=80px>     |
-| NUR HAFIZAH BINTI JAFRI | A22EC5022        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/girl_4537097.png" width=80px, height=80px>         |
+| NUR HAFIZAH BINTI JAFRI | A22EC5022        | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/The%20Trio/Images/hafizah.jpg" title="Icon by Trazobanana"><img src="./Images/hafizah.jpg" width=80px, height=80px>         |
 | NURSYUHADA BINTI BADREN      | A22EC0253       | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/boy_4537022.png" width=80px, height=80px>         |
 
 

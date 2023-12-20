@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <iomanip>
+
 using namespace std ;
 class Customer{
 	private:
@@ -30,6 +31,7 @@ class Customer{
 		int getNum(){ return roomNum ; }
 		string getDate(){ return checkInDate ; }
 };
+
 // Menu for Sorting
 int menuSort()
 {
@@ -322,8 +324,6 @@ void SortingDate(Customer data[], int size)
 	}
 } // end of sort based on check in date
 
-
-
 // Menu for Searching
 int menuSearch()
 {
@@ -342,6 +342,47 @@ int menuSearch()
 	
 	return option ;
 }
+
+// Search key based on name, IC number, phone number or check in date
+void Search(string searchKey, Customer data[], int size)
+{ 
+	int index = -1 ; //-1 means record is not found
+	for(int i = 0; i < size; i++)
+	{ 
+		if(searchKey == data[i].getName())
+		{ 
+			index = i; // assign current array index
+			break; //terminate searching
+		}
+		else if(searchKey == data[i].getIC())
+		{ 
+			index = i; // assign current array index
+			break; //terminate searching
+		}
+		else if(searchKey == data[i].getPhone())
+		{ 
+			index = i; // assign current array index
+			break; //terminate searching
+		}
+		else if(searchKey == data[i].getDate())
+		{ 
+			index = i; // assign current array index
+			break; //terminate searching
+		}	
+	} //end for
+	
+	if(index == -1) // If the key not found
+		cout << "\nNot found..." << endl ;
+	else
+	{	// Display the information after searching if found
+		cout << "\nName: " << data[index].getName() << endl
+			 << "Age: " << data[index].getAge() << endl
+	 		 << "IC Number: " << data[index].getIC() << endl
+			 << "Phone Number: " << data[index].getPhone() << endl 
+			 << "Room Number: " << data[index].getNum() << endl 
+			 << "CheckInDate: " << data[index].getDate() << endl ;	
+	}	
+} //end of search for name, IC number, phone number, check in date
 
 // Search key based on age or room number
 void Search2(int searchKey, Customer data[], int size)
