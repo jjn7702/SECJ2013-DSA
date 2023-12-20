@@ -223,7 +223,7 @@ double calculateTotal(const vector<Menu>& orders){
     return total;
 }
 
-void searchAndOrder(Menu menuArray[], vector<Menu>& orders) {
+void searchAndOrder(Menu menuArray[]) {
     string searchTerm;
     cout << "Enter the food name you want to search: ";
     cin.ignore();
@@ -233,17 +233,15 @@ void searchAndOrder(Menu menuArray[], vector<Menu>& orders) {
     for (int i = 0; i < SIZE; ++i) {
         if (menuArray[i].getName().find(searchTerm) != string::npos) {
             if (!found) {
-                // Display the header for searched items
-                cout << left;
-                cout << setw(10) << "ID" << " | "
-                     << fixed << "PRICE" << endl;
-                cout << "---------------------" << endl;
-                found = true;
-            }
-            // Display the found item
+            displayHeader();
             cout << left;
-            cout << setw(10) << menuArray[i].getFoodId() << " | "
-                 << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
+            cout << setw(5) << (i+1) << " | " 
+                 << setw(10) << menuArray[i].getFoodId() << " | " 
+                 << setw(21) << menuArray[i].getName() << " | " 
+                 << setw(13) << menuArray[i].getCategory() << " | " 
+                 << fixed << setprecision(2) << setw(4) << menuArray[i].getPrice() << endl;
+            }
+
 
             // Ask the user if they want to add the order to the cart
             char addToCartChoice;
@@ -252,8 +250,11 @@ void searchAndOrder(Menu menuArray[], vector<Menu>& orders) {
 
             if (addToCartChoice == 'Y' || addToCartChoice == 'y') {
                 // Add the ordered item to the cart
-                orders.push_back(menuArray[i]);
+                //orders.push_back(menuArray[i]);
                 cout << "Item added to cart!" << endl;
+            }
+            else if(addToCartChoice == 'N' || addToCartChoice == 'n'){
+                //KIV
             }
         }
     }
@@ -261,6 +262,7 @@ void searchAndOrder(Menu menuArray[], vector<Menu>& orders) {
         cout << "No matching items found.\n";
     }
 }
+
 
 int main() {
     Menu menuArray[SIZE];
@@ -276,49 +278,49 @@ int main() {
         cout << "WELCOME TO TUPPERWARE!" << endl;
         nameFile.open("menu.txt", ios::in);
 
-            if (!nameFile) {
-                cout << "ERROR: Cannot open file." << endl;
-                return 0;
-            }
+        if (!nameFile) {
+            cout << "ERROR: Cannot open file." << endl;
+            return 0;
+        }
 
-            while (!nameFile.eof() && size < SIZE) {
-                getline(nameFile, foodId, ',');
-                getline(nameFile, name, ',');
-                getline(nameFile, category, ',');
-                nameFile >> price;
-                nameFile.ignore();
+        while (!nameFile.eof() && size < SIZE) {
+            getline(nameFile, foodId, ',');
+            getline(nameFile, name, ',');
+            getline(nameFile, category, ',');
+            nameFile >> price ;
+            nameFile.ignore();
 
-                menuArray[size++] = Menu(foodId, name, category, price);
+            menuArray[size++] = Menu(foodId, name, category, price);
+        }
+
+        nameFile.close();
+        displayHeader();
+        displayMenu(menuArray);
+
+        cout << "\nDo you want to (V)iew in a new way, or (S)earch? ";
+        cin >> choice;
+
+        if (choice == 'V' || choice == 'v') {
+            cout << "Sort by Food ID or Price? ";
+            int choiceSort;
+            cout << "1 - ALPHABET ORDER | 2 - PRICE => ";
+            cin >> choiceSort;
+            switch (choiceSort) {
+            case 1:
+                FoodIdASC(menuArray);
+                break;
+
+            case 2:
+                PriceASC(menuArray);
+                break;
             }
             
-            nameFile.close();
-            displayHeader();
-            displayMenu(menuArray);
-
-            cout << "\nDo you want to (V)iew in a new way, or (S)earch? ";
-            cin >> choice;
-
-            if (choice == 'V' || choice == 'v') {
-                // View in a new way (sorting)
-                cout << "Sort by Food ID or Price? ";
-                int choiceSort;
-                cout << "1 - ALPHABET ORDER | 2 - PRICE => ";
-                cin >> choiceSort;
-                switch (choiceSort) {
-                case 1:
-                    FoodIdASC(menuArray);
-                    break;
-
-                case 2:
-                    PriceASC(menuArray);
-                    break;
-                }
-            } else if (choice == 'S' || choice == 's') {
+        } else if (choice == 'S' || choice == 's') {
                 // Searching for a specific food and ordering
-                searchAndOrder(menuArray, orders);
-            } else {
-                cout << "Invalid input. Please enter V or S.\n";
-            }
+            searchAndOrder(menuArray);
+        } else 
+            cout << "Invalid input. Please enter V or S.\n";
+
 
 do{
     cout << "\nDo you want to make order? (Y/N): ";
@@ -332,23 +334,8 @@ do{
     }
 } while(true);
 
-    // Check if any order is made
-    if (!orders.empty()) {
-        cout << "\nYour Orders:\n";
-        menuArray[0].displayHeader();
-        for (const Menu& order : orders) {
-            cout << left;
-            cout << setw(10) << order.getFoodId() << " | "
-                 << setw(21) << order.getName() << " | "
-                 << setw(13) << order.getCategory() << " | "
-                 << fixed << setprecision(2) << setw(4) << order.getPrice() << endl;
-        }
-
-        double total = calculateTotal(orders); 
-        cout << "\nTotal order amount: RM" << fixed << setprecision(2) << total << endl;
-    } else {
-        cout << "No orders made.\n";
-    }
+double total = calculateTotal(orders);
+cout << "\nTotal order amount: RM" << fixed << setprecision(2) << total << endl;
 
     return 0;
 }

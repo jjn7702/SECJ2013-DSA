@@ -122,6 +122,107 @@ public:
     }
 };
 
+void displayHeader() {
+    cout << left;
+    cout << setw(5) << "NO" << " | "
+         << setw(10) << "ID" << " | "
+         << setw(21) << "NAME" << " | "
+         << setw(13) << "TYPE" << " | "
+         << fixed << "PRICE" << endl;
+    cout << "---------------------------------------------------------" << endl;
+}
+
+void displayMenu(Menu menuArray[]) {
+    for (int i = 0; i < SIZE; i++) {
+        cout << left;
+        cout << setw(5) << (i+1) << " | "
+             << setw(10) << menuArray[i].getFoodId() << " | "
+             << setw(21) << menuArray[i].getName() << " | "
+             << setw(13) << menuArray[i].getCategory() << " | "
+             << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
+    }
+}
+
+void printSortedResult(Menu menuArray[]) {
+    for (int i = 0; i < SIZE; i++) {
+        cout << left;
+        cout << setw(5) << (i+1) << " | "
+             << setw(10) << menuArray[i].getFoodId() << " | "
+             << setw(21) << menuArray[i].getName() << " | "
+             << setw(13) << menuArray[i].getCategory() << " | "
+             << fixed << setprecision(2) << setw(4) << menuArray[i].getPrice() << endl;
+    }
+}
+
+// Selection sort
+void swap(Menu& a, Menu& b) {
+    Menu temp = a;
+    a = b;
+    b = temp;
+}
+
+void FoodIdASC(Menu menuArray[]) {
+    string fI[SIZE];
+    for (int last = SIZE - 1; last >= 1; --last) {
+
+        fI[last] = menuArray[last].getFoodId();
+        int largestIndex = 0;
+        for (int p = 1; p <= last; ++p) {
+            if (menuArray[p].getFoodId() > menuArray[largestIndex].getFoodId())
+                largestIndex = p;
+        }
+        swap(menuArray[largestIndex], menuArray[last]);
+    }
+    displayHeader();
+    printSortedResult(menuArray);
+}
+
+void PriceASC(Menu menuArray[]) {
+    string fI[SIZE];
+    for (int last = SIZE - 1; last >= 1; --last) {
+
+        fI[last] = menuArray[last].getPrice();
+        int largestIndex = 0;
+        for (int p = 1; p <= last; ++p) {
+            if (menuArray[p].getPrice() > menuArray[largestIndex].getPrice())
+                largestIndex = p;
+        }
+        swap(menuArray[largestIndex], menuArray[last]);
+    }
+    displayHeader();
+    printSortedResult(menuArray);
+}
+
+void makeOrder(Menu menuArray[], vector<Menu>& orders){
+    int orderChoice;
+    cout << "Enter the number corresponding to the menu you want to order: ";
+    cin >> orderChoice;
+
+    if (orderChoice >= 1 && orderChoice <= SIZE) {
+        cout << "You ordered:\n";
+        displayHeader();
+        cout << left;
+        cout << setw(5) << orderChoice << " | "
+             << setw(10) << menuArray[orderChoice - 1].getFoodId() << " | " 
+             << setw(21) << menuArray[orderChoice - 1].getName() << " | " 
+             << setw(13) << menuArray[orderChoice - 1].getCategory() << " | " 
+             << fixed << setprecision(2) << setw(4) << menuArray[orderChoice - 1].getPrice() << endl;
+
+             orders.push_back(menuArray[orderChoice - 1]);
+    }
+    else {
+        cout << "Invalid menu choice.\n";
+    }
+}
+
+double calculateTotal(const vector<Menu>& orders){
+    double total = 0.0;
+    for (const Menu& order : orders) {
+        total += order.getPrice();
+    }
+    return total;
+}
+
 void searchAndOrder(Menu menuArray[], vector<Menu>& orders) {
     string searchTerm;
     cout << "Enter the food name you want to search: ";
@@ -161,14 +262,6 @@ void searchAndOrder(Menu menuArray[], vector<Menu>& orders) {
     }
 }
 
-double calculateTotal(const vector<Menu>& orders) {
-    double total = 0.0;
-    for (const Menu& order : orders) {
-        total += order.getPrice();
-    }
-    return total;
-}
-
 int main() {
     Menu menuArray[SIZE];
     char choice;
@@ -176,19 +269,12 @@ int main() {
     fstream nameFile;
     string foodId, name, category;
     double price;
+    bool condition = true;
     vector<Menu> orders;
 
-    do {
         system("cls");
         cout << "WELCOME TO TUPPERWARE!" << endl;
-        cout << "View Menu? Y => yes | N => no: ";
-        cin >> choice;
-
-        if (choice == 'N' || choice == 'n')
-            break;
-
-        else if (choice == 'Y' || choice == 'y') {
-            nameFile.open("menu.txt", ios::in);
+        nameFile.open("menu.txt", ios::in);
 
             if (!nameFile) {
                 cout << "ERROR: Cannot open file." << endl;
@@ -204,11 +290,10 @@ int main() {
 
                 menuArray[size++] = Menu(foodId, name, category, price);
             }
+            
             nameFile.close();
-
-            Menu menu;
-            menu.displayHeader();
-            menu.displayMenu(menuArray);
+            displayHeader();
+            displayMenu(menuArray);
 
             cout << "\nDo you want to (V)iew in a new way, or (S)earch? ";
             cin >> choice;
@@ -221,11 +306,11 @@ int main() {
                 cin >> choiceSort;
                 switch (choiceSort) {
                 case 1:
-                    menu.FoodIdASC(menuArray);
+                    FoodIdASC(menuArray);
                     break;
 
                 case 2:
-                    menu.PriceASC(menuArray);
+                    PriceASC(menuArray);
                     break;
                 }
             } else if (choice == 'S' || choice == 's') {
@@ -234,11 +319,18 @@ int main() {
             } else {
                 cout << "Invalid input. Please enter V or S.\n";
             }
-        } else {
-            cout << "Invalid input. Please enter Y or N.\n";
-        }
 
-    } while (true);
+do{
+    cout << "\nDo you want to make order? (Y/N): ";
+    cin >> choice;
+
+    if (choice == 'N' || choice == 'n') 
+        break;
+    
+    else if (choice == 'Y' || choice == 'y'){
+        makeOrder(menuArray, orders);
+    }
+} while(true);
 
     // Check if any order is made
     if (!orders.empty()) {
