@@ -1,4 +1,4 @@
-# Election Management System - Assignment 1
+# Election Management System
 
 ### Table of Contents
 - [Objectives](#-objectives)
