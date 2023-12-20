@@ -515,7 +515,7 @@ int main()
 		int key ;
 		cout << "\nPlease enter the key: " ;
 		cin >> key ;
-		SearchAge(key, customer, custNum) ; 
+		Search2(key, customer, custNum) ; 
 	}	
 	else if(option == 7) // Quit
 	{
