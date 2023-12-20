@@ -1,5 +1,6 @@
 # Airline Reservation System ✈️
 
+## Table of Content
 - [Objectives](#objectives-)
 - [Synopsis](#synopsis-)
 - [Flow Chart](#flow-chart-)
