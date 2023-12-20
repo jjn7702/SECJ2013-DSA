@@ -262,14 +262,6 @@ void searchAndOrder(Menu menuArray[]) {
     }
 }
 
-/*double calculateTotal(const vector<Menu>& orders) {
-    double total = 0.0;
-    for (const Menu& order : orders) {
-        total += order.getPrice();
-    }
-    return total;
-}*/
-
 int main() {
     Menu menuArray[SIZE];
     char choice;
@@ -341,8 +333,8 @@ do{
     }
 } while(true);
 
-//double total = calculateTotal(orders);
-//cout << "\nTotal order amount: RM" << fixed << setprecision(2) << total << endl;
+double total = calculateTotal(orders);
+cout << "\nTotal order amount: RM" << fixed << setprecision(2) << total << endl;
 
     return 0;
 }
