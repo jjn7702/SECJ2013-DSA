@@ -159,3 +159,45 @@ int read_data(Account acc[], const string& filename)
 	f1.close();
 	return n;
 }
+
+int main(){
+	string filename;
+	
+	cout<<"Enter the input file name: ";
+	cin>>filename;
+	Account account[99];
+	int count = read_data(account, filename);
+	system("cls");
+	
+	bool menu = 1;
+	while(menu)
+	{
+		int choice1, choice2;
+		do
+		{
+			cout << "Menu of Account Checking : " << endl
+				<< "1. Account Searching" << endl
+				<< "2. Account List" << endl
+				<< "Enter your choice: ";
+			cin >> choice1;
+			system("cls");
+
+		} while (choice1 != 1 && choice1 != 2);
+
+
+
+
+
+
+
+
+
+
+		cout << "\n\n\n\nBack to menu (1: yes / 0: no) : ";
+		cin >> menu;
+		system("cls"); 
+	}
+		
+	system("pause");
+	return 0;
+}
