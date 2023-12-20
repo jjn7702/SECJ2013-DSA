@@ -196,6 +196,129 @@ void SearchingFaculty(Candidate c[],int size)
         cout<<"Data not found!"<<endl;
 }
 
+void swap(int &d1, int &d2)
+    {
+        int temp = d1;
+        d1 = d2;
+        d2 = temp;
+    }
+ 
+    void ICAscend(Candidate D[],int n)
+    {
+        for(int last=n-1; last>=1; --last){
+
+        int largesti=0;
+
+        for(int p=1; p<=last; ++p)
+        { 
+            if(D[p].getIC() > D[largesti].getIC())
+                largesti=p;
+        }
+
+        swap(D[largesti],D[last]);
+        }
+        
+        
+    }
+    
+    void ICDescend(Candidate D[], int n){
+    	for(int last=n-1; last>=1; --last){
+
+        int largesti=0;
+
+        for(int p=1; p<=last; ++p)
+        { 
+            if(D[p].getIC() < D[largesti].getIC())
+                largesti=p;
+        }
+
+        swap(D[largesti],D[last]);
+         
+        }
+    
+}
+
+void VoteCountAscend(Candidate D[] , int n){
+		Candidate item;
+		int pass, insertIndex;
+	for (pass=1; pass<n; pass++)
+	{
+		item = D[pass];
+		insertIndex = pass;
+	while((insertIndex > 0) && (D[(insertIndex -1)].getVoteCount() > item.getVoteCount()))
+	{
+		D[insertIndex]= D[insertIndex -1];
+		insertIndex --;
+	}
+		D[insertIndex] = item;
+	}
+
+}
+
+	void VoteCountDescend(Candidate D[] , int n){
+		Candidate item;
+    	int pass, insertIndex;
+    for(pass=1;pass<n;pass++)
+	{
+        item = D[pass];
+        insertIndex = pass;
+        while((insertIndex>0)&&(D[(insertIndex-1)].getVoteCount()<item.getVoteCount()))
+		{
+            D[insertIndex]=D[insertIndex-1];
+            insertIndex--;
+        }
+        D[insertIndex]=item;
+    }
+    
+}
+
+void searchingVoteCount(Candidate c[],int size){
+    int key;
+    bool check = false;
+    cout<<"Please enter the vote count of the Candidate you want to search for : ";
+    cin>>key;
+
+    for(int i=0;i<size;i++){
+        if(c[i].getVoteCount()== key){
+            cout<<"\nRecord Found! "<<endl;
+            cout<<"Name           : "<<c[i].getName()<<endl;
+            cout<<"Faculty        : "<<c[i].getFaculty()<<endl;
+            cout<<"IC             : "<<c[i].getIC()<<endl;
+            cout<<"Age            : "<<c[i].getAge()<<endl;
+            cout<<"Vote Collected : "<<c[i].getVoteCount()<<endl;
+            check = true;
+            break;
+        }
+    }
+    if(!check){
+    	cout <<"Sorry no record is found" << endl;
+	}
+}
+
+void searchingIC(Candidate c[],int size){
+    string key;
+    bool check = false;
+    cout<<"Please enter the IC of the Candidate you want to search for : ";
+    cin>>key;
+
+    for(int i=0;i<size;i++){
+        if(c[i].getIC() == key){
+        	check = true;
+            cout<<"\nRecord Found! "<<endl;
+            cout<<"Name           : "<<c[i].getName()<<endl;
+            cout<<"Faculty        : "<<c[i].getFaculty()<<endl;
+            cout<<"IC             : "<<c[i].getIC()<<endl;
+            cout<<"Age            : "<<c[i].getAge()<<endl;
+            cout<<"Vote Collected : "<<c[i].getVoteCount()<<endl;
+            break;
+        }
+        
+    }
+    if(!check){
+    	cout <<"Sorry no record is found" << endl;
+	}
+}
+
 void menu(int &opt1,int &opt2,int &opt3)
 {
     do{
@@ -298,6 +421,15 @@ int main()
                             FacultyDescending(c,i);
                         display(c,i);
                         break;
+                case 3 : if(opt3==1)
+                            ICAscend(c,i);
+                         else 
+                            ICDescend(c,i);
+                        display(c,i);
+                case 6 : if(opt3==1)
+                            VoteCountAscend(c,i);
+                         else 
+                            VoteCountDescend(c,i);
             }
             break;
         
@@ -307,6 +439,10 @@ int main()
                 case 1: SearchingName(c,i);
                         break;
                 case 2: SearchingFaculty(c,i);
+                        break;
+                case 3: searchingIC(c,i);
+                        break;
+                case 6: searchingVoteCount(c,i);
                         break;
             }
             break;
