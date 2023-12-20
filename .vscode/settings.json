@@ -6,5 +6,6 @@
         "iostream": "cpp",
         "iomanip": "cpp"
     },
-    "cmake.sourceDirectory": "/workspaces/SECJ2013-DSA/Submission/sec04/The Trio"
+    "cmake.sourceDirectory": "/workspaces/SECJ2013-DSA/Submission/sec04/The Trio",
+    "C_Cpp.errorSquiggles": "disabled"
 }
