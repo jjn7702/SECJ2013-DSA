@@ -532,10 +532,14 @@ int main()
         case 1:
             switch(opt2)
             {
-                case 1 : if(opt3 == 1)
+                case 1 : if(opt3 == 1){
+                            cout <<"Sorted in ASCENDING -> NAME" << endl;
                             NameAscending(c,i);
-                         else
+                        }
+                         else{
+                            cout <<"Sorted in DESCENDING -> NAME" << endl;
                             NameDescending(c,i);
+                         }
                         //display(c,i);
                         break;
                 case 2: if(opt3 == 1)
