@@ -15,11 +15,11 @@ The Inventory Management System is a C++ program designed to efficiently manage 
 
 ## Prepared by 🧑‍💻
 
-| Name             | Matric Number | Photo                                                         |
-| :---------------- | :-------------: | :------------------------------------------------------------: |
-|  GOH JING YANG   |    A22EC0052    | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230519010247.jpg" title="Icon by Trazobanana"><img src="./Images/微信图片_20230519010247.jpg" width=80px, height=80px>     |
-|   LOO JIA CHANG    |   A22EC0074     | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Images/rsz_1rsz_1img_0290.jpg" title="Icon by Trazobanana"><img src="./Images/rsz_1rsz_1img_0290.jpg" width=80px, height=80px>         |
-|  LOW JIE SHENG    |   A22EC0075      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Images/photo_2023-12-20_13-55-45.jpg" title="Icon by Trazobanana"><img src="./Images/photo_2023-12-20_13-55-45.jpg" width=80px, height=80px>         |
+| Name             | Matric Number |
+| :---------------- | :-------------: |
+|  GOH JING YANG   |    A22EC0052    | 
+|   LOO JIA CHANG    |   A22EC0074     |
+|  LOW JIE SHENG    |   A22EC0075      | 
 
 
 ## Findings 📊
