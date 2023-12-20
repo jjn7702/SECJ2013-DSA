@@ -11,9 +11,9 @@ The Inventory Management System is aiming to organize, store and manage library 
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-| LIM SI NI   | A22EC0070        | <a href="https://www.linkedin.com/in/si-ni-lim-059028257/" title="Icon by Trazobanana"><img src="./Images/LIM SI NI.jpg" width=80px, height=80px>     |
-| ONG KAI XUEN     | A22EC0100       | <a href="https://www.linkedin.com/in/kai-xuen-6521b2257/" title="Icon by Trazobanana"><img src="./Images/boy_4537038.png" width=80px, height=80px>     |
-| SOH FEI ZHEN      | A22EC0272        | <a href="https://www.linkedin.com/in/fei-zhen-soh-b311a0257/" title="Icon by Trazobanana"><img src="./Images/boy_4537038.png" width=80px, height=80px>     |
+| LIM SI NI   | A22EC0070        | <a href="https://www.linkedin.com/in/si-ni-lim-059028257/" title="LIM SI NI LinkedIn"><img src="./Images/LIM SI NI.jpg" width=80px, height=100px>     |
+| ONG KAI XUEN     | A22EC0100       | <a href="https://www.linkedin.com/in/kai-xuen-6521b2257/" title="ONG KEI XUEN LinkedIn"><img src="./Images/boy_4537038.png" width=80px, height=100px>     |
+| SOH FEI ZHEN      | A22EC0272        | <a href="https://www.linkedin.com/in/fei-zhen-soh-b311a0257/" title="SOH FEI ZHEN LinkedIn"><img src="./Images/boy_4537038.png" width=80px, height=100px>     |
 
 
 ## Flow of system
