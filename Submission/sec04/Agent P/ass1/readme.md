@@ -23,7 +23,6 @@ Flowchart
   <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/photo_6057581772625000910_y.jpg" width="70%" height="70%"><br>
   Figure 1: Flowchart of Sytem
   <br><br><br>
-  <img src="" width="30%" height="30%"><br>
   
 </p>
 
