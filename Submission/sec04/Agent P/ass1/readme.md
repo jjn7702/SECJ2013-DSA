@@ -10,7 +10,7 @@
 
   
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/bc7e2df3-d20d-457c-b9fb-e0574b6a740e" width="3%" height="3%"> Objectives:
-The objective for this assignment 1 is to create an Election management system for UTM which will enable users to get a sorted version of the Election candidate list by attributes like name,faculty,age,vote count ,IC and matric num.The system will also enable users to do searching on the stated attributes.Thus, the aim of this system is to create a user friendly interface where user can easily use the election management system.
+The objective for this assignment 1 is to create an Election management system.In this system it will enable users to get a sorted version of the Election candidate list by attributes like name,faculty,age,vote count ,IC and matric num.Each attributes stated will be sorted in ascending and descending order where user can choose which way they want to view the candidate list.The system will also enable users to do searching on the stated attributes.If the the user wanted to get the detail of a candidate by entering any of the attributes value,the system will display the candidate’s details.Thus, the aim of this system is to create a user friendly interface where user can easily use the election management system.
 
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/ac62ef65-848d-41a6-97c2-1ff40be8ecd3" width="3%" height="3%"> Synopsis
@@ -40,6 +40,11 @@ For sorting by name, we have implemented the selection sorting algorithm. There 
 
 For sorting by faculty, we have implemented the improved bubble sorting algorithm. There are two functions for sorting by faculty which are sorting in ascending order and descending order. The improved bubble sorting function accepts two parameters which are object array of candidate class and size of the array. In ascending order the faculties are sorted from A-Z while in descending order the faculties are sorted from Z-A.
 
+1.1.3 Sorting by IC
+
+Sorting by IC is implemented using selection sorting algorithm.There are two functions for this sorting by IC , which are in ascending order and descending order.Both function has two parameters which are the object array of candidate class and size of the array.In ascending order the candidates are arranged according to their IC values where they are sorted from the smallest IC value to the largest IC value.The descending is the opposite of the ascending order where the candidate will be sorted from largest IC value to the biggest IC value.
+
+
 1.1.4 Sorting by Age
 
 For sorting by Age, we implemented insertion sorting. There are two functions for this sort, one for ascending order and another one for descending order. The algorithm will compare the candidates age (int) and arrange it following the ascending or descending order.
@@ -47,6 +52,11 @@ For sorting by Age, we implemented insertion sorting. There are two functions fo
 1.1.5 Sorting  by Matric Number
 
 For sorting by 	Matric Number, we implemented selection sorting. There are two functions for this sort, one for ascending order and another one for descending order. The algorithm will compare the candidate’s Matric number (string) and arrange it following the ascending or descending order.
+
+1.1.6 Sorting by Vote Count
+
+Sorting by vote count is implemented using insertion sorting algorithm.There are two functions for this sorting by vote count , which are in ascending order and descending order.Both function has two parameters which  are the object array of candidate class and size of the array.In ascending order the candidates are arranged according to their vote counts where they are sorted from the smallest vote counts to the largest vote count.The descending is the opposite of the ascending order where the candidate will be sorted from largest vote counts to the biggest IC value.
+
     
 ##### 2. Searching
 
