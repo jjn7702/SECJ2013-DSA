@@ -80,3 +80,10 @@ As an example, in our system, the SequenceSearch() will receive a search key whi
 
 We have chosen the Searching Technique - Sequential search as it is a basic function that is suitable to be implemented in a small size of list in which after considering the number of administrators in a hotel will not be a large population.
 
+<br>
+
+### Source Codes<br>
+<a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/LogiCode/Assignment1/assignment1.cpp"> <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/896def01-68aa-4cf4-95d9-144436fd3fa1" width="3%" height="3%"></a><br>
+
+### Report<br>
+<a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/LogiCode/Assignment1/Assignment1_Report_LogiCode.pdf"><img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/4bcb35dd-4e85-4aa3-bdf4-744f58a7477e" width="3%" height="3%"></a>

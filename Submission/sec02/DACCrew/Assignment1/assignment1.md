@@ -1,4 +1,5 @@
 # Assignment 1
+- <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Assignment1/files/DACCrew%20Assignment%201.pdf" >Report Assignment 1 
 ## Prepared By DACCrew
 | Name         | Matric No    |
 |--------------|--------------|

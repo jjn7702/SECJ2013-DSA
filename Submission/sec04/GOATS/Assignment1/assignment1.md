@@ -24,6 +24,7 @@ A Hospital Management System is a software system designed to manage doctor and 
 
 ## Flow Chart
 
+![Alt text](../images/Flowchart.jpg)
 
 ## Sorting Algorithm
 
@@ -32,6 +33,5 @@ The Sorter class facilitates a flexible sorting mechanism that is used to implem
 
 ## Searching Method
 
-
-
+The searching process mechanism for our system, implements standalone searching functions. A menu is displayed to allow for the user to pick a searching option. The first menu is to search by Doctor or Patient. The second menu is to search by Name or IC. Our functions have passing parameters of the actual class array(Patient/Doctor), search key that will be inputted by the user and the class array size. The content of our function includes first, the initialisation of the variable “idx” which is an integer datatype. It functions as an index that will be returned back to the main function, which signifies the index of the identical ID/Name of Doctor/Patient, when compared to the user's search key. There is a for loop that will loop through the class array while checking at each index, whether the search key matches the determined element that will be compared to. If matching data is found, the “idx” will be returned signifying, matching data is found. Else, the function returns -1 to signify, no matching data is found. After returning the idx, the display function of class will be called to display the details of searched key to the user.
 
