@@ -918,11 +918,44 @@
                 <mxCell id="EHPM5Mw00xczgB7-wCTA-27" value="TRUE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
                     <mxGeometry x="600" y="990" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="EHPM5Mw00xczgB7-wCTA-28" value="count &amp;gt; 0" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="760" y="1110" width="80" height="80" as="geometry"/>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-33" value="" style="edgeStyle=none;rounded=0;html=1;" edge="1" parent="1" source="EHPM5Mw00xczgB7-wCTA-28" target="EHPM5Mw00xczgB7-wCTA-30">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="EHPM5Mw00xczgB7-wCTA-30" value="orderChoice&lt;br&gt;menuArray[orderChoice].getFoodId()&lt;br&gt;menuArray[orderChoice].getName()&lt;br&gt;menuArray[orderChoice].getCategory()&lt;br&gt;menuArray[orderChoice].getPrice()" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-                    <mxGeometry x="750" y="1240" width="243" height="92" as="geometry"/>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-28" value="count &amp;gt; 0" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="811.5" y="1110" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-32" value="" style="group" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="730" y="1210" width="243" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-30" value="orders[i].getFoodId()&lt;br&gt;orders[i].getName()&lt;br&gt;orders[i].getCategory()&lt;br&gt;orders[i].getPrice()" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="EHPM5Mw00xczgB7-wCTA-32">
+                    <mxGeometry y="6.363636363636363" width="243" height="83.63636363636364" as="geometry"/>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-31" value="OUTPUT" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="EHPM5Mw00xczgB7-wCTA-32">
+                    <mxGeometry x="11" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-34" value="TRUE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="850" y="1185" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-41" value="" style="edgeStyle=none;rounded=0;html=1;" edge="1" parent="1" source="EHPM5Mw00xczgB7-wCTA-35" target="EHPM5Mw00xczgB7-wCTA-38">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-35" value="j &amp;lt; orders.size()" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="781.5" y="1330" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-36" value="" style="edgeStyle=none;rounded=0;html=1;" edge="1" parent="1" source="EHPM5Mw00xczgB7-wCTA-30" target="EHPM5Mw00xczgB7-wCTA-35">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-40" value="" style="edgeStyle=none;rounded=0;html=1;" edge="1" parent="1" source="EHPM5Mw00xczgB7-wCTA-38" target="EHPM5Mw00xczgB7-wCTA-39">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-38" value="orders[i].getFoodId() == orders[j].getFoodId()" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="772" y="1430" width="159" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-39" value="i = j" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="819.5" y="1550" width="64" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="EHPM5Mw00xczgB7-wCTA-42" value="TRUE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="790" y="1400" width="60" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
