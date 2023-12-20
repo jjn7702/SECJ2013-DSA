@@ -231,7 +231,7 @@ void sortByIc(Bank bl[], int first, int last)
         if (cut != last)
         {
             sortByIc(bl, first, cut);
-            sortByAccNum(bl, cut + 1, last);
+            sortByIc(bl, cut + 1, last);
         }
         else
             sortByIc(bl, first, cut);
