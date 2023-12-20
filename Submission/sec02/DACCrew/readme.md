@@ -10,7 +10,7 @@ _Don't forget to hit the :star: if you like this repo._
 # Banking System
 
 ## Description 📝
-
+This system is designed to perform basic transaction operations, including depositing money into user accounts, enabling withdrawal, and facilitating money transfers between accounts. The sorting operations encompass arranging data by name, Identification Card number, account number and balance in ascending order. Additionally, this system supports searching operations based on account holder's names and account numbers, allowing users to locate their accounts using unique identifiers.
 
 
 ## Prepared by 🧑‍💻
