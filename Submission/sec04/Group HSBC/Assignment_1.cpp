@@ -184,14 +184,22 @@ int main(){
 
 		} while (choice1 != 1 && choice1 != 2);
 
+		if(choice1 == 1)
+		{
+			string accountSearch;
+			cout << "Account : ";
+			cin >>accountSearch;
+			system("cls");
 
-
-
-
-
-
-
-
+			cout << "Searched Account Details : \n";
+			cout<<"--------------------------------------------------------------------------------------------------------------\n"
+			<<"| Account Number | Balance(RM) | Transaction Date | Transaction Type | Amount(RM) | Transfered Account Number |\n"
+			<<"--------------------------------------------------------------------------------------------------------------\n";
+			account[searchAcc(account, accountSearch, count)].printDetails();
+		}
+		else{
+			//hayden pls do this part
+		}
 
 		cout << "\n\n\n\nBack to menu (1: yes / 0: no) : ";
 		cin >> menu;
