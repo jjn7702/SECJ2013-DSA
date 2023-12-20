@@ -29,8 +29,8 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Findings 📊
 
-- [Source Code](./source-code/Assg1.cpp)
-- [Input File](./source-code/booking.txt)
+- [Source Code](./Source-code/Assg1.cpp)
+- [Input File](./Source-code/booking.txt)
 - [Report]
 
 ## Contribution 🛠️
