@@ -1,6 +1,7 @@
 <h1>Restaurant Management System</h1>
 <h1>Assignment 1</h1>
 <h2>Description 📝</h2>
+<p>The Restaurant Management system is designed to manage orders from customers. This system is for the admin of the restaurant to manage orders from the customers and for the customer to make orders from the list of menu provided. </p>
 
 <h2> Prepared by 🧑‍💻</h2>
 
