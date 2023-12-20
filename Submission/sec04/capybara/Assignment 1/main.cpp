@@ -279,19 +279,6 @@ void quickSortReservation(vector<Reservation> &reservations, int bottom, int top
     }
 }
 
-class ReservationOptions
-{
-public:
-    string optionsLocation;
-    string optionsDepartureTime;
-    string optionsArrivalTime;
-    string optionsDate;
-    string optionsDepartGate;
-    string optionsArrivalGate;
-    string optionsClass;
-    ReservationOptions(string location, string departureTime, string arrivalTime, string date, string departGate, string arrivalGate, string optionsClass2) : optionsLocation(location), optionsDepartureTime(departureTime), optionsArrivalTime(arrivalTime), optionsDate(date), optionsDepartGate(departGate), optionsArrivalGate(arrivalGate), optionsClass(optionsClass2) {}
-};
-
 class Init
 {
 public:
@@ -423,7 +410,7 @@ public:
     }
 };
 
-void LoadFiles(vector<User> &users, vector<Airline> &airline, vector<Reservation> &reservation, vector<ReservationOptions> &reservationOption)
+void LoadFiles(vector<User> &users, vector<Airline> &airline, vector<Reservation> &reservation)
 {
     ifstream userFile("data/user.csv");
     string lineUser;
@@ -480,28 +467,6 @@ void LoadFiles(vector<User> &users, vector<Airline> &airline, vector<Reservation
         reservation.push_back(Reservation(reservationId, departureTime, arrivalTime, date, location, Class));
     }
     reservationFile.close();
-
-    ifstream optionsReservationFile("data/options.csv");
-    string lineOptionsReservation;
-
-    getline(optionsReservationFile, lineOptionsReservation);
-
-    while (getline(optionsReservationFile, lineOptionsReservation))
-    {
-        string optionsLocation, optionsDepartureTime, optionsArrivalTime, optionsDate, optionsDepartGate, optionsArrivalGate, optionsClass;
-        stringstream ss(lineOptionsReservation); // get the whole line
-
-        getline(ss, optionsLocation, ',');
-        getline(ss, optionsDepartureTime, ',');
-        getline(ss, optionsArrivalTime, ',');
-        getline(ss, optionsDate, ',');
-        getline(ss, optionsDepartGate, ',');
-        getline(ss, optionsArrivalGate, ',');
-        getline(ss, optionsClass, ',');
-
-        reservationOption.push_back(ReservationOptions(optionsLocation, optionsDepartureTime, optionsArrivalTime, optionsDate, optionsDepartGate, optionsArrivalGate, optionsClass));
-    }
-    optionsReservationFile.close();
 };
 
 int binarySearchByName(const vector<User> &users, const string &name)
@@ -822,8 +787,7 @@ int main()
     vector<User> users;
     vector<Airline> airlines;
     vector<Reservation> reservations;
-    vector<ReservationOptions> reservationOptions;
-    LoadFiles(users, airlines, reservations, reservationOptions);
+    LoadFiles(users, airlines, reservations);
 
     Init init;
     int option;
