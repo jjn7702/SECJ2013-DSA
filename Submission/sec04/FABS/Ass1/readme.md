@@ -51,7 +51,7 @@ During execution, this program will display a menu with options for viewing all 
 
 #### 1. Flowchart
 
-![1](https://github.com/jjn7702/SECJ2013-DSA/blob/b61a33a43887545caac58fe75a6d83fb567522e5/Submission/sec04/FABS/Ass1/Images/flowchart.jpg)
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/b61a33a43887545caac58fe75a6d83fb567522e5/Submission/sec04/FABS/Ass1/Images/flowchart.png)
 
 ## Design Description 💹
 
