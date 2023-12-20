@@ -31,6 +31,15 @@ Election Management System is a system that can help students in UTM to view the
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/fabaacbe-18c1-4f64-a3a5-e1b40e910e71" width="4%" height="4%"> Description of how to implement data structure operations: Sorting and Searching
 ##### 1. Sorting
+
+1.1.1 Sorting by Name
+
+For sorting by name, we have implemented the selection sorting algorithm. There are two functions for sorting by name which are sorting in ascending order and descending order. The selection sorting function accepts two parameters which are object array of candidate class and size of the array. In ascending order the names are sorted from A-Z while in descending order the names are sorted from Z-A. 
+
+1.1.2 Sorting by Faculty
+
+For sorting by faculty, we have implemented the improved bubble sorting algorithm. There are two functions for sorting by faculty which are sorting in ascending order and descending order. The improved bubble sorting function accepts two parameters which are object array of candidate class and size of the array. In ascending order the faculties are sorted from A-Z while in descending order the faculties are sorted from Z-A.
+
 1.1.4 Sorting by Age
 
 For sorting by Age, we implemented insertion sorting. There are two functions for this sort, one for ascending order and another one for descending order. The algorithm will compare the candidates age (int) and arrange it following the ascending or descending order.
@@ -41,10 +50,17 @@ For sorting by 	Matric Number, we implemented selection sorting. There are two f
     
 ##### 2. Searching
 
-2.2.4 Search for Age
+2.1.1 Search for name
+For searching by name, we have implemented sequential search to get the details of the candidate based on the name entered by the user. We have implemented the sequential in this searching function because it can be used in both sorted and unsorted lists. If the entered key was successfully found in the list it will display the details to the corresponding name. If the data not found in the array it will display the message “Data not found”.
+
+2.1.2 Search for faculty
+For searching by name, we have implemented sequential search to get the details of the candidate based on the name entered by the user. We have implemented the sequential in this searching function because it can be used in both sorted and unsorted lists. If the entered key was successfully found in the list it will display the details to the corresponding name. If the data not found in the array it will display the message “Data not found”.
+
+
+2.1.4 Search for Age
 Students will be asked to enter the Age they want to search for and the function will display the candidate(s) and if the age they searched for was not found, a message will be displayed. 
 
-2.2.5 Search for Matric Num
+2.1.5 Search for Matric Num
 Students will be asked to enter the Matric number they want to search for and the function will display the candidate and if the Matric number they searched for was not found, a message will be displayed. 
 
 
