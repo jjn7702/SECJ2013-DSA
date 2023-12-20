@@ -25,26 +25,28 @@ The inventory management system is essential for one business or organization to
 ## Flow of Event 💹
 
 1. User will be displayed the inventory list including all the inventory details: code, name, type, quantity and price. User will be directed to the main menu of the inventory management system. In the main menu user can choose either want to sort or search inventory as well as exit the program.
-                       :::::::𝙸𝚗𝚟𝚎𝚗𝚝𝚘𝚛𝚢 𝙻𝚒𝚜𝚝:::::::
-
-------------------------------------------------------------------------------------
-𝙸𝚗𝚟𝚎𝚗𝚝𝚘𝚛𝚢 𝙲𝚘𝚍𝚎     𝙸𝚗𝚟𝚎𝚗𝚝𝚘𝚛𝚢 𝙽𝚊𝚖𝚎    𝙸𝚗𝚟𝚎𝚗𝚝𝚘𝚛𝚢 𝚃𝚢𝚙𝚎      𝚀𝚞𝚊𝚗𝚝𝚒𝚝𝚢       𝙿𝚛𝚒𝚌𝚎
-------------------------------------------------------------------------------------
+                   𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝙸𝙽𝚅𝙴𝙽𝚃𝙾𝚁𝚈 𝙼𝙰𝙽𝙰𝙶𝙴𝙼𝙴𝙽𝚃 𝚂𝚈𝚂𝚃𝙴𝙼
+𝙸𝚗𝚟𝚎𝚗𝚝𝚘𝚛𝚢 𝙲𝚘𝚍𝚎      𝙸𝚗𝚟𝚎𝚗𝚝𝚘𝚛𝚢 𝙽𝚊𝚖𝚎      𝙸𝚗𝚟𝚎𝚗𝚝𝚘𝚛𝚢 𝚃𝚢𝚙𝚎      𝚀𝚞𝚊𝚗𝚝𝚒𝚝𝚢       𝙿𝚛𝚒𝚌𝚎
 𝙸𝟶𝟶𝟷                𝙻𝚊𝚙𝚝𝚘𝚙              𝙲𝚘𝚖𝚙𝚞𝚝𝚎𝚛            𝟸𝟶             𝟸𝟹.𝟶𝟶
 𝙸𝟶𝟶𝟸                𝚂𝚝𝚘𝚛𝚢 𝙱𝚘𝚘𝚔          𝙱𝚘𝚘𝚔                𝟷𝟶             𝟷𝟶𝟶.𝟶𝟶
 𝙸𝟶𝟶𝟹                𝙽𝚘𝚟𝚎𝚕               𝙱𝚘𝚘𝚔 𝚆𝙴             𝟸𝟶             𝟷𝟸𝟶.𝟹𝟶
 𝙸𝟶𝟶𝟻                𝙼𝚘𝚞𝚜𝚎               𝙲𝚘𝚖𝚙𝚞𝚝𝚎𝚛            𝟹𝟶             𝟷𝟿.𝟾𝟶
 𝙸𝟶𝟶𝟺                𝙺𝚎𝚢 𝙿𝚊𝚍             𝙲𝚘𝚖𝚙𝚞𝚝𝚎𝚛            𝟸𝟸             𝟽𝟽.𝟽𝟶
 
+𝙳𝚘 𝚢𝚘𝚞 𝚠𝚊𝚗𝚝 𝚝𝚘
+[𝟷] 𝚂𝚘𝚛𝚝𝚒𝚗𝚐
+[𝟸] 𝚂𝚎𝚊𝚛𝚌𝚑𝚒𝚗𝚐
+[𝟹] 𝙴𝚡𝚒𝚝
+𝙾𝚙𝚝𝚒𝚘𝚗:
 
-2. If the user click on the sorting option, the system will redirect the user to the next sort menu
+3. If the user click on the sorting option, the system will redirect the user to the next sort menu
  where the user can choose to sort the data in either of these manner which are:
 
-    1. code
-    2. name 
-    3. type
-    4. quantity
-    5. price
+    𝟏. 𝐜𝐨𝐝𝐞
+    𝟐. 𝐧𝐚𝐦𝐞 
+    𝟑. 𝐭𝐲𝐩𝐞
+    𝟒. 𝐪𝐮𝐚𝐧𝐭𝐢𝐭𝐲
+    𝟓. 𝐩𝐫𝐢𝐜𝐞
        
 4. The system will redirect the user to the next order menu where the user can choose to sort the data in either ascending or descending order.
 
