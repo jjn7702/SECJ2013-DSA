@@ -331,12 +331,17 @@ int main() {
 
     } while (true);
 
+do{
+    cout << "\nDo you want to make order? (Y/N): ";
+    cin >> choice;
+
     if (choice == 'N' || choice == 'n') 
-        break;
+        main();
     
     else if (choice == 'Y' || choice == 'y'){
         makeOrder(menuArray, orders);
     }
+} while(true);
 
 double total = calculateTotal(orders);
 cout << "\nTotal order amount: RM" << fixed << setprecision(2) << total << endl;
