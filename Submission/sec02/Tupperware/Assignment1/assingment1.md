@@ -21,7 +21,7 @@ The types of data structures used in this system are sorting and searching. The 
 ## System Design
 ### Class Diagram
 <p align="center">
-<img src="" width="80%"><br>
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/System%20Design/classDiagram.png?raw=true" width="80%"><br>
 Figure 1: Class Diagram of Restaurant Management System
 </p>
 
@@ -51,10 +51,4 @@ SearchhandOrder function works when the customer chooses the search way to find 
 
 
 <br>
-
-### Source Codes<br>
-<a href=""> <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/896def01-68aa-4cf4-95d9-144436fd3fa1" width="3%" height="3%"></a><br>
-
-### Report<br>
-<a href=""><img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/4bcb35dd-4e85-4aa3-bdf4-744f58a7477e" width="3%" height="3%"></a>
 
