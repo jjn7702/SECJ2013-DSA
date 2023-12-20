@@ -37,7 +37,7 @@ _Don't forget to hit the :star: if you like this repo._
 12. Customer enter Y/y <br>
 13. The chosen menu is saved in the system <br>
 14. System ask if want to continue order <br>
-15. If yes, customer can make multiple orders until customer enter N/n to stop <br> => back to number 2 no => go to number 14<br>
+15. If yes, customer can make multiple orders until customer enter N/n to stop <br> 
 15. Customer finished ordering <br>
 16. System displays list of orders and calculate total price <br>
 17. System displays the chosen menu, quantity, and price 
