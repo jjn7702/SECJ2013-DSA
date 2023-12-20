@@ -597,6 +597,7 @@ int main()
         display(c,i); //Displaying the candidates of election
     cout <<"\nDo you want to continue (y/n) : ";
     cin >> chk;
+    cout<<endl;
     chk = tolower(chk);
     }while(chk=='y');
     return 0;
