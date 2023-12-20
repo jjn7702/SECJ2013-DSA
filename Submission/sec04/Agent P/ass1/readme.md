@@ -93,7 +93,7 @@ We have implemented sequential search for searching by vote count to get the can
 
 - [Source Code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/ass1/Assignment1.cpp)
 - [Input File](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/ass1/cand.csv)
-- [Report]()
+- [Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/ass1/DSA%20Assignment%201_3.pdf)
 
 
 
