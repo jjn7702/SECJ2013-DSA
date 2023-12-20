@@ -116,7 +116,7 @@ Word coun: 1008
 
 Character count: 5285
 
-![1](https://github.com/jjn7702/SECJ2013-DSA/blob/b61a33a43887545caac58fe75a6d83fb567522e5/Submission/sec04/FABS/Ass1/Images/AssignmentReport.jpg)
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass1/Images/assignmentReport.jpg)
 
 
 ## Findings <a name="findings"></a>📊
