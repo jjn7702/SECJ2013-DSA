@@ -249,7 +249,7 @@ void searchAndOrder(Menu menuArray[]) {
 
             if (addToCartChoice == 'Y' || addToCartChoice == 'y') {
                 // Add the ordered item to the cart
-                orders.push_back(menuArray[i]);
+                //orders.push_back(menuArray[i]);
                 cout << "Item added to cart!" << endl;
             }
             else if(addToCartChoice == 'N' || addToCartChoice == 'n'){
