@@ -3,84 +3,92 @@
 #include <fstream>
 using namespace std;
 
-class Doctor{
-    private:
-        string id;
-        string name;
-        int age;
-        string position; 
-        string department;
-    public:
-        Doctor(string i = "", string n = "", int a = 0, string p = "", string dept = ""){
-            id = i;
-            name = n;
-            age = a;
-            position = p;
-            department = dept;
-        }
-        void display(){
-            cout << "Id: " << id
-                 << "\nName: " << name
-                 << "\nAge: " << age
-                 << "\nPosition: " << position
-                 << "\nDepartment: " << department << "\n\n";
-        }
-        string getID() const{
-        	return id;
-		}
-		string getName() const{
-			return name;
-		}
-		int getAge() const{
-			return age;
-		}
-		string getPosition() const{
-			return position;
-		}
-		string getDepartment() const{
-		return department;
-		}
+class Doctor
+{
+private:
+    string idDoctor;
+    string nameDoctor;
+    int ageDoctor;
+    string positionDoctor;
+    string departmentDoctor;
+
+public:
+    Doctor(string i = "", string n = "", int a = 0, string p = "", string dept = "")
+    {
+        idDoctor = i;
+        nameDoctor = n;
+        ageDoctor = a;
+        positionDoctor = p;
+        departmentDoctor = dept;
+    }
+    void display()
+    {
+        cout << "Id: " << idDoctor
+             << "\nName: " << nameDoctor
+             << "\nAge: " << ageDoctor
+             << "\nPosition: " << positionDoctor
+             << "\nDepartment: " << departmentDoctor << "\n\n";
+    }
+    string getIDDoctor() const
+    {
+        return idDoctor;
+    }
+    string getNameDoctor() const
+    {
+        return nameDoctor;
+    }
+    int getAgeDoctor() const
+    {
+        return ageDoctor;
+    }
 };
 
-class Patient{
-    private:
-        string ic;
-        string name;
-        int age;
-        string sickness;
-        string docIncharge; // maybe change
+class Patient
+{
+private:
+    string icPatient;
+    string namePatient;
+    int agePatient;
+    string sicknessPatient;
+    string docInchargePatient; // maybe change
 
-    public:
-        Patient(string icNum = "", string n = "", int a = 0, string sick="", string doc = "")
-        {
-            ic = icNum;
-            name = n;
-            age = a;
-            sickness = sick;
-            docIncharge = doc;
-        }
-        void display(){ // maybe will change to more better view
-            cout << "Ic:" << ic
-                 << "\nName: " << name
-                 << "\nAge: " << age
-                 << "\nSickness: " << sickness
-                 << "\nDoctor In-Charge: " << docIncharge << "\n\n";
-        }
-        string getIC() const{
-        	return ic;
-		}
-		string getName() const{
-			return name;
-		}
-		int getAge() const{
-			return age;
-		}
-		string getSickness() const{
-			return sickness;
-		}
-		string getDoctorInCharge() const{
-			return docIncharge;
-		}
+public:
+    Patient(string icNum = "", string n = "", int a = 0, string sick = "", string doc = "")
+    {
+        icPatient = icNum;
+        namePatient = n;
+        agePatient = a;
+        sicknessPatient = sick;
+        docInchargePatient = doc;
+    }
+    void display()
+    { // maybe will change to more better view
+        cout << "Ic:" << icPatient
+             << "\nName: " << namePatient
+             << "\nAge: " << agePatient
+             << "\nSickness: " << sicknessPatient
+             << "\nDoctor In-Charge: " << docInchargePatient << "\n\n";
+    }
+    string getICPatient() const
+    {
+        return icPatient;
+    }
+    string getNamePatient() const
+    {
+        return namePatient;
+    }
+    int getAgePatient() const
+    {
+        return agePatient;
+    }
+    string getSickness() const
+    {
+        return sicknessPatient;
+    }
+    string getDoctorInCharge() const
+    {
+        return docInchargePatient;
+    }
 };
 void getDataPatient(Patient p[], int const size){
     string name, ic;
@@ -88,7 +96,7 @@ void getDataPatient(Patient p[], int const size){
     string sickness,doc;
     int i = 0;
 
-    ifstream getdata("Patient.txt");
+    ifstream getdata("\\Users\\haziq\\Desktop\\SECJ2013\\Project\\Asg 1\\Patient.txt");
     char del;
     if(!getdata){
         cout << "Error in open File Patient.txt (check the path)\n";
@@ -114,7 +122,7 @@ void getDataDoc(Doctor d[], int size)
     string position,department;
     int i = 0;
 
-    ifstream getdata("Doctor.txt");
+    ifstream getdata("\\Users\\haziq\\Desktop\\SECJ2013\\Project\\Asg 1\\Doctor.txt");
     char del;
     if(!getdata){
         cout << "Error in open File Doctor.txt (check the path)\n";
@@ -133,15 +141,19 @@ void getDataDoc(Doctor d[], int size)
     }
 }
 
-class Sorter {
+class Sorting {
 public:
-    void sortDoctorsByName(Doctor d[], int size, int ascending) {
+
+    void sortDoctorsByName(Doctor d[], int size, int menaik) {
         for (int i = 1; i < size; i++) {
             Doctor key = d[i];
             int j = i - 1;
 
-            while ((ascending == 1 && j >= 0 && d[j].getName() > key.getName()) ||
-                   (ascending == 2 && j >= 0 && d[j].getName() < key.getName())) {
+            while(menaik == 1 && j >= 0 && d[j].getNameDoctor() > key.getNameDoctor()){
+                d[j + 1] = d[j];
+                j = j - 1;
+            }
+            while(menaik == 2 && j >= 0 && d[j].getNameDoctor() < key.getNameDoctor()){
                 d[j + 1] = d[j];
                 j = j - 1;
             }
@@ -149,13 +161,16 @@ public:
         }
     }
 
-    void sortDoctorsByAge(Doctor d[], int size, int ascending) {
+    void sortDoctorsByAge(Doctor d[], int size, int menaik) {
         for (int i = 1; i < size; i++) {
             Doctor key = d[i];
             int j = i - 1;
 
-            while ((ascending == 1 && j >= 0 && d[j].getAge() > key.getAge()) ||
-                   (ascending == 2 && j >= 0 && d[j].getAge() < key.getAge())) {
+            while(menaik == 1 && j >= 0 && d[j].getAgeDoctor() > key.getAgeDoctor()){
+                d[j + 1] = d[j];
+                j = j - 1;
+            }
+            while(menaik == 2 && j >= 0 && d[j].getAgeDoctor() < key.getAgeDoctor()){
                 d[j + 1] = d[j];
                 j = j - 1;
             }
@@ -163,13 +178,16 @@ public:
         }
     }
 
-    void sortDoctorsByID(Doctor d[], int size, int ascending) {
+    void sortDoctorsByID(Doctor d[], int size, int menaik) {
         for (int i = 1; i < size; i++) {
             Doctor key = d[i];
             int j = i - 1;
 
-            while ((ascending == 1 && j >= 0 && d[j].getID() > key.getID()) ||
-                    (ascending == 2 && j >= 0 && d[j].getID() < key.getID())) {
+            while(menaik == 1 && j >= 0 && d[j].getIDDoctor() > key.getIDDoctor()){
+                d[j + 1] = d[j];
+                j = j - 1;
+            }
+            while(menaik == 2 && j >= 0 && d[j].getIDDoctor() < key.getIDDoctor()){
                 d[j + 1] = d[j];
                 j = j - 1;
             }
@@ -177,13 +195,16 @@ public:
         }
     }
 
-    void sortPatientsByName(Patient p[], int size, int ascending) {
+    void sortPatientsByName(Patient p[], int size, int menaik) {
         for (int i = 1; i < size; i++) {
             Patient key = p[i];
             int j = i - 1;
 
-            while ((ascending == 1 && j >= 0 && p[j].getName() > key.getName()) ||
-                   (ascending == 2 && j >= 0 && p[j].getName() < key.getName())) {
+            while(menaik == 1 && j >= 0 && p[j].getNamePatient() > key.getNamePatient()){
+                p[j + 1] = p[j];
+                j = j - 1;
+            }
+            while(menaik == 2 && j >= 0 && p[j].getNamePatient() < key.getNamePatient()){
                 p[j + 1] = p[j];
                 j = j - 1;
             }
@@ -191,27 +212,16 @@ public:
         }
     }
 
-    void sortPatientsByAge(Patient p[], int size, int ascending) {
+    void sortPatientsByAge(Patient p[], int size, int menaik) {
         for (int i = 1; i < size; i++) {
             Patient key = p[i];
             int j = i - 1;
 
-            while ((ascending == 1 && j >= 0 && p[j].getAge() > key.getAge()) ||
-                   (ascending == 2 && j >= 0 && p[j].getAge() < key.getAge())) {
+            while(menaik == 1 && j >= 0 && p[j].getAgePatient() > key.getAgePatient()){
                 p[j + 1] = p[j];
                 j = j - 1;
             }
-            p[j + 1] = key;
-        }
-    }
-    
-    void sortPatientsByIC(Patient p[], int size, int ascending) {
-        for (int i = 1; i < size; i++) {
-            Patient key = p[i];
-            int j = i - 1;
-
-            while ((ascending == 1 && j >= 0 && p[j].getIC() > key.getIC()) ||
-                   (ascending == 2 && j >= 0 && p[j].getIC() < key.getIC())) {
+            while(menaik == 2 && j >= 0 && p[j].getAgePatient() < key.getAgePatient()){
                 p[j + 1] = p[j];
                 j = j - 1;
             }
@@ -219,13 +229,16 @@ public:
         }
     }
     
-    void sortPatientsBySickness(Patient p[], int size, int ascending) {
+    void sortPatientsByIC(Patient p[], int size, int menaik) {
         for (int i = 1; i < size; i++) {
             Patient key = p[i];
             int j = i - 1;
 
-            while ((ascending == 1 && j >= 0 && p[j].getSickness() > key.getSickness()) ||
-                   (ascending == 2 && j >= 0 && p[j].getSickness() < key.getSickness())) {
+            while(menaik == 1 && j >= 0 && p[j].getICPatient() > key.getICPatient()){
+                p[j + 1] = p[j];
+                j = j - 1;
+            }
+            while(menaik == 2 && j >= 0 && p[j].getICPatient() < key.getICPatient()){
                 p[j + 1] = p[j];
                 j = j - 1;
             }
@@ -233,13 +246,33 @@ public:
         }
     }
     
-    void sortPatientsByDoctorInCharge(Patient p[], int size, int ascending) {
+    void sortPatientsBySickness(Patient p[], int size, int menaik) {
         for (int i = 1; i < size; i++) {
             Patient key = p[i];
             int j = i - 1;
 
-            while ((ascending == 1 && j >= 0 && p[j].getDoctorInCharge() > key.getDoctorInCharge()) ||
-                   (ascending == 2 && j >= 0 && p[j].getDoctorInCharge() < key.getDoctorInCharge())) {
+            while(menaik == 1 && j >= 0 && p[j].getSickness() > key.getSickness()){
+                p[j + 1] = p[j];
+                j = j - 1;
+            }
+            while(menaik == 2 && j >= 0 && p[j].getSickness() < key.getSickness()){
+                p[j + 1] = p[j];
+                j = j - 1;
+            }
+            p[j + 1] = key;
+        }
+    }
+    
+    void sortPatientsByDoctorInCharge(Patient p[], int size, int menaik) {
+        for (int i = 1; i < size; i++) {
+            Patient key = p[i];
+            int j = i - 1;
+
+            while(menaik == 1 && j >= 0 && p[j].getDoctorInCharge() > key.getDoctorInCharge()){
+                p[j + 1] = p[j];
+                j = j - 1;
+            }
+            while(menaik == 2 && j >= 0 && p[j].getDoctorInCharge() < key.getDoctorInCharge()){
                 p[j + 1] = p[j];
                 j = j - 1;
             }
@@ -252,7 +285,7 @@ int searchNamePatient(Patient p[], string search_key, int size){
     int idx;
     for (int i = 0; i < size; i++){
         cout << "fdsfsd\n";
-        if ( search_key == p[i].getName()){
+        if ( search_key == p[i].getNamePatient()){
             idx = i;
             cout << "index: " << idx << "\n";
             return idx;
@@ -264,7 +297,7 @@ int searchNamePatient(Patient p[], string search_key, int size){
 int searchNameDoctor(Doctor p[], string search_key, int size){
     int idx;
     for (int i = 0; i < size; i++){
-        if ( search_key == p[i].getName()){
+        if ( search_key == p[i].getNameDoctor()){
             idx = i;
             return idx;
         }
@@ -276,7 +309,7 @@ int searchICPatient(Patient p[], string search_key, int size){
 
     int idx;
     for (int i = 0; i < size; i++){
-        if ( search_key == p[i].getIC()){
+        if ( search_key == p[i].getICPatient()){
             idx = i;
             return idx;
         }
@@ -287,7 +320,7 @@ int searchICPatient(Patient p[], string search_key, int size){
 int searchIDDoctor(Doctor p[], string search_key, int size){
     int idx;
     for (int i = 0; i < size; i++){
-        if ( search_key == p[i].getID()){
+        if ( search_key == p[i].getIDDoctor()){
             idx = i;
             return idx;
         }
@@ -304,7 +337,7 @@ int main(){
     getDataPatient(pateint, size);
     getDataDoc(doctor, size);
 
-    Sorter sort;
+    Sorting sort;
 
 
     int processType;
@@ -332,29 +365,29 @@ int main(){
 	    cout << "Enter sorting option: ";
 	    cin >> sortingOption;
 	
-	    int ascending;
+	    int menaik;
 	    cout << "Sort in\n";
 	    cout << "[1] Ascending\n";
 	    cout << "[2] Descending\n";
 	    cout << "Enter sorting order: ";
-	    cin >> ascending;
+	    cin >> menaik;
 	
 	    if (userType == 1) { // Patients
 	        switch (sortingOption) {
 	            case 1:
-	                sort.sortPatientsByName(pateint, size, ascending );
+	                sort.sortPatientsByName(pateint, size, menaik );
 	                break;
 	            case 2:
-	                sort.sortPatientsByAge(pateint, size, ascending );
+	                sort.sortPatientsByAge(pateint, size, menaik );
 	                break;
 	            case 3:
-	                sort.sortPatientsByIC(pateint, size, ascending );
+	                sort.sortPatientsByIC(pateint, size, menaik );
 	                break;
 	            case 4:
-	                sort.sortPatientsBySickness(pateint, size, ascending );
+	                sort.sortPatientsBySickness(pateint, size, menaik );
 	                break;
 	            case 5:
-	                sort.sortPatientsByDoctorInCharge(pateint, size, ascending );
+	                sort.sortPatientsByDoctorInCharge(pateint, size, menaik );
 	                break;
 	            default:
 	                cout << "Invalid option\n";
@@ -363,13 +396,13 @@ int main(){
 	    } else if (userType == 2) { // Doctors
 	        switch (sortingOption) {
 	            case 1:
-	                sort.sortDoctorsByName(doctor, size, ascending );
+	                sort.sortDoctorsByName(doctor, size, menaik );
 	                break;
 	            case 2:
-	                sort.sortDoctorsByAge(doctor, size, ascending );
+	                sort.sortDoctorsByAge(doctor, size, menaik );
 	                break;
 		    case 3:
-	                sort.sortDoctorsByID(doctor, size, ascending );
+	                sort.sortDoctorsByID(doctor, size, menaik );
 	                break;
 	            default:
 	                cout << "Invalid option\n";
@@ -394,7 +427,7 @@ int main(){
 	    }
     }
 	else {
-        int searchingOption, ascending = 1;
+        int searchingOption, menaik = 1;
         string search;
         int found;
 
@@ -408,11 +441,11 @@ int main(){
             cout << "Enter Name: ";
             cin >> search;
             if(userType == 1){
-                sort.sortPatientsByName(pateint, size, ascending);
+                sort.sortPatientsByName(pateint, size, menaik);
                 found = searchNamePatient(pateint, search, size);
             }
             else{
-                sort.sortDoctorsByName(doctor, size, ascending);
+                sort.sortDoctorsByName(doctor, size, menaik);
                 found = searchNameDoctor(doctor, search, size);
             }
         }
@@ -420,11 +453,11 @@ int main(){
             cout << "Enter IC/ID: ";
             cin >> search;
             if(userType == 1){
-                sort.sortPatientsByIC(pateint, size, ascending);
+                sort.sortPatientsByIC(pateint, size, menaik);
                 found = searchICPatient(pateint, search, size);
             }
             else{
-                sort.sortDoctorsByID(doctor, size, ascending);
+                sort.sortDoctorsByID(doctor, size, menaik);
                 found = searchIDDoctor(doctor, search, size);
             }
         }
