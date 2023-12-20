@@ -26,7 +26,7 @@ Restaurant Management System (RMS) is to streamline and enhance the overall effi
 
 ## Findings 📊
 
-- Assignment 1（"https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/Boboboy/Assignment%201"）
+- [Assignment 1]（"https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/Boboboy/Assignment%201"）
 - Assignment 2
 - Project
 
