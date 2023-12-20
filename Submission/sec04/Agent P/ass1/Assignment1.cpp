@@ -356,6 +356,98 @@ void menu(int &opt1,int &opt2,int &opt3)
     
     
 }
+
+void searchingAge(Candidate c[],int size){
+    int key;
+    cout<<"Please enter the Age of the Candidate you want to search for : ";
+    cin>>key;
+
+    for(int i=0;i<size;i++){
+        if(c[i].getAge()== key){
+            cout<<"\nRecord Found   : "<<endl;
+            cout<<"Name           : "<<c[i].getName()<<endl;
+            cout<<"Faculty        : "<<c[i].getFaculty()<<endl;
+            cout<<"IC             : "<<c[i].getIC()<<endl;
+            cout<<"Age            : "<<c[i].getAge()<<endl;
+            cout<<"Vote Collected : "<<c[i].getVoteCount()<<endl;
+            cout<<"Phone number   : "<<c[i].getPhone()<<endl;
+            break;
+        }
+    }
+}
+
+void AgeAsc(Candidate data[],int n){
+    Candidate item;
+    int pass, insertindex;
+    for(pass=1;pass<n;pass++){
+        item = data[pass];
+        insertindex = pass;
+        while((insertindex>0)&&(data[(insertindex-1)].getAge()>item.getAge())){
+            data[insertindex]=data[insertindex-1];
+            insertindex--;
+        }
+        data[insertindex]=item;
+    }
+}
+
+void AgeDes(Candidate data[],int n){
+    Candidate item;
+    int pass, insertindex;
+    for(pass=1;pass<n;pass++){
+        item = data[pass];
+        insertindex = pass;
+        while((insertindex>0)&&(data[(insertindex-1)].getAge()<item.getAge())){
+            data[insertindex]=data[insertindex-1];
+            insertindex--;
+        }
+        data[insertindex]=item;
+    }
+}
+void MatDes(Candidate Data[], int n) {
+	int p;
+    for (int last = n-1; last >= 1; --last) { 
+        int largestIndex = 0;
+        for (p=1;p <= last; ++p) {  
+			if (Data[p].getMatric()<Data[largestIndex].getMatric())
+	     		largestIndex = p;
+        } 
+
+        swap(Data[largestIndex],Data[last]);
+    }
+} 
+
+void MatAsc(Candidate Data[], int n) {
+	int p;
+    for (int last = n-1; last >= 1; --last) { 
+        int largestIndex = 0;
+        for (p=1;p <= last; ++p) {  
+			if (Data[p].getMatric()>Data[largestIndex].getMatric())
+	     		largestIndex = p;
+        } 
+
+        swap(Data[largestIndex],Data[last]);
+    }
+}
+
+void searchingMat(Candidate c[],int size){
+    string key;
+    cout<<"Please enter the Matric Number of the Candidate you want to search for : ";
+    cin>>key;
+
+    for(int i=0;i<size;i++){
+        if(c[i].getMatric()== key){
+            cout<<"\nRecord Found! "<<endl;
+            cout<<"Name           : "<<c[i].getName()<<endl;
+            cout<<"Faculty        : "<<c[i].getFaculty()<<endl;
+            cout<<"IC             : "<<c[i].getIC()<<endl;
+            cout<<"Age            : "<<c[i].getAge()<<endl;
+            cout<<"Vote Collected : "<<c[i].getVoteCount()<<endl;
+            cout<<"Phone number   : "<<c[i].getPhone()<<endl;
+            break;
+        }
+    }
+}
+
 void display(Candidate c[],int size)
 {
     cout<<"--------------------------------------------------------------------------------------------------------------------------"<<endl;
