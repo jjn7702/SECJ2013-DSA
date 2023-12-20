@@ -27,7 +27,9 @@ Synopsis.....
 
 ## Findings 📊
 
-- [Source Code]([https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/FABS/Ass1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass1/ASS1.cpp))
+- [Source code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass1/ASS1.cpp)
+- [Input file](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass1/customer.txt)
+- [Output file](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass1/sorted_couriers.txt)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
