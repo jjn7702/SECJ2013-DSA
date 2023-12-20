@@ -252,7 +252,7 @@ int main() {
                  << fixed << setprecision(2) << setw(4) << order.getPrice() << endl;
         }
 
-        double total = calculateTotal(orders);
+        double total = calculateTotal(orders); 
         cout << "\nTotal order amount: RM" << fixed << setprecision(2) << total << endl;
     } else {
         cout << "No orders made.\n";
