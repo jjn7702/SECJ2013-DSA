@@ -1,4 +1,4 @@
-# Bank System
+# Banking System
 ## Prepared By
 | Name         | Matric No    |
 |--------------|--------------|
