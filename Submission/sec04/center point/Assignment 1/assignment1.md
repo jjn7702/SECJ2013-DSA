@@ -49,9 +49,9 @@ In this assignment, the sorting and searching implementation will be used. User 
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-| Lim Si Ni          | A22EC0070        | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/luqman.jpg" title="luqman"><img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/luqman.jpg" width=80px, height=80px>     |
-| Ong Kai Xuen       | A22EC0100        | <a href="https://avatars.githubusercontent.com/u/116987481?v=4" title="Icon by Trazobanana"><img src="https://avatars.githubusercontent.com/u/116987481?v=4" width=80px, height=80px>         |
-| Soh Fei Zhen       | A22EC0272       | <a href="https://avatars.githubusercontent.com/u/128279457?v=4" title="Anas"><img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/SOH FEI ZHEN.jpg" width=80px, height=80px> |
+| Lim Si Ni          | A22EC0070        | <a href="https://www.linkedin.com/in/si-ni-lim-059028257/" title="LIM SI NI LinkedIn"><img src="./Images/LIM SI NI.jpg" width=80px, height=100px>      |
+| Ong Kai Xuen       | A22EC0100        | <a href="https://www.linkedin.com/in/kai-xuen-6521b2257/" title="ONG KEI XUEN LinkedIn"><img src="./Images/boy_4537038.png" width=80px, height=100px>     |
+| Soh Fei Zhen       | A22EC0272       | <a href="https://www.linkedin.com/in/fei-zhen-soh-b311a0257/" title="SOH FEI ZHEN LinkedIn"><img src="./Images/SOH FEI ZHEN.jpg" width=80px, height=100px>     |
 
 
 ## Findings 📊
