@@ -482,6 +482,7 @@ int main()
     string name,faculty,phone,ic,matric;
     int id,age,vote;
     int i = 0;
+    char chk;
 
     if(!in){
         cout<<"File cannot be opened!"<<endl;
@@ -505,7 +506,7 @@ int main()
         i++;
     }
 
-
+    do{
 
     int opt1,opt2,opt3; //Storing user selection options
     menu(opt1,opt2,opt3); //User interface for the menu
@@ -574,10 +575,15 @@ int main()
             }
             break;
     }
+
     
 
     if(opt1 == 1)
         display(c,i); //Displaying the candidates of election
+        cout <<"Do you want to continue: ";
+        cin >> chk;
+        chk = tolower(chk);
+    }while(chk=='y');
     return 0;
 
     //testing1
