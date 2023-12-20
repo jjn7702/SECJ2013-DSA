@@ -233,18 +233,15 @@ void searchAndOrder(Menu menuArray[], vector<Menu>& orders) {
     for (int i = 0; i < SIZE; ++i) {
         if (menuArray[i].getName().find(searchTerm) != string::npos) {
             if (!found) {
-                // Display the header for searched items
-                cout << left;
-                cout << setw(10) << "ID" << " | "
-                     << fixed << "PRICE" << endl;
-                cout << "---------------------" << endl;
-                found = true;
-            }
-            // Display the found item
+            displayHeader();
             cout << left;
-            cout << setw(10) << menuArray[i].getFoodId() << " | "
-                 << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
-
+            cout << setw(5) << (i+1) << " | " 
+                 << setw(10) << menuArray[i].getFoodId() << " | " 
+                 << setw(21) << menuArray[i].getName() << " | " 
+                 << setw(13) << menuArray[i].getCategory() << " | " 
+                 << fixed << setprecision(2) << setw(4) << menuArray[i].getPrice() << endl;
+                 found = true;
+            }
             // Ask the user if they want to add the order to the cart
             char addToCartChoice;
             cout << "Do you want to add this item to the cart? (Y/N): ";
