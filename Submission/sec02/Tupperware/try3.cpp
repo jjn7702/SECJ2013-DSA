@@ -259,6 +259,88 @@ void searchAndOrder(Menu menuArray[], vector<Menu>& orders) {
     }
 }
 
+/*void generateReceipt(vector<Menu>& orders, double total){
+    cout << "\nReceipt:\n";
+    orders[0].displayHeader();
+    for (const Menu& order : orders){
+        cout << left;
+        cout << setw(10) << order.getFoodId() << " | "
+                 << setw(21) << order.getName() << " | "
+                 << setw(13) << order.getCategory() << " | "
+                 << fixed << setprecision(2) << setw(4) << order.getPrice() << endl;
+    }
+
+    cout << "\nTotal amount: RM" << fixed << setprecision(2) << total << endl;
+}*/
+
+/*void generateReceipt(vector<Menu>& orders, double total) {
+    cout << "\nReceipt:\n";
+    cout << "+" << setfill('-') << setw(66) << "+" << endl;
+    cout << "| " << left << setw(10) << "ID" << " | "
+         << setw(21) << "NAME" << " | "
+         << setw(13) << "TYPE" << " | "
+         << right << setw(17) << "PRICE" << " |" << endl;
+    cout << setfill('-') << setw(66) << "+" << setfill(' ') << endl;
+
+    for (const Menu& order : orders) {
+        cout << "| " << left << setw(10) << order.getFoodId() << " | "
+             << setw(21) << order.getName() << " | "
+             << setw(13) << order.getCategory() << " | "
+             << right << fixed << setprecision(2) << setw(16) << order.getPrice() << " |" << endl;
+    }
+
+    cout << setfill('-') << setw(66) << "+" << setfill(' ') << endl;
+    cout << "| " << right << setw(44) << "Total amount:" << fixed << setprecision(2) << setw(16) << total << " |" << endl;
+    cout << "+" << setfill('-') << setw(66) << "+" << setfill(' ') << endl;
+}*/
+
+void generateReceipt(const vector<Menu>& orders, double total) {
+    cout << "\nReceipt:\n";
+    //cout << "+------------------------------------------------------------------+" << endl;
+    //cout << "| ID         | NAME                     | TYPE          | QTY | PRICE |" << endl;
+    //cout << "+------------------------------------------------------------------+" << endl;
+    cout << left;
+    cout << setw(10) << "ID" 
+         << setw(21) << "NAME" 
+         << setw(13) << "TYPE" 
+         << setw(13) << "QUANTITY" 
+         << fixed << "PRICE" << endl;
+    //cout << "---------------------------------------------------------" << endl;
+
+    // Iterate through orders to count items
+    for (size_t i = 0; i < orders.size(); ++i) {
+        // Check if the item is already in orders
+        int count = 1;
+        for (size_t j = i + 1; j < orders.size(); ++j) {
+            if (orders[i].getFoodId() == orders[j].getFoodId()) {
+                ++count;
+            }
+        }
+
+        // Print the item information
+        if (count > 0) {
+            cout << setw(10) << orders[i].getFoodId() 
+                 << setw(21) << orders[i].getName() 
+                 << setw(13) << orders[i].getCategory() 
+                 << setw(13) << count 
+                 << fixed << setprecision(2) << setw(4) << orders[i].getPrice() << endl;
+        }
+
+        // Skip the repeated items
+        for (size_t j = i + 1; j < orders.size(); ++j) {
+            if (orders[i].getFoodId() == orders[j].getFoodId()) {
+                i = j;
+            }
+        }
+    }
+
+    //cout << "+------------------------------------------------------------------+" << endl;
+    cout << right << "\nTotal amount: " << fixed << setprecision(2) << setw(4) << total << endl;
+    //cout << "+------------------------------------------------------------------+" << endl;
+}
+
+
+
 int main() {
     Menu menuArray[SIZE];
     char choice;
@@ -343,6 +425,12 @@ do{
 
         double total = calculateTotal(orders); 
         cout << "\nTotal order amount: RM" << fixed << setprecision(2) << total << endl;
+    } else {
+        cout << "No orders made.\n";
+    }
+
+    if (!orders.empty()) {
+        generateReceipt(orders, calculateTotal(orders));
     } else {
         cout << "No orders made.\n";
     }
