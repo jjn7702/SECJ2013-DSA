@@ -5,7 +5,7 @@
 |--------------|--------------|
 | Chai Yu Tong  | A22EC0145  |
 | Nur Farah Adibah binti Idris     | A22EC0245 |
-|      |  |
+| Wong Qiao Ying     | A22EC0118 |
 
 ## Table of Contents
 1. [Introduction](#Introduction)
@@ -27,54 +27,53 @@
    - To gain hands-on experience in applying the data structure concept
 
 ### 1.2 Synopsis of Project
-   We will develop a Banking transaction system focusing on sorting and searching operations using fundamental data structure concepts. This system is designed to perform basic transaction operations, including depositing money into user accounts, enabling withdrawal, and facilitating money transfers between accounts. The sorting operations encompass arranging data by name, Identification Card number, account number and balance in ascending order. Additionally, this system supports searching operations based on account holder's names and account numbers, allowing users to locate their accounts using unique identifiers.
-###The existing class and its attributes:
+   We will develop a Banking transaction system focusing on sorting and searching operations using fundamental data structure concepts. This system is designed to perform basic transaction operations, including depositing money into user accounts, enabling withdrawal, and facilitating money transfers between accounts. The sorting operations encompass arranging data by name, Identification Card number, account number and balance in ascending order. Additionally, this system supports searching operations based on account holder's names and account numbers, allowing users to locate their accounts using unique identifiers. <br><br>
+   
+### The existing class and its attributes:
 Bank 
 - AccName : the name of the account holder <string>
 - AccNum : the account number <string>
 - IC : the identity card number of the account holder <string>
 - AccBalance : the quantity of the amount of money in the account <double>
 
-
-The existing data structure:<br><br>
+### The existing data structure:<br><br>
 **1. Array**<br>
-The array, in this case, stores a list of Accounts with their holder’s name, account number, IC number, and Balance. The searching operations iterate through this array to find specific records based on criteria such as name, account number, and IC number.
-<br>Bank[100]
+The array, in this case, stores a list of Accounts with their holder’s name, account number, IC number, and Balance. The searching operations iterate through this array to find specific records based on criteria such as name, account number, and IC number. <br>
+- Bank[100]
 <br>stores a list of user name, account number, IC and balance
 
 
 **2. Sorting**<br>
 The sorting function is defined to sort an array of ‘Bank’ objects on different criteria. These functions use various partitioning techniques, such as quickSort.<br>
 
-partitionName
+
+- partitionName <br>
 partitions the array based on the name attributes during sorting <br>
-'sortByName' <br>
+- sortByName <br>
 sorts the array ‘Bank’ objects based on the account name <br>
-'partitionIC' <br>
+- partitionIC <br>
 partitions the array based on the IC attributes during sorting <br>
-'sortByIC' <br>
+- sortByIC <br>
 sorts the array ‘Bank’ objects based on the IC <br>
-'partitionAccNum' <br>
+- partitionAccNum<br>
 partitions the array based on the account number attributes during sorting <br>
-'sortByAccNum' <br>
+- sortByAccNum <br>
 sorts the array ‘Bank’ objects based on the account number <br>
-'partitionBal' <br>
+- partitionBal <br>
 partitions the array based on the balance attributes during sorting <br>
-'sortByBal' <br>
+- sortByBal <br>
 sorts the array ‘Bank’ objects based on the account balance <br>
 
 
 **3. Searching**
 The searching functions are defined to search for records in the array based on name, account number and IC. These functions will iterate through the array and display matching records if found.
 
-searchByName
-searches for records in the array based on the account name
-searchByAccNum
-searches for records in the array based on the account number
-searchByIC
-searches for records in the array based on the IC
-
-
+-  searchByName <br>
+  searches for records in the array based on the account name <br>
+-  searchByAccNum <br>
+  searches for records in the array based on the account number <br>
+-  searchByIC <br>
+  searches for records in the array based on the IC <br>
 
 ## System Design
 ### 2.1 System Class Design
@@ -87,21 +86,21 @@ Explain the high-level design of algorithms used in your system.
 2. Display menu.<br>
 3. User input choice<br>
 4. If choice == 1<br>
-   4.1 Display Sort by name <br>
-       4.1.1 Else if choice == 2 <br>
-             4.1.1.1 Display Sort by Account Number <br>
-       4.1.2 Else if choice == 3 <br>
-                4.1.2.1 Display Sort by IC Number <br>
-       4.1.3 Else if choice == 4 <br>
-                4.1.3.1 Display Sort by Account Balance <br>
-       4.1.4 Else if choice == 5 <br>
-                4.1.4.1 Display Search by Name 
-      <br> 4.1.5 Else if choice == 6
-              <br>  4.1.5.1 Display Search by Account Number
-      <br> 4.1.6 Else if choice == 7
-               <br> 4.1.6.1 Display Search by IC Number
-      <br> 4.1.7 Else 
-              <br>  4.1.7.1 Exit
+4.1 Display Sort by name <br>
+- 4.1.1 Else if choice == 2 <br>
+   - 4.1.1.1 Display Sort by Account Number <br>
+- 4.1.2 Else if choice == 3 <br>
+   - 4.1.2.1 Display Sort by IC Number <br>
+- 4.1.3 Else if choice == 4 <br>
+   - 4.1.3.1 Display Sort by Account Balance <br>
+- 4.1.4 Else if choice == 5 <br>
+   - 4.1.4.1 Display Search by Name <br>
+ - 4.1.5 Else if choice == 6 <br>
+   - 4.1.5.1 Display Search by Account Number <br>
+ - 4.1.6 Else if choice == 7 <br>
+    - 4.1.6.1 Display Search by IC Number <br>
+ - 4.1.7 Else <br>
+    - 4.1.7.1 Exit <br>
 5. End
 
 
