@@ -327,9 +327,11 @@ int main()
         return 1;
     }
     else
-    {
-        for (int a = 0; a < 4; a++)
+    {   int a=0;
+        while (!fileIn.eof())
         {
+
+            
             getline(fileIn, name, '|');
             getline(fileIn, num, '|');
             getline(fileIn, ic, '|');
@@ -339,7 +341,7 @@ int main()
             bankList[a].setAccNum(num);
             bankList[a].setIc(ic);
             bankList[a].setBalance(bal);
-
+            a++;
             // s[a].display();
         }
     }
