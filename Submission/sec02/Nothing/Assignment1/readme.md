@@ -21,6 +21,13 @@ The Inventory Management System is a C++ program designed to efficiently manage 
 |   LOO JIA CHANG    |   A22EC0074     |
 |  LOW JIE SHENG    |   A22EC0075      | 
 
+## File
+| No | Name |File | 
+| -----:| ----- | :------: | 
+|1| Document PDF| <a href="https://github.com/drshahizan/software-engineering/blob/main/project/documentation/srs/sec01/curiousity/Curiousity_SRS.pdf" ><img src="../../../../../images/pdf64.png" width="24px" height="24px" ></a>|
+|2| Coding| <a href="https://app.diagrams.net/#G1vg-nVVLj8wD-G-0kdyXber8yaMZKHua6#%7B%22pageId%22%3A%22HwsaDun9NWlqgjsMZAeN%22%7D" ><img src="../../../../../images/drawio.svg" width="24px" height="24px" ></a>|
+|3| Input file| <a href="https://drive.google.com/drive/folders/1QeC8S468pCBZWLXVhhhXpWEOMtfRFafI?usp=drive_link" ><img src="../../../../../images/data_folder.png" width="24px" height="24px" ></a>|
+
 
 ## Findings 📊
 
