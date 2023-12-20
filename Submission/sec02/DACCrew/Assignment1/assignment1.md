@@ -1,5 +1,5 @@
-# Banking System
-## Prepared By
+# Assignment 1
+## Prepared By DACCrew
 | Name         | Matric No    |
 |--------------|--------------|
 | Chai Yu Tong  | A22EC0145  |
