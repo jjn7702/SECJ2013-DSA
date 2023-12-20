@@ -202,7 +202,8 @@ void makeOrder(Menu menuArray[], vector<Menu>& orders){
         cout << "You ordered:\n";
         displayHeader();
         cout << left;
-        cout << setw(10) << menuArray[orderChoice - 1].getFoodId() << " | " 
+        cout << setw(5) << orderChoice << " | "
+             << setw(10) << menuArray[orderChoice - 1].getFoodId() << " | " 
              << setw(21) << menuArray[orderChoice - 1].getName() << " | " 
              << setw(13) << menuArray[orderChoice - 1].getCategory() << " | " 
              << fixed << setprecision(2) << setw(4) << menuArray[orderChoice - 1].getPrice() << endl;
@@ -262,6 +263,7 @@ void searchAndOrder(Menu menuArray[]) {
     }
 }
 
+
 int main() {
     Menu menuArray[SIZE];
     char choice;
@@ -313,7 +315,6 @@ int main() {
                 break;
             }
             
-            condition = false ;
         } else if (choice == 'S' || choice == 's') {
                 // Searching for a specific food and ordering
             searchAndOrder(menuArray);
@@ -326,7 +327,7 @@ do{
     cin >> choice;
 
     if (choice == 'N' || choice == 'n') 
-        main();
+        break;
     
     else if (choice == 'Y' || choice == 'y'){
         makeOrder(menuArray, orders);
