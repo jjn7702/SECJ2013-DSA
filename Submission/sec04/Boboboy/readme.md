@@ -10,7 +10,7 @@ _Don't forget to hit the :star: if you like this repo._
 # Restaurant Management System
 
 ## Description 📝
-Restaurant Management System (RMS) is to streamline and enhance the overall efficiency of order management in the restaurant environment. The system aims to provide a comprehensive and user-friendly platform that facilitates seamless order processing, reduces manual errors, and ultimately enhances the overall dining experience for both customers and restaurant staff.
+The main goal of BOBOBOY's Restaurant Management System (RMS) is to improve and optimize order management's general effectiveness in a restaurant setting. The goal of this system is to offer a complete and user-friendly platform that facilitates order processing, lowers user input mistakes, and makes ordering food for the kitchen simpler and more transparent. The order placement, order tracking, and payment system are crucial components of our RMS. All implementations aimed at streamlining operational procedures and ensuring customer and restaurant staff satisfaction. The RMS will interact with our restaurant operations, manage orders effectively, eliminate waiting times to ensure food quality, and contribute to the establishment's overall performance and profitability.
 
 ## Prepared by 🧑‍💻
 
