@@ -4,16 +4,16 @@
 
 
 ## Description 📝
-The Library Management System is aiming to organize,store and manage library resources efficiently including books and journals.Additionally,it also helps librarians to monitor loans and produce reports.It will eventually helps improved resource allocation and decision making in the library.
+The Inventory Management System is aiming to organize, store and manage library resources efficiently. Additionally, it also helps inventory manager to manage inventory and produce reports.It will eventually help improved resource allocation and decision making in the warehouse.
 
 
 ## Prepared by 🧑‍💻
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-| MUHAMMAD DANIAL BIN AHMAD SYAHIR   | A22EC0206        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="https://avatars.githubusercontent.com/u/129204039?v=4" width=80px, height=80px>     |
-| DANIAL HARRIZ BIN MOHD ASINEH @ MOHD ASNEH      | A22EC0152        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="https://avatars.githubusercontent.com/u/118705607?v=4" width=80px, height=80px>         |
-| THEVAN RAJU A/L JEGANATH       | A22EC0286        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="https://avatars.githubusercontent.com/u/128228505?v=4" width=80px, height=80px>         |
+| LIM SI NI   | A22EC0070        | <a href="" title="Icon by Trazobanana"><img src="https://avatars.githubusercontent.com/u/129204039?v=4" width=80px, height=80px>     |
+| ONG KAI XUEN     | A22EC0100       | <a href="" title="Icon by Trazobanana"><img src="https://avatars.githubusercontent.com/u/118705607?v=4" width=80px, height=80px>         |
+| SOH FEI ZHEN      | A22EC0272        | <a href="" title="Icon by Trazobanana"><img src="https://avatars.githubusercontent.com/u/128228505?v=4" width=80px, height=80px>         |
 
 
 ## Flow of system
@@ -27,7 +27,7 @@ The Library Management System is aiming to organize,store and manage library res
 8. After choosing either one and getting the results, the user can choose to exit the system , go back to the main menu where the user will need to choose either to sort or search, or search for books based on other attributes.
 
 <h3>Report Assignment 1</h3>
-<a href="https://docs.google.com/document/d/1-DMRS-LltyCGzyDk6D3rWw81yVV4hYLz/edit?usp=sharing&ouid=101274812867810218448&rtpof=true&sd=true"><img src="./images/file.png" width="35px" height="35px" ></a>
+<a href="https://docs.google.com/document/d/1Rz8C7s4J1BkG8G3zkNZ9MflDgN8kyi9tRhXDFUiZnDs/edit?usp=sharing"><img src="./images/file.png" width="35px" height="35px" ></a>
 
 
 
