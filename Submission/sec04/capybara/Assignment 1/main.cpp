@@ -11,19 +11,6 @@ class User;
 class Airline;
 class Reservation;
 
-int partitionUsers(vector<User> &users, int bottom, int top, int choice);
-void quickSortUsers(vector<User> &users, int bottom, int top, int choice);
-
-int partitionAirline(vector<Airline> &airlines, int bottom, int top, int choice);
-void quickSortAirline(vector<Airline> &airlines, int bottom, int top, int choice);
-
-int partitionReservation(vector<Reservation> &reservations, int bottom, int top, int choice);
-void quickSortReservation(vector<Reservation> &reservations, int bottom, int top, int choice);
-
-int binarySearchByName(const vector<User> &users, const string &name);
-int binarySearchByAirplaneID(const vector<Airline> &airlines, const string &AirplaneID);
-int binarySearchByReservationID(std::vector<Reservation> &reservations, const std::string &ReservationID);
-
 class User
 {
 private:
@@ -630,7 +617,7 @@ int main()
 
                                 getline(cin, username);
                                 quickSortUsers(users, 0, users.size() - 1, 1);
-                                found = binarySearchByName(users, username);
+                                found = binarySearch(users, username);
 
                                 users[found].displayBodo();
                             }
