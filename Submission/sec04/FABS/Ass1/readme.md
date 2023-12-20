@@ -49,13 +49,13 @@ During execution, this program will display a menu with options for viewing all 
 
 ## Design <a name="design"></a> 🎨
 
-1. Flowchart
+#### 1. Flowchart
 
 ![1](https://github.com/jjn7702/SECJ2013-DSA/blob/b61a33a43887545caac58fe75a6d83fb567522e5/Submission/sec04/FABS/Ass1/Images/flowchart.jpg)
 
 ## Design Description 💹
 
-### MAIN FUNCTION
+#### MAIN FUNCTION
 
 Read customer information from an input file (customer.txt).
 Then, show the menu for view all data of customers option, sorting (ascending) option, searching option and exit option.
@@ -87,7 +87,7 @@ function to display the searching result.
 3. End
 
 
-### SORTING FUNCTION
+#### SORTING FUNCTION
 
 This program uses two sorting algorithms which are quick sort for sorting by integer (trackingNum) and quick sort for sorting by string (name or parcelType). It also uses a different partition function for each sorting process.
 	
@@ -101,7 +101,7 @@ This program uses two sorting algorithms which are quick sort for sorting by int
 			2.3.1 partitionInt(): sort data based on the tracking numbers of the customer
 
 
-### SEARCHING FUNCTION
+#### SEARCHING FUNCTION
 
 This program also implements two search functions which are SearchString() function for searching all the string attributes (name,parcelType,source,destination or status) and SearchInt() function for searching integer attributes (trackingNum).
 
@@ -111,7 +111,7 @@ This program also implements two search functions which are SearchString() funct
 2.2 Option 1: SearchString() function: search data only for String type (name, source, destination, status, parcel type).
 2.3 Option 2: SearchInt() function: search data only for Int type (tracking numbers).
 
-### DISPLAY FUNCTION
+#### DISPLAY FUNCTION
 
 Display the unsorted data from the file (customer.txt) that has been read or display sorted data and searched data based on users option.
 
