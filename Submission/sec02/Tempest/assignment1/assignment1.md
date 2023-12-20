@@ -69,7 +69,7 @@ Implementing search functionality improves user accessibility by allowing users 
 
 - [Source Code](./source_code/assignment1.cpp)
 - [Input File](./source_code/task.txt)
-- [Report]
+- [Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/assignment1/assignment1_tempest.pdf)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
