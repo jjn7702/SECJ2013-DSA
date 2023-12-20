@@ -202,16 +202,16 @@ void generateReceipt(const vector<Menu>& orders, double total) {
                  << fixed << setprecision(2) << setw(4) << orders[i].getPrice() << endl;
         }
 
-        for (size_t j = i + 1; j < orders.size(); ++j) {
+        for (int j = i + 1; j < orders.size(); ++j) {
             if (orders[i].getFoodId() == orders[j].getFoodId()) {
                 i = j;
             }
         }
     }
 
-    cout << "\n+------------------------------------------------------------------+" << endl;
+    cout << "\n+-------------------------------------------------------------+" << endl;
     cout << right << "Total amount: " << fixed << setprecision(2) << setw(4) << total << endl;
-    cout << "+------------------------------------------------------------------+" << endl;
+    cout << "+-------------------------------------------------------------+" << endl;
 }
 
 
@@ -286,14 +286,12 @@ do{
 
     if (!orders.empty()) {
         cout << "\nYour Orders:\n";
-    cout << "+------------------------------------------------------------+" << endl;
-    cout << left;
-    cout << setw(10) << "ID" 
-         << setw(21) << "NAME" 
-         << setw(13) << "TYPE" 
-         << setw(13) << "QUANTITY" 
-         << fixed << "PRICE" << endl;
-    cout << "+------------------------------------------------------------+" << endl;
+        cout << left;
+        cout << setw(10) << "ID" << " | "
+             << setw(21) << "NAME" << " | "
+             << setw(13) << "TYPE" << " | "
+             << fixed << "PRICE" << endl;
+        cout << "---------------------------------------------------------" << endl;
         for (const Menu& order : orders) {
             cout << left;
             cout << setw(10) << order.getFoodId() << " | "
