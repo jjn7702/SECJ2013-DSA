@@ -8,8 +8,10 @@
 # Courier Management System - Assignment 1
 
 ## Appendix :red_circle:
-[Objectives](#-Objectives)
-[Synopsis](#-Synopsis)
+
+- [Objectives](#Objectives)
+- [Synopsis]()
+- [Design]()
 
 
 
