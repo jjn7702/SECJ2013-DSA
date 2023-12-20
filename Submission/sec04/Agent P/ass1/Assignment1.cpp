@@ -213,18 +213,9 @@ void swap(int &d1, int &d2)
         { 
             if(D[p].getIC() > D[largesti].getIC())
                 largesti=p;
-            // for(int i=0;i<4;i++)
-            // {
-            //     cout<<Data[i] <<" ";
-            // }
         }
 
         swap(D[largesti],D[last]);
-//         for(int i=0;i<n;i++)
-//            {
-//                cout<<D[i].getIC() <<" ";
-//            }
-//            cout << endl;
         }
         
         
@@ -239,10 +230,6 @@ void swap(int &d1, int &d2)
         { 
             if(D[p].getIC() < D[largesti].getIC())
                 largesti=p;
-            // for(int i=0;i<4;i++)
-            // {
-            //     cout<<Data[i] <<" ";
-            // }
         }
 
         swap(D[largesti],D[last]);
