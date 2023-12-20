@@ -82,12 +82,12 @@ Describe the design of the system classes, if applicable.
 ### 2.2 System Algorithm Design
 Explain the high-level design of algorithms used in your system.
 
-1. Start. <br>
+1. Start. 
 2. Display menu.
 3. User input choice
 4. If choice == 1
-   4.1 Display Sort by name
-       4.1.1 Else if choice == 2
+   4.1 Display Sort by name <br>
+       4.1.1 Else if choice == 2 <br>
              4.1.1.1 Display Sort by Account Number
        4.1.2 Else if choice == 3
              4.1.2.1 Display Sort by IC Number
