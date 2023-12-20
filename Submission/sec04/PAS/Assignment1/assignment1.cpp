@@ -140,3 +140,151 @@ void selection(Book list[], int n, int op, int opt)
 			if (opt == 1) {
 				for (int p = 1; p <= last; ++p) {
             		if (list[p].getName() > list[largest].getName())
+				largest = p;
+        		}
+        		swap(list[largest], list[last]);
+        		break;
+			}
+			
+			else {
+				for(int p = 1; p <= last; ++p) {
+					if (list[p].getName() < list[smallest].getName())
+						smallest = p;
+				}
+				swap(list[smallest], list[last]);
+			break;
+			}
+
+		case 3: //Sort by Author
+			if (opt == 1) {
+				for (int p = 1; p <= last; ++p) {
+            		if (list[p].getAuthor() > list[largest].getAuthor())
+                		largest = p;
+        		}
+        		swap(list[largest], list[last]);
+        	break;
+			}
+			
+			else {
+				for(int p = 1; p <= last; ++p) {
+					if (list[p].getAuthor() < list[smallest].getAuthor())
+						smallest = p;
+				}
+				swap(list[smallest], list[last]);
+			break;
+			}
+
+		case 4: //Sort by Genre
+			if (opt == 1) {
+				for (int p = 1; p <= last; ++p) {
+            		if (list[p].getGenre() > list[largest].getGenre())
+                		largest = p;
+        		}
+        		swap(list[largest], list[last]);
+        	break;
+			}
+			
+			else {
+				for(int p = 1; p <= last; ++p) {
+					if (list[p].getGenre() < list[smallest].getGenre())
+						smallest = p;
+				}
+				swap(list[smallest], list[last]);
+			break;
+			}
+
+		case 5: //Sort by Year
+			if (opt == 1) {
+				for(int p = 1; p <= last; ++p) {
+					if (list[p].getYear() > list[largest].getYear())
+						largest = p;
+				}
+				swap(list[largest], list[last]);
+			break;
+			}
+			
+			else {
+				for(int p = 1; p <= last; ++p) {
+					if (list[p].getYear() < list[smallest].getYear())
+						smallest = p;
+				}
+				swap(list[smallest], list[last]);
+			break;
+			}
+		}
+	
+	}
+	cout << "\nSorted Book List: " << endl;
+	header();
+	for (int j = 0; j < N; j++) {
+		list[j].printBooks();
+	}
+}
+
+void searchId(Book b[]){
+	int i;
+	string id;
+	bool found = false;
+	cout << "Enter the book ID: ";
+	cin >> id;
+	
+	for(i=0; i<N; i++){
+		if(id == b[i].getID()){
+			found = true;
+			break;
+		}
+	}
+	if(found == true){
+		cout << "\nThis is the book you are looking for:\n";
+		header();
+		b[i].printBooks();
+	}
+	else
+		cout << "Invalid Id";
+}
+
+void searchName(Book b[]){
+	int i;
+	string name;
+	bool found = false;
+	cout << "Enter the book Title: ";
+	cin.ignore();
+	getline(cin, name);
+	
+	for(i=0; i<N; i++){
+		if(name == b[i].getName()){
+			found = true;
+			break;
+		}
+	}
+	if(found == true){
+		cout << "\nThis is the book you are looking for:\n";
+		header();
+		b[i].printBooks();
+	}
+	else
+		cout << "Invalid Book Title";
+}
+
+void searchAuthor(Book b[]){
+	int i;
+	string author;
+	bool found = false;
+	cout << "Enter the book Author: ";
+	cin.ignore();
+	getline(cin, author);
+	
+	for(i=0; i<N; i++){
+		if(author == b[i].getAuthor()){
+			found = true;
+			break;
+		}
+	}
+	if(found == true){
+		cout << "\nThis is the book you are looking for:\n";
+		header();
+		b[i].printBooks();
+	}
+	else
+		cout << "Invalid Book Genre";
+}
