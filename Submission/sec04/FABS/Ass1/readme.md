@@ -107,9 +107,9 @@ This program also implements two search functions which are SearchString() funct
 
 1. Get the option from the main function.
 2. From the option, the data will be searched by corresponding function either search by name, destination, source, parcel type or tracking number.
-2.1 The searching function uses a ? search technique to search customers data based on the option that was chosen by the customer.
-2.2 Option 1: SearchString() function: search data only for String type (name, source, destination, status, parcel type).
-2.3 Option 2: SearchInt() function: search data only for Int type (tracking numbers).
+   2.1 The searching function uses a compare search technique to search customers data based on the option that was chosen 	by the customer.
+   2.2 Option 1: SearchString() function: search data only for String type (name, source, destination, status, parcel type).
+   2.3 Option 2: SearchInt() function: search data only for Int type (tracking numbers).
 
 #### DISPLAY FUNCTION
 
