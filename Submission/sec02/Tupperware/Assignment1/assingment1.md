@@ -40,9 +40,7 @@ Figure 1: Class Diagram of Restaurant Management System
 
 In the coding, the selection concept is utilised to sort the data from the file. The use of selection sorting which has the time complexity of O(n2) is decided as it is simple in the code and efficient for a small list of data. The sorting algorithm is implemented in the FoodIdASC function and PriceASC function, as the coding only sorts based on the food id and price given for each menu. The sorting is only in ascending order as users are more preferably to view in such order compared to the descending order. 
 
-FoodIDASC function sorts the food id based on alphabetical order from A-Z. After the looping ends, the list of menus will display the food id, name of the food, category of the food, and also the price in table format. A column of numbers is also added on the top left table to ease customers for the next operation, which is selecting an order based on the number on the displayed menu.
-
-PriceASD function sorts the price for each food on the menu from the lowest to the highest price. After the looping ends, the list of menus will display the same information(food id, name of the food, category of the food, and price) in table format. A column of numbers is also included for the ease of customers. 
+FoodIDASC function sorts the food id based on alphabetical order from A-Z. After the looping ends, the list of menus will display the food id, name of the food, category of the food, and also the price in table format. A column of numbers is also added on the top left table to ease customers for the next operation, which is selecting an order based on the number on the displayed menu. PriceASD function sorts the price for each food on the menu from the lowest to the highest price. After the looping ends, the list of menus will display the same information(food id, name of the food, category of the food, and price) in table format. A column of numbers is also included for the ease of customers. 
 
 
 <br>
