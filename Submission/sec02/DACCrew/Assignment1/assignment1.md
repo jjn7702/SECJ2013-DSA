@@ -26,17 +26,13 @@
    - To gain hands-on experience in applying the data structure concept
 
 ### 1.2 Synopsis of Project
-We will develop a Banking transaction system focusing on sorting and searching operations using fundamental data structure concepts. This system is designed to perform basic transaction operations, including depositing money into user accounts, enabling withdrawal, and facilitating money transfers between accounts. The sorting operations encompass arranging data by name, Identification Card number, account number and balance in ascending order. Additionally, this system supports searching operations based on account holder's names and account numbers, allowing users to locate their accounts using unique identifiers.
-The existing class and its attributes:
-Bank
-AccName
-the name of the account holder <string>
-AccNum
-the account number <string>
-IC
-the identity card number of the account holder <string>
-AccBalance
-the quantity of the amount of money in the account <double>
+   We will develop a Banking transaction system focusing on sorting and searching operations using fundamental data structure concepts. This system is designed to perform basic transaction operations, including depositing money into user accounts, enabling withdrawal, and facilitating money transfers between accounts. The sorting operations encompass arranging data by name, Identification Card number, account number and balance in ascending order. Additionally, this system supports searching operations based on account holder's names and account numbers, allowing users to locate their accounts using unique identifiers.
+###The existing class and its attributes:
+Bank 
+AccName : the name of the account holder <string>
+AccNum : the account number <string>
+IC : the identity card number of the account holder <string>
+AccBalance : the quantity of the amount of money in the account <double>
 
 
 The existing data structure:
