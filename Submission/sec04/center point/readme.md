@@ -16,7 +16,7 @@ The Inventory Management System is aiming to organize, store and manage library 
 | SOH FEI ZHEN      | A22EC0272        | <a href="https://www.linkedin.com/in/fei-zhen-soh-b311a0257/" title="SOH FEI ZHEN LinkedIn"><img src="./Images/SOH FEI ZHEN.jpg" width=80px, height=100px>     |
 
 <h3>Report Assignment 1</h3>
-<a href="Assignment 1/files"><img src="./Images/folder.jpg" width="50px" height="50px" ></a>
+<a href="../center point/Assignment 1/files"><img src="./Images/folder.jpg" width="50px" height="50px" ></a>
 
 
 
@@ -27,7 +27,7 @@ The Inventory Management System is aiming to organize, store and manage library 
 
 ## Findings 📊
 
-- <a href="Assignment 1" >Assignment 1 
+- <a href="../Submission/sec04/center point/Assignment 1/assignment1.md" >Assignment 1 
 - Assignment 2
 - Project
 
