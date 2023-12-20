@@ -18,7 +18,9 @@ In our data structure and algorithm assignment 1, the main objectives of develop
 
 ## Synopsis📝
 
-In this assignment, the sorting and searching implementation will be used. User can search the task that have been inserted and can sort it according to the choices which are sorting it according to ascending alphabet and vice versa, sort it according to the ascending date and vice versa and sort it according to the status of the task such as complete, todo, od doing.
+The inventory management system is essential for one business or organization to track or manage its warehouse. Our inventory management system is designed to search or organize (sort) the inventory by its certain keys such as code, name, type, quantity, price in either ascending or descending order. These two methods are important because they not only save time but also offer convenience to users in managing the inventory effectively.
+
+
 
 ## Flow of Event 💹
 
