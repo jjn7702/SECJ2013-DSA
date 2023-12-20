@@ -29,7 +29,7 @@ _Don't forget to hit the :star: if you like this repo._
 5. The system shuts down if the user chooses to quit.
 
 <h3>Report Assignment 1</h3>
-<a href=" "><img src="./Images/download.png" width="35px" height="35px" ></a>
+<a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Assignment1/files/DACCrew%20Assignment%201.pdf"><img src="./Images/download.png" width="35px" height="35px" ></a>
 
 ## Findings 📊
 
