@@ -47,7 +47,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 <h1>Assignment 2</h1>
 <h2>Findings 📊</h2>
-- <a href="Submission/sec02/Tupperware/Assignment1/assingment1.md">Assignment 1 </a><br>
+- <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/assingment1.md">Assignment 1 <br>
 - Assignment 2<br>
 - Project<br>
 
