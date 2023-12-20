@@ -42,7 +42,8 @@ The new sorted and arranged data about couriers will be stored into new file nam
 
 ## Synopsis <a name="synopsis"></a> 📝
 
-Synopsis.....
+This program is designed for organizing courier management systems efficiently, with features such as sorting and searching for specific courier details. The foundation of the program focuses around a Courier class, which encapsulates each courier's information such as name, parcel type, source, destination, status, and tracking number. This program can read and write data to or from files, display information in an organized form and conduct sorting and searching.
+During execution, this program will display a menu with options for viewing all couriers, sort them according to certain criteria, search for specific couriers, and exit the program. The class design ensures encapsulation by offering ways for successfully interacting with the courier data.
 
 
 ## Design <a name="design"></a> 🎨
