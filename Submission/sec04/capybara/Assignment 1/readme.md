@@ -1,5 +1,11 @@
 # Airline Reservation System ✈️
 
+- [Objectives](#-objectives)
+- [Synopsis](#-synopsis)
+- [Flow Chart](#-flow-chart)
+- [Sorting Algorithm](#-sorting-algorithm)
+- [Searching Method](#-searching-method)
+   
 ## Objectives 🌈
 
 The purpose of this system is to provide an easy-to-go administration reservation system for the admins looking to monitor customers ticketing purchases. We boil down our system to only one function because that is the main function that most administrators will use when tinkering with monitoring aeroplane tickets.
