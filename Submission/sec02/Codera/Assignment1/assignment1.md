@@ -37,7 +37,7 @@ In a nutshell, the Hospital Management System helps minimize the workload for he
 <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Images/DSA.jpg"><br>
 
 ## Pseudocode
-<img src=><be>
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Images/pseucode.png"><br>
 ## Description of How to Implement Data Structure Operations
 The system allows the healthcare professionals to manage patient records by providing the option to sort based on different attributes such as name, IC, age, gender, contact number, disease, and diagnosed date. Our team has decided to use the Merge Sort algorithm due to its small complexity time and faster sorting process. However, we only apply ascending order sorting in our system.
 
