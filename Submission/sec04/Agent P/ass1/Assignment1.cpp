@@ -32,6 +32,42 @@ class Candidate
         string getMatric(){return matric;}
 };
 
+void menu(int &opt1,int &opt2,int &opt3)
+{
+    do{
+    cout<<"[1] Sort \n[2] Search"<<endl;
+    cout<<"You want to do sorting or searching : ";
+    cin>>opt1;
+    cout<<endl;
+    }while(opt1<1 || opt1>3);
+    
+    switch(opt1)
+    {
+        case 1 : do{
+                 cout<<"[1] Name \n[2] Faculty \n[3] IC \n[4] Age \n[5] Matric Number \n[6] Vote Count"<<endl;
+                 cout<<"Please choose the sorting category : ";
+                 cin>>opt2;
+                 cout<<endl;
+                 }while(opt2<1 || opt2>6);
+                 do{
+                    cout<<"[1] Ascending Order \n[2] Descending Order"<<endl;
+                    cout<<"You want ascending or desending order : ";
+                    cin>>opt3;
+                    cout<<endl;
+                }while(opt3<1 || opt3>2);
+                 break;
+        case 2 : do{
+                 cout<<"[1] Name \n[2] Faculty \n[3] IC \n[4] Age \n[5] Matric Number \n[6] Vote Count"<<endl;
+                 cout<<"Please choose the searching category : ";
+                 cin>>opt2;
+                 cout<<endl;
+                 }while(opt2<1 || opt2>6);
+                 break;
+
+    }
+    
+}
+
 void NameAscending(Candidate c[],int size)
 {
     Candidate temp;
@@ -96,7 +132,7 @@ void SearchingName(Candidate c[],int size)
         if(name == key)
         {
             cout<<"\nRecord Found!    "<<endl;
-            cout<<"-------------"<<endl;
+            cout<<"------------"<<endl;
             cout<<"Name           : "<<c[i].getName()<<endl;
             cout<<"Faculty        : "<<c[i].getFaculty()<<endl;
             cout<<"IC             : "<<c[i].getIC()<<endl;
@@ -178,7 +214,8 @@ void SearchingFaculty(Candidate c[],int size)
         }
         if(faculty == key)
         {
-            cout<<"\nRecord Found! "<<endl;
+            cout<<"\nRecord Found"<<endl;
+            cout<<"------------"<<endl;
             cout<<"Name           : "<<c[i].getName()<<endl;
             cout<<"Faculty        : "<<c[i].getFaculty()<<endl;
             cout<<"IC             : "<<c[i].getIC()<<endl;
@@ -203,8 +240,8 @@ void swap(int &d1, int &d2)
         d2 = temp;
     }
  
-    void ICAscend(Candidate D[],int n)
-    {
+void ICAscend(Candidate D[],int n)
+{
         for(int last=n-1; last>=1; --last){
 
         int largesti=0;
@@ -219,9 +256,9 @@ void swap(int &d1, int &d2)
         }
         
         
-    }
+}
     
-    void ICDescend(Candidate D[], int n){
+void ICDescend(Candidate D[], int n){
     	for(int last=n-1; last>=1; --last){
 
         int largesti=0;
@@ -280,14 +317,16 @@ void searchingVoteCount(Candidate c[],int size){
 
     for(int i=0;i<size;i++){
         if(c[i].getVoteCount()== key){
-            cout<<"\nRecord Found! "<<endl;
+            cout<<"\nRecord Found"<<endl;
+            cout<<"------------"<<endl;
             cout<<"Name           : "<<c[i].getName()<<endl;
             cout<<"Faculty        : "<<c[i].getFaculty()<<endl;
             cout<<"IC             : "<<c[i].getIC()<<endl;
             cout<<"Age            : "<<c[i].getAge()<<endl;
             cout<<"Vote Collected : "<<c[i].getVoteCount()<<endl;
+            cout<<"Phone number   : "<<c[i].getPhone()<<endl;
+            cout<<"Matric Number  : "<<c[i].getMatric()<<endl;
             check = true;
-            break;
         }
     }
     if(!check){
@@ -304,12 +343,15 @@ void searchingIC(Candidate c[],int size){
     for(int i=0;i<size;i++){
         if(c[i].getIC() == key){
         	check = true;
-            cout<<"\nRecord Found! "<<endl;
+            cout<<"\nRecord Found"<<endl;
+            cout<<"------------"<<endl;
             cout<<"Name           : "<<c[i].getName()<<endl;
             cout<<"Faculty        : "<<c[i].getFaculty()<<endl;
             cout<<"IC             : "<<c[i].getIC()<<endl;
             cout<<"Age            : "<<c[i].getAge()<<endl;
             cout<<"Vote Collected : "<<c[i].getVoteCount()<<endl;
+            cout<<"Phone number   : "<<c[i].getPhone()<<endl;
+            cout<<"Matric Number  : "<<c[i].getMatric()<<endl;
             break;
         }
         
@@ -319,60 +361,6 @@ void searchingIC(Candidate c[],int size){
 	}
 }
 
-void menu(int &opt1,int &opt2,int &opt3)
-{
-    do{
-    cout<<"[1] Sort \n[2] Search"<<endl;
-    cout<<"You want to do sorting or searching : ";
-    cin>>opt1;
-    cout<<endl;
-    }while(opt1<1 || opt1>3);
-    
-    switch(opt1)
-    {
-        case 1 : do{
-                 cout<<"[1] Name \n[2] Faculty \n[3] IC \n[4] Age \n[5] Matric Number \n[6] Vote Count"<<endl;
-                 cout<<"Please choose the sorting category : ";
-                 cin>>opt2;
-                 cout<<endl;
-                 }while(opt2<1 || opt2>6);
-                 do{
-                    cout<<"[1] Ascending Order \n[2] Descending Order"<<endl;
-                    cout<<"You want ascending or desending order : ";
-                    cin>>opt3;
-                    cout<<endl;
-                }while(opt3<1 || opt3>2);
-                 break;
-        case 2 : do{
-                 cout<<"[1] Name \n[2] Faculty \n[3] IC \n[4] Age \n[5] Matric Number \n[6] Vote Count"<<endl;
-                 cout<<"Please choose the searching category : ";
-                 cin>>opt2;
-                 cout<<endl;
-                 }while(opt2<1 || opt2>6);
-                 break;
-
-    }
-    
-}
-
-void searchingAge(Candidate c[],int size){
-    int key;
-    cout<<"Please enter the Age of the Candidate you want to search for : ";
-    cin>>key;
-
-    for(int i=0;i<size;i++){
-        if(c[i].getAge()== key){
-            cout<<"\nRecord Found   : "<<endl;
-            cout<<"Name           : "<<c[i].getName()<<endl;
-            cout<<"Faculty        : "<<c[i].getFaculty()<<endl;
-            cout<<"IC             : "<<c[i].getIC()<<endl;
-            cout<<"Age            : "<<c[i].getAge()<<endl;
-            cout<<"Vote Collected : "<<c[i].getVoteCount()<<endl;
-            cout<<"Phone number   : "<<c[i].getPhone()<<endl;
-            break;
-        }
-    }
-}
 
 void AgeAsc(Candidate data[],int n){
     Candidate item;
@@ -401,6 +389,32 @@ void AgeDes(Candidate data[],int n){
         data[insertindex]=item;
     }
 }
+
+void searchingAge(Candidate c[],int size){
+    int key;
+    bool found = false;
+    cout<<"Please enter the Age of the Candidate you want to search for : ";
+    cin>>key;
+
+    for(int i=0;i<size;i++){
+        if(c[i].getAge()== key){
+            cout<<"\nRecord Found"<<endl;
+            cout<<"------------"<<endl;
+            cout<<"Name           : "<<c[i].getName()<<endl;
+            cout<<"Faculty        : "<<c[i].getFaculty()<<endl;
+            cout<<"IC             : "<<c[i].getIC()<<endl;
+            cout<<"Age            : "<<c[i].getAge()<<endl;
+            cout<<"Vote Collected : "<<c[i].getVoteCount()<<endl;
+            cout<<"Phone number   : "<<c[i].getPhone()<<endl;
+            found = true;
+            //break;
+        }
+    }
+
+    if(!found)
+        cout<<"Data entered not found!"<<endl;
+}
+
 void MatDes(Candidate Data[], int n) {
 	int p;
     for (int last = n-1; last >= 1; --last) { 
@@ -445,7 +459,8 @@ void searchingMat(Candidate c[],int size){
             mat[i] = tolower(mat[i]);
         }
         if(mat == key){
-            cout<<"\nRecord Found! "<<endl;
+            cout<<"\nRecord Found"<<endl;
+            cout<<"------------"<<endl;
             cout<<"Name           : "<<c[i].getName()<<endl;
             cout<<"Faculty        : "<<c[i].getFaculty()<<endl;
             cout<<"IC             : "<<c[i].getIC()<<endl;
@@ -580,9 +595,9 @@ int main()
 
     if(opt1 == 1)
         display(c,i); //Displaying the candidates of election
-        cout <<"Do you want to continue: ";
-        cin >> chk;
-        chk = tolower(chk);
+    cout <<"\nDo you want to continue (y/n) : ";
+    cin >> chk;
+    chk = tolower(chk);
     }while(chk=='y');
     return 0;
 
