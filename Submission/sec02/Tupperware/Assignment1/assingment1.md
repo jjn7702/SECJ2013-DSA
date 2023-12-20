@@ -19,7 +19,7 @@ For this project, we will develop a Restaurant Management System to manage order
 The types of data structures used in this system are sorting and searching. The class that is involved in this system is the Menu class. The system will display the menu for customers to view. Customers can choose to view in a new way where sorting is implemented or by searching the name of the food from the menu list. If the user wants to view it in a new way, the system will provide a list of options where option 1 is to sort by alphabet and option 2 is to sort according to the price in ascending order. Customers can enter the name of the food and choose whether they want to add the menu to the cart.  Then, the system will ask the customer if they want to make an order. Customers can make multiple orders until they enter ‘N/n’ to stop. The system will then display the list of orders made by the customers along with the total payment for their order. If the customer does not want to make an order, “No orders made.” will be displayed. Additionally, the use of file handling ensures data persistence, allowing the restaurant to store and retrieve order information across sessions. 
 
 ## System Design
-<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/System%20Design/classDiagramass1-Page-2.png?raw=true"><br>
+
 ### Class Diagram
 <p align="center">
 <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/System%20Design/classDiagram.png?raw=true" width="30%"><br>
@@ -28,7 +28,13 @@ Figure 1: Class Diagram of Restaurant Management System
 
 ### Flowchart
 <p align="center">
-  <img src=""><br>
+
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/System%20Design/classDiagramass1-Page-2.png?raw=true"><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/System%20Design/classDiagramass1-Page-6.png?raw=true"><br>
+    <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/System%20Design/classDiagramass1-Page-4.png?raw=true"><br>
+    <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/System%20Design/classDiagramass1-Page-3.drawio.png?raw=true"><br>
+    <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/System%20Design/classDiagramass1-Page-7.png?raw=true"><br>
+    <img src="">
   <br><br><br>
 </p>
 
