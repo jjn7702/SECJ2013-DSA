@@ -1,8 +1,7 @@
 # Election Management System
 
 ## Description 📝
-
-For the university election, as the students of UTM we are asked to develop a system. Thus, we came up with the idea of the UTM Election management system. 
+As from the agent P group we decided to develop an election management system for   UTM. From this system UTM can  handle the elections easily and efficiently. For assignment 1 we had developed a class for candidates which contain 7 attributes which define a candidate. The attributes are name , age , identification number , phone number , vote count , faculty and matric number. 
 
 ## Prepared by 🧑‍💻
 
