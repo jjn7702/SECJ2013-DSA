@@ -352,8 +352,6 @@ void menu(int &opt1,int &opt2,int &opt3)
                  break;
 
     }
-
-    
     
 }
 
@@ -431,11 +429,22 @@ void MatAsc(Candidate Data[], int n) {
 
 void searchingMat(Candidate c[],int size){
     string key;
+    bool found = false;
     cout<<"Please enter the Matric Number of the Candidate you want to search for : ";
     cin>>key;
+    for(int i=0;i<key.size();i++)
+    {
+        key[i] = tolower(key[i]);
+    }
 
     for(int i=0;i<size;i++){
-        if(c[i].getMatric()== key){
+         string mat = c[i].getMatric();
+
+        for(int i=0;i<mat.size();i++)
+        {
+            mat[i] = tolower(mat[i]);
+        }
+        if(mat == key){
             cout<<"\nRecord Found! "<<endl;
             cout<<"Name           : "<<c[i].getName()<<endl;
             cout<<"Faculty        : "<<c[i].getFaculty()<<endl;
@@ -443,9 +452,15 @@ void searchingMat(Candidate c[],int size){
             cout<<"Age            : "<<c[i].getAge()<<endl;
             cout<<"Vote Collected : "<<c[i].getVoteCount()<<endl;
             cout<<"Phone number   : "<<c[i].getPhone()<<endl;
+            cout<<"Matric Number  : "<<c[i].getMatric()<<endl;
+            found = true;
             break;
         }
     }
+
+    if(found == false)
+        cout<<"Data not found!"<<endl;
+
 }
 
 void display(Candidate c[],int size)
@@ -561,8 +576,8 @@ int main()
     }
     
 
-
-    display(c,i); //Displaying the candidates of election
+    if(opt1 == 1)
+        display(c,i); //Displaying the candidates of election
     return 0;
 
     //testing1
