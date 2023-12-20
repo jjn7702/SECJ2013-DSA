@@ -67,7 +67,7 @@ void printSortedResult(Menu menuArray[]) {
     }
 }
 
-// Selection sort
+// SORTING(SELECTION) SECTION 
 void swap(Menu& a, Menu& b) {
     Menu temp = a;
     a = b;
@@ -106,6 +106,7 @@ void PriceASC(Menu menuArray[]) {
     printSortedResult(menuArray);
 }
 
+//SEARCHING SECTION 
 void searchAndOrder(Menu menuArray[], vector<Menu>& orders) {
     string searchTerm;
     cout << "Enter the food name you want to search: ";
@@ -142,6 +143,7 @@ void searchAndOrder(Menu menuArray[], vector<Menu>& orders) {
     }
 }
 
+// MAKEORDER SECTION
 void makeOrder(Menu menuArray[], vector<Menu>& orders){
     int orderChoice;
     cout << "Enter the number corresponding to the menu you want to order: ";
@@ -164,6 +166,7 @@ void makeOrder(Menu menuArray[], vector<Menu>& orders){
     }
 }
 
+// CALCULATE ORDER SECTION
 double calculateTotal(const vector<Menu>& orders){
     double total = 0.0;
     for (const Menu& order : orders) {
@@ -173,12 +176,12 @@ double calculateTotal(const vector<Menu>& orders){
 }
 
 
-
+// GENERATE RECEIPT SECTION
 void generateReceipt(const vector<Menu>& orders, double total) {
     cout << "\nReceipt:\n";
-    //cout << "+------------------------------------------------------------------+" << endl;
-    //cout << "| ID         | NAME                     | TYPE          | QTY | PRICE |" << endl;
-    //cout << "+------------------------------------------------------------------+" << endl;
+    cout << "+------------------------------------------------------------------+" << endl;
+    cout << "| ID         | NAME                     | TYPE          | QTY | PRICE |" << endl;
+    cout << "+------------------------------------------------------------------+" << endl;
     cout << left;
     cout << setw(10) << "ID" 
          << setw(21) << "NAME" 
@@ -214,9 +217,9 @@ void generateReceipt(const vector<Menu>& orders, double total) {
         }
     }
 
-    //cout << "+------------------------------------------------------------------+" << endl;
-    cout << right << "\nTotal amount: " << fixed << setprecision(2) << setw(4) << total << endl;
-    //cout << "+------------------------------------------------------------------+" << endl;
+    cout << "\n+------------------------------------------------------------------+" << endl;
+    cout << right << "Total amount: " << fixed << setprecision(2) << setw(4) << total << endl;
+    cout << "+------------------------------------------------------------------+" << endl;
 }
 
 
