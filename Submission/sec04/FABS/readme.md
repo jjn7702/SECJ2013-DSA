@@ -11,7 +11,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Description 📝
 
-The Courier Management System is designed to
+The Courier Management System is designed to make sure a delivery services run smoothly and gets packages to their destination safely and on time. This system aims to provide parcel tracking and tracing, customer satisfaction, customer self-service essentially helping and improving courier quality.
 
 ## Prepared by 🧑‍💻
 
