@@ -38,7 +38,7 @@
 
 <h1>Assignment 2</h1>
 <h2>Findings 📊</h2>
-- <a href="[https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/assignment1.md](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/assingment1.md)" >Assignment 1 </a><br>
+- <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/assignment1.md">Assignment 1 </a><br>
 - Assignment 2<br>
 - Project<br>
 
