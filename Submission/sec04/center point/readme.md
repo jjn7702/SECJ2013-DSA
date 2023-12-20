@@ -11,9 +11,9 @@ The Inventory Management System is aiming to organize, store and manage library 
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-| LIM SI NI   | A22EC0070        | <a href="" title="Icon by Trazobanana"><img src="https://avatars.githubusercontent.com/u/129204039?v=4" width=80px, height=80px>     |
-| ONG KAI XUEN     | A22EC0100       | <a href="" title="Icon by Trazobanana"><img src="https://avatars.githubusercontent.com/u/118705607?v=4" width=80px, height=80px>         |
-| SOH FEI ZHEN      | A22EC0272        | <a href="" title="Icon by Trazobanana"><img src="https://avatars.githubusercontent.com/u/128228505?v=4" width=80px, height=80px>         |
+| LIM SI NI   | A22EC0070        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/LIM SI NI.jpg" width=80px, height=80px>     |
+| ONG KAI XUEN     | A22EC0100       | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/boy_4537038.png" width=80px, height=80px>     |
+| SOH FEI ZHEN      | A22EC0272        | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/boy_4537038.png" width=80px, height=80px>     |
 
 
 ## Flow of system
@@ -27,7 +27,7 @@ The Inventory Management System is aiming to organize, store and manage library 
 8. After choosing either one and getting the results, the user can choose to exit the system , go back to the main menu where the user will need to choose either to sort or search, or search for books based on other attributes.
 
 <h3>Report Assignment 1</h3>
-<a href="https://docs.google.com/document/d/1Rz8C7s4J1BkG8G3zkNZ9MflDgN8kyi9tRhXDFUiZnDs/edit?usp=sharing"><img src="./images/file.png" width="35px" height="35px" ></a>
+<a href="https://docs.google.com/document/d/1Rz8C7s4J1BkG8G3zkNZ9MflDgN8kyi9tRhXDFUiZnDs/edit?usp=sharing"><img src="./images/folder.jpg" width="35px" height="35px" ></a>
 
 
 
@@ -36,7 +36,7 @@ The Inventory Management System is aiming to organize, store and manage library 
 
 ## Findings 📊
 
-- <a href="Assignment1" >Assignment 1 
+- <a href="Assignment 1" >Assignment 1 
 - Assignment 2
 - Project
 
