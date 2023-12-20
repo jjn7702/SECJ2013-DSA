@@ -33,7 +33,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Findings 📊
 
-- <a href="Assignment 1">Assignment 1
+- <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Assignment1/assignment1.md">Assignment 1
 - Assignment 2
 - Project
 
