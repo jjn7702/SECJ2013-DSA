@@ -82,7 +82,7 @@ Describe the design of the system classes, if applicable.
 ### 2.2 System Algorithm Design
 Explain the high-level design of algorithms used in your system.
 
-1. Start.
+1. Start. <br>
 2. Display menu.
 3. User input choice
 4. If choice == 1
