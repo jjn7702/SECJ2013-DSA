@@ -45,21 +45,21 @@ stores a list of user name, account number, IC and balance
 Sorting
 The sorting function is defined to sort an array of ‘Bank’ objects on different criteria. These functions use various partitioning techniques, such as quickSort.
 
-partitionName
+'partitionName'
 partitions the array based on the name attributes during sorting
-sortByName
+'sortByName'
 sorts the array ‘Bank’ objects based on the account name
-partitionIC
+'partitionIC'
 partitions the array based on the IC attributes during sorting
-sortByIC
+'sortByIC'
 sorts the array ‘Bank’ objects based on the IC
-partitionAccNum
+'partitionAccNum'
 partitions the array based on the account number attributes during sorting
-sortByAccNum
+'sortByAccNum'
 sorts the array ‘Bank’ objects based on the account number
-partitionBal
+'partitionBal'
 partitions the array based on the balance attributes during sorting
-sortByBal
+'sortByBal'
 sorts the array ‘Bank’ objects based on the account balance
 
 
@@ -86,7 +86,7 @@ Explain the high-level design of algorithms used in your system.
 2. Display menu.
 3. User input choice
 4. If choice == 1
-   4.1 Display Sort by name <br>
+   4.1 Display Sort by name<br>
        4.1.1 Else if choice == 2 <br>
              4.1.1.1 Display Sort by Account Number
        4.1.2 Else if choice == 3
