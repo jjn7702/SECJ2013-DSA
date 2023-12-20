@@ -1,5 +1,5 @@
 # Assignment 1
-## Restaurant Management System
+# Restaurant Management System
 
 ### Table of Contents
 - [Objectives](#-objectives)
@@ -8,7 +8,7 @@
 - [Flowchart](#-flowchart)
 - [Description of how to implement data structure operations: Sorting and Searching](#-description-of-how-to-implement-data-structure-operations-sorting-and-searching)
 
-## INTRODUCTION
+## Introduction
 ### Objectives of The Project
 <li>To stimulate the Restaurant Management System </li>
 <li>To apply data structure operations such as sorting and searching in the system</li>
@@ -18,7 +18,7 @@ For this project, we will develop a Restaurant Management System to manage order
 
 The types of data structures used in this system are sorting and searching. The class that is involved in this system is the Menu class. The system will display the menu for customers to view. Customers can choose to view in a new way where sorting is implemented or by searching the name of the food from the menu list. If the user wants to view it in a new way, the system will provide a list of options where option 1 is to sort by alphabet and option 2 is to sort according to the price in ascending order. Customers can enter the name of the food and choose whether they want to add the menu to the cart.  Then, the system will ask the customer if they want to make an order. Customers can make multiple orders until they enter ‘N/n’ to stop. The system will then display the list of orders made by the customers along with the total payment for their order. If the customer does not want to make an order, “No orders made.” will be displayed. Additionally, the use of file handling ensures data persistence, allowing the restaurant to store and retrieve order information across sessions. 
 
-
+## System Design
 ### Class Diagram
 <p align="center">
 <img src="" width="80%"><br>
