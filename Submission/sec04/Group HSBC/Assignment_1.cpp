@@ -197,9 +197,33 @@ int main(){
 			<<"--------------------------------------------------------------------------------------------------------------\n";
 			account[searchAcc(account, accountSearch, count)].printDetails();
 		}
+
 		else{
-			//hayden pls do this part
-		}
+            do{
+                cout<<"Choose an option:\n"
+                    <<"1. View all the transaction without sorting\n"
+                    <<"2. View transactions sorted by date(oldest to newest)\n"
+                    <<"3. View transactions sorted by date(newest to oldest)\n"
+                    <<"4. View transactions sorted by balance(fewest to greatest)\n"
+                    <<"5. View transactions sorted by balance(greatest to fewest)\n"
+                    <<"Enter your choice: ";
+                cin>>choice2;
+                system("cls");
+            } while (choice2 <= 0 && choice2 >= 6);
+
+            if(choice2 > 1 && choice2 < 6)
+            {
+                quickSort(account, 0, count, choice2);
+                cout << "Sorted Listed\n";
+            }
+
+            cout<<"--------------------------------------------------------------------------------------------------------------\n"
+            <<"| Account Number | Balance(RM) | Transaction Date | Transaction Type | Amount(RM) | Transfered Account Number |\n"
+            <<"--------------------------------------------------------------------------------------------------------------\n";
+            for(int i =0; i < count; i++){
+                account[i].printDetails();
+            }
+        }
 
 		cout << "\n\n\n\nBack to menu (1: yes / 0: no) : ";
 		cin >> menu;
