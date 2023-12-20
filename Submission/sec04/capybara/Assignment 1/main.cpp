@@ -136,9 +136,9 @@ public:
 
     void display()
     {
-        cout << setw(25) << "AirplaneID: " << AirplaneID << endl;
-        cout << setw(25) << "Plane Max Capacity: " << Capacity << endl;
-        cout << setw(25) << "Plane Brand: " << Company << endl;
+        cout << setw(32) << "AirplaneID: " << AirplaneID << endl;
+        cout << setw(40) << "Plane Max Capacity: " << Capacity << endl;
+        cout << setw(33) << "Plane Brand: " << Company << endl;
     }
 };
 
@@ -221,12 +221,12 @@ public:
 
     void display()
     {
-        cout << setw(25) << "ReservationID: " << ReservationID << endl;
-        cout << setw(25) << "Estimated Departure Time: " << DepartureTime << endl;
-        cout << setw(25) << "Estimated Arrival Time: " << ArrivalTime << endl;
-        cout << setw(25) << "Reservation Date: " << Date << endl;
-        cout << setw(25) << "Arrival Destination: " << Location << endl;
-        cout << setw(25) << "Class: " << Class << endl;
+        cout << setw(34) << "ReservationID: " << ReservationID << endl;
+        cout << setw(45) << "Estimated Departure Time: " << DepartureTime << endl;
+        cout << setw(43) << "Estimated Arrival Time: " << ArrivalTime << endl;
+        cout << setw(37) << "Reservation Date: " << Date << endl;
+        cout << setw(40) << "Arrival Destination: " << Location << endl;
+        cout << setw(26) << "Class: " << Class << endl;
     }
 };
 
@@ -331,7 +331,7 @@ public:
     {
         cout << setw(55) << "_____________________________________" << endl;
         cout << setw(56) << "|      Reservation Dashboard          |" << endl;
-        cout << setw(56) << "|      [1] Display Use                |" << endl;
+        cout << setw(56) << "|      [1] Display User               |" << endl;
         cout << setw(56) << "|      [2] Display Airline            |" << endl;
         cout << setw(56) << "|      [3] Display Reservation        |" << endl;
         cout << setw(56) << "|      [4] Exit                       |" << endl;
@@ -369,8 +369,6 @@ public:
         cout << setw(56) << "|      [1] By AirplaneID              |" << endl;
         cout << setw(56) << "|      [2] By Capacity                |" << endl;
         cout << setw(56) << "|      [3] By Company                 |" << endl;
-        cout << setw(56) << "|      [4] By Class                   |" << endl;
-        cout << setw(56) << "|      [5] By Food/Beverage           |" << endl;
         cout << setw(56) << "|_____________________________________|" << endl;
         cout << endl;
         cout << setw(37) << "Option: ";
@@ -410,8 +408,6 @@ public:
         cout << setw(56) << "|      [1] By AirplaneID              |" << endl;
         cout << setw(56) << "|      [2] By Capacity                |" << endl;
         cout << setw(56) << "|      [3] By Company                 |" << endl;
-        cout << setw(56) << "|      [4] By Class                   |" << endl;
-        cout << setw(56) << "|      [5] By Food/Beverage           |" << endl;
         cout << setw(56) << "|_____________________________________|" << endl;
         cout << endl;
         cout << setw(37) << "Option: ";
@@ -894,14 +890,15 @@ int main()
             string optionsLocation, optionsDepartureTime, optionsArrivalTime, optionsDate, optionsDepartGate, optionsArrivalGate, optionsClass;
             for (int j = 0; j < reservationOptions.size(); j++)
             {
-                cout << "[" << i << "] ";
-                cout << reservationOptions[j].optionsLocation << endl
-                     << "--------------------------" << endl;
+                cout << setw(22) << "[" << i << "] ";
+                cout << setw(24 - 22) << reservationOptions[j].optionsLocation << endl;
+                cout << setw(20) << "                     -------------------------------" << endl;
                 i++;
             }
 
-            cout << "\nWhere do you want to go?" << endl;
-            cout << "Select: ";
+            cout << endl;
+            cout << setw(47) << "Where do you want to go?" << endl;
+            cout << setw(37) << "Select: ";
             cin >> selection;
             cout << endl;
 
@@ -912,14 +909,15 @@ int main()
             i = 1;
             for (int j = 0; j < reservationOptions.size(); j++)
             {
-                cout << "[" << i << "] ";
-                cout << reservationOptions[j].optionsDepartureTime << endl
-                     << "--------------------------" << endl;
+                cout << setw(22) << "[" << i << "] ";
+                cout << setw(24 - 22) << reservationOptions[j].optionsDepartureTime << endl
+                     << setw(20) << "                     -------------------------------" << endl;
                 i++;
             }
 
-            cout << "\nWhat will be the departure time?" << endl;
-            cout << "Select: ";
+            cout << endl;
+            cout << setw(52) << "What will be the departure time?" << endl;
+            cout << setw(37) << "Select: ";
             cin >> selection;
             cout << endl;
 
@@ -927,14 +925,15 @@ int main()
             i = 1;
             for (int j = 0; j < reservationOptions.size(); j++)
             {
-                cout << "[" << i << "] ";
-                cout << reservationOptions[j].optionsArrivalTime << endl
-                     << "--------------------------" << endl;
+                cout << setw(22) << "[" << i << "] ";
+                cout << setw(24 - 22) << reservationOptions[j].optionsArrivalTime << endl
+                     << setw(20) << "                     -------------------------------" << endl;
                 i++;
             }
 
-            cout << "\nWhat will be the arrival time?" << endl;
-            cout << "Select: ";
+            cout << endl;
+            cout << setw(51) << "What will be the arrival time?" << endl;
+            cout << setw(37) << "Select: ";
             cin >> selection;
             cout << endl;
 
@@ -942,15 +941,15 @@ int main()
             i = 1;
             for (int j = 0; j < reservationOptions.size(); j++)
             {
-                cout << "[" << i << "] ";
-                cout << reservationOptions[j].optionsDate << endl
-                     << "--------------------------" << endl;
+                cout << setw(22) << "[" << i << "] ";
+                cout << setw(24 - 22) << reservationOptions[j].optionsDate << endl
+                     << setw(20) << "                     -------------------------------" << endl;
                 i++;
             }
 
-            cout << "\nWhat will be date?" << endl;
-
-            cout << "Select: ";
+            cout << endl;
+            cout << setw(43) << "What will be date?" << endl;
+            cout << setw(37) << "Select: ";
             cin >> selection;
             cout << endl;
 
@@ -960,16 +959,18 @@ int main()
 
             for (int j = 0; j < reservationOptions.size(); j++)
             {
-                cout << "[" << i << "] ";
-                cout << reservationOptions[j].optionsClass << endl
-                     << "--------------------------" << endl;
+                cout << setw(22) << "[" << i << "] ";
+                cout << setw(24 - 22) << reservationOptions[j].optionsClass << endl
+                     << setw(20) << "                     -------------------------------" << endl;
                 i++;
             }
 
-            cout << "\nWhat will be the class?" << endl;
-            cout << "Select: ";
-            cin >> selection;
             cout << endl;
+            cout << setw(47) << "What will be the class?" << endl;
+            cout << setw(37) << "Select: ";
+            cin >> selection;
+            cout << endl
+                 << endl;
 
             optionsClass = reservationOptions[selection - 1].optionsClass;
 
@@ -980,16 +981,18 @@ int main()
             reservations.push_back(Reservation(reservationID, optionsDepartureTime, optionsArrivalTime, optionsDate, optionsLocation, optionsClass));
 
             cin.ignore();
-            cout << "Passenger's Info" << endl
+            cout << setw(20) << "                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+            cout << setw(44) << "PASSANGER'S INFO" << endl
                  << endl;
-            cout << "Insert Name: ";
+            cout << setw(35) << "Insert Name: ";
             getline(cin, name);
-            cout << "Insert IC: ";
+            cout << setw(35) << "Insert IC: ";
             getline(cin, ic);
-            cout << "Insert Phone: ";
+            cout << setw(35) << "Insert Phone: ";
             getline(cin, phone);
-            cout << "Insert Email: ";
+            cout << setw(35) << "Insert Email: ";
             getline(cin, email);
+            cout << setw(20) << "                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 
             users.push_back(User(name, ic, phone, email));
 
@@ -1050,7 +1053,7 @@ int main()
                             for (int j = 0; j < users.size(); j++)
                             {
                                 users[j].display();
-                                cout << "----------------------" << endl;
+                                cout << setw(18) << "                   -------------------------------" << endl;
                             }
                         }
                         else if (selection == 2)
@@ -1064,7 +1067,7 @@ int main()
                             {
                                 string username;
                                 int found = 0;
-                                cout << setw(42) << "Insert the username: ";
+                                cout << setw(42) << "Insert the Name: ";
 
                                 getline(cin, username);
                                 quickSortUsers(users, 0, users.size() - 1, 1);
@@ -1079,7 +1082,7 @@ int main()
                                 int found = 0;
                                 cout << setw(42) << "Insert the IC: ";
 
-                                getline(cin, IC);
+                                getline(cin, IC); //! Problem no output data
                                 quickSortUsers(users, 0, users.size() - 1, 1);
                                 found = binarySearchByIC(users, IC);
 
@@ -1090,9 +1093,9 @@ int main()
                             {
                                 string Phone;
                                 int found = 0;
-                                cout << "Insert the Phone: ";
+                                cout << setw(38) << "Insert the Phone: ";
 
-                                getline(cin, Phone);
+                                getline(cin, Phone); //! Problem no output data
                                 quickSortUsers(users, 0, users.size() - 1, 1);
                                 found = binarySearchByPhone(users, Phone);
 
@@ -1103,7 +1106,7 @@ int main()
                             {
                                 string Email;
                                 int found = 0;
-                                cout << "Insert the Email: ";
+                                cout << setw(42) << "Insert the Email: ";
 
                                 getline(cin, Email);
                                 quickSortUsers(users, 0, users.size() - 1, 1);
@@ -1130,7 +1133,7 @@ int main()
                             for (int j = 0; j < airlines.size(); j++)
                             {
                                 airlines[j].display();
-                                cout << "----------------------" << endl;
+                                cout << setw(18) << "                   -------------------------------" << endl;
                             }
                         }
                         else if (selection == 2)
@@ -1143,7 +1146,7 @@ int main()
                             {
                                 string AirplaneID;
                                 int found = 0;
-                                cout << "Insert the AirplaneID: ";
+                                cout << setw(42) << "Insert the AirplaneID: ";
                                 cin.ignore();
                                 getline(cin, AirplaneID);
                                 quickSortAirline(airlines, 0, airlines.size() - 1, 1);
@@ -1156,7 +1159,7 @@ int main()
                             {
                                 string Capacity;
                                 int found = 0;
-                                cout << "Insert the Capacity: ";
+                                cout << setw(42) << "Insert the Capacity: ";
                                 cin.ignore();
                                 getline(cin, Capacity);
                                 quickSortAirline(airlines, 0, airlines.size() - 1, 1);
@@ -1169,7 +1172,7 @@ int main()
                             {
                                 string Company;
                                 int found = 0;
-                                cout << "Insert the Company: ";
+                                cout << setw(42) << "Insert the Company: ";
                                 cin.ignore();
                                 getline(cin, Company);
                                 quickSortAirline(airlines, 0, airlines.size() - 1, 1);
@@ -1192,13 +1195,12 @@ int main()
                             cin >> choice;
                             cout << endl;
 
-                            cout << reservations.size();
                             quickSortReservation(reservations, 0, reservations.size() - 1, choice);
 
                             for (int j = 0; j < reservations.size(); j++)
                             {
                                 reservations[j].display();
-                                cout << "----------------------" << endl;
+                                cout << setw(18) << "                   -------------------------------" << endl;
                             }
                         }
                         else if (selection == 2)
@@ -1211,7 +1213,7 @@ int main()
                             {
                                 string ReservationID;
                                 int found = 0;
-                                cout << "Insert the ReservationID: ";
+                                cout << setw(47) << "Insert the ReservationID (RX): ";
                                 cin.ignore();
                                 getline(cin, ReservationID);
                                 quickSortReservation(reservations, 0, reservations.size() - 1, 1);
@@ -1224,9 +1226,9 @@ int main()
                             {
                                 string DepartureTime;
                                 int found = 0;
-                                cout << "Insert the Departure Time: ";
+                                cout << setw(47) << "Insert the Departure Time: ";
                                 cin.ignore();
-                                getline(cin, DepartureTime);
+                                getline(cin, DepartureTime); //! Problem no output data
                                 quickSortReservation(reservations, 0, reservations.size() - 1, 1);
                                 found = binarySearchByDepartureTime(reservations, DepartureTime);
 
@@ -1237,9 +1239,9 @@ int main()
                             {
                                 string ArrivalTime;
                                 int found = 0;
-                                cout << "Insert the Arrival Time: ";
+                                cout << setw(47) << "Insert the Arrival Time: ";
                                 cin.ignore();
-                                getline(cin, ArrivalTime);
+                                getline(cin, ArrivalTime); //! Problem no output data
                                 quickSortReservation(reservations, 0, reservations.size() - 1, 1);
                                 found = binarySearchByArrivalTime(reservations, ArrivalTime);
 
@@ -1250,7 +1252,7 @@ int main()
                             {
                                 string Date;
                                 int found = 0;
-                                cout << "Insert the Date: ";
+                                cout << setw(47) << "Insert the Date (YYYY-MM-DD): ";
                                 cin.ignore();
                                 getline(cin, Date);
                                 quickSortReservation(reservations, 0, reservations.size() - 1, 1);
@@ -1263,9 +1265,9 @@ int main()
                             {
                                 string Location;
                                 int found = 0;
-                                cout << "Insert the Location: ";
+                                cout << setw(39) << "Insert the Location: ";
                                 cin.ignore();
-                                getline(cin, Location);
+                                getline(cin, Location); //! Problem when Location banyak yang sama
                                 quickSortReservation(reservations, 0, reservations.size() - 1, 1);
                                 found = binarySearchByLocation(reservations, Location);
 
@@ -1274,20 +1276,20 @@ int main()
                         }
                     }
                     else
-                        cout << "Invalid Choice" << endl;
+                        cout << setw(41) << "Invalid Choice" << endl;
 
                     break;
                 }
             }
             break;
             default:
-                cout << "Invalid Choice" << endl;
+                cout << setw(41) << "Invalid Choice" << endl;
                 return 1;
             }
         }
         break;
         default:
-            cout << "Invalid Choice" << endl;
+            cout << setw(41) << "Invalid Choice" << endl;
             return 1;
         }
     }

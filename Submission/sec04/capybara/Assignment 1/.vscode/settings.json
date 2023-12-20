@@ -3,6 +3,7 @@
         "ostream": "cpp",
         "iostream": "cpp",
         "iomanip": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "string": "cpp"
     }
 }

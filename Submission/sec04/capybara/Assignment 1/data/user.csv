@@ -1,9 +1,8 @@
 Name, IC, Phone, Email, ReservationID
-John Doe,123456789012,555-1234,john.doe@email.com,R1
-Jane Smith,234567890123,555-5678,jane.smith@email.com,R2
-Robert Johnson,345678901234,555-9876,robert.j@email.com,R3
-Emily Davis,456789012345,555-4321,emily.davis@email.com,R4
-Michael Brown,567890123456,555-8765,michael.b@email.com,R5
-Sophia Wilson,678901234567,555-2109,sophia.w@email.com,R6
+John Doe,123456789012,5551234,john.doe@email.com,R1
+Jane Smith,234567890123,5555678,jane.smith@email.com,R2
+Robert Johnson,345678901234,5559876,robert.j@email.com,R3
+Emily Davis,456789012345,5554321,emily.davis@email.com,R4
+Michael Brown,567890123456,5558765,michael.b@email.com,R5
+Sophia Wilson,678901234567,5552109,sophia.w@email.com,R6
 Megat,031103160069,0127650310,megatzafran@gmail.com,R7
-megat,1,2,3,R8
