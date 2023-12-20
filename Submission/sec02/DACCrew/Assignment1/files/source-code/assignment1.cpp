@@ -320,6 +320,7 @@ int main()
     string name, num, ic;
     float bal;
     int opt;
+    int idx=0;
 
     if (!fileIn)
     {
@@ -330,8 +331,6 @@ int main()
     {   int a=0;
         while (!fileIn.eof())
         {
-
-            
             getline(fileIn, name, '|');
             getline(fileIn, num, '|');
             getline(fileIn, ic, '|');
@@ -342,6 +341,8 @@ int main()
             bankList[a].setIc(ic);
             bankList[a].setBalance(bal);
             a++;
+            idx++;
+    
             // s[a].display();
         }
     }
@@ -355,11 +356,11 @@ int main()
 
         cout << ":: SEARCH BY ::" << endl;
         cout << "[5] Search by Name" << endl;
-        cout << "[5] Search by Account Number" << endl;
-        cout << "[6] Search by IC Number" << endl << endl;
+        cout << "[6] Search by Account Number" << endl;
+        cout << "[7] Search by IC Number" << endl << endl;
 
         cout << ":: OTHER ACTION ::" << endl;
-        cout << "[7] Quit" << endl;
+        cout << "[8] Quit" << endl;
         cout << "OPTION >> ";
         cin >> opt;
 
@@ -370,26 +371,27 @@ int main()
                 case 1:
                     cout << "Sort by name" << endl;
                     dispHeader();
-                    sortByName(bankList, 0, 3);
+                    sortByName(bankList, 0, idx);
                     break;
                 case 2:
                     cout << "Sort by Account Number" << endl;
                     dispHeader();
-                    sortByAccNum(bankList, 0, 3);
+                    sortByAccNum(bankList, 0, idx);
                     break;
                 case 3:
                     cout << "Sort by IC Number" << endl;
                     dispHeader();
-                    sortByIc(bankList, 0, 3);
+                    sortByIc(bankList, 0, idx);
                     break;
                 default:
                     cout << "Sort by account balance" << endl;
                     dispHeader();
-                    sortByBal(bankList, 0, 3);
+                    sortByBal(bankList, 0, idx);
                     break;
             }
-            // Display the sorted results
-            for (int z = 0; z < 4; z++)
+           
+            // Display the sorted resultss
+            for (int z = 1; z <=idx; z++)
                 bankList[z].displaySort();
         }/*
         else if(opt >= 5 && opt <= 7)
@@ -400,7 +402,7 @@ int main()
                 cout << "Enter the name to search: ";
                 cin.ignore(); 
                 getline(cin, searchName);
-                searchByName(bankList, 4, searchName);
+                searchByName(bankList, idx, searchName);
             }
             else if(opt == 6)
             {
@@ -408,7 +410,7 @@ int main()
                 cout << "Enter the account number to search: ";
                 cin.ignore(); // Ignore newline character in the input buffer
                 getline(cin, searchAccNum);
-                searchByAccNum(bankList, 4, searchAccNum);
+                searchByAccNum(bankList, idx, searchAccNum);
             }
             else
             {
@@ -416,7 +418,7 @@ int main()
                 cout << "Enter the IC number to search: ";
                 cin.ignore();
                 getline(cin, searchIc);
-                searchByIc(bankList, 4, searchIc);
+                searchByIc(bankList, idx, searchIc);
             }
         }
         else
