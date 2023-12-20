@@ -1,0 +1,6 @@
+Tracking_No    Address    Sender_Name    Receiver_Name    Shipping_Option     Status_Delivery
+A8600; Taman Harmoni; ALi; Harriz; A; 0
+A5500; Taman Bahagia; Ahmad; Zack; B; 0
+A9834; Taman Bukit Dahlia; Hisyam; Muddin; B; 1
+A1230; Taman Pelita; Fatimah; Sarah; A; 1
+C8933; UTM Skudai; Aiman; Tino; B; 0
