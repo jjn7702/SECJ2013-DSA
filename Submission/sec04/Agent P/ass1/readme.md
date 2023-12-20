@@ -20,7 +20,7 @@ Voting Management System is a system that can help students to view the candidat
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/b7b1299f-ead1-4e66-ad2e-95b901f4f03c" width="3%" height="3%"> 
 Flowchart
 <p align="center">
-  <img src="" width="70%" height="70%"><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/photo_6057581772625000910_y.jpg" width="70%" height="70%"><br>
   Figure 1: Flowchart of Sytem
   <br><br><br>
   <img src="" width="30%" height="30%"><br>
