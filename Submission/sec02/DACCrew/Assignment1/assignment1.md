@@ -1,4 +1,10 @@
 # Bank System
+## Prepared By
+| Name         | Matric No    |
+|--------------|--------------|
+|     |   |
+| Nur Farah Adibah binti Idris     | A22EC0245 |
+|      |  |
 
 ## Table of Contents
 1. [Introduction](#introduction)
