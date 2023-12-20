@@ -82,6 +82,28 @@ Describe the design of the system classes, if applicable.
 ### 2.2 System Algorithm Design
 Explain the high-level design of algorithms used in your system.
 
+1. Start.
+2. Display menu.
+3. User input choice
+4. If choice == 1
+   4.1 Display Sort by name
+       4.1.1 Else if choice == 2
+             4.1.1.1 Display Sort by Account Number
+       4.1.2 Else if choice == 3
+             4.1.2.1 Display Sort by IC Number
+       4.1.3 Else if choice == 4
+             4.1.3.1 Display Sort by Account Balance
+       4.1.4 Else if choice == 5
+             4.1.4.1 Display Search by Name
+       4.1.5 Else if choice == 6
+             4.1.5.1 Display Search by Account Number
+       4.1.6 Else if choice == 7
+             4.1.6.1 Display Search by IC Number
+       4.1.7 Else 
+             4.1.7.1 Exit
+5. End
+
+
 ### 2.3 Data Structure Operation
 Discuss how data structures are used in your project.
 
