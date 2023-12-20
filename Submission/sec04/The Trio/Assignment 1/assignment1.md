@@ -7,7 +7,7 @@
 
 _Don't forget to hit the :star: if you like this repo._
 
-# Inventory Management System - Assignment 1
+# Hotel Booking System - Assignment 1
 ## Objective
 Our objectives for this assignment are:
 
