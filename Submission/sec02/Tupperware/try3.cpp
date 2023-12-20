@@ -262,6 +262,14 @@ void searchAndOrder(Menu menuArray[]) {
     }
 }
 
+double calculateTotal(const vector<Menu>& orders) {
+    double total = 0.0;
+    for (const Menu& order : orders) {
+        total += order.getPrice();
+    }
+    return total;
+}
+
 int main() {
     Menu menuArray[SIZE];
     char choice;
@@ -272,6 +280,7 @@ int main() {
     bool condition = true;
     vector<Menu> orders;
 
+    do {
         system("cls");
         cout << "WELCOME TO TUPPERWARE!" << endl;
         nameFile.open("menu.txt", ios::in);
@@ -320,6 +329,7 @@ int main() {
         } else 
             cout << "Invalid input. Please enter V or S.\n";
 
+    } while (true);
 
 do{
     cout << "\nDo you want to make order? (Y/N): ";
