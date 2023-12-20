@@ -43,7 +43,7 @@ The inventory management system is essential for one business or organization to
 [𝟷] 𝚂𝚘𝚛𝚝𝚒𝚗𝚐
 [𝟸] 𝚂𝚎𝚊𝚛𝚌𝚑𝚒𝚗𝚐
 [𝟹] 𝙴𝚡𝚒𝚝
-𝙾𝚙𝚝𝚒𝚘𝚗:
+𝙾𝚙𝚝𝚒𝚘𝚗
 
 3. If the user click on the sorting option, the system will redirect the user to the next sort menu
  where the user can choose to sort the data in either of these manner which are:
