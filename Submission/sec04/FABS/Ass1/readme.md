@@ -22,7 +22,7 @@ Synopsis.....
 
 1. Flowchart
 
-![1](../Submission/sec04/FABS/Ass1/Images/flowchart.jpg)
+![1]([Submission/sec04/FABS/Ass1/Images/flowchart.jpg](https://github.com/jjn7702/SECJ2013-DSA/blob/b61a33a43887545caac58fe75a6d83fb567522e5/Submission/sec04/FABS/Ass1/Images/flowchart.jpg))
 
 ## Design Description 💹
 
