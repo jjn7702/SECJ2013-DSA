@@ -1,4 +1,5 @@
 # Assignment 1
+## Restaurant Management System
 
 ### Table of Contents
 - [Objectives](#-objectives)
@@ -6,8 +7,6 @@
 - [Class Diagram](#-class-diagram)
 - [Flowchart](#-flowchart)
 - [Description of how to implement data structure operations: Sorting and Searching](#-description-of-how-to-implement-data-structure-operations-sorting-and-searching)
-
-<br>
 
 ## INTRODUCTION
 ### Objectives of The Project
