@@ -1,8 +1,10 @@
 {
     "files.associations": {
+        "*.embeddedhtml": "html",
         "fstream": "cpp",
         "xstring": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "iomanip": "cpp"
     },
     "cmake.sourceDirectory": "/workspaces/SECJ2013-DSA/Submission/sec04/The Trio"
 }
