@@ -37,12 +37,12 @@ class inventory{
 };
 
 //mergesort for accending
-void mergeSort(inventory[], int, int);
-void merge(inventory[], int, int, int);
+void mergeSort(inventory[], int, int, int);
+void merge(inventory[], int, int, int, int);
 
 //quicksort for decending
-void quickSort(inventory[], int, int);
-int partition(inventory[], int, int);
+void quickSort(inventory[], int, int, int);
+int partition(inventory[], int, int, int);
 
 //binarySearch for itemNumber(int)
 int binarySearch(inventory[], int, int, int);
@@ -135,44 +135,50 @@ int main(){
 
             if (sortChoice == 1) {
                 if (orderChoice == 1) {
-                    mergeSort(inv, 0, i - 1);
+                    mergeSort(inv, 0, i - 1, sortChoice);
                 } 
                 else if (orderChoice == 2) {
-                    quickSort(inv, 0, i - 1);
-                }
-            } 
-            else if (sortChoice == 2) {
+                    quickSort(inv, 0, i - 1, sortChoice);
+                } 
+                else continue;
+            }
+            else if(sortChoice == 2){
                 if (orderChoice == 1) {
-                    mergeSort(inv, 0, i - 1);
+                    mergeSort(inv, 0, i - 1, sortChoice);
                 } 
                 else if (orderChoice == 2) {
-                    quickSort(inv, 0, i - 1);
-                }
-            } 
-            else if (sortChoice == 3) {
+                    quickSort(inv, 0, i - 1, sortChoice);
+                } 
+                else continue;
+            }
+            else if(sortChoice == 3){
                 if (orderChoice == 1) {
-                    mergeSort(inv, 0, i - 1);
+                    mergeSort(inv, 0, i - 1, sortChoice);
                 } 
                 else if (orderChoice == 2) {
-                    quickSort(inv, 0, i - 1);
-                }
-            } 
-            else if (sortChoice == 4) {
+                    quickSort(inv, 0, i - 1, sortChoice);
+                } 
+                else continue;
+            }
+            else if(sortChoice == 4){
                 if (orderChoice == 1) {
-                    mergeSort(inv, 0, i - 1);
+                    mergeSort(inv, 0, i - 1, sortChoice);
                 } 
                 else if (orderChoice == 2) {
-                    quickSort(inv, 0, i - 1);
-                }
-            } 
-            else if (sortChoice == 5) {
+                    quickSort(inv, 0, i - 1, sortChoice);
+                } 
+                else continue;
+            }
+            else if(sortChoice == 5){
                 if (orderChoice == 1) {
-                    mergeSort(inv, 0, i - 1);
+                    mergeSort(inv, 0, i - 1, sortChoice);
                 } 
                 else if (orderChoice == 2) {
-                    quickSort(inv, 0, i - 1);
-                }
-            } 
+                    quickSort(inv, 0, i - 1, sortChoice);
+                } 
+                else continue;
+            }
+            else if(sortChoice == 6) continue;
             else continue;
 
             //print th output in a table format
@@ -207,7 +213,7 @@ int main(){
                     int itemNumber;
                     cin >> itemNumber;
                     //sort the list for binary search
-                    mergeSort(inv, 0, i - 1);
+                    mergeSort(inv, 0, i - 1, 1);
                     int index = binarySearch(inv, 0, i - 1, itemNumber);
                     if (index == -1) {
                         system("cls");
@@ -372,74 +378,224 @@ void inventory::print(){
 
 //sorting
 //accending
-void mergeSort(inventory inv[], int low, int high){
+void mergeSort(inventory inv[], int low, int high, int choice){
     if(low < high){
         int mid = (low + high) / 2;
-        mergeSort(inv, low, mid);
-        mergeSort(inv, mid + 1, high);
-        merge(inv, low, mid, high);
+        mergeSort(inv, low, mid, choice);
+        mergeSort(inv, mid + 1, high, choice);
+        merge(inv, low, mid, high, choice);
     }
 }
-void merge(inventory inv[], int low, int mid, int high){
-    int i, j, k;
-    int n1 = mid - low + 1;
-    int n2 = high - mid;
-    inventory L[n1], R[n2];
-    for(i = 0; i < n1; i++){
-        L[i] = inv[low + i];
-    }
-    for(j = 0; j < n2; j++){
-        R[j] = inv[mid + 1 + j];
-    }
-    i = 0;
-    j = 0;
-    k = low;
-    while(i < n1 && j < n2){
-        if(L[i].getItemNumber() <= R[j].getItemNumber()){
-            inv[k] = L[i];
-            i++;
+void merge(inventory inv[], int first, int mid, int last, int choice){
+    int first1 = first;
+    int last1 = mid;
+    int first2 = mid + 1;
+    int last2 = last;
+    int index = first1;
+    inventory temp[MAX];
+    if(choice == 1){
+        while((first1 <= last1) && (first2 <= last2)){
+            if(inv[first1].getItemNumber() <= inv[first2].getItemNumber()){
+                temp[index] = inv[first1];
+                first1++;
+            }
+            else{
+                temp[index] = inv[first2];
+                first2++;
+            }
+            index++;
         }
-        else{
-            inv[k] = R[j];
-            j++;
+    }
+    else if(choice == 2){
+        while((first1 <= last1) && (first2 <= last2)){
+            if(inv[first1].getItemName() <= inv[first2].getItemName()){
+                temp[index] = inv[first1];
+                first1++;
+            }
+            else{
+                temp[index] = inv[first2];
+                first2++;
+            }
+            index++;
         }
-        k++;
     }
-    while(i < n1){
-        inv[k] = L[i];
-        i++;
-        k++;
+    else if(choice == 3){
+        while((first1 <= last1) && (first2 <= last2)){
+            if(inv[first1].getQuantity() <= inv[first2].getQuantity()){
+                temp[index] = inv[first1];
+                first1++;
+            }
+            else{
+                temp[index] = inv[first2];
+                first2++;
+            }
+            index++;
+        }
     }
-    while(j < n2){
-        inv[k] = R[j];
-        j++;
-        k++;
+    else if(choice == 4){
+        while((first1 <= last1) && (first2 <= last2)){
+            if(inv[first1].getCost() <= inv[first2].getCost()){
+                temp[index] = inv[first1];
+                first1++;
+            }
+            else{
+                temp[index] = inv[first2];
+                first2++;
+            }
+            index++;
+        }
+    }
+    else if(choice == 5){
+        while((first1 <= last1) && (first2 <= last2)){
+            if(inv[first1].getItemLocation() <= inv[first2].getItemLocation()){
+                temp[index] = inv[first1];
+                first1++;
+            }
+            else{
+                temp[index] = inv[first2];
+                first2++;
+            }
+            index++;
+        }
+    }
+    for(; first1 <= last1; ++first1, ++index){
+        temp[index] = inv[first1];
+    }
+    for(; first2 <= last2; ++first2, ++index){
+        temp[index] = inv[first2];
+    }
+    for(index = first; index <= last; ++index){
+        inv[index] = temp[index];
     }
 }
 
 //decending
-void quickSort(inventory inv[], int low, int high){
-    if(low < high){
-        int pi = partition(inv, low, high);
-        quickSort(inv, low, pi - 1);
-        quickSort(inv, pi + 1, high);
+void quickSort(inventory inv[], int first, int last, int choice){
+    int cut;
+    if(first < last){
+        cut = partition(inv, first, last, choice);
+        quickSort(inv, first, cut, choice);
+        quickSort(inv, cut + 1, last, choice);
     }
 }
-int partition(inventory inv[], int low, int high){
-    int pivot = inv[high].getItemNumber();
-    int i = (low - 1);
-    for(int j = low; j <= high - 1; j++){
-        if(inv[j].getItemNumber() > pivot){
-            i++;
-            inventory temp = inv[i];
-            inv[i] = inv[j];
-            inv[j] = temp;
+int partition(inventory inv[], int first, int last, int choice){
+    int cutPoint, bottom = first, top = last;
+    inventory temp;
+    if(choice == 1){
+        int pivot = inv[first].getItemNumber();
+        while(true){
+            while(inv[bottom].getItemNumber() > pivot){
+                bottom++;
+            }
+            while(inv[top].getItemNumber() < pivot){
+                top--;
+            }
+            if(bottom < top){
+                temp = inv[bottom];
+                inv[bottom] = inv[top];
+                inv[top] = temp;
+                bottom++;
+                top--;
+            }
+            else{
+                cutPoint = top;
+                break;
+            }
         }
     }
-    inventory temp = inv[i + 1];
-    inv[i + 1] = inv[high];
-    inv[high] = temp;
-    return (i + 1);
+    else if(choice == 2){
+        string pivot = inv[first].getItemName();
+        while(true){
+            //decending
+            while(inv[bottom].getItemName() > pivot){
+                bottom++;
+            }
+            while(inv[top].getItemName() < pivot){
+                top--;
+            }
+            if(bottom < top){
+                temp = inv[bottom];
+                inv[bottom] = inv[top];
+                inv[top] = temp;
+                bottom++;
+                top--;
+            }
+            else{
+                cutPoint = top;
+                break;
+            }
+        }
+    }
+    else if(choice == 3){
+        int pivot = inv[first].getQuantity();
+        while(true){
+            //decending
+            while(inv[bottom].getQuantity() > pivot){
+                bottom++;
+            }
+            while(inv[top].getQuantity() < pivot){
+                top--;
+            }
+            if(bottom < top){
+                temp = inv[bottom];
+                inv[bottom] = inv[top];
+                inv[top] = temp;
+                bottom++;
+                top--;
+            }
+            else{
+                cutPoint = top;
+                break;
+            }
+        }
+    }
+    else if(choice == 4){
+        double pivot = inv[first].getCost();
+        while(true){
+            //decending
+            while(inv[bottom].getCost() > pivot){
+                bottom++;
+            }
+            while(inv[top].getCost() < pivot){
+                top--;
+            }
+            if(bottom < top){
+                temp = inv[bottom];
+                inv[bottom] = inv[top];
+                inv[top] = temp;
+                bottom++;
+                top--;
+            }
+            else{
+                cutPoint = top;
+                break;
+            }
+        }
+    }
+    else if(choice == 5){
+        string pivot = inv[first].getItemLocation();
+        while(true){
+            //decending
+            while(inv[bottom].getItemLocation() > pivot){
+                bottom++;
+            }
+            while(inv[top].getItemLocation() < pivot){
+                top--;
+            }
+            if(bottom < top){
+                temp = inv[bottom];
+                inv[bottom] = inv[top];
+                inv[top] = temp;
+                bottom++;
+                top--;
+            }
+            else{
+                cutPoint = top;
+                break;
+            }
+        }
+    }
+    return cutPoint;
 }
 
 

@@ -22,7 +22,7 @@ void quickSortReservation(vector<Reservation> &reservations, int bottom, int top
 
 int binarySearchByName(const vector<User> &users, const string &name);
 int binarySearchByAirplaneID(const vector<Airline> &airlines, const string &AirplaneID);
-int binarySearchByReservationID(std::vector<Reservation> &reservations, const std::string &ReservationID);
+int binarySearchByReservationID(vector<Reservation> &reservations, const string &ReservationID);
 
 class User
 {
@@ -53,22 +53,16 @@ public:
         return Email;
     }
 
-    void displayBodo() const
+    void display() const
     {
-        cout << "Name: " << Name << endl;
-        cout << "Identification Number: " << IC << endl;
-        cout << "Phone Number: " << Phone << endl;
-        cout << "Email: " << Email << endl;
+        cout << setw(25) << "Name: " << Name << endl;
+        cout << setw(42) << "Identification Number: " << IC << endl;
+        cout << setw(33) << "Phone Number: " << Phone << endl;
+        cout << setw(26) << "Email: " << Email << endl;
     }
 
-    void display(int x, vector<User> &users) const
+    void createNewUser(string name, string ic, string phone, string email)
     {
-
-        quickSortUsers(users, 0, users.size() - 1, x);
-        cout << "Name: " << Name << endl;
-        cout << "Identification Number: " << IC << endl;
-        cout << "Phone Number: " << Phone << endl;
-        cout << "Email: " << Email << endl;
     }
 };
 
@@ -140,12 +134,11 @@ public:
         return Company;
     }
 
-    void display(int x, vector<Airline> &airlines) const
+    void display()
     {
-        quickSortAirline(airlines, 0, airlines.size() - 1, x);
-        cout << "AirplaneID: " << AirplaneID << endl;
-        cout << "Plane Max Capacity: " << Capacity << endl;
-        cout << "Plane Brand: " << Company << endl;
+        cout << setw(25) << "AirplaneID: " << AirplaneID << endl;
+        cout << setw(25) << "Plane Max Capacity: " << Capacity << endl;
+        cout << setw(25) << "Plane Brand: " << Company << endl;
     }
 };
 
@@ -226,20 +219,14 @@ public:
         return Class;
     }
 
-    void display(int x, vector<Reservation> &reservations) const
+    void display()
     {
-        quickSortReservation(reservations, 0, reservations.size() - 1, x);
-        cout << "ReservationID: " << ReservationID << endl;
-        cout << "Estimated Departure Time: " << DepartureTime << endl;
-        cout << "Estimated Arrival Time: " << ArrivalTime << endl;
-        cout << "Reservation Date: " << Date << endl;
-        cout << "Arrival Destination: " << Location << endl;
-        cout << "Class: " << Class << endl;
-    }
-
-    void displayLocation() const
-    {
-        cout << Location << " ";
+        cout << setw(25) << "ReservationID: " << ReservationID << endl;
+        cout << setw(25) << "Estimated Departure Time: " << DepartureTime << endl;
+        cout << setw(25) << "Estimated Arrival Time: " << ArrivalTime << endl;
+        cout << setw(25) << "Reservation Date: " << Date << endl;
+        cout << setw(25) << "Arrival Destination: " << Location << endl;
+        cout << setw(25) << "Class: " << Class << endl;
     }
 };
 
@@ -296,13 +283,26 @@ void quickSortReservation(vector<Reservation> &reservations, int bottom, int top
     }
 }
 
+class ReservationOptions
+{
+public:
+    string optionsLocation;
+    string optionsDepartureTime;
+    string optionsArrivalTime;
+    string optionsDate;
+    string optionsDepartGate;
+    string optionsArrivalGate;
+    string optionsClass;
+    ReservationOptions(string location, string departureTime, string arrivalTime, string date, string departGate, string arrivalGate, string optionsClass2) : optionsLocation(location), optionsDepartureTime(departureTime), optionsArrivalTime(arrivalTime), optionsDate(date), optionsDepartGate(departGate), optionsArrivalGate(arrivalGate), optionsClass(optionsClass2) {}
+};
+
 class Init
 {
 public:
     void
     displayMenu()
     {
-        system("cls");     // to clear the mess
+        // system("cls");     // to clear the mess
         cout << "\033[1m"; // Start bold text
         cout << endl;
         cout << "                                   |" << endl;
@@ -351,66 +351,84 @@ public:
 
     void displaySortingUser()
     {
-        cout << "Sorting User" << endl;
-        cout << "[1] By Name" << endl;
-        cout << "[2] By IC" << endl;
-        cout << "[3] By Phone" << endl;
-        cout << "[4] By Email" << endl;
-        cout << "Option: ";
+        cout << setw(55) << "_____________________________________" << endl;
+        cout << setw(56) << "|      Sorting User                   |" << endl;
+        cout << setw(56) << "|      [1] By Name                    |" << endl;
+        cout << setw(56) << "|      [2] By IC                      |" << endl;
+        cout << setw(56) << "|      [3] By Phone                   |" << endl;
+        cout << setw(56) << "|      [4] By Email                   |" << endl;
+        cout << setw(56) << "|_____________________________________|" << endl;
+        cout << endl;
+        cout << setw(37) << "Option: ";
     }
 
     void displaySortingAirline()
     {
-        cout << "Sorting Airline" << endl;
-        cout << "[1] By AirplaneID" << endl;
-        cout << "[2] By Capacity" << endl;
-        cout << "[3] By Company" << endl;
-        cout << "[4] By Class" << endl;
-        cout << "[5] By Food/Beverage" << endl;
-        cout << "Option: ";
+        cout << setw(55) << "_____________________________________" << endl;
+        cout << setw(56) << "|      Sorting Airline                |" << endl;
+        cout << setw(56) << "|      [1] By AirplaneID              |" << endl;
+        cout << setw(56) << "|      [2] By Capacity                |" << endl;
+        cout << setw(56) << "|      [3] By Company                 |" << endl;
+        cout << setw(56) << "|      [4] By Class                   |" << endl;
+        cout << setw(56) << "|      [5] By Food/Beverage           |" << endl;
+        cout << setw(56) << "|_____________________________________|" << endl;
+        cout << endl;
+        cout << setw(37) << "Option: ";
     }
 
     void displaySortingReservation()
     {
-        cout << "Sorting Reservation" << endl;
-        cout << "[1] By ReservationID" << endl;
-        cout << "[2] By DepartureTime" << endl;
-        cout << "[3] By ArrivalTime" << endl;
-        cout << "[4] By Date" << endl;
-        cout << "[5] By Location" << endl;
-        cout << "Option: ";
+        cout << setw(55) << "_____________________________________" << endl;
+        cout << setw(56) << "|      Sorting Reservation            |" << endl;
+        cout << setw(56) << "|      [1] By ReservationID           |" << endl;
+        cout << setw(56) << "|      [2] By DepartureTime           |" << endl;
+        cout << setw(56) << "|      [3] By ArrivalTime             |" << endl;
+        cout << setw(56) << "|      [4] By Date                    |" << endl;
+        cout << setw(56) << "|      [5] By Location                |" << endl;
+        cout << setw(56) << "|_____________________________________|" << endl;
+        cout << endl;
+        cout << setw(37) << "Option: ";
     }
 
     void displaySeachingUser()
     {
-        cout << "Searching User" << endl;
-        cout << "[1] By Name" << endl;
-        cout << "[2] By IC" << endl;
-        cout << "[3] By Phone" << endl;
-        cout << "[4] By Email" << endl;
-        cout << "Option: ";
+        cout << setw(55) << "_____________________________________" << endl;
+        cout << setw(56) << "|      Searching User                 |" << endl;
+        cout << setw(56) << "|      [1] By Name                    |" << endl;
+        cout << setw(56) << "|      [2] By IC                      |" << endl;
+        cout << setw(56) << "|      [3] By Phone                   |" << endl;
+        cout << setw(56) << "|      [4] By Email                   |" << endl;
+        cout << setw(56) << "|_____________________________________|" << endl;
+        cout << endl;
+        cout << setw(37) << "Option: ";
     }
 
     void displaySeachingAirline()
     {
-        cout << "Searching Airline" << endl;
-        cout << "[1] By AirplaneID" << endl;
-        cout << "[2] By Capacity" << endl;
-        cout << "[3] By Company" << endl;
-        cout << "[4] By Class" << endl;
-        cout << "[5] By Food/Beverage" << endl;
-        cout << "Option: ";
+        cout << setw(55) << "_____________________________________" << endl;
+        cout << setw(56) << "|      Searching Airline              |" << endl;
+        cout << setw(56) << "|      [1] By AirplaneID              |" << endl;
+        cout << setw(56) << "|      [2] By Capacity                |" << endl;
+        cout << setw(56) << "|      [3] By Company                 |" << endl;
+        cout << setw(56) << "|      [4] By Class                   |" << endl;
+        cout << setw(56) << "|      [5] By Food/Beverage           |" << endl;
+        cout << setw(56) << "|_____________________________________|" << endl;
+        cout << endl;
+        cout << setw(37) << "Option: ";
     }
 
     void displaySeachingReservation()
     {
-        cout << "Searching Reservation" << endl;
-        cout << "[1] By ReservationID" << endl;
-        cout << "[2] By DepartureTime" << endl;
-        cout << "[3] By ArrivalTime" << endl;
-        cout << "[4] By Date" << endl;
-        cout << "[5] By Location" << endl;
-        cout << "Option: ";
+        cout << setw(55) << "_____________________________________" << endl;
+        cout << setw(56) << "|      Searching Reservation          |" << endl;
+        cout << setw(56) << "|      [1] By ReservationID           |" << endl;
+        cout << setw(56) << "|      [2] By DepartureTime           |" << endl;
+        cout << setw(56) << "|      [3] By ArrivalTime             |" << endl;
+        cout << setw(56) << "|      [4] By Date                    |" << endl;
+        cout << setw(56) << "|      [5] By Location                |" << endl;
+        cout << setw(56) << "|_____________________________________|" << endl;
+        cout << endl;
+        cout << setw(37) << "Option: ";
     }
 
     void makeReservation()
@@ -445,14 +463,10 @@ public:
         cout << setw(60) << "Welcome to Capybara International Airport (CiA)" << endl;
         cout << setw(45) << "Where to travel?:  " << endl
              << endl;
-
-        cout << "Welcome to Capybara International Airport (CiA)" << endl;
-        cout << "Where to travel?:  " << endl
-             << endl;
     }
 };
 
-void LoadFiles(vector<User> &users, vector<Airline> &airline, vector<Reservation> &reservation)
+void LoadFiles(vector<User> &users, vector<Airline> &airline, vector<Reservation> &reservation, vector<ReservationOptions> &reservationOption)
 {
     ifstream userFile("data/user.csv");
     string lineUser;
@@ -509,9 +523,31 @@ void LoadFiles(vector<User> &users, vector<Airline> &airline, vector<Reservation
         reservation.push_back(Reservation(reservationId, departureTime, arrivalTime, date, location, Class));
     }
     reservationFile.close();
+
+    ifstream optionsReservationFile("data/options.csv");
+    string lineOptionsReservation;
+
+    getline(optionsReservationFile, lineOptionsReservation);
+
+    while (getline(optionsReservationFile, lineOptionsReservation))
+    {
+        string optionsLocation, optionsDepartureTime, optionsArrivalTime, optionsDate, optionsDepartGate, optionsArrivalGate, optionsClass;
+        stringstream ss(lineOptionsReservation); // get the whole line
+
+        getline(ss, optionsLocation, ',');
+        getline(ss, optionsDepartureTime, ',');
+        getline(ss, optionsArrivalTime, ',');
+        getline(ss, optionsDate, ',');
+        getline(ss, optionsDepartGate, ',');
+        getline(ss, optionsArrivalGate, ',');
+        getline(ss, optionsClass, ',');
+
+        reservationOption.push_back(ReservationOptions(optionsLocation, optionsDepartureTime, optionsArrivalTime, optionsDate, optionsDepartGate, optionsArrivalGate, optionsClass));
+    }
+    optionsReservationFile.close();
 };
 
-int binarySearchByName(const std::vector<User> &users, const std::string &name)
+int binarySearchByName(const vector<User> &users, const string &name)
 {
     int low = 0;
     int high = users.size() - 1;
@@ -537,7 +573,7 @@ int binarySearchByName(const std::vector<User> &users, const std::string &name)
     return -1; // User not found
 }
 
-int binarySearchByIC(const std::vector<User> &users, const std::string &IC)
+int binarySearchByIC(const vector<User> &users, const string &IC)
 {
     int low = 0;
     int high = users.size() - 1;
@@ -563,7 +599,7 @@ int binarySearchByIC(const std::vector<User> &users, const std::string &IC)
     return -1; // User not found
 }
 
-int binarySearchByPhone(const std::vector<User> &users, const std::string &Phone)
+int binarySearchByPhone(const vector<User> &users, const string &Phone)
 {
     int low = 0;
     int high = users.size() - 1;
@@ -589,7 +625,7 @@ int binarySearchByPhone(const std::vector<User> &users, const std::string &Phone
     return -1; // User not found
 }
 
-int binarySearchByEmail(const std::vector<User> &users, const std::string &Email)
+int binarySearchByEmail(const vector<User> &users, const string &Email)
 {
     int low = 0;
     int high = users.size() - 1;
@@ -615,7 +651,7 @@ int binarySearchByEmail(const std::vector<User> &users, const std::string &Email
     return -1; // User not found
 }
 
-int binarySearchByAirplaneID(std::vector<Airline> &airlines, const std::string &AirplaneID)
+int binarySearchByAirplaneID(vector<Airline> &airlines, const string &AirplaneID)
 {
     int low = 0;
     int high = airlines.size() - 1;
@@ -641,7 +677,7 @@ int binarySearchByAirplaneID(std::vector<Airline> &airlines, const std::string &
     return -1; // User not found
 }
 
-int binarySearchByCapacity(std::vector<Airline> &airlines, const std::string &Capacity)
+int binarySearchByCapacity(vector<Airline> &airlines, const string &Capacity)
 {
     int low = 0;
     int high = airlines.size() - 1;
@@ -667,7 +703,7 @@ int binarySearchByCapacity(std::vector<Airline> &airlines, const std::string &Ca
     return -1; // User not found
 }
 
-int binarySearchByCompany(std::vector<Airline> &airlines, const std::string &Company)
+int binarySearchByCompany(vector<Airline> &airlines, const string &Company)
 {
     int low = 0;
     int high = airlines.size() - 1;
@@ -693,7 +729,7 @@ int binarySearchByCompany(std::vector<Airline> &airlines, const std::string &Com
     return -1; // User not found
 }
 
-int binarySearchByReservationID(std::vector<Reservation> &reservations, const std::string &ReservationID)
+int binarySearchByReservationID(vector<Reservation> &reservations, const string &ReservationID)
 {
     int low = 0;
     int high = reservations.size() - 1;
@@ -719,7 +755,7 @@ int binarySearchByReservationID(std::vector<Reservation> &reservations, const st
     return -1; // User not found
 }
 
-int binarySearchByDepartureTime(std::vector<Reservation> &reservations, const std::string &DepartureTime)
+int binarySearchByDepartureTime(vector<Reservation> &reservations, const string &DepartureTime)
 {
     int low = 0;
     int high = reservations.size() - 1;
@@ -745,7 +781,7 @@ int binarySearchByDepartureTime(std::vector<Reservation> &reservations, const st
     return -1; // User not found
 }
 
-int binarySearchByArrivalTime(std::vector<Reservation> &reservations, const std::string &ArrivalTime)
+int binarySearchByArrivalTime(vector<Reservation> &reservations, const string &ArrivalTime)
 {
     int low = 0;
     int high = reservations.size() - 1;
@@ -771,7 +807,7 @@ int binarySearchByArrivalTime(std::vector<Reservation> &reservations, const std:
     return -1; // User not found
 }
 
-int binarySearchByDate(std::vector<Reservation> &reservations, const std::string &Date)
+int binarySearchByDate(vector<Reservation> &reservations, const string &Date)
 {
     int low = 0;
     int high = reservations.size() - 1;
@@ -797,7 +833,7 @@ int binarySearchByDate(std::vector<Reservation> &reservations, const std::string
     return -1; // User not found
 }
 
-int binarySearchByLocation(std::vector<Reservation> &reservations, const std::string &Location)
+int binarySearchByLocation(vector<Reservation> &reservations, const string &Location)
 {
     int low = 0;
     int high = reservations.size() - 1;
@@ -829,14 +865,17 @@ int main()
     vector<User> users;
     vector<Airline> airlines;
     vector<Reservation> reservations;
+    vector<ReservationOptions> reservationOptions;
+    LoadFiles(users, airlines, reservations, reservationOptions);
 
-    LoadFiles(users, airlines, reservations);
+    cout << reservations.size();
 
     Init init;
     int option;
     while (true)
     {
         init.displayMenu();
+
         cin >> option;
         cout << endl;
 
@@ -851,18 +890,127 @@ int main()
         {
             init.makeReservation();
             int i = 1;
-            for (const auto &reservation : reservations)
+            int selection = 0;
+            string optionsLocation, optionsDepartureTime, optionsArrivalTime, optionsDate, optionsDepartGate, optionsArrivalGate, optionsClass;
+            for (int j = 0; j < reservationOptions.size(); j++)
             {
                 cout << "[" << i << "] ";
-                reservation.displayLocation();
-
-                cout << endl
+                cout << reservationOptions[j].optionsLocation << endl
                      << "--------------------------" << endl;
                 i++;
             }
 
+            cout << "\nWhere do you want to go?" << endl;
             cout << "Select: ";
-            cin >> option;
+            cin >> selection;
+            cout << endl;
+
+            optionsLocation = reservationOptions[selection - 1].optionsLocation;
+            optionsDepartGate = reservationOptions[selection - 1].optionsDepartGate;
+            optionsArrivalGate = reservationOptions[selection - 1].optionsArrivalGate;
+
+            i = 1;
+            for (int j = 0; j < reservationOptions.size(); j++)
+            {
+                cout << "[" << i << "] ";
+                cout << reservationOptions[j].optionsDepartureTime << endl
+                     << "--------------------------" << endl;
+                i++;
+            }
+
+            cout << "\nWhat will be the departure time?" << endl;
+            cout << "Select: ";
+            cin >> selection;
+            cout << endl;
+
+            optionsDepartureTime = reservationOptions[selection - 1].optionsDepartureTime;
+            i = 1;
+            for (int j = 0; j < reservationOptions.size(); j++)
+            {
+                cout << "[" << i << "] ";
+                cout << reservationOptions[j].optionsArrivalTime << endl
+                     << "--------------------------" << endl;
+                i++;
+            }
+
+            cout << "\nWhat will be the arrival time?" << endl;
+            cout << "Select: ";
+            cin >> selection;
+            cout << endl;
+
+            optionsArrivalTime = reservationOptions[selection - 1].optionsArrivalTime;
+            i = 1;
+            for (int j = 0; j < reservationOptions.size(); j++)
+            {
+                cout << "[" << i << "] ";
+                cout << reservationOptions[j].optionsDate << endl
+                     << "--------------------------" << endl;
+                i++;
+            }
+
+            cout << "\nWhat will be date?" << endl;
+
+            cout << "Select: ";
+            cin >> selection;
+            cout << endl;
+
+            optionsDate = reservationOptions[selection - 1].optionsDate;
+
+            i = 1;
+
+            for (int j = 0; j < reservationOptions.size(); j++)
+            {
+                cout << "[" << i << "] ";
+                cout << reservationOptions[j].optionsClass << endl
+                     << "--------------------------" << endl;
+                i++;
+            }
+
+            cout << "\nWhat will be the class?" << endl;
+            cout << "Select: ";
+            cin >> selection;
+            cout << endl;
+
+            optionsClass = reservationOptions[selection - 1].optionsClass;
+
+            string name, ic, phone, email, reservationID;
+
+            reservationID = "R" + to_string(reservations.size() + 1);
+
+            reservations.push_back(Reservation(reservationID, optionsDepartureTime, optionsArrivalTime, optionsDate, optionsLocation, optionsClass));
+
+            cin.ignore();
+            cout << "Passenger's Info" << endl
+                 << endl;
+            cout << "Insert Name: ";
+            getline(cin, name);
+            cout << "Insert IC: ";
+            getline(cin, ic);
+            cout << "Insert Phone: ";
+            getline(cin, phone);
+            cout << "Insert Email: ";
+            getline(cin, email);
+
+            users.push_back(User(name, ic, phone, email));
+
+            ofstream fileReservation("data/reservation.csv", ios::app);
+            fileReservation.seekp(0, ios::end);
+            fileReservation << endl;
+
+            fileReservation
+                << reservationID << "," << optionsDepartureTime << "," << optionsArrivalTime << "," << optionsDate << "," << optionsLocation << "," << optionsClass;
+
+            fileReservation.close();
+
+            ofstream fileUsers("data/user.csv", ios::app);
+
+            fileUsers.seekp(0, ios::end);
+            fileUsers << endl;
+
+            fileUsers
+                << name << "," << ic << "," << phone << "," << email << "," << reservationID;
+
+            fileUsers.close();
         }
         break;
         case 1:
@@ -871,8 +1019,8 @@ int main()
             init.displayReservationDashboard();
 
             cout << endl
-                 << "Which operation would you like to choose?" << endl;
-            cout << "Option: ";
+                 << setw(57) << "Which operation would you like to choose?" << endl;
+            cout << setw(37) << "Option: ";
             cin >> choice;
             cout << endl;
 
@@ -888,15 +1036,20 @@ int main()
                         init.displaySelection();
                         cin >> selection;
                         cout << endl;
+
                         if (selection == 1)
                         {
                             init.displaySortingUser();
                             cin >> choice;
                             cout << endl;
 
-                            for (const auto &user : users)
+                            int i = 1;
+
+                            quickSortUsers(users, 0, users.size() - 1, choice);
+
+                            for (int j = 0; j < users.size(); j++)
                             {
-                                user.display(choice, users);
+                                users[j].display();
                                 cout << "----------------------" << endl;
                             }
                         }
@@ -911,26 +1064,26 @@ int main()
                             {
                                 string username;
                                 int found = 0;
-                                cout << "Insert the username: ";
+                                cout << setw(42) << "Insert the username: ";
 
                                 getline(cin, username);
                                 quickSortUsers(users, 0, users.size() - 1, 1);
                                 found = binarySearchByName(users, username);
 
-                                users[found].displayBodo();
+                                users[found].display();
                             }
 
                             if (choice == 2)
                             {
                                 string IC;
                                 int found = 0;
-                                cout << "Insert the IC: ";
+                                cout << setw(42) << "Insert the IC: ";
 
                                 getline(cin, IC);
                                 quickSortUsers(users, 0, users.size() - 1, 1);
                                 found = binarySearchByIC(users, IC);
 
-                                users[found].displayBodo();
+                                users[found].display();
                             }
 
                             if (choice == 3)
@@ -943,7 +1096,7 @@ int main()
                                 quickSortUsers(users, 0, users.size() - 1, 1);
                                 found = binarySearchByPhone(users, Phone);
 
-                                users[found].displayBodo();
+                                users[found].display();
                             }
 
                             if (choice == 4)
@@ -956,7 +1109,7 @@ int main()
                                 quickSortUsers(users, 0, users.size() - 1, 1);
                                 found = binarySearchByEmail(users, Email);
 
-                                users[found].displayBodo();
+                                users[found].display();
                             }
                         }
                     }
@@ -972,10 +1125,12 @@ int main()
                             cin >> choice;
                             cout << endl;
 
-                            for (const auto &airline : airlines)
+                            quickSortAirline(airlines, 0, airlines.size() - 1, choice);
+
+                            for (int j = 0; j < airlines.size(); j++)
                             {
-                                airline.display(choice, airlines);
-                                cout << "--------------------" << endl;
+                                airlines[j].display();
+                                cout << "----------------------" << endl;
                             }
                         }
                         else if (selection == 2)
@@ -994,7 +1149,7 @@ int main()
                                 quickSortAirline(airlines, 0, airlines.size() - 1, 1);
                                 found = binarySearchByAirplaneID(airlines, AirplaneID);
 
-                                users[found].displayBodo();
+                                airlines[found].display();
                             }
 
                             if (choice == 2)
@@ -1007,7 +1162,7 @@ int main()
                                 quickSortAirline(airlines, 0, airlines.size() - 1, 1);
                                 found = binarySearchByCapacity(airlines, Capacity);
 
-                                users[found].displayBodo();
+                                airlines[found].display();
                             }
 
                             if (choice == 3)
@@ -1020,7 +1175,7 @@ int main()
                                 quickSortAirline(airlines, 0, airlines.size() - 1, 1);
                                 found = binarySearchByCompany(airlines, Company);
 
-                                users[found].displayBodo();
+                                airlines[found].display();
                             }
                         }
                     }
@@ -1037,10 +1192,13 @@ int main()
                             cin >> choice;
                             cout << endl;
 
-                            for (const auto &reservation : reservations)
+                            cout << reservations.size();
+                            quickSortReservation(reservations, 0, reservations.size() - 1, choice);
+
+                            for (int j = 0; j < reservations.size(); j++)
                             {
-                                reservation.display(choice, reservations);
-                                cout << "--------------------" << endl;
+                                reservations[j].display();
+                                cout << "----------------------" << endl;
                             }
                         }
                         else if (selection == 2)
@@ -1059,33 +1217,33 @@ int main()
                                 quickSortReservation(reservations, 0, reservations.size() - 1, 1);
                                 found = binarySearchByReservationID(reservations, ReservationID);
 
-                                users[found].displayBodo();
+                                reservations[found].display();
                             }
 
                             if (choice == 2)
                             {
                                 string DepartureTime;
                                 int found = 0;
-                                cout << "Insert the DepartureTime: ";
+                                cout << "Insert the Departure Time: ";
                                 cin.ignore();
                                 getline(cin, DepartureTime);
                                 quickSortReservation(reservations, 0, reservations.size() - 1, 1);
                                 found = binarySearchByDepartureTime(reservations, DepartureTime);
 
-                                users[found].displayBodo();
+                                reservations[found].display();
                             }
 
                             if (choice == 3)
                             {
                                 string ArrivalTime;
                                 int found = 0;
-                                cout << "Insert the ArrivalTime: ";
+                                cout << "Insert the Arrival Time: ";
                                 cin.ignore();
                                 getline(cin, ArrivalTime);
                                 quickSortReservation(reservations, 0, reservations.size() - 1, 1);
                                 found = binarySearchByArrivalTime(reservations, ArrivalTime);
 
-                                users[found].displayBodo();
+                                reservations[found].display();
                             }
 
                             if (choice == 4)
@@ -1098,7 +1256,7 @@ int main()
                                 quickSortReservation(reservations, 0, reservations.size() - 1, 1);
                                 found = binarySearchByDate(reservations, Date);
 
-                                users[found].displayBodo();
+                                reservations[found].display();
                             }
 
                             if (choice == 5)
@@ -1111,7 +1269,7 @@ int main()
                                 quickSortReservation(reservations, 0, reservations.size() - 1, 1);
                                 found = binarySearchByLocation(reservations, Location);
 
-                                users[found].displayBodo();
+                                reservations[found].display();
                             }
                         }
                     }
@@ -1122,62 +1280,6 @@ int main()
                 }
             }
             break;
-
-            case 2:
-            {
-                int choice;
-                init.displaySelection();
-                cin >> choice;
-                cout << endl;
-
-                while (choice != 3)
-                {
-                    if (choice == 1)
-                    {
-                        init.displaySortingAirline();
-                        cin >> choice;
-                        cout << endl;
-                    }
-                    else if (choice == 2)
-                    {
-                        init.displaySeachingAirline();
-                        cin >> choice;
-                        cout << endl;
-                    }
-                    else
-                        cout << "Invalid Choice" << endl;
-                    break;
-                }
-            }
-            break;
-
-            case 3:
-            {
-                int choice = 0;
-                init.displaySelection();
-                cin >> choice;
-                cout << endl;
-
-                while (choice != 3)
-                {
-                    if (choice == 1)
-                    {
-                        init.displaySortingReservation();
-                        cin >> choice;
-                        cout << endl;
-                    }
-                    else if (choice == 2)
-                    {
-                        init.displaySeachingReservation();
-                        cin >> choice;
-                        cout << endl;
-                    }
-                    else
-                        cout << "Invalid Choice" << endl;
-                    break;
-                }
-                break;
-            }
             default:
                 cout << "Invalid Choice" << endl;
                 return 1;

@@ -1,0 +1,7 @@
+Location, DepartureTime, ArrivalTime, Date, DepartGate, ArrivalGate, Class
+New York to Los Angeles,08:00 AM,10:30 AM,2023-04-15,Gate A1,Gate B3,First Class
+Chicago to Miami,12:45 PM,03:15 PM,2023-05-22,Gate C2,Gate D1,Economy
+Seattle to Denver,04:30 PM,06:45 PM,2023-06-10,Gate E4,Gate F2,Business Suite
+San Francisco to Houston,09:15 AM,11:45 AM,2023-07-03,Gate B1,Gate C3,Business
+Atlanta to Las Vegas,02:30 PM,05:00 PM,2023-08-18,Gate D2,Gate E1,Premium Economy
+Boston to Orlando,06:20 PM,08:40 PM,2023-09-05,Gate F3,Gate A2,Private Jet

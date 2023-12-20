@@ -1,5 +1,5 @@
-# Banking System
-## Prepared By
+# Assignment 1
+## Prepared By DACCrew
 | Name         | Matric No    |
 |--------------|--------------|
 | Chai Yu Tong  | A22EC0145  |
@@ -45,21 +45,21 @@ stores a list of user name, account number, IC and balance
 Sorting
 The sorting function is defined to sort an array of ‘Bank’ objects on different criteria. These functions use various partitioning techniques, such as quickSort.
 
-partitionName
+'partitionName'
 partitions the array based on the name attributes during sorting
-sortByName
+'sortByName'
 sorts the array ‘Bank’ objects based on the account name
-partitionIC
+'partitionIC'
 partitions the array based on the IC attributes during sorting
-sortByIC
+'sortByIC'
 sorts the array ‘Bank’ objects based on the IC
-partitionAccNum
+'partitionAccNum'
 partitions the array based on the account number attributes during sorting
-sortByAccNum
+'sortByAccNum'
 sorts the array ‘Bank’ objects based on the account number
-partitionBal
+'partitionBal'
 partitions the array based on the balance attributes during sorting
-sortByBal
+'sortByBal'
 sorts the array ‘Bank’ objects based on the account balance
 
 
@@ -82,11 +82,56 @@ Describe the design of the system classes, if applicable.
 ### 2.2 System Algorithm Design
 Explain the high-level design of algorithms used in your system.
 
+1. Start. 
+2. Display menu.
+3. User input choice
+4. If choice == 1
+   4.1 Display Sort by name<br>
+       4.1.1 Else if choice == 2 <br>
+             4.1.1.1 Display Sort by Account Number
+       4.1.2 Else if choice == 3
+             4.1.2.1 Display Sort by IC Number
+       4.1.3 Else if choice == 4
+             4.1.3.1 Display Sort by Account Balance
+       4.1.4 Else if choice == 5
+             4.1.4.1 Display Search by Name
+       4.1.5 Else if choice == 6
+             4.1.5.1 Display Search by Account Number
+       4.1.6 Else if choice == 7
+             4.1.6.1 Display Search by IC Number
+       4.1.7 Else 
+             4.1.7.1 Exit
+5. End
+
+
 ### 2.3 Data Structure Operation
 Discuss how data structures are used in your project.
 
 #### 2.3.1 Sorting Process
-Explain the sorting process in your system.
+As for the sorting process, we will use a quicksort method in the banking system. Quicksort is a divide-and-conquer algorithm that involves choosing a pivot and then partitioning the array around the pivot. Quicksort involves moving elements less than the pivot value on the left, while items bigger than the pivot will be on the right. Thus, the pivot is now in the correctly sorted position. 
+
+Below is the description of the key components of each sorting function and how they contribute to organizing the data.
+##### 1. Sorting by Name (sortByName()):
+- Algorithm: Quicksort
+- Description: This function implements the quicksort algorithm to sort an array of Bank objects based on the accName attribute.
+- Parameters: bl(The array of Bank objects.), first(The starting index of the subarray to be sorted), and last (The ending index of the subarray to be sorted)
+- Recursive Approach: The function recursively divides the array into subarrays and sorts them based on the names of the account holders.
+
+##### 2. Sorting by Account Number (sortByAccNum()):
+- Algorithm: Quicksort
+- Description: Like sortByName, this function sorts the array based on the accNum attribute using the quicksort algorithm.
+- Sorting by Account Number (sortByAccNum()):
+- Algorithm: Quicksort
+- Description: Like sortByName, this function sorts the array based on the  ic attribute using the quicksort algorithm.
+
+##### 3. Sorting by Balance (sortByBal()):
+- Algorithm: Quicksort
+- Description: This function uses a modified quicksort algorithm to sort the array based on the accBalance attribute.
+Handling Equal Balances: It considers cases where balances are equal by comparing the account names to maintain stability in sorting.
+
+##### 4. Partitioning Functions (partitionName(), partitionIc(), partitionAccNum(), partitionBal()):
+- Description: These functions are integral to the quicksort algorithm. They determine a pivot element. In this case, the first element became the pivot. The elements in the Bank array that are less than the pivot are moved to be before the pivot, and elements bigger than the pivot value move to be after the pivot.
+
 
 #### 2.3.2 Searching Process
 Describe the searching process in your system.
