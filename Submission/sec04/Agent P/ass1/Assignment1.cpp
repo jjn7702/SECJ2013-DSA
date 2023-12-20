@@ -78,7 +78,6 @@ void SearchingName(Candidate c[],int size)
     bool found = false;
     cout<<"Please enter the name you want to search for : ";
     cin>>key;
-
     for(int i=0;i<key.size();i++)
     {
         key[i] = tolower(key[i]);
@@ -200,6 +199,7 @@ void menu(int &opt1,int &opt2,int &opt3)
     cout<<"[1] Sort \n[2] Search"<<endl;
     cout<<"You want to do sorting or searching : ";
     cin>>opt1;
+    cout<<endl;
     }while(opt1<1 || opt1>3);
     
     switch(opt1)
@@ -208,17 +208,20 @@ void menu(int &opt1,int &opt2,int &opt3)
                  cout<<"[1] Name \n[2] Faculty \n[3] IC \n[4] Age \n[5] ID \n[6] Vote Count"<<endl;
                  cout<<"Please choose the sorting category : ";
                  cin>>opt2;
+                 cout<<endl;
                  }while(opt2<1 || opt2>6);
                  do{
                     cout<<"[1] Ascending Order \n[2] Descending Order"<<endl;
                     cout<<"You want ascending or desending order : ";
                     cin>>opt3;
+                    cout<<endl;
                 }while(opt3<1 || opt3>2);
                  break;
         case 2 : do{
                  cout<<"[1] Name \n[2] Faculty \n[3] IC \n[4] Age \n[5] ID \n[6] Vote Count"<<endl;
                  cout<<"Please choose the searching category : ";
                  cin>>opt2;
+                 cout<<endl;
                  }while(opt2<1 || opt2>6);
                  break;
 
