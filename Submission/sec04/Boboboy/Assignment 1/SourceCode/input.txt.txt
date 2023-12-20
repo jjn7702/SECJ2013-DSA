@@ -1,0 +1,7 @@
+D,chicken,food,12.00
+B,milo,drinks,3.00
+G,water,drinks,1.00
+A,lamb,food,14.50
+E,friedrice,food,8.00
+C,spaghetti,food,9.50
+F,cola,drinks,2.00
