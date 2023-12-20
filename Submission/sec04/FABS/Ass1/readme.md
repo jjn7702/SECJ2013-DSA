@@ -54,7 +54,7 @@ During execution, this program will display a menu with options for viewing all 
 
 ## Design Description 💹
 
-MAIN FUNCTION
+#MAIN FUNCTION
 Read customer information from an input file (customer.txt).
 Then, show the menu for view all data of customers option, sorting (ascending) option, searching option and exit option.
 2.1 Option 1: Display all data of customers from input file
