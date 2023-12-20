@@ -110,27 +110,8 @@ Discuss how data structures are used in your project.
 #### 2.3.1 Sorting Process
 As for the sorting process, we will use a quicksort method in the banking system. Quicksort is a divide-and-conquer algorithm that involves choosing a pivot and then partitioning the array around the pivot. Quicksort involves moving elements less than the pivot value on the left, while items bigger than the pivot will be on the right. Thus, the pivot is now in the correctly sorted position. 
 
-Below is the description of the key components of each sorting function and how they contribute to organizing the data.
-##### 1. Sorting by Name (sortByName()):
-- Algorithm: Quicksort
-- Description: This function implements the quicksort algorithm to sort an array of Bank objects based on the accName attribute.
-- Parameters: bl(The array of Bank objects.), first(The starting index of the subarray to be sorted), and last (The ending index of the subarray to be sorted)
-- Recursive Approach: The function recursively divides the array into subarrays and sorts them based on the names of the account holders.
-
-##### 2. Sorting by Account Number (sortByAccNum()):
-- Algorithm: Quicksort
-- Description: Like sortByName, this function sorts the array based on the accNum attribute using the quicksort algorithm.
-- Sorting by Account Number (sortByAccNum()):
-- Algorithm: Quicksort
-- Description: Like sortByName, this function sorts the array based on the  ic attribute using the quicksort algorithm.
-
-##### 3. Sorting by Balance (sortByBal()):
-- Algorithm: Quicksort
-- Description: This function uses a modified quicksort algorithm to sort the array based on the accBalance attribute.
-Handling Equal Balances: It considers cases where balances are equal by comparing the account names to maintain stability in sorting.
-
-##### 4. Partitioning Functions (partitionName(), partitionIc(), partitionAccNum(), partitionBal()):
-- Description: These functions are integral to the quicksort algorithm. They determine a pivot element. In this case, the first element became the pivot. The elements in the Bank array that are less than the pivot are moved to be before the pivot, and elements bigger than the pivot value move to be after the pivot.
+As for the sorting process, we use a quicksort method in the banking system. Quicksort is a divide-and-conquer algorithm that involves choosing a pivot and then partitioning the array around the pivot. Quicksort involves moving elements less than the pivot value on the left, while the elements bigger than the pivot will be on the right. Thus, the pivot is now in the correctly sorted position. 
+The sortByName() function sorts the array of Bank objects according to the accName attribute using the quicksort algorithm in ascending order by partitioning the arrays using the partitionName()function. Meanwhile, the sortByNum()  function sorts the array of elements according to the accNum attribute using the quicksort algorithm in ascending order by partitioning the collection of arrays using the partitionaccNum() function. Moreover, sortByIc() function sorts the arrays according to the ic attribute using the quicksort algorithm in ascending order by partitioning the collection of bank arrays using the partitionIc() function. The sortByBal()  function sorts the array of elements according to the accBalance attribute using the quicksort algorithm in ascending order by partitioning the collection of arrays using the partitionBal() function. All the sort function recursively call itself until all elements is sorted.
 
 
 #### 2.3.2 Searching Process
