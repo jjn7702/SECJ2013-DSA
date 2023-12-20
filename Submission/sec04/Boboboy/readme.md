@@ -20,10 +20,6 @@ The main goal of BOBOBOY's Restaurant Management System (RMS) is to improve and 
 |   AERON GOH MING LUN   |   A22EC0033      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Images/rsz_1rsz_1img_0290.jpg" title="Icon by Trazobanana"><img src="./Images/rsz_1rsz_1img_0290.jpg" width=80px, height=80px>         |
 |  LIN CHONG HUI     |   A22EC0184      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Images/photo_2023-12-20_13-55-45.jpg" title="Icon by Trazobanana"><img src="./Images/photo_2023-12-20_13-55-45.jpg" width=80px, height=80px>         |
 
-
-<h3>Report Assignment 1</h3>
-<a href="https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/Boboboy/Assignment%201"><img src="./Images/download.png" width="35px" height="35px" ></a>
-
 ## Findings 📊
 
 - [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%201/readme.md)
