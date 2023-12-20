@@ -59,10 +59,10 @@ Read customer information from an input file (customer.txt).
 Then, show the menu for view all data of customers option, sorting (ascending) option, searching option and exit option.
 2.1 Option 1: Display all data of customers from input file
 2.2 Option 2: Pass the customers data to Sorting function:
-		2.2.1 Pass the customers' data to the quickSortStr() function and then pass
-         it to partitionStrByName() function to sort the data by name, and
-         then pass the sorted data to the display() function to display 
-         the sorting result.
+	 	2.2.1 Pass the customers' data to the quickSortStr() function and then pass
+         	it to partitionStrByName() function to sort the data by name, and
+         	then pass the sorted data to the display() function to display 
+         	the sorting result.
 2.2.2 Pass the customers' data to the quickSortStr() function and then pass
          it to partitionStrByType() function to sort the data by name, and
          then pass the sorted data to the display() function to display 
