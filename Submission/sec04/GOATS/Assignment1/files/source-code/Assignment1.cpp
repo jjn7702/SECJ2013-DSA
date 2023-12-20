@@ -135,13 +135,13 @@ void getDataDoc(Doctor d[], int size)
 
 class Sorter {
 public:
-    void sortDoctorsByName(Doctor d[], int size, bool ascending) {
+    void sortDoctorsByName(Doctor d[], int size, int ascending) {
         for (int i = 1; i < size; i++) {
             Doctor key = d[i];
             int j = i - 1;
 
-            while ((ascending && j >= 0 && d[j].getName() > key.getName()) ||
-                   (!ascending && j >= 0 && d[j].getName() < key.getName())) {
+            while ((ascending == 1 && j >= 0 && d[j].getName() > key.getName()) ||
+                   (ascending == 2 && j >= 0 && d[j].getName() < key.getName())) {
                 d[j + 1] = d[j];
                 j = j - 1;
             }
@@ -149,13 +149,13 @@ public:
         }
     }
 
-    void sortDoctorsByAge(Doctor d[], int size, bool ascending) {
+    void sortDoctorsByAge(Doctor d[], int size, int ascending) {
         for (int i = 1; i < size; i++) {
             Doctor key = d[i];
             int j = i - 1;
 
-            while ((ascending && j >= 0 && d[j].getAge() > key.getAge()) ||
-                   (!ascending && j >= 0 && d[j].getAge() < key.getAge())) {
+            while ((ascending == 1 && j >= 0 && d[j].getAge() > key.getAge()) ||
+                   (ascending == 2 && j >= 0 && d[j].getAge() < key.getAge())) {
                 d[j + 1] = d[j];
                 j = j - 1;
             }
@@ -163,13 +163,13 @@ public:
         }
     }
 
-    void sortPatientsByName(Patient p[], int size, bool ascending) {
+    void sortPatientsByName(Patient p[], int size, int ascending) {
         for (int i = 1; i < size; i++) {
             Patient key = p[i];
             int j = i - 1;
 
-            while ((ascending && j >= 0 && p[j].getName() > key.getName()) ||
-                   (!ascending && j >= 0 && p[j].getName() < key.getName())) {
+            while ((ascending == 1 && j >= 0 && p[j].getName() > key.getName()) ||
+                   (ascending == 2 && j >= 0 && p[j].getName() < key.getName())) {
                 p[j + 1] = p[j];
                 j = j - 1;
             }
@@ -177,27 +177,13 @@ public:
         }
     }
 
-    void sortPatientsByAge(Patient p[], int size, bool ascending) {
+    void sortPatientsByAge(Patient p[], int size, int ascending) {
         for (int i = 1; i < size; i++) {
             Patient key = p[i];
             int j = i - 1;
 
-            while ((ascending && j >= 0 && p[j].getAge() > key.getAge()) ||
-                   (!ascending && j >= 0 && p[j].getAge() < key.getAge())) {
-                p[j + 1] = p[j];
-                j = j - 1;
-            }
-            p[j + 1] = key;
-        }
-    }
-    
-    void sortPatientsByIC(Patient p[], int size, bool ascending) {
-        for (int i = 1; i < size; i++) {
-            Patient key = p[i];
-            int j = i - 1;
-
-            while ((ascending && j >= 0 && p[j].getIC() > key.getIC()) ||
-                   (!ascending && j >= 0 && p[j].getIC() < key.getIC())) {
+            while ((ascending == 1 && j >= 0 && p[j].getAge() > key.getAge()) ||
+                   (ascending == 2 && j >= 0 && p[j].getAge() < key.getAge())) {
                 p[j + 1] = p[j];
                 j = j - 1;
             }
@@ -205,13 +191,13 @@ public:
         }
     }
     
-    void sortPatientsBySickness(Patient p[], int size, bool ascending) {
+    void sortPatientsByIC(Patient p[], int size, int ascending) {
         for (int i = 1; i < size; i++) {
             Patient key = p[i];
             int j = i - 1;
 
-            while ((ascending && j >= 0 && p[j].getSickness() > key.getSickness()) ||
-                   (!ascending && j >= 0 && p[j].getSickness() < key.getSickness())) {
+            while ((ascending == 1 && j >= 0 && p[j].getIC() > key.getIC()) ||
+                   (ascending == 2 && j >= 0 && p[j].getIC() < key.getIC())) {
                 p[j + 1] = p[j];
                 j = j - 1;
             }
@@ -219,13 +205,27 @@ public:
         }
     }
     
-    void sortPatientsByDoctorInCharge(Patient p[], int size, bool ascending) {
+    void sortPatientsBySickness(Patient p[], int size, int ascending) {
         for (int i = 1; i < size; i++) {
             Patient key = p[i];
             int j = i - 1;
 
-            while ((ascending && j >= 0 && p[j].getDoctorInCharge() > key.getDoctorInCharge()) ||
-                   (!ascending && j >= 0 && p[j].getDoctorInCharge() < key.getDoctorInCharge())) {
+            while ((ascending == 1 && j >= 0 && p[j].getSickness() > key.getSickness()) ||
+                   (ascending == 2 && j >= 0 && p[j].getSickness() < key.getSickness())) {
+                p[j + 1] = p[j];
+                j = j - 1;
+            }
+            p[j + 1] = key;
+        }
+    }
+    
+    void sortPatientsByDoctorInCharge(Patient p[], int size, int ascending) {
+        for (int i = 1; i < size; i++) {
+            Patient key = p[i];
+            int j = i - 1;
+
+            while ((ascending == 1 && j >= 0 && p[j].getDoctorInCharge() > key.getDoctorInCharge()) ||
+                   (ascending == 2 && j >= 0 && p[j].getDoctorInCharge() < key.getDoctorInCharge())) {
                 p[j + 1] = p[j];
                 j = j - 1;
             }
@@ -239,25 +239,6 @@ int main(){
     Patient pateint[size];
     Doctor doctor[size];
 
-    // input from file
-    getDataPatient(pateint, size);
-    getDataDoc(doctor, size);
-
-    // Display
-    cout << "Patient Information\n\n";
-    for (int i = 0; i < size; i++){
-        cout << "Patient " << i + 1 << "\n";
-        pateint[i].display();
-        
-    }
-    cout << "Doctor Information\n\n";
-    for (int i = 0; i < size; i++){
-        cout << "Doctor " << i + 1 << "\n";
-        doctor[i].display();
-    }
-    // Patient patient1("303","Ali",12,"heat wave");
-    // patient1.display();
-    
     Sorter sort;
     
     int userType;
@@ -268,7 +249,7 @@ int main(){
     cin >> userType;
 
     int sortingOption;
-    bool ascending;
+
     cout << "Enter sorting option:\n";
     cout << "[1] By name\n";
     cout << "[2] By age\n";
@@ -278,6 +259,7 @@ int main(){
     cout << "Enter sorting option: ";
     cin >> sortingOption;
 
+    int ascending;
     cout << "Sort in\n";
     cout << "[1] Ascending\n";
     cout << "[2] Descending\n";
@@ -287,19 +269,19 @@ int main(){
     if (userType == 1) { // Patients
         switch (sortingOption) {
             case 1:
-                sort.sortPatientsByName(pateint, size, ascending == 1);
+                sort.sortPatientsByName(pateint, size, ascending );
                 break;
             case 2:
-                sort.sortPatientsByAge(pateint, size, ascending == 1);
+                sort.sortPatientsByAge(pateint, size, ascending );
                 break;
             case 3:
-                sort.sortPatientsByIC(pateint, size, ascending == 1);
+                sort.sortPatientsByIC(pateint, size, ascending );
                 break;
             case 4:
-                sort.sortPatientsBySickness(pateint, size, ascending == 1);
+                sort.sortPatientsBySickness(pateint, size, ascending );
                 break;
             case 5:
-                sort.sortPatientsByDoctorInCharge(pateint, size, ascending == 1);
+                sort.sortPatientsByDoctorInCharge(pateint, size, ascending );
                 break;
             default:
                 cout << "Invalid option\n";
@@ -308,10 +290,10 @@ int main(){
     } else if (userType == 2) { // Doctors
         switch (sortingOption) {
             case 1:
-                sort.sortDoctorsByName(doctor, size, ascending == 1);
+                sort.sortDoctorsByName(doctor, size, ascending );
                 break;
             case 2:
-                sort.sortDoctorsByAge(doctor, size, ascending == 1);
+                sort.sortDoctorsByAge(doctor, size, ascending );
                 break;
             default:
                 cout << "Invalid option\n";
