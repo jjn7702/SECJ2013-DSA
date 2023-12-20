@@ -77,7 +77,7 @@ The searching functions are defined to search for records in the array based on 
 
 ## System Design
 ### 2.1 System Class Design
-Describe the design of the system classes, if applicable.
+<img src="Submission/sec02/DACCrew/Assignment1/files/images/class.jpg">
 
 ### 2.2 System Algorithm Design
 Explain the high-level design of algorithms used in your system.
