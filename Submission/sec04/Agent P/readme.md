@@ -2,7 +2,7 @@
 
 ## Description 📝
 
-The Election Management System is designed to address the effective management and monitoring of chronic diseases for patients. This system aims to provide healthcare professionals with tools to streamline patient information, treatment plans, and progress tracking, ultimately improving patient outcomes and quality of care.
+For the university election, as the students of UTM we are asked to develop a system. Thus, we came up with the idea of the UTM Election management system. 
 
 ## Prepared by 🧑‍💻
 
