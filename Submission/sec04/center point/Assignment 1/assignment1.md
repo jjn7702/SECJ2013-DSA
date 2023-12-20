@@ -48,15 +48,14 @@ In this assignment, the sorting and searching implementation will be used. User 
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-| Muhammad Luqman Hakim Bin Mohd Rizaudin   | A22EC0086        | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/luqman.jpg" title="luqman"><img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/luqman.jpg" width=80px, height=80px>     |
-| Muhammad Anas Bin Mohd Pikri      | A21SC0464        | <a href="https://avatars.githubusercontent.com/u/116987481?v=4" title="Icon by Trazobanana"><img src="https://avatars.githubusercontent.com/u/116987481?v=4" width=80px, height=80px>         |
-| Kugen a/l Kalidas       | A22EC0178       | <a href="https://avatars.githubusercontent.com/u/128279457?v=4" title="Anas"><img src="https://avatars.githubusercontent.com/u/128279457?v=4" width=80px, height=80px> |
+| Lim Si Ni          | A22EC0070        | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/luqman.jpg" title="luqman"><img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/luqman.jpg" width=80px, height=80px>     |
+| Ong Kai Xuen       | A22EC0100        | <a href="https://avatars.githubusercontent.com/u/116987481?v=4" title="Icon by Trazobanana"><img src="https://avatars.githubusercontent.com/u/116987481?v=4" width=80px, height=80px>         |
+| Soh Fei Zhen       | A22EC0272       | <a href="https://avatars.githubusercontent.com/u/128279457?v=4" title="Anas"><img src="https://avatars.githubusercontent.com/u/128279457?v=4" width=80px, height=80px> |
 
 
 ## Findings 📊
 
-- [Source Code](./source_code/assignment1.cpp)
-- [Input File](./source_code/task.txt)
-- [Report]
+- [Source Code](./source_code)
+- [Report](./report)
 
 ## Contribution 🛠️
