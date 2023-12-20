@@ -24,21 +24,23 @@ _Don't forget to hit the :star: if you like this repo._
 
 <p>
 1. Customer press enter to see the menu <br>
-2. All menu displays based on alphabetical order for food id (default) <br>
-3. System ask if want to choose order OR view in new way(sorting implemented) OR by search ****
+2. All menu displays (default) <br>
+3. System ask if want to choose order OR view in new way(sorting implemented) OR by search <br>
 4. Customer choose sorting view <br>
-5. System ask how the sorting based on (food id, type of dish, price) <br>
+5. System ask how the sorting based on (food id, price) <br>
 6. Customer choose one of the option <br>
 7. System displays again the menu <br>
-8. Customer choose the menu => Skip to number 12 <br>
+8. Go to number 14 <br>
 9. Customer search certain menu <br>
 10. System display the food <br>
-11. Customer choose the food => Skip to number 12 <br>
-12. The chosen menu is saved in the system<br>
-13. System ask if want to continue order. yes => back to number 2 no => go to number 14<br>
-14. Customer finished ordering<br>
-15. System calculate total<br>
-16. System displays the chosen menu, amount, price and total
+11. System ask if customer want to add the menu to the cart <br>
+12. Customer enter Y/y <br>
+13. The chosen menu is saved in the system <br>
+14. System ask if want to continue order <br>
+15. If yes, customer can make multiple orders until customer enter N/n to stop <br> => back to number 2 no => go to number 14<br>
+15. Customer finished ordering <br>
+16. System displays list of orders and calculate total price <br>
+17. System displays the chosen menu, quantity, and price 
 </p>
 
 <h3>Report Assignment 1</h3>
