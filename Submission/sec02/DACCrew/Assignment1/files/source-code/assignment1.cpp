@@ -463,7 +463,7 @@ int main()
                 cout << "Enter the name to search: ";
                 cin.ignore(); 
                 getline(cin, searchName);
-                searchByName(bankList, 4, searchName);
+                searchByName(bankList, idx, searchName);
             }
             else if(opt == 6)
             {
@@ -471,7 +471,7 @@ int main()
                 cout << "Enter the account number to search: ";
                 cin.ignore(); // Ignore newline character in the input buffer
                 getline(cin, searchAccNum);
-                searchByAccNum(bankList, 4, searchAccNum);
+                searchByAccNum(bankList, idx, searchAccNum);
             }
             else
             {
@@ -479,7 +479,7 @@ int main()
                 cout << "Enter the IC number to search: ";
                 cin.ignore();
                 getline(cin, searchIc);
-                searchByIc(bankList, 4, searchIc);
+                searchByIc(bankList, idx, searchIc);
             }
         }
         else
