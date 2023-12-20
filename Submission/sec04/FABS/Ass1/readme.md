@@ -55,8 +55,10 @@ During execution, this program will display a menu with options for viewing all 
 ## Design Description 💹
 
 #MAIN FUNCTION
+
 Read customer information from an input file (customer.txt).
 Then, show the menu for view all data of customers option, sorting (ascending) option, searching option and exit option.
+
 2.1 Option 1: Display all data of customers from input file
 2.2 Option 2: Pass the customers data to Sorting function:
 	 	2.2.1 Pass the customers' data to the quickSortStr() function and then pass
@@ -82,6 +84,23 @@ Then, show the menu for view all data of customers option, sorting (ascending) o
             2.4 Option 4: Exit the system
 	2.5 Ask users to choose the valid option.
 3. End
+
+
+#SORTING FUNCTION
+
+This program uses two sorting algorithms which are quick sort for sorting by integer (trackingNum) and quick sort for sorting by string (name or parcelType). It also uses a different partition function for each sorting process.
+	
+1. Get the option from the main function.
+2. From the option, the data will be sorted by corresponding function either sort by name, parcel type or tracking number.
+	2.1 The sorting function uses a quick sort technique to rearrange the customer data ascendingly based on the option 	that was chosen by the customer.
+	2.2 Option 1: quickSortStr() function: sort data only for String type
+			2.2.1 partitionStrByName(): sort data based on the name of the customer
+			2.2.2 partitionStrByType(): sort data based on the parcel type of customer
+	2.3 Option 2: quickSortInt() function: sort data only for Integer type
+			2.3.1 partitionInt(): sort data based on the tracking numbers of the customer
+
+
+
 
 
 ## Findings 📊
