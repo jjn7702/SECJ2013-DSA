@@ -9,11 +9,18 @@ _Don't forget to hit the :star: if you like this repo._
 
 # Inventory Management System - Assignment 1
 ## Objective
-The objective for this task management system is to create an easier method to access the data in the system specifically based on the user. By implementing sorting technique, user can easily review the content or data in the system by sorting it by alphabet, date or even status which user can choose to sort it by ascending or descending order following the user needs. The implementation of the searching technique will be use by user when user want to search any specific row or rows of data in the system without taking a longer time scrolling and searching the data through the system one by one.
+In our data structure and algorithm assignment 1, the main objectives of developing the Inventory management system are :
+
+🗄️𝐓𝐨 𝐦𝐚𝐧𝐚𝐠𝐞 𝐢𝐧𝐯𝐞𝐧𝐭𝐨𝐫𝐲 𝐢𝐧 𝐚 𝐰𝐚𝐫𝐞𝐡𝐨𝐮𝐬𝐞
+
+🗂️𝐓𝐨 𝐚𝐩𝐩𝐥𝐲 𝐭𝐡𝐞 𝐬𝐨𝐫𝐭𝐢𝐧𝐠 𝐚𝐧𝐝 𝐬𝐞𝐚𝐫𝐜𝐡𝐢𝐧𝐠 𝐭𝐞𝐜𝐡𝐧𝐢𝐪𝐮𝐞 𝐢𝐧 𝐭𝐡𝐞 𝐬𝐲𝐬𝐭𝐞𝐦
+
 
 ## Synopsis📝
 
-In this assignment, the sorting and searching implementation will be used. User can search the task that have been inserted and can sort it according to the choices which are sorting it according to ascending alphabet and vice versa, sort it according to the ascending date and vice versa and sort it according to the status of the task such as complete, todo, od doing.
+The inventory management system is essential for one business or organization to track or manage its warehouse. Our inventory management system is designed to search or organize (sort) the inventory by its certain keys such as code, name, type, quantity, price in either ascending or descending order. These two methods are important because they not only save time but also offer convenience to users in managing the inventory effectively.
+
+
 
 ## Flow of Event 💹
 
