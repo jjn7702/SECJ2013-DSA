@@ -28,9 +28,7 @@ Flowchart
 </p>
 
 
-
-
-### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/fabaacbe-18c1-4f64-a3a5-e1b40e910e71" width="4%" height="4%"> Description of how to implement data structure operations: Sorting and Searching
+Description of how to implement data structure operations: Sorting and Searching
 ##### 1. Sorting
 
 //explanation
