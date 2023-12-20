@@ -10,7 +10,9 @@ _Don't forget to hit the :star: if you like this repo._
 # Inventory Management System - Assignment 1
 ## Objective
 In our data structure and algorithm assignment 1, the main objectives of developing the Inventory management system are :
+
 🗄️𝐓𝐨 𝐦𝐚𝐧𝐚𝐠𝐞 𝐢𝐧𝐯𝐞𝐧𝐭𝐨𝐫𝐲 𝐢𝐧 𝐚 𝐰𝐚𝐫𝐞𝐡𝐨𝐮𝐬𝐞
+
 🗂️𝐓𝐨 𝐚𝐩𝐩𝐥𝐲 𝐭𝐡𝐞 𝐬𝐨𝐫𝐭𝐢𝐧𝐠 𝐚𝐧𝐝 𝐬𝐞𝐚𝐫𝐜𝐡𝐢𝐧𝐠 𝐭𝐞𝐜𝐡𝐧𝐢𝐪𝐮𝐞 𝐢𝐧 𝐭𝐡𝐞 𝐬𝐲𝐬𝐭𝐞𝐦
 
 
