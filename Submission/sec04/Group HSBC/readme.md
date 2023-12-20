@@ -16,14 +16,14 @@ The main goal of BOBOBOY's Restaurant Management System (RMS) is to improve and 
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-|  Hayden Huan Kee Jiun |    A22EC0166     | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Images/WhatsApp%20Image%202021-09-23%20at%2023.26.36.jpeg" title="Icon by Trazobanana"><img src="./Images/WhatsApp%20Image%202021-09-23%20at%2023.26.36.jpeg" width=80px, height=80px>     |
-|   Liow Chee Suan   |   A22EC0072      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Images/rsz_1rsz_1img_0290.jpg" title="Icon by Trazobanana"><img src="./Images/rsz_1rsz_1img_0290.jpg" width=80px, height=80px>         |
-|  Chan Qing Yee     |   A22EC0040      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Images/photo_2023-12-20_13-55-45.jpg" title="Icon by Trazobanana"><img src="./Images/photo_2023-12-20_13-55-45.jpg" width=80px, height=80px>         |
-|  Ooi Wei Sian     |   A22EC0102      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Images/photo_2023-12-20_13-55-45.jpg" title="Icon by Trazobanana"><img src="./Images/photo_2023-12-20_13-55-45.jpg" width=80px, height=80px>         |
+|  Hayden Huan Kee Jiun |    A22EC0166     | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Assignment1/Image/photo_2023-12-11_08-21-15.jpg" title="Icon by Trazobanana"><img src="./Images/WhatsApp%20Image%202021-09-23%20at%2023.26.36.jpeg" width=80px, height=80px>     |
+|   Liow Chee Suan   |   A22EC0072      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Assignment1/Image/IMG_20231102_111152.jpg" title="Icon by Trazobanana"><img src="./Images/rsz_1rsz_1img_0290.jpg" width=80px, height=80px>         |
+|  Chan Qing Yee     |   A22EC0040      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Assignment1/Image/profilepic900kb.jpg" title="Icon by Trazobanana"><img src="./Images/photo_2023-12-20_13-55-45.jpg" width=80px, height=80px>         |
+|  Ooi Wei Sian     |   A22EC0102      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Assignment1/Image/weisian.jpg" title="Icon by Trazobanana"><img src="./Images/photo_2023-12-20_13-55-45.jpg" width=80px, height=80px>         |
 
 ## Findings 📊
 
-- [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%201/readme.md)
+- [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/Group%20HSBC/Assignment1)
 - Assignment 2
 - Project
 
