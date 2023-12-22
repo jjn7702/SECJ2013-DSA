@@ -26,7 +26,6 @@
 ## Findings <a name="findings"></a>📊
 
 - [Source code]()
-- [Input file]()
 - [Assignment 2 report]()
 - [Similarity report]()
 
