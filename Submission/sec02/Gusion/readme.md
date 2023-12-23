@@ -26,7 +26,7 @@ An Airline Reservation System is a computerized platform that facilitates the bo
 
 - [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Gusion/Assignment%201/Assignment%201.md)
 - [Assignment 2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Gusion/Assignment%202/Assignment%202.md)
-- [Project]
+- [Project](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Gusion/Project%20Dsa/Project%20Dsa.md)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
