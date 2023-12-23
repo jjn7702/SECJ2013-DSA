@@ -23,18 +23,33 @@ In order to effectively manage and monitor patients' records in hospitals, a hos
 
 ## Objectives
 
- In our system of hospital management, we aim at revolutionising how healthcare professionals manage and monitor patients' records in hospitals. In order to provide a comprehensive solution for dealing with the complexities of healthcare data, this system will use an appropriate class called "Patient," in which related attributes are included. Below are the overarching objectives of our system.<br>
+- Develop a hospital management system.
+- Uses the sorting and searching data structure and algorithm in this hospital management system for management.
+- Allow healthcare workers to get patient’s information, contact information, and their medical history.
+## Synopsis
+This hospital management system has been developed to manage patients' records. The system is designed to get patient information, contacts, and medical history. Healthcare workers can get and manage patients' records in a better way.
 
- The development of a system that will enable healthcare professionals to obtain quick and reliable access to patients' data is central to our aim. Attributes include basic information such as names, identification ICs, age, sex, number of contacts, diagnosed diseases and relevant dates. The system improves the tracking of patients' records through centralised information, which will contribute to a more efficient and organised healthcare environment.<br>
+Healthcare workers choose to sort or search for this system. Besides, the system uses the Merge sort sorting method in ascending order followed by the attributes as it has a stable and predictable performance. This is because Merge sort has an O(n log n) time complexity, where "n" is the number of elements to be sorted. Attributes examples are name, IC, age, gender, contact number, disease, and diagnosis date. Moreover, this system uses Binary search algorithms as it gives a quick and more accurate search performance for the healthcare workers to search specific patient records or data they want.
 
+In a nutshell, the Hospital Management System helps minimize the workload for healthcare workers in replacing finding patient records manually. The system contributes to efficient healthcare services.
 
- Our system is designed to take into account the various information needs of healthcare professionals, including dynamic search capabilities. By selecting attributes that are relevant to their search criteria, users will be able to locate specific patient records. The use of the bimodal search methodology, which delivers timely and precise results while making information retrieval more efficient, improves the procedure for searching.<br>
+## Class Diagram
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Images/DSA.jpg"><br>
 
+## Pseudocode
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Images/pseudocode.png"><br>
+## Description of How to Implement Data Structure Operations
+The system allows the healthcare professionals to manage patient records by providing the option to sort based on different attributes such as name, IC, age, gender, contact number, disease, and diagnosed date. Our team has decided to use the Merge Sort algorithm due to its small complexity time and faster sorting process. However, we only apply ascending order sorting in our system.
 
- Moreover, our system is flexible with regards to sorting and searching, so as to meet the different needs of healthcare professionals. Users can choose from a selection of special attributes that correspond to their particular requirements, enabling them to customize the process. This adaptability ensures that this system is compatible with the unique way in which health professionals work, thus making it more user friendly and efficient.<br>
+### Sorting:<br>
+Divide and Conquer algorithm(Merge Sort) is used to divide the input array into two parts, sort the two halves independently, and finally merge them together. Next, the MergeSort function is a recursive function that continuously divides an array until it reaches the individual elements (base case: if first < last). Once all the elements are created successfully into their own, they are recombined into a sorted order using the Merge function.
 
+For example, mergeSortByName() is used to sort the patient record by name in ascending order. Three parameters will be accepted in the program: the patient array, and the first and last indices of the section of the list to be generated. The middle index will be calculated, then the program sorts the two halves of the array iteratively, and finally is merged into two ordered halves. A similar concept is used in the other Merge Sort functions in the system to sort the patient list in ascending order based on the attributes.
 
-Ultimately, our Hospital Management System aims to optimize healthcare workflows.  The system will make it easier for healthcare staff to devote more time and effort to the management of patient records, thereby enabling them to better take care of patients. This improvement is intended to contribute to a more streamlined and efficient healthcare environment. Essentially, our hospital management system is designed to deliver a simple solution specifically for the needs of health professionals who wish to improve their control and monitoring of patients' records at medical facilities.<br>
+### Searching:<br>
+In addition to sorting, the function of searching for patients by name, IC, or disease is offered. It is performed by using a binary search. For example, if the user wants to search by name, the binarySearchByName function is called. Then perform a binary search on the list of Patient objects based on the name attribute. If the user wants to search by IC, the binarySearchByIC function is used. To search for disease, the system uses the binarySearchByDisease function to find all patients of the specified disease.
+
+Binary search is done by dividing the list of objects by two times what the object must do. For example, in binarySearchByName, a list of patients is searched by a name. The program accepts four parameters: the patient name array, the lowest and highest indices of the part of the array being searched, the name to search for. The program calculates the middle index, then compares the names in the middle index with names. If the names match, it returns an index. If the target name is less than the name in the middle list, the left side of the array is searched. If there is more than one target name, the right side is searched. This process is repeated until the target name is found or no target name is found in the whole list. However, in binarySearchByDisease, the vector concept is used to store elements with the same data types and to get the range of data. It is to search for all patients with the same disease.
 
 ## Findings 📊
 - [Report]()

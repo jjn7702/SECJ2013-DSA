@@ -231,7 +231,7 @@ void sortByIc(Bank bl[], int first, int last)
         if (cut != last)
         {
             sortByIc(bl, first, cut);
-            sortByAccNum(bl, cut + 1, last);
+            sortByIc(bl, cut + 1, last);
         }
         else
             sortByIc(bl, first, cut);
@@ -311,6 +311,67 @@ void sortByBal(Bank bl[], int first, int last)
         else
             sortByBal(bl, first, cut);
     }
+}
+
+//Searching
+void searchByName(Bank bl[], int size, const string& searchName)
+{
+    bool found = false;
+
+    cout << "Search Results for Name: " << searchName << endl;
+
+    for (int i = 0; i < size; i++)
+    {
+        if (bl[i].getName() == searchName)
+        {
+            dispHeader();
+            bl[i].displaySort();
+            found = true;
+        }
+    }
+
+    if (!found)
+        cout << "No matching records found for the given name." << endl;
+}
+
+void searchByAccNum(Bank bl[], int size, const string& searchAccNum)
+{
+    bool found = false;
+
+    cout << "Search Results for Account Number: " << searchAccNum << endl;
+
+    for (int i = 0; i < size; i++)
+    {
+        if (bl[i].getAccNum() == searchAccNum)
+        {
+            dispHeader();
+            bl[i].displaySort();
+            found = true;
+        }
+    }
+
+    if (!found)
+        cout << "No matching records found for the given account number." << endl;
+}
+
+void searchByIc(Bank bl[], int size, const string& searchIc)
+{
+    bool found = false;
+
+    cout << "Search Results for IC Number: " << searchIc << endl;
+
+    for (int i = 0; i < size; i++)
+    {
+        if (bl[i].getIc() == searchIc)
+        {
+            dispHeader();
+            bl[i].displaySort();
+            found = true;
+        }
+    }
+
+    if (!found)
+        cout << "No matching records found for the given IC number." << endl;
 }
 
 int main()
@@ -393,7 +454,7 @@ int main()
             // Display the sorted resultss
             for (int z = 1; z <=idx; z++)
                 bankList[z].displaySort();
-        }/*
+        }
         else if(opt >= 5 && opt <= 7)
         {
             if(opt == 5)
@@ -425,5 +486,5 @@ int main()
         {
             cout << "Shutting down system...";
             return 0;
-        }*/
+        }
 }

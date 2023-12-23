@@ -9,12 +9,12 @@ _Don't forget to hit the :star: if you like this repo._
 
 # Airline Reservation System - Assignment 1
 ## Objective
--To display initial customer booking list
--Able to sort customer booking list based on name, date of departure, destination and airlines
--Able to search for information in the list based on the term provided
--Can display sorted list based on user input
--Can display related information based on user search term
--To apply data structure operations of sorting and searching in the system
+- To display initial customer booking list
+- Able to sort customer booking list based on name, date of departure, destination and airlines
+- Able to search for information in the list based on the term provided
+- Can display sorted list based on user input
+- Can display related information based on user search term
+- To apply data structure operations of sorting and searching in the system
 
 
 ## Description 📝
@@ -71,7 +71,7 @@ This flow represents a basic sequence of events, and the actual program may have
 
 - [Source Code](./Source-code/Assg1.cpp)
 - [Input File](./Source-code/booking.txt)
-- [Report]
+- [Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Gusion/Assigment%201/Assignment%201%20DSA%20Gusion.pdf)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.

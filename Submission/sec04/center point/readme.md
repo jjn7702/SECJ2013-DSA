@@ -27,7 +27,7 @@ The Inventory Management System is aiming to organize, store and manage library 
 
 ## Findings 📊
 
-- <a href="../Submission/sec04/center point/Assignment 1/assignment1.md" >Assignment 1 
+- <a href="../center point/Assignment 1/assignment1.md" >Assignment 1 
 - Assignment 2
 - Project
 

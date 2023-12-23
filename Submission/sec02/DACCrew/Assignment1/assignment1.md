@@ -1,10 +1,11 @@
 # Assignment 1
+- <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Assignment1/files/DACCrew%20Assignment%201.pdf" >Report Assignment 1 
 ## Prepared By DACCrew
 | Name         | Matric No    |
 |--------------|--------------|
 | Chai Yu Tong  | A22EC0145  |
 | Nur Farah Adibah binti Idris     | A22EC0245 |
-|      |  |
+| Wong Qiao Ying     | A22EC0118 |
 
 ## Table of Contents
 1. [Introduction](#Introduction)
@@ -26,81 +27,79 @@
    - To gain hands-on experience in applying the data structure concept
 
 ### 1.2 Synopsis of Project
-   We will develop a Banking transaction system focusing on sorting and searching operations using fundamental data structure concepts. This system is designed to perform basic transaction operations, including depositing money into user accounts, enabling withdrawal, and facilitating money transfers between accounts. The sorting operations encompass arranging data by name, Identification Card number, account number and balance in ascending order. Additionally, this system supports searching operations based on account holder's names and account numbers, allowing users to locate their accounts using unique identifiers.
-###The existing class and its attributes:
+   We will develop a Banking transaction system focusing on sorting and searching operations using fundamental data structure concepts. This system is designed to perform basic transaction operations, including depositing money into user accounts, enabling withdrawal, and facilitating money transfers between accounts. The sorting operations encompass arranging data by name, Identification Card number, account number and balance in ascending order. Additionally, this system supports searching operations based on account holder's names and account numbers, allowing users to locate their accounts using unique identifiers. <br><br>
+   
+### The existing class and its attributes:
 Bank 
-AccName : the name of the account holder <string>
-AccNum : the account number <string>
-IC : the identity card number of the account holder <string>
-AccBalance : the quantity of the amount of money in the account <double>
+- AccName : the name of the account holder <string>
+- AccNum : the account number <string>
+- IC : the identity card number of the account holder <string>
+- AccBalance : the quantity of the amount of money in the account <double>
+
+### The existing data structure:<br><br>
+**1. Array**<br>
+The array, in this case, stores a list of Accounts with their holder’s name, account number, IC number, and Balance. The searching operations iterate through this array to find specific records based on criteria such as name, account number, and IC number. <br>
+- Bank[100]
+<br>stores a list of user name, account number, IC and balance
 
 
-The existing data structure:
-Array
-The array, in this case, stores a list of Accounts with their holder’s name, account number, IC number, and Balance. The searching operations iterate through this array to find specific records based on criteria such as name, account number, and IC number.
-Bank[100]
-stores a list of user name, account number, IC and balance
+**2. Sorting**<br>
+The sorting function is defined to sort an array of ‘Bank’ objects on different criteria. These functions use various partitioning techniques, such as quickSort.<br>
 
 
-Sorting
-The sorting function is defined to sort an array of ‘Bank’ objects on different criteria. These functions use various partitioning techniques, such as quickSort.
-
-'partitionName'
-partitions the array based on the name attributes during sorting
-'sortByName'
-sorts the array ‘Bank’ objects based on the account name
-'partitionIC'
-partitions the array based on the IC attributes during sorting
-'sortByIC'
-sorts the array ‘Bank’ objects based on the IC
-'partitionAccNum'
-partitions the array based on the account number attributes during sorting
-'sortByAccNum'
-sorts the array ‘Bank’ objects based on the account number
-'partitionBal'
-partitions the array based on the balance attributes during sorting
-'sortByBal'
-sorts the array ‘Bank’ objects based on the account balance
+- partitionName <br>
+partitions the array based on the name attributes during sorting <br>
+- sortByName <br>
+sorts the array ‘Bank’ objects based on the account name <br>
+- partitionIC <br>
+partitions the array based on the IC attributes during sorting <br>
+- sortByIC <br>
+sorts the array ‘Bank’ objects based on the IC <br>
+- partitionAccNum<br>
+partitions the array based on the account number attributes during sorting <br>
+- sortByAccNum <br>
+sorts the array ‘Bank’ objects based on the account number <br>
+- partitionBal <br>
+partitions the array based on the balance attributes during sorting <br>
+- sortByBal <br>
+sorts the array ‘Bank’ objects based on the account balance <br>
 
 
-Searching:
+**3. Searching**
 The searching functions are defined to search for records in the array based on name, account number and IC. These functions will iterate through the array and display matching records if found.
 
-searchByName
-searches for records in the array based on the account name
-searchByAccNum
-searches for records in the array based on the account number
-searchByIC
-searches for records in the array based on the IC
-
-
+-  searchByName <br>
+  searches for records in the array based on the account name <br>
+-  searchByAccNum <br>
+  searches for records in the array based on the account number <br>
+-  searchByIC <br>
+  searches for records in the array based on the IC <br>
 
 ## System Design
 ### 2.1 System Class Design
-Describe the design of the system classes, if applicable.
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Assignment1/files/images/class.jpg">
 
 ### 2.2 System Algorithm Design
-Explain the high-level design of algorithms used in your system.
-
-1. Start. 
-2. Display menu.
-3. User input choice
-4. If choice == 1
-   4.1 Display Sort by name<br>
-       4.1.1 Else if choice == 2 <br>
-             4.1.1.1 Display Sort by Account Number
-       4.1.2 Else if choice == 3
-             4.1.2.1 Display Sort by IC Number
-       4.1.3 Else if choice == 4
-             4.1.3.1 Display Sort by Account Balance
-       4.1.4 Else if choice == 5
-             4.1.4.1 Display Search by Name
-       4.1.5 Else if choice == 6
-             4.1.5.1 Display Search by Account Number
-       4.1.6 Else if choice == 7
-             4.1.6.1 Display Search by IC Number
-       4.1.7 Else 
-             4.1.7.1 Exit
+<br><br>
+1. Start. <br>
+2. Display menu.<br>
+3. User input choice<br>
+4. If choice == 1<br>
+4.1 Display Sort by name <br>
+- 4.1.1 Else if choice == 2 <br>
+   - 4.1.1.1 Display Sort by Account Number <br>
+- 4.1.2 Else if choice == 3 <br>
+   - 4.1.2.1 Display Sort by IC Number <br>
+- 4.1.3 Else if choice == 4 <br>
+   - 4.1.3.1 Display Sort by Account Balance <br>
+- 4.1.4 Else if choice == 5 <br>
+   - 4.1.4.1 Display Search by Name <br>
+ - 4.1.5 Else if choice == 6 <br>
+   - 4.1.5.1 Display Search by Account Number <br>
+ - 4.1.6 Else if choice == 7 <br>
+    - 4.1.6.1 Display Search by IC Number <br>
+ - 4.1.7 Else <br>
+    - 4.1.7.1 Exit <br>
 5. End
 
 
@@ -110,29 +109,13 @@ Discuss how data structures are used in your project.
 #### 2.3.1 Sorting Process
 As for the sorting process, we will use a quicksort method in the banking system. Quicksort is a divide-and-conquer algorithm that involves choosing a pivot and then partitioning the array around the pivot. Quicksort involves moving elements less than the pivot value on the left, while items bigger than the pivot will be on the right. Thus, the pivot is now in the correctly sorted position. 
 
-Below is the description of the key components of each sorting function and how they contribute to organizing the data.
-##### 1. Sorting by Name (sortByName()):
-- Algorithm: Quicksort
-- Description: This function implements the quicksort algorithm to sort an array of Bank objects based on the accName attribute.
-- Parameters: bl(The array of Bank objects.), first(The starting index of the subarray to be sorted), and last (The ending index of the subarray to be sorted)
-- Recursive Approach: The function recursively divides the array into subarrays and sorts them based on the names of the account holders.
-
-##### 2. Sorting by Account Number (sortByAccNum()):
-- Algorithm: Quicksort
-- Description: Like sortByName, this function sorts the array based on the accNum attribute using the quicksort algorithm.
-- Sorting by Account Number (sortByAccNum()):
-- Algorithm: Quicksort
-- Description: Like sortByName, this function sorts the array based on the  ic attribute using the quicksort algorithm.
-
-##### 3. Sorting by Balance (sortByBal()):
-- Algorithm: Quicksort
-- Description: This function uses a modified quicksort algorithm to sort the array based on the accBalance attribute.
-Handling Equal Balances: It considers cases where balances are equal by comparing the account names to maintain stability in sorting.
-
-##### 4. Partitioning Functions (partitionName(), partitionIc(), partitionAccNum(), partitionBal()):
-- Description: These functions are integral to the quicksort algorithm. They determine a pivot element. In this case, the first element became the pivot. The elements in the Bank array that are less than the pivot are moved to be before the pivot, and elements bigger than the pivot value move to be after the pivot.
+As for the sorting process, we use a quicksort method in the banking system. Quicksort is a divide-and-conquer algorithm that involves choosing a pivot and then partitioning the array around the pivot. Quicksort involves moving elements less than the pivot value on the left, while the elements bigger than the pivot will be on the right. Thus, the pivot is now in the correctly sorted position. 
+The sortByName() function sorts the array of Bank objects according to the accName attribute using the quicksort algorithm in ascending order by partitioning the arrays using the partitionName()function. Meanwhile, the sortByNum()  function sorts the array of elements according to the accNum attribute using the quicksort algorithm in ascending order by partitioning the collection of arrays using the partitionaccNum() function. Moreover, sortByIc() function sorts the arrays according to the ic attribute using the quicksort algorithm in ascending order by partitioning the collection of bank arrays using the partitionIc() function. The sortByBal()  function sorts the array of elements according to the accBalance attribute using the quicksort algorithm in ascending order by partitioning the collection of arrays using the partitionBal() function. All the sort function recursively call itself until all elements is sorted.
 
 
 #### 2.3.2 Searching Process
-Describe the searching process in your system.
+The system is applying the sequential search technique to search for the data. Data can be searched through the attribute. If the data exists, the whole piece of details will be returned as the output after the search process has been performed. On the other hand, if no such data exists in the array, the system will print out the error message. 
+
+In this process, users can search for their intended data by Name, Account Number, and IC Number. Therefore, there exist three search functions for each attribute. The functions included are searchByName(), searchByAccNum(), and searchByIc(). After the user chooses the method of searching, the system will request for an input. Then, the system iterates through the Bank array object starting from index 0 and makes a comparison with user input. The system will display the complete information about the account if a match is found. The searching process will continue until the last object in the array. 
+
 
