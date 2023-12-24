@@ -37,7 +37,7 @@ The Library Management System is aiming to organize,store and manage library res
 ## Findings 📊
 
 - <a href="Assignment1" >Assignment 1 
-- Assignment 2
+- <a href="Assignment2" >Assignment 2
 - Project
 
 ## Contribution 🛠️
