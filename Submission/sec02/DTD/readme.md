@@ -34,6 +34,11 @@ The Library Management System is aiming to organize,store and manage library res
 # Assignment 2
 
 
+
+<h3>Report Assignment 2</h3>
+<a href="https://docs.google.com/document/d/1yaubEIA0af3nFRLW_YMNi8R6Q3k3coeb/edit"><img src="./images/file.png" width="35px" height="35px" ></a>
+
+
 ## Findings 📊
 
 - <a href="Assignment1" >Assignment 1 
