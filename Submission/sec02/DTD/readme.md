@@ -33,6 +33,9 @@ The Library Management System is aiming to organize,store and manage library res
 
 # Assignment 2
 
+## Flow of system
+
+
 
 
 <h3>Report Assignment 2</h3>
