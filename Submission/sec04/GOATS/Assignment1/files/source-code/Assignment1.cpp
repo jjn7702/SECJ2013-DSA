@@ -284,7 +284,6 @@ public:
 int searchNamePatient(Patient p[], string search_key, int size){
     int idx;
     for (int i = 0; i < size; i++){
-        cout << "fdsfsd\n";
         if ( search_key == p[i].getNamePatient()){
             idx = i;
             cout << "index: " << idx << "\n";
