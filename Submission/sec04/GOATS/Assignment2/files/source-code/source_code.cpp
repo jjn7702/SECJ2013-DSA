@@ -113,6 +113,19 @@ public:
         prev = newPrev;
     }
 };
+
+class List{
+    private:
+        Patient *p_head;
+        Doctor *d_head;
+    public:
+        List(){
+            d_head = NULL;
+            p_head = NULL;
+        }
+        // add more function here
+};
+
 void getDataPatient(Patient p[], int
     const size) {
     string name, ic;
@@ -120,7 +133,7 @@ void getDataPatient(Patient p[], int
     string sickness, doc;
     int i = 0;
 
-    ifstream getdata("\\Users\\haziq\\Desktop\\SECJ2013\\Project\\Asg 1\\Patient.txt");
+    ifstream getdata("Patient.txt");
     char del;
     if (!getdata) {
         cout << "Error in open File Patient.txt (check the path)\n";
@@ -145,7 +158,7 @@ void getDataDoc(Doctor d[], int size) {
     string position, department;
     int i = 0;
 
-    ifstream getdata("\\Users\\haziq\\Desktop\\SECJ2013\\Project\\Asg 1\\Doctor.txt");
+    ifstream getdata("Doctor.txt");
     char del;
     if (!getdata) {
         cout << "Error in open File Doctor.txt (check the path)\n";
