@@ -85,7 +85,7 @@ This program is an interactive customer management system with file I/O, linked 
 **PSEUDOCODE**
 Here's a pseudocode for the main part of our program:
 
-
+```plaintext
 `class Cust:`
     properties: name, destination, airlines, day, month, years
 
@@ -158,7 +158,7 @@ function main():
                 print "Exiting the program. Goodbye!"
             default:
                 print "Invalid choice. Please enter a valid option."
-
+```
 
 This pseudocode outlines the structure of our program, including class definitions and the main logic for handling user input and interacting with the linked list of customers. We use this as a guide to implement the actual C++ code.
 
