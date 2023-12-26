@@ -53,15 +53,15 @@ public:
 
     ~OrderList() {
         // Implement destructor to free allocated memory
-        //Node *current = head;
-        //Node *next;
+        Node *current = head;
+        Node *next;
         while (head != nullptr) {
-            Node* temp = head;
+            /*Node* temp = head;
             head = head->next;
-            delete temp;
-            //next = current->next;
-            //delete current;
-            //current = next;
+            delete temp;*/
+            next = current->next;
+            delete current;
+            current = next;
         }
     }
 
@@ -125,7 +125,7 @@ public:
     }*/
 
     //choice 2
-    Node* findNode(const string& searchKey) {
+    /*Node* findNode(const string& searchKey) {
         Node* currNode = head;
         //int currIndex = 1;
         while (currNode && currNode->order.getName() != searchKey) {
@@ -136,8 +136,17 @@ public:
         /*if (currNode)
             return currIndex;
         else 
-            return 0;*/
+            return 0;
+    }*/
+
+    Node* findNode(const string& searchKey) const {
+        Node* current = head;
+        while (current != nullptr && (current->order.getName() != searchKey)) {
+                current = current->next;
+            }
+        return current;
     }
+         
 
     // Function to sort the list (using bubble sort as an example)
     void sortList() {
@@ -223,6 +232,8 @@ int main() {
                 return 0;
             }
 
+            int menuread = 0;
+
             while (!nameFile.eof() && size < SIZE) {
                 getline(nameFile, foodId, ',');
                 getline(nameFile, name, ',');
@@ -231,11 +242,13 @@ int main() {
                 nameFile.ignore();
 
                 menuArray[size++] = Menu(foodId, name, category, price);
+                menuread++;
             }
-            
+            cout << "Number of menu: " << menuread << endl;
             nameFile.close();
             displayHeader();
             displayMenu(menuArray);
+            
     OrderList orderList;
 
     // Example usage:
@@ -248,6 +261,7 @@ int main() {
 
     string searchKey; // Replace with the actual food name you want to search for
     cout << "\nFinding a node: ";
+    cin.ignore();
     getline(cin, searchKey);
     Node* foundNode = orderList.findNode(searchKey);
 
