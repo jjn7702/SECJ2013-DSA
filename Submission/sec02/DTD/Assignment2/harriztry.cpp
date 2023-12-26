@@ -83,10 +83,11 @@ class Library
 {
 private:
     Node *head;
+    int size;
 
 public:
     // Constructor and destructor
-    Library() : head(nullptr) {}
+    Library() : head(nullptr) , size(0) {}
     ~Library()
     {
         // Destructor to free allocated memory
@@ -175,12 +176,63 @@ public:
 
         cout << "-----------------------------------------------------------------------------------------------------------" << endl;
     }
+
+    int getSize() {
+        return size;
+    }
+
+    void addNodeMiddle(Book& book) {
+    Node* newNode = new Node{book, nullptr};
+
+    if (head == nullptr) {
+        // If the list is empty, insert at the beginning
+        newNode->next = head;
+        head = newNode;
+    } else {
+        int size = getSize();
+        int middlePosition = (size + 1) / 2;
+
+        Node* current = head;
+        int currentPosition = 1;
+
+        // Traverse to the node before the middle position
+        while (currentPosition < middlePosition - 1 && current->next) {
+            current = current->next;
+            currentPosition++;
+        }
+
+        // Insert at the middle or end
+        newNode->next = current->next;
+        current->next = newNode;
+    }
+}
+
+void addNodeEnd(Book& book) {
+    Node* newNode = new Node{book, nullptr};
+
+    if (head == nullptr) {
+        // If the list is empty, insert at the beginning
+        newNode->next = head;
+        head = newNode;
+    } else {
+        Node* current = head;
+
+        // Traverse to the last node
+        while (current->next) {
+            current = current->next;
+        }
+
+        // Insert at the end
+        current->next = newNode;
+    }
+}
+
 };
 
 int main()
 {
     Library library;
-    int choice;
+    int choice, nodeChoice;
     char yn1;
     string Title, Author, isbn;
     int Year;
@@ -224,8 +276,7 @@ int main()
         cout << setw(39) << " ____________________________________" << endl;
         cout << setw(40) << "|                                    |" << endl;
         cout << setw(40) << "|       Welcome to DTD Library!      |" << endl;
-        cout << setw(40) << "|____________________________________|" << endl
-             << endl;
+        cout << setw(40) << "|____________________________________|" << endl << endl;
 
         cout << setw(5) << "[1] Add Book" << endl;
         cout << setw(5) << "[2] Find Book" << endl;
@@ -243,6 +294,21 @@ int main()
         {
         case 1:
         {
+            system("cls");
+            cout << setw(39) << " ____________________________________" << endl;
+            cout << setw(40) << "|                                    |" << endl;
+            cout << setw(40) << "|              Add Node              |" << endl;
+            cout << setw(40) << "|____________________________________|" << endl << endl;
+
+            cout << setw(5) << "[1] Add Book (Front)" << endl;
+            cout << setw(5) << "[2] Add Book (Middle)" << endl;
+            cout << setw(5) << "[3] Add Book (End)" << endl;
+
+            cout << "Please enter your choice: ";
+            cin >> nodeChoice;
+
+            if (nodeChoice == 1)
+            {
             // Add Book
             system("cls");
             Book newBook;
@@ -266,6 +332,64 @@ int main()
             system("pause");
 
             library.displayList();
+            }
+
+            else if (nodeChoice == 2)
+            {
+            system("cls");
+            Book newBook;
+            cin.ignore(); // Ignore newline character from previous input
+            cout << "Enter book title: ";
+            getline(cin, Title);
+            newBook.setTitle(Title);
+            cout << "Enter book author: ";
+            getline(cin, Author);
+            newBook.setAuthor(Author);
+            cout << "Enter year of publication: ";
+            cin >> Year;
+            newBook.setYear(Year);
+            cin.ignore(); // Ignore newline character from previous input
+            cout << "Enter ISBN (Example : 123-1234567890): ";
+            getline(cin, isbn);
+            newBook.setISBN(isbn);
+
+            library.addNodeMiddle(newBook);
+            cout << "Book added successfully!" << endl;
+            system("pause");
+
+            library.displayList();
+            }
+
+            else if (nodeChoice == 3)
+            {
+            system("cls");
+            Book newBook;
+            cin.ignore(); // Ignore newline character from previous input
+            cout << "Enter book title: ";
+            getline(cin, Title);
+            newBook.setTitle(Title);
+            cout << "Enter book author: ";
+            getline(cin, Author);
+            newBook.setAuthor(Author);
+            cout << "Enter year of publication: ";
+            cin >> Year;
+            newBook.setYear(Year);
+            cin.ignore(); // Ignore newline character from previous input
+            cout << "Enter ISBN (Example : 123-1234567890): ";
+            getline(cin, isbn);
+            newBook.setISBN(isbn);
+
+            library.addNodeEnd(newBook);
+            cout << "Book added successfully!" << endl;
+            system("pause");
+
+            library.displayList();
+            }
+
+            else
+            {
+            cout << "Invalid choice. Please try again." << endl;
+            }
 
             break;
         }
@@ -275,6 +399,7 @@ int main()
             // Find Book
             string searchKey;
             cout << "Enter title or ISBN to search: ";
+            cin.ignore();
             getline(cin, searchKey);
 
             Node &foundNode = library.findNode(searchKey);
