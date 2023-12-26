@@ -7,11 +7,18 @@
 
 _Don't forget to hit the :star: if you like this repo._
 
-# Airline Reservation System
+# Airline Reservation System - Project
+## Objective
+
+
 
 ## Description 📝
 
-An Airline Reservation System is a computerized platform that facilitates the booking and management of airline tickets for passengers. It serves as the backbone for airline operations, helping airline staff interact with flight-related information.
+
+## Flow of Event 💹
+
+
+
 
 ## Prepared by 🧑‍💻
 
@@ -24,12 +31,14 @@ An Airline Reservation System is a computerized platform that facilitates the bo
 
 ## Findings 📊
 
-- [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Gusion/Assignment%201/Assignment%201.md)
-- [Assignment 2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Gusion/Assignment%202/Assignment%202.md)
-- [Project](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Gusion/Project%20Dsa/Project%20Dsa.md)
+- [Source Code](./Source-code/Project.cpp)
+- [Input File]
+- [Report]
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
 
 [![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fjjn7702&labelColor=%23697689&countColor=%23555555&style=plastic)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fjjn7702)
 ![](https://hit.yhype.me/github/profile?user_id=81284918)
+
+
