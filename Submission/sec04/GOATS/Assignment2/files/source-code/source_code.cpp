@@ -124,6 +124,33 @@ class List{
             p_head = NULL;
         }
         // add more function here
+        bool isEmpty(){
+            return p_head == NULL;
+        }
+        void insertFront(string icNum, string n, int a, string sick, string doc ){
+            Patient *newNode = new Patient(icNum, n, a, sick, doc);
+            if(isEmpty())
+                p_head = newNode;
+            else{
+                newNode->setNext(p_head);
+                p_head->setPrev(newNode);
+                p_head = newNode;
+            }
+        }
+
+        void display(){
+            Patient *temp = p_head;
+            if(isEmpty()){
+                cout << "No node in the list\n";
+                return;
+            }
+            cout << "\n<< Display all node >>\n";
+            cout << "--------------------------------\n";
+            while (temp != NULL) {
+            temp->display();
+            temp = temp->getNext();
+            }
+        }
 };
 
 void getDataPatient(Patient p[], int
@@ -133,7 +160,7 @@ void getDataPatient(Patient p[], int
     string sickness, doc;
     int i = 0;
 
-    ifstream getdata("Patient.txt");
+    ifstream getdata("\\Users\\haziq\\Desktop\\SECJ2013\\Project\\Asg 1\\Patient.txt");
     char del;
     if (!getdata) {
         cout << "Error in open File Patient.txt (check the path)\n";
@@ -158,7 +185,7 @@ void getDataDoc(Doctor d[], int size) {
     string position, department;
     int i = 0;
 
-    ifstream getdata("Doctor.txt");
+    ifstream getdata("\\Users\\haziq\\Desktop\\SECJ2013\\Project\\Asg 1\\Doctor.txt");
     char del;
     if (!getdata) {
         cout << "Error in open File Doctor.txt (check the path)\n";
@@ -527,5 +554,16 @@ int main() {
         start();
     }
 
+    List node;
+    node.display(); // test if node is empty
+
+    // try insert node in from the front
+    node.insertFront("888777666", "David", 50, "Arthritis", "Dr. Johnson");
+    node.display();
+
+    node.insertFront("88877766s", "avid", 50, "Arthritis", "Dr. Johnson");
+    node.display();
+
     return 0;
 }
+

@@ -103,6 +103,7 @@ void Library::addNode(const Book& book) {
     head = newNode;
 }
 
+
 void Library::deleteNode(const string& key) {
     Node* current = head;
     Node* prev = nullptr;
@@ -272,7 +273,8 @@ int main() {
                 // Find Book
                 string searchKey;
                 cout << "Enter title or ISBN to search: ";
-                cin >> searchKey;
+                cin.ignore(); // Ignore newline character from previous input
+                getline(cin, searchKey);
                 Node* foundNode = library.findNode(searchKey);
                 if (foundNode != nullptr) {
                     cout << "Book found: " << endl;
@@ -282,6 +284,7 @@ int main() {
                 }
                 break;
             }
+
             case 3: {
                 // Delete Book
                 string deleteKey;
