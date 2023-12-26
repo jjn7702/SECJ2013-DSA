@@ -103,6 +103,7 @@ void Library::addNode(const Book& book) {
     head = newNode;
 }
 
+
 void Library::deleteNode(const string& key) {
     Node* current = head;
     Node* prev = nullptr;
@@ -283,7 +284,7 @@ int main() {
                 }
                 break;
             }
-            
+
             case 3: {
                 // Delete Book
                 string deleteKey;
