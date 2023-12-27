@@ -9,6 +9,25 @@
 #include <iomanip>
 
 using namespace std;
+
+void dispHeader()
+{
+    for (int i = 0; i < 106; i++)
+        cout << "-";
+    cout << endl;
+    cout << setw(50) << left << "| Name "
+         << "|"
+         << setw(20) << " Account Number "
+         << "|"
+         << setw(14) << " Ic Number "
+         << "|"
+         << setw(18) << " Account Balance "
+         << "|" << endl;
+    for (int i = 0; i < 106; i++)
+        cout << "-";
+    cout << endl;
+}
+
 class Bank
 {
     string accNum, accName, ic;
@@ -44,6 +63,65 @@ public:
     }
 };
 
+class Node
+{
+public:
+    Bank data;
+    Node *next;
+    // Constructor
+    Node(Bank b) : data(b), next(NULL) {}
+
+    Bank getData() { return data; }
+};
+
+
+class LinkedList
+{
+    Node *head;
+
+public:
+    LinkedList() : head(NULL) {}
+
+    bool isEmpty() { return head == NULL; }
+
+    Node *findNodeAccNum(string n)
+    {
+        Node *newNode = head;
+        while (newNode)
+        {
+            if (newNode->data.getAccNum() == n)
+            {
+                dispHeader();
+            }
+            newNode = newNode->next;
+        }
+        return NULL;
+    }
+
+    Node *findNodeName(string n)
+    {
+        Node *newNode = head;
+        while (newNode)
+        {
+            if (newNode->data.getName() == n)
+                return newNode;
+            newNode = newNode->next;
+        }
+        return NULL;
+    }
+
+    Node *findNodeIC(string ic)
+    {
+        Node *newNode = head;
+        while (newNode)
+        {
+            if (newNode->data.getIc() == ic)
+                return newNode;
+            newNode = newNode->next;
+        }
+        return NULL;
+    }
+};
 
 /*void insert(Node n)
     {
