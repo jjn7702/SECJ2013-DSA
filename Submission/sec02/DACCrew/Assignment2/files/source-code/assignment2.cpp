@@ -1,8 +1,8 @@
 // Assignment 2 - SECJ2013 - 23241 (assignment2.cpp)
 // Group Members:
 // 1. Nur Farah Adibah Binti Idris A22EC0245
-// 2. 
-// 3.
+// 2. Wong Qiao Ying A22EC0118
+// 3. Chai Yu Tong A22EC0145
 
 #include <iostream>
 #include <string>
@@ -161,6 +161,85 @@ public:
         temp->next = newNode;
     }*/
 
+/*void removeFront()
+    {
+        if (head != nullptr)
+        {
+            Node *temp = head;
+            head = head->next;
+            temp->next = nullptr;
+            delete temp;
+        }
+        else
+        {
+            cout << "List is empty. Nothing to delete." << endl;
+        }
+    }
+
+    void removeEnd()
+    {
+        if (head == nullptr)
+        {
+            cout << "List is empty. Nothing to delete." << endl;
+            return;
+        }
+
+        if (head->next == nullptr)
+        {
+            delete head;
+            head = nullptr;
+        }
+        else
+        {
+            Node *temp = head;
+            Node *prev = nullptr;
+            while (temp->next != nullptr)
+            {
+                prev = temp;
+                temp = temp->next;
+            }
+
+            prev->next = nullptr;
+            delete temp;
+        }
+    }
+
+    void removeMiddle(int loc)
+    {
+        cout << "Enter the location to delete: ";
+        cin >> loc;
+
+        if (isEmpty())
+        {
+            cout << "List is empty. Nothing to delete." << endl;
+            return;
+        }
+
+        Node *temp = head, *prev = nullptr;
+        int count = 1;
+
+        while (temp != nullptr && count < loc)
+        {
+            prev = temp;
+            temp = temp->next;
+            count++;
+        }
+
+        if (temp == nullptr)
+        {
+            cout << "Invalid location. Data not found." << endl;
+            return;
+        }
+
+        if (prev == nullptr)
+            head = temp->next;
+        else
+            prev->next = temp->next;
+
+        delete temp;
+        cout << "Data at location " << loc << " deleted successfully." << endl;
+    }*/
+
 
 
 int main(){
@@ -249,4 +328,37 @@ int main(){
                  << endl;
         }
   */  
+
+    //For remove from front, middle and end
+   /*  do
+    {
+        cout << "\n:: DELETE FROM ::" << endl;
+        cout << "[1] Front" << endl;
+        cout << "[2] Middle (state the location)" << endl;
+        cout << "[3] End" << endl;
+        cin >> opt;
+        cin.ignore();
+
+        switch (opt)
+        {
+        case 1:
+            cout << "\nDelete data from the front of the list" << endl;
+            l.removeFront();
+            break;
+        case 2:
+            cout << "\nDelete data from the middle of the list" << endl;
+            l.removeMiddle(0);
+            break;
+        case 3:
+            cout << "\nDelete data from the end of the list" << endl;
+            l.removeEnd();
+            break;
+        default:
+            cout << "Invalid option." << endl;
+            break;
+        }
+
+        cout << "\nDo you want to delete more data? (1 for Yes, 0 for No): ";
+        cin >> opt;
+    } while (opt == 1); */
 }
