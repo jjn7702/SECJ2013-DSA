@@ -7,31 +7,63 @@
 
 _Don't forget to hit the :star: if you like this repo._
 
-# Task Management System - Assignment 1
+# Task Management System - Assignment 2
 ## Objective
-The objective for this task management system is to create an easier method to access the data in the system specifically based on the user. By implementing sorting technique, user can easily review the content or data in the system by sorting it by alphabet, date or even status which user can choose to sort it by ascending or descending order following the user needs. The implementation of the searching technique will be use by user when user want to search any specific row or rows of data in the system without taking a longer time scrolling and searching the data through the system one by one.
+
 
 ## Sypnosis 📝
 
-This assignment describes how to implement key features into a task management system, with a focus on sorting and searching operations. The system enables users to effectively locate and organise their tasks. Users can arrange tasks alphabetically in ascending or descending order using the sorting functionality, ensuring a structured view based on task titles. Furthermore, the system includes chronological sorting, which allows tasks to be organised by due dates in both ascending and descending order. Furthermore, users can sort tasks by status, whether completed, pending, or in progress, providing a comprehensive overview categorised by task status.
 
-Implementing search functionality improves user accessibility by allowing users to quickly retrieve specific tasks. This feature allows for a quick and precise search through the inserted data.
 
 ## Design 🎨
 
 1. Class Diagram
 
-<img src="/img/WhatsApp Image 2023-12-19 at 23.15.22_be46db66.jpg">
+
 
 2. Flowchart
 
-<img src="/img/WhatsApp Image 2023-12-19 at 22.34.51_ea03ef95.jpg">
+
 
 ## Flow of Event 💹
 
-1. User will be directed to the main menu of the task management system. In the main menu user can see all the task with its date and status. User will also can see the option menu that have the sorting or searching option.
+1. User will be directed to the main menu of the task management system. In the main menu user can see all the task with its date and status. User will also can see the option menu that have add, delete, find, and sort the task.
 
-2. If the user click on the sorting option, the system will redirect the user to the next option menu where the user can choose to sort the data in either of these manner which are:
+2. If the user click on the add task option, the system will redirect the user to the next option menu where the user can choose to add the task in either of these manner which are:
+
+    1. Add beginning
+    2. Add middle
+    3. Add end
+
+3. After choosing the option, the system will show the output based on the option that have been chosen by the user.
+
+4. The user can exit to the main menu and will be showed again the first event. There the user can choose again which option that the user wants.
+
+5. If the user choose the second option which is delete task, the system will redirect the user to the next option menu.
+
+6. In the delete task menu option the user can enter any of these delete option to delete any of the task based on the option. The options are:
+    1. Delete beginning
+    2. Delete middle
+    3. Delete end
+
+7. After choosing the option, the system will show the output based on the option that have been chosen by the user.
+
+8. The user can exit to the main menu and will be showed again the first event. There the user can choose again which option that the user wants.
+
+9. If the user choose the third option which is find task, the system will redirect the user to the next option menu.
+
+10. In the find task menu option the user can enter any of these searching option to see if the task that the user want to see is in the list. The options are:
+    1. Find by using the alphabet
+    2. Find by using the date
+    3. Find by using the status
+
+11. After choosing the option, the system will show the output based on the option that have been chosen by the user.
+
+12. The user can exit to the main menu and will be showed again the first event. There the user can choose again which option that the user wants.
+
+13. If the user choose the forth option which is sort task, the system will redirect the user to the next option menu.
+
+14. If the user click on the sorting option, the system will redirect the user to the next option menu where the user can choose to sort the lisk in either of these manner which are:
 
     1. Ascending Alphabet
     2. Descending Alphabet
@@ -41,20 +73,9 @@ Implementing search functionality improves user accessibility by allowing users 
     6. Descending Status
     (* notes: For the Status the arrangement of level will be from todo, doing and completed)
 
-3. After choosing the option, the system will show the output based on the option that have been chosen by the user.
+15. After choosing the option, the system will show the output based on the option that have been chosen by the user.
 
-4. The user can exit to the main menu and will be showed again the first event. There the user can choose again which option that the user wants.
-
-5. If the user choose the second option which is searching, the system will redirect the user to the next option menu.
-
-6. In the searching menu option the user can enter any of these searching option to see if the task that the user want to see is in the list. The options are:
-    1. Search by using the alphabet
-    2. Search by using the date
-    3. Search by using the status
-
-7. After choosing the option, the system will show the output based on the option that have been chosen by the user.
-
-8. The user can exit to the main menu and will be showed again the first event. There the user can choose again which option that the user wants.
+16. The user can exit to the main menu and will be showed again the first event. There the user can choose again which option that the user wants.
 
 ## Prepared by 🧑‍💻
 
@@ -67,9 +88,9 @@ Implementing search functionality improves user accessibility by allowing users 
 
 ## Findings 📊
 
-- [Source Code](./source_code/assignment1.cpp)
+- [Source Code]()
 - [Input File](./source_code/task.txt)
-- [Report](/assignment1/assignment1_tempest.pdf)
+- [Report]
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
