@@ -1,7 +1,6 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <vector>
 #include <fstream>
 #define SIZE 27
 
@@ -49,7 +48,7 @@ class Node {
     public:
         Menu order;
         Node* next;
-        Menu getOrder() { return order; }
+        //Menu getOrder() { return order; }
         //Node(const Menu& order) : order(order), next(nullptr) {}
 };
 
@@ -64,7 +63,7 @@ public:
         // Implement destructor to free allocated memory
         Node *current = head;
         Node *next;
-        while (head != nullptr) {
+        while (current != nullptr) {
             /*Node* temp = head;
             head = head->next;
             delete temp;*/
@@ -72,6 +71,16 @@ public:
             delete current;
             current = next;
         }
+    }
+
+    // Function to add a new node
+    void addNode(Menu order)
+    {
+        Node *newNode = new Node{order, nullptr};
+
+        // Insert at the beginning
+        newNode->next = head;
+        head = newNode;
     }
 
     /*// Function to add a new node
@@ -183,76 +192,57 @@ public:
 
     // Function to display all nodes
     void displayNodes() const {
+        system("cls");
+        cout << left;
+        cout << setw(10) << "ID" << " | "
+             << setw(21) << "NAME" << " | "
+             << setw(13) << "TYPE" << " | "
+             << fixed << "PRICE" << endl;
+        cout << "---------------------------------------------------------" << endl;
         Node* current = head;
         while (current != nullptr) {
             current->order.displayOrder();
             current = current->next;
         }
     }
-
-    /*// Display order details
-    void displayOrder(const Menu& order) const {
-        cout << left;
-        cout << setw(10) << order.getFoodId() << " | "
-             << setw(21) << order.getName() << " | "
-             << setw(13) << order.getCategory() << " | "
-             << fixed << setprecision(2) << setw(4) << order.getPrice() << endl;
-    }*/
 };
 
-void displayHeader() {
-    cout << left;
-    cout << setw(5) << "NO" << " | "
-         << setw(10) << "ID" << " | "
-         << setw(21) << "NAME" << " | "
-         << setw(13) << "TYPE" << " | "
-         << fixed << "PRICE" << endl;
-    cout << "---------------------------------------------------------" << endl;
-}
-
-/*void displayMenu(Menu menuArray[]) {
-    for (int i = 0; i < SIZE; i++) {
-        cout << left;
-        cout << setw(5) << (i+1) << " | "
-             << setw(10) << menuArray[i].getFoodId() << " | "
-             << setw(21) << menuArray[i].getName() << " | "
-             << setw(13) << menuArray[i].getCategory() << " | "
-             << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
-    }
-}*/
-
 int main() {
-    // ... (Menu class and other functions remain unchanged)
-    Menu menuArray[SIZE];
     char choice;
     int opt, size = 0;
-    fstream nameFile;
     string foodId, name, category;
     double price;
     OrderList orderList;
 
-        system("cls");
-        cout << "WELCOME TO TUPPERWARE!" << endl;
-        nameFile.open("menu.txt", ios::in);
+    system("cls");
+    cout << "WELCOME TO TUPPERWARE!" << endl;
 
-            if (!nameFile) {
-                cout << "ERROR: Cannot open file." << endl;
-                return 0;
-            }
+    ifstream nameFile("menu.txt");
 
-            while (!nameFile.eof() && size < SIZE) {
-                getline(nameFile, foodId, ',');
-                getline(nameFile, name, ',');
-                getline(nameFile, category, ',');
-                nameFile >> price;
-                nameFile.ignore();
+    if (!nameFile.is_open()) {
+        cout << "ERROR: Cannot open file." << endl;
+        return 1;
+    }
 
-                menuArray[size++] = Menu(foodId, name, category, price);
-            }
-            nameFile.close();
-            displayHeader();
-            displayMenu(menuArray);
-            
+    int menuread = 0;
+
+    while (!nameFile.eof()) {
+        getline(nameFile, foodId, ',');
+        getline(nameFile, name, ',');
+        getline(nameFile, category, ',');
+        nameFile >> price;
+        nameFile.ignore();
+        Menu newmenu;
+        newmenu.setFoodId(foodId);
+        newmenu.setName(name);
+        newmenu.setCategory(category);
+        newmenu.setPrice(price);
+        orderList.addNode(newmenu);
+
+        menuread++;
+    }
+
+    nameFile.close();
 
     do {
         cout << endl;
