@@ -1,8 +1,7 @@
 # Election Management System
 
 ## Description 📝
-
-The Election Management System is designed to address the effective management and monitoring of chronic diseases for patients. This system aims to provide healthcare professionals with tools to streamline patient information, treatment plans, and progress tracking, ultimately improving patient outcomes and quality of care.
+As from the agent P group we decided to develop an election management system for   UTM. From this system UTM can  handle the elections easily and efficiently. For assignment 1 we had developed a class for candidates which contain 7 attributes which define a candidate. The attributes are name , age , identification number , phone number , vote count , faculty and matric number. 
 
 ## Prepared by 🧑‍💻
 

@@ -21,11 +21,11 @@ Implementing search functionality improves user accessibility by allowing users 
 
 1. Class Diagram
 
-<img src="/img/WhatsApp Image 2023-12-19 at 23.15.22_be46db66.jpg">
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/WhatsApp%20Image%202023-12-19%20at%2023.15.22_be46db66.jpg)
 
 2. Flowchart
 
-<img src="/img/WhatsApp Image 2023-12-19 at 22.34.51_ea03ef95.jpg">
+![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/WhatsApp%20Image%202023-12-19%20at%2022.34.51_ea03ef95.jpg)
 
 ## Flow of Event 💹
 
@@ -69,7 +69,7 @@ Implementing search functionality improves user accessibility by allowing users 
 
 - [Source Code](./source_code/assignment1.cpp)
 - [Input File](./source_code/task.txt)
-- [Report](/assignment1/assignment1_tempest.pdf)
+- [Report]
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.

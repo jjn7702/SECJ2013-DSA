@@ -1,7 +1,9 @@
 ReservationID, DepartureTime, ArrivalTime, Date, Location, Class
-R12345,08:00 AM,10:30 AM,2023-04-15,New York to Los Angeles,Economy
-R23456,12:45 PM,03:15 PM,2023-05-22,Chicago to Miami,Business
-R34567,04:30 PM,06:45 PM,2023-06-10,Seattle to Denver,First Class
-R45678,09:15 AM,11:45 AM,2023-07-03,San Francisco to Houston,Economy
-R56789,02:30 PM,05:00 PM,2023-08-18,Atlanta to Las Vegas,Business
-R67890,06:20 PM,08:40 PM,2023-09-05,Boston to Orlando,First Class
+R1,08:00 AM,10:30 AM,2023-04-15,New York to Los Angeles,Economy
+R2,12:45 PM,03:15 PM,2023-05-22,Chicago to Miami,Business
+R3,04:30 PM,06:45 PM,2023-06-10,Seattle to Denver,First Class
+R4,09:15 AM,11:45 AM,2023-07-03,San Francisco to Houston,Economy
+R5,02:30 PM,05:00 PM,2023-08-18,Atlanta to Las Vegas,Business
+R6,06:20 PM,08:40 PM,2023-09-05,Boston to Orlando,First Class
+R7,08:00 AM,10:30 AM,2023-04-15,New York to Los Angeles,First Class
+R8,08:00 AM,10:30 AM,2023-04-15,New York to Los Angeles,First Class
