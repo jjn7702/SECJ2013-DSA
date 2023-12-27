@@ -22,32 +22,32 @@ public:
         ISBN = "";
     }
 
-    string getTitle() const
+    string getTitle()
     {
         return title;
     }
 
-    string getAuthor() const
+    string getAuthor()
     {
         return author;
     }
 
-    int getYear() const
+    int getYear()
     {
         return year;
     }
 
-    string getISBN() const
+    string getISBN()
     {
         return ISBN;
     }
 
-    void setTitle(const string &t)
+    void setTitle(string t)
     {
         title = t;
     }
 
-    void setAuthor(const string &a)
+    void setAuthor(string a)
     {
         author = a;
     }
@@ -57,9 +57,9 @@ public:
         year = y;
     }
 
-    void setISBN(const string &isbn)
+    void setISBN(string i)
     {
-        ISBN = isbn;
+        ISBN = i;
     }
 
     // Display book details
@@ -102,7 +102,7 @@ public:
     }
 
     // Linked list operations
-    void addNode(Book &book)
+    void addNode(Book book)
     {
         Node *newNode = new Node{book, nullptr};
 
@@ -110,7 +110,8 @@ public:
         newNode->next = head;
         head = newNode;
     }
-    void deleteNode(string &key)
+
+    void deleteNode(string key)
     {
         Node *current = head;
         Node *prev = nullptr;
@@ -143,7 +144,7 @@ public:
         }
     }
 
-    Node &findNode(string &key)
+    Node findNode(string key)
     {
         Node *current = head;
 
@@ -181,7 +182,7 @@ public:
         return size;
     }
 
-    void addNodeMiddle(Book& book) {
+    void addNodeMiddle(Book book) {
     Node* newNode = new Node{book, nullptr};
 
     if (head == nullptr) {
@@ -207,7 +208,7 @@ public:
     }
 }
 
-void addNodeEnd(Book& book) {
+void addNodeEnd(Book book) {
     Node* newNode = new Node{book, nullptr};
 
     if (head == nullptr) {
@@ -398,11 +399,18 @@ int main()
         {
             // Find Book
             string searchKey;
+            
+            system("cls");
+            cout << setw(39) << " ____________________________________" << endl;
+            cout << setw(40) << "|                                    |" << endl;
+            cout << setw(40) << "|              Find Node             |" << endl;
+            cout << setw(40) << "|____________________________________|" << endl << endl;
+
             cout << "Enter title or ISBN to search: ";
             cin.ignore();
             getline(cin, searchKey);
 
-            Node &foundNode = library.findNode(searchKey);
+            Node foundNode = library.findNode(searchKey);
             if (&foundNode != nullptr)
             {
                 cout << "Book found: " << endl;
@@ -418,10 +426,19 @@ int main()
         {
             // Delete Book
             string deleteKey;
+
+            system("cls");
+            cout << setw(39) << " ____________________________________" << endl;
+            cout << setw(40) << "|                                    |" << endl;
+            cout << setw(40) << "|             Delete Node            |" << endl;
+            cout << setw(40) << "|____________________________________|" << endl << endl;
+
             cout << "Enter title or ISBN to delete: ";
-            cin >> deleteKey;
+            cin.ignore();
+            getline(cin, deleteKey);
             library.deleteNode(deleteKey);
             cout << "Book deleted successfully!" << endl;
+            library.displayList();
             break;
         }
         case 4:
