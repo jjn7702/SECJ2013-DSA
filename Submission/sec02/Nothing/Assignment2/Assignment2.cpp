@@ -65,6 +65,7 @@ class List{
 
 //check if the input is a number
 bool isNumber(string);
+bool isfloat(string);
 
 int main(){
     List list;
@@ -129,8 +130,10 @@ int main(){
             cout << "Enter item name: ";
             cin.ignore();
             getline(cin, itemName);
+            system("cls");
             cout << "Enter description: ";
             getline(cin, description);
+            system("cls");
             while(true){
                 cout << "Enter quantity: ";
                 cin >> inp;
@@ -162,14 +165,13 @@ int main(){
             cout << "Enter item location: ";
             cin.ignore();
             getline(cin, itemLocation);
+            system("cls");
             item = new inventory(itemNumber, itemName, description, quantity, cost, itemLocation);
             if(choice1 == 1){
                 list.insertNode(*item, 0);
-                cout << "Item added successfully!\n";
             }
             else if(choice1 == 2){
                 list.insertNode(*item, list.count());
-                cout << "Item added successfully!\n";
             }
             else if(choice1 == 3){
                 int index;
@@ -188,8 +190,9 @@ int main(){
                     }
                 }
                 list.insertNode(*item, index);
-                cout << "Item added successfully!\n";
             }
+            cout << "Item added successfully!\n";
+            system("cls");
         }
         else if(choice == 2){
             if(list.isEmpty()){
@@ -341,18 +344,12 @@ int main(){
                     }
                 }
                 if(choice == 4) continue;
-                if(choice == 1){
-                    list.SortbyNumber();
-                    cout << "List sorted successfully!\n";
-                }
-                else if(choice == 2){
-                    list.SortbyName();
-                    cout << "List sorted successfully!\n";
-                }
-                else if(choice == 3){
-                    list.SortbyLocation();
-                    cout << "List sorted successfully!\n";
-                }
+                if(choice == 1)     list.SortbyNumber();
+                else if(choice == 2)    list.SortbyName();
+                else if(choice == 3)    list.SortbyLocation();
+                cout << "List sorted successfully!\n";
+                system("pause");
+                system("cls");
             }
         }
         else if(choice == 5){
@@ -670,6 +667,25 @@ bool isNumber(string s){
             system("cls");
             return false;
         }
+    }
+    return true;
+}
+bool isfloat(string s){
+    int count = 0;
+    for(int i = 0; i < s.length(); i++){
+        if(s[i] == '.') count++;
+        if(isdigit(s[i]) == false && s[i] != '.'){
+            cout << "Invalid input, enter a numberic input!\n";
+            system("pause");
+            system("cls");
+            return false;
+        }
+    }
+    if(count > 1){
+        cout << "Invalid input, enter a numberic input!\n";
+        system("pause");
+        system("cls");
+        return false;
     }
     return true;
 }
