@@ -345,7 +345,100 @@ public:
 
 // Task (Iman) --------> Function Sorting & int main (Part Sorting)
 
+ void bubbleSortByName()
+    {
+        bool swapped;
+        Node *ptr1;
+        Node *lptr = nullptr;
 
+        if (head == nullptr)
+            return;
+
+        do
+        {
+            swapped = false;
+            ptr1 = head;
+
+            while (ptr1->next != lptr)
+            {
+                if (ptr1->data->getName() > ptr1->next->data->getName())
+                {
+                    // Swap data of adjacent nodes
+                    Cust *temp = ptr1->data;
+                    ptr1->data = ptr1->next->data;
+                    ptr1->next->data = temp;
+
+                    swapped = true;
+                }
+                ptr1 = ptr1->next;
+            }
+            lptr = ptr1;
+        } while (swapped);
+    }
+
+    void bubbleSortByAirline()
+    {
+        bool swapped;
+        Node *ptr1;
+        Node *lptr = nullptr;
+
+        if (head == nullptr)
+            return;
+
+        do
+        {
+            swapped = false;
+            ptr1 = head;
+
+            while (ptr1->next != lptr)
+            {
+                if (ptr1->data->getAirlines() > ptr1->next->data->getAirlines())
+                {
+                    // Swap data of adjacent nodes
+                    Cust *temp = ptr1->data;
+                    ptr1->data = ptr1->next->data;
+                    ptr1->next->data = temp;
+
+                    swapped = true;
+                }
+                ptr1 = ptr1->next;
+            }
+            lptr = ptr1;
+        } while (swapped);
+    }
+
+    void bubbleSort()
+    {
+        // Provide options for sorting by name or airline
+        int sortChoice;
+        cout << "\t\t\t\t\t\t1. Sort by Name\n\t\t\t\t\t\t2. Sort by Airline\n\t\t\t\t\t\tEnter your choice: ";
+        cin >> sortChoice;
+
+        switch (sortChoice)
+        {
+        case 1:
+            bubbleSortByName();
+            break;
+        case 2:
+            bubbleSortByAirline();
+            break;
+        default:
+            cout << "\t\t\t\t\t\tInvalid choice." << endl;
+        }
+    }
+
+    void displayAllNodes()
+    {
+        Node *current = head;
+        int count;
+
+        while (current != nullptr)
+        {
+            current->data->printResult(count);
+            current = current->next;
+        }
+    }
+};
 
 int main()
 {
@@ -541,7 +634,37 @@ int main()
         }
         break;
         ///--------------------------------------------------------END OF CODE TO SEARCH----------------------------------------------------------------------------------///
+ ///-------------------------------------------------------- CODE TO SORT THE LIST----------------------------------------------------------------------------------///
+        case 4:
+            // Sort the list           
+            custList.bubbleSort();
+            cout << "\n\t\t\t\t\t\tList sorted successfully." << endl;
+            break;
+        ///--------------------------------------------------------END OF CODE TO SORT THE LIST----------------------------------------------------------------------------------///
+     ///-------------------------------------------------------- CODE TO DISPLAY LIST----------------------------------------------------------------------------------///
+        case 5:
+            cout << "\t\t\t----------------------------------------------------------------------------" << endl;
+            cout << left << setw(5) << "\t\t\tNo." << setw(15) << "  Name"
+                 << "  Date of Booking"
+                 << "\t     Destination"
+                 << "\tAirlines" << endl;
+            cout << "\t\t\t----------------------------------------------------------------------------" << endl;;
+            custList.listcust();
+            cout << "\t\t\t----------------------------------------------------------------------------" << endl;
+            cout << endl;
+            break;
+        ///--------------------------------------------------------END OF CODE TO DISPLAY----------------------------------------------------------------------------------///
 
+        case 6:
+            // Exit
+            cout << "\n\n\t\t\t\t\t[Exiting the program. Goodbye]!" << endl;
+            break;
+        default:
+            cout << "\n\t\t\t\t\t\tInvalid choice. Please enter a valid option." << endl;
+        }
+    } while (choice != 6);
+
+    system("pause");
             
 return 0;
 }
