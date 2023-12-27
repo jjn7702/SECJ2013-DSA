@@ -59,6 +59,8 @@ class List{
         int count();
         void displayList();
         void SortbyNumber();
+        void SortbyName();
+        void SortbyLocation();
 };
 
 //check if the input is a number
@@ -93,7 +95,7 @@ int main(){
         if(choice == 1){
             int choice1;
             while(true){
-                cout << "1. Add item at the beginning\n2. Add item at the end\n3. Add item at a specific position\n4. Back\n\nEnter your choice: ";
+                cout << "1. Add item at the beginning\n2. Add item at the end\n3. Add item at a specific position\n4. Back\n5. Display all items\n\nEnter your choice: ";
                 cin >> inp;
                 if(isNumber(inp)){
                     choice1 = stoi(inp);
@@ -189,7 +191,187 @@ int main(){
                 cout << "Item added successfully!\n";
             }
         }
-        
+        else if(choice == 2){
+            if(list.isEmpty()){
+                cout << "The list is empty!\n";
+                system("pause");
+                system("cls");
+                continue;
+            }
+            else{
+                while(true){
+                    cout << "1. Delete first item\n2. Delete last item\n3. Delete item at a specific position\n4. Back\n\nEnter your choice: ";
+                    cin >> inp;
+                    if(isNumber(inp)){
+                        choice = stoi(inp);
+                        if(inp.length() == 1 && choice >= 1 && choice <= 4){
+                            system("cls");
+                            break;
+                        }
+                        cout << "Invalid input, enter a number from 1 to 4!\n";
+                        system("pause");
+                        system("cls");
+                    }
+                }
+                if(choice == 4) continue;
+                if(choice == 1){
+                    list.deleteNode(0);
+                    cout << "Item deleted successfully!\n";
+                }
+                else if(choice == 2){
+                    list.deleteNode(list.count() - 1);
+                    cout << "Item deleted successfully!\n";
+                }
+                else if(choice == 3){
+                    int index;
+                    while(true){
+                        cout << "Enter the position to delete: ";
+                        cin >> inp;
+                        if(isNumber(inp)){
+                            index = stoi(inp);
+                            if(index >= 0 && index < list.count()){
+                                system("cls");
+                                break;
+                            }
+                            cout << "Invalid input, enter a number from 0 to " << list.count() - 1 << "!\n";
+                            system("pause");
+                            system("cls");
+                        }
+                    }
+                    list.deleteNode(index);
+                    cout << "Item deleted successfully!\n";
+                }
+            }
+        }
+        else if(choice == 3){
+            if(list.isEmpty()){
+                cout << "The list is empty!\n";
+                system("pause");
+                system("cls");
+                continue;
+            }
+            else{
+                while(true){
+                    cout << "1. Search by item number\n2. Search by item name\n3. Search by item location\n4. Back\n\nEnter your choice: ";
+                    cin >> inp;
+                    if(isNumber(inp)){
+                        choice = stoi(inp);
+                        if(inp.length() == 1 && choice >= 1 && choice <= 4){
+                            system("cls");
+                            break;
+                        }
+                        cout << "Invalid input, enter a number from 1 to 4!\n";
+                        system("pause");
+                        system("cls");
+                    }
+                }
+                if(choice == 4) continue;
+                if(choice == 1){
+                    int itemNumber;
+                    while(true){
+                        cout << "Enter item number: ";
+                        cin >> inp;
+                        if(isNumber(inp)){
+                            itemNumber = stoi(inp);
+                            if(list.findNodeNum(itemNumber)){
+                                system("cls");
+                                break;
+                            }
+                            cout << "Item number does not exist!\n";
+                            system("pause");
+                            system("cls");
+                        }
+                    }
+                    cout << setw(15) << left << "Item number" 
+                    << setw(15) << left << "Item name" 
+                    << setw(30) << left << "Description" 
+                    << setw(15) << left << "Quantity" 
+                    << setw(15) << left << "Cost" 
+                    << setw(15) << left << "Item location" << endl;
+                    list.insertNode(*item, list.findNodeNum(itemNumber) - 1)->item.print();
+                }
+                else if(choice == 2){
+                    string itemName;
+                    cout << "Enter item name: ";
+                    cin.ignore();
+                    getline(cin, itemName);
+                    cout << setw(15) << left << "Item number" 
+                    << setw(15) << left << "Item name" 
+                    << setw(30) << left << "Description" 
+                    << setw(15) << left << "Quantity" 
+                    << setw(15) << left << "Cost" 
+                    << setw(15) << left << "Item location" << endl;
+                    list.insertNode(*item, list.findNodeName(itemName) - 1)->item.print();
+                }
+                else if(choice == 3){
+                    string itemLocation;
+                    cout << "Enter item location: ";
+                    cin.ignore();
+                    getline(cin, itemLocation);
+                    cout << setw(15) << left << "Item number" 
+                    << setw(15) << left << "Item name" 
+                    << setw(30) << left << "Description" 
+                    << setw(15) << left << "Quantity" 
+                    << setw(15) << left << "Cost" 
+                    << setw(15) << left << "Item location" << endl;
+                    list.insertNode(*item, list.findNodeLocation(itemLocation) - 1)->item.print();
+                }
+            }
+        }
+        else if(choice == 4){
+            if(list.isEmpty()){
+                cout << "The list is empty!\n";
+                system("pause");
+                system("cls");
+                continue;
+            }
+            else{
+                while(true){
+                    cout << "1. Sort by item number\n2. Sort by item name\n3. Sort by item location\n4. Back\n\nEnter your choice: ";
+                    cin >> inp;
+                    if(isNumber(inp)){
+                        choice = stoi(inp);
+                        if(inp.length() == 1 && choice >= 1 && choice <= 4){
+                            system("cls");
+                            break;
+                        }
+                        cout << "Invalid input, enter a number from 1 to 4!\n";
+                        system("pause");
+                        system("cls");
+                    }
+                }
+                if(choice == 4) continue;
+                if(choice == 1){
+                    list.SortbyNumber();
+                    cout << "List sorted successfully!\n";
+                }
+                else if(choice == 2){
+                    list.SortbyName();
+                    cout << "List sorted successfully!\n";
+                }
+                else if(choice == 3){
+                    list.SortbyLocation();
+                    cout << "List sorted successfully!\n";
+                }
+            }
+        }
+        else if(choice == 5){
+            if(list.isEmpty()){
+                cout << "The list is empty!\n";
+                system("pause");
+                system("cls");
+                continue;
+            }
+            else{
+                cout << setw(15) << left << "Item number" 
+                << setw(15) << left << "Item name" 
+                << setw(30) << left << "Description" 
+                << setw(15) << left << "Quantity" 
+                << setw(15) << left << "Cost" 
+                << setw(15) << left << "Item location" << endl;
+                list.displayList();
+            }
+        }
         else break;
     }
     cout << "Thank you for using the inventory management system!\n";
@@ -372,40 +554,114 @@ int List::count(){
 }
 //bubblesort
 void List::SortbyNumber() {
-    void List::SortbyNumber() {
-        if (head == NULL)
-            return;
+    if (head == NULL)
+        return;
 
-        bool swapped;
-        Node* currNode;
-        Node* lastNode = NULL;
+    bool swapped;
+    Node* currNode;
+    Node* lastNode = NULL;
 
-        int count = this->count(); // Get the count of nodes in the list
+    int count = this->count(); // Get the count of nodes in the list
 
-        for (int i = 0; i < count - 1; i++) {
-            swapped = false;
-            currNode = head;
+    for (int i = 0; i < count - 1; i++) {
+        swapped = false;
+        currNode = head;
 
-            for (int j = 0; j < count - i - 1; j++) {
-                if (currNode->item.getItemNumber() > currNode->next->item.getItemNumber()) {
+        for (int j = 0; j < count - i - 1; j++) {
+            if (currNode->item.getItemNumber() > currNode->next->item.getItemNumber()) {
+                if (currNode->item.getItemNumber() != currNode->next->item.getItemNumber()) {
                     inventory temp = currNode->item;
                     currNode->item = currNode->next->item;
                     currNode->next->item = temp;
                     swapped = true;
                 }
-                currNode = currNode->next;
+            }
+            currNode = currNode->next;
+        }
+
+        if (!swapped)
+            break;
+    }
+}
+void List::SortbyName() {
+    if (head == NULL)
+        return;
+
+    Node* currNode = head;
+    Node* sortedNode = NULL;
+
+    while (currNode != NULL) {
+        Node* minNode = currNode;
+        Node* tempNode = currNode->next;
+
+        while (tempNode != NULL) {
+            if (tempNode->item.getItemName() < minNode->item.getItemName()) {
+                if (tempNode->item.getItemName() != minNode->item.getItemName()) {
+                    minNode = tempNode;
+                }
+            }
+            tempNode = tempNode->next;
+        }
+
+        if (minNode != currNode) {
+            if (currNode == head) {
+                head = minNode;
+            } else {
+                Node* prevNode = head;
+                while (prevNode->next != currNode) {
+                    prevNode = prevNode->next;
+                }
+                prevNode->next = minNode;
             }
 
-            if (!swapped)
-                break;
+            Node* temp = minNode->next;
+            minNode->next = currNode->next;
+            currNode->next = temp;
+
+            currNode = minNode;
         }
+
+        if (sortedNode == NULL) {
+            sortedNode = currNode;
+        }
+
+        currNode = currNode->next;
+    }
+}
+void List::SortbyLocation() {
+    if (head == NULL)
+        return;
+
+    bool swapped;
+    Node* currNode;
+    Node* lastNode = NULL;
+
+    int count = this->count(); // Get the count of nodes in the list
+
+    for (int i = 0; i < count - 1; i++) {
+        swapped = false;
+        currNode = head;
+
+        for (int j = 0; j < count - i - 1; j++) {
+            if (currNode->item.getItemLocation() > currNode->next->item.getItemLocation()) {
+                if (currNode->item.getItemLocation() != currNode->next->item.getItemLocation()) {
+                    inventory temp = currNode->item;
+                    currNode->item = currNode->next->item;
+                    currNode->next->item = temp;
+                    swapped = true;
+                }
+            }
+            currNode = currNode->next;
+        }
+
+        if (!swapped)
+            break;
     }
 }
 
 
 
-
-//other function
+//other functionl
 bool isNumber(string s){
     for(int i = 0; i < s.length(); i++){
         if(isdigit(s[i]) == false){
