@@ -74,7 +74,6 @@ public:
     Bank getData() { return data; }
 };
 
-
 class LinkedList
 {
     Node *head;
@@ -121,9 +120,8 @@ public:
         }
         return NULL;
     }
-};
 
-/*void insert(Node n)
+    void insert(Node n)
     {
         Node *newNode = new Node(n);
         if (isEmpty())
@@ -159,9 +157,9 @@ public:
             temp = temp->next;
 
         temp->next = newNode;
-    }*/
+    }
 
-/*void removeFront()
+    void removeFront()
     {
         if (head != nullptr)
         {
@@ -238,17 +236,58 @@ public:
 
         delete temp;
         cout << "Data at location " << loc << " deleted successfully." << endl;
-    }*/
+    }
 
+    void displayAll()
+    {
+        Node *temp = head;
+        dispHeader(); // Display header before displaying all nodes
 
+        while (temp != NULL)
+        {
+            temp->data.displayDetails();
+            temp = temp->next;
+        }
+    }
+};
 
-int main(){
+int main()
+{
 
+    LinkedList list;
+    int opt = 0;
+    string name, accnum, ic;
+    double balance;
+    int position;
 
+    list.insert(Node(Bank("123", 500, "Farah", "0356852515896")));
+    list.insertEnd(Bank("724", 100, "Yu Tong", "0356698525896"));
+    list.insertEnd(Bank("827", 200, "Qiao Ying", "0356852516985"));
+    list.insertEnd(Bank("325", 300, "Bernice", "0356852588896"));
 
     //  FOR INSERT BEGINNING MIDDLE END
-  /*
-  if (opt == 1)
+
+    while (opt != 7)
+    {
+        cout << ":: INSERT DATA ::" << endl;
+        cout << "[1] Insert at the beginning" << endl;
+        cout << "[2] Insert at the middle" << endl;
+        cout << "[3] Insert at the end" << endl
+             << endl;
+
+        cout << "\n:: DELETE FROM ::" << endl;
+        cout << "[4] Front" << endl;
+        cout << "[5] Middle (state the location)" << endl;
+        cout << "[6] End" << endl
+             << endl;
+
+        cout << ":: OTHER ACTION ::" << endl;
+        cout << "[7] Quit" << endl;
+        cout << "OPTION >> ";
+        cin >> opt;
+        cout << endl
+             << endl;
+        if (opt == 1)
         {
             cout << "INSERT INFO AT THE BEGINNING" << endl
                  << endl;
@@ -327,38 +366,38 @@ int main(){
             cout << endl
                  << endl;
         }
-  */  
+    }
 
-    //For remove from front, middle and end
-   /*  do
-    {
-        cout << "\n:: DELETE FROM ::" << endl;
-        cout << "[1] Front" << endl;
-        cout << "[2] Middle (state the location)" << endl;
-        cout << "[3] End" << endl;
-        cin >> opt;
-        cin.ignore();
+    // For remove from front, middle and end
+    /*  do
+     {
+         cout << "\n:: DELETE FROM ::" << endl;
+         cout << "[4] Front" << endl;
+         cout << "[5] Middle (state the location)" << endl;
+         cout << "[6] End" << endl;
+         cin >> opt;
+         cin.ignore();
 
-        switch (opt)
-        {
-        case 1:
-            cout << "\nDelete data from the front of the list" << endl;
-            l.removeFront();
-            break;
-        case 2:
-            cout << "\nDelete data from the middle of the list" << endl;
-            l.removeMiddle(0);
-            break;
-        case 3:
-            cout << "\nDelete data from the end of the list" << endl;
-            l.removeEnd();
-            break;
-        default:
-            cout << "Invalid option." << endl;
-            break;
-        }
+         switch (opt)
+         {
+         case 4:
+             cout << "\nDelete data from the front of the list" << endl;
+             list.removeFront();
+             break;
+         case 5:
+             cout << "\nDelete data from the middle of the list" << endl;
+             list.removeMiddle(0);
+             break;
+         case 6:
+             cout << "\nDelete data from the end of the list" << endl;
+             list.removeEnd();
+             break;
+         default:
+             cout << "Invalid option." << endl;
+             break;
+         }
 
-        cout << "\nDo you want to delete more data? (1 for Yes, 0 for No): ";
-        cin >> opt;
-    } while (opt == 1); */
+         cout << "\nDo you want to delete more data? (1 for Yes, 0 for No): ";
+         cin >> opt;
+     } while (opt == 1); */
 }
