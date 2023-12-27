@@ -32,7 +32,7 @@ _Don't forget to hit the :star: if you like this repo._
 2. If the user click on the add task option, the system will redirect the user to the next option menu where the user can choose to add the task in either of these manner which are:
 
     1. Add beginning
-    2. Add middle
+    2. Add middle (by using a number)
     3. Add end
 
 3. After choosing the option, the system will show the output based on the option that have been chosen by the user.
@@ -43,8 +43,11 @@ _Don't forget to hit the :star: if you like this repo._
 
 6. In the delete task menu option the user can enter any of these delete option to delete any of the task based on the option. The options are:
     1. Delete beginning
-    2. Delete middle
+    2. Delete middle (by a using number)
     3. Delete end
+    4. Delete task by task name
+    5. Delete task by task date
+    6. Delete task by task status
 
 7. After choosing the option, the system will show the output based on the option that have been chosen by the user.
 
