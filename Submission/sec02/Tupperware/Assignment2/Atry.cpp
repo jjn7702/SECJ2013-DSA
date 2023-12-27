@@ -49,7 +49,7 @@ class Node {
     public:
         Menu order;
         Node* next;
-
+        Menu getOrder() { return order; }
         //Node(const Menu& order) : order(order), next(nullptr) {}
 };
 
@@ -210,7 +210,7 @@ void displayHeader() {
     cout << "---------------------------------------------------------" << endl;
 }
 
-void displayMenu(Menu menuArray[]) {
+/*void displayMenu(Menu menuArray[]) {
     for (int i = 0; i < SIZE; i++) {
         cout << left;
         cout << setw(5) << (i+1) << " | "
@@ -219,7 +219,7 @@ void displayMenu(Menu menuArray[]) {
              << setw(13) << menuArray[i].getCategory() << " | "
              << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
     }
-}
+}*/
 
 int main() {
     // ... (Menu class and other functions remain unchanged)
@@ -229,6 +229,7 @@ int main() {
     fstream nameFile;
     string foodId, name, category;
     double price;
+    OrderList orderList;
 
         system("cls");
         cout << "WELCOME TO TUPPERWARE!" << endl;
@@ -252,7 +253,6 @@ int main() {
             displayHeader();
             displayMenu(menuArray);
             
-    OrderList orderList;
 
     do {
         cout << endl;
@@ -272,7 +272,7 @@ int main() {
             cin.ignore();
             getline(cin, searchKey);
             Node* foundNode = orderList.findNode(searchKey);
-
+            
             if (foundNode != nullptr) {
                 cout << "\nNode Found:\n";
                 foundNode->order.displayOrder();
