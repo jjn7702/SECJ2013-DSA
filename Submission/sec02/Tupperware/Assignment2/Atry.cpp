@@ -157,9 +157,37 @@ public:
             return 0;
     }*/
 
-    Node* findNode(const string& searchKey) const {
+    //Function to find node by name
+    Node* findNodeName(const string& searchName) const {
         Node* current = head;
-        while (current != nullptr && (current->order.getName() != searchKey)) {
+        while (current != nullptr && (current->order.getName() != searchName)) {
+                current = current->next;
+            }
+        return current;
+    }
+
+    //Function to find node by category
+    Node* findNodeCategory(const string& searchCategory) const {
+        Node* current = head;
+        Node* foundNode = nullptr;
+
+        while (current != nullptr) {
+            if (current->order.getCategory() == searchCategory) {
+                if (foundNode == nullptr) {
+                    foundNode = current;
+                }
+                else {
+                    current->order.displayOrder();
+                }
+            }
+            current = current->next;
+        }
+        return foundNode;
+    }
+
+    Node* findNodeFoodId(const string& searchFoodId) const {
+        Node* current = head;
+        while (current != nullptr && (current->order.getFoodId() != searchFoodId)) {
                 current = current->next;
             }
         return current;
@@ -209,23 +237,11 @@ public:
 
 void displayHeader() {
     cout << left;
-    cout << setw(5) << "NO" << " | "
-         << setw(10) << "ID" << " | "
+    cout << setw(10) << "ID" << " | "
          << setw(21) << "NAME" << " | "
          << setw(13) << "TYPE" << " | "
          << fixed << "PRICE" << endl;
     cout << "---------------------------------------------------------" << endl;
-}
-
-void displayMenu(Menu menuArray[]) {
-    for (int i = 0; i < SIZE; i++) {
-        cout << left;
-        cout << setw(5) << (i+1) << " | "
-             << setw(10) << menuArray[i].getFoodId() << " | "
-             << setw(21) << menuArray[i].getName() << " | "
-             << setw(13) << menuArray[i].getCategory() << " | "
-             << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
-    }
 }
 
 int main() {
@@ -276,28 +292,80 @@ int main() {
         cout << "\nEnter your choice: " ;
         cin >> opt;
 
-        if (opt == 3)
-        {
-            string searchKey; 
-            cout << "\nFinding a node: ";
-            cin.ignore();
-            getline(cin, searchKey);
-            Node* foundNode = orderList.findNode(searchKey);
+        switch (opt) {
+            case 1:
 
-            if (foundNode != nullptr) {
-                cout << "\nNode Found:\n";
-                foundNode->order.displayOrder();
-            } else {
-                cout << "\nNode Not Found.\n";
+            case 2:
+
+            case 3:
+            {
+                cout << "\nDo you want to seach by (N)ame, (C)ategory or (F)oodId?: ";
+                cin >> choice;
+
+                if (choice == 'N' || choice == 'n') {
+                    string searchName; 
+                    cout << "\nEnter name to find: ";
+                    cin.ignore();
+                    getline(cin, searchName);
+                    Node* foundNode = orderList.findNodeName(searchName);
+
+                    if (foundNode != nullptr) {
+                        cout << "\nNode Found:\n";
+                        displayHeader();
+                        foundNode->order.displayOrder();
+                    } else {
+                        cout << "\nNode Not Found.\n";
+                    }
+                }
+
+                else if (choice == 'C' || choice == 'c') {
+                    string searchCategory;
+                    cout << "\nEnter category to find: ";
+                    cin.ignore();
+                    getline(cin, searchCategory);
+                    Node* foundNode = orderList.findNodeCategory(searchCategory);
+
+                    if (foundNode == nullptr) {
+                        cout << "\nNode Not Found.\n";
+                    }
+                }
+
+                else if (choice == 'F' || choice == 'f') {
+                    string searchFoodId; 
+                    cout << "\nEnter food id to find: ";
+                    cin.ignore();
+                    getline(cin, searchFoodId);
+                    Node* foundNode = orderList.findNodeFoodId(searchFoodId);
+
+                    if (foundNode != nullptr) {
+                        cout << "\nNode Found:\n";
+                        displayHeader();
+                        foundNode->order.displayOrder();
+                    } else {
+                        cout << "\nNode Not Found.\n";
+                    }
+                }
+
+                break;
+            }
+
+            case 4:
+
+            case 5:
+            {
+                system("cls");
+                orderList.displayNodes();
+                break;
+            }
+
+            case 6:
+            {
+                cout << "Thank you, see you again!" << endl;
+                break;
             }
         }
 
-        else if (opt == 6){
-            cout << "Thank you, see you again!" << endl;
-        }
-
-
-    } while (choice == 'Y' || choice == 'y');
+    } while (opt != 6);
 
 
     /*// Example usage:
