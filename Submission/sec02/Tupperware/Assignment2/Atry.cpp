@@ -207,6 +207,27 @@ public:
     }
 };
 
+void displayHeader() {
+    cout << left;
+    cout << setw(5) << "NO" << " | "
+         << setw(10) << "ID" << " | "
+         << setw(21) << "NAME" << " | "
+         << setw(13) << "TYPE" << " | "
+         << fixed << "PRICE" << endl;
+    cout << "---------------------------------------------------------" << endl;
+}
+
+void displayMenu(Menu menuArray[]) {
+    for (int i = 0; i < SIZE; i++) {
+        cout << left;
+        cout << setw(5) << (i+1) << " | "
+             << setw(10) << menuArray[i].getFoodId() << " | "
+             << setw(21) << menuArray[i].getName() << " | "
+             << setw(13) << menuArray[i].getCategory() << " | "
+             << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
+    }
+}
+
 int main() {
     char choice;
     int opt, size = 0;
@@ -262,7 +283,7 @@ int main() {
             cin.ignore();
             getline(cin, searchKey);
             Node* foundNode = orderList.findNode(searchKey);
-            
+
             if (foundNode != nullptr) {
                 cout << "\nNode Found:\n";
                 foundNode->order.displayOrder();

@@ -260,11 +260,6 @@ int main()
     double balance;
     int position;
 
-    list.insert(Node(Bank("123", 500, "Farah", "0356852515896")));
-    list.insertEnd(Bank("724", 100, "Yu Tong", "0356698525896"));
-    list.insertEnd(Bank("827", 200, "Qiao Ying", "0356852516985"));
-    list.insertEnd(Bank("325", 300, "Bernice", "0356852588896"));
-
     //  FOR INSERT BEGINNING MIDDLE END
 
     while (opt != 7)
@@ -281,8 +276,14 @@ int main()
         cout << "[6] End" << endl
              << endl;
 
+        cout << ":: SEARCH BY ::" << endl;
+        cout << "[7] Search by Name" << endl;
+        cout << "[8] Search by Account Number" << endl;
+        cout << "[9] Search by IC Number" << endl
+             << endl;
+
         cout << ":: OTHER ACTION ::" << endl;
-        cout << "[7] Quit" << endl;
+        cout << "[10] Quit" << endl;
         cout << "OPTION >> ";
         cin >> opt;
         cout << endl
@@ -366,38 +367,30 @@ int main()
             cout << endl
                  << endl;
         }
+        else if (opt == 4)
+        {
+            cout << "\nDelete data from the front of the list" << endl;
+            list.removeFront();
+            list.displayAll();
+            cout << endl
+                 << endl;
+        }
+
+        else if (opt == 5)
+        {
+            cout << "\nDelete data from the middle of the list" << endl;
+            list.removeMiddle(0);
+            list.displayAll();
+            cout << endl
+                 << endl;
+        }
+        else if (opt == 6)
+        {
+            cout << "\nDelete data from the end of the list" << endl;
+            list.removeEnd();
+            list.displayAll();
+            cout << endl
+                 << endl;
+        }
     }
-
-    // For remove from front, middle and end
-    /*  do
-     {
-         cout << "\n:: DELETE FROM ::" << endl;
-         cout << "[4] Front" << endl;
-         cout << "[5] Middle (state the location)" << endl;
-         cout << "[6] End" << endl;
-         cin >> opt;
-         cin.ignore();
-
-         switch (opt)
-         {
-         case 4:
-             cout << "\nDelete data from the front of the list" << endl;
-             list.removeFront();
-             break;
-         case 5:
-             cout << "\nDelete data from the middle of the list" << endl;
-             list.removeMiddle(0);
-             break;
-         case 6:
-             cout << "\nDelete data from the end of the list" << endl;
-             list.removeEnd();
-             break;
-         default:
-             cout << "Invalid option." << endl;
-             break;
-         }
-
-         cout << "\nDo you want to delete more data? (1 for Yes, 0 for No): ";
-         cin >> opt;
-     } while (opt == 1); */
 }

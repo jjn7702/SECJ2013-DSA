@@ -227,7 +227,120 @@ void addNodeEnd(Book book) {
         current->next = newNode;
     }
 }
+ // Bubble sort function to sort books by title
+    void sortBooksByTitle() {
+        if (head == nullptr || head->next == nullptr) {
+            // If the list is empty or has only one element, it's already sorted
+            return;
+        }
 
+        bool swapped;
+        Node *ptr;
+        Node *lastPtr = nullptr;
+
+        do {
+            swapped = false;
+            ptr = head;
+
+            while (ptr->next != lastPtr) {
+                if (ptr->data.getTitle() > ptr->next->data.getTitle()) {
+                    // Swap nodes if they are in the wrong order
+                    Book temp = ptr->data;
+                    ptr->data = ptr->next->data;
+                    ptr->next->data = temp;
+                    swapped = true;
+                }
+                ptr = ptr->next;
+            }
+            lastPtr = ptr;
+        } while (swapped);
+    }
+
+    // Other sorting methods (by author, year, ISBN) can be implemented similarly
+    // using the appropriate comparison logic.
+
+    // Function to sort books by author (example)
+    void sortBooksByAuthor() {
+        if (head == nullptr || head->next == nullptr) {
+            // If the list is empty or has only one element, it's already sorted
+            return;
+        }
+
+        bool swapped;
+        Node *ptr;
+        Node *lastPtr = nullptr;
+
+        do {
+            swapped = false;
+            ptr = head;
+
+            while (ptr->next != lastPtr) {
+                if (ptr->data.getAuthor() > ptr->next->data.getAuthor()) {
+                    // Swap nodes if they are in the wrong order
+                    Book temp = ptr->data;
+                    ptr->data = ptr->next->data;
+                    ptr->next->data = temp;
+                    swapped = true;
+                }
+                ptr = ptr->next;
+            }
+            lastPtr = ptr;
+        } while (swapped);
+    }
+void sortBooksByYear() {
+        if (head == nullptr || head->next == nullptr) {
+            // If the list is empty or has only one element, it's already sorted
+            return;
+        }
+
+        bool swapped;
+        Node *ptr;
+        Node *lastPtr = nullptr;
+
+        do {
+            swapped = false;
+            ptr = head;
+
+            while (ptr->next != lastPtr) {
+                if (ptr->data.getYear() > ptr->next->data.getYear()) {
+                    // Swap nodes if they are in the wrong order
+                    Book temp = ptr->data;
+                    ptr->data = ptr->next->data;
+                    ptr->next->data = temp;
+                    swapped = true;
+                }
+                ptr = ptr->next;
+            }
+            lastPtr = ptr;
+        } while (swapped);
+    }
+    void sortBooksByISBN() {
+        if (head == nullptr || head->next == nullptr) {
+            // If the list is empty or has only one element, it's already sorted
+            return;
+        }
+
+        bool swapped;
+        Node *ptr;
+        Node *lastPtr = nullptr;
+
+        do {
+            swapped = false;
+            ptr = head;
+
+            while (ptr->next != lastPtr) {
+                if (ptr->data.getISBN() > ptr->next->data.getISBN()) {
+                    // Swap nodes if they are in the wrong order
+                    Book temp = ptr->data;
+                    ptr->data = ptr->next->data;
+                    ptr->next->data = temp;
+                    swapped = true;
+                }
+                ptr = ptr->next;
+            }
+            lastPtr = ptr;
+        } while (swapped);
+    }
 };
 
 int main()
@@ -443,7 +556,34 @@ int main()
         }
         case 4:
             // Sort Books
+        int sortChoice;
+        cout << "Sort by:" << endl;
+        cout << "[1] Title" << endl;
+        cout << "[2] Author" << endl;
+        cout << "[3] Year" << endl;
+        cout << "[4] ISBN" << endl;
+        cout << "Enter your choice: ";
+        cin >> sortChoice;
+                
+        switch (sortChoice) {
+        case 1:
+            library.sortBooksByTitle();
             break;
+        case 2:
+            library.sortBooksByAuthor();
+            break;
+        case 3:
+            library.sortBooksByYear();
+            break;
+        case 4:
+            library.sortBooksByISBN();
+            break;
+        default:
+            cout << "Invalid choice. Please try again." << endl;
+    }
+    	
+    	library.displayList();
+        break;
         case 5:
             // Display Books
             library.displayList();
