@@ -6,12 +6,13 @@ Our system is an Airline Reservation system that provides 2 key main functions w
 
 ## Prepared by 🧑‍💻
 
-| Name | Matric Number | Photo |
-|------|---------------|-------|
-| Megat Muhammad Zafran Bin Megat Muazzam | A22EC0194 |    ![Alt text](Image/photo_3_2023-12-20_18-15-50.jpg)               |
-| Danial Erfan Shah Bin Nor Azam Shah | A22EC0151 |    ![Alt text](Image/photo_2_2023-12-20_18-15-50.jpg)   |
-| Adam Fahmi Bin Mohd Adnan | A22EC0032 |    ![Alt text](Image/photo_4_2023-12-20_18-15-50.jpg)    |
-| Muhammad Arif Fikry Bin Noor Kharizan | A22EC0203 |     ![Alt text](Image/photo_1_2023-12-20_18-15-50.jpg)   |	
+| Name                                     | Matric Number | Photo |
+|------------------------------------------|---------------|-------|
+| Megat Muhammad Zafran Bin Megat Muazzam   | A22EC0194     | <img src="Image/photo_3_2023-12-20_18-15-50.jpg" width="300" height="300"> |
+| Danial Erfan Shah Bin Nor Azam Shah       | A22EC0151     | <img src="Image/photo_2_2023-12-20_18-15-50.jpg" width="300" height="300"> |
+| Adam Fahmi Bin Mohd Adnan                 | A22EC0032     | <img src="Image/photo_4_2023-12-20_18-15-50.jpg" width="300" height="300"> |
+| Muhammad Arif Fikry Bin Noor Kharizan     | A22EC0203     | <img src="Image/photo_1_2023-12-20_18-15-50.jpg" width="300" height="300"> |
+
 
 ## Findings
 

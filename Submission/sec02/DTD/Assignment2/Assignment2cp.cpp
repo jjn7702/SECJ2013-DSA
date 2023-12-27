@@ -103,10 +103,6 @@ public:
     Node* findNode(const string& key) const;
     void sortList();
     void displayList() const;
-    void merge(Node *head1, Node *head2);
-    Node *getMiddle(Node *head);
-    Node *mergeSort(Node *head);
-    Node* sequentialSearch(const string& key) const;
 };
 
 Library::~Library() {
@@ -164,49 +160,82 @@ Node* Library::findNode(const string& key) const {
     return current;
 }
 
-void Library::sortList() {
-    // Simple bubble sort for sorting by title in ascending order
-    if (head == nullptr || head->next == nullptr) {
-        // Already sorted or empty list
-        return;
-    }
+// ... (existing code)
 
-    bool swapped;
-    Node* current;
-    Node* lastSorted = nullptr;
+void Library::merge(Node* head1, Node* head2) {
+    Node* temp = new Node;
+    Node* current = temp;
 
-    do {
-        swapped = false;
-        current = head;
-
-        while (current->next != lastSorted) {
-            if (current->data.getTitle() > current->next->data.getTitle()) {
-                // Swap data
-                Book temp = current->data;
-                current->data = current->next->data;
-                current->next->data = temp;
-                swapped = true;
-            }
-
-            current = current->next;
-        }
-
-        lastSorted = current;
-
-    } while (swapped);
-}
-Node* Library::sequentialSearch(const string& key) const {
-    Node* current = head;
-
-    while (current != nullptr) {
-        if (current->data.getTitle() == key || current->data.getISBN() == key) {
-            return current; // Book found
+    while (head1 != nullptr && head2 != nullptr) {
+        if (head1->data.getTitle() <= head2->data.getTitle()) {
+            current->next = head1;
+            head1 = head1->next;
+        } else {
+            current->next = head2;
+            head2 = head2->next;
         }
         current = current->next;
     }
 
-    return nullptr; // Book not found
+    if (head1 != nullptr) {
+        current->next = head1;
+    } else {
+        current->next = head2;
+    }
+
+    head = temp->next; // Remove "this->" since it is not necessary
+    delete temp;
 }
+
+Node* Library::getMiddle(Node* head) {
+    if (head == nullptr) {
+        return head;
+    }
+
+    Node* slow = head;
+    Node* fast = head->next;
+
+    while (fast != nullptr) {
+        fast = fast->next;
+        if (fast != nullptr) {
+            slow = slow->next;
+            fast = fast->next;
+        }
+    }
+
+    return slow;
+}
+
+Node* Library::mergeSort(Node* head) {
+    Node* getMiddle(Node* head);
+
+    // ... (existing code)
+
+    Node* Library::mergeSort(Node* head) {
+        if (head == nullptr || head->next == nullptr) {
+            return head;
+        }
+
+        Node* middle = getMiddle(head);
+        Node* nextToMiddle = middle->next;
+
+        middle->next = nullptr;
+
+        Node* left = mergeSort(head);
+        Node* right = mergeSort(nextToMiddle);
+
+        merge(left, right);
+    }
+
+    return head;
+}
+
+void Library::sortList() {
+    this->head = mergeSort(this->head); // Use "this->head" to refer to the member variable
+}
+
+// ... (rest of the code remains the same)
+
 
 void Library::displayList() const {
     cout << "-----------------------------------------------------------------------------------------------------------" << endl;
@@ -276,8 +305,7 @@ int main() {
         cout << setw(5) << "[3] Delete Book" << endl;
         cout << setw(5) << "[4] Sort Books" << endl;
         cout << setw(5) << "[5] Display Books" << endl;
-        cout << setw(5) << "[6] Search Books" << endl;
-        cout << setw(5) << "[7] Exit" << endl << endl;
+        cout << setw(5) << "[6] Exit" << endl << endl;
 
         cout << "Please enter your choice: ";
 
@@ -341,26 +369,10 @@ int main() {
                 // Display Books
                 library.displayList();
                 break;
-            case 6: {
-                // Sequential Search
-                string searchKey;
-                cout << "Enter title or ISBN to search: ";
-                cin.ignore(); // Ignore newline character from previous input
-                getline(cin, searchKey);
-                Node* foundNode = library.sequentialSearch(searchKey);
-                if (foundNode != nullptr) {
-                    cout << "Book found: " << endl;
-                    foundNode->data.displayBook();
-                } else {
-                    cout << "Book not found with title or ISBN: " << searchKey << endl;
-                }
-                break;
-            }       
-            case 7:
+            case 6:
                 // Exit
                 cout << "Exiting the program. Goodbye!" << endl;
                 break;
-             
             default:
                 cout << "Invalid choice. Please try again." << endl;
         }
