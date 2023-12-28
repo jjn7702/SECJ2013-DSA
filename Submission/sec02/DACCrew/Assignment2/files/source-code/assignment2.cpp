@@ -392,5 +392,53 @@ int main()
             cout << endl
                  << endl;
         }
+        else if (opt == 7)
+        {
+            string name;
+            cout << "Option chosen: [7] Search by Name" << endl;
+            cout << "Enter the name of the account: ";
+            cin.ignore();
+            getline(cin, name);
+            Node *found = list.findNodeName(name);
+            if (found)
+            {
+                dispHeader();
+                found->data.displayDetails();
+            }
+            else
+                cout << "Account does not exists." << endl;
+        }
+        else if (opt == 8)
+        {
+            string accNum;
+            cout << "Option chosen: [8] Search by Account Number" << endl;
+            cout << "Enter the account number: ";
+            cin.ignore();
+            getline(cin, accNum);
+            Node *found = list.findNodeAccNum(accNum);
+            if (found)
+            {
+                dispHeader();
+                found->data.displayDetails();
+            }
+            else
+                cout << "Account does not exists." << endl;
+        }
+        else if (opt == 9)
+        {
+            string ic;
+            cout << "Option chosen: [9] Search by IC Number" << endl;
+            cout << "Enter the account number: ";
+            cin.ignore();
+            getline(cin, ic);
+            Node *found = list.findNodeIC(ic);
+            if (found)
+            {
+                dispHeader();
+                found->data.displayDetails();
+            }
+            else
+                cout << "Account does not exists." << endl;
+        }
     }
 }
