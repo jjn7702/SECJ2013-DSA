@@ -307,7 +307,28 @@ int main(){
                     << setw(15) << left << "Item location" << endl;
                     list.insertNode(*item, list.findNodeName(itemName) - 1)->item.print();
                 }
-
+                else if(choice == 3){
+                    string itemLocation;
+                    cout << "Enter item location: ";
+                    cin.ignore();
+                    getline(cin, itemLocation);
+                    cout << setw(15) << left << "Item number" 
+                    << setw(15) << left << "Item name" 
+                    << setw(30) << left << "Description" 
+                    << setw(15) << left << "Quantity" 
+                    << setw(15) << left << "Cost" 
+                    << setw(15) << left << "Item location" << endl;
+                    list.insertNode(*item, list.findNodeLocation(itemLocation) - 1)->item.print();
+                }
+            }
+        }
+        else if(choice == 4){
+            if(list.isEmpty()){
+                cout << "The list is empty!\n";
+                system("pause");
+                system("cls");
+                continue;
+            }
             else{
                 while(true){
                     cout << "1. Sort by item number\n2. Sort by item name\n3. Sort by item location\n4. Back\n\nEnter your choice: ";
