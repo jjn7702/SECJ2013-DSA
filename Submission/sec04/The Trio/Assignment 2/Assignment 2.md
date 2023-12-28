@@ -14,6 +14,8 @@ _Don't forget to hit the :star: if you like this repo._
 |   |   |
 | Nur Hafizah Binti Jafri     | A22EC5022 |
 | Nursyuhada Binti Badren     | A22EC0253 |
+| Eddy Koh Wei Hen            | A22EC0154 |
+
 ## Objective
 Our objectives for this assignment are:
 
