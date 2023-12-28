@@ -54,8 +54,8 @@ public:
     void displayDetails()
     {
         cout << "| " << setw(48) << accName
-             << "| " << setw(19) << accNum
-             << "| " << setw(13) << ic
+             << "| " << setw(18) << accNum
+             << "| " << setw(14) << ic
              << "| " << setw(17) << accBalance << "|" << endl;
         for (int i = 0; i < 106; i++)
             cout << "-";
@@ -255,7 +255,7 @@ int main()
 {
 
     LinkedList list;
-    int opt = 0;
+    int opt = 0, count = 0;
     string name, accnum, ic;
     double balance;
     int position;
@@ -266,9 +266,11 @@ int main()
     {
         cout << ":: INSERT DATA ::" << endl;
         cout << "[1] Insert at the beginning" << endl;
-        cout << "[2] Insert at the middle" << endl;
-        cout << "[3] Insert at the end" << endl
-             << endl;
+        if(count >= 2)
+            cout << "[2] Insert at the middle" << endl;
+        if(count >= 1)
+            cout << "[3] Insert at the end" << endl
+                 << endl;
 
         cout << "\n:: DELETE FROM ::" << endl;
         cout << "[4] Front" << endl;
@@ -297,14 +299,12 @@ int main()
             cin.ignore();
             getline(cin, name);
             cout << "Enter Account Num: ";
-            cin.ignore();
-            getline(cin, accnum);
-            cout << "Enter ic: ";
-            cin.ignore();
+            getline(cin, accnum); cout << accnum;
+            cout << "Enter IC Number: ";
             getline(cin, ic);
             cout << "Balance: ";
-            cin.ignore();
             cin >> balance;
+            cin.ignore();
 
             Bank A(accnum, balance, name, ic);
             list.insert(A);
@@ -325,13 +325,10 @@ int main()
             cin.ignore();
             getline(cin, name);
             cout << "Enter Account Num: ";
-            cin.ignore();
             getline(cin, accnum);
             cout << "Enter ic: ";
-            cin.ignore();
             getline(cin, ic);
             cout << "Balance: ";
-            cin.ignore();
             cin >> balance;
 
             Bank C(accnum, balance, name, ic);
@@ -354,10 +351,8 @@ int main()
             cin.ignore();
             getline(cin, accnum);
             cout << "Enter ic: ";
-            cin.ignore();
             getline(cin, ic);
             cout << "Balance: ";
-            cin.ignore();
             cin >> balance;
 
             Bank B(accnum, balance, name, ic);
@@ -440,5 +435,6 @@ int main()
             else
                 cout << "Account does not exists." << endl;
         }
+        count++;
     }
 }
