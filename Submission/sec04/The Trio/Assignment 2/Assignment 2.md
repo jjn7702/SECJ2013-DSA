@@ -37,6 +37,6 @@ customers.
 
 ## Findings 📊
 
-- Source Code
+- [Source Code](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/The%20Trio/Assignment%202/Source%20code%20)
 - Plagiarism Report
 - Report
