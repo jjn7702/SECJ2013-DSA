@@ -8,6 +8,12 @@
 _Don't forget to hit the :star: if you like this repo._
 
 # Hotel Booking System - Assignment 2
+## Prepared By DACCrew
+| Name         | Matric No    |
+|--------------|--------------|
+|   |   |
+| Nur Hafizah Binti Jafri     | A22EC5022 |
+| Wong Qiao Ying     | A22EC0118 |
 ## Objective
 Our objectives for this assignment are:
 
