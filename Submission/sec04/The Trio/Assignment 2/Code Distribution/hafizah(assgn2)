@@ -1,0 +1,51 @@
+class CustomerList{
+	private:
+		Customer *head;  // Pointer to first customer in list
+		
+	public:
+		CustomerList(){ head = NULL ; }
+		
+		// Check if the linked list is empty
+		bool isEmpty(){ return (head == NULL) ; }
+		
+		// Deleting node at the front of the linked list
+		void deleteFront()
+		{
+			if(isEmpty()) // Check if the linked list is empty
+			{
+				cout << "\nThe customer list is empty" << endl ;
+				return ;
+			}
+			
+			Customer *current = head ;
+			
+			if(current->next != NULL) // check if the head is no NULL before delete
+			{
+				head = current->next ;
+				current->next = NULL ;
+			}
+			
+			delete current ;
+		}
+		
+		// Deleting node at the end of the linked list
+		void deleteEnd()
+		{
+			if(isEmpty()) // Check if the linked list is empty
+			{
+				cout << "\nThe customer list is empty" << endl ;
+				return ;
+			}
+			
+			Customer *current = head, *delNode ;
+			
+			// Move to  last customer
+			while(current->next != NULL)
+			{
+				delNode = current ;
+				current = current->next ;
+			}
+			
+			delete current ;
+			delNode->next = NULL ;
+		}
