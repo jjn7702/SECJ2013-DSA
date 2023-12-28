@@ -136,6 +136,54 @@ class CustomerList{
 			delete current ;
 		}
 
+		// Deleting node at the middle of the linked list
+		void deleteMid(int pos)
+		{
+			if(isEmpty()) // Check if the linked list is empty
+			{
+				cout << "\nThe customer list is empty" << endl ;
+				return ;
+			}
+			
+			if(pos <= 0) // Reject if the position is not valid
+	    	{
+	    		cout << "\nThe position is not available...\n" << endl ;
+				return ;
+			}
+			
+			Customer *current = head, *prev = NULL ;
+			int i = 1 ;
+			
+			// Counting the number of data current have
+			while( (current->next != NULL) && (pos > i) )
+			{
+				prev = current ;
+				current = current->next ;
+				i++ ;
+		    }
+		    
+			// Reject if the position is the last one
+			if(current->next == NULL)
+			{
+				cout << "\nThe position is not available...\n" << endl ;
+				return ;
+			}
+			
+			// Reject if the position is the first one
+		    if (pos == 1)
+		    {
+		        cout << "\nCannot delete at the first position...\n" << endl;
+		        return;
+		    }
+		    else
+		    {
+		        prev->next = current->next;
+		        delete current;
+		    }
+		}
+
+
+
 		// Deleting node at the end of the linked list
 		void deleteEnd()
 		{
