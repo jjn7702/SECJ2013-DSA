@@ -234,7 +234,7 @@ class LinkedList {
 		            (searchData.getSource().empty() || currentData.getSource() == searchData.getSource()) &&
 		            (searchData.getDest().empty() || currentData.getDest() == searchData.getDest()) &&
 		            (searchData.getStat().empty() || currentData.getStat() == searchData.getStat()) &&
-		            (searchData.getTrackNum() == 0 || currentData.getTrackNum() == searchData.getTrackNum())) {
+		            (searchData.getTrackNum() != 0 && currentData.getTrackNum() == searchData.getTrackNum())) {
 		            return curr;
 		        }
 		
