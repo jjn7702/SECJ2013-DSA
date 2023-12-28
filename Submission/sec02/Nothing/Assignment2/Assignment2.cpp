@@ -387,34 +387,17 @@ inventory::inventory(){
     cost = 0.0;
     itemLocation = "";
 }
-inventory::inventory(int itemNum, string itemNm, string desc, int qty, double cost, string itemLoc){
-    itemNumber = itemNum;
-    itemName = itemNm;
-    description = desc;
-    quantity = qty;
+inventory::inventory(int itemNumber, string itemName, string description, int quantity, double cost, string itemLocation){
+    this->itemNumber = itemNumber;
+    this->itemName = itemName;
+    this->description = description;
+    this->quantity = quantity;
     this->cost = cost;
-    itemLocation = itemLoc;
+    this->itemLocation = itemLocation;
 }
 
 //setter
-void inventory::setItemNumber(int itemNumber){
-    this->itemNumber = itemNumber;
-}
-void inventory::setItemName(string itemName){
-    this->itemName = itemName;
-}
-void inventory::setDescription(string description){
-    this->description = description;
-}
-void inventory::setQuantity(int quantity){
-    this->quantity = quantity;
-}
-void inventory::setCost(double cost){
-    this->cost = cost;
-}
-void inventory::setItemLocation(string itemLocation){
-    this->itemLocation = itemLocation;
-}
+
 
 //getters
 int inventory::getItemNumber(){
