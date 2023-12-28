@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Menu {
@@ -9,25 +10,28 @@ private:
     double price;
 
 public:
-    Menu *next;
-    Menu() {
-        foodId = "";
-        name = "";
-        category = "";
-        price = 0.0;
-    }
     Menu(string foodId, string name, string category, double price)
         : foodId(foodId), name(name), category(category), price(price) {}
 
-    	string getFoodId() const { return foodId; }
-        string getName() const { return name; }
-        string getCategory() const { return category; }
-        double getPrice() const { return price; }
+    	string getFoodId() { return foodId; }
+        string getName() { return name; }
+        string getCategory() { return category; }
+        double getPrice() { return price; }
 
-        void setFoodId(string foodId) { this->foodId = foodId; }
-        void setName(string name) { this->name = name; }
-        void setCategory(string category) { this->category = category; }
-        void setPrice(double price) { this->price = price; }
+//        void setFoodId(string foodId) { this->foodId = foodId; }
+//        void setName(string name) { this->name = name; }
+//        void setCategory(string category) { this->category = category; }
+//        void setPrice(double price) { this->price = price; }
+};
+
+class Node{
+    Menu menu;
+    Node *next;
+
+    Node(Menu m){
+        Menu = m;
+        next = NULL;
+    }
 };
 
 class List
@@ -38,12 +42,13 @@ class List
         List() {head = NULL;} // create empty list first
         bool isEmtpy() {return head == NULL;} // specify that the list is emtpy
 
+//display list of menu
         void dispList(){ // requires pointer(loop) to move the node
             Menu *temp = head;
 
             while (temp) //(temp != NULL)
             {
-                cout << temp->getData() << "\t"; // display node
+                temp->getFoodId(); // display node
                 temp = temp->next; // to move the pointer to the next node
             }
             cout << endl;
@@ -53,36 +58,36 @@ class List
 
 //at the first
         void insert(Menu *arr[]){
-            Menu *newNode = new Menu(d);//pass value d into the first node
+            Menu *newHead = new Menu(arr);//pass value d into the first node
             if(!isEmtpy())
-                newNode->next = head;
-            head = newNode;
+                newHead->next = head;
+            head = newHead;
         }     
 
 //at the end
         void insertEndArray(Menu *&head, Menu *arr[], int size) {
             for (int i = 0; i < size; i++) {
-                Menu *newNode = new Menu(arr[i]);
+                Menu *newEnd = new Menu(arr[i]);
                 Menu *temp = head;
                 if (head == NULL)
-                    head = newNode;
+                    head = newEnd;
                 else {
                     while (temp->next != NULL)
                         temp = temp->next;
-                    temp->next = newNode;
+                    temp->next = newEnd;
                 }
             }
         }
 
 //at the middle
-        void insertMiddleArray(Node *&head, Menu *arr[], int size, int middle) {
+        void insertMiddleArray(Menu *&head, Menu *arr[], int size, int middle) {
             for (int i = 0; i < size; i++) {
                 Menu *newNode = new Menu(arr[i]);
                 Menu *temp = head;
-                if (head->getData() == middle)
+                if (head->getFoodId() == middle)
                     head = newNode;
                 else {
-                    while (temp->getData() != middle) {
+                    while (temp->getFoodId() != middle) {
                         temp = temp->next;
                     }
                     newNode->next = temp->next;
@@ -107,6 +112,8 @@ class List
                 prev->next = newNode;
             }
 }*/
+
+
 };
 
 
