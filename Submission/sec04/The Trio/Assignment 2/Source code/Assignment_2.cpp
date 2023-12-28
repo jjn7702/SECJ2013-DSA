@@ -4,6 +4,37 @@
 #include <iomanip>
 using namespace std ;
 
+class Customer{
+	private:
+		// Attributes
+		string name ;
+		int age ;
+		string IC ;
+		string phoneNum ;
+		int roomNum ; 
+		string checkInDate ;
+			
+	public:
+		Customer *next; //Pointer to next customer
+		
+		// Mutator
+		void setName(string n){ name = n ; }
+		void setAge(int a){ age = a ; }
+		void setIC(string ic){ IC = ic ; }
+		void setPhone(string p){ phoneNum = p ; }
+		void setNum(int r){ roomNum = r ; }
+		void setDate(string d){ checkInDate = d ; }
+		
+		// Accessor
+		string getName(){ return name ; }
+		int getAge(){ return age ; }
+		string getIC(){ return IC ; }
+		string getPhone(){ return phoneNum ; }
+		int getNum(){ return roomNum ; }
+		string getDate(){ return checkInDate ; } 
+};
+
+
 class CustomerList{
 	private:
 		Customer *head;  // Pointer to first customer in list
