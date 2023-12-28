@@ -18,6 +18,7 @@
 ## Objectives <a name="objectives"></a> :heavy_check_mark:
 
 ## Synopsis <a name="synopsis"></a> 📝
+
 The Courier Management System uses a linked list to store and manage courier data. The program reads data from a file, populates a linked list, and then provides a menu-driven interface for users to do various processes on the courier list. These processes include the adding, deleting, search, sorting, and the display of courier information.
 
 ## Design <a name="design"></a> 🎨
@@ -92,7 +93,8 @@ The linked list is implemented as nodes, containing a Courier object and a point
          5.1.7 Option 0: return back to the main menu.
 
 
-    #### SORTING THE LIST
+
+ #### SORTING THE LIST
 
 1. Get the option from the main function.
 
