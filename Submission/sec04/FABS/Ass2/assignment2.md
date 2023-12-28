@@ -23,8 +23,12 @@ The Courier Management System uses a linked list to store and manage courier dat
 ## Design <a name="design"></a> 🎨
 
 ## Design Description 💹
-LINKED LIST FUNCTION
+
+#### LINKED LIST FUNCTION
+
 The linked list is implemented as nodes, containing a Courier object and a pointer to the next node. These nodes are managed by the LinkedList class, which includes methods for adding a new node (insertFront, insertMiddle, insertBack), deleting a node (deleteFront, deleteMiddle, deleteBack), finding the node (findNode), sorting the list (sortList), and displaying all the nodes (displayList) for the Courier Management System.
+
+
 
 
 ## Assignment Report <a name="report"></a> 🔔
