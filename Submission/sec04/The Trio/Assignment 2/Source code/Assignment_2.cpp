@@ -97,6 +97,178 @@ class CustomerList{
 			delete current ;
 			delNode->next = NULL ;
 		}
+
+		// Find customer data
+		void findCustomer()
+		{
+			if(isEmpty())
+			{
+				cout << "The customer list is empty. Unable to search ..." << endl ;
+				return ;
+			}
+			
+			int option ;
+			
+			findloop: // Loop if key in invalid option
+			cout << "\n:: Find Customer Data Based On Option Chosen ::\n"
+				 << "[1] Name\n"
+				 << "[2] Age\n"
+				 << "[3] IC Number\n"
+				 << "[4] Phone Number\n"
+				 << "[5] Room Number\n"
+				 << "[6] Check In Date\n"
+				 << "Please Choose The Option: " ;
+			cin >> option ;
+			
+			Customer *current = head, *prev = NULL ;
+			bool found = false ;
+						
+			switch (option)
+		    {
+		    	case 1: // Search by Name
+		           		{
+		           			string n ;
+		           			cout << "\nPlease key in the name you want to search" << endl
+		           				 << "Name -> " ;
+		           			cin >> n ;	 
+		           			
+							while( (current != NULL) && (!found) ) 
+							{
+								if(current->getName() == n)
+								{
+									 found = true ;
+								}
+								
+								prev = current ;
+								current = current->next ;
+							}
+							
+		            		break;
+		            	}
+		        case 2: // Search by Age
+		            	{
+		           			int a ;
+		           			cout << "\nPlease key in the age you want to search" << endl
+		           				 << "Age -> " ;
+		           			cin >> a ;	 
+		           			
+							while( (current != NULL) && (!found) ) 
+							{
+								if(current->getAge() == a)
+								{
+									 found = true ;
+								}
+								
+								prev = current ;
+								current = current->next ;
+							}
+							
+		            		break;
+		            	}
+		        case 3: // Search by IC Number
+		            	{
+		           			string ic ;
+		           			cout << "\nPlease key in the IC number you want to search" << endl
+		           				 << "Please include '-'" << endl 
+		           				 << "IC Number -> " ;
+		           			cin >> ic ;	 
+
+							while( (current != NULL) && (!found) ) 
+							{
+								if(current->getIC() == ic)
+								{
+									 found = true ;
+								}
+								
+								prev = current ;
+								current = current->next ;
+							}
+							
+		            		break;
+		            	}
+		        case 4: // Search by Phone Number
+		            	{
+		           			string p ;
+		           			cout << "\nPlease key in the phone number you want to search" << endl
+		           				 << "Please include '-'" << endl 
+		           				 << "Phone Number -> " ;
+		           			cin >> p ;	 
+							
+							while( (current != NULL) && (!found) ) 
+							{
+								if(current->getPhone() == p)
+								{
+									 found = true ;
+								}
+								
+								prev = current ;
+								current = current->next ;
+							}
+							
+		            		break;
+		            	}
+		        case 5: // Search by Room Number
+		                {
+		           			int r ;
+		           			cout << "\nPlease key in the room number you want to search" << endl
+		           				 << "Room Number -> " ;
+		           			cin >> r ;	 
+							
+							while( (current != NULL) && (!found) ) 
+							{
+								if(current->getNum() == r)
+								{
+									 found = true ;
+								}
+								
+								prev = current ;
+								current = current->next ;
+							}
+							
+		            		break;
+		            	}
+		        case 6: // Search by Check In Date
+		                {
+		           			string d ;
+		           			cout << "\nPlease key in the check in date you want to search" << endl
+		           				 << "Please include '-'" << endl 
+		           				 << "Check In Date -> " ;
+		           			cin >> d ;	 
+							
+							while( (current != NULL) && (!found) ) 
+							{
+								if(current->getDate() == d)
+								{
+									 found = true ;
+								}
+								
+								prev = current ;
+								current = current->next ;
+							}
+							
+		            		break;
+		            	}
+		        default:{
+		        			cout << "\nInvalid option. Please choose a number between 1 and 6" << endl;
+		                	goto findloop ;
+							break;
+						}    
+		    }
+		
+			if(found)
+			{
+				cout << "\nCustomer Data" << endl 
+					 << "Name: " << prev->getName() << endl
+					 << "Age: " << prev->getAge() << endl
+					 << "IC Number: " << prev->getIC() << endl
+					 << "Phone Number: " << prev->getPhone() << endl
+					 << "Room Number: " << prev->getNum() << endl
+					 << "Check In Date: " << prev->getDate() << endl
+					 << endl ;		 
+			}
+			else
+				cout << "\nNo record found" << endl << endl ;							        	
+		} 	
 		
 		// Sort the customer data
 		void sorting()
