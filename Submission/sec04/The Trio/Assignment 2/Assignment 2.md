@@ -26,12 +26,8 @@ c. To find specific customers’ details
 
 
 ## Synopsis📝
-Our assignment 2 is the Hotel Booking System, which is designed to streamline the process
-of hotel bookings, providing customers with an efficient platform for booking
-accommodations. The assignment is for the hotel administrator to manage the room and the
-booking details of customers. Using sorting and searching algorithms for effective data
-management, the Hotel Booking System provides an effective solution for admins and
-customers.
+This hotel booking system uses a constant change of linked lists, allowing for the easy handling of customer information in a way similar to the changeable movement of customers throughout a hotel. For example, when customers move  into their rooms, it easily inserts new customers by entering their data at any location they want within the list. When customers check out, their data is easily removed from the list, creating an easy checkout procedure. This ability to change, which is similar to the constant change of hotel operations, provides an easy and effective experience for both staff and customers.
+
 
 
 
