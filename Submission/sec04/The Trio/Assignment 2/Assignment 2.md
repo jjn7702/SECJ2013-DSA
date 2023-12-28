@@ -8,7 +8,7 @@
 _Don't forget to hit the :star: if you like this repo._
 
 # Hotel Booking System - Assignment 2
-## Prepared By DACCrew
+## Prepared By The Trio
 | Name         | Matric No    |
 |--------------|--------------|
 |   |   |
