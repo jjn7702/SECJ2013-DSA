@@ -18,6 +18,7 @@
 ## Objectives <a name="objectives"></a> :heavy_check_mark:
 
 ## Synopsis <a name="synopsis"></a> 📝
+
 The Courier Management System uses a linked list to store and manage courier data. The program reads data from a file, populates a linked list, and then provides a menu-driven interface for users to do various processes on the courier list. These processes include the adding, deleting, search, sorting, and the display of courier information.
 
 ## Design <a name="design"></a> 🎨
@@ -90,6 +91,33 @@ The linked list is implemented as nodes, containing a Courier object and a point
          5.1.6 Option 6: tracking number with specific searchKey will be displayed.
 
          5.1.7 Option 0: return back to the main menu.
+
+
+
+ #### SORTING THE LIST
+
+1. Get the option from the main function.
+
+2. The function begins by determining whether the linked list is not empty and has more than one node.
+
+3. It iteratively traverses the list, comparing and swapping elements based on the sorting criterion selected.
+
+4. The sortCriteria parameter determines the sorting criteria, and the comparison is performed accordingly.
+
+      4.1 The sortList function uses sortCriteria to sort the courier data based on the option that was chosen by the user.
+
+            4.1.1 Option 1: courier data sort by name.
+
+            4.1.2 Option 2: courier data sort by parcel type.
+
+            4.1.3 Option 3: courier data sort by tracking number.
+
+            4.1.4 Option 0: return back to the main menu.
+
+#### DISPLAYING THE NODE
+
+1. Display the unsorted data from the file (TEST.txt) that has been read or display sorted data and searched data based on users option.
+
 
 
 
