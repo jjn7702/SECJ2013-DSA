@@ -167,33 +167,7 @@ int main(){
             getline(cin, itemLocation);
             system("cls");
             item = new inventory(itemNumber, itemName, description, quantity, cost, itemLocation);
-            if(choice1 == 1){
-                list.insertNode(*item, 0);
-            }
-            else if(choice1 == 2){
-                list.insertNode(*item, list.count());
-            }
-            else if(choice1 == 3){
-                int index;
-                while(true){
-                    cout << "Enter the position to insert: ";
-                    cin >> inp;
-                    if(isNumber(inp)){
-                        index = stoi(inp);
-                        if(index >= 0 && index <= list.count()){
-                            system("cls");
-                            break;
-                        }
-                        cout << "Invalid input, enter a number from 0 to " << list.count() << "!\n";
-                        system("pause");
-                        system("cls");
-                    }
-                }
-                list.insertNode(*item, index);
-            }
-            cout << "Item added successfully!\n";
-            system("cls");
-        }
+
         else if(choice == 2){
             if(list.isEmpty()){
                 cout << "The list is empty!\n";
