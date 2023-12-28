@@ -1,10 +1,10 @@
-Sarah, shirt, Kuala Lumpur, Johor Bahru, Out for delivery, 123500
-Ziera, book, Selangor, Muar, Out for delivery, 654879
-Abduh, shoes, Pulau Pinang, Melaka, Delivered, 548821
-Ali, ball, Sarawak, Sabah, In transit, 498678
-Luvia, phone, Perak, Senai, Delivered, 789092
-Putra, laptop, Kuala Lumpur, Ayer Hitam, In transit, 234539
-Lisa, watch, Pasir Gudang, Tangkak,Out for delivery, 876565
-Kamarudin, hat, Ipoh, Sabah, Delivered, 432121
-Sofea, glasses, Rompin, Sungai Petani, Process, 567837
-Omar, camera, Karak, Alor Gajah, Delivered, 987602
+Sarah Sofea, Shirt, Kuala Lumpur, Johor Bahru, Out for delivery, 123500
+Ziera Nisha, Book, Selangor, Muar, Out for delivery, 654879
+Muhammad Abduh, Shoes, Pulau Pinang, Melaka, Delivered, 548821
+Mohd Ali, Ball, Sarawak, Sabah, In transit, 498678
+Jessica Luvia, Phone, Perak, Senai, Delivered, 789092
+Rahman Putra, Laptop, Kuala Lumpur, Ayer Hitam, In transit, 234539
+Emily Lisa, Watch, Pasir Gudang, Tangkak,Out for delivery, 876565
+Kamal Kamarudin, Hat, Ipoh, Sabah, Delivered, 432121
+Aisha Sofea, Glasses, Rompin, Sungai Petani, In transit, 567837
+Mohammed Omar, Camera, Karak, Alor Gajah, Delivered, 987602
