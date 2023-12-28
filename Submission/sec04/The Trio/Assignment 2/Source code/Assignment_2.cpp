@@ -427,7 +427,35 @@ class CustomerList{
 			
 			cout << "\nThe data is sorted\n" << endl ;
 		}
-		
+
+			// Function to print entire linked list
+	    void displayList() 
+		{
+	        if(isEmpty())
+			{
+				cout << "\nThe customer list is empty, you should insert data first..." << endl ;
+				return ;
+			}
+			
+			Customer *current = head;
+			
+			cout << endl ;
+			cout << "Customer List" << endl ;
+			
+	        while (current != NULL) 
+			{   
+				cout << left ;
+	            cout << "Name: " << setw(10) << current->getName() 
+					 << ", Age: " << setw(3) << current->getAge() 
+					 << ", IC: " << setw(15) << current->getIC()
+	                 << ", Phone Number: " << setw(12) << current->getPhone() 
+	                 << ", Room: " << setw(4) << current->getNum() 
+					 << ", Date: " << current->getDate() << endl;
+	            current = current->next;  // Move to next customer
+	        }
+	        cout << endl ;
+	    }
+
 };	
 
 // Provide option for add and delete
