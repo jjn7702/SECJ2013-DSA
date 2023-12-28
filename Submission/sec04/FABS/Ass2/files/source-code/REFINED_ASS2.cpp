@@ -485,9 +485,9 @@ int main() {
 				try {
                                 	searchCourier.setTrackNum(stoi(searchKey));
                             }
-				catch (const invalid_argument e) {
+				catch (const invalid_argument& e) {
 					cout << "Invalid tracking number. Please enter a valid number. \n";
-					break;
+					continue;
 				}
                             break;
                         default:
