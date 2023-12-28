@@ -4,4 +4,7 @@
 -[Introduction](#-introduction)
 -[Objectives](#-ojectives)
 -[Synopsis](#-synopsis)
+-[Class Diagram](#-class-diagram)
+-[Flowchart](#-flowchart)
+
 
