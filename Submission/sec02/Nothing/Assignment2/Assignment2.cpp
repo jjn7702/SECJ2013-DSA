@@ -657,3 +657,35 @@ void List::SortbyLocation() {
             break;
     }
 }
+
+//other functionl
+bool isNumber(string s){
+    for(int i = 0; i < s.length(); i++){
+        if(isdigit(s[i]) == false){
+            cout << "Invalid input, enter a numberic input!\n";
+            system("pause");
+            system("cls");
+            return false;
+        }
+    }
+    return true;
+}
+bool isfloat(string s){
+    int count = 0;
+    for(int i = 0; i < s.length(); i++){
+        if(s[i] == '.') count++;
+        if(isdigit(s[i]) == false && s[i] != '.'){
+            cout << "Invalid input, enter a numberic input!\n";
+            system("pause");
+            system("cls");
+            return false;
+        }
+    }
+    if(count > 1){
+        cout << "Invalid input, enter a numberic input!\n";
+        system("pause");
+        system("cls");
+        return false;
+    }
+    return true;
+}
