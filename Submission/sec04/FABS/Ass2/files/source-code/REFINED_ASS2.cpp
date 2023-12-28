@@ -229,11 +229,11 @@ class LinkedList {
 		    while (curr) {
 		        const Courier& currentData = curr->data;
 		
-		        if ((searchData.getName().empty() || currentData.getName() == searchData.getName()) &&
-		            (searchData.getType().empty() || currentData.getType() == searchData.getType()) &&
-		            (searchData.getSource().empty() || currentData.getSource() == searchData.getSource()) &&
-		            (searchData.getDest().empty() || currentData.getDest() == searchData.getDest()) &&
-		            (searchData.getStat().empty() || currentData.getStat() == searchData.getStat()) &&
+		        if ((searchData.getName().empty() || currentData.getName() == searchData.getName()) ||
+		            (searchData.getType().empty() || currentData.getType() == searchData.getType()) ||
+		            (searchData.getSource().empty() || currentData.getSource() == searchData.getSource()) ||
+		            (searchData.getDest().empty() || currentData.getDest() == searchData.getDest()) ||
+		            (searchData.getStat().empty() || currentData.getStat() == searchData.getStat()) ||
 		            (searchData.getTrackNum() != 0 && currentData.getTrackNum() == searchData.getTrackNum())) {
 		            return curr;
 		        }
