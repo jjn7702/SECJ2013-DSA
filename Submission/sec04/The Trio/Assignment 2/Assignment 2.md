@@ -11,14 +11,12 @@ _Don't forget to hit the :star: if you like this repo._
 ## Objective
 Our objectives for this assignment are:
 
-a. To manage hotel booking system
+a. To manage the hotel booking system
 
-b. To help the hotel administrator check the customer's reservation details by sort the
-   customers’ information
+b. To help the hotel administrator add new customer details and find the customer details.
 
-c. To search specific customers’ details
+c. To find specific customers’ details
 
-d. To simplify the booking details
 
 
 ## Synopsis📝
