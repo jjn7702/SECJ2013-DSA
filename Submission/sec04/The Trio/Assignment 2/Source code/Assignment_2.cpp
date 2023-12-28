@@ -44,6 +44,19 @@ class CustomerList{
 
 		// Check if the linked list is empty
 		bool isEmpty(){ return (head == NULL) ; }
+
+	// Function to add a customer at the beginning of the list
+	    void addCustAtBegin(Customer *newCustomer) 
+		{
+	        if(isEmpty()) // If the list is empty, new customer becomes head
+	        	head = newCustomer ;
+			else
+	        {
+				newCustomer->next = head;  // Point new customer to the current head
+	       		head = newCustomer;      // Do new customer as new head   
+	        }
+	    }
+
 		
 		// Function to add  customer at the middle of the list
 	    // Cannot add at the first position and last position
@@ -86,6 +99,22 @@ class CustomerList{
 		        prev->next = newCustomer;
 			}
 		}
+
+		// Function to add  customer at the end of the list
+	    void addCustAtEnd(Customer* newCustomer) 
+		{
+	        if(isEmpty()) // If the list is empty, new customer becomes head       
+	            head = newCustomer ; 
+			else
+			{
+		        Customer* current = head; 
+		        
+		        while (current->next != NULL) // Move to  last customer
+		            current = current->next;
+		            
+		        current->next = newCustomer;  // Add new customer at  end
+	    	}	
+	    }
 
 		// Deleting node at the front of the linked list
 		void deleteFront()
