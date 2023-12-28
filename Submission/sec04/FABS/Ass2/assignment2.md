@@ -45,6 +45,24 @@ The linked list is implemented as nodes, containing a Courier object and a point
    2.5 Option 0: return back to the main menu.
 
 
+#### DELETING A NODE
+
+1. Get the option from the main function.
+
+2. From the option, the data will be deleted by corresponding function either delete at the front, middle or end.
+
+3. The deletion function in the Courier Management System allows users to remove couriers from the system
+
+   3.1 Option 1: deleteFront() function: the courier at the front of the list is removed.
+
+   3.2 Option 2: deleteMiddle() function: the courier at the specific location (using position) of the list is removed.
+
+   3.3 Option 3: deleteBack() function: the courier at the back of the list is removed.
+
+   3.4 Option 0: return back to the main menu.
+
+
+
 
 
 
