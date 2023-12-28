@@ -262,7 +262,7 @@ int main()
 
     //  FOR INSERT BEGINNING MIDDLE END
 
-    while (opt != 7)
+    while (opt != 10)
     {
         cout << ":: INSERT DATA ::" << endl;
         cout << "[1] Insert at the beginning" << endl;
