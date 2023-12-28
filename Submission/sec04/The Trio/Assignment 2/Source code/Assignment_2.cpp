@@ -75,6 +75,28 @@ class CustomerList{
 			
 			delete current ;
 		}
+
+		// Deleting node at the end of the linked list
+		void deleteEnd()
+		{
+			if(isEmpty()) // Check if the linked list is empty
+			{
+				cout << "\nThe customer list is empty" << endl ;
+				return ;
+			}
+			
+			Customer *current = head, *delNode ;
+			
+			// Move to  last customer
+			while(current->next != NULL)
+			{
+				delNode = current ;
+				current = current->next ;
+			}
+			
+			delete current ;
+			delNode->next = NULL ;
+		}
 		
 		// Sort the customer data
 		void sorting()
