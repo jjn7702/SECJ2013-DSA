@@ -10,7 +10,14 @@ _Don't forget to hit the :star: if you like this repo._
 # Inventory Management System
 
 ## Description 📝
-The primary goal of the provided C++ code is to establish a robust and interactive inventory management system through the utilization of linked lists. This system is engineered to empower users with a wide array of functionalities, encompassing the addition and deletion of items, as well as the capability to search, sort, and comprehensively display the entire inventory. The code achieves this by introducing an Inventory class, acting as a blueprint for each inventory item and encapsulating vital attributes such as item number, name, description, quantity, cost, and location. The underlying implementation employs the fundamental data structure of a linked list, where each node corresponds to an inventory item and holds a reference to the subsequent node. The system's versatility is underscored by its comprehensive set of operations, allowing users to add, delete, search, and sort items based on various criteria. Moreover, the incorporation of three sorting methods—sorting by item number, by item name, and by item location—provides users with flexibility in organizing inventory data tailored to their preferences.
+The primary goal of the provided C++ code is to establish a robust and interactive inventory management system through the utilization of linked lists. This system 
+is engineered to empower users with a wide array of functionalities, encompassing the addition and deletion of items, as well as the capability to search, sort, 
+and comprehensively display the entire inventory. The code achieves this by introducing an Inventory class, acting as a blueprint for each inventory item and 
+encapsulating vital attributes such as item number, name, description, quantity, cost, and location. The underlying implementation employs the fundamental data 
+structure of a linked list, where each node corresponds to an inventory item and holds a reference to the subsequent node. The system's versatility is underscored 
+by its comprehensive set of operations, allowing users to add, delete, search, and sort items based on various criteria. Moreover, the incorporation of three 
+sorting methods—sorting by item number, by item name, and by item location—provides users with flexibility in organizing inventory data tailored to their 
+preferences.
 
 
 ## Prepared by 🧑‍💻
