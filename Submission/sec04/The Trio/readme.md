@@ -11,7 +11,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Description 📝
 
-Hotel booking systems where designed to streamline the process of hotel booking, providing customers with an efficient platform for booking accomodations.
+Hotel booking systems were designed to streamline the process of hotel booking, providing customers with an efficient platform for booking accommodations.
 
 ## Prepared by 🧑‍💻
 
@@ -25,7 +25,7 @@ Hotel booking systems where designed to streamline the process of hotel booking,
 ## Findings 📊
 
 - [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/The%20Trio/Assignment%201)
-- Assignment 2
+- [Assignment 2](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/The%20Trio/Assignment%202)
 - Project
 
 ## Contribution 🛠️
