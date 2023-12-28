@@ -1,0 +1,10 @@
+Sarah,shirt,KL,Johor,Delivered,123500
+Ziera,book,Selangor,Muar,Delivered,654879
+Abduh,shoes,Pineng,Melaka,Process,548821
+Ali,ball,Sarawak,Sabah,Delivery,498678
+Luvia,phone,Perak,Senai,Delivery,789092
+Putra,laptop,KL,Serdang,Delivered,234539
+Lisa,watch,Desaru,Tangkak,Process,876565
+Kamarudin,hat,Ipoh,Sabah,Delivery,432121
+Sofea,glasses,Rompin,Genting,Process,567837
+Omar,camera,Karak,Rengit,Delivered,987602
