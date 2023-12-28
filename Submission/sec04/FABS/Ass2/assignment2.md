@@ -36,13 +36,13 @@ The linked list is implemented as nodes, containing a Courier object and a point
 
    2.1 The insertion function in the Courier Management System allows users to add new couriers to the system.
 
-   2.2 Option 1: insertFront() function: insert details for the new courier (name, parcel type, source, destination, status, and tracking number) at the front of the linked list.
+         2.1.1 Option 1: insertFront() function: insert details for the new courier (name, parcel type, source, destination, status, and tracking number) at the front of the linked list.
 
-   2.3 Option 2: insertMiddle() function: insert details for the new courier (name, parcel type, source, destination, status, and tracking number) at specified location (using position) of the linked list.
+         2.1.2 Option 2: insertMiddle() function: insert details for the new courier (name, parcel type, source, destination, status, and tracking number) at specified location (using position) of the linked list.
 
-   2.4 Option 3: insertBack() function: insert details for the new courier (name, parcel type, source, destination, status, and tracking number) at the back of the linked list.
+         2.1.3 Option 3: insertBack() function: insert details for the new courier (name, parcel type, source, destination, status, and tracking number) at the back of the linked list.
 
-   2.5 Option 0: return back to the main menu.
+         2.1.4 Option 0: return back to the main menu.
 
 
 #### DELETING A NODE
