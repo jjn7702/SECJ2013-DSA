@@ -17,11 +17,12 @@ _Don't forget to hit the :star: if you like this repo._
 ## Objective
 Our objectives for this assignment are:
 
-a. To manage the hotel booking system
+a. To store and arrange customer information using a linked list structure.
 
-b. To help the hotel administrator add new customer details and find the customer details.
+b. Keep a record of booking details, such as  room number and check-in date, with each customer node.
 
-c. To find specific customers’ details
+c. To allow changeable functions such as adding, deleting, and finding customers from the list.
+
 
 
 
