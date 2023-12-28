@@ -339,11 +339,11 @@ int main() {
         string n, parcel, sourc, dest, stat;
         int track;
 
-        if (getline(ss, n, ',') &&
-            getline(ss, parcel, ',') &&
-            getline(ss, sourc, ',') &&
-            getline(ss, dest, ',') &&
-            getline(ss, stat, ',') &&
+        if (getline(ss >> std::ws, n, ',') &&
+            getline(ss >> std::ws, parcel, ',') &&
+            getline(ss >> std::ws, sourc, ',') &&
+            getline(ss >> std::ws, dest, ',') &&
+            getline(ss >> std::ws, stat, ',') &&
             (ss >> track)) {
 
             Courier newCourier(n, parcel, sourc, dest, stat, track);
