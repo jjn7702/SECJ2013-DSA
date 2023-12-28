@@ -581,3 +581,48 @@ void List::SortbyNumber() {
     }
 }
 
+void List::SortbyName() {
+    if (head == NULL)
+        return;
+
+    Node* currNode = head;
+    Node* sortedNode = NULL;
+
+    while (currNode != NULL) {
+        Node* minNode = currNode;
+        Node* tempNode = currNode->next;
+
+        while (tempNode != NULL) {
+            if (tempNode->item.getItemName() < minNode->item.getItemName()) {
+                if (tempNode->item.getItemName() != minNode->item.getItemName()) {
+                    minNode = tempNode;
+                }
+            }
+            tempNode = tempNode->next;
+        }
+
+        if (minNode != currNode) {
+            if (currNode == head) {
+                head = minNode;
+            } else {
+                Node* prevNode = head;
+                while (prevNode->next != currNode) {
+                    prevNode = prevNode->next;
+                }
+                prevNode->next = minNode;
+            }
+
+            Node* temp = minNode->next;
+            minNode->next = currNode->next;
+            currNode->next = temp;
+
+            currNode = minNode;
+        }
+
+        if (sortedNode == NULL) {
+            sortedNode = currNode;
+        }
+
+        currNode = currNode->next;
+    }
+}
