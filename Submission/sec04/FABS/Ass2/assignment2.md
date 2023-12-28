@@ -112,6 +112,10 @@ The linked list is implemented as nodes, containing a Courier object and a point
 
             4.1.4 Option 0: return back to the main menu.
 
+#### DISPLAYING THE NODE
+
+1. Display the unsorted data from the file (TEST.txt) that has been read or display sorted data and searched data based on users option.
+
 
 
 
