@@ -55,6 +55,26 @@ class CustomerList{
 		        prev->next = newCustomer;
 			}
 		}
+
+		// Deleting node at the front of the linked list
+		void deleteFront()
+		{
+			if(isEmpty()) // Check if the linked list is empty
+			{
+				cout << "\nThe customer list is empty" << endl ;
+				return ;
+			}
+			
+			Customer *current = head ;
+			
+			if(current->next != NULL) // check if the head is no NULL before delete
+			{
+				head = current->next ;
+				current->next = NULL ;
+			}
+			
+			delete current ;
+		}
 		
 		// Sort the customer data
 		void sorting()
