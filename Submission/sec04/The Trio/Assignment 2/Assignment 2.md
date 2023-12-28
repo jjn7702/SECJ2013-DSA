@@ -33,6 +33,6 @@ customers.
 
 ## Findings 📊
 
-- [Source Code](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/The%20Trio/Assignment%201/Source%20Code)
-- [Plagiarism Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/The%20Trio/Assignment%201/Assignment%201%20Plagiarism%20Report.pdf)
-- [Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/The%20Trio/Assignment%201/Assignment%201%20Report.pdf)
+- Source Code
+- Plagiarism Report
+- Report
