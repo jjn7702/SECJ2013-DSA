@@ -10,6 +10,9 @@ class CustomerList{
 		
 	public:
 		CustomerList(){ head = NULL ; }
+
+		// Check if the linked list is empty
+		bool isEmpty(){ return (head == NULL) ; }
 		
 		// Function to add  customer at the middle of the list
 	    // Cannot add at the first position and last position
