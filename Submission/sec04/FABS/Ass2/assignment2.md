@@ -102,7 +102,7 @@ The linked list is implemented as nodes, containing a Courier object and a point
 
 3. It iteratively traverses the list, comparing and swapping elements based on the sorting criterion selected.
 
-   4. The sortCriteria parameter determines the sorting criteria, and the comparison is performed accordingly.
+4. The sortCriteria parameter determines the sorting criteria, and the comparison is performed accordingly.
 
       4.1 The sortList function uses sortCriteria to sort the courier data based on the option that was chosen by the user.
 
