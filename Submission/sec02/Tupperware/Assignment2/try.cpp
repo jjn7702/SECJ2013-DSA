@@ -37,12 +37,6 @@ class List
     public:
         List() {head = NULL;} // create empty list first
         bool isEmtpy() {return head == NULL;} // specify that the list is emtpy
-        void insert(Menu *arr[]){
-            Menu *newNode = new Menu(d);//pass value d into the first node
-            if(!isEmtpy())
-                newNode->next = head;
-            head = newNode;
-        }     
 
         void dispList(){ // requires pointer(loop) to move the node
             Menu *temp = head;
@@ -56,53 +50,63 @@ class List
         }
 
 //ADDITION OF NODE
-//at the end
-void insertEndArray(Menu *&head, Menu *arr[], int size) {
-    for (int i = 0; i < size; i++) {
-        Menu *newNode = new Menu(arr[i]);
-        Menu *temp = head;
-        if (head == NULL)
+
+//at the first
+        void insert(Menu *arr[]){
+            Menu *newNode = new Menu(d);//pass value d into the first node
+            if(!isEmtpy())
+                newNode->next = head;
             head = newNode;
-        else {
-            while (temp->next != NULL)
-                temp = temp->next;
-            temp->next = newNode;
+        }     
+
+//at the end
+        void insertEndArray(Menu *&head, Menu *arr[], int size) {
+            for (int i = 0; i < size; i++) {
+                Menu *newNode = new Menu(arr[i]);
+                Menu *temp = head;
+                if (head == NULL)
+                    head = newNode;
+                else {
+                    while (temp->next != NULL)
+                        temp = temp->next;
+                    temp->next = newNode;
+                }
+            }
         }
-    }
-}
 
 //at the middle
-void insertMiddleArray(Node *&head, Menu *arr[], int size, int middle) {
-    for (int i = 0; i < size; i++) {
-        Menu *newNode = new Menu(arr[i]);
-        Menu *temp = head;
-        if (head->getData() == middle)
-            head = newNode;
-        else {
-            while (temp->getData() != middle) {
-                temp = temp->next;
+        void insertMiddleArray(Node *&head, Menu *arr[], int size, int middle) {
+            for (int i = 0; i < size; i++) {
+                Menu *newNode = new Menu(arr[i]);
+                Menu *temp = head;
+                if (head->getData() == middle)
+                    head = newNode;
+                else {
+                    while (temp->getData() != middle) {
+                        temp = temp->next;
+                    }
+                    newNode->next = temp->next;
+                    temp->next = newNode;
+                }
             }
-            newNode->next = temp->next;
-            temp->next = newNode;
-        }
-    }
-}
-
-//at the front
-void insertSpecifiedArray(Node *&head, Menu *arr[], int size, int middle) {
-    for (int i = 0; i < size; i++) {
-        Menu *newNode = new Menu(arr[i]);
-        Menu *temp = head, *prev;
-
-        while (temp->getData() != middle){
-            prev = temp;
-            temp = temp->next;
         }
 
-        newNode->next = temp->next;
-        prev->next = newNode;
-    }
-}
+//at the specified
+/*
+        void insertSpecifiedArray(Node *&head, Menu *arr[], int size, int middle) {
+            for (int i = 0; i < size; i++) {
+                Menu *newNode = new Menu(arr[i]);
+                Menu *temp = head, *prev;
+
+                while (temp->getData() != middle){
+                    prev = temp;
+                    temp = temp->next;
+                }
+
+                newNode->next = temp->next;
+                prev->next = newNode;
+            }
+}*/
 };
 
 
