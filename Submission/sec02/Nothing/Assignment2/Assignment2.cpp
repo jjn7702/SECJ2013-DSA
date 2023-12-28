@@ -167,6 +167,7 @@ int main(){
             getline(cin, itemLocation);
             system("cls");
             item = new inventory(itemNumber, itemName, description, quantity, cost, itemLocation);
+            
             if(choice1 == 1){
                 list.insertNode(*item, 0);
             }
@@ -399,18 +400,23 @@ inventory::inventory(int itemNumber, string itemName, string description, int qu
 void inventory::setItemNumber(int itemNumber){
     this->itemNumber = itemNumber;
 }
+
 void inventory::setItemName(string itemName){
     this->itemName = itemName;
 }
+
 void inventory::setDescription(string description){
     this->description = description;
 }
+
 void inventory::setQuantity(int quantity){
     this->quantity = quantity;
 }
+
 void inventory::setCost(double cost){
     this->cost = cost;
 }
+
 void inventory::setItemLocation(string itemLocation){
     this->itemLocation = itemLocation;
 }
@@ -422,18 +428,23 @@ int inventory::getItemNumber(){
 string inventory::getItemLocation(){
     return itemLocation;
 }
+
 string inventory::getItemName(){
     return itemName;
 }
+
 string inventory::getDescription(){
     return description;
 }
+
 int inventory::getQuantity(){
     return quantity;
 }
+
 double inventory::getCost(){
     return cost;
 }
+
 void inventory::print(){
     cout << setw(15) << left << itemNumber 
     << setw(15) << left << itemName 
@@ -443,10 +454,10 @@ void inventory::print(){
     << setw(15) << left << itemLocation << endl;
 }
 
-
 List::List(){
     head = NULL;
 }
+
 List::~List(){
     Node* currNode = head, *nextNode = NULL;
     while (currNode != NULL){
@@ -580,6 +591,7 @@ void List::SortbyNumber() {
             break;
     }
 }
+
 void List::SortbyName() {
     if (head == NULL)
         return;
@@ -625,6 +637,7 @@ void List::SortbyName() {
         currNode = currNode->next;
     }
 }
+
 void List::SortbyLocation() {
     if (head == NULL)
         return;
@@ -655,8 +668,6 @@ void List::SortbyLocation() {
             break;
     }
 }
-
-
 
 //other functionl
 bool isNumber(string s){
