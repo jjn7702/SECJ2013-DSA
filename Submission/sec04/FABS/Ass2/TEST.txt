@@ -4,7 +4,7 @@ Muhammad Abduh, Shoes, Pulau Pinang, Melaka, Delivered, 548821
 Mohd Ali, Ball, Sarawak, Sabah, In transit, 498678
 Jessica Luvia, Phone, Perak, Senai, Delivered, 789092
 Rahman Putra, Laptop, Kuala Lumpur, Ayer Hitam, In transit, 234539
-Emily Lisa, Watch, Pasir Gudang, Tangkak,Out for Delivery, 876565
+Emily Lisa, Watch, Pasir Gudang, Tangkak, Out for Delivery, 876565
 Kamal Kamarudin, Hat, Ipoh, Sabah, Delivered, 432121
 Aisha Sofea, Glasses, Rompin, Sungai Petani, In transit, 567837
 Mohammed Omar, Camera, Karak, Alor Gajah, Delivered, 987602
