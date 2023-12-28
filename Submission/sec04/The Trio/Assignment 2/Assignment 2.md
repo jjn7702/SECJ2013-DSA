@@ -13,7 +13,7 @@ _Don't forget to hit the :star: if you like this repo._
 |--------------|--------------|
 |   |   |
 | Nur Hafizah Binti Jafri     | A22EC5022 |
-| Wong Qiao Ying     | A22EC0118 |
+| Nursyuhada Binti Badren     | A22EC0253 |
 ## Objective
 Our objectives for this assignment are:
 
