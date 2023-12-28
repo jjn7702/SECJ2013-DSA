@@ -261,20 +261,27 @@ class LinkedList {
 		
 		            switch (sortCriteria) {
 		                case 1:
-		                    if (currentData.getName() > nextData.getName()) {
-		                        swap(current->data, current->next->data);
+					if (currentData.getName() > nextData.getName()) {
+		                        Courier temp = current->data;
+		                        current->data = current->next->data;
+		                        current->next->data = temp;
 		                        swapped = true;
 		                    }
+		     
 		                    break;
 		                case 2: 
 		                    if (currentData.getType() > nextData.getType()) {
-		                        swap(current->data, current->next->data);
+		                        Courier temp = current->data;
+		                        current->data = current->next->data;
+		                        current->next->data = temp;
 		                        swapped = true;
 		                    }
 		                    break;
 		                case 3: 
-		                    if (currentData.getTrackNum() > nextData.getTrackNum()) {
-		                        swap(current->data, current->next->data);
+		                   if (currentData.getTrackNum() > nextData.getTrackNum()) {
+		                        Courier temp = current->data;
+		                        current->data = current->next->data;
+		                        current->next->data = temp;
 		                        swapped = true;
 		                    }
 		                    break;
