@@ -36,14 +36,60 @@ The linked list is implemented as nodes, containing a Courier object and a point
 
    2.1 The insertion function in the Courier Management System allows users to add new couriers to the system.
 
-   2.2 Option 1: insertFront() function: insert details for the new courier (name, parcel type, source, destination, status, and tracking number) at the front of the linked list.
+         2.1.1 Option 1: insertFront() function: insert details for the new courier (name, parcel type, source, destination, status, and tracking number) at the front of the linked list.
 
-   2.3 Option 2: insertMiddle() function: insert details for the new courier (name, parcel type, source, destination, status, and tracking number) at specified location (using position) of the linked list.
+         2.1.2 Option 2: insertMiddle() function: insert details for the new courier (name, parcel type, source, destination, status, and tracking number) at specified location (using position) of the linked list.
 
-   2.4 Option 3: insertBack() function: insert details for the new courier (name, parcel type, source, destination, status, and tracking number) at the back of the linked list.
+         2.1.3 Option 3: insertBack() function: insert details for the new courier (name, parcel type, source, destination, status, and tracking number) at the back of the linked list.
 
-   2.5 Option 0: return back to the main menu.
+         2.1.4 Option 0: return back to the main menu.
 
+
+
+#### DELETING A NODE
+
+1. Get the option from the main function.
+
+2. From the option, the data will be deleted by corresponding function either delete at the front, middle or end.
+
+   2.1 The deletion function in the Courier Management System allows users to remove couriers from the system
+
+         2.1.1 Option 1: deleteFront() function: the courier at the front of the list is removed.
+
+         2.1.2 Option 2: deleteMiddle() function: the courier at the specific location (using position) of the list is removed.
+
+         2.1.3 Option 3: deleteBack() function: the courier at the back of the list is removed.
+
+         2.1.4 Option 0: return back to the main menu.
+
+
+#### FINDING THE NODE
+
+1. Get the option from the main function.
+
+2. From the option, the data will be searched by corresponding function either by name, parcel type, source, destination, status or tracking number.
+
+3. The function begins by setting the value of a boolean variable (found) to false.
+
+4. It iterates through the linked list, comparing the attributes of each courier to the corresponding attributes in the searchData.
+
+5. If a match is found based on the specified search criteria, the courier's information is displayed using the Courier class's display method.
+
+    5.1 The findNode function uses searchKey to search the courier data based on the option that was chosen by the user.
+
+         5.1.1 Option 1: name with specific searchKey will be displayed.
+
+         5.1.2 Option 2: parcel type with specific searchKey will be displayed.
+
+         5.1.3 Option 3: source with specific searchKey will be displayed.
+
+         5.1.4 Option 4: destination with specific searchKey will be displayed.
+
+         5.1.5 Option 5: status with specific searchKey will be displayed.
+
+         5.1.6 Option 6: tracking number with specific searchKey will be displayed.
+
+         5.1.7 Option 0: return back to the main menu.
 
 
 
