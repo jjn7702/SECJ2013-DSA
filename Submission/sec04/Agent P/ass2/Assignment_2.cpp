@@ -599,6 +599,11 @@ int searchUI(string &key,int &key2)
 
 int main()
 {
+    string name,faculty,email,ic,matric,key;
+    int age,opt1,opt2,num,key2,opt5,opt6;
+    char answer,answer2;
+    List l;
+    
 	    l.display();
         }
         else if(opt1==2)
