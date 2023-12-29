@@ -367,7 +367,10 @@ void facAsc(){
             {	sorted = true;
                 for(temp2=head; temp2->next!=NULL; temp2=temp2->next)
                 {
-                    
+                    if( temp2->getFaculty() > (temp2->next->getFaculty()) )
+                    {
+						
+                    }
 
                 }
             }
