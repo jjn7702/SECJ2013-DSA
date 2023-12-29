@@ -57,6 +57,14 @@ class List
             if(isEmpty())
                 head = newNode;
 
+            else{
+                while(temp->next != NULL)
+                {
+                    temp = temp->next;
+                }
+                temp->next = newNode;
+            }
+
         }
 void search(int opt,string key,int key2)
         {
