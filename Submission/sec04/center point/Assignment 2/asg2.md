@@ -9,7 +9,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 # Inventory Management System - Assignment 2
 ## Objective
-
+The inventory management system in Assignment2 is designed to get initial inventory informations from a file, and keep it in linked list data structure. Furthermore, it gives users options on how they can change their inventory in a inventory list. These operations include adding inventory, delete inventory, find an inventory based on search key , sort the inventory list and also display inventory list.
 
 ## Synopsis📝
 
