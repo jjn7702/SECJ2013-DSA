@@ -14,6 +14,12 @@ private:
     double price;
 
 public:
+    Menu() {
+        foodId = "";
+        name = "";
+        category = "";
+        price = 0.0;
+    }
     Menu(string foodId, string name, string category, double price)
         : foodId(foodId), name(name), category(category), price(price) {}
 
@@ -28,7 +34,7 @@ public:
         void setPrice(double price) { this->price = price; }
 
         // Display order details
-        void displayOrder() const {
+        void displayMenu() const {
             cout << left;
             cout << setw(10) << foodId << " | "
                 << setw(21) << name << " | "
@@ -42,9 +48,7 @@ class Node {
     public:
         Menu order;
         Node* next;
-        //Menu getOrder() { return order; }
-        //Node(const Menu& order) : order(order), next(nullptr) {}
-        Node(Menu m) : menu(m), next(nullptr){}
+        Node(Menu m) : order(m), next(nullptr){}
 };
 
 class OrderList {
@@ -53,20 +57,18 @@ private:
 
 public:
     OrderList() : head(nullptr) {}
+    bool isEmpty() {return head == NULL;}
 
-    ~OrderList() {
+  /*  ~OrderList() {
         // Implement destructor to free allocated memory
         Node *current = head;
         Node *next;
         while (current != nullptr) {
-            /*Node* temp = head;
-            head = head->next;
-            delete temp;*/
             next = current->next;
             delete current;
             current = next;
         }
-    }
+    }*/
 
     // Functions to add a new node
     // Insert at the first
@@ -96,7 +98,7 @@ public:
         Node* temp = head;
         int count = 1;
 
-        while(temp->menu.getFoodId() != middle){
+        while(temp->order.getFoodId() != middle){
             temp = temp->next;
             count++;
         }
@@ -111,7 +113,7 @@ public:
         Node* temp = head;
         Node* prev = nullptr;
 
-        while (temp != nullptr && temp->menu.getFoodId() != specified) {
+        while (temp != nullptr && temp->order.getFoodId() != specified) {
             prev = temp;
             temp = temp->next;
         }
@@ -120,32 +122,6 @@ public:
             prev->next = newNode;
     }
 
-    // Function to delete a node
-    void deleteNode(int position) {
-        if (head == nullptr) {
-            return; // List is empty
-        }
-
-        Node* temp = head;
-
-        if (position == 0) {
-            // Delete the first node
-            head = head->next;
-        } else {
-            // Delete a node in the middle or at the end
-            Node* current = head;
-            for (int i = 0; i < position - 1 && current->next != nullptr; ++i) {
-                current = current->next;
-            }
-
-            if (current->next != nullptr) {
-                temp = current->next;
-                current->next = current->next->next;
-            }
-        }
-
-        delete temp;
-    }
 
     //Function to find node by name
     Node* findNodeName(const string& searchName) const {
@@ -167,7 +143,7 @@ public:
                     foundNode = current;
                 }
                 else {
-                    current->order.displayOrder();
+                    current->order.displayMenu();
                 }
             }
             current = current->next;
@@ -183,7 +159,35 @@ public:
             }
         return current;
     }
-         
+
+    // Function to display all nodes
+    void displayNodes() const {
+        system("cls");
+        cout << left;
+        cout << setw(10) << "ID" << " | "
+             << setw(21) << "NAME" << " | "
+             << setw(13) << "TYPE" << " | "
+             << fixed << "PRICE" << endl;
+        cout << "---------------------------------------------------------" << endl;
+        Node* current = head;
+        while (current != nullptr) {
+            current->order.displayMenu();
+            current = current->next;
+        }
+    }
+
+};
+
+void printSortedResult(Menu menuArray[]) {
+    for (int i = 0; i < SIZE; i++) {
+        cout << left;
+        cout << setw(5) << (i+1) << " | "
+             << setw(10) << menuArray[i].getFoodId() << " | "
+             << setw(21) << menuArray[i].getName() << " | "
+             << setw(13) << menuArray[i].getCategory() << " | "
+             << fixed << setprecision(2) << setw(4) << menuArray[i].getPrice() << endl;
+    }
+}
 
     // Function to sort the list (using bubble sort as an example)
 void swap(Menu& a, Menu& b) {
@@ -247,22 +251,7 @@ void PriceASC(Menu menuArray[]) {
         } while (swapped);
     }*/
 
-    // Function to display all nodes
-    void displayNodes() const {
-        system("cls");
-        cout << left;
-        cout << setw(10) << "ID" << " | "
-             << setw(21) << "NAME" << " | "
-             << setw(13) << "TYPE" << " | "
-             << fixed << "PRICE" << endl;
-        cout << "---------------------------------------------------------" << endl;
-        Node* current = head;
-        while (current != nullptr) {
-            current->order.displayOrder();
-            current = current->next;
-        }
-    }
-};
+
 
 void displayHeader() {
     cout << left;
@@ -275,10 +264,11 @@ void displayHeader() {
 
 int main() {
     char choice;
-    int opt, size = 0;
+    int opt, ins, sortBy, sortIn, size = 0;
     string foodId, name, category;
     double price;
     OrderList orderList;
+    Menu menu;
 
     system("cls");
     cout << "WELCOME TO TUPPERWARE!" << endl;
@@ -303,7 +293,6 @@ int main() {
         newmenu.setName(name);
         newmenu.setCategory(category);
         newmenu.setPrice(price);
-        orderList.addNode(newmenu);
 
         menuread++;
     }
@@ -322,10 +311,75 @@ int main() {
         cin >> opt;
 
         switch (opt) {
-            case 1:
+            case 1:{
+                cout << "Enter the foodId : ";
+                getline(cin, menu.getFoodId());
+                cout << "Enter the food Name : ";
+                getline(cin, menu.getFoodId());
+                cout << "[1] At front" << endl;
+                cout << "[2] At Middle" << endl;
+                cout << "[3] At End" << endl;
+                cout << "[4] Replace" << endl;
+                cout << "\nEnter your choice: ";
+                cin >> ins;
+
+                switch (ins)
+                {
+                case 1:
+                    orderList.insertFront(menu);
+                    break;
+                default:
+                    break;
+                }
+            }
 
             case 2:
+            {
+                
+                cout << "Sort by" << endl;
+                cout << "[1] Food ID" << endl;
+                cout << "[2] Price" << endl;
+                cout << "\nEnter your choice: " ;
+                cin >> sortBy;
 
+                switch (sortBy){
+                    case 1:{
+                        cout << "Sort in" << endl;
+                        cout << "[1] Ascending Order" << endl;
+                        cout << "[2] Decending Order" << endl;
+                        cin >> sortIn;
+
+                        switch (sortIn)
+                        {
+                        case 1:
+                            FoodIdASC(orderList);
+                            break;
+                        case 2:
+                            PriceASC(/**/);
+                            break;
+                        default:
+                            break;
+                        }
+                    }
+                    case 2:{
+                        cout << "Sort in" << endl;
+                        cout << "[1] Ascending Order" << endl;
+                        cout << "[2] Decending Order" << endl;
+                        cin >> sortIn;
+
+                        switch(sortIn){
+                        case 1:
+                            FoodIdASC(/**/);
+                            break;
+                        case 2:
+                            PriceASC(/**/);
+                            break;
+                        default:
+                            break;
+                        }
+                    }
+                }
+            }
             case 3:
             {
                 cout << "\nDo you want to seach by (N)ame, (C)ategory or (F)oodId?: ";
@@ -341,7 +395,7 @@ int main() {
                     if (foundNode != nullptr) {
                         cout << "\nNode Found:\n";
                         displayHeader();
-                        foundNode->order.displayOrder();
+                        foundNode->order.displayMenu();
                     } else {
                         cout << "\nNode Not Found.\n";
                     }
@@ -369,7 +423,7 @@ int main() {
                     if (foundNode != nullptr) {
                         cout << "\nNode Found:\n";
                         displayHeader();
-                        foundNode->order.displayOrder();
+                        foundNode->order.displayMenu();
                     } else {
                         cout << "\nNode Not Found.\n";
                     }
@@ -396,19 +450,6 @@ int main() {
 
     } while (opt != 6);
 
-
-    /*// Example usage:
-    orderList.addNode(menuArray[0], 0);
-    orderList.addNode(menuArray[1], 1);
-    orderList.addNode(menuArray[2], 1);
-
-    cout << "\nOriginal List:\n";
-    orderList.displayNodes();*/
-
-    //orderList.sortList();
-
-    //cout << "\nAfter sorting:\n";
-    //orderList.displayNodes();
 
     return 0;
 }
