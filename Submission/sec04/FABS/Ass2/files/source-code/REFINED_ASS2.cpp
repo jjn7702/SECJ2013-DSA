@@ -230,6 +230,8 @@ class LinkedList {
 		
 		Node* findNode(const Courier& searchData) {
 		    Node* curr = head;
+		    bool found = false;
+			
 		    while (curr) {
 		        const Courier& currentData = curr->data;
 		
@@ -239,12 +241,16 @@ class LinkedList {
 		            (searchData.getDest().empty() || currentData.getDest() == searchData.getDest()) ||
 		            (searchData.getStat().empty() || currentData.getStat() == searchData.getStat()) ||
 		            (searchData.getTrackNum() != 0 && currentData.getTrackNum() == searchData.getTrackNum())) {
-		            return curr;
+
+			     currentData.display(!found);
+			     cout << endl;
+			     found = true;
 		        }
 		
 		        curr = curr->next;
 		    }
-		    return NULL;
+		    if (!found)
+			    cout << "\nCourier not found. Please try again.\n" << endl;
 		}
 
 		void sortList(int sortCriteria) {
