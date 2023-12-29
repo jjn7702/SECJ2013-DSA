@@ -131,6 +131,10 @@ void search(int opt,string key,int key2)
                     case 3: 
                         while(temp != NULL)
                     {
+                        if(temp->getAge() == key2)
+                        {
+                            
+                        }
                         
                     }
                     break; 
