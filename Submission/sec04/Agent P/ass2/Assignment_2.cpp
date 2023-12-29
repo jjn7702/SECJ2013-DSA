@@ -54,6 +54,9 @@ class List
             Voter *newNode = new Voter(n,f,a,ic,e,m);
             Voter *temp = head;
 
+            if(isEmpty())
+                head = newNode;
+
         }
 void search(int opt,string key,int key2)
         {
