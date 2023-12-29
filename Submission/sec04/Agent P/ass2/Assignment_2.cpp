@@ -408,6 +408,13 @@ void deleteUI(int &opt1,int &opt2, List l)
     }
 }
 
+int searchUI(string &key,int &key2)
+{
+
+    int opt;
+
+}
+
 
 
 int main()
