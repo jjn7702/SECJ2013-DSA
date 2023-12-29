@@ -69,6 +69,15 @@ class List
         {
             if(isEmpty())
                 cout<<"The list is empty!"<<endl;
+            
+            else{
+                Voter *temp = head,*temp2;
+                while(temp->next != NULL){
+                    temp2 = temp;
+                    temp = temp->next;
+                }
+                
+            }
         }
 
         }
