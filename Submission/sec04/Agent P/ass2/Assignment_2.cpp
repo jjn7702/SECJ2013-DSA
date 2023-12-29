@@ -412,6 +412,29 @@ void facDes(){
             next = next->next;
         }
 
+        n = temp->getName();
+		f = temp->getFaculty();
+        e = temp->getEmail();
+        i = temp->getIC();
+        m = temp->getMatric();
+        a = temp->getAge();
+
+        temp->setName(min->getName());
+        temp->setFaculty(min->getFaculty());
+        temp->setEmail(min->getEmail());
+        temp->setIC(min->getIC());
+        temp->setMatric(min->getMatric());
+        temp->setAge(min->getAge());
+
+        min->setName(n);
+        min->setFaculty(f);
+        min->setEmail(e);
+        min->setIC(i);
+        min->setMatric(m);
+        min->setAge(a);
+
+        temp = temp->next;
+    }
 }
 
 
