@@ -16,3 +16,14 @@ public:
         category = c;
         status = s;
     }
+
+void printResult(int count)
+    {
+        cout << "\t\t\t" << left << setw(5) << count 
+		 << setw(15) << trackingNumber
+		 << setw(2) << address
+		 << setw(2) << nameSender
+		 << setw(2) << nameReceiver
+		 << setw(2) << category
+		 << setw(2) << status << endl;
+    }
