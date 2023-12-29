@@ -239,8 +239,11 @@ public:
     void displayAll()
     {
         Node *temp = head;
-        dispHeader(); // Display header before displaying all nodes
-
+        
+        if(!temp)
+            cout << "No data exists." << endl << endl;
+        else
+            dispHeader(); // Display header before displaying all nodes
         while (temp != NULL)
         {
             temp->data.displayDetails();
@@ -283,7 +286,8 @@ int main()
              << endl;
 
         cout << ":: OTHER ACTION ::" << endl;
-        cout << "[10] Quit" << endl;
+        cout << "[11] Display All Data" << endl;
+        cout << "[12] Quit" << endl;
         cout << "OPTION >> ";
         cin >> opt;
         cout << endl
@@ -431,6 +435,15 @@ int main()
             }
             else
                 cout << "Account does not exists." << endl;
+        }
+        else if(opt == 11)
+        {
+            list.displayAll();
+        }
+        else
+        {
+            cout << "Shuting down system...";
+            exit;
         }
         count++;
     }
