@@ -133,7 +133,13 @@ void search(int opt,string key,int key2)
                     {
                         if(temp->getAge() == key2)
                         {
-                            
+                            cout<<"\nName  : "<<temp->getName()<<endl;
+                            cout<<"Faculty : "<<temp->getFaculty()<<endl;
+                            cout<<"Age     : "<<temp->getAge()<<endl;
+                            cout<<"IC      : "<<temp->getIC()<<endl;
+                            cout<<"Email   : "<<temp->getEmail()<<endl;
+                            cout<<"Matric  : "<<temp->getMatric()<<endl;
+                            found = true;
                         }
                         
                     }
