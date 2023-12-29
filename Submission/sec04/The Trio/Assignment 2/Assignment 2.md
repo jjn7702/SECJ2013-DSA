@@ -14,6 +14,8 @@ _Don't forget to hit the :star: if you like this repo._
 |   |   |
 | Nur Hafizah Binti Jafri     | A22EC5022 |
 | Nursyuhada Binti Badren     | A22EC0253 |
+| Eddy Koh Wei Hen            | A22EC0154 |
+
 ## Objective
 Our objectives for this assignment are:
 
@@ -34,6 +36,6 @@ This hotel booking system uses a constant change of linked lists, allowing for t
 
 ## Findings 📊
 
-- [Source Code](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/The%20Trio/Assignment%202/Source%20code%20)
+- [Source Code](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/The%20Trio/Assignment%202/Source%20code)
 - Plagiarism Report
 - Report
