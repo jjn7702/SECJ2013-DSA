@@ -187,6 +187,12 @@ void search(int opt,string key,int key2)
         	out.open("voter.csv");
 
             Voter *temp=head;
+
+            while(temp != NULL)
+            {
+                out<<temp->getName()<<","<<temp->getFaculty()<<","<<temp->getIC()<<","<<temp->getAge()<<","<<temp->getMatric()<<","<<temp->getEmail()<<endl;
+                temp = temp->next;
+            }
 		}
 
 		void ascendName()
