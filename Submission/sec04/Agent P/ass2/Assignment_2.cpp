@@ -399,6 +399,13 @@ void deleteUI(int &opt1,int &opt2, List l)
     cout<<"[3] Delete at Position"<<endl;
     cout<<"Please choose an option : ";
     cin>>opt1;
+
+    if(opt1 == 3)
+    {   
+        l.display();
+        cout<<"Please enter the position you want to delete : ";
+        cin>>opt2;
+    }
 }
 
 
