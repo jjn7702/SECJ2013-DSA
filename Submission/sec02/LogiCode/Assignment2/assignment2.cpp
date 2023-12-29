@@ -38,11 +38,11 @@ public:
     next = NULL;
   };
   string getCheckInDate() const { return checkInDate; }
-  // string getCheckOutDate() const { return checkOutDate; }
-  // int getRoomNo() const { return roomNo; }
-  // string getRoomType() const { return roomType; }
-  // string getIC() const { return ic; }
-  // double getTotalPrice() const { return totalPrice; }
+  string getCheckOutDate() const { return checkOutDate; }
+  int getRoomNo() const { return roomNo; }
+  string getRoomType() const { return roomType; }
+  string getIC() const { return ic; }
+  double getTotalPrice() const { return totalPrice; }
   void getBookingInfo() const {
     cout << checkInDate << "\t" << checkOutDate << "\t" << roomNo << "\t"
          << roomType << "\t" << ic << "\t" << totalPrice << endl;
@@ -90,7 +90,7 @@ public:
 
   void insertMiddle2(BookingNode newBooking, string sKey) { // Insert the node after the node with specific value
     BookingNode *temp = head;
-    BookingNode *newNode = new BookingNode(d);
+    BookingNode *newNode = new BookingNode(newBooking);
 
     while (temp->getCheckInDate() != sKey) {
       temp = temp->next;
@@ -238,27 +238,35 @@ void insertMenu() {
   cout << "3. Insert New Booking before Position" << endl;
   cout << "4. Insert New Booking after Position" << endl;
   cout << "5. Insert New Booking at End" << endl;
-  cout << "4. Exit" << endl;
+  cout << "6. Exit" << endl;
   cin >> option;
   cout << endl;
   switch (option) {
   case 1:
     
     break;
+    
   case 2:
     cout<<"Position: "<<endl;
     cin>>position;
     break;
+    
   case 3:
     cout<<"Position: "<<endl;
     cin>>position;
     break;
+    
   case 4:
     cout<<"Position: "<<endl;
     cin>>position;
     break;
+    
   case 5:
     break;
+    
+  case 6:
+    break;
+    
   default:
     cout << "Enter a valid option." << endl;
     insertMenu();
@@ -267,12 +275,14 @@ void insertMenu() {
   
   void deleteMenu() {
     int option;
-    int location;
+    int position;
     // BookingNode *booking=new Node();
-    cout<< "1. Delete the first booking" << endl;
+    cout << "1. Delete the first booking" << endl;
     cout << "2. Delete the last booking" << endl;
-    cout << "3. Delete" << endl;
-    cout << "4. Exit" << endl;
+    cout << "3. Delete at a specific position" << endl;
+    cout << "4. Delete after a specific position" << endl;
+    cout << "5. Delete before a specific position" << endl;
+    cout << "6. Exit" << endl;
     cin >> option;
     cout << endl;
     switch (option) {
@@ -281,11 +291,19 @@ void insertMenu() {
     case 2:
       break;
     case 3:
-      cout << "Please type the location" << endl;
-      cin >> location;
+      cout << "Position:" << endl;
+      cin >> position;
       break;
     case 4:
+      cout << "Position:" << endl;
+      cin >> position;
       break;
+    case 5:
+        cout << "Position:" << endl;
+        cin >> position;
+        break;
+    case 6:
+        break;
     default:
       cout << "Enter a valid option." << endl;
       insertMenu();
@@ -308,7 +326,7 @@ void insertMenu() {
 
       switch (option) {
       case 1:
-        dispList()
+        dispList();
         break;
 
       case 2:
