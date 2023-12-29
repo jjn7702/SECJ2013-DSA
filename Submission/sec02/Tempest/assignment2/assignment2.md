@@ -45,11 +45,6 @@ _Don't forget to hit the :star: if you like this repo._
     1. Delete beginning
     2. Delete middle (by a using number)
     3. Delete end
-    4. Delete task by task name
-    5. Delete task by task day
-    6. Delete task by task month
-    7. Delete task by task year
-    8. Delete task by task status
 
 7. After choosing the option, the system will show the output based on the option that have been chosen by the user.
 
