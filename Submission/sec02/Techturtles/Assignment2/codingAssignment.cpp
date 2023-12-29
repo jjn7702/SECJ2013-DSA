@@ -38,4 +38,18 @@ class Node
 {
 public:
     Node *next;
+    Courier data;
+
+    Node(Courier &courier) : data(courier), next(nullptr) {}
 };
+class CourierServiceSystem
+{
+private:
+    Node *head;
+
+public:
+    CourierServiceSystem() : head(nullptr) {}
+    ~CourierServiceSystem()
+    {
+    }
+}
