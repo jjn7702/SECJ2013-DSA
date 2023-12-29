@@ -20,3 +20,9 @@ In order to effectively manage and monitor patients' records in hospitals, a hos
 | Neo Zheng Weng   | A22EC0093        | <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Images/neozhengweng_pic.jpg" width=80px, height=80px>     |
 | Joseph Lau Yeo Kai       | A22EC0055        | <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Images/joseph_pic.jpeg" width=80px, height=80px>         |
 | Lee Yik Hong       | A21BE0376       | <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Images/Assignment%20photo.jpg" width=80px, height=80px>         |
+
+## Objectives
+
+- Develop a hospital management system.
+- Uses the sorting and searching data structure and algorithm in this hospital management system for management.
+- Allow healthcare workers to get patient’s information, contact information, and their medical history.
