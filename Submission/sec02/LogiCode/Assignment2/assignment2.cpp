@@ -26,54 +26,57 @@ class BookingNode {
   string roomType;
   string ic;
   double totalPrice;
-
+  
 public:
+  BookingNode *next;
   BookingNode()
       : checkInDate(""), checkOutDate(""), roomNo(0), roomType(""), ic(""),
         totalPrice(0.0){};
   BookingNode(string i, string o, int n, string t, string ic_, double p)
       : checkInDate(i), checkOutDate(o), roomNo(n), roomType(t), ic(ic_),
-        totalPrice(p){};
-  string getCheckInDate() const { return checkInDate; }
-  string getCheckOutDate() const { return checkOutDate; }
-  int getRoomNo() const { return roomNo; }
-  string getRoomType() const { return roomType; }
-  string getIC() const { return ic; }
-  double getTotalPrice() const { return totalPrice; }
+        totalPrice(p){ next = NULL; };
+  //string getCheckInDate() const { return checkInDate; }
+  //string getCheckOutDate() const { return checkOutDate; }
+  //int getRoomNo() const { return roomNo; }
+  //string getRoomType() const { return roomType; }
+  //string getIC() const { return ic; }
+  //double getTotalPrice() const { return totalPrice; }
   void getBookingInfo() const {
-    cout << getIC() << get
+    cout << checkInDate << '\t' << checkOutDate << '\t' << roomNo << '\t' << roomType << '\t' << ic << '\t' << totalPrice << endl;
   }
 };
 
-class Node {
+/*class Node {
 public:
   Booking data;
   Node *next;
 
   Node() : next(nullptr) {}
   Node(Booking booking) : data(booking), next(nullptr) {}
-};
+};*/
 
 class List {
 private:
-  Node *head;
+  BookingNode *head;
 
 public:
   List() : head(nullptr) {}
 
   bool isEmpty(){
-    return head==NULL;
+    return (head == NULL);
   }
 
-  void insertFront(Booking newBooking) {
-    Node *newNode = new Node(newBooking);
+  void insertFront(BookingNode newBooking) {
+    BookingNode *newNode = new BookingNode(newBooking);
     if(!isEmpty())
         newNode->next=head;
       head=newNode;
     }
 
+  void insertFront()
+
   void deleteFront() {
-    Node *temp=head;
+    BookingNode *temp = head;
     head = head->next;
     temp->next=NULL;
     delete temp;
@@ -81,7 +84,49 @@ public:
 
 };
 
-int main() {
+void adminMenu() {
+  int option;
+  cout << "Admin Menu" << endl;
+  cout << "1. View Booking" << endl;
+  cout << "2. Sort Booking" << endl;
+  cout << "3. Insert Booking" << endl;
+  cout << "4. Delete Booking" << endl;
+  cout << "5. Search Booking" << endl;
+  cout << "6. Exit" << endl;
+  cout << "Enter your option: ";
+  cin >> option;
+  cout << endl;
+
+  switch (option) {
+  case 1:
+    break;
+
+  case 2:
+    break;
+
+  case 3:
+    break;
+
+  case 4:
+    break;
+
+  case 5:
+    break;
+
+  case 6:
+    break;
   
+  default:
+    cout << "Enter a valid option." << endl;
+    adminMenu();
+    break;
+  }
+}
+
+int main() {
+  cout << "---------------------------------" << endl;
+  cout << "LogiCode Hotel Management System" << endl;
+  cout << "---------------------------------" << endl;
+  adminMenu();
   return 0; 
 }
