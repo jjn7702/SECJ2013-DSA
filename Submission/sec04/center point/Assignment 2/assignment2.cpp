@@ -20,14 +20,14 @@ public:
         next = NULL;
     }
 
-    /*Inventory(string c, string n, string t, int q, float p)
+    Inventory(string c, string n, string t, int q, float p)
     {
         invCode = c;
         invName = n;
         invType = t;
         quantity = q;
         price = p;
-    }*/
+    }
 
     void putCode(string c) { invCode = c; }
     void putName(string n) { invName = n; }
@@ -66,14 +66,38 @@ public:
         if(head==NULL){head=newInventory;}
         else{
             Inventory* temp;
+            temp=newInventory;
             temp->next=head;
-            head=temp;
+            
         }
     }
     
     // Add in middle
+    void addMiddle(Inventory d, int position){
+        Inventory *newInventory= new Inventory(d);
+        Inventory*temp=head;
+        int count=1;
 
-    // Add in the end
+        while(temp->next!=NULL && count<position-1){
+            temp=temp->next;
+            count++;
+        }
+        newInventory->next=temp->next;
+        temp->next =newInventory;
+    }
+    
+
+    // Add in the end 
+    void addEnd(Inventory d){
+        Inventory *newInventory= new Inventory(d);
+        Inventory *temp=head;
+        while(temp->next!=NULL){
+            temp=temp->next;
+        }
+        temp->next= newInventory;
+        newInventory->next=NULL;
+
+    }
 
     //-Delete inventory-
     // Delete in front
@@ -93,6 +117,7 @@ int main()
     int quantity, counter = 0, choice, mChoice;
     float price;
     Inventory inv[5];
+
     ifstream inp;
     ofstream out;
     bool loop = true;
@@ -137,6 +162,18 @@ int main()
             out << endl;
         }
     }
+
+    //create an inventory list
+    List myList;
+
+    //add Inventory
+    //add front
+    myList.addFront(Inventory("ADD001","Clock","Accessories",3,18.90));
+    //add middle (exp:add at 3th position)
+    myList.addMiddle(Inventory("ADD002", "Watch", "Accessories", 1, 29.99), 3);
+    //add End
+    myList.addEnd(Inventory("ADD003","Mirror","LifeNeeds",2,5.80));
+    
 
     // close both files
     inp.close();
