@@ -28,6 +28,18 @@ There is a display method for printing the courier details.
 A node in a linked list, each of which contains a Courier object and a pointer to the next node.
 
 
+3. LinkedList Class:
+A linked list of Courier nodes is managed.
+Allows you to insert a new node at the beginning, middle, or end of the list. Supports operations for removing a node from the list's beginning, middle, or end. Provides a method for locating a node using specified search criteria. This function implements a sorting algorithm. Implements a sorting algorithm to sort the list based on various criteria (such as name, parcel type, and tracking number). The list of couriers is displayed.
+
+4. Main Purpose:
+The linked list is populated by reading courier information from a file. Implements a menu-driven interface for interacting with the courier list. Adding, deleting, searching, sorting, and displaying courier nodes are all options. The program will continue to run until the user chooses to exit.
+
+5. Input from a File:
+The program reads courier information from a file (TEST.txt) and uses it to populate the linked list.
+
+
+
 
 ## Synopsis <a name="synopsis"></a> 📝
 
