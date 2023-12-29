@@ -329,6 +329,115 @@ public:
 
         return result;
     }
+
+void mergeSortName()
+    {
+        if (!head || !head->next)
+            return;
+
+        head = mergeSortRecName(head);
+    }
+
+    Node *mergeSortRecName(Node *start)
+    {
+        if (!start || !start->next)
+            return start;
+
+        Node *middle = getMiddle(start);
+        Node *nextToMiddle = middle->next;
+        middle->next = nullptr;
+
+        Node *left = mergeSortRecName(start);
+        Node *right = mergeSortRecName(nextToMiddle);
+
+        return mergeName(left, right);
+    }
+
+    void mergeSortAccount()
+    {
+        if (!head || !head->next)
+            return;
+
+        head = mergeSortRecAccount(head);
+    }
+
+    Node *mergeSortRecAccount(Node *start)
+    {
+        if (!start || !start->next)
+            return start;
+
+        Node *middle = getMiddle(start);
+        Node *nextToMiddle = middle->next;
+        middle->next = nullptr;
+
+        Node *left = mergeSortRecAccount(start);
+        Node *right = mergeSortRecAccount(nextToMiddle);
+
+        return mergeAccount(left, right);
+    }
+
+    void mergeSortBalance()
+    {
+        if (!head || !head->next)
+            return;
+
+        head = mergeSortRecBalance(head);
+    }
+
+    Node *mergeSortRecBalance(Node *start)
+    {
+        if (!start || !start->next)
+            return start;
+
+        Node *middle = getMiddle(start);
+        Node *nextToMiddle = middle->next;
+        middle->next = nullptr;
+
+        Node *left = mergeSortRecBalance(start);
+        Node *right = mergeSortRecBalance(nextToMiddle);
+
+        return mergeBalance(left, right);
+    }
+
+    void mergeSortIc()
+    {
+        if (!head || !head->next)
+            return;
+
+        head = mergeSortRecIc(head);
+    }
+
+    Node *mergeSortRecIc(Node *start)
+    {
+        if (!start || !start->next)
+            return start;
+
+        Node *middle = getMiddle(start);
+        Node *nextToMiddle = middle->next;
+        middle->next = nullptr;
+
+        Node *left = mergeSortRecIc(start);
+        Node *right = mergeSortRecIc(nextToMiddle);
+
+        return mergeIc(left, right);
+    }
+
+    Node *getMiddle(Node *start)
+    {
+        if (!start)
+            return nullptr;
+
+        Node *slow = start;
+        Node *fast = start->next;
+
+        while (fast && fast->next)
+        {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+
+        return slow;
+    }
     void displayAll()
     {
         Node *temp = head;
