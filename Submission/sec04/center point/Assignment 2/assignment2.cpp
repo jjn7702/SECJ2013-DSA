@@ -101,10 +101,10 @@ public:
 
     //write the added Inventory list to file
     void writeListToFile(string filename){
-        ofstream outfile;
-        outfile.open(filename);
+        ofstream outFile;
+        outFile.open(filename);
 
-        if(!outfile){
+        if(!outFile){
             cout<<"Error while opening output file..."<<endl;
             return;
         }
@@ -160,7 +160,7 @@ int main()
     }
 
     // retrieve the data from input.txt file and store them into array
-    while (!inp.eof())
+    /*while (!inp.eof())
     {
         getline(inp, code, ',');
         getline(inp, name, ',');
@@ -189,7 +189,7 @@ int main()
         {
             out << endl;
         }
-    }
+    } */
 
     //create an inventory list
     List myList;
