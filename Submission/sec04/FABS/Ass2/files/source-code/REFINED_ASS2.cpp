@@ -372,7 +372,7 @@ int main() {
     
     int choice;
 	do {
-	    cout << "Menu:\n[1] Add a new node\n[2] Delete a node\n[3] Find a node\n[4] Sort the list(ascending)\n[5] Display all nodes\n[0] Exit\n";
+	    cout << "Menu:\n[1] Add a new courier\n[2] Delete a courier\n[3] Find a courier\n[4] Sort the list(ascending)\n[5] Display all couriers\n[0] Exit\n";
 	    cout << "Enter your choice: ";
 	    cin >> choice;
 	
@@ -380,7 +380,7 @@ int main() {
 	        case 1: {
 	            int insertChoice;
 	            do {
-	                cout << "\nAdd Node Menu:\n[1] Insert at the beginning\n[2] Insert at the middle\n[3] Insert at the end\n[0] Back to Main Menu\nEnter your choice: ";
+	                cout << "\nAdd Courier Menu:\n[1] Insert at the beginning\n[2] Insert at the middle\n[3] Insert at the end\n[0] Back to Main Menu\nEnter your choice: ";
 	                cin >> insertChoice;
 	
 	                switch (insertChoice) {
@@ -419,7 +419,7 @@ int main() {
 	        case 2: {
 	            int deleteChoice;
 	            do {
-	                cout << "\nDelete Node Menu:\n[1] Delete at the beginning\n[2] Delete at the middle\n[3] Delete at the end\n[0] Back to Main Menu\nEnter your choice: ";
+	                cout << "\nDelete Courier Menu:\n[1] Delete at the beginning\n[2] Delete at the middle\n[3] Delete at the end\n[0] Back to Main Menu\nEnter your choice: ";
 	                cin >> deleteChoice;
 	
 	                switch (deleteChoice) {
@@ -447,30 +447,26 @@ int main() {
 	            break;
 	        }
 	        case 3: {
-                bool continueSearching = true;
-                do {
-                    int searchOption;
-                    cout << "\nSearch by:\n";
-                    cout << "[1] Name\n[2] Parcel Type\n[3] Source\n[4] Destination\n[5] Status\n[6] Tracking Number\n[0] Back to Main Menu\nEnter your choice: ";
-                    cin >> searchOption;
+                int searchOption;
+		cout << "\nSearch by:\n";
+		cout << "[1] Name\n[2] Parcel Type\n[3] Source\n[4] Destination\n[5] Status\n[6] Tracking Number\n[0] Back to Main Menu\nEnter you choice: ";
+		cin >> searchOption;
 
-                    if (searchOption == 0) {
-                        cout << "Returning to Main Menu.\n" << endl;
-                        continueSearching = false;
-                        break;
-                    } else if (searchOption < 1 || searchOption > 6) {
-                        cout << "Invalid option. Please try again." << endl;
-                        continue;
-                    }
-
-                    string searchKey;
-                    Courier searchCourier;
+		if (searchOption == 0) {
+			cout << "Returning to Main Menu.\n" << endl;
+			break;
+		} else if (searchOption < 1 || searchOption > 6) {
+			cout << "Invalid option. Please try again." << endl;
+			break;
+		}
+			
+                string searchKey;
+                Courier searchCourier;
 
                     cout << "Enter the search key: ";
                     cin.ignore();
                     getline(cin, searchKey);
 
-                    // Initialize searchCourier with default values
                     switch (searchOption) {
                         case 1:
                             if (!searchKey.empty()) {
@@ -504,30 +500,16 @@ int main() {
                             }
 				catch (const invalid_argument& e) {
 					cout << "Invalid tracking number. Please enter a valid number. \n";
-					continue;
+					break;
 				}
                             break;
                         default:
                             break;
                     }
 
-                    Node* foundNode = courierList.findNode(searchCourier);
-                    if (foundNode) {
-                        cout << "Courier found:\n" << endl;
-                        foundNode->data.display();
-                        continueSearching = false;
-                    } else {
-                        cout << "\nCourier not found. Please try again.\n" << endl;
-                        cout << "[1] Retry search\n[0] Back to Search Menu\nEnter your choice: ";
-                        int retryChoice;
-                        cin >> retryChoice;
-                        if (retryChoice == 0) {
-                            cout << "Returning to Search Menu.\n" << endl;
-                            continueSearching = false;
-                        }
-                    }
-                } while (continueSearching);
-                break;
+		cout << "\nSearching...\n";
+		courierList.findNode(searchCourier);
+		break;
             }
 	        case 4: {
 	            int sortCriteria;
