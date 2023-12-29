@@ -422,6 +422,10 @@ int searchUI(string &key,int &key2)
     cin>>opt;
 	cin.ignore();
     
+    if(opt == 3){
+        cout<<"\nPlease enter the key : ";
+        cin>>key2;
+    }
 }
 
 
