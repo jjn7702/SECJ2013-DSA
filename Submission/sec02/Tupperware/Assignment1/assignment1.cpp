@@ -1,9 +1,9 @@
 #include <iostream>
-#include <iomanip>
-#include <string>
 #include <fstream>
+#include <string>
+#include <iomanip>
+#include <vector>
 #define SIZE 27
-
 using namespace std;
 
 class Menu {
@@ -33,145 +33,11 @@ public:
         void setCategory(string category) { this->category = category; }
         void setPrice(double price) { this->price = price; }
 
-        // Display order details
-        void displayMenu() const {
-
-            cout << left;
-            cout << setw(10) << foodId << " | "
-                << setw(21) << name << " | "
-                << setw(13) << category << " | "
-                << fixed << setprecision(2) << setw(4) << price << endl;
-    }
-
-};
-
-class Node {
-    public:
-        Menu order;
-        Node* next;
-        Node(Menu m) : order(m), next(nullptr){}
-};
-
-class OrderList {
-private:
-    Node* head;
-
-public:
-    OrderList() : head(nullptr) {}
-    bool isEmpty() {return head == NULL;}
-
-
-    // Functions to add a new node
-    // Insert at the first
-    void insertFront(Menu arr) {
-        Node* newHead = new Node(arr); // pass value into the first node
-        if (!isEmpty())
-            newHead->next = head;
-        head = newHead;
-    }
-
-    // Insert at the end
-    void insertEnd(Menu arr) {
-        Node* temp = head;
-        Node* newEnd = new Node(arr);
-        if (head == nullptr)
-            head = newEnd;
-        else {
-            while (temp->next != nullptr)
-                temp = temp->next;
-            temp->next = newEnd;
-        }
-    }
-
-    // Insert at the middle
-    void insertMiddle(Menu newOne, string middle) {
-        Node* newNode = new Node(newOne);
-        Node* temp = head;
-        int count = 1;
-
-        while(temp->order.getFoodId() != middle){
-            temp = temp->next;
-            count++;
-        }
-
-            newNode->next = temp->next;
-            temp->next = newNode;
-    }
-
-    // Insert at the specified position
-    void insertSpecified(Menu newOne, string specified) {
-        Node* newNode = new Node(newOne);
-        Node* temp = head;
-        Node* prev = nullptr;
-
-        while (temp != nullptr && temp->order.getFoodId() != specified) {
-            prev = temp;
-            temp = temp->next;
-        }
-
-            newNode->next = temp->next;
-            prev->next = newNode;
-    }
-
-
-    //Function to find node by name
-    Node* findNodeName(const string& searchName) const {
-        Node* current = head;
-        while (current != nullptr && (current->order.getName() != searchName)) {
-                current = current->next;
-            }
-        return current;
-    }
-
-    //Function to find node by category
-    Node* findNodeCategory(const string& searchCategory) const {
-        Node* current = head;
-        Node* foundNode = nullptr;
-
-        while (current != nullptr) {
-            if (current->order.getCategory() == searchCategory) {
-                if (foundNode == nullptr) {
-                    foundNode = current;
-                }
-                else {
-                    current->order.displayMenu();
-                }
-            }
-            current = current->next;
-        }
-        return foundNode;
-    }
-
-    //Function to find node by foodId
-    Node* findNodeFoodId(const string& searchFoodId) const {
-        Node* current = head;
-        while (current != nullptr && (current->order.getFoodId() != searchFoodId)) {
-                current = current->next;
-            }
-        return current;
-    }
-
-    // Function to display all nodes
-    void displayNodes() const {
-        system("cls");
-        cout << left;
-        cout << setw(10) << "ID" << " | "
-             << setw(21) << "NAME" << " | "
-             << setw(13) << "TYPE" << " | "
-             << fixed << "PRICE" << endl;
-        cout << "-----------------------------------------------------------------" << endl;
-        Node* current = head;
-        while (current != nullptr) {
-            current->order.displayMenu();
-            current = current->next;
-        }
-    }
-
 };
 
 void displayHeader() {
     cout << left;
-    cout << setw(6) << "#" << "|"
+    cout << setw(5) << "NO" << " | "
          << setw(10) << "ID" << " | "
          << setw(21) << "NAME" << " | "
          << setw(13) << "TYPE" << " | "
@@ -190,17 +56,6 @@ void displayMenu(Menu menuArray[]) {
     }
 }
 
-void displayMenuNew(Menu menuArray[]){
-     for (int i = 0; i < SIZE + 1; i++) {
-        cout << left;
-        cout << setw(5) << (i+1) << " | "
-             << setw(10) << menuArray[i].getFoodId() << " | "
-             << setw(21) << menuArray[i].getName() << " | "
-             << setw(13) << menuArray[i].getCategory() << " | "
-             << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
-    }   
-}
-
 void printSortedResult(Menu menuArray[]) {
     for (int i = 0; i < SIZE; i++) {
         cout << left;
@@ -212,7 +67,7 @@ void printSortedResult(Menu menuArray[]) {
     }
 }
 
-    // Function to sort the list (using bubble sort as an example)
+// SORTING(SELECTION) SECTION 
 void swap(Menu& a, Menu& b) {
     Menu temp = a;
     a = b;
@@ -251,28 +106,136 @@ void PriceASC(Menu menuArray[]) {
     printSortedResult(menuArray);
 }
 
+//SEARCHING SECTION 
+void searchAndOrder(Menu menuArray[], vector<Menu>& orders) {
+    string searchTerm;
+    cout << "Enter the food name you want to search: ";
+    cin.ignore();
+    getline(cin, searchTerm);
+
+    bool found = false;
+    for (int i = 0; i < SIZE; ++i) {
+        if (menuArray[i].getName().find(searchTerm) != string::npos) {
+            if (!found) {
+            displayHeader();
+            cout << left;
+            cout << setw(5) << (i+1) << " | " 
+                 << setw(10) << menuArray[i].getFoodId() << " | " 
+                 << setw(21) << menuArray[i].getName() << " | " 
+                 << setw(13) << menuArray[i].getCategory() << " | " 
+                 << fixed << setprecision(2) << setw(4) << menuArray[i].getPrice() << endl;
+                 found = true;
+            }
+            char addToCartChoice;
+            cout << "Do you want to add this item to the cart? (Y/N): ";
+            cin >> addToCartChoice;
+
+            if (addToCartChoice == 'Y' || addToCartChoice == 'y') {
+                orders.push_back(menuArray[i]);
+                cout << "Item added to cart!" << endl;
+            }
+        }
+    }
+    if (!found) {
+        cout << "No matching items found.\n";
+    }
+}
+
+// MAKEORDER SECTION
+void makeOrder(Menu menuArray[], vector<Menu>& orders){
+    int orderChoice;
+    cout << "Enter the number corresponding to the menu you want to order: ";
+    cin >> orderChoice;
+
+    if (orderChoice >= 1 && orderChoice <= SIZE) {
+        cout << "You ordered:\n";
+        displayHeader();
+        cout << left;
+        cout << setw(5) << orderChoice << " | "
+             << setw(10) << menuArray[orderChoice - 1].getFoodId() << " | " 
+             << setw(21) << menuArray[orderChoice - 1].getName() << " | " 
+             << setw(13) << menuArray[orderChoice - 1].getCategory() << " | " 
+             << fixed << setprecision(2) << setw(4) << menuArray[orderChoice - 1].getPrice() << endl;
+
+             orders.push_back(menuArray[orderChoice - 1]);
+    }
+    else {
+        cout << "Invalid menu choice.\n";
+    }
+}
+
+// CALCULATE ORDER SECTION
+double calculateTotal(const vector<Menu>& orders){
+    double total = 0.0;
+    for (const Menu& order : orders) {
+        total += order.getPrice();
+    }
+    return total;
+}
+
+
+// GENERATE RECEIPT SECTION
+void generateReceipt(const vector<Menu>& orders, double total) {
+    cout << "\nReceipt:\n";
+    cout << "+------------------------------------------------------------+" << endl;
+    cout << left;
+    cout << setw(10) << "ID" 
+         << setw(21) << "NAME" 
+         << setw(13) << "TYPE" 
+         << setw(13) << "QUANTITY" 
+         << fixed << "PRICE" << endl;
+    cout << "+------------------------------------------------------------+" << endl;
+
+    for (int i = 0; i < orders.size(); ++i) {
+        int count = 1;
+        for (int j = i + 1; j < orders.size(); ++j) {
+            if (orders[i].getFoodId() == orders[j].getFoodId()) {
+                ++count;
+            }
+        }
+
+        if (count > 0) {
+            cout << setw(10) << orders[i].getFoodId() 
+                 << setw(21) << orders[i].getName() 
+                 << setw(13) << orders[i].getCategory() 
+                 << setw(13) << count 
+                 << fixed << setprecision(2) << setw(4) << orders[i].getPrice() << endl;
+        }
+
+        for (int j = i + 1; j < orders.size(); ++j) {
+            if (orders[i].getFoodId() == orders[j].getFoodId()) {
+                i = j;
+            }
+        }
+    }
+
+    cout << "\n+-------------------------------------------------------------+" << endl;
+    cout << right << "Total amount: " << fixed << setprecision(2) << setw(4) << total << endl;
+    cout << "+-------------------------------------------------------------+" << endl;
+}
+
 
 
 int main() {
-    char choice;
-    int opt, ins, sortBy, sortIn, size = 0;
-    string foodId, name, category, middle;
-    double price;
-    OrderList orderList;
     Menu menuArray[SIZE];
+    char choice;
+    int size = 0;
+    fstream nameFile;
+    string foodId, name, category;
+    double price;
+    bool condition = true;
+    vector<Menu> orders;
 
-    system("cls");
-    cout << "WELCOME TO TUPPERWARE!" << endl;
+        system("cls");
+        cout << "WELCOME TO TUPPERWARE!" << endl;
+        nameFile.open("menu.txt", ios::in);
 
-    ifstream nameFile("menu.txt");
+            if (!nameFile) {
+                cout << "ERROR: Cannot open file." << endl;
+                return 0;
+            }
 
-    if (!nameFile.is_open()) {
-        cout << "ERROR: Cannot open file." << endl;
-        return 1;
-    }
-
-
-    while (!nameFile.eof()) {
+            while (!nameFile.eof() && size < SIZE) {
                 getline(nameFile, foodId, ',');
                 getline(nameFile, name, ',');
                 getline(nameFile, category, ',');
@@ -280,181 +243,73 @@ int main() {
                 nameFile.ignore();
 
                 menuArray[size++] = Menu(foodId, name, category, price);
-    }
+            }
+            
+            nameFile.close();
+            displayHeader();
+            displayMenu(menuArray);
 
-    //first output the initial menu first
-    displayHeader();
-    displayMenu(menuArray);
+            cout << "\nDo you want to (V)iew in a new way, or (S)earch? ";
+            cin >> choice;
 
-    nameFile.close();
+            if (choice == 'V' || choice == 'v') {
+                cout << "Sort by Food ID or Price? ";
+                int choiceSort;
+                cout << "1 - ALPHABET ORDER | 2 - PRICE => ";
+                cin >> choiceSort;
+                switch (choiceSort) {
+                case 1:
+                    FoodIdASC(menuArray);
+                    break;
 
-    
-    do {
-        cout << endl;
-        cout << setw(5) << "[1] Add Menu" << endl;
-        cout << setw(5) << "[2] Delete Menu" << endl;
-        cout << setw(5) << "[3] Find Menu" << endl;
-        cout << setw(5) << "[4] Sort Menu" << endl;
-        cout << setw(5) << "[5] Display Menu" << endl;
-        cout << setw(5) << "[6] Exit" << endl;
-        cout << "\nEnter your choice: " ;
-        cin >> opt;
+                case 2:
+                    PriceASC(menuArray);
+                    break;
 
-        switch (opt) {
-            case 1:{
-                cout << "Enter the food ID : ";
-                getline(cin >> ws, foodId);
-                cout << "Enter the food Name : ";
-                getline(cin, name);
-                cout << "Enter the category : ";
-                getline(cin >> ws, category);
-                cout << "Enter the price : ";
-                cin >> price;
-
-                cout << "\n[1] At front" << endl;
-                cout << "[2] At Middle" << endl;
-                cout << "[3] At End" << endl;
-                cout << "[4] Replace" << endl;
-                cout << "\nEnter your choice: ";
-                cin >> ins;
-
-                if (ins == 1) {
-                    orderList.insertFront(Menu(foodId, name, category, price));
-                } else if (ins == 2) {
-                    cout << "\nGive food ID existed in the Menu list : ";
-                    cin.ignore();
-                    getline(cin, middle);
-                    orderList.insertMiddle(Menu(foodId, name, category, price), middle);
-                } else if (ins == 3) {
-                    orderList.insertEnd(Menu(foodId, name, category, price));
-                } else if (ins == 4) {
-                    cout << "\nGive food ID existed in the Menu list : ";
-                    cin >> middle;
-                    orderList.insertSpecified(Menu(foodId, name, category, price), middle);
-                } else {
+                default:
                     break;
                 }
-                break;
+            } else if (choice == 'S' || choice == 's') {
+                searchAndOrder(menuArray, orders);
+            } else {
+                cout << "Invalid input. Please enter V or S.\n";
             }
 
-            case 2:
-            
-            case 3:
-            {
-                cout << "\nDo you want to seach by (N)ame, (C)ategory or (F)oodId?: ";
-                cin >> choice;
+do{
+    cout << "\nDo you want to make order? (Y/N): ";
+    cin >> choice;
 
-                if (choice == 'N' || choice == 'n') {
-                    string searchName; 
-                    cout << "\nEnter name to find: ";
-                    cin.ignore();
-                    getline(cin, searchName);
-                    Node* foundNode = orderList.findNodeName(searchName);
+    if (choice == 'N' || choice == 'n') 
+        break;
+    
+    else if (choice == 'Y' || choice == 'y'){
+        makeOrder(menuArray, orders);
+    }
+} while(true);
 
-                    if (foundNode != nullptr) {
-                        cout << "\nNode Found:\n";
-                        displayHeader();
-                        foundNode->order.displayMenu();
-                    } else {
-                        cout << "\nNode Not Found.\n";
-                    }
-                }
-
-                else if (choice == 'C' || choice == 'c') {
-                    string searchCategory;
-                    cout << "\nEnter category to find: ";
-                    cin.ignore();
-                    getline(cin, searchCategory);
-                    Node* foundNode = orderList.findNodeCategory(searchCategory);
-
-                    if (foundNode == nullptr) {
-                        cout << "\nNode Not Found.\n";
-                    }
-                }
-
-                else if (choice == 'F' || choice == 'f') {
-                    string searchFoodId; 
-                    cout << "\nEnter food id to find: ";
-                    cin.ignore();
-                    getline(cin, searchFoodId);
-                    Node* foundNode = orderList.findNodeFoodId(searchFoodId);
-
-                    if (foundNode != nullptr) {
-                        cout << "\nNode Found:\n";
-                        displayHeader();
-                        foundNode->order.displayMenu();
-                    } else {
-                        cout << "\nNode Not Found.\n";
-                    }
-                }
-
-                break;
-            }
-
-            case 4:{
-                cout << "Sort by" << endl;
-                cout << "[1] Food ID" << endl;
-                cout << "[2] Price" << endl;
-                cout << "\nEnter your choice: " ;
-                cin >> sortBy;
-
-                switch (sortBy){
-                    case 1:{
-                        cout << "Sort in" << endl;
-                        cout << "[1] Ascending Order" << endl;
-                        cout << "[2] Decending Order" << endl;
-                        cin >> sortIn;
-
-                        switch (sortIn)
-                        {
-                        case 1:
-                            FoodIdASC(menuArray);
-                            break;
-/*                        case 2:
-                            PriceASC(newmenu);
-*/                            break;
-                        default:
-                            break;
-                        }
-                    }
-                    case 2:{
-                        cout << "Sort in" << endl;
-                        cout << "[1] Ascending Order" << endl;
-                        cout << "[2] Decending Order" << endl;
-                        cin >> sortIn;
-
-                        switch(sortIn){
-                        case 1:
-                            PriceASC(menuArray);
-                            break;
-                        case 2:
-/*                            PriceASC();
-*/                            break;
-                        default:
-                            break;
-                        }
-                    }
-                }
-            }
-
-            case 5:
-            {
-                system("cls");
-                orderList.displayNodes();
-                break;
-            }
-
-            case 6:
-            {
-                cout << "Thank you, see you again!" << endl;
-                break;
-            }
+    if (!orders.empty()) {
+        cout << "\nYour Orders:\n";
+        cout << left;
+        cout << setw(10) << "ID" << " | "
+             << setw(21) << "NAME" << " | "
+             << setw(13) << "TYPE" << " | "
+             << fixed << "PRICE" << endl;
+        cout << "---------------------------------------------------------" << endl;
+        for (const Menu& order : orders) {
+            cout << left;
+            cout << setw(10) << order.getFoodId() << " | "
+                 << setw(21) << order.getName() << " | "
+                 << setw(13) << order.getCategory() << " | "
+                 << fixed << setprecision(2) << setw(4) << order.getPrice() << endl;
         }
 
-    } while (opt != 6);
+        double total = calculateTotal(orders); 
+        cout << "\nTotal order amount: RM" << fixed << setprecision(2) << total << endl;
+        generateReceipt(orders, calculateTotal(orders));
+    } else {
+        cout << "No orders made.\n";
+    }
 
 
-    displayHeader();
-    displayMenuNew(menuArray);
     return 0;
 }

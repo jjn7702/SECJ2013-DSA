@@ -48,6 +48,29 @@ class List
                 temp->next = NULL;
             }
         }
+
+        void insertend(string n,string f,int a,string ic,string e,string m)
+        {
+            Voter *newNode = new Voter(n,f,a,ic,e,m);
+            Voter *temp = head;
+
+            if(isEmpty())
+                head = newNode;
+
+            else{
+                while(temp->next != NULL)
+                {
+                    temp = temp->next;
+                }
+                temp->next = newNode;
+            }
+
+        void deleteEnd()
+        {
+            
+        }
+
+        }
 void search(int opt,string key,int key2)
         {
             Voter *temp = head;
