@@ -13,10 +13,10 @@ public:
     Menu(string foodId, string name, string category, double price)
         : foodId(foodId), name(name), category(category), price(price) {}
 
-    string getFoodId() const { return foodId; }
-    string getName() const { return name; }
-    string getCategory() const { return category; }
-    double getPrice() const { return price; }
+    string getFoodId() { return foodId; }
+    string getName() { return name; }
+    string getCategory() { return category; }
+    double getPrice() { return price; }
 };
 
 class Node {
@@ -24,7 +24,7 @@ public:
     Menu menu;
     Node* next;
 
-    Node(const Menu& m) : menu(m), next(nullptr) {}
+    Node(Menu m) : menu(m), next(nullptr) {}
 };
 
 class List {
@@ -34,10 +34,10 @@ private:
 public:
     List() : head(nullptr) {}
 
-    bool isEmpty() const { return head == nullptr; }
+    bool isEmpty() { return head == nullptr; }
 
     // Display list of menu
-    void dispList() const {
+    void dispList() {
         Node* temp = head;
 
         while (temp) {
@@ -48,8 +48,8 @@ public:
         cout << endl;
     }
 
-    // Insert at the front
-    void insertFront(const Menu& arr) {
+    // Insert at the first
+    void insertFront(Menu arr) {
         Node* newHead = new Node(arr); // pass value into the first node
         if (!isEmpty())
             newHead->next = head;
@@ -57,7 +57,7 @@ public:
     }
 
     // Insert at the end
-    void insertEnd(const Menu& arr) {
+    void insertEnd(Menu arr) {
         Node* temp = head;
         Node* newEnd = new Node(arr);
         if (head == nullptr)
@@ -70,12 +70,14 @@ public:
     }
 
     // Insert at the middle
-    void insertMiddle(const Menu& newOne, const string& middle) {
+    void insertMiddle(Menu newOne, string middle) {
         Node* newNode = new Node(newOne);
         Node* temp = head;
+        int count = 1;
 
-        while (temp->menu.getFoodId() != middle && temp->next != nullptr) {
+        while(temp->menu.getFoodId() != middle){
             temp = temp->next;
+            count++;
         }
 
         newNode->next = temp->next;
@@ -83,7 +85,7 @@ public:
     }
 
     // Insert at the specified position
-    void insertSpecified(const Menu& newOne, const string& specified) {
+    void insertSpecified(Menu newOne, string specified) {
         Node* newNode = new Node(newOne);
         Node* temp = head;
         Node* prev = nullptr;
@@ -97,64 +99,39 @@ public:
         prev->next = newNode;
     }
 
-    // Delete the first node
-    void deleteFirst() {
-        if (!isEmpty()) {
-            Node* temp = head;
-            head = head->next;
-            delete temp;
-        }
-    }
-
-    // Delete a node in the middle
-    void deleteMiddle(const string& middle) {
+    // Delete a node
+    void deleteNode(string foodId) {
         Node* temp = head;
         Node* prev = nullptr;
 
-        while (temp != nullptr && temp->menu.getFoodId() != middle) {
+        // Check if the head is the node to be deleted
+        if (temp != nullptr && temp->menu.getFoodId() == foodId) {
+            head = temp->next;
+            delete temp;
+            return;
+        }
+
+        // Search for the node to be deleted
+        while (temp != nullptr && temp->menu.getFoodId() != foodId) {
             prev = temp;
             temp = temp->next;
         }
 
-        if (temp != nullptr) {
-            prev->next = temp->next;
-            delete temp;
+        // If the node is not found
+        if (temp == nullptr) {
+            cout << "Node with Food ID " << foodId << " not found." << endl;
+            return;
         }
+
+        // Unlink the node from the linked list
+        prev->next = temp->next;
+
+        // Free the memory of the deleted node
+        delete temp;
     }
 
-    // Delete the last node
-    void deleteEnd() {
-        if (!isEmpty()) {
-            Node* temp = head;
-            Node* prev = nullptr;
-
-            while (temp->next != nullptr) {
-                prev = temp;
-                temp = temp->next;
-            }
-
-            if (prev != nullptr) {
-                prev->next = nullptr;
-                delete temp;
-            } else {
-                // Only one node in the list
-                delete temp;
-                head = nullptr;
-            }
-        }
-    }
-
-    // Function to find a node by foodId
-    Node* findNode(const string& searchFoodId) const {
-        Node* current = head;
-        while (current != nullptr && current->menu.getFoodId() != searchFoodId) {
-            current = current->next;
-        }
-        return current;
-    }
-
-    // Function to sort the list in ascending order based on foodId
-    void sortList() {
+    // Sort the list by price in ascending order
+    void sortListByPrice() {
         if (head == nullptr || head->next == nullptr) {
             return; // List is empty or has only one node
         }
@@ -167,21 +144,17 @@ public:
             Node* current = head;
 
             while (current->next != last) {
-                if (current->menu.getFoodId() > current->next->menu.getFoodId()) {
-                    swap(current, current->next);
+                if (current->menu.getPrice() > current->next->menu.getPrice()) {
+                    // Swap nodes if they are in the wrong order
+                    Menu temp = current->menu;
+                    current->menu = current->next->menu;
+                    current->next->menu = temp;
                     swapped = true;
                 }
                 current = current->next;
             }
             last = current;
         } while (swapped);
-    }
-
-    // Function to swap two nodes
-    void swap(Node* a, Node* b) {
-        Menu temp = a->menu;
-        a->menu = b->menu;
-        b->menu = temp;
     }
 };
 
@@ -210,30 +183,12 @@ int main() {
     menuList.insertSpecified(Menu("ID006", "Sushi", "Japanese", 12.99), "ID003");
     menuList.dispList();
 
-    // Delete the first node
-    menuList.deleteFirst();
+    // Delete a node
+    menuList.deleteNode("ID002");
     menuList.dispList();
 
-    // Delete a node in the middle
-    menuList.deleteMiddle("ID003");
-    menuList.dispList();
-
-    // Delete the last node
-    menuList.deleteEnd();
-    menuList.dispList();
-
-    // Find a node by foodId
-    Node* foundNode = menuList.findNode("ID002");
-    if (foundNode != nullptr) {
-        cout << "Node Found:\n";
-        cout << "Food ID: " << foundNode->menu.getFoodId() << ", Name: " << foundNode->menu.getName()
-             << ", Category: " << foundNode->menu.getCategory() << ", Price: " << foundNode->menu.getPrice() << endl;
-    } else {
-        cout << "Node Not Found.\n";
-    }
-
-    // Sort the list in ascending order based on foodId
-    menuList.sortList();
+    // Sort the list by price in ascending order
+    menuList.sortListByPrice();
     menuList.dispList();
 
     return 0;
