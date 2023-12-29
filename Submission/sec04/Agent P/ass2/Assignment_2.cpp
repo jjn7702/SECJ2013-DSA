@@ -76,7 +76,8 @@ class List
                     temp2 = temp;
                     temp = temp->next;
                 }
-                
+                temp2->next = NULL;
+                delete temp;
             }
         }
 
