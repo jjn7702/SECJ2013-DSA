@@ -12,6 +12,7 @@
 - [Objectives](#Objectives)
 - [Synopsis](#synopsis)
 - [Design](#design)
+- [Design Description](#designdescription)
 - [Similarity report](#report)
 - [Findings](#findings)
 
@@ -53,7 +54,7 @@ The Courier Management System uses a linked list to store and manage courier dat
 
 ## Design <a name="design"></a> 🎨
 
-## Design Description 💹
+## Design Description <a name="designdescription"></a> 💹
 
 #### LINKED LIST FUNCTION
 
