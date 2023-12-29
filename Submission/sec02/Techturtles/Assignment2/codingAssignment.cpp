@@ -106,3 +106,56 @@ void addNode(const courier &newCourier, const string &position = "end")
         }
     }
 }
+void deleteNode(const string &position = "end")
+{
+    if (head == nullptr)
+    {
+        cout << "List is empty. Nothing to delete." << endl;
+        return;
+    }
+
+    if (position == "beginning")
+    {
+        Node *temp = head;
+        head = head->next;
+        delete temp;
+    }
+    else if (position == "middle")
+    {
+        Node *slow = head;
+        Node *fast = head->next;
+        while (fast != nullptr && fast->next != nullptr)
+        {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        if (slow->next != nullptr)
+        {
+            Node *temp = slow->next;
+            slow->next = slow->next->next;
+            delete temp;
+        }
+        else
+        {
+            cout << "Cannot delete from the middle. List too short." << endl;
+        }
+    }
+    else
+    {
+        Node *current = head;
+        if (current->next == nullptr)
+        {
+            delete head;
+            head = nullptr;
+        }
+        else
+        {
+            while (current->next->next != nullptr)
+            {
+                current = current->next;
+            }
+            delete current->next;
+            current->next = nullptr;
+        }
+    }
+}
