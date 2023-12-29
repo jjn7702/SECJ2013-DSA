@@ -357,6 +357,14 @@ void AgeDes() {
     }
 } 
 
+void facAsc(){
+    Voter *temp,*temp2;
+    bool sorted=false;
+	string n,f,e,i,m;
+    int a;
+}
+
+
 };
 
 void VoterDetials(string &n,string &f,int &a,string &ic,string &e,string &m)
