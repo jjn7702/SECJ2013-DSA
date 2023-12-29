@@ -55,10 +55,9 @@ The deleteNode method enables the removal of a book node from the linked list ba
 
 
 ### Sorting
-- In the program, sorting is implemented using straightforward algorithms, such as the bubble sort algorithm, for simplicity and ease of understanding. Each sorting function corresponds to a specific criterion: title, author, year, or ISBN. The sorting algorithms iterate through the array and compare adjacent elements, swapping them if they are out of order. This process is repeated until the entire array is sorted according to the chosen criterion.
+- In the program, sorting is implemented using straightforward algorithms, such as the bubble sort algorithm, for simplicity and ease of understanding. Each sorting function corresponds to a specific criterion: title, author, year, or ISBN. The sorting algorithms iterate through the array and compare adjacent elements, swapping them if they are out of order.
 
-### Searching
-- Searching is implemented using a linear search algorithm, where the program iterates through the array to find a match based on the user's input. Similar to sorting, searching functions are designed for specific criteria: title, author, year, or ISBN. For instance, the searchByTitle function prompts the user to enter a book title, and then it iterates through the array to find and display books with matching titles. Linear search is effective for small datasets and ensures that all matching elements are found.
+
 
 ## Prepared by 🧑‍💻
 
