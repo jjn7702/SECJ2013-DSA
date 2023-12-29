@@ -99,6 +99,34 @@ public:
 
     }
 
+    //write the added Inventory list to file
+    void writeListToFile(string filename){
+        ofstream outfile;
+        outfile.open(filename);
+
+        if(!outfile){
+            cout<<"Error while opening output file..."<<endl;
+            return;
+        }
+
+        Inventory* temp = head;
+
+        while (temp != NULL) {
+            outFile << temp->getCode() << ","
+                    << temp->getName() << ","
+                    << temp->getType() << ","
+                    << temp->getQuantity() << ","
+                    << temp->getPrice();
+
+            if (temp->next != NULL) {
+                outFile << endl;
+            }
+
+            temp = temp->next;
+        }
+        outFile.close();
+    }
+
     //-Delete inventory-
     // Delete in front
     // Delete at the middle
@@ -116,7 +144,7 @@ int main()
     string code, name, type;
     int quantity, counter = 0, choice, mChoice;
     float price;
-    Inventory inv[5];
+    //Inventory inv[5];
 
     ifstream inp;
     ofstream out;
@@ -173,6 +201,8 @@ int main()
     myList.addMiddle(Inventory("ADD002", "Watch", "Accessories", 1, 29.99), 3);
     //add End
     myList.addEnd(Inventory("ADD003","Mirror","LifeNeeds",2,5.80));
+
+    myList.writeListToFile("Output.txt");
     
 
     // close both files
