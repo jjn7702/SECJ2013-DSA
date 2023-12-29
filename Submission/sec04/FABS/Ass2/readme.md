@@ -53,7 +53,7 @@ The following are the code's key features and objectives:
 The Courier Management System uses a linked list to store and manage courier data. The program reads data from a file, populates a linked list, and then provides a menu-driven interface for users to do various processes on the courier list. These processes include the adding, deleting, search, sorting, and the display of courier information.
 
 ## Design <a name="design"></a> 🎨
-![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass2/files/images/dsa.drawio(1).png)
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass2/files/images/dsa.drawio%20(1).png)
 
 ## Design Description <a name="designdescription"></a> 💹
 
