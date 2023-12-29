@@ -67,7 +67,8 @@ class List
 
         void deleteEnd()
         {
-            
+            if(isEmpty())
+                cout<<"The list is empty!"<<endl;
         }
 
         }
