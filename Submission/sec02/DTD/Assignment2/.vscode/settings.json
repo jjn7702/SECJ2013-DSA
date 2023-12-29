@@ -4,7 +4,8 @@
     "iomanip": "cpp",
     "xstring": "cpp",
     "ostream": "cpp",
-    "istream": "cpp"
+    "istream": "cpp",
+    "iostream": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",

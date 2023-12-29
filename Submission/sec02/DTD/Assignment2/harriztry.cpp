@@ -73,8 +73,9 @@ public:
 };
 
 // Node structure for the linked list
-struct Node
+class Node
 {
+    public:
     Book data;
     Node *next;
 };
