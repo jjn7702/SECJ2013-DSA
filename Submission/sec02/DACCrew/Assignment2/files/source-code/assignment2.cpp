@@ -356,7 +356,7 @@ int main()
 
     //  FOR INSERT BEGINNING MIDDLE END
 
-    while (opt != 10)
+    while (opt != 12)
     {
         cout << ":: INSERT DATA ::" << endl;
         cout << "[1] Insert at the beginning" << endl;
