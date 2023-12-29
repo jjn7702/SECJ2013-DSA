@@ -54,7 +54,7 @@ The Library Management System is a system that is designed to store information 
 
 - [Source Code](./Assignment1.cpp)
 - [Input File](./books.txt)
-- [Report]
+- [Report](./Assignment1.pdf)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
