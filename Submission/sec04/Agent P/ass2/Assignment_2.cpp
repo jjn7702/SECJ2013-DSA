@@ -148,7 +148,16 @@ void search(int opt,string key,int key2)
                     case 4:
                         while(temp != NULL)
                         {
-                            
+                            if(temp->getIC() == key)
+                        {
+                            cout<<"\nName  : "<<temp->getName()<<endl;
+                            cout<<"Faculty : "<<temp->getFaculty()<<endl;
+                            cout<<"Age     : "<<temp->getAge()<<endl;
+                            cout<<"IC      : "<<temp->getIC()<<endl;
+                            cout<<"Email   : "<<temp->getEmail()<<endl;
+                            cout<<"Matric  : "<<temp->getMatric()<<endl;
+                            found = true;
+                        }
                         }
                         break;
 			}
