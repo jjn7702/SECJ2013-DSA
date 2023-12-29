@@ -71,8 +71,8 @@ The deleteNode method enables the removal of a book node from the linked list ba
 
 ## Findings 📊
 
-- [Source Code](./Assignment1.cpp)
-- [Input File](./books.txt)
+- [Source Code](./Assignment2.cpp)
+- [Input File](./book2.txt)
 - [Report](./Assignment1DSA(DTD).pdf)
 
 ## Contribution 🛠️
