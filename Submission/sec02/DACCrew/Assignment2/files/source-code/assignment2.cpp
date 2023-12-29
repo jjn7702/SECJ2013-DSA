@@ -529,15 +529,50 @@ int main()
             else
                 cout << "Account does not exists." << endl;
         }
+       else if (opt == 10)
+        {
+            int sort;
+            cin.ignore();
+
+            cout << endl
+                 << endl;
+            cout << ":: SORT DATA ::" << endl;
+            cout << "[1] Sort by name" << endl;
+            cout << "[2] Sort by account number" << endl;
+            cout << "[3] Sort by Ic" << endl;
+            cout << "[4] Sort by Balance" << endl;
+            cout << "Sorting Option: ";
+            cin >> sort;
+            switch (sort)
+            {
+            case 1:
+                cout << "\nSort by name" << endl;
+                list.mergeSortName();
+
+                break;
+            case 2:
+                cout << "\nSort by account number" << endl;
+                list.mergeSortAccount();
+
+                break;
+            case 3:
+                cout << "\nSort by Ic" << endl;
+                list.mergeSortIc();
+
+                break;
+            case 4:
+                cout << "\nSort by Balance" << endl;
+                list.mergeSortBalance();
+
+                break;
+            default:
+                cout << "Invalid option." << endl;
+                break;
+            }
+            cout << "Sorting by Name..." << endl;
+            list.displayAll();
+        }
         else if(opt == 11)
         {
             list.displayAll();
         }
-        else
-        {
-            cout << "Shuting down system...";
-            exit;
-        }
-        count++;
-    }
-}
