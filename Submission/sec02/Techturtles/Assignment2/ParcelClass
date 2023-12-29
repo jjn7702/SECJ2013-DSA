@@ -27,3 +27,54 @@ void printResult(int count)
 		 << setw(2) << category
 		 << setw(2) << status << endl;
     }
+
+ string getTrackingNumber()
+    {
+        return trackingNumber;
+    }
+
+    string getAddress()
+    {
+        return address;
+    }
+
+    string getSender()
+    {
+        return nameSender;
+    }
+
+    string getReceiver()
+    {
+        return nameReceiver;
+    }
+    
+    char getCategory()
+    {
+    	return category;
+	}
+	
+	int getStatus()
+    {
+    	return status;
+	}
+	
+    
+    void displayShippingCategory() {
+        if (category == 'A' || category == 'a') {
+            cout << "Bulky & Heavy Delivery";
+        }
+        else
+            cout << "Standard Delivery";
+        cout << endl;
+    }
+    
+    void displayStatus_Delivery() {
+        if (status == 0) {
+            cout << "COMPLETE";
+        }
+        else
+            cout << "INCOMPLETE";
+        cout << endl;
+    }
+
+};
