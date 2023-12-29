@@ -20,13 +20,12 @@ The Library Management System is a system that is designed to store information 
 
 ![1]()
 
-2. Flowchart
+2. Pseudocode
+   
 
-![2]()
+
 
 ## Flow of Event 💹
-
-## Flow of system
 1. The user is prompted to the main menu of the Library Management System.
 2. The user can choose wheter to use Sorting or Searching.
 3. If the user selects "Sorting". They will then be redirected to the Sorting Main Menu.
