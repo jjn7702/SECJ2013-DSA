@@ -367,16 +367,6 @@ void facAsc(){
             {	sorted = true;
                 for(temp2=head; temp2->next!=NULL; temp2=temp2->next)
                 {
-                    if( temp2->getFaculty() > (temp2->next->getFaculty()) )
-                    {
-						if( temp2->getFaculty() > (temp2->next->getFaculty()) )
-                    {
-						n = temp2->getName();
-						f = temp2->getFaculty();
-                        e = temp2->getEmail();
-                        i = temp2->getIC();
-                        m = temp2->getMatric();
-                        a = temp2->getAge();
 
                         if( temp2->getFaculty() > (temp2->next->getFaculty()) )
                     {
@@ -403,10 +393,8 @@ void facAsc(){
                         sorted = false;
                     }
                     }
-                    }
 
                 }
-            }
 }
 
 void facDes(){
