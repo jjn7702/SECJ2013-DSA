@@ -185,6 +185,8 @@ void search(int opt,string key,int key2)
         {
         	ofstream out;
         	out.open("voter.csv");
+
+            Voter *temp=head;
 		}
 
 		void ascendName()
