@@ -159,7 +159,6 @@ void search(int opt,string key,int key2)
                                 found = true;
                             }
                             temp = temp->next;
-
                         }
                         break;
 			}
@@ -180,6 +179,12 @@ void search(int opt,string key,int key2)
                 out<<"-----------------------------------------------------------------------------------------------------------------------"<<endl;
                 temp = temp->next;
             }
+		}
+
+        void outFile()
+        {
+        	ofstream out;
+        	out.open("voter.csv");
 		}
 
 		void ascendName()
