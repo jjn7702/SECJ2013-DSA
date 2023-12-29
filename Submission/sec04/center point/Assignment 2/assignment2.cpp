@@ -14,7 +14,7 @@ int AddChoice(){
     cout << "Enter your choice (1/2/3): ";
     cin >> choice;
 
-    while (choice != '1' && choice != '2' && choice != '3') // check user input
+    while (choice<1 || choice>3) // check user input
     {
         cout << "Invalid choice. Please enter 1, 2, or 3: ";
         cin >> choice;
