@@ -137,7 +137,52 @@ class List{
                 p_head = newNode;
             }
         }
-
+        void insertBack(string icNum, string n, int a, string sick, string doc ){
+            Patient *newNode = new Patient(icNum, n, a, sick, doc);
+            Patient *temp = p_head;
+            if(isEmpty())
+                p_head = newNode;
+            else{
+                while (temp->getNext() != NULL){
+                    temp = temp->getNext();
+                }
+                temp->setNext(newNode);
+                newNode->setPrev(temp);
+            }
+        }
+        void insertMiddle(string icNum, string n, int a, string sick, string doc, int position ){
+            Patient *newNode = new Patient(icNum, n, a, sick, doc);
+            Patient *temp = p_head;
+            int count = 1;
+            
+            if(isEmpty())
+                p_head = newNode;
+            else{
+                if(position == 1){          // first position is insert from front
+                    insertFront(icNum, n, a, sick, doc);
+                    return;
+                }
+                while (temp->getNext() != NULL && count < position){
+                    temp = temp->getNext();
+                    count++;
+                }
+                if(count+1 < position && temp->getNext() == NULL){  // check position > number of node in link
+                    cout << "\nError : Invalid position to insert in the middle\n";
+                    return;
+                }
+                else if(count+1  == position && temp->getNext() == NULL){ // last position is insert from back
+                    cout << "Insert back\n";
+                    insertBack(icNum, n, a, sick, doc);
+                    return;
+                }
+                else{
+                    newNode->setNext(temp);
+                    newNode->setPrev(temp->getPrev());
+                    temp->getPrev()->setNext(newNode);
+                    temp->setPrev(newNode);
+                }
+            }
+        }
         int deleteNode(string x, char y) {
         //for Patient
         if (y == 'p') {
@@ -630,11 +675,13 @@ int start(){
 int main() {
     int choice = start();   // Choose program 
     
-    if(choice == 1)
+    if(choice == 1){
         assigment1();
+        return 0;
+    }
     else if (choice == 2)
         cout << "Assignment 2\n";
-    else if (choice = 3)
+    else if (choice == 3)
         return 0;
     else{
         cout << "Invalid input\n";
@@ -666,6 +713,11 @@ int main() {
     cout << endl;
     node.findNode("David");
     cout << endl;
+    // Try insert back and middle function
+    node.insertBack("888", "dsid", 50, "Arthritis", "Dr. Johnson");
+    node.display();
+    node.insertMiddle("342797912", "id", 50, "Arthritis", "Dr. Johnson", 4);
+    node.display();
 
     return 0;
 }
