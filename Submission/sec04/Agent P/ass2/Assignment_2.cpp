@@ -67,7 +67,18 @@ class List
 
         void deleteEnd()
         {
+            if(isEmpty())
+                cout<<"The list is empty!"<<endl;
             
+            else{
+                Voter *temp = head,*temp2;
+                while(temp->next != NULL){
+                    temp2 = temp;
+                    temp = temp->next;
+                }
+                temp2->next = NULL;
+                delete temp;
+            }
         }
 
         }
@@ -116,6 +127,40 @@ void search(int opt,string key,int key2)
                         temp = temp->next;
                     }
                     break;
+
+                    case 3: 
+                        while(temp != NULL)
+                    {
+                        if(temp->getAge() == key2)
+                        {
+                            cout<<"\nName  : "<<temp->getName()<<endl;
+                            cout<<"Faculty : "<<temp->getFaculty()<<endl;
+                            cout<<"Age     : "<<temp->getAge()<<endl;
+                            cout<<"IC      : "<<temp->getIC()<<endl;
+                            cout<<"Email   : "<<temp->getEmail()<<endl;
+                            cout<<"Matric  : "<<temp->getMatric()<<endl;
+                            found = true;
+                        }
+                        temp = temp->next;
+                    }
+                    break; 
+
+                    case 4:
+                        while(temp != NULL)
+                        {
+                            if(temp->getIC() == key)
+                            {
+                                cout<<"\nName  : "<<temp->getName()<<endl;
+                                cout<<"Faculty : "<<temp->getFaculty()<<endl;
+                                cout<<"Age     : "<<temp->getAge()<<endl;
+                                cout<<"IC      : "<<temp->getIC()<<endl;
+                                cout<<"Email   : "<<temp->getEmail()<<endl;
+                                cout<<"Matric  : "<<temp->getMatric()<<endl;
+                                found = true;
+                            }
+                            temp = temp->next;
+                        }
+                        break;
 			}
 			}
 		}
@@ -132,6 +177,20 @@ void search(int opt,string key,int key2)
             {
                 out<<left<<"|  "<<setw(16)<<temp->getName()<<" |       "<<setw(13)<<temp->getFaculty()<<" |  "<<setw(12)<<temp->getIC()<<" |     "<<setw(4)<<temp->getAge()<<" |    "<<setw(16)<<temp->getMatric()<<"|  "<<setw(25)<<temp->getEmail()<<"|"<<endl;
                 out<<"-----------------------------------------------------------------------------------------------------------------------"<<endl;
+                temp = temp->next;
+            }
+		}
+
+        void outFile()
+        {
+        	ofstream out;
+        	out.open("voter.csv");
+
+            Voter *temp=head;
+
+            while(temp != NULL)
+            {
+                out<<temp->getName()<<","<<temp->getFaculty()<<","<<temp->getIC()<<","<<temp->getAge()<<","<<temp->getMatric()<<","<<temp->getEmail()<<endl;
                 temp = temp->next;
             }
 		}
@@ -331,6 +390,15 @@ void insertUI(int &opt1,int &opt2,List l)
         cout<<"Please enter the position you want to insert : ";
         cin>>opt2;
     }
+}
+
+void deleteUI(int &opt1,int &opt2, List l)
+{
+    cout<<"\n[1] Delete at Front"<<endl;
+    cout<<"[2] Delete at End"<<endl;
+    cout<<"[3] Delete at Position"<<endl;
+    cout<<"Please choose an option : ";
+    cin>>opt1;
 }
 
 

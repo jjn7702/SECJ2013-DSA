@@ -101,13 +101,6 @@ private:
 
 public:
     Inventory *next;
-    /*Inventory()
-    {
-        invCode = invName = invType = "";
-        quantity = 0;
-        price = 0.0;
-        next = NULL;
-    }*/
 
     Inventory(string c, string n, string t, int q, float p)
     {
@@ -130,15 +123,6 @@ public:
     string getType() { return invType; }
     int getQuantity() { return quantity; }
     float getPrice() { return price; }
-
-    /*void display()
-    {
-        cout << left << setw(15) << invCode
-             << setw(15) << invName
-             << setw(15) << invType
-             << setw(10) << quantity
-             << setw(5) << fixed << setprecision(2) << price;
-    }*/
 };
 
 class List
@@ -219,7 +203,45 @@ public:
     // Delete at the middle
     // Delete at the end
 
-    // Auto Sort the node before display
+    // Sorting the inventory
+    void sorting()
+    {
+        if (head == NULL || head->next == NULL)
+        {
+            return;
+        }
+
+        Inventory *sortedList = NULL;
+        Inventory *curr = head;
+
+        while (curr)
+        {
+            Inventory *next = curr->next;
+
+            if (sortedList == NULL || curr->getCode() < sortedList->getCode())
+            {
+                curr->next = sortedList;
+                sortedList = curr;
+            }
+            else
+            {
+                Inventory *temp = sortedList;
+                while (temp->next != NULL && temp->next->getCode() < curr->getCode())
+                {
+                    temp = temp->next;
+                }
+                curr->next = temp->next;
+                temp->next = curr;
+            }
+            curr = next;
+        }
+
+        head = sortedList;
+
+        cout << "Inventory List is sorted by Inventory Code in Ascending\n";
+        displayList();
+    }
+
     // Print detail of certain inventory
     void printDetail(Inventory *inv)
     {
@@ -314,7 +336,8 @@ public:
                  << setw(20) << temp->getName()
                  << setw(20) << temp->getType()
                  << setw(15) << temp->getQuantity()
-                 << setw(10) << fixed << setprecision(2) << temp->getPrice() << endl <<endl;
+                 << setw(10) << fixed << setprecision(2) << temp->getPrice() << endl
+                 << endl;
 
             temp = temp->next;
         }
@@ -349,6 +372,7 @@ int main()
     ofstream out;
     bool loop = true;
     inp.open("input.txt");
+    // later change to output to input.txt
     out.open("output.txt");
 
     // Check input file
@@ -372,7 +396,6 @@ int main()
         InvList.addEnd(inv);
     }
 
-
     // menu
     cout << "~~~~~~~~~~~~~~~~~~~~~  WELCOME TO INVENTORY MANAGEMENT SYSTEM  ~~~~~~~~~~~~~~~~~~~~~\n\n";
     while (loop)
@@ -385,30 +408,39 @@ int main()
             addChoice = AddChoice();
             getInfo(code, name, type, quantity, price);
             Inventory *newInventory = new Inventory(code, name, type, quantity, price);
-            switch(addChoice)
+            switch (addChoice)
             {
-            case 1: InvList.addFront(newInventory);
-                    system("CLS");
-                    cout << "New node has been successfully added to front.." << endl
-                        << endl;
-            case 2: int pos;
-                    cout << "\n***If the position entered is invalid, it'll automatically insert at the end.***\n"
-                        << "Enter the position to add in the middle: ";
-                    cin >> pos;
-                    InvList.addMiddle(newInventory, pos);
-                    cout << "New node has been successfully added to position " << pos << ".." << endl
-                        << endl;
-            case 3: InvList.addEnd(newInventory);
-                    cout << "New node has been successfully added to the end.." << endl
-                        << endl;
-            case 4: break;
-            
-            default: break;
+            case 1:
+                InvList.addFront(newInventory);
+                system("CLS");
+                cout << "New node has been successfully added to front.." << endl
+                     << endl;
+                break;
+            case 2:
+                int pos;
+                cout << "\n***If the position entered is invalid, it'll automatically insert at the end.***\n"
+                     << "Enter the position to add in the middle: ";
+                cin >> pos;
+                InvList.addMiddle(newInventory, pos);
+                cout << "New node has been successfully added to position " << pos << ".." << endl
+                     << endl;
+                break;
+            case 3:
+                InvList.addEnd(newInventory);
+                cout << "New node has been successfully added to the end.." << endl
+                     << endl;
+                break;
+            case 4:
+                break;
+
+            default:
+                break;
             }
         }
         case 2:
             break;
         case 3:
+            InvList.sorting();
             break;
         case 4:
             InvList.find();
