@@ -1,0 +1,18 @@
+class Parcel
+{
+private:
+    string trackingNumber, address, nameSender, nameReceiver;
+    char category;
+    int status;
+    int count; // edit
+
+public:
+    Parcel(string tn, string a, string nSend, string nRec, char c, int s)
+    {
+        trackingNumber = tn;
+        address = a;
+        nameSender = nSend;
+        nameReceiver = nRec;
+        category = c;
+        status = s;
+    }
