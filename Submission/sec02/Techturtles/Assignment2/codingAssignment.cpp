@@ -32,4 +32,10 @@ public:
     {
         return deliveryStatus;
     }
-}
+};
+
+class Node
+{
+public:
+    Node *next;
+};
