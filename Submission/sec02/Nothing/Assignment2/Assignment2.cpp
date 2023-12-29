@@ -640,6 +640,37 @@ void List::SortbyName() {
     }
 }
 
+void List::SortbyLocation() {
+    if (head == NULL)
+        return;
+
+    bool swapped;
+    Node* currNode;
+    Node* lastNode = NULL;
+
+    int count = this->count(); // Get the count of nodes in the list
+
+    for (int i = 0; i < count - 1; i++) {
+        swapped = false;
+        currNode = head;
+
+        for (int j = 0; j < count - i - 1; j++) {
+            if (currNode->item.getItemLocation() > currNode->next->item.getItemLocation()) {
+                if (currNode->item.getItemLocation() != currNode->next->item.getItemLocation()) {
+                    inventory temp = currNode->item;
+                    currNode->item = currNode->next->item;
+                    currNode->next->item = temp;
+                    swapped = true;
+                }
+            }
+            currNode = currNode->next;
+        }
+
+        if (!swapped)
+            break;
+    }
+}
+
 //other functionl
 bool isNumber(string s){
     for(int i = 0; i < s.length(); i++){

@@ -174,6 +174,11 @@ public:
     BookingNode *temp = head;
     BookingNode *newNode = new BookingNode(newBooking);
 
+    if (head == NULL) {
+        head = newNode;
+        return;
+    }
+    
     while (temp->next != NULL) {
       temp = temp->next;
     }
@@ -337,11 +342,11 @@ void readBookingData(List &bookingList) {
     string roomType;
     string ic;
     double totalPrice;
-
+    
     while (bookinginpFile >> checkInDate >> checkOutDate >> roomNo >> roomType >>
            ic >> totalPrice) {
-        BookingNode* newNode = new BookingNode(checkInDate, checkOutDate, roomNo, roomType, ic, totalPrice);
-        newNode->insertEnd(newNode);
+        BookingNode newNode(checkInDate, checkOutDate, roomNo, roomType, ic, totalPrice);
+          bookingList.insertEnd(newNode);
     }
 
     bookinginpFile.close();
