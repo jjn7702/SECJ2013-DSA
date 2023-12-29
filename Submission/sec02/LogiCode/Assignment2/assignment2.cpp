@@ -35,7 +35,7 @@ public:
   BookingNode(string i, string o, int n, string t, string ic_, double p)
       : checkInDate(i), checkOutDate(o), roomNo(n), roomType(t), ic(ic_),
         totalPrice(p){ next = NULL; };
-  //string getCheckInDate() const { return checkInDate; }
+  string getCheckInDate() const { return checkInDate; }
   //string getCheckOutDate() const { return checkOutDate; }
   //int getRoomNo() const { return roomNo; }
   //string getRoomType() const { return roomType; }
@@ -73,7 +73,44 @@ public:
       head=newNode;
     }
 
-  void insertFront()
+  void insertMiddle(BookingNode newBooking, int loc) {
+      BookingNode *temp = head;
+      BookingNode *newNode = new BookingNode(newBooking);
+      int count = 1;
+
+      while (temp->next != NULL && count < loc) {
+        temp = temp->next;
+        count++;
+      }
+
+      newNode->next = temp->next;
+      temp->next = newNode;
+    }
+
+  void insertMiddle2(
+BookingNode newBooking, string sKey) { // Insert the node after the node with specific value
+    BookingNode *temp = head;
+    BookingNode *newNode = new BookingNode(d);
+
+      while (temp->getCheckInDate() != sKey) {
+        temp = temp->next;
+      }
+
+      newNode->next = temp->next;
+      temp->next = newNode;
+    }
+
+  void insertEnd(BookingNode newBooking){
+      BookingNode *temp = head; 
+      BookingNode *newNode = new BookingNode(newBooking);
+
+      while (temp->next != NULL)
+      {
+          temp = temp->next;
+      }
+
+      temp->next = newNode;
+  }
 
   void deleteFront() {
     BookingNode *temp = head;
@@ -84,7 +121,13 @@ public:
 
 };
 
+void insertMenu(){
+  cout << "1. Insert " << endl;
+  cout << "2. Sort Booking" << endl;
+  cout << "3. Insert Booking" << endl;
+}
 void adminMenu() {
+  //BookingNode *booking=new Node();
   int option;
   cout << "Admin Menu" << endl;
   cout << "1. View Booking" << endl;
@@ -105,6 +148,7 @@ void adminMenu() {
     break;
 
   case 3:
+    insertMenu();
     break;
 
   case 4:
