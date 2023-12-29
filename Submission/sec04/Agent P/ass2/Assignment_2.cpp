@@ -450,7 +450,27 @@ void matasc(){
                 {
                     if( temp2->getMatric() > (temp2->next->getMatric()) )
                     {
-						
+						n = temp2->getName();
+						f = temp2->getFaculty();
+                        e = temp2->getEmail();
+                        i = temp2->getIC();
+                        m = temp2->getMatric();
+                        a = temp2->getAge();
+
+                        temp2->setName(temp2->next->getName());
+                        temp2->setFaculty(temp2->next->getFaculty());
+                        temp2->setEmail(temp2->next->getEmail());
+                        temp2->setIC(temp2->next->getIC());
+                        temp2->setMatric(temp2->next->getMatric());
+                        temp2->setAge(temp2->next->getAge());
+
+                        temp2->next->setName(n);
+                        temp2->next->setFaculty(f);
+                        temp2->next->setEmail(e);
+                        temp2->next->setIC(i);
+                        temp2->next->setMatric(m);
+                        temp2->next->setAge(a);
+                        sorted = false;
                     }
 
                 }
