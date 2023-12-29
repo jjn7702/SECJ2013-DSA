@@ -22,18 +22,14 @@ public:
     }
     string getSenderName()
     {
-        return trackNum;
+        return senderName;
     }
     string getReceiverName()
     {
-        return trackNum;
+        return receiverName;
     }
     string getDeliveryStatus()
     {
-        return trackNum;
-    }
-    string getTrackingNumber()
-    {
-        return trackNum;
+        return deliveryStatus;
     }
 }
