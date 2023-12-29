@@ -41,9 +41,9 @@ public:
   string getCheckInDate() const { return checkInDate; }
   string getCheckOutDate() const { return checkOutDate; }
   int getRoomNo() const { return roomNo; }
-  //string getRoomType() const { return roomType; }
-  //string getIC() const { return ic; }
-  //double getTotalPrice() const { return totalPrice; }
+  string getRoomType() const { return roomType; }
+  string getIC() const { return ic; }
+  double getTotalPrice() const { return totalPrice; }
   void getBookingInfo() const {
     cout << checkInDate << "\t" << checkOutDate << "\t" << roomNo << "\t"
          << roomType << "\t" << ic << "\t" << totalPrice << endl;
@@ -328,9 +328,17 @@ public:
   }
 
   void swapNodes(BookingNode* node1, BookingNode* node2) {
-      int temp = node1->getCheckInDate();
-      node1->setCheckInDate(node2->getCheckInDate());
-      node2->setCheckInDate(temp);
+    BookingNode *tempNode = new BookingNode(
+        node2->getCheckInDate(), node2->getCheckOutDate(), node2->getRoomNo(),
+        node2->getRoomType(), node2->getIC(), node2->getTotalPrice());
+    
+    *node2 = BookingNode(
+      node1->getCheckInDate(), node1->getCheckOutDate(), node1->getRoomNo(), 
+      node1->getRoomType(), node1->getIC(), node1->getTotalPrice());
+
+    *node1 = *tempNode;
+
+    delete tempNode;
   }
 
   void sortList() {
@@ -349,14 +357,41 @@ public:
   
           while (current->next != nextNode) {
               if (current->getCheckInDate() > current->next->getCheckInDate()) {
-                  // Swap entire nodes, not just dates
-                  swapNodes(current, current->next);
+                  // swapNodes(current, current->next); 
                   swapped = true;
               }
               current = current->next;
           }
           nextNode = current;
       } while (swapped);
+  }
+
+  void sortList2() {
+        if (head == NULL || head->next == NULL) {
+            cout << "List is empty or has only one node." << endl;
+            return;
+        }
+
+        BookingNode* current = head;
+        BookingNode* nextNode = NULL;
+        bool swapped;
+
+        do {
+            swapped = false;
+            BookingNode* temp = head;
+            BookingNode* pre = head;
+
+            while (current->next != nextNode) {
+                if (current->getCheckInDate() > current->next->getCheckInDate()) {
+                    pre->next = temp->next;
+                    temp->next = temp->next->next;
+                    pre->next->next = temp; 
+                    swapped = true;
+                }
+                current = current->next;
+            }
+            nextNode = current;
+        } while (swapped);
   }
 };
 
