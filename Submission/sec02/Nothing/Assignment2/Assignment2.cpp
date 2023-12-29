@@ -493,6 +493,7 @@ Node* List::insertNode(inventory item, int index){
     }
     return newNode;
 }
+
 int List::findNodeNum(int itemNumber){
     Node *currNode = head;
     int currIndex = 1;
@@ -551,6 +552,7 @@ void List::deleteNode(int index){
         prevNode->next = currNode->next;
     delete currNode;
 }
+
 int List::count(){
     Node *currNode = head;
     int count = 0;

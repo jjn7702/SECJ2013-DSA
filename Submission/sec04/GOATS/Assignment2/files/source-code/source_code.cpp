@@ -137,38 +137,98 @@ class List{
                 p_head = newNode;
             }
         }
+
+        int deleteNode(string x, char y) {
+        //for Patient
+        if (y == 'p') {
+            Patient* current = p_head;
+            Patient* previous = NULL;
+
+            while (current != NULL && current->getICPatient() != x) {
+                previous = current;
+                current = current->getNext();
+            }
+            
+            // Node not found
+            if (current == NULL) return 0;  
+
+            if (previous == NULL) {
+                p_head = current->getNext();
+            } 
+            
+            else {
+                previous->setNext(current->getNext());
+                if (current->getNext() != NULL) {
+                    current->getNext()->setPrev(previous);
+                }
+            }
+
+            delete current;
+            return 1;
+        
+        }
+        //for Doctor
+        else if (y == 'd') {
+            Doctor* current = d_head;
+            Doctor* previous = NULL;
+
+            while (current != NULL && current->getIDDoctor() != x) {
+                previous = current;
+                current = current->getNext();
+            }
+
+            if (current == NULL) return 0; 
+
+            if (previous == NULL) {
+                d_head = current->getNext();
+            } 
+            
+            else {
+                previous->setNext(current->getNext());
+                if (current->getNext() != NULL) {
+                    current->getNext()->setPrev(previous);
+                }
+            }
+
+            delete current;
+            return 1;
+        }
+        //when y invalid
+        return 0;  
+        }
         
         void findNode(string searchKey) {
         Patient *tempPatient = p_head;
         Doctor *tempDoctor = d_head;
 		
-		//patients
-        while (tempPatient != NULL) {
-            if (tempPatient->getNamePatient() == searchKey || tempPatient->getICPatient() == searchKey) {
-                cout << "Patient found:\n";
-                tempPatient->display();
-                return;
+		    //patients
+            while (tempPatient != NULL) {
+                if (tempPatient->getNamePatient() == searchKey || tempPatient->getICPatient() == searchKey) {
+                    cout << "Patient found:\n";
+                    tempPatient->display();
+                    return;
+                }
+                tempPatient = tempPatient->getNext();
             }
-            tempPatient = tempPatient->getNext();
-        }
-        
-        //doctors
-        while (tempDoctor != NULL) {
-            if (tempDoctor->getNameDoctor() == searchKey || tempDoctor->getIDDoctor() == searchKey) {
-                cout << "Doctor found:\n";
-                tempDoctor->display();
-                return;
+            
+            //doctors
+            while (tempDoctor != NULL) {
+                if (tempDoctor->getNameDoctor() == searchKey || tempDoctor->getIDDoctor() == searchKey) {
+                    cout << "Doctor found:\n";
+                    tempDoctor->display();
+                    return;
+                }
+                tempDoctor = tempDoctor->getNext();
             }
-            tempDoctor = tempDoctor->getNext();
-        }
-        
-        cout << "Node with key '" << searchKey << "' not found.\n";
+            
+            //if not found
+            cout << "Node with key '" << searchKey << "' not found.\n";
     	}
 
         void display(){
             Patient *temp = p_head;
             if(isEmpty()){
-                cout << "No node in the list\n";
+                cout << endl << "No node in the list\n";
                 return;
             }
             cout << "\n<< Display all node >>\n";
@@ -573,7 +633,7 @@ int main() {
     if(choice == 1)
         assigment1();
     else if (choice == 2)
-        cout << "Assignement 2\n";
+        cout << "Assignment 2\n";
     else if (choice = 3)
         return 0;
     else{
@@ -590,8 +650,18 @@ int main() {
 
     node.insertFront("88877766s", "avid", 50, "Arthritis", "Dr. Johnson");
     node.display();
+
+    cout << endl <<  "xxxxxxxxx" << endl;
+
+    node.deleteNode("888777666",'p');
+    node.display();
     
-    //try search node
+    node.deleteNode("88877766s",'p');
+    node.display();
+
+    cout << endl <<  "----------" << endl;
+
+    // try search node
     node.findNode("88877766s");
     cout << endl;
     node.findNode("David");
