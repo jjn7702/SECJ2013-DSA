@@ -392,6 +392,11 @@ void insertUI(int &opt1,int &opt2,List l)
     }
 }
 
+void deleteUI(int &opt1,int &opt2, List l)
+{
+
+}
+
 
 
 int main()
