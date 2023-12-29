@@ -54,33 +54,6 @@ int AddChoice()
     return choice;
 }
 
-// Sorting user choice
-int menuSorting()
-{
-    int choice;
-    cout << "[1] By Inventory Code" << endl
-         << "[2] By Inventory Name" << endl
-         << "[3] By Inventory Type" << endl
-         << "[4] By Quantity" << endl
-         << "[5] By Price" << endl
-         << "Option: ";
-    cin >> choice;
-    system("CLS");
-    return choice;
-}
-
-int sortMenu()
-{
-    int orderChoice;
-    cout << "You would like to sort by\n"
-         << "[1] Ascending\n"
-         << "[2] Descending\n"
-         << "Your Option: ";
-    cin >> orderChoice;
-    system("CLS");
-    return orderChoice;
-}
-
 // Finding user choice
 int menuFinding()
 {
@@ -231,36 +204,43 @@ public:
     // Delete at the end
 
     // Sorting the inventory
-    void sorting() {
-    if (head == NULL || head->next == NULL) {
-        return;
-    }
-
-    List newList; // Create a new list for sorted items
-    Inventory *sortedList = NULL;
-    Inventory *curr = head;
-
-    while (curr) {
-        Inventory *next = curr->next;
-
-        if (sortedList == NULL || curr->getCode() < sortedList->getCode()) {
-            curr->next = sortedList;
-            sortedList = curr;
-        } else {
-            Inventory *temp = sortedList;
-            while (temp->next != NULL && temp->next->getCode() < curr->getCode()) {
-                temp = temp->next;
-            }
-            curr->next = temp->next;
-            temp->next = curr;
+    void sorting()
+    {
+        if (head == NULL || head->next == NULL)
+        {
+            return;
         }
-        curr = next;
-    }
 
-    head = sortedList;
-    cout<<"Inventory List is sorted by Inventory Code in Ascending\n";
-    displayList();
-}
+        Inventory *sortedList = NULL;
+        Inventory *curr = head;
+
+        while (curr)
+        {
+            Inventory *next = curr->next;
+
+            if (sortedList == NULL || curr->getCode() < sortedList->getCode())
+            {
+                curr->next = sortedList;
+                sortedList = curr;
+            }
+            else
+            {
+                Inventory *temp = sortedList;
+                while (temp->next != NULL && temp->next->getCode() < curr->getCode())
+                {
+                    temp = temp->next;
+                }
+                curr->next = temp->next;
+                temp->next = curr;
+            }
+            curr = next;
+        }
+
+        head = sortedList;
+
+        cout << "Inventory List is sorted by Inventory Code in Ascending\n";
+        displayList();
+    }
 
     // Print detail of certain inventory
     void printDetail(Inventory *inv)
@@ -392,6 +372,7 @@ int main()
     ofstream out;
     bool loop = true;
     inp.open("input.txt");
+    // later change to output to input.txt
     out.open("output.txt");
 
     // Check input file
