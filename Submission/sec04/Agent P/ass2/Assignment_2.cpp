@@ -48,6 +48,12 @@ class List
                 temp->next = NULL;
             }
         }
+
+        void insertend(string n,string f,int a,string ic,string e,string m)
+        {
+            
+
+        }
 void search(int opt,string key,int key2)
         {
             Voter *temp = head;
