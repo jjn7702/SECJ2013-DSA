@@ -421,6 +421,30 @@ void inventory::setItemLocation(string itemLocation){
     this->itemLocation = itemLocation;
 }
 
+//getters
+int inventory::getItemNumber(){
+    return itemNumber;
+}
+string inventory::getItemLocation(){
+    return itemLocation;
+}
+
+string inventory::getItemName(){
+    return itemName;
+}
+
+string inventory::getDescription(){
+    return description;
+}
+
+int inventory::getQuantity(){
+    return quantity;
+}
+
+double inventory::getCost(){
+    return cost;
+}
+
 void inventory::print(){
     cout << setw(15) << left << itemNumber 
     << setw(15) << left << itemName 
