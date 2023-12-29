@@ -5,7 +5,7 @@
 using namespace std;
 
 class Courier {
-	string name, parcelType, source, destination, status;
+    string name, parcelType, source, destination, status;
     int trackingNum;
 
 	public:
@@ -26,14 +26,18 @@ class Courier {
 	    string getStat() const { return status; }
 	    int getTrackNum() const { return trackingNum; }
 	    
-	    void display() const {
-        cout << left << setw(25) << name
-             << setw(15) << parcelType
-             << setw(15) << source
-             << setw(18) << destination
-             << setw(16) << status
-             << setw(15) << trackingNum << endl;
-    }
+	    void display(bool printHeader = true) const {
+		    if (printHeader) {
+			    cout << left << setw(20) << "Tracking Number" << setw(20) << "Name"
+				 << setw(20) << "Parcel Type" << setw(20) << "Source"
+				 << setw(20) << "Destination" << setw(20) << "Status << endl;
+			    cout << setfill('-') << setw(120) << " " << setfill('-') << endl;
+        	    }
+
+		    cout << left << setw(20) << trackingNum << setw(20) << name
+			 << setw(20) << parcelType << setw(20) << source 
+			 << setw(20) << destination << setw(20) << endl;
+	    }
 };
 
 class Node {
