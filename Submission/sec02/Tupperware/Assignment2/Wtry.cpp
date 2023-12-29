@@ -285,10 +285,13 @@ int main() {
             case 1:{
                 cout << "Enter the food ID : ";
                 getline(cin,foodId);
+                cin.ignore();
                 cout << "Enter the food Name : ";
                 getline(cin, name);
+                cin.ignore();
                 cout << "Enter the category : ";
                 getline(cin, category);
+                //cin.ignore();
                 cout << "Enter the price : ";
                 cin >> price;
 
@@ -326,52 +329,7 @@ int main() {
             }
 
             case 2:
-            {
-                
-                cout << "Sort by" << endl;
-                cout << "[1] Food ID" << endl;
-                cout << "[2] Price" << endl;
-                cout << "\nEnter your choice: " ;
-                cin >> sortBy;
-
-                switch (sortBy){
-                    case 1:{
-                        cout << "Sort in" << endl;
-                        cout << "[1] Ascending Order" << endl;
-                        cout << "[2] Decending Order" << endl;
-                        cin >> sortIn;
-
-                        switch (sortIn)
-                        {
-                        case 1:
-                            FoodIdASC(menuArray);
-                            break;
-/*                        case 2:
-                            PriceASC(newmenu);
-*/                            break;
-                        default:
-                            break;
-                        }
-                    }
-                    case 2:{
-                        cout << "Sort in" << endl;
-                        cout << "[1] Ascending Order" << endl;
-                        cout << "[2] Decending Order" << endl;
-                        cin >> sortIn;
-
-                        switch(sortIn){
-                        case 1:
-                            PriceASC(menuArray);
-                            break;
-                        case 2:
-/*                            PriceASC();
-*/                            break;
-                        default:
-                            break;
-                        }
-                    }
-                }
-            }
+            
             case 3:
             {
                 cout << "\nDo you want to seach by (N)ame, (C)ategory or (F)oodId?: ";
@@ -424,7 +382,51 @@ int main() {
                 break;
             }
 
-            case 4:
+            case 4:{
+                cout << "Sort by" << endl;
+                cout << "[1] Food ID" << endl;
+                cout << "[2] Price" << endl;
+                cout << "\nEnter your choice: " ;
+                cin >> sortBy;
+
+                switch (sortBy){
+                    case 1:{
+                        cout << "Sort in" << endl;
+                        cout << "[1] Ascending Order" << endl;
+                        cout << "[2] Decending Order" << endl;
+                        cin >> sortIn;
+
+                        switch (sortIn)
+                        {
+                        case 1:
+                            FoodIdASC(menuArray);
+                            break;
+/*                        case 2:
+                            PriceASC(newmenu);
+*/                            break;
+                        default:
+                            break;
+                        }
+                    }
+                    case 2:{
+                        cout << "Sort in" << endl;
+                        cout << "[1] Ascending Order" << endl;
+                        cout << "[2] Decending Order" << endl;
+                        cin >> sortIn;
+
+                        switch(sortIn){
+                        case 1:
+                            PriceASC(menuArray);
+                            break;
+                        case 2:
+/*                            PriceASC();
+*/                            break;
+                        default:
+                            break;
+                        }
+                    }
+                }
+            }
 
             case 5:
             {
