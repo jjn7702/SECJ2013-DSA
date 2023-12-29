@@ -22,9 +22,6 @@ The Library Management System is a system that is designed to store information 
 2. Pseudocode
 <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Assignment1/Pseudocode.png">
 
-   
-
-
 
 ## Flow of Event 💹
 1. The user is prompted to the main menu of the Library Management System.
@@ -35,6 +32,14 @@ The Library Management System is a system that is designed to store information 
 6. If the user selects "Searching". They will be redirected to the Searching Main Menu.
 7. The user can then choose to search the books specifically based on title,author , year of publish or ISBN number
 8. After choosing either one and getting the results, the user can choose to exit the system , go back to the main menu where the user will need to choose either to sort or search, or search for books based on other attributes.
+
+## Implementation
+
+### Sorting
+- In the program, sorting is implemented using straightforward algorithms, such as the bubble sort algorithm, for simplicity and ease of understanding. Each sorting function corresponds to a specific criterion: title, author, year, or ISBN. The sorting algorithms iterate through the array and compare adjacent elements, swapping them if they are out of order. This process is repeated until the entire array is sorted according to the chosen criterion.
+
+### Searching
+- Searching is implemented using a linear search algorithm, where the program iterates through the array to find a match based on the user's input. Similar to sorting, searching functions are designed for specific criteria: title, author, year, or ISBN. For instance, the searchByTitle function prompts the user to enter a book title, and then it iterates through the array to find and display books with matching titles. Linear search is effective for small datasets and ensures that all matching elements are found.
 
 ## Prepared by 🧑‍💻
 
