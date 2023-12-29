@@ -36,7 +36,7 @@ class Courier {
 
 		    cout << left << setw(20) << trackingNum << setw(20) << name
 			 << setw(20) << parcelType << setw(20) << source 
-			 << setw(20) << destination << setw(20) << endl;
+			 << setw(20) << destination << setw(20) << status << endl;
 	    }
 };
 
