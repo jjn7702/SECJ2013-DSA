@@ -16,6 +16,7 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
+#include <bits/stdc++.h>
 #define MAXSIZE 10
 using namespace std;
 
@@ -40,9 +41,9 @@ public:
   string getCheckInDate() const { return checkInDate; }
   string getCheckOutDate() const { return checkOutDate; }
   int getRoomNo() const { return roomNo; }
-  string getRoomType() const { return roomType; }
-  string getIC() const { return ic; }
-  double getTotalPrice() const { return totalPrice; }
+  //string getRoomType() const { return roomType; }
+  //string getIC() const { return ic; }
+  //double getTotalPrice() const { return totalPrice; }
   void getBookingInfo() const {
     cout << checkInDate << "\t" << checkOutDate << "\t" << roomNo << "\t"
          << roomType << "\t" << ic << "\t" << totalPrice << endl;
@@ -88,7 +89,7 @@ public:
     temp->next = newNode;
   }
 
-  void insertMiddle2(BookingNode newBooking, string sKey) { // Insert the node after the node with specific value
+  void insertMiddle2CID(BookingNode newBooking, string sKey) { // Insert the node after the node with specific value
     BookingNode *temp = head;
     BookingNode *newNode = new BookingNode(newBooking);
 
@@ -100,11 +101,61 @@ public:
     temp->next = newNode;
   }
 
-  void insertMiddle3(BookingNode newBooking, string sKey) { // Insert the node before the node with specific value
+  void insertMiddle3CID(BookingNode newBooking, string sKey) { // Insert the node before the node with specific value
     BookingNode *temp = head, *prev; // similar to the removeEnd()
     BookingNode *newNode = new BookingNode(newBooking);
 
     while (temp->getCheckInDate() != sKey) { //(temp->next)
+      prev = temp;
+      temp = temp->next;
+    }
+
+    newNode->next = temp;
+    prev->next = newNode;
+  }
+
+  void insertMiddle2COD(BookingNode newBooking, string sKey) { // Insert the node after the node with specific value
+    BookingNode *temp = head;
+    BookingNode *newNode = new BookingNode(newBooking);
+
+    while (temp->getCheckOutDate() != sKey) {
+      temp = temp->next;
+    }
+
+    newNode->next = temp->next;
+    temp->next = newNode;
+  }
+
+  void insertMiddle3COD(BookingNode newBooking, string sKey) { // Insert the node before the node with specific value
+    BookingNode *temp = head, *prev; // similar to the removeEnd()
+    BookingNode *newNode = new BookingNode(newBooking);
+
+    while (temp->getCheckOutDate() != sKey) { //(temp->next)
+      prev = temp;
+      temp = temp->next;
+    }
+
+    newNode->next = temp;
+    prev->next = newNode;
+  }
+
+  void insertMiddle2RN(BookingNode newBooking, int sKey) { // Insert the node after the node with specific value
+    BookingNode *temp = head;
+    BookingNode *newNode = new BookingNode(newBooking);
+
+    while (temp->getRoomNo() != sKey) {
+      temp = temp->next;
+    }
+
+    newNode->next = temp->next;
+    temp->next = newNode;
+  }
+
+  void insertMiddle3RN(BookingNode newBooking, int sKey) { // Insert the node before the node with specific value
+    BookingNode *temp = head, *prev; // similar to the removeEnd()
+    BookingNode *newNode = new BookingNode(newBooking);
+
+    while (temp->getRoomNo() != sKey) { //(temp->next)
       prev = temp;
       temp = temp->next;
     }
@@ -145,10 +196,10 @@ public:
     delete temp;
   }
 
-  void deleteMid2(int sKey) {
+  void deleteMid2CID(string sKey) {
     BookingNode *temp = head, *pre;
 
-    while (temp->getData() != sKey) {
+    while (temp->getCheckInDate() != sKey) {
       pre = temp;
       temp = temp->next;
     }
@@ -157,10 +208,10 @@ public:
     delete temp;
   }
 
-  void deleteMid3(int sKey) {
+  void deleteMid3CID(string sKey) {
     BookingNode *temp = head, *del;
 
-    while (temp->getData() != sKey) {
+    while (temp->getCheckInDate() != sKey) {
       temp = temp->next;
       del = temp->next;
     }
@@ -169,10 +220,82 @@ public:
     delete del;
   }
 
-  void deleteMid4(int sKey) {
+  void deleteMid4CID(string sKey) {
     BookingNode *temp = head, *pre;
 
-    while (temp->getData() != sKey) {
+    while (temp->getCheckInDate() != sKey) {
+      pre = temp;
+      temp = temp->next;
+    }
+
+    pre->next = temp->next;
+    delete temp;
+  }
+
+  void deleteMid2COD(string sKey) {
+    BookingNode *temp = head, *pre;
+
+    while (temp->getCheckOutDate() != sKey) {
+      pre = temp;
+      temp = temp->next;
+    }
+
+    pre->next = temp->next;
+    delete temp;
+  }
+
+  void deleteMid3COD(string sKey) {
+    BookingNode *temp = head, *del;
+
+    while (temp->getCheckOutDate() != sKey) {
+      temp = temp->next;
+      del = temp->next;
+    }
+
+    temp->next = del->next;
+    delete del;
+  }
+
+  void deleteMid4COD(string sKey) {
+    BookingNode *temp = head, *pre;
+
+    while (temp->getCheckOutDate() != sKey) {
+      pre = temp;
+      temp = temp->next;
+    }
+
+    pre->next = temp->next;
+    delete temp;
+  }
+
+  void deleteMid2RN(int sKey) {
+    BookingNode *temp = head, *pre;
+
+    while (temp->getRoomNo() != sKey) {
+      pre = temp;
+      temp = temp->next;
+    }
+
+    pre->next = temp->next;
+    delete temp;
+  }
+
+  void deleteMid3RN(int sKey) {
+    BookingNode *temp = head, *del;
+
+    while (temp->getRoomNo() != sKey) {
+      temp = temp->next;
+      del = temp->next;
+    }
+
+    temp->next = del->next;
+    delete del;
+  }
+
+  void deleteMid4RN(int sKey) {
+    BookingNode *temp = head, *pre;
+
+    while (temp->getRoomNo() != sKey) {
       pre = temp;
       temp = temp->next;
     }
@@ -204,22 +327,30 @@ public:
     cout << endl;
   }
 
+  void swapNodes(BookingNode* node1, BookingNode* node2) {
+      int temp = node1->getCheckInDate();
+      node1->setCheckInDate(node2->getCheckInDate());
+      node2->setCheckInDate(temp);
+  }
+
   void sortList() {
       if (head == NULL || head->next == NULL) {
           cout << "List is empty or has only one node." << endl;
+          return;
       }
-
+  
       BookingNode* current = head;
       BookingNode* nextNode = NULL;
       bool swapped;
-
+  
       do {
           swapped = false;
           current = head;
-
+  
           while (current->next != nextNode) {
-              if (current->data > current->next->data) {
-                  swap(current->data, current->next->data);
+              if (current->getCheckInDate() > current->next->getCheckInDate()) {
+                  // Swap entire nodes, not just dates
+                  swapNodes(current, current->next);
                   swapped = true;
               }
               current = current->next;
@@ -262,6 +393,7 @@ void insertMenu() {
     break;
     
   case 5:
+    
     break;
     
   case 6:
@@ -309,43 +441,39 @@ void insertMenu() {
       insertMenu();
       break;
     }
+  }
       
     void adminMenu() {
-      // BookingNode *booking=new Node();
+      //List list;
       int option;
       cout << "Admin Menu" << endl;
-      cout << "1. View Booking" << endl;
-      cout << "2. Insert Booking" << endl;
-      cout << "3. Delete Booking" << endl;
-      cout << "4. Search Booking" << endl;
-      cout << "5. Sort Booking" << endl;
-      cout << "6. Exit" << endl;
+      cout << "1. Insert Booking" << endl;
+      cout << "2. Delete Booking" << endl;
+      cout << "3. Search Booking" << endl;
+      cout << "4. Sort Booking" << endl;
+      cout << "5. Exit" << endl;
       cout << "Enter your option: ";
       cin >> option;
       cout << endl;
 
       switch (option) {
       case 1:
-        dispList();
-        break;
-
-      case 2:
         insertMenu();
         break;
 
-      case 3:
+      case 2:
         deleteMenu();
         break;
 
-      case 4:
+      case 3:
         cout << "Please type the searchkey" << endl;
         cin >> key;
         break;
 
-      case 5:
+      case 4:
         break;
 
-      case 6:
+      case 5:
         break;
 
       default:
@@ -356,9 +484,11 @@ void insertMenu() {
     }
 
     int main() {
+      List bookingList;
       cout << "---------------------------------" << endl;
       cout << "LogiCode Hotel Management System" << endl;
       cout << "---------------------------------" << endl;
+      bookingList.dispList();
       adminMenu();
       return 0;
     }
