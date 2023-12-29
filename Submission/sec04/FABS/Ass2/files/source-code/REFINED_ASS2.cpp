@@ -30,7 +30,7 @@ class Courier {
 		    if (printHeader) {
 			    cout << left << setw(20) << "Tracking Number" << setw(20) << "Name"
 				 << setw(20) << "Parcel Type" << setw(20) << "Source"
-				 << setw(20) << "Destination" << setw(20) << "Status << endl;
+				 << setw(20) << "Destination" << setw(20) << "Status" << endl;
 			    cout << setfill('-') << setw(120) << " " << setfill('-') << endl;
         	    }
 
@@ -166,7 +166,7 @@ class LinkedList {
 			Node* temp = head;
 			head = head->next;
 			delete temp;
-			cout << "Node deleted at the beginning.\n" << endl;
+			cout << "Courier deleted at the beginning.\n" << endl;
 		}
 		
 		void deleteMiddle(int position) {
@@ -206,7 +206,7 @@ class LinkedList {
 			
 			prev->next = curr->next;
 			delete curr;
-			cout << "Node deleted at the position " << position << ".\n" << endl;
+			cout << "Courier deleted at the position " << position << ".\n" << endl;
 		}
 		
 		void deleteBack() {
@@ -225,10 +225,10 @@ class LinkedList {
 			}
 			delete curr->next;
 			curr->next = NULL;
-			cout << "Node deleted at the end.\n" << endl;
+			cout << "Courier deleted at the end.\n" << endl;
 		}
 		
-		Node* findNode(const Courier& searchData) {
+		void findNode(const Courier& searchData) {
 		    Node* curr = head;
 		    bool found = false;
 			
@@ -510,7 +510,8 @@ int main() {
 		cout << "\nSearching...\n";
 		courierList.findNode(searchCourier);
 		break;
-            }
+           	}
+	}
 	        case 4: {
 	            int sortCriteria;
 	            bool sorting;
