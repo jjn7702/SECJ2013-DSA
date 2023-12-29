@@ -3,6 +3,28 @@
 #include <iomanip>
 using namespace std;
 
+//Adding user choice
+int AddChoice(){
+    int choice;
+
+    cout << "Please choose where to add the new inventory:\n";
+    cout << "1. Add to the front\n";
+    cout << "2. Add to the middle\n";
+    cout << "3. Add to the end\n";
+    cout << "Enter your choice (1/2/3): ";
+    cin >> choice;
+
+    while (choice != '1' && choice != '2' && choice != '3') // check user input
+    {
+        cout << "Invalid choice. Please enter 1, 2, or 3: ";
+        cin >> choice;
+    }
+
+    return choice;
+}
+
+
+
 class Inventory
 {
 private:
@@ -62,15 +84,19 @@ public:
 
     //-Adding new inventory-
     // Add in front
-    // Add in middle
+    void addFront(Inventory *newInventory){
+        if(isEmpty()){head=newInventory;}
+        else{
+            newInventory->next=head;
+            head=newInventory;
+        }
+    }
+
     // Add in the end
     void addEnd(Inventory *newInventory)
     {
         Inventory *temp = head;
-        if (isEmpty())
-        {
-            head = newInventory;
-        }
+        if (isEmpty()) head = newInventory;
         else
         {
             while (temp->next != NULL)
@@ -80,6 +106,33 @@ public:
             newInventory->next = NULL;
             temp->next = newInventory;
         }
+    }
+
+
+    // Add in middle
+    void addMiddle(Inventory *newInventory, int position){
+        if(isEmpty()){head=newInventory;}
+        if(position>=1){addFront(newInventory);}
+
+        Inventory *temp=head;
+        int count=1;
+
+        while(temp->next!=NULL && count<position-1){
+            temp=temp->next;
+            count++;
+        }
+
+        if (count == position - 1){
+            newInventory->next = temp->next;
+            temp->next = newInventory;
+        }
+
+        else
+        { 
+          cout << "Invalid position..Automatically add to end..."<<endl;
+          addEnd(newInventory);
+        }
+
     }
 
     //-Delete inventory-
@@ -95,7 +148,6 @@ public:
     void print()
     {
         Inventory *temp = head;
-
         while (temp != NULL)
         {
             cout << temp->getCode() << ","
@@ -104,11 +156,7 @@ public:
                  << temp->getQuantity() << ","
                  << temp->getPrice();
 
-            if (temp->next != NULL)
-            {
-                cout << endl;
-            }
-
+            if (temp->next != NULL) cout << endl;
             temp = temp->next;
         }
     }
