@@ -185,8 +185,46 @@ public:
     }
          
 
-    /*// Function to sort the list (using bubble sort as an example)
-    void sortList() {
+    // Function to sort the list (using bubble sort as an example)
+void swap(Menu& a, Menu& b) {
+    Menu temp = a;
+    a = b;
+    b = temp;
+}
+
+void FoodIdASC(Menu menuArray[]) {
+    string fI[SIZE];
+    for (int last = SIZE - 1; last >= 1; --last) {
+
+        fI[last] = menuArray[last].getFoodId();
+        int largestIndex = 0;
+        for (int p = 1; p <= last; ++p) {
+            if (menuArray[p].getFoodId() > menuArray[largestIndex].getFoodId())
+                largestIndex = p;
+        }
+        swap(menuArray[largestIndex], menuArray[last]);
+    }
+    displayHeader();
+    printSortedResult(menuArray);
+}
+
+void PriceASC(Menu menuArray[]) {
+    string fI[SIZE];
+    for (int last = SIZE - 1; last >= 1; --last) {
+
+        fI[last] = menuArray[last].getPrice();
+        int largestIndex = 0;
+        for (int p = 1; p <= last; ++p) {
+            if (menuArray[p].getPrice() > menuArray[largestIndex].getPrice())
+                largestIndex = p;
+        }
+        swap(menuArray[largestIndex], menuArray[last]);
+    }
+    displayHeader();
+    printSortedResult(menuArray);
+}
+
+/*    void sortList() {
         if (head == nullptr || head->next == nullptr) {
             return; // List is empty or has only one node
         }
