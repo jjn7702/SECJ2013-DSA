@@ -202,7 +202,7 @@ public:
     delete temp;
   }
 
-  void deleteMid2CR(string sKey1, int sKey2) {
+  void deleteMidCR(string sKey1, int sKey2) {
     BookingNode *temp = head, *pre;
 
     while ((temp->getCheckInDate() != sKey1)&&(temp->getRoomNo() != sKey2)) {
@@ -228,8 +228,10 @@ public:
 
   void dispList() {
     BookingNode *temp = head;
-
+    int i = 0;
     while (temp != NULL) {
+      ++i;
+      cout << i << " ";
       temp->getBookingInfo();
       cout << "\t";
       temp = temp->next;
@@ -319,7 +321,31 @@ public:
     else {
      return 0;   
   }
+  }
 };
+
+void readBookingData(BookingNode* head) {
+    ifstream bookinginpFile("booking.txt");
+    if (!bookinginpFile.is_open()) {
+        cout << "Unable to open file!" << endl;
+        return;
+    }
+
+    string checkInDate;
+    string checkOutDate;
+    int roomNo;
+    string roomType;
+    string ic;
+    double totalPrice;
+
+    while (bookinginpFile >> checkInDate >> checkOutDate >> roomNo >> roomType >>
+           ic >> totalPrice) {
+        BookingNode* newNode = new BookingNode(checkInDate, checkOutDate, roomNo, roomType, ic, totalPrice);
+        newNode.insertEnd(head, newNode);
+    }
+
+    bookinginpFile.close();
+}
 
 void insertMenu(List &bookingList) {
   int option;
@@ -434,15 +460,15 @@ void insertMenu(List &bookingList) {
   void deleteMenu(List &bookingList) {
     int option;
     int position;
+    string checkInDate;
+    int roomNo;
     bookingList.dispList();
 
     cout << "1. Delete the First Booking" << endl;
     cout << "2. Delete at a Specific Position" << endl;
-    cout << "3. Delete the Last Booking" << endl;
-    cout << "4. Delete Booking at Specific Check-In Date" << endl;
-    cout << "5. Delete Booking at Specific Check-Out Date" << endl;
-    cout << "6. Delete Booking at Specific Room Number" << endl;
-    cout << "7. Exit" << endl;
+    cout << "3. Delete Booking at Specific Check-In Date and Room No" << endl;
+    cout << "4. Delete the Last Booking" << endl;
+    cout << "5. Exit" << endl;
     cin >> option;
     cout << endl;
     
@@ -456,17 +482,16 @@ void insertMenu(List &bookingList) {
       bookingList.deleteMid(position);
       break;
     case 3:
-      bookingList.deleteEnd();
+      cout << "Check In Date:" << endl;
+      getline(cin, checkInDate);
+      cout << "Room Number:" << endl;
+      cin >> roomNo;
+      bookingList.deleteMidCR(checkInDate, roomNo);
       break;
     case 4:
-      cout << "Position:" << endl;
-      cin >> position;
+      bookingList.deleteEnd();
       break;
     case 5:
-      cout << "Position:" << endl;
-      cin >> position;
-      break;
-    case 6:
       break;
     default:
       cout << "Enter a valid option." << endl;
@@ -477,7 +502,7 @@ void insertMenu(List &bookingList) {
 
   void adminMenu(List &bookingList) {
     int option;
-    int skey;
+    string skey_ic;
     
     cout << "Admin Menu" << endl;
     cout << "1. Insert Booking" << endl;
@@ -500,16 +525,17 @@ void insertMenu(List &bookingList) {
       break;
 
     case 3:
-      cout << "Please type the searchkey" << endl;
-      cin >> skey;
-      bookingList.FindNode(skey);
+      cout << "Please type the search key (IC without '-')" << endl;
+      cin >> skey_ic;
+      cout << "The booking data is at" << bookingList.FindNode(skey_ic) << endl;
       break;
 
     case 4:
+      
       break;
 
     case 5:
-      
+      bookingList.dispList();
       break;
 
     case 6:
