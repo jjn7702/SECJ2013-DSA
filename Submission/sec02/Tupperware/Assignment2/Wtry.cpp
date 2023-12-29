@@ -35,6 +35,7 @@ public:
 
         // Display order details
         void displayMenu() const {
+
             cout << left;
             cout << setw(10) << foodId << " | "
                 << setw(21) << name << " | "
@@ -59,16 +60,6 @@ public:
     OrderList() : head(nullptr) {}
     bool isEmpty() {return head == NULL;}
 
-  /*  ~OrderList() {
-        // Implement destructor to free allocated memory
-        Node *current = head;
-        Node *next;
-        while (current != nullptr) {
-            next = current->next;
-            delete current;
-            current = next;
-        }
-    }*/
 
     // Functions to add a new node
     // Insert at the first
@@ -168,7 +159,7 @@ public:
              << setw(21) << "NAME" << " | "
              << setw(13) << "TYPE" << " | "
              << fixed << "PRICE" << endl;
-        cout << "---------------------------------------------------------" << endl;
+        cout << "-----------------------------------------------------------------" << endl;
         Node* current = head;
         while (current != nullptr) {
             current->order.displayMenu();
@@ -180,11 +171,34 @@ public:
 
 void displayHeader() {
     cout << left;
-    cout << setw(10) << "ID" << " | "
+    cout << setw(6) << "#" << "|"
+         << setw(10) << "ID" << " | "
          << setw(21) << "NAME" << " | "
          << setw(13) << "TYPE" << " | "
          << fixed << "PRICE" << endl;
     cout << "---------------------------------------------------------" << endl;
+}
+
+void displayMenu(Menu menuArray[]) {
+    for (int i = 0; i < SIZE; i++) {
+        cout << left;
+        cout << setw(5) << (i+1) << " | "
+             << setw(10) << menuArray[i].getFoodId() << " | "
+             << setw(21) << menuArray[i].getName() << " | "
+             << setw(13) << menuArray[i].getCategory() << " | "
+             << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
+    }
+}
+
+void displayMenuNew(Menu menuArray[]){
+     for (int i = 0; i < SIZE + 1; i++) {
+        cout << left;
+        cout << setw(5) << (i+1) << " | "
+             << setw(10) << menuArray[i].getFoodId() << " | "
+             << setw(21) << menuArray[i].getName() << " | "
+             << setw(13) << menuArray[i].getCategory() << " | "
+             << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
+    }   
 }
 
 void printSortedResult(Menu menuArray[]) {
@@ -268,8 +282,13 @@ int main() {
                 menuArray[size++] = Menu(foodId, name, category, price);
     }
 
+    //first output the initial menu first
+    displayHeader();
+    displayMenu(menuArray);
+
     nameFile.close();
 
+    
     do {
         cout << endl;
         cout << setw(5) << "[1] Add Menu" << endl;
@@ -284,14 +303,11 @@ int main() {
         switch (opt) {
             case 1:{
                 cout << "Enter the food ID : ";
-                getline(cin,foodId);
-                cin.ignore();
+                getline(cin >> ws, foodId);
                 cout << "Enter the food Name : ";
                 getline(cin, name);
-                cin.ignore();
                 cout << "Enter the category : ";
-                getline(cin, category);
-                //cin.ignore();
+                getline(cin >> ws, category);
                 cout << "Enter the price : ";
                 cin >> price;
 
@@ -302,34 +318,27 @@ int main() {
                 cout << "\nEnter your choice: ";
                 cin >> ins;
 
-                switch (ins)
-                {
-                case 1:
+                if (ins == 1) {
                     orderList.insertFront(Menu(foodId, name, category, price));
-                    break;
-                case 2:{
-
+                } else if (ins == 2) {
                     cout << "\nGive food ID existed in the Menu list : ";
+                    cin.ignore();
                     getline(cin, middle);
                     orderList.insertMiddle(Menu(foodId, name, category, price), middle);
-                }
-                    break;
-                case 3:
+                } else if (ins == 3) {
                     orderList.insertEnd(Menu(foodId, name, category, price));
-                    break;
-                case 4:{
+                } else if (ins == 4) {
                     cout << "\nGive food ID existed in the Menu list : ";
-                    getline(cin, middle);
+                    cin >> middle;
                     orderList.insertSpecified(Menu(foodId, name, category, price), middle);
-                }
-                    break;
-                default:
+                } else {
                     break;
                 }
+                break;
             }
 
             case 2:
-            
+            // PART NINA
             case 3:
             {
                 cout << "\nDo you want to seach by (N)ame, (C)ategory or (F)oodId?: ";
@@ -402,7 +411,7 @@ int main() {
                             FoodIdASC(menuArray);
                             break;
 /*                        case 2:
-                            PriceASC(newmenu);
+                            PART NINA
 */                            break;
                         default:
                             break;
@@ -419,8 +428,8 @@ int main() {
                             PriceASC(menuArray);
                             break;
                         case 2:
-/*                            PriceASC();
-*/                            break;
+/*                            PART NINA
+                          break;*/  
                         default:
                             break;
                         }
@@ -445,5 +454,7 @@ int main() {
     } while (opt != 6);
 
 
+    displayHeader();
+    displayMenuNew(menuArray);
     return 0;
 }
