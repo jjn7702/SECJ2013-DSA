@@ -11,6 +11,7 @@ int mainMenu()
     cout << "What do you need?\n"
          << "1. Add Inventory\n"
          << "5. Display Inventory List\n"
+         << "6. Exit\n"
          << "Enter your choice: ";
     cin >> menuChoice;
     system("CLS");
@@ -161,16 +162,17 @@ public:
             head = newInventory;
             found = true;
         }
-        
+
         if (position == 1)
         {
             addFront(newInventory);
             found = true;
         }
-        while (temp->next != NULL && count < position-1 && !found)
+
+        while (temp->next != NULL && count < position - 1 && !found)
         {
             temp = temp->next;
-            count ++;
+            count++;
         }
 
         if (!found)
@@ -179,8 +181,6 @@ public:
             temp->next = newInventory;
             found = true;
         }
-
-        
     }
 
     //-Delete inventory-
@@ -228,6 +228,24 @@ public:
             temp = temp->next;
         }
     }
+
+    // Store into database
+    void storeData(ofstream &out)
+    {
+        Inventory *temp = head;
+        while (temp != NULL)
+        {
+            out << left << setw(20) << temp->getCode()
+                << setw(20) << temp->getName()
+                << setw(20) << temp->getType()
+                << setw(15) << temp->getQuantity()
+                << setw(10) << fixed << setprecision(2) << temp->getPrice();
+
+            if (temp->next != NULL)
+                out << endl;
+            temp = temp->next;
+        }
+    }
 };
 
 int main()
@@ -270,42 +288,57 @@ int main()
     while (loop)
     {
         menuChoice = mainMenu();
-        switch(menuChoice){
-            case 1: {addChoice = AddChoice();
-                    getInfo(code,name,type,quantity,price);
-                    Inventory *newInventory = new Inventory(code,name,type,quantity,price);
-                    if (addChoice == 1)
-                    {
-                        InvList.addFront(newInventory);
-                        cout<<"New node has been successfully added to front.."<<endl<<endl;
-                    }
+        switch (menuChoice)
+        {
+        case 1:
+        {
+            addChoice = AddChoice();
+            getInfo(code, name, type, quantity, price);
+            Inventory *newInventory = new Inventory(code, name, type, quantity, price);
+            if (addChoice == 1)
+            {
+                InvList.addFront(newInventory);
+                cout << "New node has been successfully added to front.." << endl
+                     << endl;
+            }
 
-                    else if (addChoice == 2)
-                    {
-                        int pos;
-                        cout << "\n***If the position entered is invalid, it'll automatically insert at the end.***\n"
-                             << "Enter the position to add in the middle: ";
-                        cin >> pos;
-                        InvList.addMiddle(newInventory, pos);
-                        cout<<"New node has been successfully added to position "<<pos<<".."<<endl<<endl;
-                    }
+            else if (addChoice == 2)
+            {
+                int pos;
+                cout << "\n***If the position entered is invalid, it'll automatically insert at the end.***\n"
+                     << "Enter the position to add in the middle: ";
+                cin >> pos;
+                InvList.addMiddle(newInventory, pos);
+                cout << "New node has been successfully added to position " << pos << ".." << endl
+                     << endl;
+            }
 
-                    else if (addChoice == 3)
-                    {
-                        InvList.addEnd(newInventory);
-                        cout<<"New node has been successfully added to the end.."<<endl<<endl;
-                    }
-                    break;}
-            case 2: break;
-            case 3: break;
-            case 4: break;
-            case 5: InvList.displayList();
-                    break;
+            else if (addChoice == 3)
+            {
+                InvList.addEnd(newInventory);
+                cout << "New node has been successfully added to the end.." << endl
+                     << endl;
+            }
+            break;
         }
-
-
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            InvList.displayList();
+            break;
+        case 6:
+            loop = false;
+            break;
+        default:
+            break;
+        }
     }
 
+    InvList.storeData(out);
     // close both files
     inp.close();
     out.close();
