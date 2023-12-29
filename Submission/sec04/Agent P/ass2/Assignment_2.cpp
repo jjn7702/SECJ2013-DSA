@@ -146,7 +146,10 @@ void search(int opt,string key,int key2)
                     break; 
 
                     case 4:
-
+                        while(temp != NULL)
+                        {
+                            
+                        }
                         break;
 			}
 			}
