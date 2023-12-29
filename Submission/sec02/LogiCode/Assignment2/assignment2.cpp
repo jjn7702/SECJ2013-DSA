@@ -45,8 +45,10 @@ public:
   string getIC() const { return ic; }
   double getTotalPrice() const { return totalPrice; }
   void getBookingInfo() const {
-    cout << checkInDate << "\t" << checkOutDate << "\t" << roomNo << "\t"
-         << roomType << "\t" << ic << "\t" << totalPrice << endl;
+    cout << "| "<<setw(10) << checkInDate <<" | "<< setw(10) << checkOutDate
+             <<" |   "<< setw(4) << roomNo <<"  |   "<< setw(6) << roomType
+             <<"  | "<< setw(12) << ic <<" |    "<< fixed << setprecision(2) << setw(5) << totalPrice
+       <<"   |" << endl;
   }
 };
 
@@ -92,7 +94,7 @@ public:
         }
         temp = temp->next;
     }
-    
+
     if (!keyFound) {
         cout << "Sorry, Check-In Date not found. Cannot insert new booking after the Check-In Date." << endl;
         delete newNode;
@@ -116,7 +118,7 @@ public:
         prev = temp;
         temp = temp->next;
     }
-    
+
     if (!keyFound) {
         cout << "Sorry, Check-In Date not found. Cannot insert new booking before the Check-In Date." << endl;
         delete newNode;
@@ -289,12 +291,17 @@ public:
   void dispList() {
     BookingNode *temp = head;
     int i = 0;
+    cout<<"____________________________________________________________________________________"<<endl;
+      cout << left << setw(6) << "  No  " << setw(14) << "|  Check-in  |" << setw(13) << "  Check-out |" << setw(10) << " Room No |"
+           << setw(12) << " Room Type |" << setw(15) << " Customer  IC |" << setw(10) << " Total Price |" << endl;
+    cout<<"------------------------------------------------------------------------------------"<<endl;
     while (temp != NULL) {
       ++i;
-      cout << setw(3) << i << "\t";
+      cout << "  " << setw(4) << i;
       temp->getBookingInfo();
       temp = temp->next;
     }
+    cout<<"------------------------------------------------------------------------------------"<<endl;
   }
 
 BookingNode *insertFront(string checkIn, string checkOut, int room,
@@ -445,75 +452,75 @@ void insertMenu(List &bookingList) {
     cout << "Total Price: RM ";
     cin >> totalPrice;
     }
-    
+
     BookingNode newbooking(checkInDate, checkOutDate, roomNo, roomType, ic,
                            totalPrice);
     switch (option) {
     case 1:
       bookingList.insertFront(newbooking);
       break;
-  
+
     case 2:
       cout << "Position: ";
       cin >> position;
       bookingList.insertMiddle(newbooking, position - 1);
       break;
-  
+
     case 3:
       cout << "Position: ";
       cin >> position;
       bookingList.insertMiddle(newbooking, position - 2);
       break;
-  
+
     case 4:
       cout << "Position: ";
       cin >> position;
       bookingList.insertMiddle(newbooking, position);
       break;
-  
+
     case 5:
       cout << "Insert Booking before Check-In Date (YYYY/MM/DD) : ";
       cin >> sKey;
       bookingList.insertMiddle3CID(newbooking, sKey);
       break;
-  
+
     case 6:
       cout << "Insert Booking after Check-In Date (YYYY/MM/DD) : ";
       cin >> sKey;
       bookingList.insertMiddle2CID(newbooking, sKey);
       break;
-  
+
     case 7:
       cout << "Insert Booking before Check-Out Date (YYYY/MM/DD) : ";
       cin >> sKey;
       bookingList.insertMiddle3COD(newbooking, sKey);
       break;
-  
+
     case 8:
       cout << "Insert Booking after Check-Out Date (YYYY/MM/DD) : ";
       cin >> sKey;
       bookingList.insertMiddle2COD(newbooking, sKey);
       break;
-  
+
     case 9:
       cout << "Insert Booking before Room Number : ";
       cin >> sKey2;
       bookingList.insertMiddle3RN(newbooking, sKey2);
       break;
-  
+
     case 10:
       cout << "Insert Booking after Room Number : ";
       cin >> sKey2;
       bookingList.insertMiddle2RN(newbooking, sKey2);
       break;
-  
+
     case 11:
       bookingList.insertEnd(newbooking);
       break;
-  
+
     case 12:
       break;
-  
+
     default:
       cout << "Enter a valid option." << endl;
       insertMenu(bookingList);
@@ -568,7 +575,7 @@ void deleteMenu(List &bookingList) {
 void adminMenu(List &bookingList) {
   int option;
   string skey_ic;
-  
+
   do{
   cout << "\nAdmin Menu" << endl;
   cout << "1. Insert Booking" << endl;
@@ -624,11 +631,11 @@ void adminMenu(List &bookingList) {
 int main() {
   List bookingList;
   readBookingData(bookingList);
-  
+
   cout << "---------------------------------" << endl;
   cout << "LogiCode Hotel Management System" << endl;
   cout << "---------------------------------" << endl;
   adminMenu(bookingList);
-  
+
   return 0;
 }
