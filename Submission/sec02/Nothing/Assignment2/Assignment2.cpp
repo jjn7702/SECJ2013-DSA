@@ -396,7 +396,30 @@ inventory::inventory(int itemNumber, string itemName, string description, int qu
     this->itemLocation = itemLocation;
 }
 
+//setter
+void inventory::setItemNumber(int itemNumber){
+    this->itemNumber = itemNumber;
+}
 
+void inventory::setItemName(string itemName){
+    this->itemName = itemName;
+}
+
+void inventory::setDescription(string description){
+    this->description = description;
+}
+
+void inventory::setQuantity(int quantity){
+    this->quantity = quantity;
+}
+
+void inventory::setCost(double cost){
+    this->cost = cost;
+}
+
+void inventory::setItemLocation(string itemLocation){
+    this->itemLocation = itemLocation;
+}
 
 void inventory::print(){
     cout << setw(15) << left << itemNumber 
