@@ -493,64 +493,11 @@ Node* List::insertNode(inventory item, int index){
     }
     return newNode;
 }
-int List::findNodeNum(int itemNumber){
-    Node *currNode = head;
-    int currIndex = 1;
-    while (currNode && currNode->item.getItemNumber() != itemNumber){
-        currNode = currNode->next;
-        currIndex++;
-    }
-    if (currNode)
-        return currIndex;
-    return 0;
-}
-int List::findNodeName(string itemName){
-    Node *currNode = head;
-    int currIndex = 1;
-    while (currNode && currNode->item.getItemName() != itemName){
-        currNode = currNode->next;
-        currIndex++;
-    }
-    if (currNode)
-        return currIndex;
-    return 0;
-}
-int List::findNodeLocation(string itemLocation){
-    Node *currNode = head;
-    int currIndex = 1;
-    while (currNode && currNode->item.getItemLocation() != itemLocation){
-        currNode = currNode->next;
-        currIndex++;
-    }
-    if (currNode)
-        return currIndex;
-    return 0;
-}
-void List::displayList(){
-    Node *currNode = head;
-    while (currNode){
-        currNode->item.print();
-        currNode = currNode->next;
-    }
-}
-void List::deleteNode(int index){
-    if (index < 0)
-        return;
-    Node *currNode = head, *prevNode = NULL;
-    int currIndex = 1;
-    while (currNode && index > currIndex){
-        prevNode = currNode;
-        currNode = currNode->next;
-        currIndex++;
-    }
-    if (currNode == NULL)
-        return;
-    if (index == 0)
-        head = currNode->next;
-    else
-        prevNode->next = currNode->next;
-    delete currNode;
-}
+
+
+
+
+
 int List::count(){
     Node *currNode = head;
     int count = 0;
