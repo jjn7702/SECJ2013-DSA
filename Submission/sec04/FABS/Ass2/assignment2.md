@@ -16,6 +16,18 @@
 - [Findings](#findings)
 
 ## Objectives <a name="objectives"></a> :heavy_check_mark:
+   The objective is to implement a simple courier management system based on linked lists. The program reads courier data from a file, builds a linked list of courier objects, and provides a menu-driven interface for performing various operations on the courier list. Adding a new courier node to the list, deleting a node from the list, searching for a courier node based on specified criteria, sorting the list based on different criteria, and displaying the list are all supported operations.
+The following are the code's key features and objectives:
+
+1. Courier Service:
+A courier is represented by attributes such as name, parcel type, source, destination, status, and tracking number.
+Provides methods for setting and retrieving these attributes.
+There is a display method for printing the courier details.
+
+2. Node Class:
+A node in a linked list, each of which contains a Courier object and a pointer to the next node.
+
+
 
 ## Synopsis <a name="synopsis"></a> 📝
 
