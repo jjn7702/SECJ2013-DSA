@@ -394,7 +394,11 @@ void insertUI(int &opt1,int &opt2,List l)
 
 void deleteUI(int &opt1,int &opt2, List l)
 {
-
+    cout<<"\n[1] Delete at Front"<<endl;
+    cout<<"[2] Delete at End"<<endl;
+    cout<<"[3] Delete at Position"<<endl;
+    cout<<"Please choose an option : ";
+    cin>>opt1;
 }
 
 
