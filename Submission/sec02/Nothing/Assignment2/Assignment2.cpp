@@ -594,6 +594,26 @@ void List::SortbyNumber() {
     }
 }
 
+void List::SortbyName() {
+    if (head == NULL)
+        return;
+
+    Node* currNode = head;
+    Node* sortedNode = NULL;
+
+    while (currNode != NULL) {
+        Node* minNode = currNode;
+        Node* tempNode = currNode->next;
+
+        while (tempNode != NULL) {
+            if (tempNode->item.getItemName() < minNode->item.getItemName()) {
+                if (tempNode->item.getItemName() != minNode->item.getItemName()) {
+                    minNode = tempNode;
+                }
+            }
+            tempNode = tempNode->next;
+        }
+
 //other functionl
 bool isNumber(string s){
     for(int i = 0; i < s.length(); i++){
