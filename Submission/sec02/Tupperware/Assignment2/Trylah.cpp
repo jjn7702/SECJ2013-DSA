@@ -24,7 +24,7 @@ public:
     Menu menu;
     Node* next;
 
-    Node(Menu m) : menu(m), next(nullptr) {}
+    Node(const Menu& m) : menu(m), next(nullptr) {}
 };
 
 class List {
@@ -48,9 +48,9 @@ public:
         cout << endl;
     }
 
-    // Insert at the first
+    // Insert at the front
     void insertFront(const Menu& arr) {
-        Node* newHead = new Node(arr);
+        Node* newHead = new Node(arr); // pass value into the first node
         if (!isEmpty())
             newHead->next = head;
         head = newHead;
@@ -73,11 +73,9 @@ public:
     void insertMiddle(const Menu& newOne, const string& middle) {
         Node* newNode = new Node(newOne);
         Node* temp = head;
-        int count = 1;
 
         while (temp->menu.getFoodId() != middle && temp->next != nullptr) {
             temp = temp->next;
-            count++;
         }
 
         newNode->next = temp->next;
@@ -99,51 +97,66 @@ public:
         prev->next = newNode;
     }
 
-    // Delete a node
-    void deleteNode(const string& key) {
+    // Delete the first node
+    void deleteFirst() {
+        if (!isEmpty()) {
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+        }
+    }
+
+    // Delete a node in the middle
+    void deleteMiddle(const string& middle) {
         Node* temp = head;
         Node* prev = nullptr;
 
-        // If the key matches the first node
-        if (temp != nullptr && temp->menu.getFoodId() == key) {
-            head = temp->next;
-            delete temp;
-            return;
-        }
-
-        // Search for the key to be deleted
-        while (temp != nullptr && temp->menu.getFoodId() != key) {
+        while (temp != nullptr && temp->menu.getFoodId() != middle) {
             prev = temp;
             temp = temp->next;
         }
 
-        // If the key is not present
-        if (temp == nullptr) {
-            cout << "Key not found. Deletion failed." << endl;
-            return;
+        if (temp != nullptr) {
+            prev->next = temp->next;
+            delete temp;
         }
-
-        // Unlink the node from linked list
-        prev->next = temp->next;
-
-        // Free memory
-        delete temp;
     }
 
-    // Find a node based on the search key
-    Node* findNode(const string& searchKey) const {
+    // Delete the last node
+    void deleteEnd() {
+        if (!isEmpty()) {
+            Node* temp = head;
+            Node* prev = nullptr;
+
+            while (temp->next != nullptr) {
+                prev = temp;
+                temp = temp->next;
+            }
+
+            if (prev != nullptr) {
+                prev->next = nullptr;
+                delete temp;
+            } else {
+                // Only one node in the list
+                delete temp;
+                head = nullptr;
+            }
+        }
+    }
+
+    // Function to find a node by foodId
+    Node* findNode(const string& searchFoodId) const {
         Node* current = head;
-        while (current != nullptr && current->menu.getFoodId() != searchKey) {
+        while (current != nullptr && current->menu.getFoodId() != searchFoodId) {
             current = current->next;
         }
         return current;
     }
 
-    // Sorting the list (bubble sort)
-    void sortList(const string& sortBy) {
-        if (isEmpty() || head->next == nullptr) {
-            cout << "List is empty or has only one node. No need to sort." << endl;
-            return;
+    // Function to sort the list in ascending order based on foodId
+    void sortList() {
+        if (head == nullptr || head->next == nullptr) {
+            return; // List is empty or has only one node
         }
 
         bool swapped;
@@ -154,8 +167,8 @@ public:
             Node* current = head;
 
             while (current->next != last) {
-                if (compareNodes(current, current->next, sortBy)) {
-                    swapNodes(current, current->next);
+                if (current->menu.getFoodId() > current->next->menu.getFoodId()) {
+                    swap(current, current->next);
                     swapped = true;
                 }
                 current = current->next;
@@ -164,28 +177,11 @@ public:
         } while (swapped);
     }
 
-private:
-    // Compare two nodes based on the specified attribute for sorting
-    bool compareNodes(Node* node1, Node* node2, const string& sortBy) const {
-        if (sortBy == "foodId")
-            return node1->menu.getFoodId() > node2->menu.getFoodId();
-        else if (sortBy == "name")
-            return node1->menu.getName() > node2->menu.getName();
-        else if (sortBy == "category")
-            return node1->menu.getCategory() > node2->menu.getCategory();
-        else if (sortBy == "price")
-            return node1->menu.getPrice() > node2->menu.getPrice();
-        else {
-            cout << "Invalid sorting attribute. No sorting performed." << endl;
-            return false;
-        }
-    }
-
-    // Swap the data of two nodes
-    void swapNodes(Node* node1, Node* node2) const {
-        Menu temp = node1->menu;
-        node1->menu = node2->menu;
-        node2->menu = temp;
+    // Function to swap two nodes
+    void swap(Node* a, Node* b) {
+        Menu temp = a->menu;
+        a->menu = b->menu;
+        b->menu = temp;
     }
 };
 
@@ -214,22 +210,30 @@ int main() {
     menuList.insertSpecified(Menu("ID006", "Sushi", "Japanese", 12.99), "ID003");
     menuList.dispList();
 
-    // Delete a node
-    menuList.deleteNode("ID002");
+    // Delete the first node
+    menuList.deleteFirst();
     menuList.dispList();
 
-    // Find a node
-    Node* foundNode = menuList.findNode("ID004");
+    // Delete a node in the middle
+    menuList.deleteMiddle("ID003");
+    menuList.dispList();
+
+    // Delete the last node
+    menuList.deleteEnd();
+    menuList.dispList();
+
+    // Find a node by foodId
+    Node* foundNode = menuList.findNode("ID002");
     if (foundNode != nullptr) {
         cout << "Node Found:\n";
         cout << "Food ID: " << foundNode->menu.getFoodId() << ", Name: " << foundNode->menu.getName()
              << ", Category: " << foundNode->menu.getCategory() << ", Price: " << foundNode->menu.getPrice() << endl;
     } else {
-        cout << "Node Not Found." << endl;
+        cout << "Node Not Found.\n";
     }
 
-    // Sort the list by price
-    menuList.sortList("price");
+    // Sort the list in ascending order based on foodId
+    menuList.sortList();
     menuList.dispList();
 
     return 0;
