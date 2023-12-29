@@ -625,7 +625,30 @@ int main()
     cout<<"Please choose an option : ";
     cin>>opt1;
 
-	    l.display();
+    do{
+    
+        if(opt1==1){
+            cout<<"\nPlease enter number of voters needed to be inserted >> ";
+            cin>>num;
+
+            do{
+                insertUI(opt1,opt2,l);
+                VoterDetials(name,faculty,age,ic,email,matric);
+                switch(opt1){
+                    case 1 : l.insertFront(name,faculty,age,ic,email,matric);
+                            break;
+                    case 2 : l.insertend(name,faculty,age,ic,email,matric);
+                            break;
+                    case 3 : l.insertAtNode(name,faculty,age,ic,email,matric,opt2);
+                            break;
+                }
+                num--;
+            }while(num>0);
+
+            cout<<"\nView voters (y/n) : ";
+            cin>>answer2;
+        if(answer2 == 'y' || answer2 == 'Y')
+	        l.display();
         }
         else if(opt1==2)
         {
