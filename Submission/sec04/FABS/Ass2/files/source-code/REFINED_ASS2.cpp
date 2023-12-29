@@ -31,7 +31,7 @@ class Courier {
 			    cout << left << setw(20) << "Tracking Number" << setw(20) << "Name"
 				 << setw(20) << "Parcel Type" << setw(20) << "Source"
 				 << setw(20) << "Destination" << setw(20) << "Status" << endl;
-			    cout << setfill('-') << setw(120) << " " << setfill('-') << endl;
+			    cout << setfill('-') << setw(120) << " " << setfill(' ') << endl;
         	    }
 
 		    cout << left << setw(20) << trackingNum << setw(20) << name
