@@ -65,6 +65,11 @@ class List
                 temp->next = newNode;
             }
 
+        void deleteEnd()
+        {
+            
+        }
+
         }
 void search(int opt,string key,int key2)
         {
