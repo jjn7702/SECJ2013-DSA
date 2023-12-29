@@ -12,13 +12,13 @@ private:
 
 public:
     Inventory *next;
-    Inventory()
+    /*Inventory()
     {
         invCode = invName = invType = "";
         quantity = 0;
         price = 0.0;
         next = NULL;
-    }
+    }*/
 
     Inventory(string c, string n, string t, int q, float p)
     {
@@ -27,6 +27,7 @@ public:
         invType = t;
         quantity = q;
         price = p;
+        next = NULL;
     }
 
     void putCode(string c) { invCode = c; }
@@ -61,70 +62,24 @@ public:
 
     //-Adding new inventory-
     // Add in front
-    void addFront(Inventory d){
-        Inventory *newInventory= new Inventory(d);
-        if(head==NULL){head=newInventory;}
-        else{
-            Inventory* temp;
-            temp=newInventory;
-            temp->next=head;
-            
-        }
-    }
-    
     // Add in middle
-    void addMiddle(Inventory d, int position){
-        Inventory *newInventory= new Inventory(d);
-        Inventory*temp=head;
-        int count=1;
-
-        while(temp->next!=NULL && count<position-1){
-            temp=temp->next;
-            count++;
+    // Add in the end
+    void addEnd(Inventory *newInventory)
+    {
+        Inventory *temp = head;
+        if (isEmpty())
+        {
+            head = newInventory;
         }
-        newInventory->next=temp->next;
-        temp->next =newInventory;
-    }
-    
-
-    // Add in the end 
-    void addEnd(Inventory d){
-        Inventory *newInventory= new Inventory(d);
-        Inventory *temp=head;
-        while(temp->next!=NULL){
-            temp=temp->next;
-        }
-        temp->next= newInventory;
-        newInventory->next=NULL;
-
-    }
-
-    //write the added Inventory list to file
-    void writeListToFile(string filename){
-        ofstream outFile;
-        outFile.open(filename);
-
-        if(!outFile){
-            cout<<"Error while opening output file..."<<endl;
-            return;
-        }
-
-        Inventory* temp = head;
-
-        while (temp != NULL) {
-            outFile << temp->getCode() << ","
-                    << temp->getName() << ","
-                    << temp->getType() << ","
-                    << temp->getQuantity() << ","
-                    << temp->getPrice();
-
-            if (temp->next != NULL) {
-                outFile << endl;
+        else
+        {
+            while (temp->next != NULL)
+            {
+                temp = temp->next;
             }
-
-            temp = temp->next;
+            newInventory->next = NULL;
+            temp->next = newInventory;
         }
-        outFile.close();
     }
 
     //-Delete inventory-
@@ -137,15 +92,34 @@ public:
     // Finding a node based in sKey
 
     // Display all the node
+    void print()
+    {
+        Inventory *temp = head;
+
+        while (temp != NULL)
+        {
+            cout << temp->getCode() << ","
+                 << temp->getName() << ","
+                 << temp->getType() << ","
+                 << temp->getQuantity() << ","
+                 << temp->getPrice();
+
+            if (temp->next != NULL)
+            {
+                cout << endl;
+            }
+
+            temp = temp->next;
+        }
+    }
 };
 
 int main()
 {
     string code, name, type;
-    int quantity, counter = 0, choice, mChoice;
+    int quantity, choice, mChoice, count = 0;
     float price;
-    //Inventory inv[5];
-
+    List InvList;
     ifstream inp;
     ofstream out;
     bool loop = true;
@@ -160,7 +134,7 @@ int main()
     }
 
     // retrieve the data from input.txt file and store them into array
-    /*while (!inp.eof())
+    while (!inp.eof())
     {
         getline(inp, code, ',');
         getline(inp, name, ',');
@@ -169,41 +143,12 @@ int main()
         inp.ignore();
         inp >> price;
         inp.ignore();
-        inv[counter].putCode(code);
-        inv[counter].putName(name);
-        inv[counter].putType(type);
-        inv[counter].putQuantity(quantity);
-        inv[counter].putPrice(price);
-        counter++;
+        Inventory *inv = new Inventory(code, name, type, quantity, price);
+        InvList.addEnd(inv);
+        count++;
     }
 
-    for (int i = 0; i < counter; i++)
-    {
-        out << inv[i].getCode() << ","
-            << inv[i].getName() << ","
-            << inv[i].getType() << ","
-            << inv[i].getQuantity() << ","
-            << inv[i].getPrice();
-
-        if (i != counter - 1)
-        {
-            out << endl;
-        }
-    } */
-
-    //create an inventory list
-    List myList;
-
-    //add Inventory
-    //add front
-    myList.addFront(Inventory("ADD001","Clock","Accessories",3,18.90));
-    //add middle (exp:add at 3th position)
-    myList.addMiddle(Inventory("ADD002", "Watch", "Accessories", 1, 29.99), 3);
-    //add End
-    myList.addEnd(Inventory("ADD003","Mirror","LifeNeeds",2,5.80));
-
-    myList.writeListToFile("Output.txt");
-    
+    InvList.print();
 
     // close both files
     inp.close();
