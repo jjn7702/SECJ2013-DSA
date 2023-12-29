@@ -26,7 +26,7 @@ class BookingNode {
   string roomType;
   string ic;
   double totalPrice;
-  
+
 public:
   BookingNode *next;
   BookingNode()
@@ -34,15 +34,18 @@ public:
         totalPrice(0.0){};
   BookingNode(string i, string o, int n, string t, string ic_, double p)
       : checkInDate(i), checkOutDate(o), roomNo(n), roomType(t), ic(ic_),
-        totalPrice(p){ next = NULL; };
+        totalPrice(p) {
+    next = NULL;
+  };
   string getCheckInDate() const { return checkInDate; }
-  //string getCheckOutDate() const { return checkOutDate; }
-  //int getRoomNo() const { return roomNo; }
-  //string getRoomType() const { return roomType; }
-  //string getIC() const { return ic; }
-  //double getTotalPrice() const { return totalPrice; }
+  // string getCheckOutDate() const { return checkOutDate; }
+  // int getRoomNo() const { return roomNo; }
+  // string getRoomType() const { return roomType; }
+  // string getIC() const { return ic; }
+  // double getTotalPrice() const { return totalPrice; }
   void getBookingInfo() const {
-    cout << checkInDate << '\t' << checkOutDate << '\t' << roomNo << '\t' << roomType << '\t' << ic << '\t' << totalPrice << endl;
+    cout << checkInDate << "\t" << checkOutDate << "\t" << roomNo << "\t"
+         << roomType << "\t" << ic << "\t" << totalPrice << endl;
   }
 };
 
@@ -62,115 +65,268 @@ private:
 public:
   List() : head(nullptr) {}
 
-  bool isEmpty(){
-    return (head == NULL);
-  }
+  bool isEmpty() { return (head == NULL); }
 
   void insertFront(BookingNode newBooking) {
     BookingNode *newNode = new BookingNode(newBooking);
-    if(!isEmpty())
-        newNode->next=head;
-      head=newNode;
-    }
+    if (!isEmpty())
+      newNode->next = head;
+    head = newNode;
+  }
 
   void insertMiddle(BookingNode newBooking, int loc) {
-      BookingNode *temp = head;
-      BookingNode *newNode = new BookingNode(newBooking);
-      int count = 1;
+    BookingNode *temp = head;
+    BookingNode *newNode = new BookingNode(newBooking);
+    int count = 1;
 
-      while (temp->next != NULL && count < loc) {
-        temp = temp->next;
-        count++;
-      }
-
-      newNode->next = temp->next;
-      temp->next = newNode;
+    while (temp->next != NULL && count < loc) {
+      temp = temp->next;
+      count++;
     }
 
-  void insertMiddle2(
-BookingNode newBooking, string sKey) { // Insert the node after the node with specific value
+    newNode->next = temp->next;
+    temp->next = newNode;
+  }
+
+  void insertMiddle2(BookingNode newBooking, string sKey) { // Insert the node after the node with specific value
     BookingNode *temp = head;
     BookingNode *newNode = new BookingNode(d);
 
-      while (temp->getCheckInDate() != sKey) {
-        temp = temp->next;
-      }
-
-      newNode->next = temp->next;
-      temp->next = newNode;
+    while (temp->getCheckInDate() != sKey) {
+      temp = temp->next;
     }
 
-  void insertEnd(BookingNode newBooking){
-      BookingNode *temp = head; 
-      BookingNode *newNode = new BookingNode(newBooking);
+    newNode->next = temp->next;
+    temp->next = newNode;
+  }
 
-      while (temp->next != NULL)
-      {
-          temp = temp->next;
-      }
+  void insertMiddle3(BookingNode newBooking, string sKey) { // Insert the node before the node with specific value
+    BookingNode *temp = head, *prev; // similar to the removeEnd()
+    BookingNode *newNode = new BookingNode(newBooking);
 
-      temp->next = newNode;
+    while (temp->getCheckInDate() != sKey) { //(temp->next)
+      prev = temp;
+      temp = temp->next;
+    }
+
+    newNode->next = temp;
+    prev->next = newNode;
+  }
+
+  void insertEnd(BookingNode newBooking) {
+    BookingNode *temp = head;
+    BookingNode *newNode = new BookingNode(newBooking);
+
+    while (temp->next != NULL) {
+      temp = temp->next;
+    }
+
+    temp->next = newNode;
   }
 
   void deleteFront() {
     BookingNode *temp = head;
     head = head->next;
-    temp->next=NULL;
+    temp->next = NULL;
     delete temp;
+  }
+
+  void deleteMid(int loc) {
+    BookingNode *temp = head, *pre;
+    int count = 1;
+
+    while (temp->next != NULL && count < loc) {
+      pre = temp;
+      temp = temp->next;
+      count++;
     }
 
+    pre->next = temp->next;
+    delete temp;
+  }
+
+  void deleteMid2(int sKey) {
+    BookingNode *temp = head, *pre;
+
+    while (temp->getData() != sKey) {
+      pre = temp;
+      temp = temp->next;
+    }
+
+    pre->next = temp->next;
+    delete temp;
+  }
+
+  void deleteMid3(int sKey) {
+    BookingNode *temp = head, *del;
+
+    while (temp->getData() != sKey) {
+      temp = temp->next;
+      del = temp->next;
+    }
+
+    temp->next = del->next;
+    delete del;
+  }
+
+  void deleteMid4(int sKey) {
+    BookingNode *temp = head, *pre;
+
+    while (temp->getData() != sKey) {
+      pre = temp;
+      temp = temp->next;
+    }
+
+    pre->next = temp->next;
+    delete temp;
+  }
+
+  void deleteEnd() {
+    BookingNode *temp = head, *pre;
+
+    while (temp->next != NULL) {
+      pre = temp;
+      temp = temp->next;
+    }
+
+    delete temp;
+    pre->next = NULL;
+  }
+
+  void dispList() {
+    BookingNode *temp = head;
+
+    while (temp != NULL) {
+      temp->getBookingInfo();
+      cout << "\t";
+      temp = temp->next;
+    }
+    cout << endl;
+  }
 };
 
-void insertMenu(){
-  cout << "1. Insert " << endl;
-  cout << "2. Sort Booking" << endl;
-  cout << "3. Insert Booking" << endl;
-}
-void adminMenu() {
-  //BookingNode *booking=new Node();
+void insertMenu() {
   int option;
-  cout << "Admin Menu" << endl;
-  cout << "1. View Booking" << endl;
-  cout << "2. Sort Booking" << endl;
-  cout << "3. Insert Booking" << endl;
-  cout << "4. Delete Booking" << endl;
-  cout << "5. Search Booking" << endl;
-  cout << "6. Exit" << endl;
-  cout << "Enter your option: ";
+  // BookingNode *booking=new Node();
+  cout << "1. Insert Front" << endl;
+  cout << "2. Insert Middle" << endl;
+  cout << "3. Insert End" << endl;
+  cout << "4. Exit" << endl;
   cin >> option;
   cout << endl;
-
   switch (option) {
   case 1:
     break;
-
   case 2:
     break;
-
   case 3:
-    insertMenu();
     break;
-
   case 4:
     break;
-
-  case 5:
-    break;
-
-  case 6:
-    break;
-  
   default:
     cout << "Enter a valid option." << endl;
-    adminMenu();
+    insertMenu();
     break;
   }
-}
+  
+  void deleteMenu() {
+    int option;
+    int location;
+    // BookingNode *booking=new Node();
+    cout << "Which booking do you want to delete?" << endl;
+    "
+        cout
+        << "1. First booking" << endl;
+    cout << "2. Last booking" << endl;
+    cout << "3. Specific location" << endl;
+    cout << "4. Exit" << endl;
+    cin >> option;
+    cout << endl;
+    switch (option) {
+    case 1:
+      break;
+    case 2:
+      break;
+    case 3:
+      cout << "Please type the location" << endl;
+      cin >> location;
+      break;
+    case 4:
+      break;
+    default:
+      cout << "Enter a valid option." << endl;
+      insertMenu();
+      break;
+    }
 
-int main() {
-  cout << "---------------------------------" << endl;
-  cout << "LogiCode Hotel Management System" << endl;
-  cout << "---------------------------------" << endl;
-  adminMenu();
-  return 0; 
-}
+    void searchMenu() {
+    int option;
+    // BookingNode *booking=new Node();
+    cout << "Please type the searchkey" << endl;
+    cin >> key;
+    cout << endl;
+    switch (option) {
+    case 1:
+      break;
+    case 2:
+      break;
+    case 3:
+      break;
+    case 4:
+      break;
+    default:
+      cout << "Enter a valid option." << endl;
+      insertMenu();
+      break;
+    }
+      
+    void adminMenu() {
+      // BookingNode *booking=new Node();
+      int option;
+      cout << "Admin Menu" << endl;
+      cout << "1. View Booking" << endl;
+      cout << "2. Insert Booking" << endl;
+      cout << "3. Delete Booking" << endl;
+      cout << "4. Search Booking" << endl;
+      cout << "5. Sort Booking" << endl;
+      cout << "6. Exit" << endl;
+      cout << "Enter your option: ";
+      cin >> option;
+      cout << endl;
+
+      switch (option) {
+      case 1:
+        break;
+
+      case 2:
+        insertMenu();
+        break;
+
+      case 3:
+        deleteMenu();
+        break;
+
+      case 4:
+        searchMenu();
+        break;
+
+      case 5:
+        break;
+
+      case 6:
+        break;
+
+      default:
+        cout << "Enter a valid option." << endl;
+        adminMenu();
+        break;
+      }
+    }
+
+    int main() {
+      cout << "---------------------------------" << endl;
+      cout << "LogiCode Hotel Management System" << endl;
+      cout << "---------------------------------" << endl;
+      adminMenu();
+      return 0;
+    }
