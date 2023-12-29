@@ -103,7 +103,7 @@ public:
     }
     
     if (!keyFound) {
-        cout << "Key not found. Cannot insert after the node with the given Check-In Date." << endl;
+        cout << "Sorry, Check-In Date not found. Cannot insert new booking after the Check-In Date." << endl;
         delete newNode;
         return;
     }
@@ -116,9 +116,20 @@ public:
     BookingNode *temp = head, *prev; // similar to the removeEnd()
     BookingNode *newNode = new BookingNode(newBooking);
 
-    while (temp->getCheckInDate() != sKey) { //(temp->next)
-      prev = temp;
-      temp = temp->next;
+    bool keyFound = false;
+    while (temp != NULL) {
+        if (temp->getCheckInDate() == sKey) {
+            keyFound = true;
+            break;
+        }
+        prev = temp;
+        temp = temp->next;
+    }
+    
+    if (!keyFound) {
+        cout << "Sorry, Check-In Date not found. Cannot insert new booking after the Check-In Date." << endl;
+        delete newNode;
+        return;
     }
 
     newNode->next = temp;
@@ -129,8 +140,19 @@ public:
     BookingNode *temp = head;
     BookingNode *newNode = new BookingNode(newBooking);
 
-    while (temp->getCheckOutDate() != sKey) {
-      temp = temp->next;
+    bool keyFound = false;
+    while (temp != NULL) {
+        if (temp->getCheckOutDate() == sKey) {
+            keyFound = true;
+            break;
+        }
+        temp = temp->next;
+    }
+
+    if (!keyFound) {
+        cout << "Sorry, Check-Out Date not found. Cannot insert new booking after the Check-Out Date." << endl;
+        delete newNode; // Delete the new node as it won't be inserted
+        return;
     }
 
     newNode->next = temp->next;
@@ -141,9 +163,20 @@ public:
     BookingNode *temp = head, *prev; // similar to the removeEnd()
     BookingNode *newNode = new BookingNode(newBooking);
 
-    while (temp->getCheckOutDate() != sKey) { //(temp->next)
-      prev = temp;
-      temp = temp->next;
+    bool keyFound = false;
+    while (temp != NULL) {
+        if (temp->getCheckOutDate() == sKey) {
+            keyFound = true;
+            break;
+        }
+        prev = temp;
+        temp = temp->next;
+    }
+
+    if (!keyFound) {
+        cout << "Sorry, Check-Out Date not found. Cannot insert new booking after the Check-Out Date." << endl;
+        delete newNode; // Delete the new node as it won't be inserted
+        return;
     }
 
     newNode->next = temp;
@@ -154,8 +187,19 @@ public:
     BookingNode *temp = head;
     BookingNode *newNode = new BookingNode(newBooking);
 
-    while (temp->getRoomNo() != sKey) {
-      temp = temp->next;
+    bool keyFound = false;
+    while (temp != NULL) {
+        if (temp->getRoomNo() == sKey) {
+            keyFound = true;
+            break;
+        }
+        temp = temp->next;
+    }
+
+    if (!keyFound) {
+        cout << "Sorry, Room Number not found. Cannot insert new booking after the Room Number." << endl;
+        delete newNode; // Delete the new node as it won't be inserted
+        return;
     }
 
     newNode->next = temp->next;
@@ -541,7 +585,8 @@ void deleteMenu(List &bookingList) {
 void adminMenu(List &bookingList) {
   int option;
   string skey_ic;
-
+  
+  do{
   cout << "\nAdmin Menu" << endl;
   cout << "1. Insert Booking" << endl;
   cout << "2. Delete Booking" << endl;
@@ -590,6 +635,7 @@ void adminMenu(List &bookingList) {
     adminMenu(bookingList);
     break;
   }
+  }while(option!=6);
 }
 
 int main() {
