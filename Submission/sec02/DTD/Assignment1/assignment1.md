@@ -17,8 +17,7 @@ The Library Management System is a system that is designed to store information 
 ## Design 🎨
 
 1. Class Diagram
-
-![1]()
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Assignment1/classdiagram.png">
 
 2. Pseudocode
    
