@@ -18,7 +18,7 @@ _Don't forget to hit the :star: if you like this repo._
 𝗧𝗼 𝗺𝗼𝗱𝗶𝗳𝘆 𝘁𝗵𝗲 𝗶𝗻𝘃𝗲𝗻𝘁𝗼𝗿𝘆 𝗶𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻，𝗶𝘁 𝗴𝗶𝘃𝗲𝘀 𝘂𝘀𝗲𝗿𝘀 𝗼𝗽𝘁𝗶𝗼𝗻𝘀 𝗼𝗻 𝗵𝗼𝘄 𝘁𝗵𝗲𝘆 𝗰𝗮𝗻 𝗰𝗵𝗮𝗻𝗴𝗲 𝘁𝗵𝗲𝗶𝗿 𝗶𝗻𝘃𝗲𝗻𝘁𝗼𝗿𝘆 𝗶𝗻 𝗮 𝗶𝗻𝘃𝗲𝗻𝘁𝗼𝗿𝘆 𝗹𝗶𝘀𝘁.
 𝗧𝗵𝗲𝘀𝗲 𝗼𝗽𝗲𝗿𝗮𝘁𝗶𝗼𝗻𝘀 𝗶𝗻𝗰𝗹𝘂𝗱𝗲: 
 
-<img align="right" alt="Coding" width="400" src="[https://raw.githubusercontent.com/devSouvik/devSouvik/master/gif3.gif](https://media.licdn.com/dms/image/D4D12AQEGH0grNgGe3w/article-cover_image-shrink_600_2000/0/1663428061606?e=2147483647&v=beta&t=vci9t4_Sun-qVHZfCJOGhoLxGNbjnC5KAuRcbtW-MMs)">
+<img align="right" alt="Coding" width="400" src="https://media.licdn.com/dms/image/D4D12AQEGH0grNgGe3w/article-cover_image-shrink_600_2000/0/1663428061606?e=2147483647&v=beta&t=vci9t4_Sun-qVHZfCJOGhoLxGNbjnC5KAuRcbtW-MMs">
 
 
 📦 𝗮𝗱𝗱𝗶𝗻𝗴 𝗶𝗻𝘃𝗲𝗻𝘁𝗼𝗿𝘆
