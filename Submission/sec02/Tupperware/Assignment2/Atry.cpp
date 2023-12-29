@@ -14,12 +14,6 @@ private:
     double price;
 
 public:
-    Menu() {
-        foodId = "";
-        name = "";
-        category = "";
-        price = 0.0;
-    }
     Menu(string foodId, string name, string category, double price)
         : foodId(foodId), name(name), category(category), price(price) {}
 
@@ -50,6 +44,7 @@ class Node {
         Node* next;
         //Menu getOrder() { return order; }
         //Node(const Menu& order) : order(order), next(nullptr) {}
+        Node(Menu m) : menu(m), next(nullptr){}
 };
 
 class OrderList {
@@ -73,37 +68,59 @@ public:
         }
     }
 
-    // Function to add a new node
-    void addNode(Menu order)
-    {
-        Node *newNode = new Node{order, nullptr};
-
-        // Insert at the beginning
-        newNode->next = head;
-        head = newNode;
+    // Functions to add a new node
+    // Insert at the first
+    void insertFront(Menu arr) {
+        Node* newHead = new Node(arr); // pass value into the first node
+        if (!isEmpty())
+            newHead->next = head;
+        head = newHead;
     }
 
-    /*// Function to add a new node
-    void addNode(const Menu& order, int position) {
-        Node* newNode = new Node(order);
-
-        if (head == nullptr || position == 0) {
-            // Insert at the beginning
-            newNode->next = head;
-            head = newNode;
-        } else {
-            // Insert at the middle or end
-            Node* current = head;
-            for (int i = 0; i < position - 1 && current->next != nullptr; ++i) {
-                current = current->next;
-            }
-
-            newNode->next = current->next;
-            current->next = newNode;
+    // Insert at the end
+    void insertEnd(Menu arr) {
+        Node* temp = head;
+        Node* newEnd = new Node(arr);
+        if (head == nullptr)
+            head = newEnd;
+        else {
+            while (temp->next != nullptr)
+                temp = temp->next;
+            temp->next = newEnd;
         }
-    }*/
+    }
 
-    /*// Function to delete a node
+    // Insert at the middle
+    void insertMiddle(Menu newOne, string middle) {
+        Node* newNode = new Node(newOne);
+        Node* temp = head;
+        int count = 1;
+
+        while(temp->menu.getFoodId() != middle){
+            temp = temp->next;
+            count++;
+        }
+
+            newNode->next = temp->next;
+            temp->next = newNode;
+    }
+
+    // Insert at the specified position
+    void insertSpecified(Menu newOne, string specified) {
+        Node* newNode = new Node(newOne);
+        Node* temp = head;
+        Node* prev = nullptr;
+
+        while (temp != nullptr && temp->menu.getFoodId() != specified) {
+            prev = temp;
+            temp = temp->next;
+        }
+
+            newNode->next = temp->next;
+            prev->next = newNode;
+    }
+
+    // Function to delete a node
     void deleteNode(int position) {
         if (head == nullptr) {
             return; // List is empty
@@ -128,34 +145,7 @@ public:
         }
 
         delete temp;
-    }*/
-
-    /*// Function to find a node based on a search key
-    Node* findNode(const string& searchKey) const {
-        Node* current = head;
-        while (current != nullptr) {
-            if (current->order.getName() == searchKey) {
-                return current;
-            }
-            current = current->next;
-        }
-        return nullptr; // Node not found
-    }*/
-
-    //choice 2
-    /*Node* findNode(const string& searchKey) {
-        Node* currNode = head;
-        //int currIndex = 1;
-        while (currNode && currNode->order.getName() != searchKey) {
-            currNode = currNode->next;
-        //    currIndex++;
-        }
-        return currNode;
-        /*if (currNode)
-            return currIndex;
-        else 
-            return 0;
-    }*/
+    }
 
     //Function to find node by name
     Node* findNodeName(const string& searchName) const {
@@ -185,6 +175,7 @@ public:
         return foundNode;
     }
 
+    //Function to find node by foodId
     Node* findNodeFoodId(const string& searchFoodId) const {
         Node* current = head;
         while (current != nullptr && (current->order.getFoodId() != searchFoodId)) {
