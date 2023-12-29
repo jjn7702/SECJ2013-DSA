@@ -28,8 +28,6 @@ _Don't forget to hit the :star: if you like this repo._
 
 📃 𝗱𝗶𝘀𝗽𝗹𝗮𝘆 𝗶𝗻𝘃𝗲𝗻𝘁𝗼𝗿𝘆 𝗹𝗶𝘀𝘁
 
-https://cdn.shopify.com/s/files/1/1246/6441/files/Inventory_Specialist.png?format=jpg&quality=90&v=1659475932
-
 
 ## Synopsis📝
 
