@@ -348,7 +348,6 @@ int main()
             cin.ignore();
             getline(cin, name);
             cout << "Enter Account Num: ";
-            cin.ignore();
             getline(cin, accnum);
             cout << "Enter ic: ";
             getline(cin, ic);
