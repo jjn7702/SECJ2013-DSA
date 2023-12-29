@@ -603,6 +603,23 @@ int main()
     int age,opt1,opt2,num,key2,opt5,opt6;
     char answer,answer2;
     List l;
+
+    ifstream in;
+    in.open("voter.csv");
+    
+    getline(in,name,',');
+    while(!in.eof())
+    {
+        getline(in,faculty,',');
+        getline(in,ic,',');
+        in>>age;
+        in.ignore();
+        getline(in,matric,',');
+        getline(in,email,'\n');
+        l.insertFront(name,faculty,age,ic,email,matric);
+		//cout<<name<<" "<<faculty<<" "<<ic<<" "<<age<<" "<<matric<<" "<<email<<endl;
+        getline(in,name,',');
+    }
     
 	    l.display();
         }
