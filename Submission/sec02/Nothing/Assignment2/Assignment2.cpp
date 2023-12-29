@@ -387,14 +387,7 @@ inventory::inventory(){
     cost = 0.0;
     itemLocation = "";
 }
-inventory::inventory(int itemNumber, string itemName, string description, int quantity, double cost, string itemLocation){
-    this->itemNumber = itemNumber;
-    this->itemName = itemName;
-    this->description = description;
-    this->quantity = quantity;
-    this->cost = cost;
-    this->itemLocation = itemLocation;
-}
+
 
 //setter
 void inventory::setItemNumber(int itemNumber){
