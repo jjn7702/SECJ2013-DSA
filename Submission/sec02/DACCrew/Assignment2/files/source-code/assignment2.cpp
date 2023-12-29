@@ -89,9 +89,7 @@ public:
         while (newNode)
         {
             if (newNode->data.getAccNum() == n)
-            {
-                dispHeader();
-            }
+                return newNode;
             newNode = newNode->next;
         }
         return NULL;
