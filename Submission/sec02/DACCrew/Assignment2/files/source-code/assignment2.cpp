@@ -235,7 +235,100 @@ public:
         delete temp;
         cout << "Data at location " << loc << " deleted successfully." << endl;
     }
+            Node *mergeName(Node *left, Node *right)
+    {
+        Node *result = nullptr;
 
+        if (!left)
+            return right;
+
+        if (!right)
+            return left;
+
+        if (left->data.getName() <= right->data.getName())
+        {
+            result = left;
+            result->next = mergeName(left->next, right);
+        }
+        else
+        {
+            result = right;
+            result->next = mergeName(left, right->next);
+        }
+
+        return result;
+    }
+
+    Node *mergeBalance(Node *left, Node *right)
+    {
+        Node *result = nullptr;
+
+        if (!left)
+            return right;
+
+        if (!right)
+            return left;
+
+        if (left->data.getBalance() <= right->data.getBalance())
+        {
+            result = left;
+            result->next = mergeBalance(left->next, right);
+        }
+        else
+        {
+            result = right;
+            result->next = mergeBalance(left, right->next);
+        }
+
+        return result;
+    }
+
+    Node *mergeIc(Node *left, Node *right)
+    {
+        Node *result = nullptr;
+
+        if (!left)
+            return right;
+
+        if (!right)
+            return left;
+
+        if (left->data.getIc() <= right->data.getIc())
+        {
+            result = left;
+            result->next = mergeIc(left->next, right);
+        }
+        else
+        {
+            result = right;
+            result->next = mergeIc(left, right->next);
+        }
+
+        return result;
+    }
+    Node *mergeAccount(Node *left, Node *right)
+    {
+        Node *result = nullptr;
+
+        if (!left)
+            return right;
+
+        if (!right)
+            return left;
+
+        if (left->data.getAccNum() <= right->data.getAccNum())
+        {
+            result = left;
+            result->next = mergeAccount(left->next, right);
+        }
+        else
+        {
+            result = right;
+            result->next = mergeAccount(left, right->next);
+        }
+
+        return result;
+    }
     void displayAll()
     {
         Node *temp = head;
