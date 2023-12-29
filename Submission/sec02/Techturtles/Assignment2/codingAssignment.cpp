@@ -38,9 +38,9 @@ class Node
 {
 public:
     Node *next;
-    Courier data;
+    courier data;
 
-    Node(Courier &courier) : data(courier), next(nullptr) {}
+    Node(courier &courier) : data(courier), next(nullptr) {}
 };
 class CourierServiceSystem
 {
@@ -48,6 +48,7 @@ private:
     Node *head;
 
 public:
+    Node *head;
     CourierServiceSystem() : head(nullptr) {}
     ~CourierServiceSystem()
     {
@@ -60,3 +61,48 @@ public:
         }
     }
 };
+void addNode(const courier &newCourier, const string &position = "end")
+{
+    Node *newNode = new Node(newCourier);
+
+    if (position == "beginning")
+    {
+        newNode->next = head;
+        head = newNode;
+    }
+    else if (position == "middle")
+    {
+        if (head != nullptr)
+        {
+            Node *slow = head;
+            Node *fast = head->next;
+            while (fast != nullptr && fast->next != nullptr)
+            {
+                slow = slow->next;
+                fast = fast->next->next;
+            }
+            newNode->next = slow->next;
+            slow->next = newNode;
+        }
+        else
+        {
+            head = newNode;
+        }
+    }
+    else
+    {
+        if (head == nullptr)
+        {
+            head = newNode;
+        }
+        else
+        {
+            Node *current = head;
+            while (current->next != nullptr)
+            {
+                current = current->next;
+            }
+            current->next = newNode;
+        }
+    }
+}
