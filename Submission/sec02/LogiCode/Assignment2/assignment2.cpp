@@ -203,25 +203,61 @@ public:
     }
     cout << endl;
   }
+
+  void sortList() {
+      if (head == NULL || head->next == NULL) {
+          cout << "List is empty or has only one node." << endl;
+      }
+
+      BookingNode* current = head;
+      BookingNode* nextNode = NULL;
+      bool swapped;
+
+      do {
+          swapped = false;
+          current = head;
+
+          while (current->next != nextNode) {
+              if (current->data > current->next->data) {
+                  swap(current->data, current->next->data);
+                  swapped = true;
+              }
+              current = current->next;
+          }
+          nextNode = current;
+      } while (swapped);
+  }
 };
 
 void insertMenu() {
   int option;
+  int position;
   // BookingNode *booking=new Node();
-  cout << "1. Insert Front" << endl;
-  cout << "2. Insert Middle" << endl;
-  cout << "3. Insert End" << endl;
+  cout << "1. Insert New Booking at Front" << endl;
+  cout << "2. Insert New Booking at Position" << endl;
+  cout << "3. Insert New Booking before Position" << endl;
+  cout << "4. Insert New Booking after Position" << endl;
+  cout << "5. Insert New Booking at End" << endl;
   cout << "4. Exit" << endl;
   cin >> option;
   cout << endl;
   switch (option) {
   case 1:
+    
     break;
   case 2:
+    cout<<"Position: "<<endl;
+    cin>>position;
     break;
   case 3:
+    cout<<"Position: "<<endl;
+    cin>>position;
     break;
   case 4:
+    cout<<"Position: "<<endl;
+    cin>>position;
+    break;
+  case 5:
     break;
   default:
     cout << "Enter a valid option." << endl;
@@ -233,12 +269,9 @@ void insertMenu() {
     int option;
     int location;
     // BookingNode *booking=new Node();
-    cout << "Which booking do you want to delete?" << endl;
-    "
-        cout
-        << "1. First booking" << endl;
-    cout << "2. Last booking" << endl;
-    cout << "3. Specific location" << endl;
+    cout<< "1. Delete the first booking" << endl;
+    cout << "2. Delete the last booking" << endl;
+    cout << "3. Delete" << endl;
     cout << "4. Exit" << endl;
     cin >> option;
     cout << endl;
@@ -250,27 +283,6 @@ void insertMenu() {
     case 3:
       cout << "Please type the location" << endl;
       cin >> location;
-      break;
-    case 4:
-      break;
-    default:
-      cout << "Enter a valid option." << endl;
-      insertMenu();
-      break;
-    }
-
-    void searchMenu() {
-    int option;
-    // BookingNode *booking=new Node();
-    cout << "Please type the searchkey" << endl;
-    cin >> key;
-    cout << endl;
-    switch (option) {
-    case 1:
-      break;
-    case 2:
-      break;
-    case 3:
       break;
     case 4:
       break;
@@ -296,6 +308,7 @@ void insertMenu() {
 
       switch (option) {
       case 1:
+        dispList()
         break;
 
       case 2:
@@ -307,7 +320,8 @@ void insertMenu() {
         break;
 
       case 4:
-        searchMenu();
+        cout << "Please type the searchkey" << endl;
+        cin >> key;
         break;
 
       case 5:
