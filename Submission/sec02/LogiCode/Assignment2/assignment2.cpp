@@ -269,7 +269,7 @@ public:
 
       while (current->next != nextNode) {
         if (current->getCheckInDate() > current->next->getCheckInDate()) {
-          // swapNodes(current, current->next);
+          swapNodes(current, current->next);
           swapped = true;
         }
         current = current->next;
@@ -324,7 +324,7 @@ public:
   }
 };
 
-void readBookingData(BookingNode* head) {
+void readBookingData(List &bookingList) {
     ifstream bookinginpFile("booking.txt");
     if (!bookinginpFile.is_open()) {
         cout << "Unable to open file!" << endl;
@@ -341,7 +341,7 @@ void readBookingData(BookingNode* head) {
     while (bookinginpFile >> checkInDate >> checkOutDate >> roomNo >> roomType >>
            ic >> totalPrice) {
         BookingNode* newNode = new BookingNode(checkInDate, checkOutDate, roomNo, roomType, ic, totalPrice);
-        newNode.insertEnd(head, newNode);
+        newNode->insertEnd(newNode);
     }
 
     bookinginpFile.close();
@@ -377,6 +377,7 @@ void insertMenu(List &bookingList) {
   cout << "Enter Booking Info: " << endl;
   cout << "Check-In Date (YYYY/MM/DD) : ";
   getline(cin, checkInDate);
+  cin.ignore();
   cout << "Check-Out Date (YYYY/MM/DD) : ";
   getline(cin, checkOutDate);
   cout << "Room Number: ";
@@ -417,31 +418,37 @@ void insertMenu(List &bookingList) {
     cout << "Insert Booking before Check-In Date (YYYY/MM/DD) : ";
     cin >> sKey;
     bookingList.insertMiddle3CID(newbooking, sKey);
+    break;
 
   case 6:
     cout << "Insert Booking after Check-In Date (YYYY/MM/DD) : ";
     cin >> sKey;
     bookingList.insertMiddle2CID(newbooking, sKey);
+    break;
 
   case 7:
     cout << "Insert Booking before Check-Out Date (YYYY/MM/DD) : ";
     cin >> sKey;
     bookingList.insertMiddle3COD(newbooking, sKey);
+    break;
 
   case 8:
     cout << "Insert Booking after Check-Out Date (YYYY/MM/DD) : ";
     cin >> sKey;
     bookingList.insertMiddle2COD(newbooking, sKey);
+    break;
 
   case 9:
-      cout << "Insert Booking before Room Number : ";
-      cin >> sKey;
-      bookingList.insertMiddle3RN(newbooking, sKey2);
+    cout << "Insert Booking before Room Number : ";
+    cin >> sKey;
+    bookingList.insertMiddle3RN(newbooking, sKey2);
+    break;
 
   case 10:
-      cout << "Insert Booking after Room Number : ";
-      cin >> sKey;
-      bookingList.insertMiddle2RN(newbooking, sKey2);
+    cout << "Insert Booking after Room Number : ";
+    cin >> sKey;
+    bookingList.insertMiddle2RN(newbooking, sKey2);
+    break;
 
   case 11:
     bookingList.insertEnd(newbooking);
@@ -527,11 +534,12 @@ void insertMenu(List &bookingList) {
     case 3:
       cout << "Please type the search key (IC without '-')" << endl;
       cin >> skey_ic;
-      cout << "The booking data is at" << bookingList.FindNode(skey_ic) << endl;
+      cout << "The booking data is at Position " << bookingList.FindNode(skey_ic) << endl;
       break;
 
     case 4:
-      
+      cout << "Sorting Booking by Check-In Date" << endl;
+      bookingList.sortList();
       break;
 
     case 5:
@@ -550,10 +558,10 @@ void insertMenu(List &bookingList) {
 
   int main() {
     List bookingList;
+    readBookingData(bookingList);
     cout << "---------------------------------" << endl;
     cout << "LogiCode Hotel Management System" << endl;
     cout << "---------------------------------" << endl;
-    bookingList.dispList();
     adminMenu(bookingList);
     return 0;
   }
