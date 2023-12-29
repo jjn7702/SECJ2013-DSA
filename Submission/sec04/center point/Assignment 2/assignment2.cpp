@@ -23,6 +23,25 @@ int AddChoice(){
     return choice;
 }
 
+//get info for added inventory
+void getInfo(string &code, string &name, string &type, int &quantity, float &price) {
+    cout<<"\n----------New inventory Info----------"<<endl;
+    cout << "Enter Inventory Code: ";
+    cin >> code;
+
+    cout << "Enter Inventory Name: ";
+    cin.ignore();
+    getline(cin, name);
+
+    cout << "Enter Inventory Type: ";
+    getline(cin, type);
+
+    cout << "Enter Quantity: ";
+    cin >> quantity;
+
+    cout << "Enter Price: ";
+    cin >> price;
+}
 
 
 class Inventory
@@ -145,16 +164,33 @@ public:
     // Finding a node based in sKey
 
     // Display all the node
-    void print()
+    void displayList()
     {
+        cout << "\t\t\t:::::::Inventory List:::::::\n"<<endl;
+        for(int i=0;i<84;i++){
+            cout<<"-";
+        }
+        cout<<endl;
+        cout << left << setw(20) << "Inventory Code"
+             << setw(20) << "Inventory Name"
+             << setw(20) << "Inventory Type"
+             << setw(15) << "Quantity"
+             << setw(10) << "Price" << endl;
+
+        for(int i=0;i<84;i++){
+            cout<<"-";
+        }
+        cout<<endl;
+
+
         Inventory *temp = head;
         while (temp != NULL)
         {
-            cout << temp->getCode() << ","
-                 << temp->getName() << ","
-                 << temp->getType() << ","
-                 << temp->getQuantity() << ","
-                 << temp->getPrice();
+            cout << left << setw(20)<<temp->getCode()
+             << setw(20) << temp->getName()
+             << setw(20) << temp->getType()
+             << setw(15) << temp->getQuantity()
+             << setw(10) << fixed<<setprecision(2)<<temp->getPrice()<<endl;
 
             if (temp->next != NULL) cout << endl;
             temp = temp->next;
@@ -166,6 +202,7 @@ int main()
 {
     string code, name, type;
     int quantity, choice, mChoice, count = 0;
+    int menuChoice;
     float price;
     List InvList;
     ifstream inp;
@@ -177,11 +214,11 @@ int main()
     // Check input file
     if (!inp)
     {
-        cout << "Cannot open the input file]\n";
+        cout << "Cannot open the input file\n";
         return 0;
     }
 
-    // retrieve the data from input.txt file and store them into array
+    // retrieve the data from input.txt file and store them into linkedlist
     while (!inp.eof())
     {
         getline(inp, code, ',');
@@ -196,7 +233,66 @@ int main()
         count++;
     }
 
-    InvList.print();
+    InvList.displayList();
+
+    //menu
+    cout << "\n\n~~~~~~~~~~~~~~~~~~~~~  WELCOME TO INVENTORY MANAGEMENT SYSTEM  ~~~~~~~~~~~~~~~~~~~~~\n\n";
+    while (loop)
+    {   
+        cout<<"What do you need?"<<endl;
+
+        cout << "1. Add Inventory\n";
+        
+        cout << "Enter your choice: ";
+        cin >> menuChoice;
+
+        switch (menuChoice)
+        {
+        case 1:
+            system("cls");
+            int addchoice = AddChoice();
+            if (addchoice == 1)
+            {
+                getInfo(code,name,type,quantity,price);
+                Inventory *newInventory = new Inventory(code,name,type,quantity,price);
+                InvList.addFront(newInventory);
+                cout<<"New node has been successfully added to front.."<<endl<<endl;
+            }
+
+            else if (addchoice == 2)
+            {
+                int pos;
+                cout << "Enter the position to add in the middle: ";
+                cin >> pos;
+                getInfo(code,name,type,quantity,price);
+                Inventory *newInventory = new Inventory(code,name,type,quantity,price);
+                InvList.addMiddle(newInventory, pos);
+                cout<<"New node has been successfully added to position "<<pos<<".."<<endl<<endl;
+            }
+
+            else if (addchoice == 3)
+            {
+                getInfo(code,name,type,quantity,price);
+                Inventory *newInventory = new Inventory(code,name,type,quantity,price);
+                InvList.addEnd(newInventory);
+                cout<<"New node has been successfully added to the end.."<<endl<<endl;
+            }
+            else
+            {
+                cout << "Invalid choice. Inventory will be added to the end by default.." << endl;
+                Inventory *newInventory = new Inventory(code,name,type,quantity,price);
+                InvList.addEnd(newInventory);
+                cout<<"New node has been successfully added to the end.."<<endl<<endl;
+            }
+
+            break;
+
+            //case2
+            //case3
+            //
+        }
+    }
+    
 
     // close both files
     inp.close();
