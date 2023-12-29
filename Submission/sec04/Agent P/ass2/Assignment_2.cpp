@@ -477,7 +477,24 @@ void matasc(){
             }
 }
 
+void matDes(){
+    Voter *temp = head;
+    string n,f,e,i,m;
+    int a;
 
+    while(temp){
+        Voter *min = temp;
+        Voter *next = temp->next;
+
+        while(next != NULL){
+            if(min->getMatric()<next->getMatric())
+                min = next;
+            next = next->next;
+        }
+        
+    }
+
+}
 
 };
 
