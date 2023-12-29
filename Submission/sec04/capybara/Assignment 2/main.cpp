@@ -24,6 +24,9 @@ int binarySearchByName(const vector<User> &users, const string &name);
 int binarySearchByAirplaneID(const vector<Airline> &airlines, const string &AirplaneID);
 int binarySearchByReservationID(vector<Reservation> &reservations, const string &ReservationID);
 
+void NewData(string res, string dept, string arr, string dat, string loc, string cla);
+void deleteData(string res);
+
 class User
 {
 private:
@@ -187,6 +190,7 @@ private:
     string Class;
 
 public:
+    Reservation *next;
     Reservation(string ReservationID, string DepartureTime, string ArrivalTime, string Date, string Location, string Class)
         : ReservationID(ReservationID), DepartureTime(DepartureTime), ArrivalTime(ArrivalTime), Date(Date), Location(Location), Class(Class) {}
 
@@ -223,6 +227,160 @@ public:
         cout << setw(37) << "Reservation Date: " << Date << endl;
         cout << setw(40) << "Arrival Destination: " << Location << endl;
         cout << setw(26) << "Class: " << Class << endl;
+    }
+};
+
+class reservationList // List
+{
+private:
+    Reservation *head;
+
+public:
+    reservationList() : head(nullptr) {}
+
+    bool isEmpty()
+    {
+        return head == nullptr;
+    }
+    Reservation *getHead() const
+    {
+        return head;
+    }
+
+    Reservation *insertNode(string res, string dept, string arr, string dat, string loc, string cla)
+    {
+        int currIndex = 0;
+        Reservation *curr = head;
+        Reservation *prev = nullptr;
+
+        while (curr != nullptr && (res > curr->getReservationID() || (res == curr->getReservationID() && dept > curr->getDepartureTime()) || (res == curr->getReservationID() && dept == curr->getDepartureTime() && arr > curr->getArrivalTime()) || (res == curr->getReservationID() && dept == curr->getDepartureTime() && arr > curr->getArrivalTime() && dat > curr->getDate()) || (res == curr->getReservationID() && dept == curr->getDepartureTime() && arr > curr->getArrivalTime() && dat > curr->getDate() && loc > curr->getLocation()) || (res == curr->getReservationID() && dept == curr->getDepartureTime() && arr > curr->getArrivalTime() && dat > curr->getDate() && loc > curr->getLocation() && cla > curr->getClass())))
+        {
+            prev = curr;
+            curr = curr->next;
+            currIndex++;
+        }
+
+        Reservation *newNode = new Reservation(res, dept, arr, dat, loc, cla);
+
+        if (currIndex == 0)
+        {
+            newNode->next = head;
+            head = newNode;
+        }
+        else
+        {
+            newNode->next = prev->next;
+            prev->next = newNode;
+        }
+        return newNode;
+    }
+
+    int deleteNodeReservation(string res)
+    {
+        Reservation *prev = nullptr;
+        Reservation *curr = head;
+        int currentIndex = 1;
+
+        while (curr != nullptr && (curr->getReservationID() != res))
+        {
+            prev = curr;
+            curr = curr->next;
+            currentIndex++;
+        }
+
+        if (curr != nullptr)
+        {
+            if (prev != nullptr)
+            {
+                prev->next = curr->next;
+                delete curr;
+            }
+            else
+            {
+                head = curr->next;
+                delete curr;
+            }
+
+            // Move this line here
+            deleteData(res);
+
+            return currentIndex;
+        }
+        else
+        {
+            return 0; // Node not found
+        }
+    }
+
+    int findNode(string res, string dept, string arr, string dat, string loc, string cla)
+    {
+        int currentIndex = 1;
+        Reservation *curr = head;
+
+        while (curr != nullptr && (curr->getReservationID() != res || curr->getArrivalTime() != arr || curr->getClass() != cla || curr->getDate() != dat || curr->getDepartureTime() != dept || curr->getLocation() != loc))
+        {
+            curr = curr->next;
+            currentIndex++;
+        }
+
+        if (curr != nullptr)
+        {
+            return currentIndex;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    void displayList()
+    {
+        Reservation *current = head;
+        while (current != nullptr)
+        {
+            cout << "ReservationID: " << current->getReservationID() << endl;
+            cout << "Departure Time: " << current->getDepartureTime() << endl;
+            cout << "Arrival Time: " << current->getArrivalTime() << endl;
+            cout << "Reservation Date: " << current->getDate() << endl;
+            cout << "Location: " << current->getLocation() << endl;
+            cout << "Class: " << current->getClass() << endl
+                 << endl;
+            current = current->next;
+        }
+        cout << endl;
+    }
+
+    void updateCSV(string res, string dept, string arr, string dat, string loc, string cla)
+    {
+        int currIndex = 0;
+        Reservation *curr = head;
+        Reservation *prev = nullptr;
+
+        while (curr != nullptr && (res > curr->getReservationID() || (res == curr->getReservationID() && dept > curr->getDepartureTime()) || (res == curr->getReservationID() && dept == curr->getDepartureTime() && arr > curr->getArrivalTime()) || (res == curr->getReservationID() && dept == curr->getDepartureTime() && arr > curr->getArrivalTime() && dat > curr->getDate()) || (res == curr->getReservationID() && dept == curr->getDepartureTime() && arr > curr->getArrivalTime() && dat > curr->getDate() && loc > curr->getLocation()) || (res == curr->getReservationID() && dept == curr->getDepartureTime() && arr > curr->getArrivalTime() && dat > curr->getDate() && loc > curr->getLocation() && cla > curr->getClass())))
+        {
+            prev = curr;
+            curr = curr->next;
+            currIndex++;
+        }
+
+        Reservation *newNode = new Reservation(res, dept, arr, dat, loc, cla);
+
+        if (head == nullptr)
+        {
+            // If the list is empty, make the new node the head
+            head = newNode;
+        }
+        else
+        {
+            Reservation *current = head;
+            while (current->next != nullptr)
+            {
+                current = current->next;
+            }
+            current->next = newNode;
+        }
+
+        NewData(res, dept, arr, dat, loc, cla);
     }
 };
 
@@ -468,6 +626,56 @@ void LoadFiles(vector<User> &users, vector<Airline> &airline, vector<Reservation
     }
     reservationFile.close();
 };
+
+void NewData(string res, string dept, string arr, string dat, string loc, string cla)
+{
+
+    ofstream reservationFile("reservation.csv", ios::app);
+    reservationFile.seekp(0, ios::end);
+    reservationFile << "\n"
+                    << res << "," << dept << "," << arr << "," << dat << "," << loc << "," << cla;
+
+    reservationFile.seekp(0, ios::end);
+    reservationFile.close();
+};
+
+void deleteData(string res)
+{
+    ifstream inputFile("reservation.csv");
+    ofstream tempFile("temp.csv");
+
+    string line;
+    getline(inputFile, line); // Read and write the header
+
+    tempFile << line << endl; // Write the header to the temporary file
+
+    while (getline(inputFile, line))
+    {
+        stringstream ss(line);
+        string reservationId, departureTime, arrivalTime, date, location, Class;
+
+        getline(ss, reservationId, ',');
+        getline(ss, departureTime, ',');
+        getline(ss, arrivalTime, ',');
+        getline(ss, date, ',');
+        getline(ss, location, ',');
+        getline(ss, Class, ',');
+
+        // Check if the current line matches the reservation to be deleted
+        if (reservationId != res)
+        {
+            // Write the line to the temporary file
+            tempFile << line << endl;
+        }
+    }
+
+    inputFile.close();
+    tempFile.close();
+
+    // Remove the original file and rename the temporary file
+    remove("reservation.csv");
+    rename("temp.csv", "reservation.csv");
+}
 
 int binarySearchByName(const vector<User> &users, const string &name)
 {
@@ -788,6 +996,7 @@ int main()
     vector<Airline> airlines;
     vector<Reservation> reservations;
     LoadFiles(users, airlines, reservations);
+    reservationList reservationList;
 
     Init init;
     int option;
