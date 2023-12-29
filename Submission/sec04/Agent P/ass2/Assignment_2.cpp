@@ -426,6 +426,13 @@ int searchUI(string &key,int &key2)
         cout<<"\nPlease enter the key : ";
         cin>>key2;
     }
+
+    else{
+        cout<<"\nPlease enter the key : ";
+        getline(cin,key);
+    }
+
+    return opt;
 }
 
 
