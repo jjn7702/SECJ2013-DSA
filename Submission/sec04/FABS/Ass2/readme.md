@@ -157,7 +157,8 @@ The linked list is implemented as nodes, containing a Courier object and a point
 
 ## Findings <a name="findings"></a>📊
 
-- [Source code]()
-- [Assignment 2 report]()
-- [Similarity report]()
+- [Source Code]()
+- [Input File]()
+- [Assignment 2 Report]()
+- [Similarity Report]()
 
