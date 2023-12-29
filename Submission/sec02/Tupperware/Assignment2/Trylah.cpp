@@ -80,8 +80,8 @@ public:
             count++;
         }
 
-            newNode->next = temp->next;
-            temp->next = newNode;
+        newNode->next = temp->next;
+        temp->next = newNode;
     }
 
     // Insert at the specified position
@@ -95,8 +95,66 @@ public:
             temp = temp->next;
         }
 
-            newNode->next = temp->next;
-            prev->next = newNode;
+        newNode->next = temp->next;
+        prev->next = newNode;
+    }
+
+    // Delete a node
+    void deleteNode(string foodId) {
+        Node* temp = head;
+        Node* prev = nullptr;
+
+        // Check if the head is the node to be deleted
+        if (temp != nullptr && temp->menu.getFoodId() == foodId) {
+            head = temp->next;
+            delete temp;
+            return;
+        }
+
+        // Search for the node to be deleted
+        while (temp != nullptr && temp->menu.getFoodId() != foodId) {
+            prev = temp;
+            temp = temp->next;
+        }
+
+        // If the node is not found
+        if (temp == nullptr) {
+            cout << "Node with Food ID " << foodId << " not found." << endl;
+            return;
+        }
+
+        // Unlink the node from the linked list
+        prev->next = temp->next;
+
+        // Free the memory of the deleted node
+        delete temp;
+    }
+
+    // Sort the list by price in ascending order
+    void sortListByPrice() {
+        if (head == nullptr || head->next == nullptr) {
+            return; // List is empty or has only one node
+        }
+
+        bool swapped;
+        Node* last = nullptr;
+
+        do {
+            swapped = false;
+            Node* current = head;
+
+            while (current->next != last) {
+                if (current->menu.getPrice() > current->next->menu.getPrice()) {
+                    // Swap nodes if they are in the wrong order
+                    Menu temp = current->menu;
+                    current->menu = current->next->menu;
+                    current->next->menu = temp;
+                    swapped = true;
+                }
+                current = current->next;
+            }
+            last = current;
+        } while (swapped);
     }
 };
 
@@ -123,10 +181,15 @@ int main() {
 
     // Insert at the specified position
     menuList.insertSpecified(Menu("ID006", "Sushi", "Japanese", 12.99), "ID003");
+    menuList.dispList();
 
-    // Display the list
+    // Delete a node
+    menuList.deleteNode("ID002");
+    menuList.dispList();
+
+    // Sort the list by price in ascending order
+    menuList.sortListByPrice();
     menuList.dispList();
 
     return 0;
 }
-

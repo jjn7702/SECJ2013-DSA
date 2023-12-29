@@ -506,6 +506,46 @@ int Menu()
 
 int main() 
 {
+
+		Customer customer[100] ;
+	CustomerList custList ;
+	int custNum = 1 ;
+
+	string name, IC, phoneNum, date ;
+	int age, room ; 
+	
+	// file as database
+	ifstream input("Assignment_2.txt") ;
+
+    if(!input) 
+	{
+        cout << "Cannot open the file\n" ;
+        return 1;
+    }
+	// Get input
+    while(getline(input, name, '/'))
+	{
+		input >> age ;
+		input.ignore() ;
+		getline(input, IC, '/') ;
+		getline(input, phoneNum, '/') ;
+		input >> room ;
+		input.ignore() ;
+		input >> date ;
+		input.ignore() ;
+		
+		customer[custNum].setName(name) ;
+		customer[custNum].setAge(age) ;
+		customer[custNum].setIC(IC) ;
+		customer[custNum].setPhone(phoneNum) ;
+		customer[custNum].setNum(room) ;
+		customer[custNum].setDate(date) ;
+				        
+		custNum++ ; 
+	}
+	
+	input.close() ; // close the input file
+
 	cout << "- Hotel Booking System -" << endl << endl ;
 	
 	MenuLoop: // Loop if key in invalid option

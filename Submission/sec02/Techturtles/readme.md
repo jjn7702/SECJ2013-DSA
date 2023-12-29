@@ -38,7 +38,7 @@ The Courier Service System is specially designed for the administrator. The syst
 ## Findings 📊
 
 - <a href="Assignment 1" >Assignment 1 
-- Assignment 2
+- <a href="Assignment2" >Assignment 2
 - Project
 
 ## Contribution 🛠️

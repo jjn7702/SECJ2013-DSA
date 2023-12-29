@@ -89,9 +89,7 @@ public:
         while (newNode)
         {
             if (newNode->data.getAccNum() == n)
-            {
-                dispHeader();
-            }
+                return newNode;
             newNode = newNode->next;
         }
         return NULL;
@@ -237,12 +235,217 @@ public:
         delete temp;
         cout << "Data at location " << loc << " deleted successfully." << endl;
     }
+            Node *mergeName(Node *left, Node *right)
+    {
+        Node *result = nullptr;
 
+        if (!left)
+            return right;
+
+        if (!right)
+            return left;
+
+        if (left->data.getName() <= right->data.getName())
+        {
+            result = left;
+            result->next = mergeName(left->next, right);
+        }
+        else
+        {
+            result = right;
+            result->next = mergeName(left, right->next);
+        }
+
+        return result;
+    }
+
+    Node *mergeBalance(Node *left, Node *right)
+    {
+        Node *result = nullptr;
+
+        if (!left)
+            return right;
+
+        if (!right)
+            return left;
+
+        if (left->data.getBalance() <= right->data.getBalance())
+        {
+            result = left;
+            result->next = mergeBalance(left->next, right);
+        }
+        else
+        {
+            result = right;
+            result->next = mergeBalance(left, right->next);
+        }
+
+        return result;
+    }
+
+    Node *mergeIc(Node *left, Node *right)
+    {
+        Node *result = nullptr;
+
+        if (!left)
+            return right;
+
+        if (!right)
+            return left;
+
+        if (left->data.getIc() <= right->data.getIc())
+        {
+            result = left;
+            result->next = mergeIc(left->next, right);
+        }
+        else
+        {
+            result = right;
+            result->next = mergeIc(left, right->next);
+        }
+
+        return result;
+    }
+    Node *mergeAccount(Node *left, Node *right)
+    {
+        Node *result = nullptr;
+
+        if (!left)
+            return right;
+
+        if (!right)
+            return left;
+
+        if (left->data.getAccNum() <= right->data.getAccNum())
+        {
+            result = left;
+            result->next = mergeAccount(left->next, right);
+        }
+        else
+        {
+            result = right;
+            result->next = mergeAccount(left, right->next);
+        }
+
+        return result;
+    }
+
+void mergeSortName()
+    {
+        if (!head || !head->next)
+            return;
+
+        head = mergeSortRecName(head);
+    }
+
+    Node *mergeSortRecName(Node *start)
+    {
+        if (!start || !start->next)
+            return start;
+
+        Node *middle = getMiddle(start);
+        Node *nextToMiddle = middle->next;
+        middle->next = nullptr;
+
+        Node *left = mergeSortRecName(start);
+        Node *right = mergeSortRecName(nextToMiddle);
+
+        return mergeName(left, right);
+    }
+
+    void mergeSortAccount()
+    {
+        if (!head || !head->next)
+            return;
+
+        head = mergeSortRecAccount(head);
+    }
+
+    Node *mergeSortRecAccount(Node *start)
+    {
+        if (!start || !start->next)
+            return start;
+
+        Node *middle = getMiddle(start);
+        Node *nextToMiddle = middle->next;
+        middle->next = nullptr;
+
+        Node *left = mergeSortRecAccount(start);
+        Node *right = mergeSortRecAccount(nextToMiddle);
+
+        return mergeAccount(left, right);
+    }
+
+    void mergeSortBalance()
+    {
+        if (!head || !head->next)
+            return;
+
+        head = mergeSortRecBalance(head);
+    }
+
+    Node *mergeSortRecBalance(Node *start)
+    {
+        if (!start || !start->next)
+            return start;
+
+        Node *middle = getMiddle(start);
+        Node *nextToMiddle = middle->next;
+        middle->next = nullptr;
+
+        Node *left = mergeSortRecBalance(start);
+        Node *right = mergeSortRecBalance(nextToMiddle);
+
+        return mergeBalance(left, right);
+    }
+
+    void mergeSortIc()
+    {
+        if (!head || !head->next)
+            return;
+
+        head = mergeSortRecIc(head);
+    }
+
+    Node *mergeSortRecIc(Node *start)
+    {
+        if (!start || !start->next)
+            return start;
+
+        Node *middle = getMiddle(start);
+        Node *nextToMiddle = middle->next;
+        middle->next = nullptr;
+
+        Node *left = mergeSortRecIc(start);
+        Node *right = mergeSortRecIc(nextToMiddle);
+
+        return mergeIc(left, right);
+    }
+
+    Node *getMiddle(Node *start)
+    {
+        if (!start)
+            return nullptr;
+
+        Node *slow = start;
+        Node *fast = start->next;
+
+        while (fast && fast->next)
+        {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+
+        return slow;
+    }
     void displayAll()
     {
         Node *temp = head;
-        dispHeader(); // Display header before displaying all nodes
-
+        
+        if(!temp)
+            cout << "No data exists." << endl << endl;
+        else
+            dispHeader(); // Display header before displaying all nodes
         while (temp != NULL)
         {
             temp->data.displayDetails();
@@ -262,7 +465,7 @@ int main()
 
     //  FOR INSERT BEGINNING MIDDLE END
 
-    while (opt != 10)
+    while (opt != 12)
     {
         cout << ":: INSERT DATA ::" << endl;
         cout << "[1] Insert at the beginning" << endl;
@@ -285,7 +488,8 @@ int main()
              << endl;
 
         cout << ":: OTHER ACTION ::" << endl;
-        cout << "[10] Quit" << endl;
+        cout << "[11] Display All Data" << endl;
+        cout << "[12] Quit" << endl;
         cout << "OPTION >> ";
         cin >> opt;
         cout << endl
@@ -348,7 +552,6 @@ int main()
             cin.ignore();
             getline(cin, name);
             cout << "Enter Account Num: ";
-            cin.ignore();
             getline(cin, accnum);
             cout << "Enter ic: ";
             getline(cin, ic);
@@ -435,6 +638,50 @@ int main()
             else
                 cout << "Account does not exists." << endl;
         }
-        count++;
-    }
-}
+       else if (opt == 10)
+        {
+            int sort;
+            cin.ignore();
+
+            cout << endl
+                 << endl;
+            cout << ":: SORT DATA ::" << endl;
+            cout << "[1] Sort by name" << endl;
+            cout << "[2] Sort by account number" << endl;
+            cout << "[3] Sort by Ic" << endl;
+            cout << "[4] Sort by Balance" << endl;
+            cout << "Sorting Option: ";
+            cin >> sort;
+            switch (sort)
+            {
+            case 1:
+                cout << "\nSort by name" << endl;
+                list.mergeSortName();
+
+                break;
+            case 2:
+                cout << "\nSort by account number" << endl;
+                list.mergeSortAccount();
+
+                break;
+            case 3:
+                cout << "\nSort by Ic" << endl;
+                list.mergeSortIc();
+
+                break;
+            case 4:
+                cout << "\nSort by Balance" << endl;
+                list.mergeSortBalance();
+
+                break;
+            default:
+                cout << "Invalid option." << endl;
+                break;
+            }
+            cout << "Sorting by Name..." << endl;
+            list.displayAll();
+        }
+        else if(opt == 11)
+        {
+            list.displayAll();
+        }
