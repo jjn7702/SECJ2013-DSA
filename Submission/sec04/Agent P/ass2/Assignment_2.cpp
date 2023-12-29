@@ -620,7 +620,11 @@ int main()
 		//cout<<name<<" "<<faculty<<" "<<ic<<" "<<age<<" "<<matric<<" "<<email<<endl;
         getline(in,name,',');
     }
-    
+
+    cout<<"[1] Insert\n[2] Delete\n[3] Search\n[4] Sorting\n";
+    cout<<"Please choose an option : ";
+    cin>>opt1;
+
 	    l.display();
         }
         else if(opt1==2)
