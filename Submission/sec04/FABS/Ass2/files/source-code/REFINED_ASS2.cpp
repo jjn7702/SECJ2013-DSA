@@ -502,6 +502,7 @@ int main() {
 					cout << "Invalid tracking number. Please enter a valid number. \n";
 					break;
 				}
+			    }
                             break;
                         default:
                             break;
@@ -511,7 +512,7 @@ int main() {
 		courierList.findNode(searchCourier);
 		break;
            	}
-	}
+		    
 	        case 4: {
 	            int sortCriteria;
 	            bool sorting;
