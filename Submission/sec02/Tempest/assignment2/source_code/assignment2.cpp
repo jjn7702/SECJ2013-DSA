@@ -805,6 +805,7 @@ int main()
                     newTask.settask(tasks);
                     newTask.setday(day);
                     newTask.setmonth(month);
+                    newTask.setyear(year);
                     cout << "\n\nTask added at the beginning." << endl;
                 }
                 break;
