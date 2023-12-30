@@ -76,15 +76,15 @@ public:
     Node(Parcel* p) : data(p), next(nullptr) {}
 };
 
-class ParcelList {
+class LinkedList {
 private:
     Node* head;
     int count;
 
 public:
-    ParcelList() : head(nullptr), count(0) {}
+    LinkedList() : head(nullptr), count(0) {}
 
-    ~ParcelList() {
+    ~LinkedList() {
         Node* current = head;
         Node* next;
 
@@ -301,7 +301,7 @@ void swapParcels(Node* a, Node* b) {
     swap(a->data, b->data);
 }
 
-void bubbleSort(ParcelList& list, bool ascending) {
+void bubbleSort(LinkedList& list, bool ascending) {
     int n = list.getNodeCount();
 
     for (int i = 0; i < n - 1; i++) {
@@ -318,7 +318,7 @@ void bubbleSort(ParcelList& list, bool ascending) {
     }
 }
 
-void selectionSort(ParcelList& list, bool ascending) {
+void selectionSort(LinkedList& list, bool ascending) {
     int n = list.getNodeCount();
 
     for (int i = 0; i < n - 1; i++) {
@@ -341,7 +341,7 @@ void selectionSort(ParcelList& list, bool ascending) {
     }
 }
 
-void insertionSort(ParcelList& list, bool ascending) {
+void insertionSort(LinkedList& list, bool ascending) {
     int n = list.getNodeCount();
 
     for (int i = 1; i < n; i++) {
@@ -356,20 +356,18 @@ void insertionSort(ParcelList& list, bool ascending) {
 }
 
 void displayMenu() {
-	cout << "\t+-------------------------------+\n";
-    cout << "\t|  Courier Service System Menu  |\n";
-    cout << "\t+-------------------------------+\n";
-    cout << "\t| 1. Add a new parcel           |\n";
-    cout << "\t| 2. Delete a parcel            |\n";
-    cout << "\t| 3. Find a parcel              |\n";
-    cout << "\t| 4. Sort the parcel list       |\n";
-    cout << "\t| 5. Display all parcels        |\n";
-    cout << "\t| 6. Exit                       |\n";
-    cout << "\t+-------------------------------+\n";
+    cout << "\n\tCourier Service System Menu\n";
+    cout << "\t---------------------------\n";
+    cout << "\t1. Add a new parcel\n";
+    cout << "\t2. Delete a parcel\n";
+    cout << "\t3. Find a parcel\n";
+    cout << "\t4. Sort the parcel list\n";
+    cout << "\t5. Display all parcels\n";
+    cout << "\t6. Exit\n";
 }
 
 int main() {
-    ParcelList parcelList;
+    LinkedList parcelList;
 
     ifstream inFile("ParcelData.txt"); // Change the file name as needed
 
@@ -522,11 +520,6 @@ int main() {
 
                 if (foundNode != nullptr) {
                     cout << "\nParcel found:\n";
-                            cout << "\t";
-			        for (int i = 0; i < 100; i++)
-			        {
-			            cout << "-";
-			        }
                     foundNode->data->displayDetails(1);
                 }
                 else {
