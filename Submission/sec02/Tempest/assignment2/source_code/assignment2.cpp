@@ -120,7 +120,10 @@ public:
 
     void removemiddle(int c) //remove middle node(specific node)
     {
-        
+        if(isEmpty())
+        {
+            
+        }
     }
 
     void displist()
