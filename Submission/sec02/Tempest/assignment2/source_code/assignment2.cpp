@@ -113,9 +113,12 @@ public:
         delete temp;
     }
 
-    void removelast()
+    void removelast()//remove last node
     {
-        //remove last node
+        if(isEmpty())
+        {
+            
+        }
     }
 
     void removemiddle(int c) //remove middle node(specific node)
