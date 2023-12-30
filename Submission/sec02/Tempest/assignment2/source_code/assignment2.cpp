@@ -70,7 +70,20 @@ public:
     }
 
     void insertrand(int c, task d)
-    {//insert middle
+    {
+        task* newNode= new task (d);
+        task* temp= head;
+        int count=1;
+
+        while(temp->next != NULL && count<c)
+        {
+            temp=temp->next;
+            count++;
+
+        }
+
+        newNode->next=temp->next;
+        temp->next=newNode;
         
     }
 
