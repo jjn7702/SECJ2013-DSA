@@ -116,4 +116,14 @@ class Cart{
 				}
 			}// delete the number at the middle which the user provide the location
         }
+		Order* find(string target,int n){
+			Order *current = head;
+			while(current){
+				if(n == 1){
+					if(current -> getcode() == target){
+						return current;
+					}
+				}
+			}
+		}
 }
