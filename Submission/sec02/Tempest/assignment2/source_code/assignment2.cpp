@@ -144,13 +144,13 @@ public:
             return;
         }
 
-        if(prev==nullptr)
+        if(prev==nullptr) //remove first node
         {
             head=current->next;
         }
         else
         {
-            
+            prev->next=current->next;
         }
     }
 
