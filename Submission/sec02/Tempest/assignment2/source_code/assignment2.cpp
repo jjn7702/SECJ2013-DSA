@@ -829,6 +829,12 @@ int main()
                     cout << "Status: ";
                     cin >> status;
 
+                    newTask.settask(tasks);
+                    newTask.setday(day);
+                    newTask.setmonth(month);
+                    newTask.setyear(year);
+                    newTask.setstatus(status);
+
                     int position;
                     cout << "Enter the position to add the new task: ";
                     cin >> position;
