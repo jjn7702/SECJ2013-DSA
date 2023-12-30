@@ -59,6 +59,7 @@ public:
         if(isEmpty())
         {
             head=newNode;
+            tail = newNode;
         }
 
         else
@@ -90,13 +91,18 @@ public:
     void insertend(task d)
     {
         task* newNode= new task (d);
-        task * temp=head;
+        newNode->next = nullptr;
 
-        while(temp->next != NULL)
+        if (isEmpty())
         {
-            temp=temp->next;
+            head = newNode;
+            tail = newNode;
         }
-        temp->next=new task(d);
+        else
+        {
+            tail->next = newNode;
+            tail = newNode;
+        }
 
     }
 
@@ -110,6 +116,12 @@ public:
         }
         task* temp=head;
         head=head->next;
+        if(head == nullptr){
+
+            tail = nullptr;
+
+        }
+        temp->next = nullptr;
         delete temp;
     }
 
@@ -121,21 +133,23 @@ public:
             return;
         }
 
-        if(head->next==nullptr)
+        if(head == tail)
         {
             delete head;
             head = nullptr;
+            tail = nullptr;
             return;
         }
 
         task* temp=head;
-        while(temp->next->next != nullptr)
+        while(temp->next->next != tail)
         {
             temp=temp->next;
         }
 
-        delete temp->next;
-        temp->next=nullptr;
+        delete tail;
+        tail = temp;
+        tail->next=nullptr;
     }
 
     void removemiddle(int c) //remove middle node(specific node)
@@ -146,34 +160,35 @@ public:
             return;
         }
 
-        task* prev = nullptr;
-        task* current = head;
-        int count=1;
-
-        while (current != nullptr && count<c)
+        if (c == 1)
         {
-            prev=current;
-            current=current->next;
-            count++;
-
-        }
-        
-        if(current==nullptr)
-        {
-            cout<<"Position out of range.No task to remove. "<<endl;
+            removebeginning();
             return;
         }
 
-        if(prev==nullptr) //remove first node
+        task *temp = head;
+        int a = 1;
+
+        while (temp->next != nullptr && a != c - 1)
         {
-            head=current->next;
+            temp = temp->next;
+            a++;
+        }
+
+        if (a == c - 1 && temp->next != nullptr)
+        {
+            task *toDelete = temp->next;
+            temp->next = toDelete->next;
+            if (toDelete == tail)
+            {
+                tail = temp;
+            }
+            delete toDelete;
         }
         else
         {
-            prev->next=current->next;
+            cout << "Invalid position. Task cannot be removed." << endl;
         }
-
-        delete current;
     }
 
     void displist()
@@ -800,8 +815,7 @@ int main()
                     cout << "Status: ";
                     cin >> status;
 
-                    //set node data
-                    //insert node
+                    
                     newTask.settask(tasks);
                     newTask.setday(day);
                     newTask.setmonth(month);
@@ -838,7 +852,7 @@ int main()
                     int position;
                     cout << "Enter the position to add the new task: ";
                     cin >> position;
-                    //insert position and new data
+                    
 
                     tk.insertrand(position,newTask);  //add node at specific position
                     cout << "/n/nTask added in the middle." << endl;
@@ -867,8 +881,7 @@ int main()
                     newTask.setyear(year);
                     newTask.setstatus(status);
 
-                    //set task
-                    //insert data into node
+                    
                     tk.insertend(newTask);
                     cout << "\n\nTask added at the end." << endl;
                 }
@@ -906,7 +919,7 @@ int main()
                 switch (removeChoice)
                 {
                 case 1:
-                    //remove beginning
+                    
                     tk.removebeginning();
                     cout << "\n\nTask removed from the beginning." << endl;
                     break;
@@ -916,14 +929,14 @@ int main()
                     int position;
                     cout << "Enter the position to remove the task from the middle: ";
                     cin >> position;
-                    //remove middle
+                    
                     tk.removemiddle(position);
                     cout << "\n\nTask removed from the middle." << endl;
                 }
                 break;
 
                 case 3:
-                    //remove last
+                    
                     tk.removelast();
                     cout << "\n\nTask removed from the end." << endl;
                     break;
