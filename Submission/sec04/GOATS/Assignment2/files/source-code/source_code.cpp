@@ -363,33 +363,32 @@ class List{
         return 0;  
         }
         
-        void findNode(string searchKey) {
-        Patient *tempPatient = p_head;
-        Doctor *tempDoctor = d_head;
-		
-		    //patients
-            while (tempPatient != NULL) {
-                if (tempPatient->getNamePatient() == searchKey || tempPatient->getICPatient() == searchKey) {
-                    cout << "Patient found:\n";
-                    tempPatient->display();
-                    return;
-                }
-                tempPatient = tempPatient->getNext();
-            }
-            
-            //doctors
-            while (tempDoctor != NULL) {
-                if (tempDoctor->getNameDoctor() == searchKey || tempDoctor->getIDDoctor() == searchKey) {
-                    cout << "Doctor found:\n";
-                    tempDoctor->display();
-                    return;
-                }
-                tempDoctor = tempDoctor->getNext();
-            }
-            
-            //if not found
-            cout << "Node with key '" << searchKey << "' not found.\n";
-    	}
+        void findNode(string searchKey, int user) {
+		    if (user == 1) {
+		        Patient *tempPatient = p_head;
+		        while (tempPatient != NULL) {
+		            if (tempPatient->getNamePatient() == searchKey || tempPatient->getICPatient() == searchKey) {
+		                cout << "Patient found:\n";
+		                tempPatient->display();
+		                return;
+		            }
+		            tempPatient = tempPatient->getNext();
+		        }
+		    } else if (user == 2) {
+		        Doctor *tempDoctor = d_head;
+		        while (tempDoctor != NULL) {
+		            if (tempDoctor->getNameDoctor() == searchKey || tempDoctor->getIDDoctor() == searchKey) {
+		                cout << "Doctor found:\n";
+		                tempDoctor->display();
+		                return;
+		            }
+		            tempDoctor = tempDoctor->getNext();
+		        }
+		    } else {
+		        cout << "Invalid user type\n";
+		    }
+		    cout << "Node with key '" << searchKey << "' not found.\n";
+		}
 
         void display(int user){
             
@@ -807,6 +806,7 @@ int start(){
 
 void assignment2 (List &node, int user){ // user  = patient/ doctor
     int option;
+    string searchKey;
 
     cout << "\n<< Linked list operation >>\n"
          << "1. Add new Patient/ Doctor\n"
@@ -814,6 +814,7 @@ void assignment2 (List &node, int user){ // user  = patient/ doctor
          << "3. Find Patient/Doctor\n"
          << "Choose one of the function : ";
     cin >> option;
+    
     switch (option)
     {
     case 1:
@@ -830,7 +831,10 @@ void assignment2 (List &node, int user){ // user  = patient/ doctor
         // add menu delete
         break;
     case 3:
-        // add menu find node
+            cout << "\nEnter the name or ID to find: ";
+            cin >> searchKey;
+            node.findNode(searchKey, user);
+            break;
         break;
     default:
         cout << "\nError : Invalid linked list operation option\n";
@@ -839,10 +843,17 @@ void assignment2 (List &node, int user){ // user  = patient/ doctor
 }
 
 int main() {
-    int choice = start();   // Choose program
-    int user; // patient or doctor
     List node;
-
+	//test function to find node later
+	node.insertFront("888777fsd6", "David", 50, "Arthritis", "Dr. Johnson", 1);
+	node.insertFront("999888fgd9", "James", 18, "Fever", "Dr. Robert", 1);
+	node.insertFront("666555fhi0", "lilly", 24, "Scoliosis", "Dr. Ravendra", 1);
+	//node.display(1);
+	//node.display(2);
+    
+	int choice = start();   // Choose program
+    int user; // patient or doctor
+	
     if(choice == 1){
         assignment1();
         return 0;
@@ -868,15 +879,8 @@ int main() {
 
     // test function
 
-    node.insertFront("888777fsd6", "David", 50, "Arthritis", "Dr. Johnson", user);
-
-    node.display(user); // test if node is empty
-
-    node.deleteNode("888777fsd6", user);
-    node.display(user);
-
-    node.findNode("David");
-
+    //node.deleteNode("888777fsd6", user);
+    //node.display(user);
 
     return 0;
 }
