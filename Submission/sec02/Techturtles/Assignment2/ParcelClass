@@ -1,50 +1,223 @@
-class Parcel {
+class ParcelList {
 private:
-    string trackingNumber, address, nameSender, nameReceiver;
-    char category; // 'A' for Bulky & Heavy Delivery, 'B' for Standard Delivery
-    int status;    // '0' for Incomplete, '1' for Complete
+    Node* head;
+    int count;
 
 public:
-    Parcel(string tn, string a, string nSend, string nRec, char c, int s)
-        : trackingNumber(tn), address(a), nameSender(nSend), nameReceiver(nRec), category(c), status(s) {}
+    ParcelList() : head(nullptr), count(0) {}
 
-    string getTrackingNumber() const {
-        return trackingNumber;
+    ~ParcelList() {
+        Node* current = head;
+        Node* next;
+
+        while (current != nullptr) {
+            next = current->next;
+            delete current->data;
+            delete current;
+            current = next;
+        }
     }
 
-    string getAddress() const {
-        return address;
+    int getNodeCount()
+    {
+        return count;
     }
 
-    string getSender() const {
-        return nameSender;
+    void addNodeAtBeginning(Parcel* parcel) {
+        Node* newNode = new Node(parcel);
+        newNode->next = head;
+        head = newNode;
+        count++;
     }
 
-    string getReceiver() const {
-        return nameReceiver;
+    void addNodeAtEnd(Parcel* parcel) {
+        Node* newNode = new Node(parcel);
+
+        if (head == nullptr) {
+            head = newNode;
+        }
+        else {
+            Node* current = head;
+            while (current->next != nullptr) {
+                current = current->next;
+            }
+            current->next = newNode;
+            count++;
+        }
     }
 
-    char getCategory() const {
-        return category;
+    void addNodeAtPosition(Parcel* parcel, int position) {
+        if (position <= 0) {
+            addNodeAtBeginning(parcel);
+        }
+        else {
+            Node* newNode = new Node(parcel);
+            Node* current = head;
+            int count = 1;
+
+            while (current != nullptr && count < position) {
+                current = current->next;
+                count++;
+            }
+
+            if (current != nullptr) {
+                newNode->next = current->next;
+                current->next = newNode;
+                count++;
+            }
+            else {
+                cout << "Invalid position. Node not added." << endl;
+                delete newNode;
+            }
+        }
     }
 
-    int getStatus() const {
-        return status;
+    Node* getNodeAtPosition(int position) const {
+        if (position < 0 || position >= count) {
+            return nullptr; // Invalid position
+        }
+
+        Node* current = head;
+        for (int i = 0; i < position; i++) {
+            current = current->next;
+        }
+
+        return current;
     }
 
-    void displayDetails(int count) const {
-        cout << "\t" << left << setw(5) << count
-            << setw(15) << trackingNumber
-            << setw(30) << address
-            << setw(15) << nameSender
-            << setw(15) << nameReceiver
-            << setw(10) << category
-            << setw(10) << status << endl;
+    void deleteNodeAtBeginning() {
+        if (head == nullptr) {
+            cout << "List is empty. Nothing to delete.\n";
+            return;
+        }
+
+        Node* temp = head;
+        head = head->next;
+        delete temp->data;
+        delete temp;
+
+        count--;
+        cout << "Node deleted from the beginning.\n";
+    }
+
+    void deleteNodeAtEnd() {
+        if (head == nullptr) {
+            cout << "List is empty. Nothing to delete.\n";
+            return;
+        }
+
+        if (head->next == nullptr) {
+            delete head->data;
+            delete head;
+            head = nullptr;
+        }
+        else {
+            Node* current = head;
+            while (current->next->next != nullptr) {
+                current = current->next;
+            }
+
+            delete current->next->data;
+            delete current->next;
+            current->next = nullptr;
+        }
+
+        count--;
+        cout << "Node deleted from the end.\n";
+    }
+
+    void deleteNodeAtPosition(int position) {
+        if (position < 0 || position >= count) {
+            cout << "Invalid position. Nothing to delete.\n";
+            return;
+        }
+
+        if (position == 0) {
+            deleteNodeAtBeginning();
+        }
+        else if (position == count) {
+            deleteNodeAtEnd();
+        }
+        else {
+            Node* current = head;
+            for (int i = 0; i < position - 1; i++) {
+                current = current->next;
+            }
+
+            Node* temp = current->next;
+            current->next = temp->next;
+            delete temp->data;
+            delete temp;
+
+            count--;
+            cout << "Node deleted at position " << position << ".\n";
+        }
+    }
+
+    Node* findNode(const string& trackingNumber) const {
+        Node* current = head;
+
+        while (current != nullptr) {
+            if (current->data->getTrackingNumber() == trackingNumber) {
+                return current;
+            }
+            current = current->next;
+        }
+
+        return nullptr;
+    }
+
+    void sortList() {
+        if (head == nullptr || head->next == nullptr) {
+            return; // Already sorted
+        }
+
+        bool swapped;
+        Node* ptr1;
+        Node* lptr = nullptr;
+
+        do {
+            swapped = false;
+            ptr1 = head;
+
+            while (ptr1->next != lptr) {
+                if (ptr1->data->getTrackingNumber() > ptr1->next->data->getTrackingNumber()) {
+                    swap(ptr1->data, ptr1->next->data);
+                    swapped = true;
+                }
+                ptr1 = ptr1->next;
+            }
+            lptr = ptr1;
+        } while (swapped);
+    }
+
+    void displayAllNodes() const {
+        Node* current = head;
+        int count = 1;
+
+        cout << "\t";
+        for (int i = 0; i < 100; i++)
+        {
+            cout << "-";
+        }
+        cout << "\n\t" << left << setw(5) << "No."
+            << setw(15) << "Tracking No."
+            << setw(30) << "Address"
+            << setw(15) << "Sender"
+            << setw(15) << "Receiver"
+            << setw(10) << "Category"
+            << setw(10) << "Status" << endl;
+
         cout << "\t";
         for (int i = 0; i < 100; i++)
         {
             cout << "-";
         }
         cout << endl;
+        while (current != nullptr) {
+            current->data->displayDetails(count);
+            current = current->next;
+            count++;
+        }
     }
 };
