@@ -227,6 +227,9 @@ void search(int opt,string key,int key2)
                             temp = temp->next;
                         }
                         break;
+                    case 5:
+                        while(temp != NULL)
+                    {}
 			}
 			}
 		}
