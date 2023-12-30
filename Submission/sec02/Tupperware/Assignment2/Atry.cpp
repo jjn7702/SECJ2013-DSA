@@ -508,7 +508,7 @@ int main() {
 	
         }
 
-    } while (opt != 5);
+    } while (opt != 5 && opt < 6 && opt > 0) ;
 
     system("cls");
     orderList.displayNodes();
