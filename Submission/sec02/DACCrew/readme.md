@@ -10,7 +10,7 @@ _Don't forget to hit the :star: if you like this repo._
 # Banking System
 
 ## Description 📝
-
+This system is designed to perform basic transaction operations, including depositing money into user accounts, enabling withdrawal, and facilitating money transfers between accounts. The sorting operations encompass arranging data by name, Identification Card number, account number and balance in ascending order. Additionally, this system supports searching operations based on account holder's names and account numbers, allowing users to locate their accounts using unique identifiers.
 
 
 ## Prepared by 🧑‍💻
@@ -19,7 +19,7 @@ _Don't forget to hit the :star: if you like this repo._
 | :---------------- | :-------------: | :------------------------------------------------------------: |
 |  Chai Yu Tong  |    A22EC0145     | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Images/profile.jpg" title="Icon by Trazobanana"><img src="./Images/profile.jpg" width=80px, height=80px>     |
 |   Nur Farah Adibah binti Idris   |   A22EC0245      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Images/Farah.jpg" title="Icon by Trazobanana"><img src="./Images/Farah.jpg" width=80px, height=80px>         |
-|       |         | <a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="./Images/" width=80px, height=80px>         |
+|   Wong Qiao Ying    | A22EC0118        | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Images/alovey1014.jpg" title="Icon by Trazobanana"><img src="./Images/alovey1014.jpg" width=80px, height=80px>         |
 
 ## Flow of system
 1. The user is prompted to input their choice.
@@ -29,11 +29,11 @@ _Don't forget to hit the :star: if you like this repo._
 5. The system shuts down if the user chooses to quit.
 
 <h3>Report Assignment 1</h3>
-<a href="https://docs.google.com/document/d/1-DMRS-LltyCGzyDk6D3rWw81yVV4hYLz/edit?usp=sharing&ouid=101274812867810218448&rtpof=true&sd=true"><img src="./Images/download.png" width="35px" height="35px" ></a>
+<a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Assignment1/files/DACCrew%20Assignment%201.pdf"><img src="./Images/download.png" width="35px" height="35px" ></a>
 
 ## Findings 📊
 
-- <a href="Assignment 1">Assignment 1
+- <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Assignment1/assignment1.md">Assignment 1
 - Assignment 2
 - Project
 

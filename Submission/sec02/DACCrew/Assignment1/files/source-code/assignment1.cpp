@@ -85,10 +85,10 @@ public:
     }
 };
 
-int partitionName(Account bl[], int first, int last)
+int partitionName(Bank bl[], int first, int last)
 {
     string pivot = bl[first].getName();
-    Account temp;
+    Bank temp;
     int cutPoint;
     int bottom = first;
     int top = last;
@@ -122,7 +122,7 @@ int partitionName(Account bl[], int first, int last)
     return cutPoint;
 }
 
-void sortByName(Account bl[], int first, int last)
+void sortByName(Bank bl[], int first, int last)
 {
     if (first < last)
     {
@@ -139,10 +139,10 @@ void sortByName(Account bl[], int first, int last)
     }
 }
 
-int partitionAccNum(Account bl[], int first, int last)
+int partitionAccNum(Bank bl[], int first, int last)
 {
     string pivot = bl[first].getAccNum();
-    Account temp;
+    Bank temp;
     int cutPoint;
     int bottom = first;
     int top = last;
@@ -172,7 +172,7 @@ int partitionAccNum(Account bl[], int first, int last)
     return cutPoint;
 }
 
-void sortByAccNum(Account bl[], int first, int last)
+void sortByAccNum(Bank bl[], int first, int last)
 {
     if (first < last)
     {
@@ -188,11 +188,60 @@ void sortByAccNum(Account bl[], int first, int last)
             sortByAccNum(bl, first, cut);
     }
 }
-int partitionBal(Account bl[], int first, int last)
+int partitionIc(Bank bl[], int first, int last)
+{
+    string pivot = bl[first].getIc();
+    Bank temp;
+    int cutPoint;
+    int bottom = first;
+    int top = last;
+    int loop = true;
+
+    while (loop)
+    {
+        while (bl[top].getIc() > pivot)
+            top--;
+
+        while (bl[bottom].getIc() < pivot)
+            bottom++;
+
+        if (bottom < top)
+        {
+            temp = bl[top];
+            bl[top] = bl[bottom];
+            bl[bottom] = temp;
+        }
+        else
+        {
+            loop = false;
+            cutPoint = top;
+        }
+    }
+
+    return cutPoint;
+}
+
+void sortByIc(Bank bl[], int first, int last)
+{
+    if (first < last)
+    {
+        int cut;
+        cut = partitionIc(bl, first, last);
+
+        if (cut != last)
+        {
+            sortByIc(bl, first, cut);
+            sortByIc(bl, cut + 1, last);
+        }
+        else
+            sortByIc(bl, first, cut);
+    }
+}
+int partitionBal(Bank bl[], int first, int last)
 {
     int pivotI = (first + last) / 2;
     double pivot = bl[pivotI].getBalance();
-    Account temp;
+    Bank temp;
     int cutPoint;
     int bottom = first;
     int top = last;
@@ -247,7 +296,7 @@ int partitionBal(Account bl[], int first, int last)
     return cutPoint;
 }
 
-void sortByBal(Account bl[], int first, int last)
+void sortByBal(Bank bl[], int first, int last)
 {
     if (first < last)
     {
@@ -264,6 +313,67 @@ void sortByBal(Account bl[], int first, int last)
     }
 }
 
+//Searching
+void searchByName(Bank bl[], int size, const string& searchName)
+{
+    bool found = false;
+
+    cout << "Search Results for Name: " << searchName << endl;
+
+    for (int i = 0; i < size; i++)
+    {
+        if (bl[i].getName() == searchName)
+        {
+            dispHeader();
+            bl[i].displaySort();
+            found = true;
+        }
+    }
+
+    if (!found)
+        cout << "No matching records found for the given name." << endl;
+}
+
+void searchByAccNum(Bank bl[], int size, const string& searchAccNum)
+{
+    bool found = false;
+
+    cout << "Search Results for Account Number: " << searchAccNum << endl;
+
+    for (int i = 0; i < size; i++)
+    {
+        if (bl[i].getAccNum() == searchAccNum)
+        {
+            dispHeader();
+            bl[i].displaySort();
+            found = true;
+        }
+    }
+
+    if (!found)
+        cout << "No matching records found for the given account number." << endl;
+}
+
+void searchByIc(Bank bl[], int size, const string& searchIc)
+{
+    bool found = false;
+
+    cout << "Search Results for IC Number: " << searchIc << endl;
+
+    for (int i = 0; i < size; i++)
+    {
+        if (bl[i].getIc() == searchIc)
+        {
+            dispHeader();
+            bl[i].displaySort();
+            found = true;
+        }
+    }
+
+    if (!found)
+        cout << "No matching records found for the given IC number." << endl;
+}
+
 int main()
 {
     Bank bankList[100];
@@ -271,6 +381,7 @@ int main()
     string name, num, ic;
     float bal;
     int opt;
+    int idx=0;
 
     if (!fileIn)
     {
@@ -278,8 +389,8 @@ int main()
         return 1;
     }
     else
-    {
-        for (int a = 0; a < 4; a++)
+    {   int a=0;
+        while (!fileIn.eof())
         {
             getline(fileIn, name, '|');
             getline(fileIn, num, '|');
@@ -290,7 +401,9 @@ int main()
             bankList[a].setAccNum(num);
             bankList[a].setIc(ic);
             bankList[a].setBalance(bal);
-
+            a++;
+            idx++;
+    
             // s[a].display();
         }
     }
@@ -304,11 +417,11 @@ int main()
 
         cout << ":: SEARCH BY ::" << endl;
         cout << "[5] Search by Name" << endl;
-        cout << "[5] Search by Account Number" << endl;
-        cout << "[6] Search by IC Number" << endl << endl;
+        cout << "[6] Search by Account Number" << endl;
+        cout << "[7] Search by IC Number" << endl << endl;
 
         cout << ":: OTHER ACTION ::" << endl;
-        cout << "[7] Quit" << endl;
+        cout << "[8] Quit" << endl;
         cout << "OPTION >> ";
         cin >> opt;
 
@@ -319,26 +432,27 @@ int main()
                 case 1:
                     cout << "Sort by name" << endl;
                     dispHeader();
-                    sortByName(bankList, 0, 3);
+                    sortByName(bankList, 0, idx);
                     break;
                 case 2:
                     cout << "Sort by Account Number" << endl;
                     dispHeader();
-                    sortByAccNum(bankList, 0, 3);
+                    sortByAccNum(bankList, 0, idx);
                     break;
                 case 3:
                     cout << "Sort by IC Number" << endl;
                     dispHeader();
-                    sortByIc(bankList, 0, 3);
+                    sortByIc(bankList, 0, idx);
                     break;
                 default:
                     cout << "Sort by account balance" << endl;
                     dispHeader();
-                    sortByBal(bankList, 0, 3);
+                    sortByBal(bankList, 0, idx);
                     break;
             }
-            // Display the sorted results
-            for (int z = 0; z < 4; z++)
+           
+            // Display the sorted resultss
+            for (int z = 1; z <=idx; z++)
                 bankList[z].displaySort();
         }
         else if(opt >= 5 && opt <= 7)
@@ -349,7 +463,7 @@ int main()
                 cout << "Enter the name to search: ";
                 cin.ignore(); 
                 getline(cin, searchName);
-                searchByName(bankList, 4, searchName);
+                searchByName(bankList, idx, searchName);
             }
             else if(opt == 6)
             {
@@ -357,7 +471,7 @@ int main()
                 cout << "Enter the account number to search: ";
                 cin.ignore(); // Ignore newline character in the input buffer
                 getline(cin, searchAccNum);
-                searchByAccNum(bankList, 4, searchAccNum);
+                searchByAccNum(bankList, idx, searchAccNum);
             }
             else
             {
@@ -365,7 +479,7 @@ int main()
                 cout << "Enter the IC number to search: ";
                 cin.ignore();
                 getline(cin, searchIc);
-                searchByIc(bankList, 4, searchIc);
+                searchByIc(bankList, idx, searchIc);
             }
         }
         else

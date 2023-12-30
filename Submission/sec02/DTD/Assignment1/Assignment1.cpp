@@ -136,7 +136,11 @@ void displayBookDetails(int index, const Book& book) {
          << setw(8) << book.getYear() << " | " << setw(13) << book.getISBN() << " |" << endl;
 } 
 
+<<<<<<< Updated upstream
 //Start Searching
+=======
+//Searching
+>>>>>>> Stashed changes
 void searchByTitle(Book books[], int size) {
     string title;
     bool found = false;

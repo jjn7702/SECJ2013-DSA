@@ -19,13 +19,13 @@ The task management system is designed and created to help the user to manage al
 | :---------------- | :-------------: | :------------------------------------------------------------: |
 | Muhammad Luqman Hakim Bin Mohd Rizaudin   | A22EC0086        | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/luqman.jpg" title="luqman"><img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/luqman.jpg" width=80px, height=80px>     |
 | Muhammad Anas Bin Mohd Pikri       | A21SC0464        | <a href="https://avatars.githubusercontent.com/u/116987481?v=4" title="Anas"><img src="https://avatars.githubusercontent.com/u/116987481?v=4" width=80px, height=80px>         |
-| Kugen a/l Kalidas       | A22EC0178       | <a href="https://avatars.githubusercontent.com/u/128279457?s=400&u=f759a62febb4241e4edf587a3a537e0e1af722c5&v=4" width=80px, height=80px>         |
+| Kugen a/l Kalidas       | A22EC0178       | <a href="https://avatars.githubusercontent.com/u/128279457?v=4" title="Anas"><img src="https://avatars.githubusercontent.com/u/128279457?v=4" width=80px, height=80px> |
 
 
 ## Findings 📊
 
 - [Assignment 1](./assignment1/assignment1.md)
-- Assignment 2
+- [Assignment 2](./assignment2/assignment2.md)
 - Project
 
 ## Contribution 🛠️

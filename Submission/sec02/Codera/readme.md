@@ -21,10 +21,9 @@ In order to effectively manage and monitor patients' records in hospitals, a hos
 | Joseph Lau Yeo Kai       | A22EC0055        | <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Images/joseph_pic.jpeg" width=80px, height=80px>         |
 | Lee Yik Hong       | A21BE0376       | <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Images/Assignment%20photo.jpg" width=80px, height=80px>         |
 
-
 ## Findings 📊
 
-- Assignment 1
+- [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec02/Codera/Assignment1)
 - Assignment 2
 - Project
 
