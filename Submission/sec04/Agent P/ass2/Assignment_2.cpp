@@ -1,6 +1,39 @@
 #include <iostream>
 using namespace std;
 
+class Voter{
+    string name,faculty,email,ic,matric;
+    int age;
+
+    public:
+     Voter *next;
+        Voter(string n,string f,int a,string ic,string e,string m)
+        {
+            name = n;
+            faculty = f;
+            age = a;
+            this->ic = ic;
+            email = e;
+            matric = m;
+            next = NULL;
+        }
+
+        string getName(){return name;}
+        string getFaculty(){return faculty;}
+        int getAge(){return age;}
+        string getIC(){return ic;}
+        string getEmail(){return email;}
+        string getMatric(){return matric;}
+
+        void setName(string n){name = n;}
+        void setFaculty(string f){ faculty = f;}
+        void setAge(int a){age = a;}
+        void setIC(string ic){this->ic = ic;}
+        void setEmail(string e){email = e;}
+        void setMatric(string m){matric = m;}
+
+};
+
 class List
 {
     Voter *head;

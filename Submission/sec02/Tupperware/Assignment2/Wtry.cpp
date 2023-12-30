@@ -62,57 +62,80 @@ public:
 
 
     // Functions to add a new node
-    // Insert at the first
-    void insertFront(Menu arr) {
-        Node* newHead = new Node(arr); // pass value into the first node
-        if (!isEmpty())
-            newHead->next = head;
-        head = newHead;
-    }
+// Insert at the front
+void insertFront(OrderList& orderList, Menu arr) {
+    Node* newHead = new Node(arr); // pass value into the first node
+    if (!orderList.isEmpty())
+        newHead->next = orderList.head;
+    orderList.head = newHead;
+}
 
-    // Insert at the end
-    void insertEnd(Menu arr) {
-        Node* temp = head;
-        Node* newEnd = new Node(arr);
-        if (head == nullptr)
-            head = newEnd;
-        else {
-            while (temp->next != nullptr)
-                temp = temp->next;
-            temp->next = newEnd;
-        }
+// Insert at the end
+void insertEnd(OrderList& orderList, Menu arr) {
+    Node* temp = orderList.head;
+    Node* newEnd = new Node(arr);
+    if (orderList.head == nullptr)
+        orderList.head = newEnd;
+    else {
+        while (temp->next != nullptr)
+            temp = temp->next;
+        temp->next = newEnd;
     }
+}
 
     // Insert at the middle
-    void insertMiddle(Menu newOne, string middle) {
-        Node* newNode = new Node(newOne);
-        Node* temp = head;
-        int count = 1;
+void insertMiddle(OrderList& orderList, Menu newOne, string middle) {
+    Node* newNode = new Node(newOne);
+    Node* temp = orderList.head;
+    Node* prev = nullptr;
 
-        while(temp->order.getFoodId() != middle){
-            temp = temp->next;
-            count++;
-        }
-
-            newNode->next = temp->next;
-            temp->next = newNode;
+    // If the list is empty, insert at the front
+    if (orderList.isEmpty()) {
+        orderList.insertFront(orderList, newOne);
+        return;
     }
+
+    while (temp != nullptr && temp->order.getFoodId() != middle) {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    // If the specified node is the head, insert at the front
+    if (temp == orderList.head) {
+        newNode->next = orderList.head;
+        orderList.head = newNode; // Update the head
+    } else {
+        newNode->next = temp;
+        prev->next = newNode;
+    }
+}
 
     // Insert at the specified position
-    void insertSpecified(Menu newOne, string specified) {
-        Node* newNode = new Node(newOne);
-        Node* temp = head;
-        Node* prev = nullptr;
+void insertSpecified(OrderList& orderList, Menu newOne, string specified) {
+    Node* newNode = new Node(newOne);
+    Node* temp = orderList.head;
+    Node* prev = nullptr;
 
-        while (temp != nullptr && temp->order.getFoodId() != specified) {
-            prev = temp;
-            temp = temp->next;
-        }
-
-            newNode->next = temp->next;
-            prev->next = newNode;
+    // If the list is empty, insert at the front
+    if (orderList.isEmpty()) {
+        orderList.insertFront(orderList, newOne);
+        return;
     }
 
+    while (temp != nullptr && temp->order.getFoodId() != specified) {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    // If the specified node is the head, insert at the front
+    if (temp == orderList.head) {
+        newNode->next = orderList.head;
+        orderList.head = newNode; // Update the head
+    } else {
+        newNode->next = temp;
+        prev->next = newNode;
+    }
+}
 
     //Function to find node by name
     Node* findNodeName(const string& searchName) const {
@@ -188,17 +211,6 @@ void displayMenu(Menu menuArray[]) {
              << setw(13) << menuArray[i].getCategory() << " | "
              << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
     }
-}
-
-void displayMenuNew(Menu menuArray[]){
-     for (int i = 0; i < SIZE + 1; i++) {
-        cout << left;
-        cout << setw(5) << (i+1) << " | "
-             << setw(10) << menuArray[i].getFoodId() << " | "
-             << setw(21) << menuArray[i].getName() << " | "
-             << setw(13) << menuArray[i].getCategory() << " | "
-             << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
-    }   
 }
 
 void printSortedResult(Menu menuArray[]) {
@@ -289,6 +301,7 @@ int main() {
     nameFile.close();
 
     
+    do {
         cout << endl;
         cout << setw(5) << "[1] Add Menu" << endl;
         cout << setw(5) << "[2] Delete Menu" << endl;
@@ -299,7 +312,6 @@ int main() {
         cout << "\nEnter your choice: " ;
         cin >> opt;
 
-    while(opt != 6 && opt > 0 && opt < 7) {
         switch (opt) {
             case 1:{
                 cout << "Enter the food ID : ";
@@ -321,20 +333,20 @@ int main() {
                 switch (ins)
                 {
                     case 1:
-                        orderList.insertFront(Menu(foodId, name, category, price));
+                        orderList.insertFront(orderList, Menu(foodId, name, category, price));
                         break;
                     case 2:{
                         cout << "\nGive food ID existed in the Menu list : ";
                         cin >> middle;
-                        orderList.insertMiddle(Menu(foodId, name, category, price), middle);
+                        orderList.insertMiddle(orderList, Menu(foodId, name, category, price), middle);
                         } break;
                     case 3:
-                        orderList.insertEnd(Menu(foodId, name, category, price));
+                        orderList.insertEnd(orderList,Menu(foodId, name, category, price));
                         break;
                     case 4:{
                         cout << "\nGive food ID existed in the Menu list : ";
                         cin >> middle;
-                        orderList.insertSpecified(Menu(foodId, name, category, price), middle);
+                        orderList.insertSpecified(orderList, Menu(foodId, name, category, price), middle);
                         } break;
                     default:
                         break;
@@ -450,10 +462,10 @@ int main() {
             break;
         }
 
-    }
+    } while (opt != 6);
 
 
     displayHeader();
-    displayMenuNew(menuArray);
+    orderList.displayNodes();
     return 0;
 }
