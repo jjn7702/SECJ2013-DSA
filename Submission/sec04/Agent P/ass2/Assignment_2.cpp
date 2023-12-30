@@ -1011,3 +1011,11 @@ int main()
 }
         cout<<"\nWould you like to continue (y/n) : ";
         cin>>answer;
+
+        if(answer == 'y' || answer == 'Y')
+        {
+
+            cout<<"[1] Insert\n[2] Delete\n[3] Search\n[4] Sort\n";
+            cout<<"Please choose an option : ";
+            cin>>opt1;
+        }
