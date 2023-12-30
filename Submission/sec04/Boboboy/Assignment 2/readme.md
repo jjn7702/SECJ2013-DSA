@@ -21,7 +21,7 @@ _Don't forget to hit the :star: if you like this repo._
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
 |  Tay Shun Wei  |    A22EC0110     | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/photo_2023-06-18_21-46-08.jpg" title="Icon by Trazobanana"><img src="./images/photo_2023-06-18_21-46-08.jpg" width=80px, height=80px>     |
-|  Aeron Goh Ming Lun    |    A22EC0033    | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/rsz_1rsz_1img_0290.jpg" title="Icon by Trazobanana"><img src="/images/rsz_1rsz_1img_0290.jpg" width=80px, height=80px>         |
+|  Aeron Goh Ming Lun    |    A22EC0033    | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/rsz_1rsz_1img_0290.jpg" title="Icon by Trazobanana"><img src="./images/rsz_1rsz_1img_0290.jpg" width=80px, height=80px>         |
 |       |        | <a href="" title="Icon by Trazobanana"><img src="./Images/" width=80px, height=80px>         |
 
 ## Findings 📊
