@@ -1,6 +1,10 @@
 #include <iostream>
 using namespace std;
 
+class Voter{
+    string name,faculty,email,ic,matric;
+    int age;
+};
 class List
 {
     Voter *head;
