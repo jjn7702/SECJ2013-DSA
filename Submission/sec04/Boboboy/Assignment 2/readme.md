@@ -7,7 +7,7 @@
 
 _Don't forget to hit the :star: if you like this repo._
 
-# Assignment 1
+# Assignment 2
 
 ## Objective
 
@@ -26,9 +26,9 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Findings 📊
 
-- [Source code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%201/SourceCode/Assignment1.cpp)
-- [Inputfile](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%201/SourceCode/input.txt.txt)
-- [Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%201/Report/DSA%20assignment%201.pdf)
+- [Source code]()
+- [Inputfile]()
+- [Report]()
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
