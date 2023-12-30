@@ -141,6 +141,10 @@ class List
                     temp2 = temp;
                     temp = temp->next;
                 }
+                temp2->next = temp->next;
+                temp->next = NULL;
+                delete temp;
+            }
         }
 
         
