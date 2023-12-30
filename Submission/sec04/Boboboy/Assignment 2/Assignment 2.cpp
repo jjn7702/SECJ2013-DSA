@@ -265,15 +265,17 @@ int main(){
 	string menu_code, menu_name, menu_type,order;
 	float menu_price;
 	Menu a [N];
-	int i = 0, option,answer,cus_action,proses;
+	int i = 0,cus_action;
 	Cart b;
 	ifstream file("input.txt.txt");
 	if(!file){
 		cout << " Error opening file" << endl;
 	}
+	/*
 	else{
 		cout << "File can run" << endl; // use for testing the file
 	}
+	*/
 	while(getline(file,menu_code,',')){
 		getline(file,menu_name,',');
 		getline(file,menu_type,',');
