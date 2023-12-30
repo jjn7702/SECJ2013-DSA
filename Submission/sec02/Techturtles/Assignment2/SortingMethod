@@ -1,0 +1,58 @@
+void swapParcels(Node* a, Node* b) {
+    swap(a->data, b->data);
+}
+
+void bubbleSort(ParcelList& list, bool ascending) {
+    int n = list.getNodeCount();
+
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            string firstTracking = list.getNodeAtPosition(j)->data->getTrackingNumber();
+            string secondTracking = list.getNodeAtPosition(j + 1)->data->getTrackingNumber();
+
+            bool needSwap = (ascending) ? (firstTracking > secondTracking) : (firstTracking < secondTracking);
+
+            if (needSwap) {
+                swapParcels(list.getNodeAtPosition(j), list.getNodeAtPosition(j + 1));
+            }
+        }
+    }
+}
+
+void selectionSort(ParcelList& list, bool ascending) {
+    int n = list.getNodeCount();
+
+    for (int i = 0; i < n - 1; i++) {
+        int minIndex = i;
+
+        for (int j = i + 1; j < n; j++) {
+            string firstAddress = list.getNodeAtPosition(j)->data->getAddress();
+            string secondAddress = list.getNodeAtPosition(minIndex)->data->getAddress();
+
+            bool needSwap = (ascending) ? (firstAddress < secondAddress) : (firstAddress > secondAddress);
+
+            if (needSwap) {
+                minIndex = j;
+            }
+        }
+
+        if (minIndex != i) {
+            swapParcels(list.getNodeAtPosition(i), list.getNodeAtPosition(minIndex));
+        }
+    }
+}
+
+void insertionSort(ParcelList& list, bool ascending) {
+    int n = list.getNodeCount();
+
+    for (int i = 1; i < n; i++) {
+        string key = (ascending) ? list.getNodeAtPosition(i)->data->getSender() : list.getNodeAtPosition(i)->data->getReceiver();
+        int j = i - 1;
+
+        while (j >= 0 && ((ascending) ? (list.getNodeAtPosition(j)->data->getSender() > key) : (list.getNodeAtPosition(j)->data->getSender() < key))) {
+            swapParcels(list.getNodeAtPosition(j), list.getNodeAtPosition(j + 1));
+            j--;
+        }
+        
+    }
+}
