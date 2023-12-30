@@ -37,7 +37,7 @@ int main() {
 
     inFile.close();
 
-while (true) {
+    while (true) {
         displayMenu();
 
         cout << "\nEnter your choice: ";
@@ -140,3 +140,73 @@ while (true) {
             }
             break;
         }
+        case 3: {
+            if (p1.getNodeCount() == 0) {
+                cout << "\nList is empty. Nothing to find.\n";
+            }
+            else {
+                string searchKey;
+                cout << "\nEnter tracking number to find the parcel: ";
+                cin >> searchKey;
+                Node* foundNode = p1.findNode(searchKey);
+
+                if (foundNode != nullptr) {
+                    cout << "\nParcel found:\n";
+                    cout << "\t";
+			        for (int i = 0; i < 100; i++)
+			        {
+			            cout << "-";
+			        }
+			        cout << endl;
+                    foundNode->data->displayDetails(1);
+                }
+                else {
+                    cout << "\nParcel not found.\n";
+                }
+            }
+            break;
+        }
+        case 4: {
+            int sortChoice;
+            cout << "\nSorting Options:\n1. Bubble Sort by Tracking Number\n2. Selection Sort by Address\n3. Insertion Sort by Sender Name\nEnter your choice: ";
+            cin >> sortChoice;
+
+            bool ascending;
+            cout << "Sort in what order? (1 for Ascending, 0 for Descending): ";
+            cin >> ascending;
+
+            switch (sortChoice) {
+            case 1:
+                bubbleSort(p1, ascending);
+                cout << "\nList sorted by tracking number.\n";
+                p1.displayAllNodes();
+                break;
+            case 2:
+                selectionSort(p1, ascending);
+                cout << "\nList sorted by address.\n";
+                p1.displayAllNodes();
+                break;
+            case 3:
+                insertionSort(p1, ascending);
+                cout << "\nList sorted by sender name.\n";
+                p1.displayAllNodes();
+                break;
+            default:
+                cout << "Invalid sorting option.\n";
+                break;
+            }
+            break;
+        }
+        case 5:
+            p1.displayAllNodes();
+            break;
+        case 6:
+            cout << "\nExiting program.\n";
+            return 0;
+        default:
+            cout << "\nInvalid choice. Please enter a number between 1 and 6.\n";
+        }
+    }
+
+    return 0;
+}
