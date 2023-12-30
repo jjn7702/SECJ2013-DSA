@@ -125,6 +125,8 @@ public:
             cout<<"List is empty.No task to remove. "<<endl;
             return;
         }
+
+        task* prev = nullptr;
     }
 
     void displist()
