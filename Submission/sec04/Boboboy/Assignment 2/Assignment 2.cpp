@@ -165,4 +165,53 @@ class Cart{
 				}
 			}
 		}
+		void bubbleSort(){
+            int swapped,way;
+            Order *ptr1;
+            Order *lptr = NULL;
+        
+            cout << "Select Receipt display type: " << endl;
+    	    cout << "1. Arrange the Receipt by following the code (ascending order)" << endl;
+    	    cout << "2. Arrange the Receipt by following the code (descending order)" << endl;
+    	    cout << "3. Arrange the Receipt by following the name (ascending order)" << endl;
+    	    cout << "4. Arrange the Receipt by following the name (descending order)" << endl;
+    	    cout << "5. Arrange the Receipt by following the foodtype (ascending order)" << endl;
+    	    cout << "6. Arrange the Receipt by following the foodtype (descending order)" << endl;
+    	    cout << "Your choice:";
+    	    cin >> way;
+            // Checking for empty list
+            if (head == NULL)
+                return;
+            if(way == 1){
+            do {
+                swapped = 0;
+                ptr1 = head;
+
+                while (ptr1->next != lptr){
+                    if (ptr1->getcode() > ptr1->next->getcode()) {
+                        swap(ptr1, ptr1->next);
+                        swapped = 1;
+                    }
+                ptr1 = ptr1->next;
+            }
+                lptr = ptr1;
+            } while (swapped);
+			}
+            else if(way == 2){
+                do {
+                    swapped = 0;
+                    ptr1 = head;
+
+                    while (ptr1->next != lptr) {
+                        if (ptr1->getcode() < ptr1->next->getcode()) {
+                            swap(ptr1, ptr1->next);
+                            swapped = 1;
+                        }
+                        ptr1 = ptr1->next;
+                    }
+                    lptr = ptr1;
+                }while (swapped);
+            }
+		
+        }
 }
