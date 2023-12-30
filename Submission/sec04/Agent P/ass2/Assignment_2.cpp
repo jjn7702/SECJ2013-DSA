@@ -131,6 +131,22 @@ class List
             }
         }
 
+        void deleteAtNode(int index)
+        {
+             if(isEmpty())
+                cout<<"The list is empty!"<<endl;
+            else{
+                Voter *temp = head,*temp2;
+                for(int i=0;i<index-1;i++){
+                    temp2 = temp;
+                    temp = temp->next;
+                }
+                temp2->next = temp->next;
+                temp->next = NULL;
+                delete temp;
+            }
+        }
+
         
 void search(int opt,string key,int key2)
         {
@@ -211,6 +227,25 @@ void search(int opt,string key,int key2)
                             temp = temp->next;
                         }
                         break;
+                    case 5:
+                        while(temp != NULL)
+                        {
+                            if(temp->getEmail() == key)
+                        {
+                            cout<<"\nName  : "<<temp->getName()<<endl;
+                            cout<<"Faculty : "<<temp->getFaculty()<<endl;
+                            cout<<"Age     : "<<temp->getAge()<<endl;
+                            cout<<"IC      : "<<temp->getIC()<<endl;
+                            cout<<"Email   : "<<temp->getEmail()<<endl;
+                            cout<<"Matric  : "<<temp->getMatric()<<endl;
+                            found = true;
+                        }
+                            temp = temp->next;
+                        }
+                        break;
+                    case 6:
+                    while(temp != NULL)
+                    {}
 			}
 			}
 		}
