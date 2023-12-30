@@ -371,5 +371,219 @@ void displayMenu() {
     cout << "\t| 4. Sort the parcel list       |\n";
     cout << "\t| 5. Display all parcels        |\n";
     cout << "\t| 6. Exit                       |\n";
+
+int main() {
+    ParcelList p1;
+
+    ifstream inFile("ParcelData2.txt"); // Change the file name as needed
+
+    if (!inFile.is_open()) {
+        cerr << "Error opening file." << endl;
+        return 1;
+    }
+
+    string headerLine;
+    getline(inFile, headerLine); // Read and ignore the header line
+
+    string tracking_no, address, sender_name, receiver_name, shipping_option, status_delivery;
+
+    while (!inFile.eof()) {
+        getline(inFile, tracking_no, ';');
+        getline(inFile, address, ';');
+        getline(inFile, sender_name, ';');
+        getline(inFile, receiver_name, ';');
+        getline(inFile, shipping_option, ';');
+        getline(inFile, status_delivery);
+
+        if ((shipping_option[0] != 'A') && (shipping_option[0] != 'B')) { //If shipping option is not A or B
+            cout << "Invalid shipping option. Parcel not added.\n";
+
+        }
+        else if ((status_delivery[0] != '0' && status_delivery[0] != '1')) { //If status delivery is not 0 or 1
+            cout << "Invalid status delivery. Parcel not added.\n";
+            cout << status_delivery << endl;
+        }
+        else {
+            Parcel* newParcel = new Parcel(tracking_no, address, sender_name, receiver_name, shipping_option[0], stoi(status_delivery));
+            p1.addNodeAtEnd(newParcel);
+        }
+    }
+
+    inFile.close();
+
+    while (true) {
+        displayMenu();
+
+        cout << "\nEnter your choice: ";
+        int choice;
+        cin >> choice;
+
+        switch (choice) {
+        case 1: {
+            cout << "\nEnter parcel details:\n";
+            string tracking_no, address, sender_name, receiver_name;
+            char shipping_option;
+            int status_delivery;
+
+            cout << "Tracking Number: ";
+            cin >> tracking_no;
+            cout << "Address: ";
+            cin.ignore();
+            getline(cin, address);
+            cout << "Sender's Name: ";
+            getline(cin, sender_name);
+            cout << "Receiver's Name: ";
+            getline(cin, receiver_name);
+            cout << "Shipping Option (A/B): ";
+            cin >> shipping_option;
+            while (shipping_option != 'A' && shipping_option != 'B')
+            {
+                cout << "Invalid shipping option. Parcel not added.\n";
+                cout << "Re-enter Shipping Option (A/B): ";
+                cin >> shipping_option;
+            }
+
+            cout << "Status Delivery (0 for Incomplete, 1 for Complete): ";
+            cin >> status_delivery;
+            while (status_delivery != 0 && status_delivery != 1)
+            {
+                cout << "Invalid status delivery. Parcel not added.\n";
+                cout << "Re-enter Status Delivery (0 for Incomplete, 1 for Complete): ";
+                cin >> status_delivery;
+            }
+
+            Parcel* newParcel = new Parcel(tracking_no, address, sender_name, receiver_name, shipping_option, status_delivery);
+            int addChoice;
+            cout << "\n1. Add at the beginning\n2. Add at the end\n3. Add at a specific position\nEnter your choice: ";
+            cin >> addChoice;
+
+            switch (addChoice) {
+            case 1:
+                p1.addNodeAtBeginning(newParcel);
+                p1.displayAllNodes();
+                break;
+            case 2:
+                p1.addNodeAtEnd(newParcel);
+                p1.displayAllNodes();
+                break;
+            case 3: {
+                int position;
+                cout << "Enter position to add the parcel: ";
+                cin >> position;
+                p1.addNodeAtPosition(newParcel, position);
+                p1.displayAllNodes();
+                break;
+            }
+            default:
+                cout << "Invalid choice. Parcel not added.\n";
+                delete newParcel;
+                break;
+            }
+            break;
+        }
+        case 2: {
+            if (p1.getNodeCount() == 0) {
+                cout << "\nList is empty. Nothing to delete.\n";
+            }
+            else {
+                int deleteChoice;
+                cout << "\n1. Delete at the beginning\n2. Delete at the end\n3. Delete at a specific position\nEnter your choice: ";
+                cin >> deleteChoice;
+
+                switch (deleteChoice) {
+                case 1:
+                    p1.deleteNodeAtBeginning();
+                    p1.displayAllNodes();
+                    break;
+                case 2:
+                    p1.deleteNodeAtEnd();
+                    p1.displayAllNodes();
+                    break;
+                case 3: {
+                    int position;
+                    cout << "Enter position to delete the parcel: ";
+                    cin >> position;
+                    p1.deleteNodeAtPosition(position);
+                    p1.displayAllNodes();
+                    break;
+                }
+                default:
+                    cout << "Invalid choice. Parcel not deleted.\n";
+                    break;
+                }
+            }
+            break;
+        }
+        case 3: {
+            if (p1.getNodeCount() == 0) {
+                cout << "\nList is empty. Nothing to find.\n";
+            }
+            else {
+                string searchKey;
+                cout << "\nEnter tracking number to find the parcel: ";
+                cin >> searchKey;
+                Node* foundNode = p1.findNode(searchKey);
+
+                if (foundNode != nullptr) {
+                    cout << "\nParcel found:\n";
+                    cout << "\t";
+			        for (int i = 0; i < 100; i++)
+			        {
+			            cout << "-";
+			        }
+			        cout << endl;
+                    foundNode->data->displayDetails(1);
+                }
+                else {
+                    cout << "\nParcel not found.\n";
+                }
+            }
+            break;
+        }
+        case 4: {
+            int sortChoice;
+            cout << "\nSorting Options:\n1. Bubble Sort by Tracking Number\n2. Selection Sort by Address\n3. Insertion Sort by Sender Name\nEnter your choice: ";
+            cin >> sortChoice;
+
+            bool ascending;
+            cout << "Sort in what order? (1 for Ascending, 0 for Descending): ";
+            cin >> ascending;
+
+            switch (sortChoice) {
+            case 1:
+                bubbleSort(p1, ascending);
+                cout << "\nList sorted by tracking number.\n";
+                p1.displayAllNodes();
+                break;
+            case 2:
+                selectionSort(p1, ascending);
+                cout << "\nList sorted by address.\n";
+                p1.displayAllNodes();
+                break;
+            case 3:
+                insertionSort(p1, ascending);
+                cout << "\nList sorted by sender name.\n";
+                p1.displayAllNodes();
+                break;
+            default:
+                cout << "Invalid sorting option.\n";
+                break;
+            }
+            break;
+        }
+        case 5:
+            p1.displayAllNodes();
+            break;
+        case 6:
+            cout << "\nExiting program.\n";
+            return 0;
+        default:
+            cout << "\nInvalid choice. Please enter a number between 1 and 6.\n";
+        }
+    }
+
+    return 0;
+}
+
     cout << "\t+-------------------------------+\n";
 }
