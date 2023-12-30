@@ -116,7 +116,10 @@ class List
         }
 
         void insertAtNode(string n,string f,int a,string ic,string e,string m,int index)
-        {}
+        {
+            Voter *newNode = new Voter(n,f,a,ic,e,m);
+            Voter *temp = head;
+        }
 
         
 void search(int opt,string key,int key2)
