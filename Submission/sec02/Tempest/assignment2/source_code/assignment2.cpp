@@ -146,6 +146,10 @@ public:
 
         if(prev==nullptr)
         {
+            head=current->next;
+        }
+        else
+        {
             
         }
     }
