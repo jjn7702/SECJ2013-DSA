@@ -17,6 +17,11 @@ class Voter{
             matric = m;
             next = NULL;
         }
+
+        string getName(){return name;}
+        string getFaculty(){return faculty;}
+        int getAge(){return age;}
+        
 };
 class List
 {
