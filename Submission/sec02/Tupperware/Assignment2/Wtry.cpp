@@ -60,82 +60,92 @@ public:
     OrderList() : head(nullptr) {}
     bool isEmpty() {return head == NULL;}
 
+    ~OrderList() {
+        // Implement destructor to free allocated memory
+        Node *current = head;
+        Node *next;
+        while (current != nullptr) {
+            next = current->next;
+            delete current;
+            current = next;
+        }
+    }
 
     // Functions to add a new node
-// Insert at the front
-void insertFront(OrderList& orderList, Menu arr) {
-    Node* newHead = new Node(arr); // pass value into the first node
-    if (!orderList.isEmpty())
-        newHead->next = orderList.head;
-    orderList.head = newHead;
-}
-
-// Insert at the end
-void insertEnd(OrderList& orderList, Menu arr) {
-    Node* temp = orderList.head;
-    Node* newEnd = new Node(arr);
-    if (orderList.head == nullptr)
-        orderList.head = newEnd;
-    else {
-        while (temp->next != nullptr)
-            temp = temp->next;
-        temp->next = newEnd;
+    // Insert at the front
+    void insertFront(OrderList& orderList, Menu arr) {
+        Node* newHead = new Node(arr); // pass value into the first node
+        if (!orderList.isEmpty())
+            newHead->next = orderList.head;
+        orderList.head = newHead;
     }
-}
+
+    // Insert at the end
+    void insertEnd(OrderList& orderList, Menu arr) {
+        Node* temp = orderList.head;
+        Node* newEnd = new Node(arr);
+        if (orderList.head == nullptr)
+            orderList.head = newEnd;
+        else {
+            while (temp->next != nullptr)
+                temp = temp->next;
+            temp->next = newEnd;
+        }
+    }
 
     // Insert at the middle
-void insertMiddle(OrderList& orderList, Menu newOne, string middle) {
-    Node* newNode = new Node(newOne);
-    Node* temp = orderList.head;
-    Node* prev = nullptr;
+    void insertMiddle(OrderList& orderList, Menu newOne, string middle) {
+        Node* newNode = new Node(newOne);
+        Node* temp = orderList.head;
+        Node* prev = nullptr;
 
-    // If the list is empty, insert at the front
-    if (orderList.isEmpty()) {
-        orderList.insertFront(orderList, newOne);
-        return;
-    }
+        // If the list is empty, insert at the front
+        if (orderList.isEmpty()) {
+            orderList.insertFront(orderList, newOne);
+            return;
+        }
 
-    while (temp != nullptr && temp->order.getFoodId() != middle) {
-        prev = temp;
-        temp = temp->next;
-    }
+        while (temp != nullptr && temp->order.getFoodId() != middle) {
+            prev = temp;
+            temp = temp->next;
+        }
 
-    // If the specified node is the head, insert at the front
-    if (temp == orderList.head) {
-        newNode->next = orderList.head;
-        orderList.head = newNode; // Update the head
-    } else {
-        newNode->next = temp;
-        prev->next = newNode;
+        // If the specified node is the head, insert at the front
+        if (temp == orderList.head) {
+            newNode->next = orderList.head;
+            orderList.head = newNode; // Update the head
+        } else {
+            newNode->next = temp;
+            prev->next = newNode;
+        }
     }
-}
 
     // Insert at the specified position
-void insertSpecified(OrderList& orderList, Menu newOne, string specified) {
-    Node* newNode = new Node(newOne);
-    Node* temp = orderList.head;
-    Node* prev = nullptr;
+    void insertSpecified(OrderList& orderList, Menu newOne, string specified) {
+        Node* newNode = new Node(newOne);
+        Node* temp = orderList.head;
+        Node* prev = nullptr;
 
-    // If the list is empty, insert at the front
-    if (orderList.isEmpty()) {
-        orderList.insertFront(orderList, newOne);
-        return;
-    }
+        // If the list is empty, insert at the front
+        if (orderList.isEmpty()) {
+            orderList.insertFront(orderList, newOne);
+            return;
+        }
 
-    while (temp != nullptr && temp->order.getFoodId() != specified) {
-        prev = temp;
-        temp = temp->next;
-    }
+        while (temp != nullptr && temp->order.getFoodId() != specified) {
+            prev = temp;
+            temp = temp->next;
+        }
 
-    // If the specified node is the head, insert at the front
-    if (temp == orderList.head) {
-        newNode->next = orderList.head;
-        orderList.head = newNode; // Update the head
-    } else {
-        newNode->next = temp;
-        prev->next = newNode;
+        // If the specified node is the head, insert at the front
+        if (temp == orderList.head) {
+            newNode->next = orderList.head;
+            orderList.head = newNode; // Update the head
+        } else {
+            newNode->next = temp;
+            prev->next = newNode;
+        }
     }
-}
 
     //Function to find node by name
     Node* findNodeName(const string& searchName) const {
@@ -263,8 +273,6 @@ void PriceASC(Menu menuArray[]) {
     printSortedResult(menuArray);
 }
 
-
-
 int main() {
     char choice;
     int opt, ins, sortBy, sortIn, size = 0;
@@ -283,20 +291,23 @@ int main() {
         return 1;
     }
 
+    int menuread = 0;
 
     while (!nameFile.eof()) {
-                getline(nameFile, foodId, ',');
-                getline(nameFile, name, ',');
-                getline(nameFile, category, ',');
-                nameFile >> price;
-                nameFile.ignore();
+        getline(nameFile, foodId, ',');
+        getline(nameFile, name, ',');
+        getline(nameFile, category, ',');
+        nameFile >> price;
+        nameFile.ignore();
+        Menu newmenu;
+        newmenu.setFoodId(foodId);
+        newmenu.setName(name);
+        newmenu.setCategory(category);
+        newmenu.setPrice(price);
+        orderList.insertFront(orderList, newmenu);
 
-                menuArray[size++] = Menu(foodId, name, category, price);
+        menuread++;
     }
-
-    //first output the initial menu first
-    displayHeader();
-    displayMenu(menuArray);
 
     nameFile.close();
 
@@ -308,7 +319,6 @@ int main() {
         cout << setw(5) << "[3] Find Menu" << endl;
         cout << setw(5) << "[4] Sort Menu" << endl;
         cout << setw(5) << "[5] Display Menu" << endl;
-        cout << setw(5) << "[6] Exit" << endl;
         cout << "\nEnter your choice: " ;
         cin >> opt;
 
@@ -453,19 +463,24 @@ int main() {
             } break;
 
             case 5:{
-                system("cls");
-                orderList.displayNodes();
+                cout << "Display Menu: " << endl;
             } break;
 
-            case 6:
-                cout << "Thank you, see you again!" << endl;
-            break;
         }
 
-    } while (opt != 6);
+    } while (opt != 5);
 
-
+    system("cls");
     displayHeader();
     orderList.displayNodes();
+
+    cout << "\nDo you want to continue? (Y/N): ";
+    cin >> choice;
+
+    if (choice == 'Y' || choice == 'y')
+        main();
+    else    
+        cout << "\nThank you, see you again!" << endl;
+
     return 0;
 }
