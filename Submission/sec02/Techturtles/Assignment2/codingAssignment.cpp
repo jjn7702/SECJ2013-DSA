@@ -174,7 +174,7 @@ const Courier *findNode(const string &searchKey) const
 }
 void displayNodes() const
 {
-    Node *courier = head;
+    Node *current = head;
     while (current != nullptr)
     {
         cout << "Tracking Number: " << current->data.getTrackingNumber() << ", "
