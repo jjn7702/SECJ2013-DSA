@@ -152,6 +152,8 @@ public:
         {
             prev->next=current->next;
         }
+
+        delete current;
     }
 
     void displist()
