@@ -9,7 +9,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 # Task Management System - Assignment 2
 ## Objective
-The objective of this task management sytsem in this assignment is to implement the linked list concept. This method alllows the user to edit the data in several ways such as inserting a new task and delete current tasks in the task list. This reduces the workload of the user to edit the tasks in the list where the users can be able to access any data in the list and execute insertion or deletion method.
+The objective of this task management sytsem in this assignment is to implement the linked list concept. This method alllows the user to edit the data in several ways such as inserting a new task and delete current tasks in the task list. This reduces the workload of the user to edit the tasks in the list where the users can be able to access any data in the list and execute insertion or deletion method.Linked list is also known to have dynamic memory allocation where the linked lists can increase or decrease during the execution of program unlike arrays where the size is fixed.
 
 ## Sypnosis 📝
 
