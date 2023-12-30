@@ -732,7 +732,16 @@ void ICasc(){
                         temp2->setIC(temp2->next->getIC());
                         temp2->setMatric(temp2->next->getMatric());
                         temp2->setAge(temp2->next->getAge());
-                    }}}
+
+                        temp2->next->setName(n);
+                        temp2->next->setFaculty(f);
+                        temp2->next->setEmail(e);
+                        temp2->next->setIC(i);
+                        temp2->next->setMatric(m);
+                        temp2->next->setAge(a);
+                        sorted = false;
+                    }
+                    }}
 }
 
 };
