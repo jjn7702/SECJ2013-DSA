@@ -312,5 +312,23 @@ int main(){
 		a[i].setprice(menu_price);
 		i++;
 	}
+	int choose;
+	while(true){
+		cout << "************ Welcome to BOBOBOY Restaurant's Ordering System ************" << endl << endl;
+		cout << "-------------------------------------------------------------" << endl;
+		cout << "Code" << setw(17) << "Name" << setw(20) << "Type" << setw(20) << "Price(RM)" << endl;
+		cout << "-------------------------------------------------------------" << endl;
+		for(int i = 0; i <N; i++){
+			a[i].printmenu();
+		}
+		cout << "Process:" << endl;
+		cout << "1. Add Order" << endl;
+		cout <<"2. Delete Order" << endl;
+		cout << "3. Find the item you ordered in Cart" << endl;
+		cout << "4. Confirm Order" << endl;
+		cout << "5. Exit" << endl;
+		cout << "Your Choice:";
+		cin >> choose;
+		system("CLS");
 	
 }
