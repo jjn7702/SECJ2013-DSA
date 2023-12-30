@@ -707,6 +707,12 @@ void emailDes(){
 
 }
 
+void ICasc(){
+    Voter *temp,*temp2;
+            bool sorted=false;
+			string n,f,e,i,m;
+            int a;
+}
 
 };
 
