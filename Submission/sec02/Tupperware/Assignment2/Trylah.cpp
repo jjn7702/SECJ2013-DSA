@@ -442,7 +442,6 @@ int main() {
 
                     if (foundNode != nullptr) {
                         cout << "\nNode Found:\n";
-                        displayHeader();
                         foundNode->order.displayMenu();
                     } else {
                         cout << "\nNode Not Found.\n";
@@ -470,7 +469,6 @@ int main() {
 
                     if (foundNode != nullptr) {
                         cout << "\nNode Found:\n";
-                        displayHeader();
                         foundNode->order.displayMenu();
                     } else {
                         cout << "\nNode Not Found.\n";
