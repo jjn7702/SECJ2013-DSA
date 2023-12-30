@@ -483,12 +483,12 @@ int Menu()
 			
 	optloop2: // Loop if key in invalid option
 	cout << ":: What Can I Help You ::" << endl 
-		 << "[1] Add Customer" << endl 
-		 << "[2] Delete Customer" << endl 
-		 << "[3] Find Customer" << endl 
-		 << "[4] Sort Customer List" << endl
-		 << "[5] Display Customer List" << endl 
-		 << "[6] Quit" << endl ;
+	     << "[1] Add Customer" << endl 
+	     << "[2] Delete Customer" << endl 
+	     << "[3] Find Customer" << endl 
+	     << "[4] Sort Customer List" << endl
+	     << "[5] Display Customer List" << endl 
+	     << "[6] Quit" << endl ;
 	cout << "OPTION >> " ;
 	cin >> 	option ;
 			
@@ -503,8 +503,7 @@ int Menu()
 
 int main() 
 {
-
-		Customer customer[100] ;
+	Customer customer[100] ;
 	CustomerList custList ;
 	int custNum = 1 ;
 
@@ -514,13 +513,13 @@ int main()
 	// file as database
 	ifstream input("Assignment_2.txt") ;
 
-    if(!input) 
+    	if(!input) 
 	{
-        cout << "Cannot open the file\n" ;
-        return 1;
-    }
+	        cout << "Cannot open the file\n" ;
+	        return 1;
+	}
 	// Get input
-    while(getline(input, name, '/'))
+    	while(getline(input, name, '/'))
 	{
 		input >> age ;
 		input.ignore() ;
@@ -546,17 +545,17 @@ int main()
 	cout << "- Hotel Booking System -" << endl << endl ;
 	
 	MenuLoop: // Loop if key in invalid option
-    int menu = Menu() ;
+    	int menu = Menu() ;
     
-    switch(menu)
-    {
-    	case 1 : {	 // Add customer
+	switch(menu)
+	{
+		case 1 : {	 // Add customer
     				int cusOpt ;
     				Customer *tempCust ;
     				
     				cout << "\nChoose the customer you want to add" << endl 
-    					 << "Select from 1 to 10" << endl << endl 
-    					 << "Customer -> " ;
+    				     << "Select from 1 to 10" << endl << endl 
+    				     << "Customer -> " ;
     				cin >> cusOpt ;
     				
     				tempCust = &customer[cusOpt] ;
@@ -564,76 +563,76 @@ int main()
     				int option = Option() ;
     				
     				if(option == 1)
-					{	
-						custList.addCustAtBegin(tempCust) ;
-					} 
-					else if(option == 2)
-					{
-						int position ;
+				{	
+					custList.addCustAtBegin(tempCust) ;
+				} 
+				else if(option == 2)
+				{
+					int position ;
 						
-						cout << "\nWhat position you want to add ?" << endl 
-							 << "*The position started from 1, not 0*" << endl 
-							 << "Position -> " ;
-						cin >> position ;
+					cout << "\nWhat position you want to add ?" << endl 
+					     << "*The position started from 1, not 0*" << endl 
+					     << "Position -> " ;
+					cin >> position ;
 						
-						custList.addCustAtMid(tempCust, position) ;
-					}
-					else
-					{
-						custList.addCustAtEnd(tempCust) ;
-					}
+					custList.addCustAtMid(tempCust, position) ;
+				}
+				else
+				{
+					custList.addCustAtEnd(tempCust) ;
+				}
     				
-					break;
-				 }
+				break;
+			 }
 		case 2 : { // Delete customer
-					int option = Option() ;
+				int option = Option() ;
     				
     				if(option == 1)
-					{	
-						custList.deleteFront() ;
-					} 
-					else if(option == 2)
-					{
-						int position ;
+				{	
+					custList.deleteFront() ;
+				} 
+				else if(option == 2)
+				{
+					int position ;
 						
-						cout << "\nWhat position you want to delete ?" << endl
-							 << "*The position started from 1, not 0*" << endl 
-							 << "Position -> " ;
-						cin >> position ;
+					cout << "\nWhat position you want to delete ?" << endl
+					     << "*The position started from 1, not 0*" << endl 
+					     << "Position -> " ;
+					cin >> position ;
 						
-						custList.deleteMid(position) ;
-					}
-					else
-					{
-						custList.deleteEnd() ;
-					}
+					custList.deleteMid(position) ;
+				}
+				else
+				{
+					custList.deleteEnd() ;
+				}
 						
-					break;
-				 }
+				break;
+			 }
 		case 3 : {	// Find customer
-					custList.findCustomer() ;
-					break;
-				 }
+				custList.findCustomer() ;
+				break;
+			 }
 		case 4 : { // Sort customer
-					custList.sorting() ; 
-					break;
-				 }
+				custList.sorting() ; 
+				break;
+			 }
 		case 5 : { // Display all customers data current have
-					custList.displayList() ;
-					break;
-				 }
+				custList.displayList() ;
+				break;
+			 }
 		default: { // Quit program
-					cout << "\nBye" << endl ;
-					return 1 ;
-					break ;
-				 }	
+				cout << "\nBye" << endl ;
+				return 1 ;
+				break ;
+			 }	
 	}
     
-    if(menu != 6)
-    {
-    	cout << endl ;
+    	if(menu != 6)
+    	{
+    		cout << endl ;
 		goto MenuLoop ;
 	}	
 
-    return 0;	
+    	return 0;	
 }
