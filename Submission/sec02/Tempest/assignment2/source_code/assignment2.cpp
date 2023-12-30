@@ -885,6 +885,7 @@ int main()
                 {
                 case 1:
                     //remove beginning
+                    tk.removebeginning();
                     cout << "\n\nTask removed from the beginning." << endl;
                     break;
 
