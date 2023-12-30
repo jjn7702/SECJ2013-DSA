@@ -269,7 +269,30 @@ int main(){
                     }
                 }
                 if(choice == 4) continue;
-
+                if(choice == 1){
+                    int itemNumber;
+                    while(true){
+                        cout << "Enter item number: ";
+                        cin >> inp;
+                        if(isNumber(inp)){
+                            itemNumber = stoi(inp);
+                            if(list.findNodeNum(itemNumber)){
+                                system("cls");
+                                break;
+                            }
+                            cout << "Item number does not exist!\n";
+                            system("pause");
+                            system("cls");
+                        }
+                    }
+                    cout << setw(15) << left << "Item number" 
+                    << setw(15) << left << "Item name" 
+                    << setw(30) << left << "Description" 
+                    << setw(15) << left << "Quantity" 
+                    << setw(15) << left << "Cost" 
+                    << setw(15) << left << "Item location" << endl;
+                    list.insertNode(*item, list.findNodeNum(itemNumber) - 1)->item.print();
+                }
     cout << "Thank you for using the inventory management system!\n";
     sleep(1);
     return 0;
