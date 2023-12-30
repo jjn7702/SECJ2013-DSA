@@ -142,7 +142,15 @@ class List{
         return head = NULL;
     }
 
-    void insert(Patient);
+    void insert(Patient p)
+    {
+        Node *newNode = new Node(p);
+
+        if (!isEmpty())
+            newNode->next = head;
+        head = newNode;
+    }
+
     void remove(Patient);
     void dispList();
 
