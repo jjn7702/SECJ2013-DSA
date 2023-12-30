@@ -159,3 +159,16 @@ void deleteNode(const string &position = "end")
         }
     }
 }
+const Courier *findNode(const string &searchKey) const
+{
+    Node *current = head;
+    while (current != nullptr)
+    {
+        if (current->data.getTrackingNumber() == searchKey)
+        {
+            return &current->data;
+        }
+        current = current->next;
+    }
+    return nullptr;
+}
