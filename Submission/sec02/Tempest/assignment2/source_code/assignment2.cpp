@@ -118,6 +118,12 @@ public:
         if(isEmpty())
         {
             cout<<"List is empty. Nothing to be remove. "<<endl;
+            return;
+        }
+
+        if(head->next==nullptr)
+        {
+            
         }
     }
 
