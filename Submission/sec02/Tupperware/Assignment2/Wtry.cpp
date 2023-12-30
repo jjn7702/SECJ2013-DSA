@@ -289,7 +289,6 @@ int main() {
     nameFile.close();
 
     
-    do {
         cout << endl;
         cout << setw(5) << "[1] Add Menu" << endl;
         cout << setw(5) << "[2] Delete Menu" << endl;
@@ -300,6 +299,7 @@ int main() {
         cout << "\nEnter your choice: " ;
         cin >> opt;
 
+    while(opt != 6 && opt > 0 && opt < 7) {
         switch (opt) {
             case 1:{
                 cout << "Enter the food ID : ";
@@ -318,27 +318,31 @@ int main() {
                 cout << "\nEnter your choice: ";
                 cin >> ins;
 
-                if (ins == 1) {
-                    orderList.insertFront(Menu(foodId, name, category, price));
-                } else if (ins == 2) {
-                    cout << "\nGive food ID existed in the Menu list : ";
-                    cin.ignore();
-                    getline(cin, middle);
-                    orderList.insertMiddle(Menu(foodId, name, category, price), middle);
-                } else if (ins == 3) {
-                    orderList.insertEnd(Menu(foodId, name, category, price));
-                } else if (ins == 4) {
-                    cout << "\nGive food ID existed in the Menu list : ";
-                    cin >> middle;
-                    orderList.insertSpecified(Menu(foodId, name, category, price), middle);
-                } else {
-                    break;
-                }
-                break;
-            }
+                switch (ins)
+                {
+                    case 1:
+                        orderList.insertFront(Menu(foodId, name, category, price));
+                        break;
+                    case 2:{
+                        cout << "\nGive food ID existed in the Menu list : ";
+                        cin >> middle;
+                        orderList.insertMiddle(Menu(foodId, name, category, price), middle);
+                        } break;
+                    case 3:
+                        orderList.insertEnd(Menu(foodId, name, category, price));
+                        break;
+                    case 4:{
+                        cout << "\nGive food ID existed in the Menu list : ";
+                        cin >> middle;
+                        orderList.insertSpecified(Menu(foodId, name, category, price), middle);
+                        } break;
+                    default:
+                        break;
+                }            
+                } break;
 
             case 2:
-            // PART NINA
+            
             case 3:
             {
                 cout << "\nDo you want to seach by (N)ame, (C)ategory or (F)oodId?: ";
@@ -388,8 +392,7 @@ int main() {
                     }
                 }
 
-                break;
-            }
+            } break;
 
             case 4:{
                 cout << "Sort by" << endl;
@@ -411,7 +414,7 @@ int main() {
                             FoodIdASC(menuArray);
                             break;
 /*                        case 2:
-                            PART NINA
+                            PriceASC(newmenu);
 */                            break;
                         default:
                             break;
@@ -428,30 +431,26 @@ int main() {
                             PriceASC(menuArray);
                             break;
                         case 2:
-/*                            PART NINA
-                          break;*/  
+/*                            PriceASC();
+*/                            break;
                         default:
                             break;
                         }
                     }
                 }
-            }
+            } break;
 
-            case 5:
-            {
+            case 5:{
                 system("cls");
                 orderList.displayNodes();
-                break;
-            }
+            } break;
 
             case 6:
-            {
                 cout << "Thank you, see you again!" << endl;
-                break;
-            }
+            break;
         }
 
-    } while (opt != 6);
+    }
 
 
     displayHeader();
