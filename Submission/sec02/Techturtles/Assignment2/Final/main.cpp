@@ -371,6 +371,8 @@ void displayMenu() {
     cout << "\t| 4. Sort the parcel list       |\n";
     cout << "\t| 5. Display all parcels        |\n";
     cout << "\t| 6. Exit                       |\n";
+    cout << "\t+-------------------------------+\n";
+}
 
 int main() {
     ParcelList p1;
@@ -585,5 +587,4 @@ int main() {
     return 0;
 }
 
-    cout << "\t+-------------------------------+\n";
-}
+
