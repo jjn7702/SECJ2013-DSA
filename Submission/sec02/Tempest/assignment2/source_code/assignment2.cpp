@@ -807,6 +807,8 @@ int main()
                     newTask.setmonth(month);
                     newTask.setyear(year);
                     newTask.setstatus(status);
+
+                    tk.insert(newTask); //This will add the node at the beginning
                     cout << "\n\nTask added at the beginning." << endl;
                 }
                 break;
