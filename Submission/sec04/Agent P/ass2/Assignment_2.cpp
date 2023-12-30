@@ -1027,6 +1027,5 @@ int main()
 		}
         }while(answer == 'y');
 
-    system("pause");
     return 0;
 }
