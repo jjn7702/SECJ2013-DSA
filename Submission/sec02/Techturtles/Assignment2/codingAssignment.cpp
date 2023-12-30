@@ -172,3 +172,15 @@ const Courier *findNode(const string &searchKey) const
     }
     return nullptr;
 }
+void displayNodes() const
+{
+    Node *courier = head;
+    while (current != nullptr)
+    {
+        cout << "Tracking Number: " << current->data.getTrackingNumber() << ", "
+             << "Sender: " << current->data.getSenderName() << ", "
+             << "Receiver: " << current->data.getReceiverName() << ", "
+             << "Status: " << current->data.getDeliveryStatus() << endl;
+        current = current->next;
+    }
+}
