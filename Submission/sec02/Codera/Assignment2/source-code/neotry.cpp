@@ -10,6 +10,7 @@
 
 using namespace std;
 
+// Patient
 class Patient{
 private:
     string name;
@@ -21,138 +22,127 @@ private:
     string date;
 
 public:
-    Patient();
-    Patient(string, string, int, string, string, string, string);
-    string getName() const;
-    string getIC() const;
-    int getAge() const;
-    string getGender() const;
-    string getContactNum() const;
-    string getDisease() const;
-    string getDate() const;
-    void setName(string);
-    void setIC(string);
-    void setAge(int);
-    void setGender(string);
-    void setContactNum(string);
-    void setDisease(string);
-    void setDate(string);
+    // default constructor
+    Patient(){
+        name = "";
+        ic = "";
+        age = 0;
+        gender = "";
+        contactNum = "";
+        disease = "";
+        date = "";
+    }
+
+    // constructor
+    Patient(string n, string i, int a, string g, string c, string d, string dt){
+        name = n;
+        ic = i;
+        age = a;
+        gender = g;
+        contactNum = c;
+        disease = d;
+        date = dt;
+    }
+
+    // accessor
+    string getName() const{
+        return name;
+    }
+    string getIC() const{
+        return ic;
+    }
+    int getAge() const{
+        return age;
+    }
+    string getGender() const{
+        return gender;
+    }
+    string getContactNum() const{
+        return contactNum;
+    }
+    string getDisease() const{
+        return disease;
+    }
+    string getDate() const{
+        return date;
+    }
+
+    // mutator
+    void setName(string n){
+        name = n;
+    }
+    void setIC(string i){
+        ic = i;
+    }
+    void setAge(int a){
+        age = a;
+    }
+    void setGender(string g){
+        gender = g;
+    }
+    void setContactNum(string c){
+        contactNum = c;
+    }
+    void setDisease(string d){
+        disease = d;
+    }
+    void setDate(string dt){
+        date = dt;
+    }
+
+    // display patient record
     void display();
 };
 
 // Node
 class Node{
     public:
-    Patient data;   // patient data
+    Patient data; // patient data
     Node *next; // pointer to next node
 
-    Node(Patient p){    //constructor
+    Node(Patient p){
         data = p;
         next = NULL;
     }
 
-    Patient getData(){  //accessor
+    Patient getData(){
         return data;
     }
 };
 
-// default constructor
-Patient::Patient()
-{
-    name = "";
-    ic = "";
-    age = 0;
-    gender = "";
-    contactNum = "";
-    disease = "";
-    date = "";
-}
+// List
+class List{
+    private:
+    Node *head;
 
-// constructor
-Patient::Patient(string n, string i, int a, string g, string c, string d, string dt)
-{
-    name = n;
-    ic = i;
-    age = a;
-    gender = g;
-    contactNum = c;
-    disease = d;
-    date = dt;
-}
+    public:
+    List(){
+        head = NULL; // list is empty
+    }
 
-// get
-string Patient::getName() const
-{
-    return name;
-}
+    ~List(){
+        Node *currNode = head, *nextNode = NULL;
+        while(currNode != NULL){
+            nextNode = currNode->next;
+            //destroy the current node
+            delete currNode;
+            currNode = nextNode;
+        }
+        head = NULL;
+    }
 
-string Patient::getIC() const
-{
-    return ic;
-}
+    bool isEmpty(){
+        return head = NULL;
+    }
 
-int Patient::getAge() const
-{
-    return age;
-}
+    void insert(Patient);
+    void find(Patient);
+    void remove(Patient);
+    void dispList();
 
-string Patient::getGender() const
-{
-    return gender;
-}
+};
 
-string Patient::getContactNum() const
-{
-    return contactNum;
-}
-
-string Patient::getDisease() const
-{
-    return disease;
-}
-
-string Patient::getDate() const
-{
-    return date;
-}
-
-// set
-void Patient::setName(string n)
-{
-    name = n;
-}
-
-void Patient::setIC(string i)
-{
-    ic = i;
-}
-
-void Patient::setAge(int a)
-{
-    age = a;
-}
-
-void Patient::setGender(string g)
-{
-    gender = g;
-}
-
-void Patient::setContactNum(string c)
-{
-    contactNum = c;
-}
-
-void Patient::setDisease(string d)
-{
-    disease = d;
-}
-
-void Patient::setDate(string dt)
-{
-    date = dt;
-}
-
-// display
+// display patient record
 void Patient::display()
 {
     cout << setw(30) << left << name
@@ -182,523 +172,8 @@ void dispHeader()
 }
 
 // sorting
-void mergeByName(Patient pat[], int first, int mid, int last)
-{
-    int size = last - first + 1;
-    Patient *tempArray = new Patient[size];
-
-    int first1 = first;
-    int last1 = mid;
-    int first2 = mid + 1;
-    int last2 = last;
-    int index = 0;
-
-    while (first1 <= last1 && first2 <= last2)
-    {
-        if (pat[first1].getName() < pat[first2].getName())
-        {
-            tempArray[index] = pat[first1];
-            ++first1;
-        }
-        else
-        {
-            tempArray[index] = pat[first2];
-            ++first2;
-        }
-        ++index;
-    }
-
-    while (first1 <= last1)
-    {
-        tempArray[index] = pat[first1];
-        ++first1;
-        ++index;
-    }
-
-    while (first2 <= last2)
-    {
-        tempArray[index] = pat[first2];
-        ++first2;
-        ++index;
-    }
-
-    for (int i = 0; i < size; ++i)
-    {
-        pat[first + i] = tempArray[i];
-    }
-
-    delete[] tempArray;
-}
-
-void mergeSortByName(Patient pat[], int first, int last)
-{
-    if (first < last)
-    {
-        int mid = first + (last - first) / 2;
-
-        mergeSortByName(pat, first, mid);
-        mergeSortByName(pat, mid + 1, last);
-
-        mergeByName(pat, first, mid, last);
-    }
-}
-
-void mergeByIC(Patient pat[], int first, int mid, int last)
-{
-    int size = last - first + 1;
-    Patient *tempArray = new Patient[size];
-
-    int first1 = first;
-    int last1 = mid;
-    int first2 = mid + 1;
-    int last2 = last;
-    int index = 0;
-
-    while (first1 <= last1 && first2 <= last2)
-    {
-        if (pat[first1].getIC() < pat[first2].getIC())
-        {
-            tempArray[index] = pat[first1];
-            ++first1;
-        }
-        else
-        {
-            tempArray[index] = pat[first2];
-            ++first2;
-        }
-        ++index;
-    }
-
-    while (first1 <= last1)
-    {
-        tempArray[index] = pat[first1];
-        ++first1;
-        ++index;
-    }
-
-    while (first2 <= last2)
-    {
-        tempArray[index] = pat[first2];
-        ++first2;
-        ++index;
-    }
-
-    for (int i = 0; i < size; ++i)
-    {
-        pat[first + i] = tempArray[i];
-    }
-
-    delete[] tempArray;
-}
-
-void mergeSortByIC(Patient pat[], int first, int last)
-{
-    if (first < last)
-    {
-        int mid = first + (last - first) / 2;
-
-        mergeSortByIC(pat, first, mid);
-        mergeSortByIC(pat, mid + 1, last);
-
-        mergeByIC(pat, first, mid, last);
-    }
-}
-
-void mergeByAge(Patient pat[], int first, int mid, int last)
-{
-    int size = last - first + 1;
-    Patient *tempArray = new Patient[size];
-
-    int first1 = first;
-    int last1 = mid;
-    int first2 = mid + 1;
-    int last2 = last;
-    int index = 0;
-
-    while (first1 <= last1 && first2 <= last2)
-    {
-        if (pat[first1].getAge() < pat[first2].getAge())
-        {
-            tempArray[index] = pat[first1];
-            ++first1;
-        }
-        else
-        {
-            tempArray[index] = pat[first2];
-            ++first2;
-        }
-        ++index;
-    }
-
-    while (first1 <= last1)
-    {
-        tempArray[index] = pat[first1];
-        ++first1;
-        ++index;
-    }
-
-    while (first2 <= last2)
-    {
-        tempArray[index] = pat[first2];
-        ++first2;
-        ++index;
-    }
-
-    for (int i = 0; i < size; ++i)
-    {
-        pat[first + i] = tempArray[i];
-    }
-
-    delete[] tempArray;
-}
-
-void mergeSortByAge(Patient pat[], int first, int last)
-{
-    if (first < last)
-    {
-        int mid = first + (last - first) / 2;
-
-        mergeSortByAge(pat, first, mid);
-        mergeSortByAge(pat, mid + 1, last);
-
-        mergeByAge(pat, first, mid, last);
-    }
-}
-
-void mergeByGender(Patient pat[], int first, int mid, int last)
-{
-    int size = last - first + 1;
-    Patient *tempArray = new Patient[size];
-
-    int first1 = first;
-    int last1 = mid;
-    int first2 = mid + 1;
-    int last2 = last;
-    int index = 0;
-
-    while (first1 <= last1 && first2 <= last2)
-    {
-        if (pat[first1].getGender() < pat[first2].getGender())
-        {
-            tempArray[index] = pat[first1];
-            ++first1;
-        }
-        else
-        {
-            tempArray[index] = pat[first2];
-            ++first2;
-        }
-        ++index;
-    }
-
-    while (first1 <= last1)
-    {
-        tempArray[index] = pat[first1];
-        ++first1;
-        ++index;
-    }
-
-    while (first2 <= last2)
-    {
-        tempArray[index] = pat[first2];
-        ++first2;
-        ++index;
-    }
-
-    for (int i = 0; i < size; ++i)
-    {
-        pat[first + i] = tempArray[i];
-    }
-
-    delete[] tempArray;
-}
-
-void mergeSortByGender(Patient pat[], int first, int last)
-{
-    if (first < last)
-    {
-        int mid = first + (last - first) / 2;
-
-        mergeSortByGender(pat, first, mid);
-        mergeSortByGender(pat, mid + 1, last);
-
-        mergeByGender(pat, first, mid, last);
-    }
-}
-
-void mergeByContactNum(Patient pat[], int first, int mid, int last)
-{
-    int size = last - first + 1;
-    Patient *tempArray = new Patient[size];
-
-    int first1 = first;
-    int last1 = mid;
-    int first2 = mid + 1;
-    int last2 = last;
-    int index = 0;
-
-    while (first1 <= last1 && first2 <= last2)
-    {
-        if (pat[first1].getContactNum() < pat[first2].getContactNum())
-        {
-            tempArray[index] = pat[first1];
-            ++first1;
-        }
-        else
-        {
-            tempArray[index] = pat[first2];
-            ++first2;
-        }
-        ++index;
-    }
-
-    while (first1 <= last1)
-    {
-        tempArray[index] = pat[first1];
-        ++first1;
-        ++index;
-    }
-
-    while (first2 <= last2)
-    {
-        tempArray[index] = pat[first2];
-        ++first2;
-        ++index;
-    }
-
-    for (int i = 0; i < size; ++i)
-    {
-        pat[first + i] = tempArray[i];
-    }
-
-    delete[] tempArray;
-}
-
-void mergeSortByContactNum(Patient pat[], int first, int last)
-{
-    if (first < last)
-    {
-        int mid = first + (last - first) / 2;
-
-        mergeSortByContactNum(pat, first, mid);
-        mergeSortByContactNum(pat, mid + 1, last);
-
-        mergeByContactNum(pat, first, mid, last);
-    }
-}
-
-void mergeByDisease(Patient pat[], int first, int mid, int last)
-{
-    int size = last - first + 1;
-    Patient *tempArray = new Patient[size];
-
-    int first1 = first;
-    int last1 = mid;
-    int first2 = mid + 1;
-    int last2 = last;
-    int index = 0;
-
-    while (first1 <= last1 && first2 <= last2)
-    {
-        if (pat[first1].getDisease() < pat[first2].getDisease())
-        {
-            tempArray[index] = pat[first1];
-            ++first1;
-        }
-        else
-        {
-            tempArray[index] = pat[first2];
-            ++first2;
-        }
-        ++index;
-    }
-
-    while (first1 <= last1)
-    {
-        tempArray[index] = pat[first1];
-        ++first1;
-        ++index;
-    }
-
-    while (first2 <= last2)
-    {
-        tempArray[index] = pat[first2];
-        ++first2;
-        ++index;
-    }
-
-    for (int i = 0; i < size; ++i)
-    {
-        pat[first + i] = tempArray[i];
-    }
-
-    delete[] tempArray;
-}
-
-void mergeSortByDisease(Patient pat[], int first, int last)
-{
-    if (first < last)
-    {
-        int mid = first + (last - first) / 2;
-
-        mergeSortByDisease(pat, first, mid);
-        mergeSortByDisease(pat, mid + 1, last);
-
-        mergeByDisease(pat, first, mid, last);
-    }
-}
-
-void mergeByDate(Patient pat[], int first, int mid, int last)
-{
-    int size = last - first + 1;
-    Patient *tempArray = new Patient[size];
-
-    int first1 = first;
-    int last1 = mid;
-    int first2 = mid + 1;
-    int last2 = last;
-    int index = 0;
-
-    while (first1 <= last1 && first2 <= last2)
-    {
-        if (pat[first1].getDate() < pat[first2].getDate())
-        {
-            tempArray[index] = pat[first1];
-            ++first1;
-        }
-        else
-        {
-            tempArray[index] = pat[first2];
-            ++first2;
-        }
-        ++index;
-    }
-
-    while (first1 <= last1)
-    {
-        tempArray[index] = pat[first1];
-        ++first1;
-        ++index;
-    }
-
-    while (first2 <= last2)
-    {
-        tempArray[index] = pat[first2];
-        ++first2;
-        ++index;
-    }
-
-    for (int i = 0; i < size; ++i)
-    {
-        pat[first + i] = tempArray[i];
-    }
-
-    delete[] tempArray;
-}
-
-void mergeSortByDate(Patient pat[], int first, int last)
-{
-    if (first < last)
-    {
-        int mid = first + (last - first) / 2;
-
-        mergeSortByDate(pat, first, mid);
-        mergeSortByDate(pat, mid + 1, last);
-
-        mergeByDate(pat, first, mid, last);
-    }
-}
 
 // searching
-int binarySearchByName(Patient pat[], int low, int high, const string &x)
-{
-    int index = -1;
-    int mid;
-
-    while (low <= high)
-    {
-        mid = low + (high - low) / 2;
-
-        if (pat[mid].getName() == x)
-        {
-            return mid;
-        }
-        else if (pat[mid].getName() > x)
-        {
-            high = mid - 1;
-        }
-        else
-        {
-            low = mid + 1;
-        }
-    }
-    return index;
-}
-
-int binarySearchByIC(Patient pat[], int low, int high, const string &x)
-{
-    int index = -1;
-    int mid;
-
-    while (low <= high)
-    {
-        mid = low + (high - low) / 2;
-
-        if (pat[mid].getIC() == x)
-        {
-            return mid;
-        }
-        else if (pat[mid].getIC() > x)
-        {
-            high = mid - 1;
-        }
-        else
-        {
-            low = mid + 1;
-        }
-    }
-    return index;
-}
-
-// searching all occurrences
-vector<int> binarySearchByDisease(Patient pat[], int low, int high, const string &x)
-{
-    vector<int> indices;
-    int mid;
-
-    while (low <= high)
-    {
-        mid = low + (high - low) / 2;
-
-        if (pat[mid].getDisease() == x)
-        {
-            indices.push_back(mid);
-            int leftIndex = mid - 1;
-            while (leftIndex >= low && pat[leftIndex].getDisease() == x)
-            {
-                indices.push_back(leftIndex);
-                --leftIndex;
-            }
-
-            int rightIndex = mid + 1;
-            while (rightIndex <= high && pat[rightIndex].getDisease() == x)
-            {
-                indices.push_back(rightIndex);
-                ++rightIndex;
-            }
-            return indices;
-        }
-        else if (pat[mid].getDisease() > x)
-        {
-            high = mid - 1;
-        }
-        else
-        {
-            low = mid + 1;
-        }
-    }
-    return indices;
-}
 
 int main()
 {
