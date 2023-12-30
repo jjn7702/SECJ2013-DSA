@@ -131,8 +131,11 @@ public:
         task* temp=head;
         while(temp->next->next != nullptr)
         {
-            
+            temp=temp->next;
         }
+
+        delete temp->next;
+        temp->next=nullptr;
     }
 
     void removemiddle(int c) //remove middle node(specific node)
