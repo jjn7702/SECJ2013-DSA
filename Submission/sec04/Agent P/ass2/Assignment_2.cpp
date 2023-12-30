@@ -712,6 +712,15 @@ void ICasc(){
             bool sorted=false;
 			string n,f,e,i,m;
             int a;
+
+    for(temp=head; (temp->next!=NULL)&&!sorted ; temp=temp->next)
+            {	sorted = true;	
+                for(temp2=head; temp2->next!=NULL; temp2=temp2->next)
+                {
+                    if( temp2->getIC() > (temp2->next->getIC()) )
+                    {
+                        
+                    }}}
 }
 
 };
