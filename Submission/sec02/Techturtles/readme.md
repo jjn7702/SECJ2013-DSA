@@ -35,6 +35,9 @@ The Courier Service System is specially designed for the administrator. The syst
 ## Description 📝
 The latest Courier Service System will implement linked lists. The system's objectives are mainly to add, delete, find, sort and display parcels using linked lists method.
 
+## Flow of system
+1.
+
 <h3>Report Assignment 2</h3>
 <a href="https://docs.google.com/document/d/1Vg15cYBIqOxJxCgSy68Rhvs-y6wKyOAo_PiEQPjvU5o/edit"><img src="https://cdn.vectorstock.com/i/1000x1000/45/57/file-doc-icon-digital-blue-vector-24754557.webp" width="35px" height="40px" ></a>
 
