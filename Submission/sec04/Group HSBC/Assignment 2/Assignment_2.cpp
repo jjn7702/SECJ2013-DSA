@@ -1,4 +1,133 @@
+class Account{
+	
+	public:
+		string account_number;
+		double balance;
+		string transaction_date;
+		string transaction_type;
+		double transaction_amount;
+		string target_account; //for transfer
+		
+		Account(string an ="", double b =0.0) : account_number(an), balance(b) {}
+		
+		void setAccountNumber(string acc_num){account_number = acc_num; }
+		
+		void setBalance(double b){balance = b; }
+		
+		void setTransactionDate(string d){ transaction_date = d; }
+		
+		void setTransactionType(string t){ transaction_type = t; }
+		
+		void setTransactionAmount(double amt){ transaction_amount = amt; }
+		
+		void setTargetAccount(string num = nullptr){ target_account = num; }
+		
+		void printTitle(){
+			cout<<"--------------------------------------------------------------------------------------------------------------\n"
+				<<"| Account Number | Balance(RM) | Transaction Date | Transaction Type | Amount(RM) | Transfered Account Number |\n"
+				<<"--------------------------------------------------------------------------------------------------------------\n";
+		}
+		
+		void printDetails(){
+			cout<<"   "<<left;
+			cout<<setw(17)<<account_number
+				<<setw(14)<<balance
+				<<setw(19)<<transaction_date
+				<<setw(19)<<transaction_type<<setw(13)<<transaction_amount;
+			if(!target_account.empty())
+				cout<<target_account;
+			else
+				cout<<"-";
+			cout<<endl;
+		}
 
+		double getBalance(){
+			return balance;
+		}
+
+		string getDate(){
+			return transaction_date;
+		}
+
+		string getAccNum(){
+			return account_number;
+		}
+		
+};
+
+int read_data(Account acc[], const string& filename){
+	
+	string an, type, d, target;
+	double b, amt;
+	int n = 0;
+	ifstream f1(filename);
+	if(!f1){
+		cout<<"Error opening file: "<<filename<<endl;
+		exit(0);
+	}
+	
+	while(getline(f1,acc[n].account_number,',')){
+		f1>>acc[n].balance;
+		f1.ignore(); //ignore the comma
+		
+		getline(f1,d,',');
+		acc[n].setTransactionDate(d);
+		
+		getline(f1,type,',');
+		acc[n].setTransactionType(type);
+		
+		if(type == "DEPOSIT" || type == "WITHDRAWAL"){
+			f1>>amt;
+		}
+		else if(type == "TRANSFER"){
+			getline(f1,target,',');
+			f1>>amt;
+			acc[n].setTargetAccount(target);
+		}
+		f1.ignore();
+		acc[n].setTransactionAmount(amt);
+		n++;
+
+	}
+	
+	f1.close();
+	return n;
+}
+
+int menu1(){
+	int choice;
+	
+	cout << "1. Adding a new node\n"
+		 << "2. Deleting a node\n"
+		 << "3. Finding a node\n"
+		 << "4. Displaying all of the nodes in the list\n"
+		 << "Enter your choice: ";
+	cin >> choice;
+	
+	return choice;
+}
+
+int menuAdd(){
+	int choice;
+	
+	cout << "1. Inserting the new node at the beginning\n"
+		 << "2. Inserting the new node at the end\n"
+		 << "3. Inserting the new node at the middle\n"
+		 << "Enter your choice: ";
+	cin >> choice;
+	return choice;
+}
+
+int menuDelete(){
+	int choice;
+	
+	cout << "1. Deleting the node at the beginning\n"
+		 << "2. Deleting the node at the end\n"
+		 << "3. Deleting the node with specific account number\n"
+		 << "Enter your choice: ";
+	cin >> choice;
+	return choice;
+}
 
 
 int main(){
