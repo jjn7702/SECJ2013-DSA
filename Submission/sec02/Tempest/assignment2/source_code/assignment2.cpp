@@ -115,7 +115,10 @@ public:
 
     void removelast()//remove last node
     {
-        
+        if(isEmpty())
+        {
+            
+        }
     }
 
     void removemiddle(int c) //remove middle node(specific node)
