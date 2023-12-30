@@ -173,7 +173,6 @@ public:
         head = newNode;
     }
 
-<<<<<<< Updated upstream
     // add a new node at the end of the list
     void insertEnd(Patient p)
     {
@@ -257,17 +256,6 @@ public:
     Node* findNodeName(string name);
     Node* findNodeIC(string ic);
     Node* findNodeAge(int age);
-=======
-    void remove(Patient);
-    Node* findNodeByName(string name);
-    Node* findNodeByIC(string ic);
-    Node* findNodeByAge(int age);
-    void sortList();
-    void dispList();
-
-
-
->>>>>>> Stashed changes
 };
 
 // display patient record
@@ -301,58 +289,11 @@ void dispHeader()
     cout << endl;
 }
 
- // searching here
-
-Node* List::findNodeByName(string name) {
-    Node* current = head;
-
-    while (current != NULL) {
-        if (current->data.getName() == name) {
-            return current;
-        }
-
-        current = current->next;
-    }
-
-    return NULL; // Node not found
-}
-
-Node* List::findNodeByIC(string ic) {
-    Node* current = head;
-
-    while (current != NULL) {
-        if (current->data.getIC() == ic) {
-            return current;
-        }
-
-        current = current->next;
-    }
-
-    return NULL; // Node not found
-}
-
-
-Node* List::findNodeByAge(int age) {
-    Node* current = head;
-
-    while (current != NULL) {
-        if (current->data.getAge() == age) {
-            return current;
-        }
-
-        current = current->next;
-    }
-
-    return NULL; // Node not found
-}
-// searching here
-
 
 
 // sorting here
 
 
-<<<<<<< Updated upstream
 // searching
 Node* List::findNodeName(string name) {
     Node* currNode = head;
@@ -398,8 +339,6 @@ Node* List::findNodeAge(int age) {
     return NULL; // Node not found
 }
 
-=======
->>>>>>> Stashed changes
 
 int main()
 {
