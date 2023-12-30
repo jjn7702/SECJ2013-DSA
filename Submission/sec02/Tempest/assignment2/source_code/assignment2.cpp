@@ -132,7 +132,9 @@ public:
 
         while (current != nullptr && count<c)
         {
-            
+            prev=current;
+            current=current->next;
+
         }
     }
 
