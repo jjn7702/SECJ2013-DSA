@@ -7,7 +7,7 @@
 
 _Don't forget to hit the :star: if you like this repo._
 
-# Assignment 1
+# Assignment 2
 
 ## Objective
 
