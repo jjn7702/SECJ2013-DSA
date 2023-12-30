@@ -54,25 +54,6 @@ int AddChoice()
     return choice;
 }
 
-// Delete node choice
-int delMenu()
-{
-    int choice;
-
-    cout << "Please choose where to delete the inventory item:\n"
-         << "[1] Delete at the front\n"
-         << "[2] Delete at the middle\n"
-         << "[3] Delete at the end\n"
-         << "[4] Exit\n"
-         << "Enter your choice: ";
-    cin >> choice;
-
-    // exception handling
-
-    system("CLS");
-    return choice;
-}
-
 // Finding user choice
 int menuFinding()
 {
@@ -191,153 +172,28 @@ public:
         int count = 1;
         bool found = false;
 
-        if (isEmpty())
-        {
+        if (isEmpty()){
             head = newInventory;
-            found = true;
-        }
-
-        if (position == 1)
-        {
+            found = true; }
+            
+        if (position == 1){
             addFront(newInventory);
-            found = true;
-        }
+            found = true;}
 
-        while (temp->next != NULL && count < position - 1 && !found)
-        {
+        while (temp->next != NULL && count < position - 1 && !found){
             temp = temp->next;
-            count++;
-        }
+            count++; }
 
-        if (!found)
-        {
+        if (!found){
             newInventory->next = temp->next;
             temp->next = newInventory;
-            found = true;
-        }
-    }
-
-    // Display all the node
-    void displayList()
-    {
-        cout << "\t\t\t:::::::Inventory List:::::::\n"
-             << endl;
-        for (int i = 0; i < 84; i++)
-        {
-            cout << "-";
-        }
-        cout << endl;
-        cout << left << setw(20) << "Inventory Code"
-             << setw(20) << "Inventory Name"
-             << setw(20) << "Inventory Type"
-             << setw(15) << "Quantity"
-             << setw(10) << "Price" << endl;
-
-        for (int i = 0; i < 84; i++)
-        {
-            cout << "-";
-        }
-        cout << endl;
-
-        Inventory *temp = head;
-        while (temp != NULL)
-        {
-            cout << left << setw(20) << temp->getCode()
-                 << setw(20) << temp->getName()
-                 << setw(20) << temp->getType()
-                 << setw(15) << temp->getQuantity()
-                 << setw(10) << fixed << setprecision(2) << temp->getPrice() << endl
-                 << endl;
-
-            temp = temp->next;
-        }
+            found = true;}
     }
 
     //-Delete inventory-
     // Delete in front
-    void delFront()
-    {
-        Inventory *temp = head;
-        head = head->next;
-        delete temp;
-    }
-
     // Delete at the middle
-    void delMid(int pos)
-    {
-        if (pos == 1)
-            delFront();
-        else
-        {
-            Inventory *temp = head;
-            // to let temp point to the previous node to be deleted
-            for (int i = 1; (i < (pos - 1)) && temp; i++)
-            {
-                {
-                    temp = temp->next;
-                }
-            }
-            // if temp=NULL (the delete position is bigger than the current amount of nodes in list)
-            if (!temp)
-            {
-                cout << "Error: Your entered position of node that to be deleted is out of the range of current list. \n\n";
-                return;
-            }
-            // if the temp->next (node to be deleted) = last node => DELETE AT THE END
-            else if (temp->next->next == NULL)
-            {
-                delete temp->next;
-                temp->next = NULL;
-            }
-            else
-            {
-                Inventory *prev = temp;
-                temp = temp->next;
-                prev->next = temp->next;
-                delete temp;
-            }
-        }
-    }
-
     // Delete at the end
-    void delEnd()
-    {
-        Inventory *temp = head;
-        while (temp->next->next != NULL)
-            temp = temp->next;
-        delete temp->next;
-        temp->next = NULL;
-    }
-
-    // main delete function
-    void del()
-    {
-        if (isEmpty())
-        {
-            cout << "Error: The inventory list is empty. Cannot delete any inventory anymore\n";
-            return;
-        }
-        int delOpt = delMenu();
-        switch (delOpt)
-        { // exception handling
-        case 1:
-            delFront();
-            break;
-        case 2:
-            int delPos;
-            cout << "Pls enter the position of inventory node you wish to delete: (eg. 1,2,3,...)\n";
-            cin >> delPos;
-            delMid(delPos);
-            break;
-        case 3:
-            delEnd();
-            break;
-        default:
-            return;
-        }
-        cout << "The current inventory list after your delete operation be like: \n";
-        displayList();
-    }
 
     // Sorting the inventory
     void sorting()
@@ -443,6 +299,42 @@ public:
         }
     }
 
+    // Display all the node
+    void displayList()
+    {
+        cout << "\t\t\t:::::::Inventory List:::::::\n"
+             << endl;
+        for (int i = 0; i < 84; i++)
+        {
+            cout << "-";
+        }
+        cout << endl;
+        cout << left << setw(20) << "Inventory Code"
+             << setw(20) << "Inventory Name"
+             << setw(20) << "Inventory Type"
+             << setw(15) << "Quantity"
+             << setw(10) << "Price" << endl;
+
+        for (int i = 0; i < 84; i++)
+        {
+            cout << "-";
+        }
+        cout << endl;
+
+        Inventory *temp = head;
+        while (temp != NULL)
+        {
+            cout << left << setw(20) << temp->getCode()
+                 << setw(20) << temp->getName()
+                 << setw(20) << temp->getType()
+                 << setw(15) << temp->getQuantity()
+                 << setw(10) << fixed << setprecision(2) << temp->getPrice() << endl
+                 << endl;
+
+            temp = temp->next;
+        }
+    }
+
     // Store into database
     void storeData(ofstream &out)
     {
@@ -498,7 +390,6 @@ int main()
 
     // menu
     cout << "~~~~~~~~~~~~~~~~~~~~~  WELCOME TO INVENTORY MANAGEMENT SYSTEM  ~~~~~~~~~~~~~~~~~~~~~\n\n";
-    InvList.displayList();
     while (loop)
     {
         menuChoice = mainMenu();
@@ -507,17 +398,18 @@ int main()
         case 1:
         {
             addChoice = AddChoice();
-            getInfo(code, name, type, quantity, price);
             Inventory *newInventory = new Inventory(code, name, type, quantity, price);
             switch (addChoice)
             {
             case 1:
+                getInfo(code, name, type, quantity, price);
                 InvList.addFront(newInventory);
                 system("CLS");
                 cout << "New node has been successfully added to front.." << endl
                      << endl;
                 break;
             case 2:
+                getInfo(code, name, type, quantity, price);
                 int pos;
                 cout << "\n***If the position entered is invalid, it'll automatically insert at the end.***\n"
                      << "Enter the position to add in the middle: ";
@@ -527,19 +419,18 @@ int main()
                      << endl;
                 break;
             case 3:
+                getInfo(code, name, type, quantity, price);
                 InvList.addEnd(newInventory);
                 cout << "New node has been successfully added to the end.." << endl
                      << endl;
-                break;
-            case 4:
                 break;
 
             default:
                 break;
             }
-        }
+        }break;
+
         case 2:
-            InvList.del();
             break;
         case 3:
             InvList.sorting();

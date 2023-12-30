@@ -30,3 +30,14 @@ If the node is in the middle or at the end of the list, the function updates the
 Final touches (& Deletion):
 
 Once the node is successfully unlinked from the list, the function deletes the node. The function returns an integer (1 or 0) indicating the success of the deletion operation.
+
+## Find Node Functionality
+The findNode function allows the user to find a node based on the search key entered and type of user. The search key uses the two attributes which is name and IC/ID(Based on the type of user, and the user indicates 1 for patient and 2 for doctor.
+
+The function accept two parameters which is searchKey and user. The function then check the linked list of patients/doctors, comparing the searchKey input with the names or IC/IDs stored in the list.
+
+If found:
+The function display the data of the patients/doctors
+
+If not found:
+The function display error message saying the key is not matched with any data in the list.
