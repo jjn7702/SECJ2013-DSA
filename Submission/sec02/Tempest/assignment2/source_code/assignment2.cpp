@@ -839,6 +839,8 @@ int main()
                     cout << "Enter the position to add the new task: ";
                     cin >> position;
                     //insert position and new data
+
+                    tk.insertrand(position,newTask);  //add node at specific position
                     cout << "/n/nTask added in the middle." << endl;
                 }
                 break;
