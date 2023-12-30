@@ -1025,3 +1025,8 @@ int main()
         	l.outFile();
         	l.outFile2();
 		}
+        }while(answer == 'y');
+
+    system("pause");
+    return 0;
+}
