@@ -293,6 +293,19 @@ int main(){
                     << setw(15) << left << "Item location" << endl;
                     list.insertNode(*item, list.findNodeNum(itemNumber) - 1)->item.print();
                 }
+                else if(choice == 2){
+                    string itemName;
+                    cout << "Enter item name: ";
+                    cin.ignore();
+                    getline(cin, itemName);
+                    cout << setw(15) << left << "Item number" 
+                    << setw(15) << left << "Item name" 
+                    << setw(30) << left << "Description" 
+                    << setw(15) << left << "Quantity" 
+                    << setw(15) << left << "Cost" 
+                    << setw(15) << left << "Item location" << endl;
+                    list.insertNode(*item, list.findNodeName(itemName) - 1)->item.print();
+                }
     cout << "Thank you for using the inventory management system!\n";
     sleep(1);
     return 0;
