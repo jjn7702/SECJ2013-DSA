@@ -21,6 +21,10 @@ class Voter{
         string getName(){return name;}
         string getFaculty(){return faculty;}
         int getAge(){return age;}
+        string getIC(){return ic;}
+        string getEmail(){return email;}
+        string getMatric(){return matric;}
+
         
 };
 class List
