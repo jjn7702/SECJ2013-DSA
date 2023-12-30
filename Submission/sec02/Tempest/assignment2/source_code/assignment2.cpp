@@ -902,6 +902,7 @@ int main()
 
                 case 3:
                     //remove last
+                    tk.removelast();
                     cout << "\n\nTask removed from the end." << endl;
                     break;
 
