@@ -45,6 +45,45 @@ class Menu{
 		}
 };
 
+class Order{
+	string code,name, foodtype;
+	float price;
+		
+	public:
+		Order *next;
+		Order(string c ,string n, string f ,float p){
+			code = c;
+			name = n;
+			foodtype = f;
+			price = p;
+			next = NULL;
+		}
+		string getcode(){
+			return code;
+		}
+		string getname(){
+			return name;
+		}
+		string getfoodtype(){
+			return foodtype;
+		}
+		float getprice(){
+			return price;
+		}
+		void setcode(string c){
+			code = c;
+		}
+		void setname(string n){
+			name = n;
+		}
+		void settype(string f){
+			foodtype = f;
+		}
+		void setprice(float p){
+			price = p;
+		}
+};
+
 class Cart{
 	Order *head;
 	public:
