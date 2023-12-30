@@ -428,6 +428,7 @@ int main() {
                         cout << "Sort in" << endl;
                         cout << "[1] Ascending Order" << endl;
                         cout << "[2] Decending Order" << endl;
+                        cout << "\nEnter your choice: " ;
                         cin >> sortIn;
 
                         switch (sortIn)
@@ -441,11 +442,12 @@ int main() {
                         default:
                             break;
                         }
-                    }
+                    } break;
                     case 2:{
                         cout << "Sort in" << endl;
                         cout << "[1] Ascending Order" << endl;
                         cout << "[2] Decending Order" << endl;
+                        cout << "\nEnter your choice: " ;
                         cin >> sortIn;
 
                         switch(sortIn){
@@ -458,7 +460,7 @@ int main() {
                         default:
                             break;
                         }
-                    }
+                    }break;;
                 }
             } break;
 
