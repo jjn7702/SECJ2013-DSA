@@ -253,9 +253,56 @@ public:
         cout << endl;
     }
 
-    Node* findNodeName(string name);
-    Node* findNodeIC(string ic);
-    Node* findNodeAge(int age);
+    Node *findNodeName(string name)
+    {
+        Node *currNode = head;
+
+        while (currNode != NULL)
+        {
+            if (currNode->data.getName() == name)
+            {
+                return currNode;
+            }
+
+            currNode = currNode->next;
+        }
+
+        return NULL; // Node not found
+    }
+
+    Node *findNodeIC(string ic)
+    {
+        Node *currNode = head;
+
+        while (currNode != NULL)
+        {
+            if (currNode->data.getIC() == ic)
+            {
+                return currNode;
+            }
+
+            currNode = currNode->next;
+        }
+
+        return NULL; // Node not found
+    }
+
+    Node *findNodeAge(int age)
+    {
+        Node *currNode = head;
+
+        while (currNode != NULL)
+        {
+            if (currNode->data.getAge() == age)
+            {
+                return currNode;
+            }
+
+            currNode = currNode->next;
+        }
+
+        return NULL; // Node not found
+    }
     void sortList();
 };
 
@@ -289,57 +336,7 @@ void dispHeader()
         cout << "-";
     cout << endl;
 }
-
-
-
 // sorting here
-
-
-// searching
-Node* List::findNodeName(string name) {
-    Node* currNode = head;
-
-    while (currNode != NULL) {
-        if (currNode->data.getName() == name) {
-            return currNode;
-        }
-
-        currNode = currNode->next;
-    }
-
-    return NULL; // Node not found
-}
-
-
-Node* List::findNodeIC(string ic) {
-    Node* currNode = head;
-
-    while (currNode != NULL) {
-        if (currNode->data.getIC() == ic) {
-            return currNode;
-        }
-
-        currNode = currNode->next;
-    }
-
-    return NULL; // Node not found
-}
-
-
-Node* List::findNodeAge(int age) {
-    Node* currNode = head;
-
-    while (currNode != NULL) {
-        if (currNode->data.getAge() == age) {
-            return currNode;
-        }
-
-        currNode = currNode->next;
-    }
-
-    return NULL; // Node not found
-}
-
 
 int main()
 {
