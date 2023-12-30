@@ -356,14 +356,16 @@ void insertionSort(LinkedList& list, bool ascending) {
 }
 
 void displayMenu() {
-    cout << "\n\tCourier Service System Menu\n";
-    cout << "\t---------------------------\n";
-    cout << "\t1. Add a new parcel\n";
-    cout << "\t2. Delete a parcel\n";
-    cout << "\t3. Find a parcel\n";
-    cout << "\t4. Sort the parcel list\n";
-    cout << "\t5. Display all parcels\n";
-    cout << "\t6. Exit\n";
+    cout << "\t+-------------------------------+\n";
+    cout << "\t|  Courier Service System Menu  |\n";
+    cout << "\t+-------------------------------+\n";
+    cout << "\t| 1. Add a new parcel           |\n";
+    cout << "\t| 2. Delete a parcel            |\n";
+    cout << "\t| 3. Find a parcel              |\n";
+    cout << "\t| 4. Sort the parcel list       |\n";
+    cout << "\t| 5. Display all parcels        |\n";
+    cout << "\t| 6. Exit                       |\n";
+    cout << "\t+-------------------------------+\n";
 }
 
 int main() {
