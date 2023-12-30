@@ -174,17 +174,17 @@ void deleteEndNode() {
 }
 
 
-    Node findNode(string key)
+    Node* findNode(string key)
+{
+    Node* current = head;
+
+    while (current != nullptr && (current->data.getTitle() != key && current->data.getISBN() != key))
     {
-        Node *current = head;
-
-        while (current != nullptr && (current->data.getTitle() != key && current->data.getISBN() != key))
-        {
-            current = current->next;
-        }
-
-        return *current;
+        current = current->next;
     }
+
+    return current;  // Return nullptr if the book is not found
+}
 
     void displayList()
     {
@@ -551,16 +551,18 @@ int main()
             cin.ignore();
             getline(cin, searchKey);
 
-            Node foundNode = library.findNode(searchKey);
-            if (&foundNode != nullptr)
-            {
-                cout << "Book found: " << endl;
-                foundNode.data.displayBook();
-            }
-            else
-            {
-                cout << "Book not found with title or ISBN: " << searchKey << endl;
-            }
+            Node* foundNode = library.findNode(searchKey);
+
+    if (foundNode != nullptr)
+    {
+        cout << "Book found: " << endl;
+        foundNode->data.displayBook();
+    }
+    else
+    {
+        cout << "Book not found with title or ISBN: " << searchKey << endl;
+    }
+
             break;
         }
         case 3:
