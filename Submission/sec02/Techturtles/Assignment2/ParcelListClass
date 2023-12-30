@@ -84,3 +84,72 @@ public:
 
         return current;
     }
+
+void deleteNodeAtBeginning() {
+        if (head == nullptr) {
+            cout << "List is empty. Nothing to delete.\n";
+            return;
+        }
+
+        Node* temp = head;
+        head = head->next;
+        delete temp->data;
+        delete temp;
+
+        count--;
+        cout << "Node deleted from the beginning.\n";
+    }
+
+    void deleteNodeAtEnd() {
+        if (head == nullptr) {
+            cout << "List is empty. Nothing to delete.\n";
+            return;
+        }
+
+        if (head->next == nullptr) {
+            delete head->data;
+            delete head;
+            head = nullptr;
+        }
+        else {
+            Node* current = head;
+            while (current->next->next != nullptr) {
+                current = current->next;
+            }
+
+            delete current->next->data;
+            delete current->next;
+            current->next = nullptr;
+        }
+
+        count--;
+        cout << "Node deleted from the end.\n";
+    }
+
+    void deleteNodeAtPosition(int position) {
+        if (position < 0 || position >= count) {
+            cout << "Invalid position. Nothing to delete.\n";
+            return;
+        }
+
+        if (position == 0) {
+            deleteNodeAtBeginning();
+        }
+        else if (position == count) {
+            deleteNodeAtEnd();
+        }
+        else {
+            Node* current = head;
+            for (int i = 0; i < position - 1; i++) {
+                current = current->next;
+            }
+
+            Node* temp = current->next;
+            current->next = temp->next;
+            delete temp->data;
+            delete temp;
+
+            count--;
+            cout << "Node deleted at position " << position << ".\n";
+        }
+    }
