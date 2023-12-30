@@ -37,8 +37,8 @@ preferences.
 
 ## Findings 📊
 
-- [Source code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Assignment1/Assignment1.cpp)
-- [Inputfile](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Assignment1/inventory.txt)
+- [Source code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Assignment2/Assignment2.cpp)
+- [Inputfile](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Assignment2/inventory.txt))
 - [Report](https://liveutm-my.sharepoint.com/:w:/g/personal/gohyang_live_utm_my/EdKgVo0MHndPvkDGb8yksB0BWCKPKEYcmF0g2NR4Cq0pXQ?e=dBaKzg)
 
 ## Contribution 🛠️
