@@ -1,3 +1,11 @@
+#include<iostream>
+#include<fstream>
+#include<string>
+#include<cstring> 
+#include<iomanip>
+
+using namespace std;
+
 class Account{
 	
 	public:
@@ -130,6 +138,93 @@ class List{
 			//insert the new node after the middle node(after slow)
 			newNode->next = slow->next;
 			slow->next = newNode;
+		}
+
+		//delete first node
+		void deleteFirst(){
+			if (!isEmpty()) {
+        		Node* temp = head;
+        		head = head->next;
+        		delete temp;
+        	}
+        	else{
+        		cout<< "The list is empty.\n";
+			}
+		}
+		
+		//delete last node
+		void deleteLast(){
+			if (!isEmpty()) {
+        		if (head->next == NULL) {
+            		delete head;
+            		head = NULL;
+        		} 
+				else {
+            		Node* current = head;
+            		Node* previous = NULL;
+            		while (current->next != NULL) {
+                		previous = current;
+                		current = current->next;
+            		}
+            		delete current;
+            		previous->next = NULL;
+        		}
+    		}
+    		else{
+    			cout << "The list is empty.\n";
+			}
+    	
+		}
+		
+		//delete middle node(delete using account number)
+		bool deleteMiddle(string accNum){
+			Node* current;
+			Node* previous;
+			if (!isEmpty()) {
+        		current = head;
+        		previous = NULL;
+        	}
+
+        	// Check if the first node is the one to be deleted
+        	if (current->account.getAccNum() == accNum) {
+            	head = head->next;
+            	delete current;
+            	return true;
+        	}
+
+        	while (current != NULL && current->account.getAccNum() != accNum) {
+            	previous = current;
+            	current = current->next;
+        	}
+
+        	if (current == NULL) {
+            	cout << "Account not found in the list." << endl;
+            	return false;
+        	}
+
+        	previous->next = current->next;
+        	delete current;
+        	return true;
+		}
+		
+		void findNode(string num){
+			Node* current = head;
+    		bool found = false;
+
+    		while (current != NULL) {
+        		if (current->account.getAccNum() == num) {
+            	cout << "Node found with Account Number " << num << ":\n";
+            	current->account.printTitle();
+            	current->account.printDetails();
+            	found = true;
+            	break;
+        	}
+        		current = current->next;
+    		}
+
+ 	   		if (!found) {
+        		cout << "Node not found with Account Number " << num << ".\n";
+    		}
 		}
 		
 		//display all the node in the list
