@@ -21,7 +21,7 @@ In a restaurant, it is most important that RMS should be user friendly and show 
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-|  Tay Shun Wei  |    A22EC0110     | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/photo_2023-06-18_21-46-08.jpg" title="Icon by Trazobanana"><img src="./Images/photo_2023-06-18_21-46-08.jpg" width=80px, height=80px>     |
+|  Tay Shun Wei  |    A22EC0110     | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/photo_2023-06-18_21-46-08.jpg" title="Icon by Trazobanana"><img src="./images/photo_2023-06-18_21-46-08.jpg" width=80px, height=80px>     |
 |      |         | <a href="" title="Icon by Trazobanana"><img src="./Images/" width=80px, height=80px>         |
 |       |        | <a href="" title="Icon by Trazobanana"><img src="./Images/" width=80px, height=80px>         |
 
