@@ -132,7 +132,16 @@ class List
         }
 
         void deleteAtNode(int index)
-        {}
+        {
+             if(isEmpty())
+                cout<<"The list is empty!"<<endl;
+            else{
+                Voter *temp = head,*temp2;
+                for(int i=0;i<index-1;i++){
+                    temp2 = temp;
+                    temp = temp->next;
+                }
+        }
 
         
 void search(int opt,string key,int key2)
