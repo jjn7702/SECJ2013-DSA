@@ -75,7 +75,15 @@ public:
     }
 
     void insertend(task d)
-    {//insert end
+    {
+        task* newNode= new task (d);
+        task * temp=head;
+
+        while(temp->next != NULL)
+        {
+            temp=temp->next;
+        }
+        temp->next=new task(d);
 
     }
 
