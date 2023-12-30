@@ -695,6 +695,14 @@ void emailDes(){
         temp->setMatric(min->getMatric());
         temp->setAge(min->getAge());
 
+        min->setName(n);
+        min->setFaculty(f);
+        min->setEmail(e);
+        min->setIC(i);
+        min->setMatric(m);
+        min->setAge(a);
+
+        temp = temp->next;
     }
 
 }
