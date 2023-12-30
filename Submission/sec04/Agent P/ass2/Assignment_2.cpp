@@ -131,6 +131,9 @@ class List
             }
         }
 
+        void deleteAtNode(int index)
+        {}
+
         
 void search(int opt,string key,int key2)
         {
