@@ -143,6 +143,11 @@ public:
             cout<<"Position out of range.No task to remove. "<<endl;
             return;
         }
+
+        if(prev==nullptr)
+        {
+            
+        }
     }
 
     void displist()
