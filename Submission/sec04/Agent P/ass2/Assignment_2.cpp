@@ -872,6 +872,13 @@ int sortingUI(int &opt2)
     cout<<"[6] Matric"<<endl;
     cout<<"Please choose an option : ";
     cin>>opt;
+
+    cout<<"\n[1] Ascending order"<<endl;
+    cout<<"[2] Descending order"<<endl;
+    cout<<"Please choose an option : ";
+    cin>>opt2;
+    
+    return opt;
 }
 
 
