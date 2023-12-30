@@ -76,15 +76,15 @@ public:
     Node(Parcel* p) : data(p), next(nullptr) {}
 };
 
-class LinkedList {
+class ParcelList {
 private:
     Node* head;
     int count;
 
 public:
-    LinkedList() : head(nullptr), count(0) {}
+    ParcelList() : head(nullptr), count(0) {}
 
-    ~LinkedList() {
+    ~ParcelList() {
         Node* current = head;
         Node* next;
 
@@ -213,6 +213,9 @@ public:
         if (position == 0) {
             deleteNodeAtBeginning();
         }
+        else if (position == count) {
+            deleteNodeAtEnd();
+        }
         else {
             Node* current = head;
             for (int i = 0; i < position - 1; i++) {
@@ -301,7 +304,7 @@ void swapParcels(Node* a, Node* b) {
     swap(a->data, b->data);
 }
 
-void bubbleSort(LinkedList& list, bool ascending) {
+void bubbleSort(ParcelList& list, bool ascending) {
     int n = list.getNodeCount();
 
     for (int i = 0; i < n - 1; i++) {
@@ -318,7 +321,7 @@ void bubbleSort(LinkedList& list, bool ascending) {
     }
 }
 
-void selectionSort(LinkedList& list, bool ascending) {
+void selectionSort(ParcelList& list, bool ascending) {
     int n = list.getNodeCount();
 
     for (int i = 0; i < n - 1; i++) {
@@ -341,7 +344,7 @@ void selectionSort(LinkedList& list, bool ascending) {
     }
 }
 
-void insertionSort(LinkedList& list, bool ascending) {
+void insertionSort(ParcelList& list, bool ascending) {
     int n = list.getNodeCount();
 
     for (int i = 1; i < n; i++) {
@@ -352,8 +355,11 @@ void insertionSort(LinkedList& list, bool ascending) {
             swapParcels(list.getNodeAtPosition(j), list.getNodeAtPosition(j + 1));
             j--;
         }
+        
     }
 }
+
+
 
 void displayMenu() {
     cout << "\t+-------------------------------+\n";
