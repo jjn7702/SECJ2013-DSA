@@ -177,5 +177,5 @@ Character count: 5866
 - [Source Code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass2/files/source-code/ASS2.cpp)
 - [Input File](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass2/files/source-code/TEST.txt)
 - [Assignment 2 Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass2/files/ASSIGNMENT%202%20DSA%20(FABS).pdf)
-- [Similarity Report](https://github.com/jjn7702/SECJ2013-DSA/main/Submission/sec04/FABS/Ass2/files/ASSINGNMENT%202%20REPORT.pdf)
+- [Similarity Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass2/files/ASSINGNMENT%202%20REPORT.pdf)
 
