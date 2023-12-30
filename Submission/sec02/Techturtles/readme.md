@@ -37,6 +37,8 @@ The latest Courier Service System will implement linked lists. The system's obje
 
 ## Flow of system
 1.
+2.
+3.
 
 <h3>Report Assignment 2</h3>
 <a href="https://docs.google.com/document/d/1Vg15cYBIqOxJxCgSy68Rhvs-y6wKyOAo_PiEQPjvU5o/edit"><img src="https://cdn.vectorstock.com/i/1000x1000/45/57/file-doc-icon-digital-blue-vector-24754557.webp" width="35px" height="40px" ></a>
