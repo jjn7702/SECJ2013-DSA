@@ -111,38 +111,68 @@ public:
         head = newNode;
     }
 
-    void deleteNode(string key)
-    {
-        Node *current = head;
-        Node *prev = nullptr;
-
-        // Traverse the list to find the node with the key
-        while (current != nullptr && (current->data.getTitle() != key && current->data.getISBN() != key))
-        {
-            prev = current;
-            current = current->next;
-        }
-
-        // If the node with the key is found
-        if (current != nullptr)
-        {
-            if (prev == nullptr)
-            {
-                // If it's the first node
-                head = current->next;
-            }
-            else
-            {
-                // If it's in the middle or end
-                prev->next = current->next;
-            }
-            delete current;
-        }
-        else
-        {
-            cout << "Book not found with title or ISBN: " << key << endl;
-        }
+    void deleteFrontNode() {
+           if (head == nullptr) {
+        cout << "The list is empty. Nothing to delete." << endl;
+        return;
     }
+
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+    }
+
+
+    void deleteMiddleNode() {
+    if (head == nullptr || head->next == nullptr) {
+        cout << "The list has insufficient nodes. Cannot delete from the middle." << endl;
+        return;
+    }
+
+    int size = getSize();
+    int middlePosition = (size + 1) / 2;
+
+    Node* current = head;
+    Node* previous = nullptr;
+    int currentPosition = 1;
+
+    // Traverse to the middle node
+    while (currentPosition < middlePosition && current->next) {
+        previous = current;
+        current = current->next;
+        currentPosition++;
+    }
+
+    // Remove the middle node
+    previous->next = current->next;
+    delete current;
+}
+
+void deleteEndNode() {
+    if (head == nullptr) {
+        cout << "The list is empty. Nothing to delete." << endl;
+        return;
+    }
+
+    if (head->next == nullptr) {
+        // Only one node in the list
+        delete head;
+        head = nullptr;
+        return;
+    }
+
+    Node* current = head;
+    Node* previous = nullptr;
+
+    while (current->next != nullptr) {
+        previous = current;
+        current = current->next;
+    }
+
+    delete current;
+    previous->next = nullptr;
+}
+
 
     Node findNode(string key)
     {
@@ -256,9 +286,7 @@ void addNodeEnd(Book book) {
         } while (swapped);
     }
 
-    // Other sorting methods (by author, year, ISBN) can be implemented similarly
-    // using the appropriate comparison logic.
-
+    
     // Function to sort books by author (example)
     void sortBooksByAuthor() {
         if (head == nullptr || head->next == nullptr) {
@@ -538,21 +566,39 @@ int main()
         case 3:
         {
             // Delete Book
-            string deleteKey;
 
             system("cls");
             cout << setw(39) << " ____________________________________" << endl;
             cout << setw(40) << "|                                    |" << endl;
-            cout << setw(40) << "|             Delete Node            |" << endl;
+            cout << setw(40) << "|           Delete Book              |" << endl;
             cout << setw(40) << "|____________________________________|" << endl << endl;
 
-            cout << "Enter title or ISBN to delete: ";
-            cin.ignore();
-            getline(cin, deleteKey);
-            library.deleteNode(deleteKey);
-            cout << "Book deleted successfully!" << endl;
+            cout << setw(5) << "[1] Delete Book (Front)" << endl;
+            cout << setw(5) << "[2] Delete Book (Middle)" << endl;
+            cout << setw(5) << "[3] Delete Book (End)" << endl;
+
+            cout << "Please enter your choice: ";
+            cin >> nodeChoice;
+
+            if (nodeChoice == 1)
+            {
+            library.deleteFrontNode();
             library.displayList();
-            break;
+            }
+
+            else if (nodeChoice == 2)
+            {
+            library.deleteMiddleNode();
+
+            library.displayList();
+            }
+
+            else if (nodeChoice == 3)
+            {
+           library.deleteEndNode();
+           library.displayList();
+        }
+        break;
         }
         case 4:
             // Sort Books
