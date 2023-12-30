@@ -802,6 +802,13 @@ int main()
 
                     //set node data
                     //insert node
+                    newTask.settask(tasks);
+                    newTask.setday(day);
+                    newTask.setmonth(month);
+                    newTask.setyear(year);
+                    newTask.setstatus(status);
+
+                    tk.insert(newTask); //This will add the node at the beginning
                     cout << "\n\nTask added at the beginning." << endl;
                 }
                 break;
@@ -822,10 +829,18 @@ int main()
                     cout << "Status: ";
                     cin >> status;
 
+                    newTask.settask(tasks);
+                    newTask.setday(day);
+                    newTask.setmonth(month);
+                    newTask.setyear(year);
+                    newTask.setstatus(status);
+
                     int position;
                     cout << "Enter the position to add the new task: ";
                     cin >> position;
                     //insert position and new data
+
+                    tk.insertrand(position,newTask);  //add node at specific position
                     cout << "/n/nTask added in the middle." << endl;
                 }
                 break;
@@ -846,8 +861,15 @@ int main()
                     cout << "Status: ";
                     cin >> status;
 
+                    newTask.settask(tasks);
+                    newTask.setday(day);
+                    newTask.setmonth(month);
+                    newTask.setyear(year);
+                    newTask.setstatus(status);
+
                     //set task
                     //insert data into node
+                    tk.insertend(newTask);
                     cout << "\n\nTask added at the end." << endl;
                 }
                 break;
