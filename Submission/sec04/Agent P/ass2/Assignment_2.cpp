@@ -97,6 +97,7 @@ class List
                 }
                 temp->next = newNode;
             }
+        }
 
         void deleteEnd()
         {
@@ -114,7 +115,23 @@ class List
             }
         }
 
+        void insertAtNode(string n,string f,int a,string ic,string e,string m,int index)
+        {
+            Voter *newNode = new Voter(n,f,a,ic,e,m);
+            Voter *temp = head;
+            
+            if(isEmpty())
+                head = newNode;
+            else{
+                for(int i=0;i<index-2;i++)
+                    temp = temp->next;
+
+                newNode->next = temp->next;
+                temp->next = newNode;
+            }
         }
+
+        
 void search(int opt,string key,int key2)
         {
             Voter *temp = head;
