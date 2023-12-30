@@ -369,9 +369,9 @@ void displayMenu() {
 }
 
 int main() {
-    LinkedList parcelList;
+    ParcelList p1;
 
-    ifstream inFile("ParcelData.txt"); // Change the file name as needed
+    ifstream inFile("ParcelData2.txt"); // Change the file name as needed
 
     if (!inFile.is_open()) {
         cerr << "Error opening file." << endl;
@@ -391,17 +391,17 @@ int main() {
         getline(inFile, shipping_option, ';');
         getline(inFile, status_delivery);
 
-        if ((shipping_option[0] != 'A') && (shipping_option[0] != 'B')) {
-            //cout << "Invalid shipping option. Parcel not added.\n";
-            cout << shipping_option;
+        if ((shipping_option[0] != 'A') && (shipping_option[0] != 'B')) { //If shipping option is not A or B
+            cout << "Invalid shipping option. Parcel not added.\n";
+
         }
-        else if ((status_delivery[0] != '0' && status_delivery[0] != '1')) {
+        else if ((status_delivery[0] != '0' && status_delivery[0] != '1')) { //If status delivery is not 0 or 1
             cout << "Invalid status delivery. Parcel not added.\n";
             cout << status_delivery << endl;
         }
         else {
             Parcel* newParcel = new Parcel(tracking_no, address, sender_name, receiver_name, shipping_option[0], stoi(status_delivery));
-            parcelList.addNodeAtEnd(newParcel);
+            p1.addNodeAtEnd(newParcel);
         }
     }
 
@@ -455,19 +455,19 @@ int main() {
 
             switch (addChoice) {
             case 1:
-                parcelList.addNodeAtBeginning(newParcel);
-                parcelList.displayAllNodes();
+                p1.addNodeAtBeginning(newParcel);
+                p1.displayAllNodes();
                 break;
             case 2:
-                parcelList.addNodeAtEnd(newParcel);
-                parcelList.displayAllNodes();
+                p1.addNodeAtEnd(newParcel);
+                p1.displayAllNodes();
                 break;
             case 3: {
                 int position;
                 cout << "Enter position to add the parcel: ";
                 cin >> position;
-                parcelList.addNodeAtPosition(newParcel, position);
-                parcelList.displayAllNodes();
+                p1.addNodeAtPosition(newParcel, position);
+                p1.displayAllNodes();
                 break;
             }
             default:
@@ -478,7 +478,7 @@ int main() {
             break;
         }
         case 2: {
-            if (parcelList.getNodeCount() == 0) {
+            if (p1.getNodeCount() == 0) {
                 cout << "\nList is empty. Nothing to delete.\n";
             }
             else {
@@ -488,19 +488,19 @@ int main() {
 
                 switch (deleteChoice) {
                 case 1:
-                    parcelList.deleteNodeAtBeginning();
-                    parcelList.displayAllNodes();
+                    p1.deleteNodeAtBeginning();
+                    p1.displayAllNodes();
                     break;
                 case 2:
-                    parcelList.deleteNodeAtEnd();
-                    parcelList.displayAllNodes();
+                    p1.deleteNodeAtEnd();
+                    p1.displayAllNodes();
                     break;
                 case 3: {
                     int position;
                     cout << "Enter position to delete the parcel: ";
                     cin >> position;
-                    parcelList.deleteNodeAtPosition(position);
-                    parcelList.displayAllNodes();
+                    p1.deleteNodeAtPosition(position);
+                    p1.displayAllNodes();
                     break;
                 }
                 default:
@@ -511,14 +511,14 @@ int main() {
             break;
         }
         case 3: {
-            if (parcelList.getNodeCount() == 0) {
+            if (p1.getNodeCount() == 0) {
                 cout << "\nList is empty. Nothing to find.\n";
             }
             else {
                 string searchKey;
                 cout << "\nEnter tracking number to find the parcel: ";
                 cin >> searchKey;
-                Node* foundNode = parcelList.findNode(searchKey);
+                Node* foundNode = p1.findNode(searchKey);
 
                 if (foundNode != nullptr) {
                     cout << "\nParcel found:\n";
@@ -538,7 +538,7 @@ int main() {
         }
         case 4: {
             int sortChoice;
-            cout << "\nSorting Options:\n1. Bubble Sort by Tracking Number\n2. Selection Sort by Address\n3. Insertion Sort by Sender/Receiver Name\nEnter your choice: ";
+            cout << "\nSorting Options:\n1. Bubble Sort by Tracking Number\n2. Selection Sort by Address\n3. Insertion Sort by Sender Name\nEnter your choice: ";
             cin >> sortChoice;
 
             bool ascending;
@@ -547,19 +547,19 @@ int main() {
 
             switch (sortChoice) {
             case 1:
-                bubbleSort(parcelList, ascending);
+                bubbleSort(p1, ascending);
                 cout << "\nList sorted by tracking number.\n";
-                parcelList.displayAllNodes();
+                p1.displayAllNodes();
                 break;
             case 2:
-                selectionSort(parcelList, ascending);
+                selectionSort(p1, ascending);
                 cout << "\nList sorted by address.\n";
-                parcelList.displayAllNodes();
+                p1.displayAllNodes();
                 break;
             case 3:
-                insertionSort(parcelList, ascending);
+                insertionSort(p1, ascending);
                 cout << "\nList sorted by sender name.\n";
-                parcelList.displayAllNodes();
+                p1.displayAllNodes();
                 break;
             default:
                 cout << "Invalid sorting option.\n";
@@ -568,7 +568,7 @@ int main() {
             break;
         }
         case 5:
-            parcelList.displayAllNodes();
+            p1.displayAllNodes();
             break;
         case 6:
             cout << "\nExiting program.\n";
