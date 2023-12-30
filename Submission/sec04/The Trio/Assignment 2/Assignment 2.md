@@ -37,4 +37,4 @@ This hotel booking system uses a constant change of linked lists, allowing for t
 
 - [Source Code](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/The%20Trio/Assignment%202/Source%20code)
 - Plagiarism Report
-- Report
+- [Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/The%20Trio/Assignment%202/ASSIGNMENT%202%20(DSA).pdf)
