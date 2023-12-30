@@ -861,8 +861,15 @@ int main()
                     cout << "Status: ";
                     cin >> status;
 
+                    newTask.settask(tasks);
+                    newTask.setday(day);
+                    newTask.setmonth(month);
+                    newTask.setyear(year);
+                    newTask.setstatus(status);
+
                     //set task
                     //insert data into node
+                    tk.insertend(newTask);
                     cout << "\n\nTask added at the end." << endl;
                 }
                 break;
