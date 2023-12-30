@@ -172,30 +172,22 @@ public:
         int count = 1;
         bool found = false;
 
-        if (isEmpty())
-        {
+        if (isEmpty()){
             head = newInventory;
-            found = true;
-        }
-
-        if (position == 1)
-        {
+            found = true; }
+            
+        if (position == 1){
             addFront(newInventory);
-            found = true;
-        }
+            found = true;}
 
-        while (temp->next != NULL && count < position - 1 && !found)
-        {
+        while (temp->next != NULL && count < position - 1 && !found){
             temp = temp->next;
-            count++;
-        }
+            count++; }
 
-        if (!found)
-        {
+        if (!found){
             newInventory->next = temp->next;
             temp->next = newInventory;
-            found = true;
-        }
+            found = true;}
     }
 
     //-Delete inventory-

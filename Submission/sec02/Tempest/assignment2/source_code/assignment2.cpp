@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class task
+class task//node
 {
 private:
     string tasks;
@@ -53,17 +53,50 @@ public:
     }
 
     void insert(task d)
-    { // insert in front
+    { 
+        task* newNode= new task(d);
+
+        if(isEmpty())
+        {
+            head=newNode;
+        }
+
+        else
+        {
+            newNode->next=head;
+            head=newNode;
+        }
         
     }
 
     void insertrand(int c, task d)
-    {//insert middle
+    {
+        task* newNode= new task (d);
+        task* temp= head;
+        int count=1;
+
+        while(temp->next != NULL && count<c)
+        {
+            temp=temp->next;
+            count++;
+
+        }
+
+        newNode->next=temp->next;
+        temp->next=newNode;
         
     }
 
     void insertend(task d)
-    {//insert end
+    {
+        task* newNode= new task (d);
+        task * temp=head;
+
+        while(temp->next != NULL)
+        {
+            temp=temp->next;
+        }
+        temp->next=new task(d);
 
     }
 
