@@ -273,6 +273,19 @@ Cart Customer_order(Menu a[],Cart c,string C_o, int t){   // C_o = customer orde
 		return c;
 }
 
+Cart deleteorder(Cart b){
+	int Way;
+	char pop;
+		do{
+			Way = deleteCart();
+			b.deleteNode(Way);
+			cout << "Continue delete?" << endl;
+			cout << "Choice(press Y to continue delete):";
+			cin >> pop;
+		}while(pop == 'Y');
+		return b;
+}
+
 int main(){
 	string menu_code, menu_name, menu_type,order;
 	float menu_price;
