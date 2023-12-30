@@ -1,5 +1,8 @@
 # Courier Service System
 
+## Description 📝
+The Courier Service System is specially designed for the administrator. The system's objectives are mainly to sort parcels efficiently based on their status, shipping option or tracking number. Moreover, it also helps the administrator to add a new parcel into the system. Not to mention, the admin will be able to search the intended parcel based on the parcel’s tracking number. In Assignment 2, the latest Courier Service System will implement linked lists. The system's objectives are mainly to add, delete, find, sort and display parcels using linked lists method.
+
 ## Prepared by 🧑‍💻
 
 | Name             | Matric Number | Photo                                                         |
@@ -10,9 +13,6 @@
 
 
 <h1>Assignment 1</h1>
-
-## Description 📝
-The Courier Service System is specially designed for the administrator. The system's objectives are mainly to sort parcels efficiently based on their status, shipping option or tracking number. Moreover, it also helps the administrator to add a new parcel into the system. Not to mention, the admin will be able to search the intended parcel based on the parcel’s tracking number.
 
 ## Flow of system
 1. The user is prompted to the main menu of the Courier Service System.
@@ -30,10 +30,8 @@ The Courier Service System is specially designed for the administrator. The syst
 <h3>Report Assignment 1</h3>
 <a href="https://docs.google.com/document/d/1IBuotBV8MyPapQ3iG9L_BJigHuHo5fWuo8pLHKXZuRI/edit"><img src="https://cdn.vectorstock.com/i/1000x1000/45/57/file-doc-icon-digital-blue-vector-24754557.webp" width="35px" height="40px" ></a>
 
+<br>
 <h1>Assignment 2</h1>
-
-## Description 📝
-The latest Courier Service System will implement linked lists. The system's objectives are mainly to add, delete, find, sort and display parcels using linked lists method.
 
 ## Flow of system
 1.
