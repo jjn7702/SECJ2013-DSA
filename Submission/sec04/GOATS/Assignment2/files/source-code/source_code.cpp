@@ -363,35 +363,35 @@ class List{
         return 0;  
         }
         
-        void findNode(string searchKey) {
-        Patient *tempPatient = p_head;
-        Doctor *tempDoctor = d_head;
-		
-		    //patients
-            while (tempPatient != NULL) {
-                if (tempPatient->getNamePatient() == searchKey || tempPatient->getICPatient() == searchKey) {
-                    cout << "Patient found:\n";
-                    tempPatient->display();
-                    return;
-                }
-                tempPatient = tempPatient->getNext();
-            }
-            
-            //doctors
-            while (tempDoctor != NULL) {
-                if (tempDoctor->getNameDoctor() == searchKey || tempDoctor->getIDDoctor() == searchKey) {
-                    cout << "Doctor found:\n";
-                    tempDoctor->display();
-                    return;
-                }
-                tempDoctor = tempDoctor->getNext();
-            }
-            
-            //if not found
-            cout << "Node with key '" << searchKey << "' not found.\n";
-    	}
+        
+        void findNode(string searchKey, int user) {
+		    if (user == 1) {
+		        Patient *tempPatient = p_head;
+		        while (tempPatient != NULL) {
+		            if (tempPatient->getNamePatient() == searchKey || tempPatient->getICPatient() == searchKey) {
+		                cout << "\nPatient found:\n";
+		                tempPatient->display();
+		                return;
+		            }
+		            tempPatient = tempPatient->getNext();
+		        }
+		    } else if (user == 2) {
+		        Doctor *tempDoctor = d_head;
+		        while (tempDoctor != NULL) {
+		            if (tempDoctor->getNameDoctor() == searchKey || tempDoctor->getIDDoctor() == searchKey) {
+		                cout << "\nDoctor found:\n";
+		                tempDoctor->display();
+		                return;
+		            }
+		            tempDoctor = tempDoctor->getNext();
+		        }
+		    } else {
+		        cout << "Invalid user type\n";
+		    }
+		    cout << "Node with key '" << searchKey << "' not found.\n";
+		}
 
-        void display(int user){
+        void displayAll(int user){
             
             if(isEmpty(user)){
                 cout << endl << "No node in the list\n";
@@ -412,6 +412,38 @@ class List{
                 cout << "--------------------------------\n";
                 while (temp != NULL) {
                     temp->display();
+                    temp = temp->getNext();
+                }
+            }
+        }
+
+        void displayNode(int user,string keyIC){
+            
+            if(isEmpty(user)){
+                cout << endl << "No node in the list\n";
+                return;
+            }
+            if (user == 1){
+                Patient *temp = p_head;
+                cout << "\n<< Display selected node >>\n";
+                cout << "--------------------------------\n";
+                while (temp != NULL) {
+                    if (temp->getICPatient() == keyIC){
+                        temp->display();
+                        return;
+                    }
+                    temp = temp->getNext();
+                }
+            }
+            else if(user == 2){
+                Doctor *temp = d_head;
+                cout << "\n<< Display all node >>\n";
+                cout << "--------------------------------\n";
+                while (temp != NULL) {
+                    if (temp->getIDDoctor() == keyIC){
+                        temp->display();
+                        return;
+                    }
                     temp = temp->getNext();
                 }
             }
@@ -807,76 +839,111 @@ int start(){
 
 void assignment2 (List &node, int user){ // user  = patient/ doctor
     int option;
+    string searchKey;
+    bool loop = 1;
 
-    cout << "\n<< Linked list operation >>\n"
-         << "1. Add new Patient/ Doctor\n"
-         << "2. Delete Patient/Doctor\n"
-         << "3. Find Patient/Doctor\n"
-         << "Choose one of the function : ";
-    cin >> option;
-    switch (option)
-    {
-    case 1:
-        int add;
-        cout << "\n<< Adding Function >>\n"
-             << "1. Add from Front\n"
-             << "2. Add from Middle (specific position)\n"
-             << "3. Add from Back\n"
-             << "Choose where do you want to add: ";
-        cin >> add;
-        node.addnewUser(user, add);
-        break;
-    case 2:
-        // add menu delete
-        break;
-    case 3:
-        // add menu find node
-        break;
-    default:
-        cout << "\nError : Invalid linked list operation option\n";
-        assignment2(node, user);
+    while (loop){
+        if (user == 1){
+            cout << "\n<< Linked list operation >>\n"
+            << "1. Add new Patient\n"
+            << "2. Delete Patient\n"
+            << "3. Find Patient\n"
+            << "4. Display Patients\n"
+            << "5. Back\n"
+            << "Choose one of the function : ";
+        
+        }
+
+        else if (user == 2){
+            cout << "\n<< Linked list operation >>\n"
+            << "1. Add new Doctor\n"
+            << "2. Delete Doctor\n"
+            << "3. Find Doctor\n"
+            << "4. Display Doctors\n"
+            << "5. Back\n"
+            << "Choose one of the function : ";
+        }
+        
+        cin >> option;
+        switch (option)
+        {
+        case 1:
+            int add;
+            cout << "\n<< Adding Function >>\n"
+                << "1. Add from Front\n"
+                << "2. Add from Middle (specific position)\n"
+                << "3. Add from Back\n"
+                << "Choose where do you want to add: ";
+            cin >> add;
+            node.addnewUser(user, add);
+            break;
+        case 2:
+            cout << "\n<< Delete Node Function >>\n"
+                << "Enter IC : ";
+            cin >> searchKey;
+            cout << endl << "Node that was deleted :" << endl;
+            node.displayNode(user,searchKey);
+            node.deleteNode(searchKey,user);
+            // add menu delete
+            break;
+        case 3:
+                cout << "\nEnter the name or ID to find: ";
+                cin >> searchKey;
+                node.findNode(searchKey, user);
+                break;
+            break;
+        case 4:
+            node.displayAll(user);
+            break;
+        case 5 :
+            return;
+        default:
+            cout << "\nError : Invalid linked list operation option\n";
+            assignment2(node, user);
+        }
     }
 }
 
 int main() {
-    int choice = start();   // Choose program
-    int user; // patient or doctor
     List node;
-
-    if(choice == 1){
-        assignment1();
-        return 0;
-    }
-    else if (choice == 2){
-        cout << "\n<< Assignment 2 >> \n"
-         << "1. Patient\n"
-         << "2. Doctor\n"
-         << "3. End program\n"
-         << "Choose one of the option: ";
-        cin >> user;
-        if(user == 3){
-            return 0;
+	//test function to find node later
+	node.insertFront("888777fsd6", "David", 50, "Arthritis", "Dr. Johnson", 1);
+	node.insertFront("999888fgd9", "James", 18, "Fever", "Dr. Robert", 1);
+	node.insertFront("666555fhi0", "lilly", 24, "Scoliosis", "Dr. Ravendra", 1);
+	//node.display(1);
+	//node.display(2);
+    
+	int choice = start();   // Choose program
+    int user; // patient or doctor
+	
+    while (choice != 3){
+        if(choice == 1){
+            assignment1();
         }
-        assignment2(node, user);
-    }
-    else if (choice == 3)
-        return 0;
-    else{
-        cout << "Invalid input\n";
-        start();
+        else if (choice == 2){
+            cout << "\n<< Assignment 2 >> \n"
+            << "1. Patient\n"
+            << "2. Doctor\n"
+            << "3. End program\n"
+            << "Choose one of the option: ";
+            cin >> user;
+            if(user == 3){
+                return 0;
+            }
+            assignment2(node, user);
+        }
+        else if (choice == 3)
+            return 0;
+        else{
+            cout << "Invalid input\n";
+            start();
+        }
     }
 
     // test function
 
-    node.insertFront("888777fsd6", "David", 50, "Arthritis", "Dr. Johnson", user);
-
-    node.display(user); // test if node is empty
-
-    node.deleteNode("888777fsd6", user);
-    node.display(user);
-
-    node.findNode("David");
-
+    //node.deleteNode("888777fsd6", user);
+    //node.display(user);
 
     return 0;
 }
