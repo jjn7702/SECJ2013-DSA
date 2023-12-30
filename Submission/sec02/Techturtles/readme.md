@@ -39,7 +39,7 @@ The Courier Service System is specially designed for the administrator. The syst
 
 - <a href="Assignment 1" >Assignment 1 
 - <a href="Assignment2" >Assignment 2
-- Project
+- <a href="Project" >Project
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
