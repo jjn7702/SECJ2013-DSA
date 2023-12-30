@@ -994,4 +994,11 @@ int main()
 						l.ICdes();
                     l.display();
 					break;
+                 case 5 : 
+					if(opt6 == 1)
+						l.emailasc();
+					else
+						l.emailDes();
+                    l.display();
+					break;
 }
