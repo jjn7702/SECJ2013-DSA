@@ -100,9 +100,8 @@ public:
 
     }
 
-    void removebeginning()
+    void removebeginning() //remove first node
     { 
-        //remove first node
         if(isEmpty())
         {
             cout<<"List is empty.No task to remove. "<<endl;
