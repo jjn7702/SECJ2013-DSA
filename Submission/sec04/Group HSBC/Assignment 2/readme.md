@@ -10,7 +10,7 @@ _Don't forget to hit the :star: if you like this repo._
 # Banking System
 
 ## Description 📝
-The main goal of HSBC's Banking System is to enhance the user experience and smoothen the flow of control of the system. The purpose of this system is to help users can track their information by sorting and searching function. The bank transaction and transaction information trackking are main components of our HSBC system. With the implementation of searching and sorting function, we hope that it can help users to get what they want in this sytem easily.
+The main goal of HSBC's Banking System is to enhance the user experience and smoothen the flow of control of the system. In assignment 2, we implement the linked list which use pointer concept to replace the array to enhance our system's performance and the storage is unlimited.
 
 ## Prepared by 🧑‍💻
 
