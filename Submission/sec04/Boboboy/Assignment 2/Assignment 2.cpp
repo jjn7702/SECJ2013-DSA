@@ -122,7 +122,7 @@ class Cart{
 				}
 			}// insert the number at the middle which the user provide the location
         }
-            void deleteNode(int w){
+        void deleteNode(int w){
 			Order *temp = head;
 			if(w == 1){
 				if(CartEmpty()){
@@ -165,7 +165,7 @@ class Cart{
 				}
 			}
 		}
-		void bubbleSort(){
+        void bubbleSort(){
             int swapped,way;
             Order *ptr1;
             Order *lptr = NULL;
