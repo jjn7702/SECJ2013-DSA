@@ -111,7 +111,7 @@ public:
         }
         task* temp=head;
         head=head->next;
-        
+        delete temp;
     }
 
     void removelast()
