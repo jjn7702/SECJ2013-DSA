@@ -44,3 +44,42 @@ class Menu{
 		cout << code << setw(20) << name << setw(20) << foodtype << setw(20) << price << endl;		
 		}
 };
+
+class Cart{
+	Order *head;
+	public:
+		Cart(){
+			head = NULL;
+		}
+		
+		bool CartEmpty(){
+			return head == NULL;
+		}
+		
+		void insert(Order *newNode,int w){
+			if(w == 1){
+				if(CartEmpty()){
+					head = newNode;
+				}
+				else{
+					newNode ->next = head;
+					head = newNode;
+				}
+			}//insert the number in front
+        }
+        void deleteNode(int w){
+			Order *temp = head;
+			if(w == 1){
+				if(CartEmpty()){
+					cout << "Does not have order can be delete" << endl; 
+				}
+				else{
+					if(temp->next != NULL){
+					head = head->next;
+					temp ->next = NULL;
+					}
+					delete temp;
+				}
+			}// delete the first number
+        }
+}
