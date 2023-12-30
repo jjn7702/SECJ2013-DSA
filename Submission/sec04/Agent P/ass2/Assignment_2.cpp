@@ -1009,3 +1009,5 @@ int main()
                     l.display();
 					break;}
 }
+        cout<<"\nWould you like to continue (y/n) : ";
+        cin>>answer;
