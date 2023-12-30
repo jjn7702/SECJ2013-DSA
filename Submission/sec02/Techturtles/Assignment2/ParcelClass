@@ -1,80 +1,50 @@
-class Parcel
-{
+class Parcel {
 private:
     string trackingNumber, address, nameSender, nameReceiver;
-    char category;
-    int status;
-    int count; // edit
+    char category; // 'A' for Bulky & Heavy Delivery, 'B' for Standard Delivery
+    int status;    // '0' for Incomplete, '1' for Complete
 
 public:
     Parcel(string tn, string a, string nSend, string nRec, char c, int s)
-    {
-        trackingNumber = tn;
-        address = a;
-        nameSender = nSend;
-        nameReceiver = nRec;
-        category = c;
-        status = s;
-    }
+        : trackingNumber(tn), address(a), nameSender(nSend), nameReceiver(nRec), category(c), status(s) {}
 
-void printResult(int count)
-    {
-        cout << "\t\t\t" << left << setw(5) << count 
-		 << setw(15) << trackingNumber
-		 << setw(2) << address
-		 << setw(2) << nameSender
-		 << setw(2) << nameReceiver
-		 << setw(2) << category
-		 << setw(2) << status << endl;
-    }
-
- string getTrackingNumber()
-    {
+    string getTrackingNumber() const {
         return trackingNumber;
     }
 
-    string getAddress()
-    {
+    string getAddress() const {
         return address;
     }
 
-    string getSender()
-    {
+    string getSender() const {
         return nameSender;
     }
 
-    string getReceiver()
-    {
+    string getReceiver() const {
         return nameReceiver;
     }
-    
-    char getCategory()
-    {
-    	return category;
-	}
-	
-	int getStatus()
-    {
-    	return status;
-	}
-	
-    
-    void displayShippingCategory() {
-        if (category == 'A' || category == 'a') {
-            cout << "Bulky & Heavy Delivery";
-        }
-        else
-            cout << "Standard Delivery";
-        cout << endl;
-    }
-    
-    void displayStatus_Delivery() {
-        if (status == 0) {
-            cout << "COMPLETE";
-        }
-        else
-            cout << "INCOMPLETE";
-        cout << endl;
+
+    char getCategory() const {
+        return category;
     }
 
+    int getStatus() const {
+        return status;
+    }
+
+    void displayDetails(int count) const {
+        cout << "\t" << left << setw(5) << count
+            << setw(15) << trackingNumber
+            << setw(30) << address
+            << setw(15) << nameSender
+            << setw(15) << nameReceiver
+            << setw(10) << category
+            << setw(10) << status << endl;
+        cout << "\t";
+        for (int i = 0; i < 100; i++)
+        {
+            cout << "-";
+        }
+        cout << endl;
+    }
 };
