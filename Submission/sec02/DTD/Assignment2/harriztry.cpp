@@ -134,43 +134,38 @@ public:
 
         case 2:
             // Delete a node in the middle
-            if (head != nullptr)
+        if (head != nullptr)
+        {
+            int size = getSize();
+            int middlePosition = (size + 1) / 2;
+
+            if (middlePosition == 1)
             {
-                int size = getSize();
-                int middlePosition = (size + 1) / 2;
+                // If there is only one node, treat it as deleting from the front
+                head = current->next;
+                delete current;
+            }
+            else if (size >= 3)
+            {
+                int currentPosition = 1;
 
-                if (middlePosition == 1)
+                // Traverse to the node before the middle position
+                while (currentPosition < middlePosition - 1 && current->next)
                 {
-                    // If there is only one node, treat it as deleting from the front
-                    head = current->next;
-                    delete current;
+                    prev = current;
+                    current = current->next;
+                    currentPosition++;
                 }
-                else if (size >= 3)
-                {
-                    int currentPosition = 1;
 
-                    // Traverse to the node before the middle position
-                    while (currentPosition < middlePosition - 1 && current->next)
-                    {
-                        prev = current;
-                        current = current->next;
-                        currentPosition++;
-                    }
-
-                    // Delete the node at the middle
-                    prev->next = current->next;
-                    delete current;
-                }
-                else
-                {
-                    cout << "Not enough nodes to delete from the middle." << endl;
-                }
+                // Delete the node at the middle
+                prev->next = current->next;
+                delete current;
             }
             else
             {
-                cout << "Library is empty. Cannot delete from the middle." << endl;
+                cout << "Not enough nodes to delete from the middle." << endl;
             }
-            break;
+        }
 
         case 3:
             // Delete the last node
@@ -448,8 +443,7 @@ int main()
     // Check if the file is open
     if (!inputFile.is_open())
     {
-        cerr << "Error opening file: book.txt" << endl;
-        return 1; // Exit with an error code
+        cout << "Error opening file: book.txt" << endl;
     }
 
     // Read books from the file and add them to the library
