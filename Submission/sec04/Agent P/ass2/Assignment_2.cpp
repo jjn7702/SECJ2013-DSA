@@ -650,7 +650,14 @@ void emailasc(){
                         m = temp2->getMatric();
                         a = temp2->getAge();
 
-                       
+                        temp2->setName(temp2->next->getName());
+                        temp2->setFaculty(temp2->next->getFaculty());
+                        temp2->setEmail(temp2->next->getEmail());
+                        temp2->setIC(temp2->next->getIC());
+                        temp2->setMatric(temp2->next->getMatric());
+                        temp2->setAge(temp2->next->getAge());
+
+
                     }}}
 }
 
