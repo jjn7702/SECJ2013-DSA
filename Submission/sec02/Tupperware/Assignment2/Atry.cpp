@@ -377,8 +377,9 @@ int main() {
                         } break;
                     default:
                         break;
-                }            
-                } break;
+                }   
+                orderList.displayNodes();
+            } break;
 
             case 2:{
                 cout << "Enter the food ID to delete: ";
@@ -448,7 +449,7 @@ int main() {
                         cout << endl;
                         cout << "Sort in" << endl;
                         cout << "[1] Ascending Order" << endl;
-                        cout << "[2] Decending Order" << endl;
+                        cout << "[2] Descending Order" << endl;
                         cout << "\nEnter your choice: " ;
                         cin >> sortIn;
 
@@ -473,7 +474,7 @@ int main() {
                         cout << endl;
                         cout << "Sort in" << endl;
                         cout << "[1] Ascending Order" << endl;
-                        cout << "[2] Decending Order" << endl;
+                        cout << "[2] Descending Order" << endl;
                         cout << "\nEnter your choice: " ;
                         cin >> sortIn;
 
