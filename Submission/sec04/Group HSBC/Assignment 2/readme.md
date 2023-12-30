@@ -16,7 +16,7 @@ The main goal of HSBC's Banking System is to enhance the user experience and smo
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-|  Hayden Huan Kee Jiun |    A22EC0166     | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Assignment%202/Picture/IMG_20231102_111152.jpg" title="Icon by Trazobanana"><img src="./IMG_20231102_111152.jpg" width=80px, height=80px>     |
+|  Hayden Huan Kee Jiun |    A22EC0166     | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Assignment%202/Picture/photo_2023-12-11_08-21-15%20(1).jpg" title="Icon by Trazobanana"><img src="./photo_2023-12-11_08-21-15 (1).jpg" width=80px, height=80px>     |
 |   Liow Chee Suan   |   A22EC0072      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Assignment%202/Picture/IMG_20231102_111152.jpg" title="Icon by Trazobanana"><img src="./IMG_20231102_111152.jpg" width=80px, height=80px>         |
 |  Chan Qing Yee     |   A22EC0040      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Assignment1/Image/profilepic900kb.jpg" title="Icon by Trazobanana"><img src="./Image/profilepic900kb.jpg" width=80px, height=80px>         |
 |  Ooi Wei Sian     |   A22EC0102      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Assignment1/Image/weisian.jpg" title="Icon by Trazobanana"><img src="./Image/weisian.jpg" width=80px, height=80px>         |
