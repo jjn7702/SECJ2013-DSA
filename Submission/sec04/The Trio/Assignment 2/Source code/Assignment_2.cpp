@@ -128,7 +128,7 @@ class CustomerList{
 			if(current->next == NULL)
 			{
 				head = NULL ;
-				delete current ;
+				//delete current ;  //if use DEV C++ and GitHub, ignore this line
 				return ;
 			}
 				
@@ -138,7 +138,7 @@ class CustomerList{
 				current->next = NULL ;
 			}
 				
-			delete current ;
+			//delete current ;  //if use DEV C++ and GitHub, ignore this line
 		}
 
 		// Deleting node at the middle of the linked list
@@ -183,7 +183,7 @@ class CustomerList{
 			else
 			{
 			        prev->next = current->next;
-			        delete current;
+			        //delete current ;  //if use DEV C++ and GitHub, ignore this line
 			}
 		}
 
@@ -201,7 +201,7 @@ class CustomerList{
 			if(current->next == NULL)
 			{
 				head = NULL ;
-				delete current ;
+				//delete current ;  //if use DEV C++ and GitHub, ignore this line
 				return ;
 			}
 			
@@ -212,7 +212,7 @@ class CustomerList{
 				current = current->next ;
 			}
 			
-			delete current ;
+			//delete current ;  //if use DEV C++ and GitHub, ignore this line
 			delNode->next = NULL ;
 		}
 
