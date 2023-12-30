@@ -240,7 +240,9 @@ void search(int opt,string key,int key2)
                             cout<<"Matric  : "<<temp->getMatric()<<endl;
                             found = true;
                         }
+                            temp = temp->next;
                         }
+                        break;
 			}
 			}
 		}
