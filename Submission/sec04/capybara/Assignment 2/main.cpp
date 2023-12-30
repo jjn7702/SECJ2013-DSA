@@ -803,7 +803,7 @@ public:
         return head;
     }
 
-    Airline *insertNode(string AirplaneID, string Capacity, string Company)
+    Airline *insertFirstNodeAirline(string AirplaneID, string Capacity, string Company)
     {
         int currIndex = 0;
         Airline *curr = head;
@@ -831,7 +831,99 @@ public:
         return newNode;
     }
 
-    int deleteNodeAirline(string AirplaneID)
+    //* Insert new value at the exact location
+    Airline *insertMidNodeAirline(string AirplaneID, string Capacity, string Company, int location)
+    {
+        if (location < 0)
+        {
+            cout << "Sorry Invalid Location." << endl;
+            return 0;
+        }
+
+        int currIndex = 1;
+        Airline *curr = head;
+        Airline *prev = NULL;
+
+        while (curr != NULL && currIndex < location)
+        {
+            prev = curr;
+            curr = curr->next;
+            currIndex++;
+        }
+
+        Airline *newNode = new Airline(AirplaneID, Capacity, Company);
+
+        if (currIndex == 1)
+        {
+            newNode->next = head;
+            head = newNode;
+        }
+        else if (currIndex == location)
+        {
+            newNode->next = curr;
+            prev->next = newNode;
+        }
+        else
+        {
+            cout << "Node number value is over the existing value. Value will be inserted at the end of the node." << endl;
+            prev->next = newNode;
+        }
+
+        return newNode;
+    }
+
+    //* Insert new value at the end of the node
+    Airline *insertEndNodeAirline(string AirplaneID, string Capacity, string Company)
+    {
+        Airline *newNode = new Airline(AirplaneID, Capacity, Company);
+
+        if (head == NULL) //*If list is empty insert at head
+        {
+            head = newNode;
+        }
+
+        else
+        {
+            Airline *curr = head;
+
+            while (curr->next != NULL)
+            {
+                curr = curr->next;
+            }
+
+            curr->next = newNode;
+        }
+
+        return newNode;
+    }
+
+    //* Delete node at the first Linked List
+    void deleteFirstNodeAirline()
+    {
+        Airline *temp = head;
+        head = temp->next;
+
+        deleteDataAirline(temp->getAirplaneID());
+        delete temp;
+    }
+
+    void deleteBackNodeAirline()
+    {
+        Airline *temp = head;
+        Airline *stay = NULL;
+
+        while (temp->next != NULL)
+        {
+            stay = temp;
+            temp = temp->next;
+        }
+
+        stay->next = NULL;
+        deleteDataAirline(temp->getAirplaneID());
+        delete temp;
+    }
+
+    int deleteMidNodeAirline(string AirplaneID)
     {
         Airline *prev = nullptr;
         Airline *curr = head;
@@ -986,6 +1078,26 @@ public:
         cout << setw(56) << "|      [2] Manage Airline             |" << endl;
         cout << setw(56) << "|      [3] Manage Reservation         |" << endl;
         cout << setw(56) << "|      [4] Exit                       |" << endl;
+        cout << setw(56) << "|_____________________________________|" << endl;
+    }
+
+    void displayAlterInsert()
+    {
+        cout << setw(55) << "_____________________________________" << endl;
+        cout << setw(56) << "|      Insert Type                    |" << endl;
+        cout << setw(56) << "|      [1] Front Insert               |" << endl;
+        cout << setw(56) << "|      [2] End Insert                 |" << endl;
+        cout << setw(56) << "|      [3] Specific Insert            |" << endl;
+        cout << setw(56) << "|_____________________________________|" << endl;
+    }
+
+    void displayAlterDelete()
+    {
+        cout << setw(55) << "_____________________________________" << endl;
+        cout << setw(56) << "|      Insert Type                    |" << endl;
+        cout << setw(56) << "|      [1] Front Delete               |" << endl;
+        cout << setw(56) << "|      [2] End Delete                 |" << endl;
+        cout << setw(56) << "|      [3] Specific Delete            |" << endl;
         cout << setw(56) << "|_____________________________________|" << endl;
     }
 
@@ -1666,7 +1778,7 @@ int main()
 
     for (int i = 0; i < airlines.size(); i++)
     {
-        airlineList.insertNode(airlines[i].getAirplaneID(), airlines[i].getCapacity(), airlines[i].getCompany());
+        airlineList.insertFirstNodeAirline(airlines[i].getAirplaneID(), airlines[i].getCapacity(), airlines[i].getCompany());
     }
 
     for (int i = 0; i < users.size(); i++)
@@ -1959,7 +2071,8 @@ int main()
             cout << setw(37) << "Option: ";
             cin >> pilih;
 
-            int pilih2 = 0;
+            int pilih2 = 0; // insert delete
+            int pilih3 = 0; // insert delete yg more specific "3 option - front, end mid"
             if (pilih == 1)
             {
                 init.displayAlter();
@@ -1977,17 +2090,32 @@ int main()
                          << endl;
                     userList.displayUserList();
 
-                    cout << "Enter User Name: ";
-                    getline(cin >> ws, Name);
-                    cout << "Enter Identification Number: ";
-                    getline(cin >> ws, IC);
-                    cout << "Enter Telephone Number: ";
-                    getline(cin >> ws, Phone);
-                    cout << "Enter Email: ";
-                    getline(cin >> ws, Email);
+                    init.displayAlterInsert();
+                    cout << setw(37) << "Option: ";
+                    cin >> pilih3;
 
-                    userList.updateCSVUser(Name, IC, Phone, Email);
-                    LoadFiles(users, airlines, reservations);
+                    if (pilih3 == 1) // front
+                    {
+                        cout << "Enter User Name: ";
+                        getline(cin >> ws, Name);
+                        cout << "Enter Identification Number: ";
+                        getline(cin >> ws, IC);
+                        cout << "Enter Telephone Number: ";
+                        getline(cin >> ws, Phone);
+                        cout << "Enter Email: ";
+                        getline(cin >> ws, Email);
+
+                        userList.updateCSVUser(Name, IC, Phone, Email);
+                        LoadFiles(users, airlines, reservations);
+                    }
+
+                    if (pilih3 == 2) // end
+                    {
+                    }
+
+                    if (pilih3 == 3) // mid
+                    {
+                    }
 
                     cout << "\nUpdated User List: " << endl
                          << endl;
@@ -2000,16 +2128,31 @@ int main()
                     userList.displayUserList();
 
                     /* Add option for
-                  [1] Front Delete
-                  [2] End Delete
-                  [3] Specific Delete*/
+                      [1] Front Delete
+                      [2] End Delete
+                      [3] Specific Delete*/
 
-                    string deleteUserIC;
-                    cout << "Enter User's Identification Number to delete: ";
-                    getline(cin >> ws, deleteUserIC);
+                    init.displayAlterDelete();
+                    cout << setw(37) << "Option: ";
+                    cin >> pilih3;
 
-                    userList.deleteMidNodeUser(deleteUserIC);
-                    LoadFiles(users, airlines, reservations);
+                    if (pilih3 == 1) // front
+                    {
+                    }
+
+                    if (pilih3 == 2) // end
+                    {
+                    }
+
+                    if (pilih3 == 3) // mid
+                    {
+                        string deleteUserIC;
+                        cout << "Enter User's Identification Number to delete: ";
+                        getline(cin >> ws, deleteUserIC);
+
+                        userList.deleteMidNodeUser(deleteUserIC);
+                        LoadFiles(users, airlines, reservations);
+                    }
 
                     cout << "Current User List after deletion: " << endl;
                     userList.displayUserList();
@@ -2037,26 +2180,64 @@ int main()
             {
                 init.displayAlter();
                 string AirplaneID, Capacity, Company;
+                int location;
 
                 cin >> pilih2;
                 if (pilih2 == 1)
                 {
-
                     cout << "Current Airplane List: " << endl
                          << endl;
                     airlineList.displayAirplaneList();
 
-                    cout << "Enter new Airplane ID: ";
-                    getline(cin >> ws, AirplaneID);
-                    cout << "Enter Capacity: ";
-                    getline(cin >> ws, Capacity);
-                    cout << "Enter Company: ";
-                    getline(cin >> ws, Company);
+                    init.displayAlterInsert();
+                    cout << setw(37) << "Option: ";
+                    cin >> pilih3;
 
-                    airlineList.updateAirplaneCSV(AirplaneID, Capacity, Company);
-                    LoadFiles(users, airlines, reservations);
+                    if (pilih3 == 1) // front
+                    {
+                        cout << "Enter new Airplane ID: ";
+                        getline(cin >> ws, AirplaneID);
+                        cout << "Enter Capacity: ";
+                        getline(cin >> ws, Capacity);
+                        cout << "Enter Company: ";
+                        getline(cin >> ws, Company);
 
-                    // system("cls");
+                        airlineList.insertFirstNodeAirline(AirplaneID, Capacity, Company);
+                        airlineList.updateAirplaneCSV(AirplaneID, Capacity, Company);
+                        LoadFiles(users, airlines, reservations);
+
+                        // system("cls");
+                    }
+
+                    if (pilih3 == 2) // end
+                    {
+                        cout << "Enter new Airplane ID: ";
+                        getline(cin >> ws, AirplaneID);
+                        cout << "Enter Capacity: ";
+                        getline(cin >> ws, Capacity);
+                        cout << "Enter Company: ";
+                        getline(cin >> ws, Company);
+
+                        airlineList.updateAirplaneCSV(AirplaneID, Capacity, Company);
+                        LoadFiles(users, airlines, reservations);
+                    }
+
+                    if (pilih3 == 3) // mid
+                    {
+                        cout << "Enter new Airplane ID: ";
+                        getline(cin >> ws, AirplaneID);
+                        cout << "Enter Capacity: ";
+                        getline(cin >> ws, Capacity);
+                        cout << "Enter Company: ";
+                        getline(cin >> ws, Company);
+                        cout << "Enter Location: ";
+                        cin >> location;
+
+                        airlineList.insertMidNodeAirline(AirplaneID, Capacity, Company, location);
+                        airlineList.updateAirplaneCSV(AirplaneID, Capacity, Company);
+                        LoadFiles(users, airlines, reservations);
+                    }
+
                     cout << "\nUpdated Airplane List: " << endl
                          << endl;
                     airlineList.displayAirplaneList();
@@ -2067,14 +2248,33 @@ int main()
                          << endl;
                     airlineList.displayAirplaneList();
 
-                    string deleteAirplaneID;
-                    cout << "Enter Airplane ID to delete: ";
-                    getline(cin >> ws, deleteAirplaneID);
+                    init.displayAlterDelete();
+                    cout << setw(37) << "Option: ";
+                    cin >> pilih3;
 
-                    airlineList.deleteNodeAirline(deleteAirplaneID);
-                    LoadFiles(users, airlines, reservations);
+                    if (pilih3 == 1) // front
+                    {
+                        airlineList.deleteFirstNodeAirline();
+                        LoadFiles(users, airlines, reservations);
+                    }
 
-                    cout << "Current Airplane List after deletion: " << endl;
+                    if (pilih3 == 2) // end
+                    {
+                        airlineList.deleteBackNodeAirline();
+                        LoadFiles(users, airlines, reservations);
+                    }
+
+                    if (pilih3 == 3) // mid
+                    {
+                        string deleteAirplaneID;
+                        cout << "Enter Airplane ID to delete: ";
+                        getline(cin >> ws, deleteAirplaneID);
+
+                        airlineList.deleteMidNodeAirline(deleteAirplaneID);
+                        LoadFiles(users, airlines, reservations);
+                    }
+
+                    cout << "\nCurrent Airplane List after deletion: " << endl;
                     airlineList.displayAirplaneList();
                 }
                 else if (pilih2 == 3)
@@ -2109,20 +2309,35 @@ int main()
                          << endl;
                     userList.displayUserList();
 
-                    reservationID = 'R' + to_string(reservations.size());
-                    cout << "Enter Identification Number: ";
-                    getline(cin >> ws, DepartureTime);
-                    cout << "Enter Telephone Number: ";
-                    getline(cin >> ws, ArrivalTime);
-                    cout << "Enter Email: ";
-                    getline(cin >> ws, Date);
-                    cout << "Enter Location: ";
-                    getline(cin >> ws, Location);
-                    cout << "Enter Class: ";
-                    getline(cin >> ws, Class);
+                    init.displayAlterInsert();
+                    cout << setw(37) << "Option: ";
+                    cin >> pilih3;
 
-                    reservationList.updateCSVReservation(reservationID, DepartureTime, ArrivalTime, Date, Location, Class);
-                    LoadFiles(users, airlines, reservations);
+                    if (pilih3 == 1) // front
+                    {
+                        reservationID = 'R' + to_string(reservations.size());
+                        cout << "Enter Identification Number: ";
+                        getline(cin >> ws, DepartureTime);
+                        cout << "Enter Telephone Number: ";
+                        getline(cin >> ws, ArrivalTime);
+                        cout << "Enter Email: ";
+                        getline(cin >> ws, Date);
+                        cout << "Enter Location: ";
+                        getline(cin >> ws, Location);
+                        cout << "Enter Class: ";
+                        getline(cin >> ws, Class);
+
+                        reservationList.updateCSVReservation(reservationID, DepartureTime, ArrivalTime, Date, Location, Class);
+                        LoadFiles(users, airlines, reservations);
+                    }
+
+                    if (pilih3 == 1) // end
+                    {
+                    }
+
+                    if (pilih3 == 1) // mid
+                    {
+                    }
 
                     cout << "\nUpdated User List: " << endl
                          << endl;
@@ -2140,13 +2355,28 @@ int main()
                   [2] End Delete
                   [3] Specific Delete*/
 
-                    string deleteReservationID;
-                    cout << "Enter User's Identification Number to delete: ";
-                    getline(cin >> ws, deleteReservationID);
+                    init.displayAlterDelete();
+                    cout << setw(37) << "Option: ";
+                    cin >> pilih3;
 
-                    reservationList.deleteNodeReservation(deleteReservationID);
+                    if (pilih3 == 1) // front
+                    {
+                    }
 
-                    LoadFiles(users, airlines, reservations);
+                    if (pilih3 == 2) // end
+                    {
+                    }
+
+                    if (pilih3 == 3) // mid
+                    {
+                        string deleteReservationID;
+                        cout << "Enter User's Identification Number to delete: ";
+                        getline(cin >> ws, deleteReservationID);
+
+                        reservationList.deleteNodeReservation(deleteReservationID);
+
+                        LoadFiles(users, airlines, reservations);
+                    }
 
                     cout << "Current User List after deletion: " << endl;
                     userList.displayUserList();
@@ -2168,7 +2398,7 @@ int main()
         break;
         }
 
-        //
+        // 2
 
         // reservationList.updateCSV("1", "2", "33", "$", "%", "23123");
         // airlineList.updateAirplaneCSV("1", "2", "#");
