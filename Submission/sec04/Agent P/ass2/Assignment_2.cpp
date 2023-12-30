@@ -985,4 +985,13 @@ int main()
                         l.AgeAsc();
                     else 
                         l.AgeDes();
+                        l.display();
+                    break;
+                case 4:
+                    if(opt6 == 1)
+						l.ICasc();
+					else
+						l.ICdes();
+                    l.display();
+					break;
 }
