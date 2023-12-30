@@ -142,7 +142,27 @@ class List{
         return head = NULL;
     }
 
-    void insert(Patient);
+    // add a new node at the beginning
+    void insert(Patient p){
+        Node *newNode = new Node(p);
+
+        if (!isEmpty())
+            newNode->next = head;
+        head = newNode;
+    }
+
+    // add a new node at the end of the list
+    void insertEnd(Patient p){
+        Node *temp = head; // point to the first node in the list
+        Node *newNode = new Node(p);
+
+        while (temp->next != NULL){
+            temp = temp->next;
+        }
+
+        temp->next = newNode;
+    }
+
     void remove(Patient);
     void dispList();
 
