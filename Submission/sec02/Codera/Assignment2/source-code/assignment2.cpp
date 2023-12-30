@@ -173,7 +173,6 @@ public:
         head = newNode;
     }
 
-<<<<<<< Updated upstream
     // add a new node at the end of the list
     void insertEnd(Patient p)
     {
@@ -257,17 +256,7 @@ public:
     Node* findNodeName(string name);
     Node* findNodeIC(string ic);
     Node* findNodeAge(int age);
-=======
-    void remove(Patient);
-    Node* findNodeByName(string name);
-    Node* findNodeByIC(string ic);
-    Node* findNodeByAge(int age);
     void sortList();
-    void dispList();
-
-
-
->>>>>>> Stashed changes
 };
 
 // display patient record
@@ -352,7 +341,6 @@ Node* List::findNodeByAge(int age) {
 // sorting here
 
 
-<<<<<<< Updated upstream
 // searching
 Node* List::findNodeName(string name) {
     Node* currNode = head;
@@ -398,8 +386,6 @@ Node* List::findNodeAge(int age) {
     return NULL; // Node not found
 }
 
-=======
->>>>>>> Stashed changes
 
 int main()
 {
