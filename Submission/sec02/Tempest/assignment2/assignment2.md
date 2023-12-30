@@ -88,7 +88,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Findings 📊
 
-- [Source Code]()
+- [Source Code](./source_code/assignment2.cpp)
 - [Input File](./source_code/task.txt)
 - [Report]
 
