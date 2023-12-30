@@ -1,9 +1,9 @@
-//Assignment 2
-//Group Codera
-//Hospital Management System
-//Neo Zheng Weng A22EC0093
-//Joseph Lau Yeo Kai A22EC0055
-//Lee Yik Hong A21BE0376
+// Assignment 2
+// Group Codera
+// Hospital Management System
+// Neo Zheng Weng A22EC0093
+// Joseph Lau Yeo Kai A22EC0055
+// Lee Yik Hong A21BE0376
 
 #include <iostream>
 #include <fstream>
@@ -18,7 +18,8 @@
 using namespace std;
 
 // Patient
-class Patient{
+class Patient
+{
 private:
     string name;
     string ic;
@@ -30,7 +31,8 @@ private:
 
 public:
     // default constructor
-    Patient(){
+    Patient()
+    {
         name = "";
         ic = "";
         age = 0;
@@ -41,7 +43,8 @@ public:
     }
 
     // constructor
-    Patient(string n, string i, int a, string g, string c, string d, string dt){
+    Patient(string n, string i, int a, string g, string c, string d, string dt)
+    {
         name = n;
         ic = i;
         age = a;
@@ -52,48 +55,62 @@ public:
     }
 
     // accessor
-    string getName() const{
+    string getName() const
+    {
         return name;
     }
-    string getIC() const{
+    string getIC() const
+    {
         return ic;
     }
-    int getAge() const{
+    int getAge() const
+    {
         return age;
     }
-    string getGender() const{
+    string getGender() const
+    {
         return gender;
     }
-    string getContactNum() const{
+    string getContactNum() const
+    {
         return contactNum;
     }
-    string getDisease() const{
+    string getDisease() const
+    {
         return disease;
     }
-    string getDate() const{
+    string getDate() const
+    {
         return date;
     }
 
     // mutator
-    void setName(string n){
+    void setName(string n)
+    {
         name = n;
     }
-    void setIC(string i){
+    void setIC(string i)
+    {
         ic = i;
     }
-    void setAge(int a){
+    void setAge(int a)
+    {
         age = a;
     }
-    void setGender(string g){
+    void setGender(string g)
+    {
         gender = g;
     }
-    void setContactNum(string c){
+    void setContactNum(string c)
+    {
         contactNum = c;
     }
-    void setDisease(string d){
+    void setDisease(string d)
+    {
         disease = d;
     }
-    void setDate(string dt){
+    void setDate(string dt)
+    {
         date = dt;
     }
 
@@ -102,70 +119,139 @@ public:
 };
 
 // Node
-class Node{
-    public:
+class Node
+{
+public:
     Patient data; // patient data
-    Node *next; // pointer to next node
+    Node *next;   // pointer to next node
 
-    Node(Patient p){
+    Node(Patient p)
+    {
         data = p;
         next = NULL;
-    }
-
-    Patient getData(){
-        return data;
     }
 };
 
 // List
-class List{
-    private:
+class List
+{
+private:
     Node *head;
 
-    public:
-    List(){
+public:
+    List()
+    {
         head = NULL; // list is empty
     }
 
-    ~List(){
+    ~List()
+    {
         Node *currNode = head, *nextNode = NULL;
-        while(currNode != NULL){
+        while (currNode != NULL)
+        {
             nextNode = currNode->next;
-            //destroy the current node
+            // destroy the current node
             delete currNode;
             currNode = nextNode;
         }
         head = NULL;
     }
 
-    bool isEmpty(){
+    bool isEmpty()
+    {
         return head = NULL;
     }
 
     // add a new node at the beginning
-    void insert(Patient p){
+    void insert(Patient p)
+    {
         Node *newNode = new Node(p);
 
         if (!isEmpty())
             newNode->next = head;
+
         head = newNode;
     }
 
     // add a new node at the end of the list
-    void insertEnd(Patient p){
+    void insertEnd(Patient p)
+    {
         Node *temp = head; // point to the first node in the list
         Node *newNode = new Node(p);
 
-        while (temp->next != NULL){
+        while (temp->next != NULL)
             temp = temp->next;
-        }
 
         temp->next = newNode;
     }
 
-    void remove(Patient);
-    void dispList();
+    // add a new node at a specific position
+    void insertMiddle(Patient p, int loc)
+    {
+        Node *temp = head; // point to the first node in the list
+        Node *newNode = new Node(p);
+        int count = 1;
 
+        while (temp->next != NULL && count < loc)
+        {
+            temp = temp->next;
+            count++;
+        }
+        newNode->next = temp->next;
+        temp->next = newNode;
+    }
+
+    // delete the first node
+    void removeFront()
+    {
+        Node *temp = head;
+        head = head->next;
+        temp->next = NULL;
+        delete temp;
+    }
+
+    // delete the last node
+    void removeEnd()
+    {
+        Node *temp = head, *t = head;
+
+        while (temp->next != NULL)
+        {
+            t = temp;
+            temp = temp->next;
+        }
+        delete temp;
+        t->next = NULL;
+    }
+
+    // delete the node at a specific position
+    void removeMiddle(int loc)
+    {
+        Node *temp = head, *prev; // point to the first node in the list
+        int count = 1;
+
+        while (temp->next != NULL && count < loc) // (temp->next)
+        {
+            prev = temp;
+            temp = temp->next;
+            count++;
+        }
+        prev->next = temp->next;
+        delete temp;
+    }
+
+    // display all nodes in the list
+    void dispList()
+    {
+        Node *temp = head;
+
+        while (temp != NULL)
+        {
+            cout << temp->data.display();
+            temp = temp->next; // to move the pointer to point to the next node
+        }
+        cout << endl;
+    }
 };
 
 // display patient record
@@ -177,14 +263,16 @@ void Patient::display()
          << setw(10) << gender
          << setw(17) << contactNum
          << setw(30) << disease
-         << setw(15) << date << endl << endl;
+         << setw(15) << date << endl
+         << endl;
 }
 
 // display header
 void dispHeader()
 {
     cout << endl;
-    cout << "Patient Record: " << endl << endl;
+    cout << "Patient Record: " << endl
+         << endl;
     cout << setw(30) << left << "Name"
          << setw(15) << "IC"
          << setw(5) << "Age"
