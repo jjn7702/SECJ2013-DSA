@@ -184,3 +184,25 @@ void displayNodes() const
         current = current->next;
     }
 }
+void loadFromFile(const string &filename)
+{
+    ifstream inFile(filename);
+    if (!inFile.is_open())
+    {
+        cerr << "Error opening file for reading." << endl;
+        return;
+    }
+
+    string tracking, sender, receiver, status;
+    while (getline(inFile, tracking, ',') &&
+           getline(inFile, sender, ',') &&
+           getline(inFile, receiver, ',') &&
+           getline(inFile, status))
+    {
+        addNode(Courier(tracking, sender, receiver, status), "end");
+    }
+
+    inFile.close();
+}
+}
+;
