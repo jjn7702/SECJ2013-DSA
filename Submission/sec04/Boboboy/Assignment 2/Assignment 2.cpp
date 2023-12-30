@@ -286,6 +286,49 @@ Cart deleteorder(Cart b){
 		return b;
 }
 
+void Search_item_in_Cart(Cart b){
+	int item_search;
+	string target;
+	Order *foundo;
+	char status;
+	do{
+		cout << "Seacrh the Cart by using:" << endl;
+		cout << "1. Code" << endl;
+		cout << "2. Name" << endl;
+		cout << "Choice: ";
+		cin >> item_search;
+		if(item_search == 1){
+			cout << "Enter the code:";
+			cin >> target;			
+			for(char &t : target){
+			t = toupper(t);
+			}
+			foundo = b.find(target,item_search);  
+		}
+		else if(item_search == 2){
+			cout << "Enter the name: ";
+			cin >> target;
+			for(char &t : target){
+			t = toupper(t);
+			}
+			foundo = b.find(target,item_search);
+		}
+		if(foundo){
+			cout << "Order found" << endl;
+		}
+		else{
+			if(b.CartEmpty()){
+				cout << "No item in the Cart" << endl;
+			}
+			else{
+			cout << "Order not found" << endl;
+			}
+		}
+		cout << "Continue search?(Press Y to continue)";
+		cin >> status;
+	}while((status == 'Y')||(status == 'y'));
+}
+
 int main(){
 	string menu_code, menu_name, menu_type,order;
 	float menu_price;
