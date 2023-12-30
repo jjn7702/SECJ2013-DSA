@@ -243,6 +243,9 @@ void search(int opt,string key,int key2)
                             temp = temp->next;
                         }
                         break;
+                    case 6:
+                    while(temp != NULL)
+                    {}
 			}
 			}
 		}
