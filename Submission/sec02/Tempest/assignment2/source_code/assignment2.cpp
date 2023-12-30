@@ -140,7 +140,8 @@ public:
         
         if(current==nullptr)
         {
-            
+            cout<<"Position out of range.No task to remove. "<<endl;
+            return;
         }
     }
 
