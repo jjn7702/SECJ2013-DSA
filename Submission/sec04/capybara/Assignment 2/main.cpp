@@ -24,8 +24,8 @@ int binarySearchByName(const vector<User> &users, const string &name);
 int binarySearchByAirplaneID(const vector<Airline> &airlines, const string &AirplaneID);
 int binarySearchByReservationID(vector<Reservation> &reservations, const string &ReservationID);
 
-void NewData(string res, string dept, string arr, string dat, string loc, string cla);
-void deleteData(string res);
+void NewDataReservation(string res, string dept, string arr, string dat, string loc, string cla);
+void deleteDataReservation(string res);
 
 class User
 {
@@ -302,7 +302,7 @@ public:
             }
 
             // Move this line here
-            deleteData(res);
+            deleteDataReservation(res);
 
             return currentIndex;
         }
@@ -350,7 +350,7 @@ public:
         cout << endl;
     }
 
-    void updateCSV(string res, string dept, string arr, string dat, string loc, string cla)
+    void updateCSVReservation(string res, string dept, string arr, string dat, string loc, string cla)
     {
         int currIndex = 0;
         Reservation *curr = head;
@@ -380,7 +380,7 @@ public:
             current->next = newNode;
         }
 
-        NewData(res, dept, arr, dat, loc, cla);
+        NewDataReservation(res, dept, arr, dat, loc, cla);
     }
 };
 
@@ -747,7 +747,7 @@ void LoadFiles(vector<User> &users, vector<Airline> &airline, vector<Reservation
     reservationFile.close();
 };
 
-void NewData(string res, string dept, string arr, string dat, string loc, string cla)
+void NewDataReservation(string res, string dept, string arr, string dat, string loc, string cla)
 {
 
     ofstream reservationFile("reservation.csv", ios::app);
@@ -759,7 +759,7 @@ void NewData(string res, string dept, string arr, string dat, string loc, string
     reservationFile.close();
 };
 
-void deleteData(string res)
+void deleteDataReservation(string res)
 {
     ifstream inputFile("reservation.csv");
     ofstream tempFile("temp.csv");
