@@ -129,6 +129,11 @@ public:
         task* prev = nullptr;
         task* current = head;
         int count=1;
+
+        while (current != nullptr && count<c)
+        {
+            
+        }
     }
 
     void displist()
