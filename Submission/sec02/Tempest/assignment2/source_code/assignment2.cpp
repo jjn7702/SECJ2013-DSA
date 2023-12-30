@@ -118,9 +118,9 @@ public:
         //remove last node
     }
 
-    void removemiddle(int c)
+    void removemiddle(int c) //remove middle node(specific node)
     {
-        //remove middle node(specific node)
+        
     }
 
     void displist()
