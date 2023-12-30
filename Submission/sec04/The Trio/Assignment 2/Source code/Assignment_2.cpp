@@ -190,6 +190,13 @@ class CustomerList{
 			}
 			
 			Customer *current = head, *delNode ;
+
+			if(current->next == NULL)
+			{
+				head = NULL ;
+				delete current ;
+				return ;
+			}
 			
 			// Move to  last customer
 			while(current->next != NULL)
