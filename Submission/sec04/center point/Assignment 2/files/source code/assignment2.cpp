@@ -277,16 +277,17 @@ public:
                     temp = temp->next;
                 }
             }
+            // if temp=NULL (the delete position is bigger than the current amount of nodes in list)
+            if (!temp)
+            {
+                cout << "Error: Your entered position of node that to be deleted is out of the range of current list. \n\n";
+                return;
+            }
             // if the temp->next (node to be deleted) = last node => DELETE AT THE END
-            if (temp->next->next == NULL)
+            else if (temp->next->next == NULL)
             {
                 delete temp->next;
                 temp->next = NULL;
-            }
-            // if temp=NULL (the delete position is bigger than the current amount of nodes in list)
-            else if (!temp)
-            {
-                cout << "Error: Your entered position of node that to be deleted is out of the range of current list. \n";
             }
             else
             {
@@ -334,7 +335,7 @@ public:
         default:
             return;
         }
-        cout << "The current inventory list after delete operation be like: \n";
+        cout << "The current inventory list after your delete operation be like: \n";
         displayList();
     }
 
