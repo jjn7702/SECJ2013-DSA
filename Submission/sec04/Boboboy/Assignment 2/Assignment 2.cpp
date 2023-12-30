@@ -261,6 +261,18 @@ class Cart{
 		}
 };
 
+Cart Customer_order(Menu a[],Cart c,string C_o, int t){   // C_o = customer order
+		int counter;
+		for(counter = 0;  counter < N; counter++){
+			if(C_o == a[counter].getcode()){
+				break;
+			}	
+		}
+		Order * o = new Order (a[counter].getcode(),a[counter].getname(),a[counter].getfoodtype(),a[counter].getprice());
+		c.insert(o,t);
+		return c;
+}
+
 int main(){
 	string menu_code, menu_name, menu_type,order;
 	float menu_price;
