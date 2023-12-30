@@ -123,30 +123,51 @@ public:
     }
 
 
-    void deleteMiddleNode() {
+    void deleteMiddleNodeAfter(string sKey) {
     if (head == nullptr || head->next == nullptr) {
-        cout << "The list has insufficient nodes. Cannot delete from the middle." << endl;
+        cout << "The list has insufficient nodes. Cannot remove from the middle." << endl;
         return;
     }
 
-    int size = getSize();
-    int middlePosition = (size + 1) / 2;
+    Node *temp = head;
+    Node *del = nullptr;
 
-    Node* current = head;
-    Node* previous = nullptr;
-    int currentPosition = 1;
-
-    // Traverse to the middle node
-    while (currentPosition < middlePosition && current->next) {
-        previous = current;
-        current = current->next;
-        currentPosition++;
+    while (temp->data.getTitle() != sKey) {
+        temp = temp->next;
+        if (temp == nullptr || temp->next == nullptr) {
+            cout << "Node with key " << sKey << " not found or it is the last node. Cannot remove after." << endl;
+            return;
+        }
+        del = temp->next;
     }
 
-    // Remove the middle node
-    previous->next = current->next;
-    delete current;
+    temp->next = del->next;
+    delete del;
 }
+
+void deleteMiddleNodeBefore(string sKey) {
+    if (head == nullptr || head->next == nullptr) {
+        cout << "The list has insufficient nodes. Cannot remove from the middle." << endl;
+        return;
+    }
+
+    Node *temp = head;
+    Node *prev = nullptr;
+
+    while (temp->next != nullptr && temp->next->data.getTitle() != sKey) {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    if (prev == nullptr) {
+        cout << "Cannot remove before the first node in the list." << endl;
+        return;
+    }
+
+    prev->next = temp->next;
+    delete temp;
+}
+
 
 void deleteEndNode() {
     if (head == nullptr) {
@@ -565,7 +586,7 @@ int main()
 
             break;
         }
-        case 3:
+    case 3:
         {
             // Delete Book
 
@@ -575,34 +596,47 @@ int main()
             cout << setw(40) << "|           Delete Book              |" << endl;
             cout << setw(40) << "|____________________________________|" << endl << endl;
 
-            cout << setw(5) << "[1] Delete Book (Front)" << endl;
-            cout << setw(5) << "[2] Delete Book (Middle)" << endl;
-            cout << setw(5) << "[3] Delete Book (End)" << endl;
+             cout << setw(5) << "[1] Delete Book (Front)" << endl;
+                cout << setw(5) << "[2] Delete Book (Middle Before)" << endl;
+                cout << setw(5) << "[3] Delete Book (Middle After)" << endl;
+                cout << setw(5) << "[4] Delete Book (End)" << endl;
 
-            cout << "Please enter your choice: ";
-            cin >> nodeChoice;
+                cout << "Please enter your choice: ";
+                cin >> nodeChoice;
 
-            if (nodeChoice == 1)
-            {
-            library.deleteFrontNode();
-            library.displayList();
+                if (nodeChoice == 1) {
+                    library.deleteFrontNode();
+                    library.displayList();
+                } else if (nodeChoice == 2) {
+                    system("cls");
+                    Book bookToDeleteBefore;
+                    cin.ignore(); // Ignore newline character from previous input
+                    cout << "Enter the title of the book before which you want to delete: ";
+                    getline(cin, Title);
+                    bookToDeleteBefore.setTitle(Title);
+
+                    library.deleteMiddleNodeBefore(bookToDeleteBefore.getTitle());
+                    library.displayList();
+                } else if (nodeChoice == 3) {
+                    system("cls");
+                    Book bookToDeleteAfter;
+                    cin.ignore(); // Ignore newline character from previous input
+                    cout << "Enter the title of the book after which you want to delete: ";
+                    getline(cin, Title);
+                    bookToDeleteAfter.setTitle(Title);
+
+                    library.deleteMiddleNodeAfter(bookToDeleteAfter.getTitle());
+                    library.displayList();
+                } else if (nodeChoice == 4) {
+                    library.deleteEndNode();
+                    library.displayList();
+                } else {
+                    cout << "Invalid choice. Please try again." << endl;
+                }
+                break;
             }
-
-            else if (nodeChoice == 2)
-            {
-            library.deleteMiddleNode();
-
-            library.displayList();
-            }
-
-            else if (nodeChoice == 3)
-            {
-           library.deleteEndNode();
-           library.displayList();
-        }
-        break;
-        }
-        case 4:
+        
+        case 4: {
             // Sort Books
         int sortChoice;
         cout << "Sort by:" << endl;
@@ -629,6 +663,7 @@ int main()
         default:
             cout << "Invalid choice. Please try again." << endl;
     }
+        }
     	
     	library.displayList();
         break;
