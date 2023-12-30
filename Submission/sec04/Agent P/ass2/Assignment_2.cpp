@@ -863,7 +863,15 @@ int searchUI(string &key,int &key2)
 
 int sortingUI(int &opt2)
 {
-    
+    int opt;
+    cout<<"\n[1] Name"<<endl;
+    cout<<"[2] Faculty"<<endl;
+    cout<<"[3] Age"<<endl;
+    cout<<"[4] IC"<<endl;
+    cout<<"[5] Email"<<endl;
+    cout<<"[6] Matric"<<endl;
+    cout<<"Please choose an option : ";
+    cin>>opt;
 }
 
 
