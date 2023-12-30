@@ -153,3 +153,71 @@ void deleteNodeAtBeginning() {
             cout << "Node deleted at position " << position << ".\n";
         }
     }
+
+Node* findNode(const string& trackingNumber) const {
+        Node* current = head;
+
+        while (current != nullptr) {
+            if (current->data->getTrackingNumber() == trackingNumber) {
+                return current;
+            }
+            current = current->next;
+        }
+
+        return nullptr;
+    }
+
+    void sortList() {
+        if (head == nullptr || head->next == nullptr) {
+            return; // Already sorted
+        }
+
+        bool swapped;
+        Node* ptr1;
+        Node* lptr = nullptr;
+
+        do {
+            swapped = false;
+            ptr1 = head;
+
+            while (ptr1->next != lptr) {
+                if (ptr1->data->getTrackingNumber() > ptr1->next->data->getTrackingNumber()) {
+                    swap(ptr1->data, ptr1->next->data);
+                    swapped = true;
+                }
+                ptr1 = ptr1->next;
+            }
+            lptr = ptr1;
+        } while (swapped);
+    }
+
+    void displayAllNodes() const {
+        Node* current = head;
+        int count = 1;
+
+        cout << "\t";
+        for (int i = 0; i < 100; i++)
+        {
+            cout << "-";
+        }
+        cout << "\n\t" << left << setw(5) << "No."
+            << setw(15) << "Tracking No."
+            << setw(30) << "Address"
+            << setw(15) << "Sender"
+            << setw(15) << "Receiver"
+            << setw(10) << "Category"
+            << setw(10) << "Status" << endl;
+
+        cout << "\t";
+        for (int i = 0; i < 100; i++)
+        {
+            cout << "-";
+        }
+        cout << endl;
+        while (current != nullptr) {
+            current->data->displayDetails(count);
+            current = current->next;
+            count++;
+        }
+    }
+};
