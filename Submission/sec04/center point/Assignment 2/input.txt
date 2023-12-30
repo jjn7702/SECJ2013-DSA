@@ -1,5 +1,0 @@
-I001,Laptop,Computer,20,23.0
-I002,Story Book,Book,10,100.0
-I003,Novel,Book WE,20,120.3
-I005,Mouse,Computer,30,19.8
-I004,Key Pad,Computer,22,77.7
