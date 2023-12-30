@@ -542,7 +542,7 @@ int main() {
             cin >> sortChoice;
 
             bool ascending;
-            cout << "Sort in ascending order? (1 for yes, 0 for no): ";
+            cout << "Sort in what order? (1 for Ascending, 0 for Descending): ";
             cin >> ascending;
 
             switch (sortChoice) {
