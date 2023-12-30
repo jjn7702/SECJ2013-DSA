@@ -253,9 +253,9 @@ public:
         cout << endl;
     }
 
-    Node* findNodeByName(string name);
-    Node* findNodeByIC(string ic);
-    Node* findNodeByAge(int age);
+    Node* findNodeName(string name);
+    Node* findNodeIC(string ic);
+    Node* findNodeAge(int age);
 };
 
 // display patient record
@@ -292,7 +292,7 @@ void dispHeader()
 // sorting
 
 // searching
-Node* List::findNodeByName(string name) {
+Node* List::findNodeName(string name) {
     Node* currNode = head;
 
     while (currNode != NULL) {
@@ -306,7 +306,7 @@ Node* List::findNodeByName(string name) {
     return NULL; // Node not found
 }
 
-Node* List::findNodeByIC(string ic) {
+Node* List::findNodeIC(string ic) {
     Node* currNode = head;
 
     while (currNode != NULL) {
@@ -320,7 +320,7 @@ Node* List::findNodeByIC(string ic) {
     return NULL; // Node not found
 }
 
-Node* List::findNodeByAge(int age) {
+Node* List::findNodeAge(int age) {
     Node* currNode = head;
 
     while (currNode != NULL) {
