@@ -1019,3 +1019,9 @@ int main()
             cout<<"Please choose an option : ";
             cin>>opt1;
         }
+        else
+        {
+			l.display();	
+        	l.outFile();
+        	l.outFile2();
+		}
