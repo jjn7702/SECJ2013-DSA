@@ -36,3 +36,107 @@ int main() {
     }
 
     inFile.close();
+
+while (true) {
+        displayMenu();
+
+        cout << "\nEnter your choice: ";
+        int choice;
+        cin >> choice;
+
+        switch (choice) {
+        case 1: {
+            cout << "\nEnter parcel details:\n";
+            string tracking_no, address, sender_name, receiver_name;
+            char shipping_option;
+            int status_delivery;
+
+            cout << "Tracking Number: ";
+            cin >> tracking_no;
+            cout << "Address: ";
+            cin.ignore();
+            getline(cin, address);
+            cout << "Sender's Name: ";
+            getline(cin, sender_name);
+            cout << "Receiver's Name: ";
+            getline(cin, receiver_name);
+            cout << "Shipping Option (A/B): ";
+            cin >> shipping_option;
+            while (shipping_option != 'A' && shipping_option != 'B')
+            {
+                cout << "Invalid shipping option. Parcel not added.\n";
+                cout << "Re-enter Shipping Option (A/B): ";
+                cin >> shipping_option;
+            }
+
+            cout << "Status Delivery (0 for Incomplete, 1 for Complete): ";
+            cin >> status_delivery;
+            while (status_delivery != 0 && status_delivery != 1)
+            {
+                cout << "Invalid status delivery. Parcel not added.\n";
+                cout << "Re-enter Status Delivery (0 for Incomplete, 1 for Complete): ";
+                cin >> status_delivery;
+            }
+
+            Parcel* newParcel = new Parcel(tracking_no, address, sender_name, receiver_name, shipping_option, status_delivery);
+            int addChoice;
+            cout << "\n1. Add at the beginning\n2. Add at the end\n3. Add at a specific position\nEnter your choice: ";
+            cin >> addChoice;
+
+            switch (addChoice) {
+            case 1:
+                p1.addNodeAtBeginning(newParcel);
+                p1.displayAllNodes();
+                break;
+            case 2:
+                p1.addNodeAtEnd(newParcel);
+                p1.displayAllNodes();
+                break;
+            case 3: {
+                int position;
+                cout << "Enter position to add the parcel: ";
+                cin >> position;
+                p1.addNodeAtPosition(newParcel, position);
+                p1.displayAllNodes();
+                break;
+            }
+            default:
+                cout << "Invalid choice. Parcel not added.\n";
+                delete newParcel;
+                break;
+            }
+            break;
+        }
+        case 2: {
+            if (p1.getNodeCount() == 0) {
+                cout << "\nList is empty. Nothing to delete.\n";
+            }
+            else {
+                int deleteChoice;
+                cout << "\n1. Delete at the beginning\n2. Delete at the end\n3. Delete at a specific position\nEnter your choice: ";
+                cin >> deleteChoice;
+
+                switch (deleteChoice) {
+                case 1:
+                    p1.deleteNodeAtBeginning();
+                    p1.displayAllNodes();
+                    break;
+                case 2:
+                    p1.deleteNodeAtEnd();
+                    p1.displayAllNodes();
+                    break;
+                case 3: {
+                    int position;
+                    cout << "Enter position to delete the parcel: ";
+                    cin >> position;
+                    p1.deleteNodeAtPosition(position);
+                    p1.displayAllNodes();
+                    break;
+                }
+                default:
+                    cout << "Invalid choice. Parcel not deleted.\n";
+                    break;
+                }
+            }
+            break;
+        }
