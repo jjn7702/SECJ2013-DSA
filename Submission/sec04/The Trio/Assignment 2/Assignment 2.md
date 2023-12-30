@@ -20,9 +20,9 @@ Our objectives for this assignment are:
 
 a. To store and arrange customer information using a linked list structure.
 
-b. Keep a record of booking details, such as  room number and check-in date, with each customer node.
+b. Keep record of booking details, such as customers’ name, age, IC number, phone number, room number and check-in date, with each customer node.
 
-c. To allow changeable functions such as adding, deleting, and finding customers from the list.
+c. To allow changeable functions such as adding, deleting, finding, sorting customers from the list.
 
 
 
