@@ -1,3 +1,4 @@
+
 #include <iostream>
 using namespace std;
 
@@ -264,6 +265,9 @@ void search(int opt,string key,int key2)
                     cout<<"Data was not found. Try again later !"<<endl;
 			}
 		}
+
+         void display()
+        {}
 
 	    void outFile2()
         {
