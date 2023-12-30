@@ -28,10 +28,12 @@ class Voter{
         void setName(string n){name = n;}
         void setFaculty(string f){ faculty = f;}
         void setAge(int a){age = a;}
-        
-
+        void setIC(string ic){this->ic = ic;}
+        void setEmail(string e){email = e;}
+        void setMatric(string m){matric = m;}
 
 };
+
 class List
 {
     Voter *head;
