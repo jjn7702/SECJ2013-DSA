@@ -351,28 +351,28 @@ public:
         slow->next = NULL;
     }
 
-    void MergeSort(Node **headRef)
-    {
-        Node *head = *headRef;
-        Node *a;
-        Node *b;
-
-        /* Base case -- length 0 or 1 */
-        if (head == NULL || head->next == NULL)
+        void MergeSort(Node **headRef)
         {
-            return;
+            Node *head = *headRef;
+            Node *a;
+            Node *b;
+
+            // Base case -- length 0 or 1
+            if (head == NULL || head->next == NULL)
+            {
+                return;
+            }
+
+            // Split head into 'a' and 'b' sublists
+            FrontBackSplit(head, &a, &b);
+
+            // Recursively sort the sublists
+            MergeSort(&a);
+            MergeSort(&b);
+
+            // Merge the two sorted lists together
+            *headRef = SortedMerge(a, b);
         }
-
-        /* Split head into 'a' and 'b' sublists */
-        FrontBackSplit(head, &a, &b);
-
-        /* Recursively sort the sublists */
-        MergeSort(&a);
-        MergeSort(&b);
-
-        /* answer = merge the two sorted lists together */
-        *headRef = SortedMerge(a, b);
-    }
 
         void sortList()
     {
@@ -388,7 +388,7 @@ void Patient::display()
          << setw(5) << age
          << setw(10) << gender
          << setw(17) << contactNum
-         << setw(30) << disease
+         << setw(25) << disease
          << setw(15) << date << endl
          << endl;
 }
@@ -404,9 +404,9 @@ void dispHeader()
          << setw(5) << "Age"
          << setw(10) << "Gender"
          << setw(17) << "Contact Number"
-         << setw(30) << "Disease"
+         << setw(25) << "Disease"
          << setw(15) << "Diagnosed Date" << endl;
-    for (int i = 0; i < 130; i++)
+    for (int i = 0; i < 120; i++)
         cout << "-";
     cout << endl;
 }
