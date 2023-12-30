@@ -290,52 +290,6 @@ void dispHeader()
     cout << endl;
 }
 
- // searching here
-
-Node* List::findNodeByName(string name) {
-    Node* current = head;
-
-    while (current != NULL) {
-        if (current->data.getName() == name) {
-            return current;
-        }
-
-        current = current->next;
-    }
-
-    return NULL; // Node not found
-}
-
-Node* List::findNodeByIC(string ic) {
-    Node* current = head;
-
-    while (current != NULL) {
-        if (current->data.getIC() == ic) {
-            return current;
-        }
-
-        current = current->next;
-    }
-
-    return NULL; // Node not found
-}
-
-
-Node* List::findNodeByAge(int age) {
-    Node* current = head;
-
-    while (current != NULL) {
-        if (current->data.getAge() == age) {
-            return current;
-        }
-
-        current = current->next;
-    }
-
-    return NULL; // Node not found
-}
-// searching here
-
 
 
 // sorting here
