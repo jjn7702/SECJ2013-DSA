@@ -895,6 +895,7 @@ int main()
                     cout << "Enter the position to remove the task from the middle: ";
                     cin >> position;
                     //remove middle
+                    tk.removemiddle(position);
                     cout << "\n\nTask removed from the middle." << endl;
                 }
                 break;
