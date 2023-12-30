@@ -105,6 +105,7 @@ public:
         //remove first node
         if(isEmpty())
         {
+            cout<<"List is empty.No task to remove. "<<endl;
 
         }
     }
