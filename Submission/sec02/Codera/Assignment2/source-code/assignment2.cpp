@@ -441,9 +441,9 @@ int main()
     while (!logout)
     {
         system("cls");
-        cout << "\nHospital Management System\n\n<<MAIN PAGE>>\n1. Add new patient\n2. Delete patient\n3. Search patient\n4. Sort patient\n5. Display patient record\n6. Logout"
+        cout << "\nHospital Management System\n\n<<MAIN PAGE>>\n1. Add new patient\n2. Delete patient\n3. Search patient\n4. Sort patient\n5. Display patient list\n6. Logout"
              << endl;
-        cout << "Option: ";
+        cout << "\nOption: ";
         cin >> opt;
         cin.ignore();
 
@@ -468,6 +468,13 @@ int main()
                 {
                     cout << "\nEnter the specific position to add: ";
                     cin >> position;
+                }
+
+                if (choice < 1 || choice > 4)
+                {
+                    cout << "Invalid option. Please enter a valid option (1 to 4)." << endl;
+                    system("pause");
+                    continue;
                 }
 
                 cout << "\n---Patient Info---" << endl;
@@ -509,7 +516,35 @@ int main()
             while (true)
             {
                 system("cls");
+                cout << "<<DELETE PATIENT>>" << endl;
+                cout << "[1] Delete the first patient list" << endl;
+                cout << "[2] Delete the middle(any position)patient list" << endl;
+                cout << "[3] Delete the last patient list" << endl;
+                cout << "[4] Back" << endl
+                     << endl;
+                cout << "Option: ";
+                cin >> choice;
 
+                if (choice == 1)
+                    list.removeFront();
+                else if (choice == 2)
+                {
+                    cout << "\nEnter the specific position to delete: ";
+                    cin >> position;
+                    list.removeMiddle(position);
+                }
+                else if (choice == 3)
+                    list.removeEnd();
+                else if (choice == 4)
+                    break;
+                else
+                {
+                    cout << "Invalid option. Please enter a valid option (1 to 4)." << endl;
+                    system("pause");
+                    continue;
+                }
+                dispHeader();
+                list.dispList();
                 system("pause");
             }
         }
@@ -536,8 +571,28 @@ int main()
             while (true)
             {
                 system("cls");
+                cout << "<<Patient Record>>" << endl;
+                cout << "[1] Display current list" << endl;
+                cout << "[2] Back" << endl
+                     << endl;
+                cout << "Option: ";
+                cin >> choice;
 
-                system("pause");
+                if (choice == 1)
+                {
+                    dispHeader();
+                    list.dispList();
+                    system("pause");
+                }
+                else if (choice == 2)
+                {
+                    break;
+                }
+                else
+                {
+                    cout << "Invalid option. Please enter a valid option (1 or 2)." << endl;
+                    system("pause");
+                }
             }
         }
         else if (opt == 6)
@@ -547,7 +602,8 @@ int main()
         }
         else
         {
-            cout << "Invalid input! Only accepts 1 to 5!" << endl;
+            cout << "Invalid option. Please enter a valid option (1 to 6)." << endl;
+            system("pause");
         }
     }
     system("pause");
