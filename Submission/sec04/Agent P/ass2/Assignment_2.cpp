@@ -748,6 +748,17 @@ void ICdes(){
     Voter *temp = head;
     string n,f,e,i,m;
     int a;
+
+     while(temp){
+        Voter *min = temp;
+        Voter *next = temp->next;
+
+        while(next != NULL){
+            if(min->getIC()<next->getIC())
+                min = next;
+            next = next->next;
+        }
+     }
 }
 
 };
