@@ -1,5 +1,8 @@
 
 #include <iostream>
+#include <string>
+#include <fstream>
+#include <iomanip>
 using namespace std;
 
 class Voter{
@@ -671,8 +674,117 @@ void emailDes(){
     Voter *temp = head;
     string n,f,e,i,m;
     int a;
+
+    while(temp){
+        Voter *min = temp;
+        Voter *next = temp->next;
+
+        while(next != NULL){
+            if(min->getEmail()<next->getEmail())
+                min = next;
+            next = next->next;
+        }
+         n = temp->getName();
+		f = temp->getFaculty();
+        e = temp->getEmail();
+        i = temp->getIC();
+        m = temp->getMatric();
+        a = temp->getAge();
+
+        temp->setName(min->getName());
+        temp->setFaculty(min->getFaculty());
+        temp->setEmail(min->getEmail());
+        temp->setIC(min->getIC());
+        temp->setMatric(min->getMatric());
+        temp->setAge(min->getAge());
+
+        min->setName(n);
+        min->setFaculty(f);
+        min->setEmail(e);
+        min->setIC(i);
+        min->setMatric(m);
+        min->setAge(a);
+
+        temp = temp->next;
+    }
+
 }
 
+void ICasc(){
+    Voter *temp,*temp2;
+            bool sorted=false;
+			string n,f,e,i,m;
+            int a;
+
+    for(temp=head; (temp->next!=NULL)&&!sorted ; temp=temp->next)
+            {	sorted = true;	
+                for(temp2=head; temp2->next!=NULL; temp2=temp2->next)
+                {
+                    if( temp2->getIC() > (temp2->next->getIC()) )
+                    {
+                        n = temp2->getName();
+						f = temp2->getFaculty();
+                        e = temp2->getEmail();
+                        i = temp2->getIC();
+                        m = temp2->getMatric();
+                        a = temp2->getAge();
+
+                        temp2->setName(temp2->next->getName());
+                        temp2->setFaculty(temp2->next->getFaculty());
+                        temp2->setEmail(temp2->next->getEmail());
+                        temp2->setIC(temp2->next->getIC());
+                        temp2->setMatric(temp2->next->getMatric());
+                        temp2->setAge(temp2->next->getAge());
+
+                        temp2->next->setName(n);
+                        temp2->next->setFaculty(f);
+                        temp2->next->setEmail(e);
+                        temp2->next->setIC(i);
+                        temp2->next->setMatric(m);
+                        temp2->next->setAge(a);
+                        sorted = false;
+                    }
+                    }}
+}
+
+void ICdes(){
+    Voter *temp = head;
+    string n,f,e,i,m;
+    int a;
+
+     while(temp){
+        Voter *min = temp;
+        Voter *next = temp->next;
+
+        while(next != NULL){
+            if(min->getIC()<next->getIC())
+                min = next;
+            next = next->next;
+        }
+        n = temp->getName();
+		f = temp->getFaculty();
+        e = temp->getEmail();
+        i = temp->getIC();
+        m = temp->getMatric();
+        a = temp->getAge();
+
+        temp->setName(min->getName());
+        temp->setFaculty(min->getFaculty());
+        temp->setEmail(min->getEmail());
+        temp->setIC(min->getIC());
+        temp->setMatric(min->getMatric());
+        temp->setAge(min->getAge());
+
+        min->setName(n);
+        min->setFaculty(f);
+        min->setEmail(e);
+        min->setIC(i);
+        min->setMatric(m);
+        min->setAge(a);
+
+        temp = temp->next;
+     }
+}
 
 };
 
@@ -749,6 +861,26 @@ int searchUI(string &key,int &key2)
         getline(cin,key);
     }
 
+    return opt;
+}
+
+int sortingUI(int &opt2)
+{
+    int opt;
+    cout<<"\n[1] Name"<<endl;
+    cout<<"[2] Faculty"<<endl;
+    cout<<"[3] Age"<<endl;
+    cout<<"[4] IC"<<endl;
+    cout<<"[5] Email"<<endl;
+    cout<<"[6] Matric"<<endl;
+    cout<<"Please choose an option : ";
+    cin>>opt;
+
+    cout<<"\n[1] Ascending order"<<endl;
+    cout<<"[2] Descending order"<<endl;
+    cout<<"Please choose an option : ";
+    cin>>opt2;
+    
     return opt;
 }
 
@@ -856,4 +988,47 @@ int main()
                         l.AgeAsc();
                     else 
                         l.AgeDes();
+                        l.display();
+                    break;
+                case 4:
+                    if(opt6 == 1)
+						l.ICasc();
+					else
+						l.ICdes();
+                    l.display();
+					break;
+                 case 5 : 
+					if(opt6 == 1)
+						l.emailasc();
+					else
+						l.emailDes();
+                    l.display();
+					break;
+                case 6 : 
+					if(opt6 == 1)
+						l.matasc();
+					else
+						l.matDes();
+                    l.display();
+					break;}
+}
+        cout<<"\nWould you like to continue (y/n) : ";
+        cin>>answer;
+
+        if(answer == 'y' || answer == 'Y')
+        {
+
+            cout<<"[1] Insert\n[2] Delete\n[3] Search\n[4] Sort\n";
+            cout<<"Please choose an option : ";
+            cin>>opt1;
+        }
+        else
+        {
+			l.display();	
+        	l.outFile();
+        	l.outFile2();
+		}
+        }while(answer == 'y');
+
+    return 0;
 }

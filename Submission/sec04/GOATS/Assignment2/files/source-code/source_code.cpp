@@ -363,12 +363,13 @@ class List{
         return 0;  
         }
         
+        
         void findNode(string searchKey, int user) {
 		    if (user == 1) {
 		        Patient *tempPatient = p_head;
 		        while (tempPatient != NULL) {
 		            if (tempPatient->getNamePatient() == searchKey || tempPatient->getICPatient() == searchKey) {
-		                cout << "Patient found:\n";
+		                cout << "\nPatient found:\n";
 		                tempPatient->display();
 		                return;
 		            }
@@ -378,7 +379,7 @@ class List{
 		        Doctor *tempDoctor = d_head;
 		        while (tempDoctor != NULL) {
 		            if (tempDoctor->getNameDoctor() == searchKey || tempDoctor->getIDDoctor() == searchKey) {
-		                cout << "Doctor found:\n";
+		                cout << "\nDoctor found:\n";
 		                tempDoctor->display();
 		                return;
 		            }
@@ -390,7 +391,7 @@ class List{
 		    cout << "Node with key '" << searchKey << "' not found.\n";
 		}
 
-        void display(int user){
+        void displayAll(int user){
             
             if(isEmpty(user)){
                 cout << endl << "No node in the list\n";
@@ -411,6 +412,38 @@ class List{
                 cout << "--------------------------------\n";
                 while (temp != NULL) {
                     temp->display();
+                    temp = temp->getNext();
+                }
+            }
+        }
+
+        void displayNode(int user,string keyIC){
+            
+            if(isEmpty(user)){
+                cout << endl << "No node in the list\n";
+                return;
+            }
+            if (user == 1){
+                Patient *temp = p_head;
+                cout << "\n<< Display selected node >>\n";
+                cout << "--------------------------------\n";
+                while (temp != NULL) {
+                    if (temp->getICPatient() == keyIC){
+                        temp->display();
+                        return;
+                    }
+                    temp = temp->getNext();
+                }
+            }
+            else if(user == 2){
+                Doctor *temp = d_head;
+                cout << "\n<< Display all node >>\n";
+                cout << "--------------------------------\n";
+                while (temp != NULL) {
+                    if (temp->getIDDoctor() == keyIC){
+                        temp->display();
+                        return;
+                    }
                     temp = temp->getNext();
                 }
             }
@@ -807,38 +840,67 @@ int start(){
 void assignment2 (List &node, int user){ // user  = patient/ doctor
     int option;
     string searchKey;
+    bool loop = 1;
 
-    cout << "\n<< Linked list operation >>\n"
-         << "1. Add new Patient/ Doctor\n"
-         << "2. Delete Patient/Doctor\n"
-         << "3. Find Patient/Doctor\n"
-         << "Choose one of the function : ";
-    cin >> option;
-    
-    switch (option)
-    {
-    case 1:
-        int add;
-        cout << "\n<< Adding Function >>\n"
-             << "1. Add from Front\n"
-             << "2. Add from Middle (specific position)\n"
-             << "3. Add from Back\n"
-             << "Choose where do you want to add: ";
-        cin >> add;
-        node.addnewUser(user, add);
-        break;
-    case 2:
-        // add menu delete
-        break;
-    case 3:
-            cout << "\nEnter the name or ID to find: ";
-            cin >> searchKey;
-            node.findNode(searchKey, user);
+    while (loop){
+        if (user == 1){
+            cout << "\n<< Linked list operation >>\n"
+            << "1. Add new Patient\n"
+            << "2. Delete Patient\n"
+            << "3. Find Patient\n"
+            << "4. Display Patients\n"
+            << "5. Back\n"
+            << "Choose one of the function : ";
+        
+        }
+
+        else if (user == 2){
+            cout << "\n<< Linked list operation >>\n"
+            << "1. Add new Doctor\n"
+            << "2. Delete Doctor\n"
+            << "3. Find Doctor\n"
+            << "4. Display Doctors\n"
+            << "5. Back\n"
+            << "Choose one of the function : ";
+        }
+        
+        cin >> option;
+        switch (option)
+        {
+        case 1:
+            int add;
+            cout << "\n<< Adding Function >>\n"
+                << "1. Add from Front\n"
+                << "2. Add from Middle (specific position)\n"
+                << "3. Add from Back\n"
+                << "Choose where do you want to add: ";
+            cin >> add;
+            node.addnewUser(user, add);
             break;
-        break;
-    default:
-        cout << "\nError : Invalid linked list operation option\n";
-        assignment2(node, user);
+        case 2:
+            cout << "\n<< Delete Node Function >>\n"
+                << "Enter IC : ";
+            cin >> searchKey;
+            cout << endl << "Node that was deleted :" << endl;
+            node.displayNode(user,searchKey);
+            node.deleteNode(searchKey,user);
+            // add menu delete
+            break;
+        case 3:
+                cout << "\nEnter the name or ID to find: ";
+                cin >> searchKey;
+                node.findNode(searchKey, user);
+                break;
+            break;
+        case 4:
+            node.displayAll(user);
+            break;
+        case 5 :
+            return;
+        default:
+            cout << "\nError : Invalid linked list operation option\n";
+            assignment2(node, user);
+        }
     }
 }
 
@@ -854,27 +916,28 @@ int main() {
 	int choice = start();   // Choose program
     int user; // patient or doctor
 	
-    if(choice == 1){
-        assignment1();
-        return 0;
-    }
-    else if (choice == 2){
-        cout << "\n<< Assignment 2 >> \n"
-         << "1. Patient\n"
-         << "2. Doctor\n"
-         << "3. End program\n"
-         << "Choose one of the option: ";
-        cin >> user;
-        if(user == 3){
-            return 0;
+    while (choice != 3){
+        if(choice == 1){
+            assignment1();
         }
-        assignment2(node, user);
-    }
-    else if (choice == 3)
-        return 0;
-    else{
-        cout << "Invalid input\n";
-        start();
+        else if (choice == 2){
+            cout << "\n<< Assignment 2 >> \n"
+            << "1. Patient\n"
+            << "2. Doctor\n"
+            << "3. End program\n"
+            << "Choose one of the option: ";
+            cin >> user;
+            if(user == 3){
+                return 0;
+            }
+            assignment2(node, user);
+        }
+        else if (choice == 3)
+            return 0;
+        else{
+            cout << "Invalid input\n";
+            start();
+        }
     }
 
     // test function

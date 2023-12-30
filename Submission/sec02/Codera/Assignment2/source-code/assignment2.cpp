@@ -13,8 +13,6 @@
 #include <Windows.h>
 #include <stdio.h>
 
-#define SIZE 10000
-
 using namespace std;
 
 // Patient
@@ -247,7 +245,7 @@ public:
 
         while (temp != NULL)
         {
-            cout << temp->data.display();
+            temp->data.display();
             temp = temp->next; // to move the pointer to point to the next node
         }
         cout << endl;
@@ -304,8 +302,9 @@ public:
         return NULL; // Node not found
     }
 
-    Node* SortedMerge(Node* a, Node* b) {
-        Node* result = NULL;
+    Node *SortedMerge(Node *a, Node *b)
+    {
+        Node *result = NULL;
 
         /* Base cases */
         if (a == NULL)
@@ -314,45 +313,53 @@ public:
             return a;
 
         /* Pick either a or b, and recur */
-        if (a->data.getName() <= b->data.getName()) {
+        if (a->data.getName() <= b->data.getName())
+        {
             result = a;
             result->next = SortedMerge(a->next, b);
-        } else {
+        }
+        else
+        {
             result = b;
             result->next = SortedMerge(a, b->next);
         }
         return result;
     }
 
-    void FrontBackSplit(Node* source, Node** frontRef, Node** backRef) {
-        Node* fast;
-        Node* slow;
+    void FrontBackSplit(Node *source, Node **frontRef, Node **backRef)
+    {
+        Node *fast;
+        Node *slow;
         slow = source;
         fast = source->next;
 
         /* Advance 'fast' two nodes, and advance 'slow' one node */
-        while (fast != NULL) {
+        while (fast != NULL)
+        {
             fast = fast->next;
-            if (fast != NULL) {
+            if (fast != NULL)
+            {
                 slow = slow->next;
                 fast = fast->next;
             }
         }
 
-    /* 'slow' is before the midpoint in the list, so split it in two 
-    at that point. */
-    *frontRef = source;
-    *backRef = slow->next;
-    slow->next = NULL;
-}
+        /* 'slow' is before the midpoint in the list, so split it in two
+        at that point. */
+        *frontRef = source;
+        *backRef = slow->next;
+        slow->next = NULL;
+    }
 
-    void MergeSort(Node** headRef) {
-        Node* head = *headRef;
-        Node* a;
-        Node* b;
+    void MergeSort(Node **headRef)
+    {
+        Node *head = *headRef;
+        Node *a;
+        Node *b;
 
         /* Base case -- length 0 or 1 */
-        if (head == NULL || head->next == NULL) {
+        if (head == NULL || head->next == NULL)
+        {
             return;
         }
 
@@ -366,7 +373,6 @@ public:
         /* answer = merge the two sorted lists together */
         *headRef = SortedMerge(a, b);
     }
-  
 };
 
 // display patient record
@@ -403,50 +409,13 @@ void dispHeader()
 
 int main()
 {
-    Patient pat[SIZE];
+    Patient patient;
+    List list;
+    int opt, choice, position, age;
+    bool logout = false;
+    string name, ic, gender, contactNo, disease, date;
 
-    // read file
-    fstream inFile("record.txt", ios::in);
-    if (!inFile)
-    {
-        cout << "Can't open the file!" << endl;
-        system("pause");
-        return 0;
-    }
-
-    int i = 0;
-    while (!inFile.eof())
-    {
-        string name;
-        string ic;
-        int age;
-        string gender;
-        string contactNum;
-        string disease;
-        string date;
-
-        getline(inFile, name, '|');
-        getline(inFile, ic, '|');
-        inFile >> age; // Read age as integer
-        inFile.ignore();
-        getline(inFile, gender, '|');
-        getline(inFile, contactNum, '|');
-        getline(inFile, disease, '|');
-        inFile >> date;
-        inFile.ignore();
-
-        pat[i].setName(name);
-        pat[i].setIC(ic);
-        pat[i].setAge(age);
-        pat[i].setGender(gender);
-        pat[i].setContactNum(contactNum);
-        pat[i].setDisease(disease);
-        pat[i].setDate(date);
-
-        i++;
-    }
-    inFile.close();
-
+    // loading page
     system("cls");
     printf("\e[?25l");
     int bar1 = 177, bar2 = 219;
@@ -468,14 +437,11 @@ int main()
     }
     cout << "\n\t\t\t\t" << (char)1 << "!";
 
-    // main menu
-    int opt;
-    bool logout = false;
-
+    // main page
     while (!logout)
     {
         system("cls");
-        cout << "\nHospital Management System\n\n<<<Main Menu>>>\n1. Sorting\n2. Searching\n3. Logout\n"
+        cout << "\nHospital Management System\n\n<<MAIN PAGE>>\n1. Add new patient\n2. Delete patient\n3. Search patient\n4. Sort patient\n5. Display patient record\n6. Logout"
              << endl;
         cout << "Option: ";
         cin >> opt;
@@ -486,60 +452,55 @@ int main()
             while (true)
             {
                 system("cls");
-                int choice;
-                cout << "\nHospital Management System\n\n<<<Sorting Process>>>\n1. By name\n2. By IC\n3. By age\n4. By gender\n5. By contact number\n6. By disease\n7. By diagnosed date\n8. Back to Main Menu\n"
+                cout << "<<ADD PATIENT>>" << endl;
+                cout << "[1] Add at the beginning" << endl;
+                cout << "[2] Add at the middle(any position)" << endl;
+                cout << "[3] Add at the end" << endl;
+                cout << "[4] Back" << endl
                      << endl;
                 cout << "Option: ";
                 cin >> choice;
 
-                if (choice == 1)
+                if (choice == 4)
+                    break;
+
+                if (choice == 2)
                 {
-                    mergeSortByName(pat, 0, i - 1);
+                    cout << "\nEnter the specific position to add: ";
+                    cin >> position;
                 }
 
+                cout << "\n---Patient Info---" << endl;
+                cout << "Enter name: ";
+                cin.ignore();
+                getline(cin, name);
+                cout << "Enter identity card no: ";
+                getline(cin, ic);
+                cout << "Enter age: ";
+                cin >> age;
+                cin.ignore();
+                cout << "Enter gender: ";
+                getline(cin, gender);
+                cout << "Enter contact no: ";
+                getline(cin, contactNo);
+                cout << "Enter disease: ";
+                getline(cin, disease);
+                cout << "Enter diagnosed date: ";
+                getline(cin, date);
+
+                Patient p1(name, ic, age, gender, contactNo, disease, date);
+
+                if (choice == 1)
+                    list.insert(p1);
                 else if (choice == 2)
                 {
-                    mergeSortByIC(pat, 0, i - 1);
+                    list.insertMiddle(p1, position);
                 }
-
                 else if (choice == 3)
-                {
-                    mergeSortByAge(pat, 0, i - 1);
-                }
-
-                else if (choice == 4)
-                {
-                    mergeSortByGender(pat, 0, i - 1);
-                }
-
-                else if (choice == 5)
-                {
-                    mergeSortByContactNum(pat, 0, i - 1);
-                }
-
-                else if (choice == 6)
-                {
-                    mergeSortByDisease(pat, 0, i - 1);
-                }
-
-                else if (choice == 7)
-                {
-                    mergeSortByDate(pat, 0, i - 1);
-                }
-
-                else if (choice == 8)
-                {
-                    break;
-                }
-
-                else
-                {
-                    cout << "Invalid input! Only accepts 1 to 8!" << endl;
-                }
+                    list.insertEnd(p1);
 
                 dispHeader();
-                for (int j = 0; j < i; j++)
-                    pat[j].display();
+                list.dispList();
                 system("pause");
             }
         }
@@ -548,93 +509,45 @@ int main()
             while (true)
             {
                 system("cls");
-                int select;
-                cout << "\nHospital Management System\n\n<<<Searching Process>>>\n1. By name\n2. By IC\n3. By disease\n4. Back to Main Menu\n"
-                     << endl;
-                cout << "Option: ";
-                cin >> select;
 
-                if (select == 1)
-                {
-                    string name;
-                    int result;
-                    cout << "\nEnter patient name: ";
-                    cin.ignore();
-                    getline(cin, name);
-
-                    mergeSortByName(pat, 0, i - 1);
-                    result = binarySearchByName(pat, 0, i - 1, name);
-                    if (result == -1)
-                    {
-                        cout << "Patient with name given is not found!" << endl;
-                    }
-                    else
-                    {
-                        dispHeader();
-                        pat[result].display();
-                    }
-                }
-                else if (select == 2)
-                {
-                    string ic;
-                    int result;
-                    cout << "\nEnter patient IC: ";
-                    cin.ignore();
-                    getline(cin, ic);
-
-                    mergeSortByIC(pat, 0, i - 1);
-                    result = binarySearchByIC(pat, 0, i - 1, ic);
-                    if (result == -1)
-                    {
-                        cout << "Patient with IC given is not found!" << endl;
-                    }
-                    else
-                    {
-                        dispHeader();
-                        pat[result].display();
-                    }
-                }
-                else if (select == 3)
-                {
-                    string disease;
-                    cout << "\nEnter disease: ";
-                    cin.ignore();
-                    getline(cin, disease);
-
-                    mergeSortByDisease(pat, 0, i - 1);
-                    vector<int> occurrences = binarySearchByDisease(pat, 0, i - 1, disease);
-                    if (occurrences.empty())
-                    {
-                        cout << "Patient with disease given is not found!" << endl;
-                    }
-                    else
-                    {
-                        dispHeader();
-                        for (int index : occurrences)
-                        {
-                            pat[index].display();
-                        }
-                    }
-                }
-                else if (select == 4)
-                {
-                    break;
-                }
-                else
-                {
-                    cout << "Invalid input! Only accepts 1 to 4!" << endl;
-                }
                 system("pause");
             }
         }
         else if (opt == 3)
+        {
+            while (true)
+            {
+                system("cls");
+
+                system("pause");
+            }
+        }
+        else if (opt == 4)
+        {
+            while (true)
+            {
+                system("cls");
+
+                system("pause");
+            }
+        }
+        else if (opt == 5)
+        {
+            while (true)
+            {
+                system("cls");
+
+                system("pause");
+            }
+        }
+        else if (opt == 6)
         {
             logout = true;
             cout << "\n\nYou have successfully logged out!" << endl;
         }
         else
         {
-            cout << "Invalid input! Only accepts 1 to 3!" << endl;
+            cout << "Invalid input! Only accepts 1 to 5!" << endl;
         }
     }
     system("pause");
