@@ -25,7 +25,12 @@ class Voter{
         string getEmail(){return email;}
         string getMatric(){return matric;}
 
+        void setName(string n){name = n;}
+        void setFaculty(string f){ faculty = f;}
+        void setAge(int a){age = a;}
         
+
+
 };
 class List
 {
