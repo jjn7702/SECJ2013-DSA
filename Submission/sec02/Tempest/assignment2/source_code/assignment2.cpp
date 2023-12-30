@@ -804,7 +804,7 @@ int main()
                     //insert node
                     newTask.settask(tasks);
                     newTask.setday(day);
-                    
+                    newTask.setmonth(month);
                     cout << "\n\nTask added at the beginning." << endl;
                 }
                 break;
