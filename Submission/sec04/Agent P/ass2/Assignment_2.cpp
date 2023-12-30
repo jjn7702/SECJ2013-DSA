@@ -119,6 +119,16 @@ class List
         {
             Voter *newNode = new Voter(n,f,a,ic,e,m);
             Voter *temp = head;
+            
+            if(isEmpty())
+                head = newNode;
+            else{
+                for(int i=0;i<index-2;i++)
+                    temp = temp->next;
+
+                newNode->next = temp->next;
+                temp->next = newNode;
+            }
         }
 
         
