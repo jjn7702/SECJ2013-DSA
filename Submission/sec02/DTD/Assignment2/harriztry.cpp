@@ -204,7 +204,8 @@ public:
         }
     }
 
-    Node findNode(string key)
+    // Modify the findNode function to return a Node* instead of Node
+    Node *findNode(string key)
     {
         Node *current = head;
 
@@ -213,7 +214,7 @@ public:
             current = current->next;
         }
 
-        return *current;
+        return current; // Return a pointer to the found node or nullptr if not found
     }
 
     void displayList()
@@ -617,22 +618,23 @@ int main()
             cin.ignore();
             getline(cin, searchKey);
 
-            Node foundNode = library.findNode(searchKey);
-            if (&foundNode != nullptr)
+            Node *foundNode = library.findNode(searchKey);
+
+            if (foundNode == nullptr)
             {
-                cout << "Book found: " << endl;
-                foundNode.data.displayBook();
+                cout << "Book not found with title or ISBN: " << searchKey << endl;
             }
             else
             {
-                cout << "Book not found with title or ISBN: " << searchKey << endl;
+                cout << "Book found: " << endl;
+                foundNode->data.displayBook();
             }
             break;
         }
         case 3:
         {
             // Delete Book
-            system("cls");  
+            system("cls");
             int deleteChoice;
             cout << setw(39) << " ____________________________________" << endl;
             cout << setw(40) << "|                                    |" << endl;
@@ -646,10 +648,19 @@ int main()
 
             cout << "Please enter your choice: ";
             cin >> deleteChoice;
-            library.deleteNode(deleteChoice);
-            cout << "Node deleted successfully!" << endl;
-            system("pause");
-            library.displayList();
+
+            if (deleteChoice == 1 || deleteChoice == 2 || deleteChoice == 3)
+            {
+                cout << "Node deleted successfully!" << endl;
+                system("pause");
+                library.deleteNode(deleteChoice);
+                library.displayList();
+            }
+            else
+            {
+                cout << "Invalid choice. Please try again." << endl;
+            }
+
             break;
         }
         case 4:
