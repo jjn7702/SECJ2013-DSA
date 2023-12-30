@@ -229,7 +229,18 @@ void search(int opt,string key,int key2)
                         break;
                     case 5:
                         while(temp != NULL)
-                    {}
+                        {
+                            if(temp->getEmail() == key)
+                        {
+                            cout<<"\nName  : "<<temp->getName()<<endl;
+                            cout<<"Faculty : "<<temp->getFaculty()<<endl;
+                            cout<<"Age     : "<<temp->getAge()<<endl;
+                            cout<<"IC      : "<<temp->getIC()<<endl;
+                            cout<<"Email   : "<<temp->getEmail()<<endl;
+                            cout<<"Matric  : "<<temp->getMatric()<<endl;
+                            found = true;
+                        }
+                        }
 			}
 			}
 		}
