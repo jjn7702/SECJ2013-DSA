@@ -520,6 +520,12 @@ int main() {
 
                 if (foundNode != nullptr) {
                     cout << "\nParcel found:\n";
+                    cout << "\t";
+			        for (int i = 0; i < 100; i++)
+			        {
+			            cout << "-";
+			        }
+			        cout << endl;
                     foundNode->data->displayDetails(1);
                 }
                 else {
