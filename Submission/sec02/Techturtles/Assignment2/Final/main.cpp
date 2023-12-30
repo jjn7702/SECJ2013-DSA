@@ -96,7 +96,7 @@ public:
         }
     }
 
-    int getNodeCount() const
+    int getNodeCount()
     {
         return count;
     }
