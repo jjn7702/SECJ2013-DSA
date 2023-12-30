@@ -1,5 +1,3 @@
-# Assignment 1
-
 # Courier Service System
 
 
@@ -32,7 +30,6 @@ The Courier Service System is specially designed for the administrator. The syst
 <h3>Report Assignment 1</h3>
 <a href="https://docs.google.com/document/d/1IBuotBV8MyPapQ3iG9L_BJigHuHo5fWuo8pLHKXZuRI/edit"><img src="https://cdn.vectorstock.com/i/1000x1000/45/57/file-doc-icon-digital-blue-vector-24754557.webp" width="35px" height="40px" ></a>
 
-# Assignment 2
 
 
 ## Findings 📊
