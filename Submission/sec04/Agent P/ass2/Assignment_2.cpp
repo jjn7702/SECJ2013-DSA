@@ -4,6 +4,19 @@ using namespace std;
 class Voter{
     string name,faculty,email,ic,matric;
     int age;
+
+    public:
+     Voter *next;
+        Voter(string n,string f,int a,string ic,string e,string m)
+        {
+            name = n;
+            faculty = f;
+            age = a;
+            this->ic = ic;
+            email = e;
+            matric = m;
+            next = NULL;
+        }
 };
 class List
 {
