@@ -719,7 +719,19 @@ void ICasc(){
                 {
                     if( temp2->getIC() > (temp2->next->getIC()) )
                     {
-                        
+                        n = temp2->getName();
+						f = temp2->getFaculty();
+                        e = temp2->getEmail();
+                        i = temp2->getIC();
+                        m = temp2->getMatric();
+                        a = temp2->getAge();
+
+                        temp2->setName(temp2->next->getName());
+                        temp2->setFaculty(temp2->next->getFaculty());
+                        temp2->setEmail(temp2->next->getEmail());
+                        temp2->setIC(temp2->next->getIC());
+                        temp2->setMatric(temp2->next->getMatric());
+                        temp2->setAge(temp2->next->getAge());
                     }}}
 }
 
