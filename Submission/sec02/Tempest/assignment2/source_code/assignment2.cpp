@@ -127,6 +127,8 @@ public:
         }
 
         task* prev = nullptr;
+        task* current = head;
+        int count=1;
     }
 
     void displist()
