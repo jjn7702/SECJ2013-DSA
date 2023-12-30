@@ -101,8 +101,12 @@ public:
     }
 
     void removebeginning()
-    {
+    { 
         //remove first node
+        if(isEmpty())
+        {
+
+        }
     }
 
     void removelast()
