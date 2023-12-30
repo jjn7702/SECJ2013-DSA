@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "vector": "cpp"
+        "*.embeddedhtml": "html",
+        "vector": "cpp",
+        "iostream": "cpp",
+        "string": "cpp"
     }
 }

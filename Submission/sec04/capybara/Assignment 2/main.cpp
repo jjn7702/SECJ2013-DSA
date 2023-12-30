@@ -24,8 +24,12 @@ int binarySearchByName(const vector<User> &users, const string &name);
 int binarySearchByAirplaneID(const vector<Airline> &airlines, const string &AirplaneID);
 int binarySearchByReservationID(vector<Reservation> &reservations, const string &ReservationID);
 
-void NewData(string res, string dept, string arr, string dat, string loc, string cla);
-void deleteData(string res);
+void NewDataReservation(string res, string dept, string arr, string dat, string loc, string cla);
+void deleteDataReservation(string res);
+
+void NewDataAirline(string AirplaneID, string Capacity, string Company);
+
+void deleteDataAirline(string AirID);
 
 class User
 {
@@ -116,6 +120,7 @@ private:
     string Company;
 
 public:
+    Airline *next;
     Airline(string AirplaneID, string Capacity, string Company)
         : AirplaneID(AirplaneID), Capacity(Capacity), Company(Company) {}
 
@@ -140,6 +145,53 @@ public:
         cout << setw(33) << "Plane Brand: " << Company << endl;
     }
 };
+
+void NewDataAirline(string AirplaneID, string Capacity, string Company)
+{
+
+    ofstream airlineFile("data/airline.csv", ios::app);
+    airlineFile.seekp(0, ios::end);
+    airlineFile << "\n"
+                << AirplaneID << "," << Capacity << "," << Company;
+
+    airlineFile.seekp(0, ios::end);
+    airlineFile.close();
+};
+
+void deleteDataAirline(string AirID)
+{
+    ifstream inputFile("data/airline.csv");
+    ofstream tempFile("temp.csv");
+
+    string line;
+    getline(inputFile, line); // Read and write the header
+
+    tempFile << line << endl; // Write the header to the temporary file
+
+    while (getline(inputFile, line))
+    {
+        stringstream ss(line);
+        string AirplaneID, Capacity, Company;
+
+        getline(ss, AirplaneID, ',');
+        getline(ss, Capacity, ',');
+        getline(ss, Company, ',');
+
+        // Check if the current line matches the reservation to be deleted
+        if (AirID != AirplaneID)
+        {
+            // Write the line to the temporary file
+            tempFile << line << endl;
+        }
+    }
+
+    inputFile.close();
+    tempFile.close();
+
+    // Remove the original file and rename the temporary file
+    remove("data/airline.csv");
+    rename("temp.csv", "data/airline.csv");
+}
 
 int partitionAirline(vector<Airline> &airlines, int bottom, int top, int choice)
 {
@@ -302,7 +354,7 @@ public:
             }
 
             // Move this line here
-            deleteData(res);
+            deleteDataReservation(res);
 
             return currentIndex;
         }
@@ -350,7 +402,7 @@ public:
         cout << endl;
     }
 
-    void updateCSV(string res, string dept, string arr, string dat, string loc, string cla)
+    void updateCSVReservation(string res, string dept, string arr, string dat, string loc, string cla)
     {
         int currIndex = 0;
         Reservation *curr = head;
@@ -380,7 +432,7 @@ public:
             current->next = newNode;
         }
 
-        NewData(res, dept, arr, dat, loc, cla);
+        NewDataReservation(res, dept, arr, dat, loc, cla);
     }
 };
 
@@ -437,6 +489,168 @@ void quickSortReservation(vector<Reservation> &reservations, int bottom, int top
     }
 }
 
+class AirLineList // List
+{
+private:
+    Airline *head;
+
+public:
+    AirLineList() : head(nullptr) {}
+
+    bool isEmpty()
+    {
+        return head == nullptr;
+    }
+    Airline *getHead() const
+    {
+        return head;
+    }
+
+    Airline *insertNode(string AirplaneID, string Capacity, string Company)
+    {
+        int currIndex = 0;
+        Airline *curr = head;
+        Airline *prev = nullptr;
+
+        while (curr != nullptr)
+        {
+            prev = curr;
+            curr = curr->next;
+            currIndex++;
+        }
+
+        Airline *newNode = new Airline(AirplaneID, Capacity, Company);
+
+        if (currIndex == 0)
+        {
+            newNode->next = head;
+            head = newNode;
+        }
+        else
+        {
+            newNode->next = prev->next;
+            prev->next = newNode;
+        }
+        return newNode;
+    }
+
+    int deleteNodeAirline(string AirplaneID)
+    {
+        Airline *prev = nullptr;
+        Airline *curr = head;
+        int currentIndex = 1;
+
+        while (curr != nullptr && (curr->getAirplaneID() != AirplaneID))
+        {
+            prev = curr;
+            curr = curr->next;
+            currentIndex++;
+        }
+
+        if (curr != nullptr)
+        {
+            if (prev != nullptr)
+            {
+                prev->next = curr->next;
+                delete curr;
+            }
+            else
+            {
+                head = curr->next;
+                delete curr;
+            }
+
+            // Move this line here
+            deleteDataAirline(AirplaneID);
+
+            return currentIndex;
+        }
+        else
+        {
+            return 0; // Node not found
+        }
+    }
+
+    // int findAirplaneNode(string AirplaneID)
+    // {
+    //     int currentIndex = 1;
+    //     Airline *curr = head;
+
+    //     while (curr != nullptr && (curr->getAirplaneID() != AirplaneID || curr->getCapacity() != Capacity || curr->getCompany() != Company))
+    //     {
+    //         curr = curr->next;
+    //         currentIndex++;
+    //     }
+
+    //     if (curr != nullptr)
+    //     {
+    //         return currentIndex;
+    //     }
+    //     else
+    //     {
+    //         return 0;
+    //     }
+    // }
+
+    void findAirplaneNode(const string &AirplaneID)
+    {
+        Airline *curr = head;
+        while (curr != nullptr)
+        {
+            if (curr->getAirplaneID() == AirplaneID)
+            {
+                cout << "Airplane Found: ";
+                cout << "\nID: " << curr->getAirplaneID()
+                     << "\nCapacity: " << curr->getCapacity()
+                     << "\nCompany: " << curr->getCompany() << endl;
+                return;
+            }
+            curr = curr->next;
+        }
+        cout << "No airplane found with ID: " << AirplaneID << endl;
+    }
+
+    void displayAirplaneList()
+    {
+        Airline *current = head;
+        while (current != nullptr)
+        {
+            cout << "AirplaneID: " << current->getAirplaneID() << endl;
+            cout << "Capacity : " << current->getCapacity() << endl;
+            cout << "Company : " << current->getCompany() << endl;
+            cout << endl;
+            current = current->next;
+        }
+        cout << endl;
+    }
+
+    void updateAirplaneCSV(string AirplaneID, string Capacity, string Company)
+    {
+        int currIndex = 0;
+        Airline *curr = head;
+        Airline *prev = nullptr;
+
+        Airline *newNode = new Airline(AirplaneID, Capacity, Company);
+
+        if (head == nullptr)
+        {
+            // If the list is empty, make the new node the head
+            head = newNode;
+        }
+        else
+        {
+            Airline *current = head;
+            while (current->next != nullptr)
+            {
+                current = current->next;
+            }
+            current->next = newNode;
+        }
+
+        NewDataAirline(AirplaneID, Capacity, Company);
+    }
+};
+
 class Init
 {
 public:
@@ -457,11 +671,35 @@ public:
         cout << "                    \\    /  ||/   H   \\||  \\    /" << endl;
         cout << "                     '--'   OO   O|O   OO     '--'" << endl;
         cout << endl;
+        cout << setw(55) << "_________________________________________________________________" << endl;
+        cout << setw(56) << "|      Airline Reservation System                                |" << endl;
+        cout << setw(56) << "|      [1] Reservation Dashboard (Sorting/Searching Function)    |" << endl;
+        cout << setw(56) << "|      [2] Reservation Management (Linked List Implementation)   |" << endl;
+        cout << setw(56) << "|      [3] Exit                                                  |" << endl;
+        cout << setw(56) << "|________________________________________________________________|" << endl;
+        cout << endl;
+        cout << setw(37) << "Option: ";
+    }
 
+    void displayReservationManagement()
+    {
         cout << setw(55) << "_____________________________________" << endl;
-        cout << setw(56) << "|      Airline Reservation System     |" << endl;
-        cout << setw(56) << "|      [1] Reservation Dashboard      |" << endl;
-        cout << setw(56) << "|      [2] Exit                       |" << endl;
+        cout << setw(56) << "|      Reservation Management         |" << endl;
+        cout << setw(56) << "|      [1] Manage User                |" << endl;
+        cout << setw(56) << "|      [2] Manage Airline             |" << endl;
+        cout << setw(56) << "|      [3] Manage Reservation         |" << endl;
+        cout << setw(56) << "|      [4] Exit                       |" << endl;
+        cout << setw(56) << "|_____________________________________|" << endl;
+    }
+
+    void displayAlter()
+    {
+        cout << setw(55) << "_____________________________________" << endl;
+        cout << setw(56) << "|      Choose Operation               |" << endl;
+        cout << setw(56) << "|      [1] Insert Data                |" << endl;
+        cout << setw(56) << "|      [2] Delete Data                |" << endl;
+        cout << setw(56) << "|      [3] Find Data                  |" << endl;
+        cout << setw(56) << "|      [4] Display All Data           |" << endl;
         cout << setw(56) << "|_____________________________________|" << endl;
         cout << endl;
         cout << setw(37) << "Option: ";
@@ -566,6 +804,125 @@ public:
         cout << endl;
         cout << setw(37) << "Option: ";
     }
+
+    void makeReservation()
+    {
+        system("cls");
+        int error = 0;
+        cout << setw(40) << "                                               _" << endl;
+        cout << setw(40) << "                 ___                          (_)" << endl;
+        cout << setw(20) << "               _/XXX\\" << endl;
+        cout << setw(40) << "_             /XXXXXX\\_                                    __" << endl;
+        cout << setw(40) << "X\\__    __   /X XXXX XX\\                          _       /XX\\__      ___" << endl;
+        cout << setw(40) << "    \\__/  \\_/__       \\ \\                       _/X\\__   /XX XXX\\____/XXX\\" << endl;
+        cout << setw(40) << "  \\  ___   \\/  \\_      \\ \\               __   _/      \\_/  _/  -   __  -  \\" << endl;
+        cout << setw(40) << " ___/   \\__/   \\ \\__     \\__           /  \\_//  _ _ \\  \\     __  /  \\____/" << endl;
+        cout << setw(40) << "/  __    \\  /     \\ \\_   _//_\\___    __/    //           \\___/  \\/     __/" << endl;
+        cout << setw(40) << "__/_______\\________\\__\\_/________\\__/_/____/_____________/_______\\____/____" << endl;
+        cout << setw(32) << "                                  ___" << endl;
+        cout << setw(36) << "                                 /L|0\\" << endl;
+        cout << setw(38) << "                                /  |  \\" << endl;
+        cout << setw(40) << "                               /       \\" << endl;
+        cout << setw(40) << "                              /    |    \\" << endl;
+        cout << setw(40) << "                             /           \\" << endl;
+        cout << setw(40) << "                            /  __  | __   \\" << endl;
+        cout << setw(40) << "                           /  __/    \\__   \\" << endl;
+        cout << setw(40) << "                          /  /__   |  __\\   \\" << endl;
+        cout << setw(40) << "                         /___________________\\" << endl;
+        cout << setw(40) << "                         /          |         \\" << endl;
+        cout << setw(40) << "                              /   _|_   \\" << endl;
+        cout << setw(40) << "                      /      ____/___\\____     \\" << endl;
+        cout << setw(40) << "                      ___________[o0o]___________" << endl;
+        cout << setw(40) << "                               O   O   O" << endl;
+
+        cout << endl;
+        cout << setw(60) << "Welcome to Capybara International Airport (CiA)" << endl
+             << endl;
+
+        cout << setw(45) << "Where to travel?:  " << endl
+             << endl;
+        cout << setw(45) << "[1] Chicago to Miami" << endl;
+        cout << setw(45) << "[2] Seattle to Denver" << endl;
+        cout << setw(45) << "[3] San Francisco to Houston" << endl;
+        cout << setw(45) << "[4] Atlanta to Las Vegas" << endl;
+        cout << setw(45) << "[5] Boston to Orlando" << endl;
+        cout << setw(45) << "[6] New York to Los Angeles" << endl;
+
+        int choice;
+
+        string departureTime, arrivalTime, date, flightClass;
+        cout << "Selection: ";
+        cin >> choice;
+
+        switch (choice)
+        {
+        case 1:
+            departureTime = "08:00 AM";
+            arrivalTime = "10:30 AM";
+            date = "2023-04-15";
+            break;
+        case 2:
+            departureTime = "12:45 PM";
+            arrivalTime = "03:15 PM";
+            date = "2023-05-22";
+            break;
+        case 3:
+            departureTime = "04:30 PM";
+            arrivalTime = "06:45 PM";
+            date = "2023-06-10";
+            break;
+        case 4:
+            departureTime = "09:15 AM";
+            arrivalTime = "11:45 AM";
+            date = "2023-07-03";
+            break;
+        case 5:
+            departureTime = "02:30 PM";
+            arrivalTime = "05:00 PM";
+            date = "2023-08-18";
+            break;
+        case 6:
+            departureTime = "06:20 PM";
+            arrivalTime = "08:40 PM";
+            date = "2023-09-05";
+            break;
+        default:
+            error = 1;
+            cout << "Invalid choice. Exiting program." << endl;
+        }
+
+        cout << "Select your class:" << endl;
+        cout << "[1] Economy" << endl;
+        cout << "[2] Business" << endl;
+        cout << "[3] First Class" << endl;
+        cout << "Enter your choice (1-3): ";
+        int classChoice;
+        cin >> classChoice;
+
+        switch (classChoice)
+        {
+        case 1:
+            flightClass = "Economy";
+            break;
+        case 2:
+            flightClass = "Business";
+            break;
+        case 3:
+            flightClass = "First Class";
+            break;
+        default:
+            cout << "Invalid class choice. Exiting program." << endl;
+        }
+
+        if (error != 1)
+        {
+            cout << "Your flight details:" << endl;
+            cout << "Departure Time: " << departureTime << endl;
+            cout << "Arrival Time: " << arrivalTime << endl;
+            cout << "Date: " << date << endl;
+            cout << "Class: " << flightClass << endl;
+        }
+    }
 };
 
 void LoadFiles(vector<User> &users, vector<Airline> &airline, vector<Reservation> &reservation)
@@ -627,7 +984,7 @@ void LoadFiles(vector<User> &users, vector<Airline> &airline, vector<Reservation
     reservationFile.close();
 };
 
-void NewData(string res, string dept, string arr, string dat, string loc, string cla)
+void NewDataReservation(string res, string dept, string arr, string dat, string loc, string cla)
 {
 
     ofstream reservationFile("reservation.csv", ios::app);
@@ -639,7 +996,7 @@ void NewData(string res, string dept, string arr, string dat, string loc, string
     reservationFile.close();
 };
 
-void deleteData(string res)
+void deleteDataReservation(string res)
 {
     ifstream inputFile("reservation.csv");
     ofstream tempFile("temp.csv");
@@ -995,19 +1352,32 @@ int main()
     vector<User> users;
     vector<Airline> airlines;
     vector<Reservation> reservations;
+
     LoadFiles(users, airlines, reservations);
     reservationList reservationList;
-
+    AirLineList airlineList;
     Init init;
-    int option;
+
+    for (int i = 0; i < reservations.size(); i++)
+    {
+        reservationList.insertNode(reservations[i].getReservationID(), reservations[i].getDepartureTime(), reservations[i].getArrivalTime(), reservations[i].getDate(), reservations[i].getLocation(), reservations[i].getClass());
+    }
+
+    for (int i = 0; i < airlines.size(); i++)
+    {
+        airlineList.insertNode(airlines[i].getAirplaneID(), airlines[i].getCapacity(), airlines[i].getCompany());
+    }
+
+    // tambahhhh--------->
     while (true)
     {
+        int option;
         init.displayMenu();
 
         cin >> option;
         cout << endl;
 
-        if (option == 2)
+        if (option == 3)
         {
             break;
         }
@@ -1025,270 +1395,377 @@ int main()
             cin >> choice;
             cout << endl;
 
-            switch (option)
+            while (choice != 4)
             {
-            case 1:
-            {
-                while (choice != 4)
+                if (choice == 1)
                 {
-                    if (choice == 1)
+                    int selection;
+                    init.displaySelection();
+                    cin >> selection;
+                    cout << endl;
+
+                    if (selection == 1)
                     {
-                        int selection;
-                        init.displaySelection();
-                        cin >> selection;
+                        init.displaySortingUser();
+                        cin >> choice;
                         cout << endl;
 
-                        if (selection == 1)
+                        int i = 1;
+
+                        quickSortUsers(users, 0, users.size() - 1, choice);
+
+                        for (int j = 0; j < users.size(); j++)
                         {
-                            init.displaySortingUser();
-                            cin >> choice;
-                            cout << endl;
-
-                            int i = 1;
-
-                            quickSortUsers(users, 0, users.size() - 1, choice);
-
-                            for (int j = 0; j < users.size(); j++)
-                            {
-                                users[j].display();
-                                cout << setw(18) << "                   -------------------------------" << endl;
-                            }
+                            users[j].display();
+                            cout << setw(18) << "                   -------------------------------" << endl;
                         }
-                        else if (selection == 2)
-                        {
-                            init.displaySeachingUser();
-                            cin >> choice;
-                            cout << endl;
+                    }
+                    else if (selection == 2)
+                    {
+                        init.displaySeachingUser();
+                        cin >> choice;
+                        cout << endl;
 
+                        cin.ignore();
+                        if (choice == 1)
+                        {
+                            string username;
+                            int found = 0;
+                            cout << setw(42) << "Insert the Name: ";
+
+                            getline(cin, username);
+                            quickSortUsers(users, 0, users.size() - 1, 1);
+                            found = binarySearchByName(users, username);
+
+                            users[found].display();
+                        }
+
+                        if (choice == 2)
+                        {
+                            string IC;
+                            int found = 0;
+                            cout << setw(42) << "Insert the IC: ";
+
+                            getline(cin, IC);
+                            quickSortUsers(users, 0, users.size() - 1, 1);
+                            found = binarySearchByIC(users, IC);
+
+                            users[found].display();
+                        }
+
+                        if (choice == 3)
+                        {
+                            string Phone;
+                            int found = 0;
+                            cout << setw(38) << "Insert the Phone: ";
+
+                            getline(cin, Phone);
+                            quickSortUsers(users, 0, users.size() - 1, 1);
+                            found = binarySearchByPhone(users, Phone);
+
+                            users[found].display();
+                        }
+
+                        if (choice == 4)
+                        {
+                            string Email;
+                            int found = 0;
+                            cout << setw(42) << "Insert the Email: ";
+
+                            getline(cin, Email);
+                            quickSortUsers(users, 0, users.size() - 1, 1);
+                            found = binarySearchByEmail(users, Email);
+
+                            users[found].display();
+                        }
+                    }
+                }
+                else if (choice == 2)
+                {
+                    int selection;
+                    init.displaySelection();
+                    cin >> selection;
+                    cout << endl;
+                    if (selection == 1)
+                    {
+                        init.displaySortingAirline();
+                        cin >> choice;
+                        cout << endl;
+
+                        quickSortAirline(airlines, 0, airlines.size() - 1, choice);
+
+                        for (int j = 0; j < airlines.size(); j++)
+                        {
+                            airlines[j].display();
+                            cout << setw(18) << "                   -------------------------------" << endl;
+                        }
+                    }
+                    else if (selection == 2)
+                    {
+                        init.displaySeachingAirline();
+                        cin >> choice;
+                        cout << endl;
+
+                        if (choice == 1)
+                        {
+                            string AirplaneID;
+                            int found = 0;
+                            cout << setw(42) << "Insert the AirplaneID: ";
                             cin.ignore();
-                            if (choice == 1)
-                            {
-                                string username;
-                                int found = 0;
-                                cout << setw(42) << "Insert the Name: ";
+                            getline(cin, AirplaneID);
+                            quickSortAirline(airlines, 0, airlines.size() - 1, 1);
+                            found = binarySearchByAirplaneID(airlines, AirplaneID);
 
-                                getline(cin, username);
-                                quickSortUsers(users, 0, users.size() - 1, 1);
-                                found = binarySearchByName(users, username);
+                            airlines[found].display();
+                        }
 
-                                users[found].display();
-                            }
+                        if (choice == 2)
+                        {
+                            string Capacity;
+                            int found = 0;
+                            cout << setw(42) << "Insert the Capacity: ";
+                            cin.ignore();
+                            getline(cin, Capacity);
+                            quickSortAirline(airlines, 0, airlines.size() - 1, 1);
+                            found = binarySearchByCapacity(airlines, Capacity);
 
-                            if (choice == 2)
-                            {
-                                string IC;
-                                int found = 0;
-                                cout << setw(42) << "Insert the IC: ";
+                            airlines[found].display();
+                        }
 
-                                getline(cin, IC);
-                                quickSortUsers(users, 0, users.size() - 1, 1);
-                                found = binarySearchByIC(users, IC);
+                        if (choice == 3)
+                        {
+                            string Company;
+                            int found = 0;
+                            cout << setw(42) << "Insert the Company: ";
+                            cin.ignore();
+                            getline(cin, Company);
+                            quickSortAirline(airlines, 0, airlines.size() - 1, 1);
+                            found = binarySearchByCompany(airlines, Company);
 
-                                users[found].display();
-                            }
-
-                            if (choice == 3)
-                            {
-                                string Phone;
-                                int found = 0;
-                                cout << setw(38) << "Insert the Phone: ";
-
-                                getline(cin, Phone);
-                                quickSortUsers(users, 0, users.size() - 1, 1);
-                                found = binarySearchByPhone(users, Phone);
-
-                                users[found].display();
-                            }
-
-                            if (choice == 4)
-                            {
-                                string Email;
-                                int found = 0;
-                                cout << setw(42) << "Insert the Email: ";
-
-                                getline(cin, Email);
-                                quickSortUsers(users, 0, users.size() - 1, 1);
-                                found = binarySearchByEmail(users, Email);
-
-                                users[found].display();
-                            }
+                            airlines[found].display();
                         }
                     }
-                    else if (choice == 2)
+                }
+                else if (choice == 3)
+                {
+                    int selection;
+                    init.displaySelection();
+                    cin >> selection;
+                    cout << endl;
+
+                    if (selection == 1)
                     {
-                        int selection;
-                        init.displaySelection();
-                        cin >> selection;
-                        cout << endl;
-                        if (selection == 1)
-                        {
-                            init.displaySortingAirline();
-                            cin >> choice;
-                            cout << endl;
-
-                            quickSortAirline(airlines, 0, airlines.size() - 1, choice);
-
-                            for (int j = 0; j < airlines.size(); j++)
-                            {
-                                airlines[j].display();
-                                cout << setw(18) << "                   -------------------------------" << endl;
-                            }
-                        }
-                        else if (selection == 2)
-                        {
-                            init.displaySeachingAirline();
-                            cin >> choice;
-                            cout << endl;
-
-                            if (choice == 1)
-                            {
-                                string AirplaneID;
-                                int found = 0;
-                                cout << setw(42) << "Insert the AirplaneID: ";
-                                cin.ignore();
-                                getline(cin, AirplaneID);
-                                quickSortAirline(airlines, 0, airlines.size() - 1, 1);
-                                found = binarySearchByAirplaneID(airlines, AirplaneID);
-
-                                airlines[found].display();
-                            }
-
-                            if (choice == 2)
-                            {
-                                string Capacity;
-                                int found = 0;
-                                cout << setw(42) << "Insert the Capacity: ";
-                                cin.ignore();
-                                getline(cin, Capacity);
-                                quickSortAirline(airlines, 0, airlines.size() - 1, 1);
-                                found = binarySearchByCapacity(airlines, Capacity);
-
-                                airlines[found].display();
-                            }
-
-                            if (choice == 3)
-                            {
-                                string Company;
-                                int found = 0;
-                                cout << setw(42) << "Insert the Company: ";
-                                cin.ignore();
-                                getline(cin, Company);
-                                quickSortAirline(airlines, 0, airlines.size() - 1, 1);
-                                found = binarySearchByCompany(airlines, Company);
-
-                                airlines[found].display();
-                            }
-                        }
-                    }
-                    else if (choice == 3)
-                    {
-                        int selection;
-                        init.displaySelection();
-                        cin >> selection;
+                        init.displaySortingReservation();
+                        cin >> choice;
                         cout << endl;
 
-                        if (selection == 1)
+                        quickSortReservation(reservations, 0, reservations.size() - 1, choice);
+
+                        for (int j = 0; j < reservations.size(); j++)
                         {
-                            init.displaySortingReservation();
-                            cin >> choice;
-                            cout << endl;
-
-                            quickSortReservation(reservations, 0, reservations.size() - 1, choice);
-
-                            for (int j = 0; j < reservations.size(); j++)
-                            {
-                                reservations[j].display();
-                                cout << setw(18) << "                   -------------------------------" << endl;
-                            }
-                        }
-                        else if (selection == 2)
-                        {
-                            init.displaySeachingReservation();
-                            cin >> choice;
-                            cout << endl;
-
-                            if (choice == 1)
-                            {
-                                string ReservationID;
-                                int found = 0;
-                                cout << setw(47) << "Insert the ReservationID (RX): ";
-                                cin.ignore();
-                                getline(cin, ReservationID);
-                                quickSortReservation(reservations, 0, reservations.size() - 1, 1);
-                                found = binarySearchByReservationID(reservations, ReservationID);
-
-                                reservations[found].display();
-                            }
-
-                            if (choice == 2)
-                            {
-                                string DepartureTime;
-                                int found = 0;
-                                cout << setw(47) << "Insert the Departure Time: ";
-                                cin.ignore();
-                                getline(cin, DepartureTime);
-                                quickSortReservation(reservations, 0, reservations.size() - 1, 1);
-                                found = binarySearchByDepartureTime(reservations, DepartureTime);
-
-                                reservations[found].display();
-                            }
-
-                            if (choice == 3)
-                            {
-                                string ArrivalTime;
-                                int found = 0;
-                                cout << setw(47) << "Insert the Arrival Time: ";
-                                cin.ignore();
-                                getline(cin, ArrivalTime);
-                                quickSortReservation(reservations, 0, reservations.size() - 1, 1);
-                                found = binarySearchByArrivalTime(reservations, ArrivalTime);
-
-                                reservations[found].display();
-                            }
-
-                            if (choice == 4)
-                            {
-                                string Date;
-                                int found = 0;
-                                cout << setw(47) << "Insert the Date (YYYY-MM-DD): ";
-                                cin.ignore();
-                                getline(cin, Date);
-                                quickSortReservation(reservations, 0, reservations.size() - 1, 1);
-                                found = binarySearchByDate(reservations, Date);
-
-                                reservations[found].display();
-                            }
-
-                            if (choice == 5)
-                            {
-                                string Location;
-                                int found = 0;
-                                cout << setw(39) << "Insert the Location: ";
-                                cin.ignore();
-                                getline(cin, Location);
-                                quickSortReservation(reservations, 0, reservations.size() - 1, 1);
-                                found = binarySearchByLocation(reservations, Location);
-
-                                reservations[found].display();
-                            }
+                            reservations[j].display();
+                            cout << setw(18) << "                   -------------------------------" << endl;
                         }
                     }
-                    else
-                        cout << setw(41) << "Invalid Choice" << endl;
+                    else if (selection == 2)
+                    {
+                        init.displaySeachingReservation();
+                        cin >> choice;
+                        cout << endl;
 
-                    break;
+                        if (choice == 1)
+                        {
+                            string ReservationID;
+                            int found = 0;
+                            cout << setw(47) << "Insert the ReservationID (RX): ";
+                            cin.ignore();
+                            getline(cin, ReservationID);
+                            quickSortReservation(reservations, 0, reservations.size() - 1, 1);
+                            found = binarySearchByReservationID(reservations, ReservationID);
+
+                            reservations[found].display();
+                        }
+
+                        else if (choice == 2)
+                        {
+                            string DepartureTime;
+                            int found = 0;
+                            cout << setw(47) << "Insert the Departure Time: ";
+                            cin.ignore();
+                            getline(cin, DepartureTime);
+                            quickSortReservation(reservations, 0, reservations.size() - 1, 1);
+                            found = binarySearchByDepartureTime(reservations, DepartureTime);
+
+                            reservations[found].display();
+                        }
+
+                        else if (choice == 3)
+                        {
+                            string ArrivalTime;
+                            int found = 0;
+                            cout << setw(47) << "Insert the Arrival Time: ";
+                            cin.ignore();
+                            getline(cin, ArrivalTime);
+                            quickSortReservation(reservations, 0, reservations.size() - 1, 1);
+                            found = binarySearchByArrivalTime(reservations, ArrivalTime);
+
+                            reservations[found].display();
+                        }
+
+                        else if (choice == 4)
+                        {
+                            string Date;
+                            int found = 0;
+                            cout << setw(47) << "Insert the Date (YYYY-MM-DD): ";
+                            cin.ignore();
+                            getline(cin, Date);
+                            quickSortReservation(reservations, 0, reservations.size() - 1, 1);
+                            found = binarySearchByDate(reservations, Date);
+
+                            reservations[found].display();
+                        }
+
+                        else if (choice == 5)
+                        {
+                            string Location;
+                            int found = 0;
+                            cout << setw(39) << "Insert the Location: ";
+                            cin.ignore();
+                            getline(cin, Location);
+                            quickSortReservation(reservations, 0, reservations.size() - 1, 1);
+                            found = binarySearchByLocation(reservations, Location);
+
+                            reservations[found].display();
+                        }
+                    }
+                }
+                else
+                    cout << setw(41) << "Invalid Choice" << endl;
+            }
+
+            break;
+        }
+        break;
+        case 2:
+        {
+            int pilih;
+            init.displayReservationManagement();
+            cout << setw(37) << "Option: ";
+            cin >> pilih;
+
+            int pilih2;
+            if (pilih == 1)
+            {
+                init.displayAlter();
+                cin >> pilih2;
+                if (pilih2 == 1)
+                {
+                }
+                else if (pilih2 == 2)
+                {
+                }
+                else if (pilih2 == 3)
+                {
+                }
+                else if (pilih2 == 4)
+                {
                 }
             }
-            break;
-            default:
-                cout << setw(41) << "Invalid Choice" << endl;
-                return 1;
+
+            if (pilih == 2)
+            {
+                init.displayAlter();
+                string AirplaneID, Capacity, Company;
+
+                cin >> pilih2;
+                if (pilih2 == 1)
+                {
+                    for (int i = 0; i < airlines.size(); i++)
+                    {
+                        airlineList.insertNode(airlines[i].getAirplaneID(), airlines[i].getCapacity(), airlines[i].getCompany());
+                    }
+
+                    cout << "Current Airplane List: " << endl
+                         << endl;
+                    airlineList.displayAirplaneList();
+
+                    cout << "Enter new Airplane ID: ";
+                    getline(cin >> ws, AirplaneID);
+                    cout << "Enter Capacity: ";
+                    getline(cin >> ws, Capacity);
+                    cout << "Enter Company: ";
+                    getline(cin >> ws, Company);
+
+                    airlineList.updateAirplaneCSV(AirplaneID, Capacity, Company);
+                    LoadFiles(users, airlines, reservations);
+
+                    // system("cls");
+                    cout << "\nUpdated Airplane List: " << endl
+                         << endl;
+                    airlineList.displayAirplaneList();
+                }
+                else if (pilih2 == 2)
+                {
+                    cout << "Current Airplane List: " << endl
+                         << endl;
+                    airlineList.displayAirplaneList();
+
+                    string deleteAirplaneID;
+                    cout << "Enter Airplane ID to delete: ";
+                    getline(cin >> ws, deleteAirplaneID);
+
+                    airlineList.deleteNodeAirline(deleteAirplaneID);
+                    LoadFiles(users, airlines, reservations);
+
+                    cout << "Current Airplane List after deletion: " << endl;
+                    airlineList.displayAirplaneList();
+                }
+                else if (pilih2 == 3)
+                {
+                    cout << "Enter AirplaneID to search\n";
+                    string searchAirplaneID;
+                    getline(cin >> ws, searchAirplaneID);
+
+                    airlineList.findAirplaneNode(searchAirplaneID);
+                }
+                else if (pilih2 == 4)
+                {
+                    cout << "Current Airplane List: " << endl
+                         << endl;
+                    airlineList.displayAirplaneList();
+                }
+                else
+                    break;
+            }
+
+            if (pilih == 3)
+            {
+                init.displayAlter();
+                cin >> pilih2;
+                if (pilih2 == 1)
+                {
+                }
+                else if (pilih2 == 2)
+                {
+                }
+                else if (pilih2 == 3)
+                {
+                }
+                else if (pilih2 == 4)
+                {
+                }
             }
         }
         break;
-        default:
-            cout << setw(41) << "Invalid Choice" << endl;
-            return 1;
         }
+
+        //
+
+        // reservationList.updateCSV("1", "2", "33", "$", "%", "23123");
+        // airlineList.updateAirplaneCSV("1", "2", "#");
+        // LoadFiles(users, airlines, reservations);
+
+        // airlineList.displayAirplaneList();
+        // reservationList.displayList();
     }
 }

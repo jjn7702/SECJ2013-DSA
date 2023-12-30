@@ -20,9 +20,9 @@ Our objectives for this assignment are:
 
 a. To store and arrange customer information using a linked list structure.
 
-b. Keep a record of booking details, such as  room number and check-in date, with each customer node.
+b. Keep record of booking details, such as customers’ name, age, IC number, phone number, room number and check-in date, with each customer node.
 
-c. To allow changeable functions such as adding, deleting, and finding customers from the list.
+c. To allow changeable functions such as adding, deleting, finding, sorting customers from the list.
 
 
 
@@ -36,5 +36,5 @@ This hotel booking system uses a constant change of linked lists, allowing for t
 ## Findings 📊
 
 - [Source Code](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/The%20Trio/Assignment%202/Source%20code)
-- Plagiarism Report
-- Report
+- [Plagiarism Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/The%20Trio/Assignment%202/Assignment%202%20Plagiarism%20Report.pdf)
+- [Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/The%20Trio/Assignment%202/ASSIGNMENT%202%20(DSA)%20.pdf)

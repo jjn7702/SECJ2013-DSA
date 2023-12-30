@@ -75,7 +75,7 @@ public:
 // Node structure for the linked list
 class Node
 {
-    public:
+public:
     Book data;
     Node *next;
 };
@@ -88,7 +88,7 @@ private:
 
 public:
     // Constructor and destructor
-    Library() : head(nullptr) , size(0) {}
+    Library() : head(nullptr), size(0) {}
     ~Library()
     {
         // Destructor to free allocated memory
@@ -112,40 +112,95 @@ public:
         head = newNode;
     }
 
-    void deleteNode(string key)
+    void deleteNode(int nodeChoice)
     {
         Node *current = head;
         Node *prev = nullptr;
 
-        // Traverse the list to find the node with the key
-        while (current != nullptr && (current->data.getTitle() != key && current->data.getISBN() != key))
+        switch (nodeChoice)
         {
-            prev = current;
-            current = current->next;
-        }
-
-        // If the node with the key is found
-        if (current != nullptr)
-        {
-            if (prev == nullptr)
+        case 1:
+            // Delete the front node
+            if (head != nullptr)
             {
-                // If it's the first node
                 head = current->next;
+                delete current;
             }
             else
             {
-                // If it's in the middle or end
-                prev->next = current->next;
+                cout << "Library is empty. Cannot delete from the front." << endl;
             }
-            delete current;
-        }
-        else
+            break;
+
+        case 2:
+            // Delete a node in the middle
+        if (head != nullptr)
         {
-            cout << "Book not found with title or ISBN: " << key << endl;
+            int size = getSize();
+            int middlePosition = (size + 1) / 2;
+
+            if (middlePosition == 1)
+            {
+                // If there is only one node, treat it as deleting from the front
+                head = current->next;
+                delete current;
+            }
+            else if (size >= 3)
+            {
+                int currentPosition = 1;
+
+                // Traverse to the node before the middle position
+                while (currentPosition < middlePosition - 1 && current->next)
+                {
+                    prev = current;
+                    current = current->next;
+                    currentPosition++;
+                }
+
+                // Delete the node at the middle
+                prev->next = current->next;
+                delete current;
+            }
+            else
+            {
+                cout << "Not enough nodes to delete from the middle." << endl;
+            }
+        }
+
+        case 3:
+            // Delete the last node
+            if (head != nullptr)
+            {
+                while (current->next != nullptr)
+                {
+                    prev = current;
+                    current = current->next;
+                }
+                if (prev != nullptr)
+                {
+                    prev->next = nullptr;
+                    delete current;
+                }
+                else
+                {
+                    // Only one node in the list
+                    delete current;
+                    head = nullptr;
+                }
+            }
+            else
+            {
+                cout << "Library is empty. Cannot delete from the end." << endl;
+            }
+            break;
+
+        default:
+            cout << "Invalid choice. No node deleted." << endl;
         }
     }
 
-    Node findNode(string key)
+    // Modify the findNode function to return a Node* instead of Node
+    Node *findNode(string key)
     {
         Node *current = head;
 
@@ -154,7 +209,7 @@ public:
             current = current->next;
         }
 
-        return *current;
+        return current; // Return a pointer to the found node or nullptr if not found
     }
 
     void displayList()
@@ -179,58 +234,71 @@ public:
         cout << "-----------------------------------------------------------------------------------------------------------" << endl;
     }
 
-    int getSize() {
+    int getSize()
+    {
         return size;
     }
 
-    void addNodeMiddle(Book book) {
-    Node* newNode = new Node{book, nullptr};
+    void addNodeMiddle(Book book)
+    {
+        Node *newNode = new Node{book, nullptr};
 
-    if (head == nullptr) {
-        // If the list is empty, insert at the beginning
-        newNode->next = head;
-        head = newNode;
-    } else {
-        int size = getSize();
-        int middlePosition = (size + 1) / 2;
-
-        Node* current = head;
-        int currentPosition = 1;
-
-        // Traverse to the node before the middle position
-        while (currentPosition < middlePosition - 1 && current->next) {
-            current = current->next;
-            currentPosition++;
+        if (head == nullptr)
+        {
+            // If the list is empty, insert at the beginning
+            newNode->next = head;
+            head = newNode;
         }
+        else
+        {
+            int size = getSize();
+            int middlePosition = (size + 1) / 2;
 
-        // Insert at the middle or end
-        newNode->next = current->next;
-        current->next = newNode;
-    }
-}
+            Node *current = head;
+            int currentPosition = 1;
 
-void addNodeEnd(Book book) {
-    Node* newNode = new Node{book, nullptr};
+            // Traverse to the node before the middle position
+            while (currentPosition < middlePosition - 1 && current->next)
+            {
+                current = current->next;
+                currentPosition++;
+            }
 
-    if (head == nullptr) {
-        // If the list is empty, insert at the beginning
-        newNode->next = head;
-        head = newNode;
-    } else {
-        Node* current = head;
-
-        // Traverse to the last node
-        while (current->next) {
-            current = current->next;
+            // Insert at the middle or end
+            newNode->next = current->next;
+            current->next = newNode;
         }
-
-        // Insert at the end
-        current->next = newNode;
     }
-}
- // Bubble sort function to sort books by title
-    void sortBooksByTitle() {
-        if (head == nullptr || head->next == nullptr) {
+
+    void addNodeEnd(Book book)
+    {
+        Node *newNode = new Node{book, nullptr};
+
+        if (head == nullptr)
+        {
+            // If the list is empty, insert at the beginning
+            newNode->next = head;
+            head = newNode;
+        }
+        else
+        {
+            Node *current = head;
+
+            // Traverse to the last node
+            while (current->next)
+            {
+                current = current->next;
+            }
+
+            // Insert at the end
+            current->next = newNode;
+        }
+    }
+    // Bubble sort function to sort books by title
+    void sortBooksByTitle()
+    {
+        if (head == nullptr || head->next == nullptr)
+        {
             // If the list is empty or has only one element, it's already sorted
             return;
         }
@@ -239,12 +307,15 @@ void addNodeEnd(Book book) {
         Node *ptr;
         Node *lastPtr = nullptr;
 
-        do {
+        do
+        {
             swapped = false;
             ptr = head;
 
-            while (ptr->next != lastPtr) {
-                if (ptr->data.getTitle() > ptr->next->data.getTitle()) {
+            while (ptr->next != lastPtr)
+            {
+                if (ptr->data.getTitle() > ptr->next->data.getTitle())
+                {
                     // Swap nodes if they are in the wrong order
                     Book temp = ptr->data;
                     ptr->data = ptr->next->data;
@@ -261,8 +332,10 @@ void addNodeEnd(Book book) {
     // using the appropriate comparison logic.
 
     // Function to sort books by author (example)
-    void sortBooksByAuthor() {
-        if (head == nullptr || head->next == nullptr) {
+    void sortBooksByAuthor()
+    {
+        if (head == nullptr || head->next == nullptr)
+        {
             // If the list is empty or has only one element, it's already sorted
             return;
         }
@@ -271,12 +344,15 @@ void addNodeEnd(Book book) {
         Node *ptr;
         Node *lastPtr = nullptr;
 
-        do {
+        do
+        {
             swapped = false;
             ptr = head;
 
-            while (ptr->next != lastPtr) {
-                if (ptr->data.getAuthor() > ptr->next->data.getAuthor()) {
+            while (ptr->next != lastPtr)
+            {
+                if (ptr->data.getAuthor() > ptr->next->data.getAuthor())
+                {
                     // Swap nodes if they are in the wrong order
                     Book temp = ptr->data;
                     ptr->data = ptr->next->data;
@@ -288,8 +364,10 @@ void addNodeEnd(Book book) {
             lastPtr = ptr;
         } while (swapped);
     }
-void sortBooksByYear() {
-        if (head == nullptr || head->next == nullptr) {
+    void sortBooksByYear()
+    {
+        if (head == nullptr || head->next == nullptr)
+        {
             // If the list is empty or has only one element, it's already sorted
             return;
         }
@@ -298,12 +376,15 @@ void sortBooksByYear() {
         Node *ptr;
         Node *lastPtr = nullptr;
 
-        do {
+        do
+        {
             swapped = false;
             ptr = head;
 
-            while (ptr->next != lastPtr) {
-                if (ptr->data.getYear() > ptr->next->data.getYear()) {
+            while (ptr->next != lastPtr)
+            {
+                if (ptr->data.getYear() > ptr->next->data.getYear())
+                {
                     // Swap nodes if they are in the wrong order
                     Book temp = ptr->data;
                     ptr->data = ptr->next->data;
@@ -315,8 +396,10 @@ void sortBooksByYear() {
             lastPtr = ptr;
         } while (swapped);
     }
-    void sortBooksByISBN() {
-        if (head == nullptr || head->next == nullptr) {
+    void sortBooksByISBN()
+    {
+        if (head == nullptr || head->next == nullptr)
+        {
             // If the list is empty or has only one element, it's already sorted
             return;
         }
@@ -325,12 +408,15 @@ void sortBooksByYear() {
         Node *ptr;
         Node *lastPtr = nullptr;
 
-        do {
+        do
+        {
             swapped = false;
             ptr = head;
 
-            while (ptr->next != lastPtr) {
-                if (ptr->data.getISBN() > ptr->next->data.getISBN()) {
+            while (ptr->next != lastPtr)
+            {
+                if (ptr->data.getISBN() > ptr->next->data.getISBN())
+                {
                     // Swap nodes if they are in the wrong order
                     Book temp = ptr->data;
                     ptr->data = ptr->next->data;
@@ -357,8 +443,7 @@ int main()
     // Check if the file is open
     if (!inputFile.is_open())
     {
-        cerr << "Error opening file: book.txt" << endl;
-        return 1; // Exit with an error code
+        cout << "Error opening file: book.txt" << endl;
     }
 
     // Read books from the file and add them to the library
@@ -391,7 +476,8 @@ int main()
         cout << setw(39) << " ____________________________________" << endl;
         cout << setw(40) << "|                                    |" << endl;
         cout << setw(40) << "|       Welcome to DTD Library!      |" << endl;
-        cout << setw(40) << "|____________________________________|" << endl << endl;
+        cout << setw(40) << "|____________________________________|" << endl
+             << endl;
 
         cout << setw(5) << "[1] Add Book" << endl;
         cout << setw(5) << "[2] Find Book" << endl;
@@ -413,7 +499,8 @@ int main()
             cout << setw(39) << " ____________________________________" << endl;
             cout << setw(40) << "|                                    |" << endl;
             cout << setw(40) << "|              Add Node              |" << endl;
-            cout << setw(40) << "|____________________________________|" << endl << endl;
+            cout << setw(40) << "|____________________________________|" << endl
+                 << endl;
 
             cout << setw(5) << "[1] Add Book (Front)" << endl;
             cout << setw(5) << "[2] Add Book (Middle)" << endl;
@@ -424,86 +511,86 @@ int main()
 
             if (nodeChoice == 1)
             {
-            // Add Book
-            system("cls");
-            Book newBook;
-            cin.ignore(); // Ignore newline character from previous input
-            cout << "Enter book title: ";
-            getline(cin, Title);
-            newBook.setTitle(Title);
-            cout << "Enter book author: ";
-            getline(cin, Author);
-            newBook.setAuthor(Author);
-            cout << "Enter year of publication: ";
-            cin >> Year;
-            newBook.setYear(Year);
-            cin.ignore(); // Ignore newline character from previous input
-            cout << "Enter ISBN (Example : 123-1234567890): ";
-            getline(cin, isbn);
-            newBook.setISBN(isbn);
+                // Add Book
+                system("cls");
+                Book newBook;
+                cin.ignore(); // Ignore newline character from previous input
+                cout << "Enter book title: ";
+                getline(cin, Title);
+                newBook.setTitle(Title);
+                cout << "Enter book author: ";
+                getline(cin, Author);
+                newBook.setAuthor(Author);
+                cout << "Enter year of publication: ";
+                cin >> Year;
+                newBook.setYear(Year);
+                cin.ignore(); // Ignore newline character from previous input
+                cout << "Enter ISBN (Example : 123-1234567890): ";
+                getline(cin, isbn);
+                newBook.setISBN(isbn);
 
-            library.addNode(newBook);
-            cout << "Book added successfully!" << endl;
-            system("pause");
+                library.addNode(newBook);
+                cout << "Book added successfully!" << endl;
+                system("pause");
 
-            library.displayList();
+                library.displayList();
             }
 
             else if (nodeChoice == 2)
             {
-            system("cls");
-            Book newBook;
-            cin.ignore(); // Ignore newline character from previous input
-            cout << "Enter book title: ";
-            getline(cin, Title);
-            newBook.setTitle(Title);
-            cout << "Enter book author: ";
-            getline(cin, Author);
-            newBook.setAuthor(Author);
-            cout << "Enter year of publication: ";
-            cin >> Year;
-            newBook.setYear(Year);
-            cin.ignore(); // Ignore newline character from previous input
-            cout << "Enter ISBN (Example : 123-1234567890): ";
-            getline(cin, isbn);
-            newBook.setISBN(isbn);
+                system("cls");
+                Book newBook;
+                cin.ignore(); // Ignore newline character from previous input
+                cout << "Enter book title: ";
+                getline(cin, Title);
+                newBook.setTitle(Title);
+                cout << "Enter book author: ";
+                getline(cin, Author);
+                newBook.setAuthor(Author);
+                cout << "Enter year of publication: ";
+                cin >> Year;
+                newBook.setYear(Year);
+                cin.ignore(); // Ignore newline character from previous input
+                cout << "Enter ISBN (Example : 123-1234567890): ";
+                getline(cin, isbn);
+                newBook.setISBN(isbn);
 
-            library.addNodeMiddle(newBook);
-            cout << "Book added successfully!" << endl;
-            system("pause");
+                library.addNodeMiddle(newBook);
+                cout << "Book added successfully!" << endl;
+                system("pause");
 
-            library.displayList();
+                library.displayList();
             }
 
             else if (nodeChoice == 3)
             {
-            system("cls");
-            Book newBook;
-            cin.ignore(); // Ignore newline character from previous input
-            cout << "Enter book title: ";
-            getline(cin, Title);
-            newBook.setTitle(Title);
-            cout << "Enter book author: ";
-            getline(cin, Author);
-            newBook.setAuthor(Author);
-            cout << "Enter year of publication: ";
-            cin >> Year;
-            newBook.setYear(Year);
-            cin.ignore(); // Ignore newline character from previous input
-            cout << "Enter ISBN (Example : 123-1234567890): ";
-            getline(cin, isbn);
-            newBook.setISBN(isbn);
+                system("cls");
+                Book newBook;
+                cin.ignore(); // Ignore newline character from previous input
+                cout << "Enter book title: ";
+                getline(cin, Title);
+                newBook.setTitle(Title);
+                cout << "Enter book author: ";
+                getline(cin, Author);
+                newBook.setAuthor(Author);
+                cout << "Enter year of publication: ";
+                cin >> Year;
+                newBook.setYear(Year);
+                cin.ignore(); // Ignore newline character from previous input
+                cout << "Enter ISBN (Example : 123-1234567890): ";
+                getline(cin, isbn);
+                newBook.setISBN(isbn);
 
-            library.addNodeEnd(newBook);
-            cout << "Book added successfully!" << endl;
-            system("pause");
+                library.addNodeEnd(newBook);
+                cout << "Book added successfully!" << endl;
+                system("pause");
 
-            library.displayList();
+                library.displayList();
             }
 
             else
             {
-            cout << "Invalid choice. Please try again." << endl;
+                cout << "Invalid choice. Please try again." << endl;
             }
 
             break;
@@ -513,78 +600,94 @@ int main()
         {
             // Find Book
             string searchKey;
-            
+
             system("cls");
             cout << setw(39) << " ____________________________________" << endl;
             cout << setw(40) << "|                                    |" << endl;
             cout << setw(40) << "|              Find Node             |" << endl;
-            cout << setw(40) << "|____________________________________|" << endl << endl;
+            cout << setw(40) << "|____________________________________|" << endl
+                 << endl;
 
             cout << "Enter title or ISBN to search: ";
             cin.ignore();
             getline(cin, searchKey);
 
-            Node foundNode = library.findNode(searchKey);
-            if (&foundNode != nullptr)
+            Node *foundNode = library.findNode(searchKey);
+
+            if (foundNode == nullptr)
             {
-                cout << "Book found: " << endl;
-                foundNode.data.displayBook();
+                cout << "Book not found with title or ISBN: " << searchKey << endl;
             }
             else
             {
-                cout << "Book not found with title or ISBN: " << searchKey << endl;
+                cout << "Book found: " << endl;
+                foundNode->data.displayBook();
             }
             break;
         }
         case 3:
         {
             // Delete Book
-            string deleteKey;
-
             system("cls");
+            int deleteChoice;
             cout << setw(39) << " ____________________________________" << endl;
             cout << setw(40) << "|                                    |" << endl;
             cout << setw(40) << "|             Delete Node            |" << endl;
-            cout << setw(40) << "|____________________________________|" << endl << endl;
+            cout << setw(40) << "|____________________________________|" << endl
+                 << endl;
 
-            cout << "Enter title or ISBN to delete: ";
-            cin.ignore();
-            getline(cin, deleteKey);
-            library.deleteNode(deleteKey);
-            cout << "Book deleted successfully!" << endl;
-            library.displayList();
+            cout << "[1] Delete Front Node" << endl;
+            cout << "[2] Delete Middle Node" << endl; // Add more options as needed
+            cout << "[3] Delete End Node" << endl;
+
+            cout << "Please enter your choice: ";
+            cin >> deleteChoice;
+
+            if (deleteChoice == 1 || deleteChoice == 2 || deleteChoice == 3)
+            {
+                cout << "Node deleted successfully!" << endl;
+                system("pause");
+                library.deleteNode(deleteChoice);
+                library.displayList();
+            }
+            else
+            {
+                cout << "Invalid choice. Please try again." << endl;
+            }
+
             break;
         }
         case 4:
             // Sort Books
-        int sortChoice;
-        cout << "Sort by:" << endl;
-        cout << "[1] Title" << endl;
-        cout << "[2] Author" << endl;
-        cout << "[3] Year" << endl;
-        cout << "[4] ISBN" << endl;
-        cout << "Enter your choice: ";
-        cin >> sortChoice;
-                
-        switch (sortChoice) {
-        case 1:
-            library.sortBooksByTitle();
+            int sortChoice;
+            cout << "Sort by:" << endl;
+            cout << "[1] Title" << endl;
+            cout << "[2] Author" << endl;
+            cout << "[3] Year" << endl;
+            cout << "[4] ISBN" << endl;
+            cout << "Enter your choice: ";
+            cin >> sortChoice;
+
+            switch (sortChoice)
+            {
+            case 1:
+                library.sortBooksByTitle();
+                break;
+            case 2:
+                library.sortBooksByAuthor();
+                break;
+            case 3:
+                library.sortBooksByYear();
+                break;
+            case 4:
+                library.sortBooksByISBN();
+                break;
+            default:
+                cout << "Invalid choice. Please try again." << endl;
+            }
+
+            library.displayList();
             break;
-        case 2:
-            library.sortBooksByAuthor();
-            break;
-        case 3:
-            library.sortBooksByYear();
-            break;
-        case 4:
-            library.sortBooksByISBN();
-            break;
-        default:
-            cout << "Invalid choice. Please try again." << endl;
-    }
-    	
-    	library.displayList();
-        break;
         case 5:
             // Display Books
             library.displayList();
