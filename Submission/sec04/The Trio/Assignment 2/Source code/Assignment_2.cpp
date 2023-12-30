@@ -124,6 +124,13 @@ class CustomerList{
 			}
 				
 			Customer *current = head ;
+
+			if(current->next == NULL)
+			{
+				head = NULL ;
+				delete current ;
+				return ;
+			}
 				
 			if(current->next != NULL) // check if the head is no NULL before delete
 			{
