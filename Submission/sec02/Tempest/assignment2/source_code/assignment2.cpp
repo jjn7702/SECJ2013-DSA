@@ -134,7 +134,13 @@ public:
         {
             prev=current;
             current=current->next;
+            count++;
 
+        }
+        
+        if(current==nullptr)
+        {
+            
         }
     }
 
