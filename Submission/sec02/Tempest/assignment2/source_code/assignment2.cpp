@@ -802,6 +802,7 @@ int main()
 
                     //set node data
                     //insert node
+                    newTask.settask(tasks);
                     cout << "\n\nTask added at the beginning." << endl;
                 }
                 break;
