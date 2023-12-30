@@ -1,3 +1,11 @@
+#include<iostream>
+#include<fstream>
+#include<string>
+#include<cstring> 
+#include<iomanip>
+
+using namespace std;
+
 class Account{
 	
 	public:
@@ -52,6 +60,183 @@ class Account{
 		string getAccNum(){
 			return account_number;
 		}
+		
+};
+
+// Node class
+class Node {
+    	
+	public:
+		Account account;
+		Node* next;
+		
+    	Node(Account acc) {
+      		account = acc;
+      		next = NULL; 
+    	}
+};
+
+class List{
+	private:
+		Node* head;
+	
+	public:
+		List(){head = NULL;}
+		
+		bool isEmpty(){
+			return (head == NULL);
+		}
+		
+		//add node at beginning
+		void insertBeginning(Account a){
+			Node* newNode = new Node(a);
+			
+			if(isEmpty()){
+				head = newNode;
+			}
+			else{
+				newNode->next = head;
+				head = newNode;
+			}
+		}
+		
+		//add node at end
+		void insertEnd(Account a){
+			Node* newNode = new Node(a);
+			
+			if (isEmpty()) {
+        		head = newNode;
+    		} 
+			else {
+        		Node* current = head;
+        		while (current->next != NULL) {
+            		current = current->next;
+        		}
+        		current->next = newNode;
+    		}
+		}
+		
+		//add node at middle
+		void insertMiddle(Account a){
+			Node* newNode = new Node(a);
+			
+			if(isEmpty()){
+				head = newNode;
+				return;
+			}
+			
+			Node* slow = head;
+			Node* fast = head->next;
+			
+			//move fast by 2 steps and slow by 1 step
+			//when fast reach end, the slow will move to middle
+			while( fast != NULL && fast->next != NULL){
+				slow = slow->next;
+				fast = fast->next->next;
+			}
+			
+			//insert the new node after the middle node(after slow)
+			newNode->next = slow->next;
+			slow->next = newNode;
+		}
+
+		//delete first node
+		void deleteFirst(){
+			if (!isEmpty()) {
+        		Node* temp = head;
+        		head = head->next;
+        		delete temp;
+        	}
+        	else{
+        		cout<< "The list is empty.\n";
+			}
+		}
+		
+		//delete last node
+		void deleteLast(){
+			if (!isEmpty()) {
+        		if (head->next == NULL) {
+            		delete head;
+            		head = NULL;
+        		} 
+				else {
+            		Node* current = head;
+            		Node* previous = NULL;
+            		while (current->next != NULL) {
+                		previous = current;
+                		current = current->next;
+            		}
+            		delete current;
+            		previous->next = NULL;
+        		}
+    		}
+    		else{
+    			cout << "The list is empty.\n";
+			}
+    	
+		}
+		
+		//delete middle node(delete using account number)
+		bool deleteMiddle(string accNum){
+			Node* current;
+			Node* previous;
+			if (!isEmpty()) {
+        		current = head;
+        		previous = NULL;
+        	}
+
+        	// Check if the first node is the one to be deleted
+        	if (current->account.getAccNum() == accNum) {
+            	head = head->next;
+            	delete current;
+            	return true;
+        	}
+
+        	while (current != NULL && current->account.getAccNum() != accNum) {
+            	previous = current;
+            	current = current->next;
+        	}
+
+        	if (current == NULL) {
+            	cout << "Account not found in the list." << endl;
+            	return false;
+        	}
+
+        	previous->next = current->next;
+        	delete current;
+        	return true;
+		}
+		
+		void findNode(string num){
+			Node* current = head;
+    		bool found = false;
+
+    		while (current != NULL) {
+        		if (current->account.getAccNum() == num) {
+            	cout << "Node found with Account Number " << num << ":\n";
+            	current->account.printTitle();
+            	current->account.printDetails();
+            	found = true;
+            	break;
+        	}
+        		current = current->next;
+    		}
+
+ 	   		if (!found) {
+        		cout << "Node not found with Account Number " << num << ".\n";
+    		}
+		}
+		
+		//display all the node in the list
+		void displayNode(){
+			Node* current = head;
+			current->account.printTitle();
+    		while (current != NULL) {
+        		current->account.printDetails();
+        		current = current->next;
+    		}
+		}
+		
 		
 };
 
@@ -132,7 +317,7 @@ int menuDelete(){
 
 int main(){
 	
-	string filename = "inputasg1.txt";
+	string filename = "inputasg2.txt";
 	
 	cout<<"Enter the input file name: ";
 	//cin>>filename;
