@@ -1001,4 +1001,11 @@ int main()
 						l.emailDes();
                     l.display();
 					break;
+                case 6 : 
+					if(opt6 == 1)
+						l.matasc();
+					else
+						l.matDes();
+                    l.display();
+					break;}
 }
