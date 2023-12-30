@@ -66,6 +66,22 @@ class Cart{
 					head = newNode;
 				}
 			}//insert the number in front
+			else if (w == 2){
+				if(CartEmpty()){
+					head = newNode; 
+				}
+				else{
+					int position;
+					cout << "Enter the position that you want to key in:";
+					cin >> position;
+					Order *temp = head;
+					for(int i =1; i<(position-1); i++){   // int count = 1;   while(temp->next!= NULL && count <loc){ temp = temp-> next; count ++
+						temp = temp->next;
+					}
+					newNode->next = temp->next;
+					temp->next = newNode;
+				}
+			}// insert the number at the middle which the user provide the location
         }
         void deleteNode(int w){
 			Order *temp = head;
@@ -81,5 +97,23 @@ class Cart{
 					delete temp;
 				}
 			}// delete the first number
+			else if (w == 2){
+				if(CartEmpty()){
+					cout << "Does not have order can be delete" << endl;
+				}
+				else{
+					int position;
+					cout << "Enter the position that you want to key in:";
+					cin >> position;
+					Order *temp1;
+					for(int i =1; i<position; i++){   // int count = 1;   while(temp->next!= NULL && count <loc){ temp = temp-> next; count ++
+						temp1 = temp;
+						temp = temp->next;
+					}
+					temp1->next = temp->next;
+					temp->next = NULL;
+					delete temp;
+				}
+			}// delete the number at the middle which the user provide the location
         }
 }
