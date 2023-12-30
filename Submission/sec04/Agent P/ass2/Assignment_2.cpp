@@ -667,6 +667,12 @@ void emailasc(){
                     }}}
 }
 
+void emailDes(){
+    Voter *temp = head;
+    string n,f,e,i,m;
+    int a;
+}
+
 
 };
 
