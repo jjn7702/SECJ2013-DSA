@@ -252,6 +252,10 @@ public:
         }
         cout << endl;
     }
+
+    Node* findNodeByName(string name);
+    Node* findNodeByIC(string ic);
+    Node* findNodeByAge(int age);
 };
 
 // display patient record
@@ -288,6 +292,48 @@ void dispHeader()
 // sorting
 
 // searching
+Node* List::findNodeByName(string name) {
+    Node* currNode = head;
+
+    while (currNode != NULL) {
+        if (currNode->data.getName() == name) {
+            return currNode;
+        }
+
+        currNode = currNode->next;
+    }
+
+    return NULL; // Node not found
+}
+
+Node* List::findNodeByIC(string ic) {
+    Node* currNode = head;
+
+    while (currNode != NULL) {
+        if (currNode->data.getIC() == ic) {
+            return currNode;
+        }
+
+        currNode = currNode->next;
+    }
+
+    return NULL; // Node not found
+}
+
+Node* List::findNodeByAge(int age) {
+    Node* currNode = head;
+
+    while (currNode != NULL) {
+        if (currNode->data.getAge() == age) {
+            return currNode;
+        }
+
+        currNode = currNode->next;
+    }
+
+    return NULL; // Node not found
+}
+
 
 int main()
 {
