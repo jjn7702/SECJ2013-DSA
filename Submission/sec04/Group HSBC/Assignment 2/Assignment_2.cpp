@@ -55,6 +55,96 @@ class Account{
 		
 };
 
+// Node class
+class Node {
+    	
+	public:
+		Account account;
+		Node* next;
+		
+    	Node(Account acc) {
+      		account = acc;
+      		next = NULL; 
+    	}
+};
+
+class List{
+	private:
+		Node* head;
+	
+	public:
+		List(){head = NULL;}
+		
+		bool isEmpty(){
+			return (head == NULL);
+		}
+		
+		//add node at beginning
+		void insertBeginning(Account a){
+			Node* newNode = new Node(a);
+			
+			if(isEmpty()){
+				head = newNode;
+			}
+			else{
+				newNode->next = head;
+				head = newNode;
+			}
+		}
+		
+		//add node at end
+		void insertEnd(Account a){
+			Node* newNode = new Node(a);
+			
+			if (isEmpty()) {
+        		head = newNode;
+    		} 
+			else {
+        		Node* current = head;
+        		while (current->next != NULL) {
+            		current = current->next;
+        		}
+        		current->next = newNode;
+    		}
+		}
+		
+		//add node at middle
+		void insertMiddle(Account a){
+			Node* newNode = new Node(a);
+			
+			if(isEmpty()){
+				head = newNode;
+				return;
+			}
+			
+			Node* slow = head;
+			Node* fast = head->next;
+			
+			//move fast by 2 steps and slow by 1 step
+			//when fast reach end, the slow will move to middle
+			while( fast != NULL && fast->next != NULL){
+				slow = slow->next;
+				fast = fast->next->next;
+			}
+			
+			//insert the new node after the middle node(after slow)
+			newNode->next = slow->next;
+			slow->next = newNode;
+		}
+		
+		//display all the node in the list
+		void displayNode(){
+			Node* current = head;
+			current->account.printTitle();
+    		while (current != NULL) {
+        		current->account.printDetails();
+        		current = current->next;
+    		}
+		}
+		
+		
+};
+
 int read_data(Account acc[], const string& filename){
 	
 	string an, type, d, target;
@@ -132,7 +222,7 @@ int menuDelete(){
 
 int main(){
 	
-	string filename = "inputasg1.txt";
+	string filename = "inputasg2.txt";
 	
 	cout<<"Enter the input file name: ";
 	//cin>>filename;
