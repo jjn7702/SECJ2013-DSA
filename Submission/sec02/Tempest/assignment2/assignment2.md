@@ -18,10 +18,13 @@ In this assignment, implementation of linked list method in described with a foc
 ## Design 🎨
 
 1. Class Diagram
+<img src="https://raw.githubusercontent.com/jjn7702/SECJ2013-DSA/main/Submission/sec02/Tempest/img/Untitled%20Diagram-Page-16.jpg" width=300px, height=500px>
+
+<img src="https://raw.githubusercontent.com/jjn7702/SECJ2013-DSA/main/Submission/sec02/Tempest/img/Untitled%20Diagram-Page-17.jpg" width=500px, height=400px>
 
 
 
-2. Flowchart
+3. Flowchart
 
 
 
