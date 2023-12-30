@@ -254,12 +254,12 @@ public:
     }
 
     //* Find data using specific value
-    int findUserNode(string n, string ic, string p, string mail)
+    int findUserNode(string n)
     {
         int currentIndex = 1;
         User *curr = head;
 
-        while (curr != NULL && (curr->getName() != n || curr->getIC() != ic || curr->getPhone() != p || curr->getEmail() != mail))
+        while (curr != NULL && (curr->getName() != n))
         {
             curr = curr->next;
             currentIndex++;
@@ -661,12 +661,12 @@ public:
         }
     }
 
-    int findNode(string res, string dept, string arr, string dat, string loc, string cla)
+    int findNode(string res)
     {
         int currentIndex = 1;
         Reservation *curr = head;
 
-        while (curr != nullptr && (curr->getReservationID() != res || curr->getArrivalTime() != arr || curr->getClass() != cla || curr->getDate() != dat || curr->getDepartureTime() != dept || curr->getLocation() != loc))
+        while (curr != nullptr && (curr->getReservationID() != res))
         {
             curr = curr->next;
             currentIndex++;
@@ -1968,11 +1968,6 @@ int main()
                 cin >> pilih2;
                 if (pilih2 == 1) //* Insert new value in User
                 {
-                    for (int i = 0; i < users.size(); i++)
-                    {
-                        userList.insertFirstNodeUser(users[i].getName(), users[i].getIC(), users[i].getPhone(), users[i].getEmail());
-                    }
-
                     /* Add option for
                     [1] Front Insert
                     [2] End Insert
@@ -2025,7 +2020,7 @@ int main()
                     string searchUserIC;
                     getline(cin >> ws, searchUserIC);
 
-                    // userList.findNodeUser(searchUserIC);
+                    userList.findUserNode(searchUserIC);
                 }
                 else if (pilih2 == 4) //*Display Sorted(not yet)
                 {
@@ -2046,10 +2041,6 @@ int main()
                 cin >> pilih2;
                 if (pilih2 == 1)
                 {
-                    for (int i = 0; i < airlines.size(); i++)
-                    {
-                        airlineList.insertNode(airlines[i].getAirplaneID(), airlines[i].getCapacity(), airlines[i].getCompany());
-                    }
 
                     cout << "Current Airplane List: " << endl
                          << endl;
@@ -2108,14 +2099,66 @@ int main()
             {
                 init.displayAlter();
                 cin >> pilih2;
+
+                string reservationID, DepartureTime, ArrivalTime, Date, Location, Class;
+
                 if (pilih2 == 1)
                 {
+
+                    cout << "Current User List: " << endl
+                         << endl;
+                    userList.displayUserList();
+
+                    reservationID = 'R' + to_string(reservations.size());
+                    cout << "Enter Identification Number: ";
+                    getline(cin >> ws, DepartureTime);
+                    cout << "Enter Telephone Number: ";
+                    getline(cin >> ws, ArrivalTime);
+                    cout << "Enter Email: ";
+                    getline(cin >> ws, Date);
+                    cout << "Enter Location: ";
+                    getline(cin >> ws, Location);
+                    cout << "Enter Class: ";
+                    getline(cin >> ws, Class);
+
+                    reservationList.updateCSVReservation(reservationID, DepartureTime, ArrivalTime, Date, Location, Class);
+                    LoadFiles(users, airlines, reservations);
+
+                    cout << "\nUpdated User List: " << endl
+                         << endl;
+                    userList.displayUserList();
                 }
                 else if (pilih2 == 2)
                 {
+
+                    cout << "Current User List: " << endl
+                         << endl;
+                    userList.displayUserList();
+
+                    /* Add option for
+                  [1] Front Delete
+                  [2] End Delete
+                  [3] Specific Delete*/
+
+                    string deleteReservationID;
+                    cout << "Enter User's Identification Number to delete: ";
+                    getline(cin >> ws, deleteReservationID);
+
+                    reservationList.deleteNodeReservation(deleteReservationID);
+
+                    LoadFiles(users, airlines, reservations);
+
+                    cout << "Current User List after deletion: " << endl;
+                    userList.displayUserList();
                 }
                 else if (pilih2 == 3)
                 {
+
+                    cout << "Enter Reservation ID to search\n";
+                    string searchReservationID;
+                    getline(cin >> ws, searchReservationID);
+
+                    reservationList.findNode(searchReservationID);
                 }
                 else if (pilih2 == 4)
                 {
