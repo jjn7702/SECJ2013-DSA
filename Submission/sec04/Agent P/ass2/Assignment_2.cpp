@@ -1,3 +1,4 @@
+
 #include <iostream>
 using namespace std;
 
@@ -246,7 +247,7 @@ void search(int opt,string key,int key2)
                     case 6:
                     while(temp != NULL)
                     {
-                        if(temp->getEmail() == key)
+                        if(temp->getMatric() == key)
                         {
                             cout<<"\nName  : "<<temp->getName()<<endl;
                             cout<<"Faculty : "<<temp->getFaculty()<<endl;
@@ -256,10 +257,28 @@ void search(int opt,string key,int key2)
                             cout<<"Matric  : "<<temp->getMatric()<<endl;
                             found = true;
                         }
+                        temp = temp->next;
                     }
+                    break;
 			}
+            if(!found)
+                    cout<<"Data was not found. Try again later !"<<endl;
 			}
 		}
+
+         void display()
+        {
+            Voter *temp=head;
+            cout<<"-----------------------------------------------------------------------------------------------------------------------"<<endl;
+            cout<<"|       Name       "<<" | "<<"      Faculty      "<<" | "<<"      IC     "<<" | "<<"   Age  "<<" | "<<"   Matric Number  "<<" | "<<"         Email            |"<<endl;
+            cout<<"-----------------------------------------------------------------------------------------------------------------------"<<endl;
+             while(temp != NULL)
+            {
+                cout<<left<<"|  "<<setw(16)<<temp->getName()<<" |       "<<setw(13)<<temp->getFaculty()<<" |  "<<setw(12)<<temp->getIC()<<" |     "<<setw(4)<<temp->getAge()<<" |    "<<setw(16)<<temp->getMatric()<<"|  "<<setw(25)<<temp->getEmail()<<"|"<<endl;
+                cout<<"-----------------------------------------------------------------------------------------------------------------------"<<endl;
+                temp = temp->next;
+            }
+        }
 
 	    void outFile2()
         {
