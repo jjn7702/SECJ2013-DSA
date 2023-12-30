@@ -460,11 +460,11 @@ public:
         Inventory *temp = head;
         while (temp != NULL)
         {
-            out << left << setw(20) << temp->getCode()
-                << setw(20) << temp->getName()
-                << setw(20) << temp->getType()
-                << setw(15) << temp->getQuantity()
-                << setw(10) << fixed << setprecision(2) << temp->getPrice();
+            out << temp->getCode() << ","
+                << temp->getName() << ","
+                << temp->getType() << ","
+                << temp->getQuantity() << ","
+                << fixed << setprecision(2) << temp->getPrice();
 
             if (temp->next != NULL)
                 out << endl;
@@ -483,8 +483,6 @@ int main()
     ofstream out;
     bool loop = true;
     inp.open("input.txt");
-    // later change to output to input.txt
-    out.open("output.txt");
 
     // Check input file
     if (!inp)
@@ -506,6 +504,7 @@ int main()
         Inventory *inv = new Inventory(code, name, type, quantity, price);
         InvList.addEnd(inv);
     }
+    inp.close();
 
     // menu
     cout << "~~~~~~~~~~~~~~~~~~~~~  WELCOME TO INVENTORY MANAGEMENT SYSTEM  ~~~~~~~~~~~~~~~~~~~~~\n\n";
@@ -572,9 +571,9 @@ int main()
         }
     }
 
+    out.open("input.txt");
     InvList.storeData(out);
     // close both files
-    inp.close();
     out.close();
     system("pause");
     return 0;
