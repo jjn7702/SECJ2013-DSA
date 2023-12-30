@@ -260,6 +260,8 @@ void search(int opt,string key,int key2)
                     }
                     break;
 			}
+            if(!found)
+                    cout<<"Data was not found. Try again later !"<<endl;
 			}
 		}
 
