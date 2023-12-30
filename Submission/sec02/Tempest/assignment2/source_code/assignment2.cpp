@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class task
+class task//node
 {
 private:
     string tasks;
@@ -53,7 +53,19 @@ public:
     }
 
     void insert(task d)
-    { // insert in front
+    { 
+        task* newNode= new task(d);
+
+        if(isEmpty())
+        {
+            head=newNode;
+        }
+
+        else
+        {
+            newNode->next=head;
+            head=newNode;
+        }
         
     }
 
