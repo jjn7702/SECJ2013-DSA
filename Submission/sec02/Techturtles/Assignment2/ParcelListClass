@@ -1,0 +1,86 @@
+class ParcelList {
+private:
+    Node* head;
+    int count;
+
+public:
+    ParcelList() : head(nullptr), count(0) {}
+
+    ~ParcelList() {
+        Node* current = head;
+        Node* next;
+
+        while (current != nullptr) {
+            next = current->next;
+            delete current->data;
+            delete current;
+            current = next;
+        }
+    }
+
+    int getNodeCount()
+    {
+        return count;
+    }
+
+    void addNodeAtBeginning(Parcel* parcel) {
+        Node* newNode = new Node(parcel);
+        newNode->next = head;
+        head = newNode;
+        count++;
+    }
+
+    void addNodeAtEnd(Parcel* parcel) {
+        Node* newNode = new Node(parcel);
+
+        if (head == nullptr) {
+            head = newNode;
+        }
+        else {
+            Node* current = head;
+            while (current->next != nullptr) {
+                current = current->next;
+            }
+            current->next = newNode;
+            count++;
+        }
+    }
+
+    void addNodeAtPosition(Parcel* parcel, int position) {
+        if (position <= 0) {
+            addNodeAtBeginning(parcel);
+        }
+        else {
+            Node* newNode = new Node(parcel);
+            Node* current = head;
+            int count = 1;
+
+            while (current != nullptr && count < position) {
+                current = current->next;
+                count++;
+            }
+
+            if (current != nullptr) {
+                newNode->next = current->next;
+                current->next = newNode;
+                count++;
+            }
+            else {
+                cout << "Invalid position. Node not added." << endl;
+                delete newNode;
+            }
+        }
+    }
+
+    Node* getNodeAtPosition(int position) const {
+        if (position < 0 || position >= count) {
+            return nullptr; // Invalid position
+        }
+
+        Node* current = head;
+        for (int i = 0; i < position; i++) {
+            current = current->next;
+        }
+
+        return current;
+    }
