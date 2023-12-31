@@ -39,7 +39,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Flow of Event 💹
 1. User will be displayed the inventory list including all the inventory details: code, name, type, quantity and price. User will be directed to the main menu of the inventory management system as follow:<br /> 
-   **What do you need?** <br /><br />
+   **What do you need?** <br />
    
    **1. Add Inventory**<br />
    **2. Delete Inventory**<br />
@@ -79,7 +79,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 10. If the user click on the find option, the system will redirect the user to the next find menu
  where the user can choose to find the data in either of these manner which are:<br />
-    𝟏. **Inventory Code**<br /><br />
+    𝟏. **Inventory Code**<br />
    
     𝟐. **Inventory Name**<br /><br />
    
