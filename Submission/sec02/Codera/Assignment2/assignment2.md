@@ -23,9 +23,9 @@ In order to effectively manage and monitor patients' records in hospitals, a hos
 
 ## Objectives
 
-- Develop a hospital management system.
-- Uses the sorting and searching data structure and algorithm in this hospital management system for management.
-- Allow healthcare workers to get patient’s information, contact information, and their medical history.
+- Develop a hospital management system to manage the patient record.
+- Implement linked list data structure and algorithm to build this hospital mangament system.
+- Allow healthcare workers to add or delete patients, search or sort patient record, and view patient medical history.
 
 ## Class Diagram 
 ### The relationships are:
