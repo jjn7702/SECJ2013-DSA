@@ -1,6 +1,8 @@
 # Banking System - Assignment 2 Report
 
 - <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Assignment2/files/DACCrew%20Assignment%202.pdf" >Report Assignment 2 </a>
+- <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Assignment2/files/Assiggnment2PlagiarismPercentage_DACCrew.pdf" >Report Assignment 2 Turnitin Report </a>
+- <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Assignment2/files/source-code/assignment2.cpp" > Assignment 2 coding </a>
 ## Prepared By DACCrew
 | Name         | Matric No    |
 |--------------|--------------|
