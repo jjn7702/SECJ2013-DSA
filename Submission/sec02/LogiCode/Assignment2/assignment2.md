@@ -36,6 +36,9 @@ Figure 1: Class Diagram of Hotel Booking System
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/5891ba7b-91c6-4b00-8c06-b86758335181" width="15%" height="15%"><br>
   Figure 2: Flowchart of main Function
   <br><br><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/13f62fee-3843-4a1f-940e-f1d03851f2d8" width="70%" height="70%"><br>
+  Figure 3: Flowchart of adminMenu Function
+  <br><br><br>
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/be931299-a607-4ab8-9681-33f6ef476b00" width="70%" height="70%"><br>
   Figure 4: Flowchart of insertMenu Function
   <br><br><br>
