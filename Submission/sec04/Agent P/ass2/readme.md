@@ -10,8 +10,22 @@
 - [Sorting and Searching](#-sorting-and-searching)
 - [Findings](#-Findings)
 
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/project-management.png" width="3%" height="3%"> Introduction
+
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/bc7e2df3-d20d-457c-b9fb-e0574b6a740e" width="3%" height="3%"> Objectives:
 The objective for this assignment 2 is to create a Election management system to manage the voters list.In this system we will enable users to add , delete, searching and sort the voters list based on their preferences.For adding a voter,user can add voters in this list and choose where to place the voter’s details in the voter’s list.User can choose three places to place the voter’s details,which are at the front , at the back and at a place that user desire.For deleting a voter,user can delete voter in the list and choose which one to delete.User can choose to delta the first person in the list or the last person in the list or the person at any position in the list.For searching,user can simply choose any of the 6 key which are voter’s name, faculty, age, email, ic, matric and enter the key’s value they want to search.If the key’s values matches any voter’s key in the list , it will display the voter’s detail to the user , if not it will display “Data was not found. Try again later !”.For sorting,user can simply choose any of the 6 key and choose to view the list in ascending or descending order accordingly to their chosen key.Thus,the aim of this system is to create a user friendly interface where user can easily manage the voter’s management system. 
+
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/ac62ef65-848d-41a6-97c2-1ff40be8ecd3" width="3%" height="3%"> Synopsis
+
+## Design 🎨
+
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/b7b1299f-ead1-4e66-ad2e-95b901f4f03c" width="3%" height="3%"> Class Diagram
+
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/classDIAGRAM.png)
+
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/8b3596b0-7214-4cc8-b868-9ab2a0314386" width="3%" height="3%"> Flowchart
+
+![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Ass1%20(1).jpg)
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/fabaacbe-18c1-4f64-a3a5-e1b40e910e71" width="4%" height="4%"> Linked List
 ##### 1. Insert
@@ -36,12 +50,19 @@ For searching by matric number, we have implemented sequential search to get the
 
 For searching by email, we have implemented sequential search to get the details of the voters based on the email entered by the user. We have implemented the sequential in this searching function because it can be used in both sorted and unsorted lists. If the entered key was successfully found in the list it will display the details which have the voter’s name,faculty,age,ic,email and their matric num to the corresponding name. If the data is not found in the list it will display the message “Data was not found. Try again later !”
 
-##### 4. Sorting
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/fabaacbe-18c1-4f64-a3a5-e1b40e910e71" width="4%" height="4%"> Sorting and Searching
+##### 1. Sorting
+In this system,we have added sorting in ascending and descending order.User will choose a key,from any of the 6 attributes.
 
-In this system,we have added sorting in ascending and descending order.User will choose a key,from any of the 6 attributes.The ascending order for each attributes was done by an improved bubble sorting algorithm.In this algorithm,it will check the node adjacent to it and check whether the value in the node is higher, if it is higher, the values will be swapped, if not the pointer will traverse the linked list till it finds it.Hence,the list will be sorted in ascending order  accordingly to the chosen key entered by the user.
+1.1 Ascending order
+
+The ascending order for each attributes was done by an improved bubble sorting algorithm.In this algorithm,it will check the node adjacent to it and check whether the value in the node is higher, if it is higher, the values will be swapped, if not the pointer will traverse the linked list till it finds it.Hence,the list will be sorted in ascending order  accordingly to the chosen key entered by the user.
+
+1.2 Descending order
 
 As for the descending order,it was done by using a selection sorting algorithm.In this algorithm , it will search for the node with lowest value, and swap the values with node at the end of it. This will be done until the linked list is sorted.Which means the list of voters will be arranged in descending order according to the chosen key entered by the user.
 
+##### 2. Searching
 
 
 
