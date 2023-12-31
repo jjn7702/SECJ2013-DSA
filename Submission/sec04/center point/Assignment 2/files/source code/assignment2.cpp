@@ -517,8 +517,12 @@ int main()
         case 1:
         {
             addChoice = AddChoice();
-            getInfo(code, name, type, quantity, price);
-            Inventory *newInventory = new Inventory(code, name, type, quantity, price);
+            Inventory *newInventory;
+            if (addChoice >= 1 && addChoice <= 3)
+            {
+                getInfo(code, name, type, quantity, price);
+                newInventory = new Inventory(code, name, type, quantity, price);
+            }
             switch (addChoice)
             {
             case 1:
