@@ -338,15 +338,6 @@ public:
          << endl;
   }
 
-  BookingNode *insertSortedFront(string checkIn, string checkOut, int room,
-                           string type, string id, double total) {
-    BookingNode *newNode =
-        new BookingNode(checkIn, checkOut, room, type, id, total);
-    newNode->next = head;
-    head = newNode;
-    return head;
-  }
-
   BookingNode *merge(BookingNode *a, BookingNode *b) {
     if (a == nullptr)
       return b;
