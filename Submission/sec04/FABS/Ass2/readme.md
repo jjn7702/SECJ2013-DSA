@@ -35,7 +35,10 @@ Managed a linked list of Courier nodes. Ask and allow the user to insert a new n
 
 Main Purpose
 
-The linked list is populated by reading courier information from a file(TEST.txt). Implements a menu- driven interface for interacting with the courier list. Have varied options which are adding, deleting, searching, sorting, and displaying courier nodes. The program will continue to run until the user chooses to exit. Input from a FileThe program reads courier information from a file(TEST.txt) and uses it to add the data of the linked list.
+The linked list is populated by reading courier information from a file(TEST.txt). Implements a menu- driven interface for interacting with the courier list. Have varied options which are adding, deleting, searching, sorting, and displaying courier nodes. The program will continue to run until the user chooses to exit. 
+
+Input from a File
+The program reads courier information from a file(TEST.txt) and uses it to add the data of the linked list.
 
 Menu- Based User Interface
 
