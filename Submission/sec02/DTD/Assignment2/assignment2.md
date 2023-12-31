@@ -21,7 +21,7 @@ The program utilizes a linked list to store information about books. Each book i
 <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Assignment2/ClassDiagramASG2DSA.drawio%20(2).png">
 
 2. Pseudocode
-<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Assignment2/Pseudocodeasg2.png">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Assignment2/Pseudocode.png">
 
 
 ## Flow of System 💹

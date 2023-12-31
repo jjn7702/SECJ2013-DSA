@@ -517,18 +517,21 @@ int main()
         case 1:
         {
             addChoice = AddChoice();
-            Inventory *newInventory = new Inventory(code, name, type, quantity, price);
+            Inventory *newInventory;
+            if (addChoice >= 1 && addChoice <= 3)
+            {
+                getInfo(code, name, type, quantity, price);
+                newInventory = new Inventory(code, name, type, quantity, price);
+            }
             switch (addChoice)
             {
             case 1:
-                getInfo(code, name, type, quantity, price);
                 InvList.addFront(newInventory);
                 system("CLS");
                 cout << "New node has been successfully added to front.." << endl
                      << endl;
                 break;
             case 2:
-                getInfo(code, name, type, quantity, price);
                 int pos;
                 cout << "\n***If the position entered is invalid, it'll automatically insert at the end.***\n"
                      << "Enter the position to add in the middle: ";
@@ -538,7 +541,6 @@ int main()
                      << endl;
                 break;
             case 3:
-                getInfo(code, name, type, quantity, price);
                 InvList.addEnd(newInventory);
                 cout << "New node has been successfully added to the end.." << endl
                      << endl;
@@ -549,6 +551,7 @@ int main()
             default:
                 break;
             }
+            break;
         }
         case 2:
             InvList.del();
