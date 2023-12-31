@@ -226,6 +226,19 @@ class List{
         		cout << "Node not found with Account Number " << num << ".\n";
     		}
 		}
+
+		int getSize(){
+			Node* temp = head;
+			int count = 1;
+
+			while(temp)
+			{
+				count++;
+				temp = temp->next;
+			}
+
+			return count;
+		}
 		
 		//display all the node in the list
 		void displayNode(){
