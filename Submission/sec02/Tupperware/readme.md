@@ -48,6 +48,77 @@ _Don't forget to hit the :star: if you like this repo._
 
 
 <h1>Assignment 2</h1>
+<p>
+1. Start <br>
+2. Define a class “Menu” <br>
+3. Define a class “Node” <br>
+4. Define a class “OrderList” <br>
+5. Open the file “menu.txt” for reading <br>
+	\t 5.1. If the file cannot be opened, display an error message <br>
+6. While not at the end of the file <br>
+	6.1 Read menu data from file and populate OrderList <br>
+7. End While <br>
+8. Do <br>
+	8.1 Print menu options <br>
+	8.2 Read user option <br>
+	8.3 Switch user option <br>
+		8.3.1 Case 1 : Add menu <br>
+			8.3.1.1 Prompt user to enter food ID, food name, category and price <br>
+			8.3.1.2 Read all food ID, food name, category and price <br>
+			8.3.1.3 Print ins either to add menu at front, middle or end of linked list <br>
+			8.3.1.4 Read user ins <br>
+			8.3.1.5 Switch user ins <br>
+				8.3.1.5.1 Case 1 : call insertFront function <br>
+				8.3.1.5.2 Case 2 : call insertMiddle function <br>
+				8.3.1.5.3 Case 3 : call insertEnd function <br>
+			8.3.1.6 End switch <br>
+		8.3.2 Case 2 : Delete menu <br>
+			8.3.2.1 Print ins either to delete menu at front, middle or end of linked list <br>
+			8.3.2.2 Read user ins <br>
+			8.3.2.3 Switch user ins <br>
+				8.3.2.3.1 Case 1 : call deleteFront function <br>
+				8.3.2.3.2 Case 2 : call deleteEnd function <br>
+				8.3.2.3.3 Case 3 : call deleteMiddle function <br>
+			8.3.2.4 End switch <br>
+		8.3.3 Case 3 : Find Node <br>
+			8.3.3.1 Print search choice either name, category or food ID <br>
+			8.3.3.2 Read search choice <br>
+			8.3.3.3 If (choice == N || choice == n) <br>
+				8.3.3.3.1 Read food name entered by user <br>
+				8.3.3.3.2 Display menu according to the food name <br>
+			8.3.3.4 Else if (choice == C || choice == c) <br>
+				8.3.3.4.1 Read category entered by user <br>
+				8.3.3.4.2 Display all menu list according to category <br>
+			8.3.3.5 Else if (choice == F || choice == f) <br>
+				8.3.3.5.1 Read food ID entered by user <br>
+				8.3.3.5.2 Display menu according to food ID <br>
+			8.3.3.6 End if <br>
+		8.3.4 Case 4 : Sort menu <br>
+			8.3.4.1 Print sortBy to choose either to sort by food ID or Price <br>
+			8.3.4.2 Read user sortBy <br>
+			8.3.4.3 Switch user sortBy <br>
+				8.3.4.3.1 Case 1 : Print sortIn to choose either to sort in ascending or descending <br>
+				8.3.4.3.2 Read user sortIn <br>
+				8.3.4.3.3 Switch user sortIn <br>
+					8.3.4.3.3.1 Case 1 : Ascending order. Call sortFoodId(true) function <br>
+					8.3.4.3.3.2 Case 2 : Descending order : Call sortFoodId(false) function <br>
+				8.3.4.3.4 End switch <br>
+				8.3.4.3.5 Case 2 : Print sortIn to choose either sort in ascending or descending order <br>
+				8.3.4.3.6 Read user sortIn <br>
+				8.3.4.3.7 Switch user sortIn <br>
+						8.3.4.3.7.1 Case 1 : Ascending order. Call sortFoodPrice(true) function <br>
+						8.3.4.3.7.1 Case 2 : Descending order. Call sortFoodPrice(false) function <br>
+				8.3.4.3.8 End switch <br>
+		8.3.5 Case 5 : Display menu <br>
+			8.3.5.1 Call displayNodes function <br>
+		8.3.6 Default: Print "Invalid option. Please try again." <br>
+	8.4 End switch <br>
+	8.5 Print "Do you want to continue? (Y/N): " <br>
+	8.5 Read user choice <br>
+9. End while user choice == Y or choice == y <br>
+10. Print "Thank youm see you again!" <br>
+
+</p>
 <h2>Findings 📊</h2>
 - <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/assingment1.md">Assignment 1 </a><br>
 - Assignment 2<br>
