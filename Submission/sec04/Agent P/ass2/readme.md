@@ -19,8 +19,6 @@ The objective for this assignment 2 is to create a Election management system to
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/ac62ef65-848d-41a6-97c2-1ff40be8ecd3" width="3%" height="3%"> Synopsis
 
-Election Management System is a system that can help the election committee to view the voters information like name, faculty, age, matric number, email and IC. The election committee can also register new voters and also delete voters. Election committee can enter or delete voters at the beginning, end or at chosen position of the list. This will give the committee an easier time managing the voters. There is also a sorting and searching algorithm implemented in the system so that committees have an easier time looking for the voter. For example, they can search for the voter from specific faculty so that they can see how many voters have registered. There is also sorting that will arrange the voters in ascending or descending order depending on the information they want to sort. For example, committees can see the voters from oldest to youngest or vice versa.
-
 ## Design 🎨
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/b7b1299f-ead1-4e66-ad2e-95b901f4f03c" width="3%" height="3%"> Class Diagram
@@ -38,9 +36,6 @@ Election Management System is a system that can help the election committee to v
 
 For inserting at the front,users will enter how many voter’s details they want to enter first and then  a new set of voter’s details  which are the voter’s name, faculty, age, email, ic, matric. Then the voter’s details will be automatically set at the front of the list.Meanwhile if the voter’s details already exist in the list , the system will show “Voter already exists!“.
 
-1.2 Insert at End
-
-For inserting at the end,user will enter how many voter’s details they want to enter first and then a new set of voter’s details which are the voter’s name, faculty, age, email, ic, matrix.Then the voter’s details will be automatically set at the end of the list.Meanwhile if the voter’s details already exist in the list , the system will show “Voter already exist!“.
 
 1.3 Inserting at Node
 
@@ -52,13 +47,19 @@ For inserting at a node,user will enter how many voter’s details they want to 
 
 For delete at the front,users can simply choose the option to delete at the front of the file.Then the voter’s detail at the front of the list will be automatically deleted.After that, the system will show the new updated list to the user.
 
-2.2 Delete at End
-
-For delete at the end,the user can simply choose the option to delete at the end of the file.Then the voter’s detail at the end of the list will be automatically deleted.After that, the system will show the new updated list to the user.
-
 2.3 Deleting at Node
 
 For delete at the node,user will be asked to enter an index which is the placement of a voter’s detail in the list.Then the voter’s detail at the place chosen by the user will be automatically deleted in the list.After that the system will show the new updated list to the user.
+
+##### 3. Searching
+
+3.5 Search for Matric Num
+
+For searching by matric number, we have implemented sequential search to get the details of the voters based on the matric number entered by the user. We have implemented the sequential in this searching function because it can be used in both sorted and unsorted lists. If the entered key was successfully found in the list it will display the details which have the voter’s name,faculty,age,ic,email and their matric num to the corresponding name. If the data is not found in the list it will display the message “Data was not found. Try again later !”
+
+3.6 Search for email
+
+For searching by email, we have implemented sequential search to get the details of the voters based on the email entered by the user. We have implemented the sequential in this searching function because it can be used in both sorted and unsorted lists. If the entered key was successfully found in the list it will display the details which have the voter’s name,faculty,age,ic,email and their matric num to the corresponding name. If the data is not found in the list it will display the message “Data was not found. Try again later !”
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/fabaacbe-18c1-4f64-a3a5-e1b40e910e71" width="4%" height="4%"> Sorting and Searching
 ##### 1. Sorting
@@ -82,25 +83,9 @@ For searching by name, we have implemented sequential search to get the details 
 
 For searching by faculty, we have implemented sequential search to get the details of the voters based on the faculty entered by the user. We have implemented the sequential in this searching function because it can be used in both sorted and unsorted lists. If the entered key was successfully found in the list it will display the details which have the voter’s name,faculty,age,ic,email and their matric num to the corresponding name. If the data is not found in the list it will display the message “Data was not found. Try again later !”.
 
-2.3 Search for IC
-
-For searching by IC, we have implemented sequential search to get the details of the voters based on the IC number entered by the user. We have implemented the sequential in this searching function because it can be used in both sorted and unsorted lists. If the entered key was successfully found in the list it will display the details which have the voter’s name,faculty,age,ic,email and their matric num to the corresponding name. If the data is not found in the list it will display the message “Data was not found. Try again later !”
-
-2.4 Search for age
-
-For searching by age, we have implemented sequential search to get the details of the voters based on the age entered by the user. We have implemented the sequential in this searching function because it can be used in both sorted and unsorted lists. If the entered key was successfully found in the list it will display the details which have the voter’s name,faculty,age,ic,email and their matric num to the corresponding name. If the data is not found in the list it will display the message “Data was not found. Try again later !” 
-
-2.5 Search for Matric Num
-
-For searching by matric number, we have implemented sequential search to get the details of the voters based on the matric number entered by the user. We have implemented the sequential in this searching function because it can be used in both sorted and unsorted lists. If the entered key was successfully found in the list it will display the details which have the voter’s name,faculty,age,ic,email and their matric num to the corresponding name. If the data is not found in the list it will display the message “Data was not found. Try again later !”
-
-2.6 Search for email
-
-For searching by email, we have implemented sequential search to get the details of the voters based on the email entered by the user. We have implemented the sequential in this searching function because it can be used in both sorted and unsorted lists. If the entered key was successfully found in the list it will display the details which have the voter’s name,faculty,age,ic,email and their matric num to the corresponding name. If the data is not found in the list it will display the message “Data was not found. Try again later !”
-
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/folder.png" width="3%" height="3%"> Findings 
 
 - [Source Code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/ass2/Assignment_2.cpp)
 - [Input File / Output File ](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/ass2/voter.csv)
 - [Output File 2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/ass2/voter2.txt)
-- [Report]()
+- [Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/ass2/Assignment2_Report.pdf)

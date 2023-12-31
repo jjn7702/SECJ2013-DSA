@@ -112,95 +112,97 @@ public:
         head = newNode;
     }
 
- void deleteBook(int nodeChoice)
-{
-    Node *current = head;
-    Node *prev = nullptr;
-
-    switch (nodeChoice)
+    void deleteBook(int nodeChoice)
     {
-    case 1:
-        // Delete the front node
-        if (head != nullptr)
+        Node *current = head;
+        Node *prev = nullptr;
+
+        switch (nodeChoice)
         {
+        case 1:
+            // Delete the front node
+            if (head != nullptr)
+            {
+                head = current->next;
+                delete current;
+            }
+            else
+            {
+                cout << "Library is empty. Cannot delete from the front." << endl;
+            }
+            break;
+
+        case 2:
+           // Delete a node in the middle
+    if (head != nullptr)
+    {
+        int size = getSize();
+        int middlePosition = (size + 1) / 2;
+
+        if (middlePosition == 1)
+        {
+            // If there is only one node, treat it as deleting from the front
             head = current->next;
             delete current;
         }
-        else
+        else if (size >= 3)
         {
-            cout << "Library is empty. Cannot delete from the front." << endl;
-        }
-        break;
+            int currentPosition = 1;
+            Node *prev = nullptr; // Initialize prev here
 
-    case 2:
-    {
-        // Delete a node in the middle
-        int position;
-        cout << "Enter the position to delete the book: ";
-        cin >> position;
-        Node *temp = head, *prev = nullptr; // point to the first node in the list
-        int count = 1;
-
-        while (temp != nullptr && count < position)
-        {
-            prev = temp;
-            temp = temp->next;
-            count++;
-        }
-
-        if (temp != nullptr)
-        {
-            if (prev != nullptr)
-            {
-                prev->next = temp->next;
-            }
-            else
-            {
-                // Deleting the first node
-                head = temp->next;
-            }
-            delete temp;
-        }
-        else
-        {
-            cout << "Position not found. No node deleted." << endl;
-        }
-    }
-    break;
-
-    case 3:
-        // Delete the last node
-        if (head != nullptr)
-        {
-            while (current->next != nullptr)
+            // Traverse to the node before the middle position
+            while (currentPosition < middlePosition - 1 && current->next)
             {
                 prev = current;
                 current = current->next;
+                currentPosition++;
             }
+
+            // Delete the node at the middle
             if (prev != nullptr)
             {
-                prev->next = nullptr;
+                prev->next = current->next;
                 delete current;
-            }
-            else
-            {
-                // Only one node in the list
-                delete current;
-                head = nullptr;
             }
         }
         else
         {
-            cout << "Library is empty. Cannot delete from the end." << endl;
+            cout << "Not enough nodes to delete from the middle." << endl;
         }
         break;
+        }
 
-    default:
-        cout << "Invalid choice. No node deleted." << endl;
+        case 3:
+            // Delete the last node
+            if (head != nullptr)
+            {
+                while (current->next != nullptr)
+                {
+                    prev = current;
+                    current = current->next;
+                }
+                if (prev != nullptr)
+                {
+                    prev->next = nullptr;
+                    delete current;
+                }
+                else
+                {
+                    // Only one node in the list
+                    delete current;
+                    head = nullptr;
+                }
+            }
+            else
+            {
+                cout << "Library is empty. Cannot delete from the end." << endl;
+            }
+            break;
+
+        default:
+            cout << "Invalid choice. No node deleted." << endl;
+        }
     }
-}
-
-
 
     // Modify the findNode function to return a Node* instead of Node
     Node *findBook(string key)
@@ -243,26 +245,36 @@ public:
     }
 
     void addBookMiddle(Book book)
-{
-    int position;
-    cout << "Enter the position to add the book: ";
-    cin >> position;
+    {
+        Node *newNode = new Node{book, nullptr};
 
-    Node *temp = head;
-    Node *newNode = new Node{book,nullptr};
-
-    int count = 1;
-
-        while (temp != NULL && count < position - 1)
+        if (head == nullptr)
         {
-            temp = temp->next;
-            count++;
+            // If the list is empty, insert at the beginning
+            newNode->next = head;
+            head = newNode;
         }
+        else
+        {
+            int size = getSize();
+            int middlePosition = (size + 1) / 2;
 
-        newNode->next = temp->next;
-        temp->next = newNode;
-    
-}
+            Node *current = head;
+            int currentPosition = 1;
+
+            // Traverse to the node before the middle position
+            while (currentPosition < middlePosition - 1 && current->next)
+            {
+                current = current->next;
+                currentPosition++;
+            }
+
+            // Insert at the middle or end
+            newNode->next = current->next;
+            current->next = newNode;
+        }
+    }
+
     void addBookEnd(Book book)
     {
         Node *newNode = new Node{book, nullptr};
