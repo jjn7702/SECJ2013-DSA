@@ -124,7 +124,7 @@ _Don't forget to hit the :star: if you like this repo._
 </p>
 <h2>Findings 📊</h2>
 - <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/assingment1.md">Assignment 1 </a><br>
-- Assignment 2<br>
+- <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment2/Assignment2.md">Assignment 2 </a><br>
 - Project<br>
 
 ## Contribution 🛠️
