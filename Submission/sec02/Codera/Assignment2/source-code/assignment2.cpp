@@ -583,7 +583,7 @@ int main()
     while (!logout)
     {
         system("cls");
-        cout << "\nHospital Management System\n\n<<MAIN PAGE>>\n1. Add new patient\n2. Delete patient\n3. Search patient\n4. Sort patient\n5. Display patient list\n6. Logout"
+        cout << "\nHospital Management System\n\n<<MAIN PAGE>>\n[1] Add new patient\n[2] Delete patient\n[3] Search patient\n[4] Sort patient\n[5] Display patient list\n[6] Logout"
              << endl;
         cout << "\nOption: ";
         cin >> opt;

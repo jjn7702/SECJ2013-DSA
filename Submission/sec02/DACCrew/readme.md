@@ -29,12 +29,14 @@ This system is designed to perform basic transaction operations, including depos
 5. The system shuts down if the user chooses to quit.
 
 <h3>Report Assignment 1</h3>
-<a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Assignment1/files/DACCrew%20Assignment%201.pdf"><img src="./Images/download.png" width="35px" height="35px" ></a>
+<a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Assignment1/files/DACCrew%20Assignment%201.pdf"><img src="./Images/download.png" width="35px" height="35px" ></a> 
+<h3>Report Assignment 2</h3>
+<a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Assignment2/files/DACCrew%20Assignment%202.pdf"><img src="./Images/download.png" width="35px" height="35px" ></a>
 
 ## Findings 📊
 
 - <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Assignment1/assignment1.md">Assignment 1
-- Assignment 2
+- <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Assignment2/assignment2.md">Assignment 2
 - Project
 
 ## Contribution 🛠️

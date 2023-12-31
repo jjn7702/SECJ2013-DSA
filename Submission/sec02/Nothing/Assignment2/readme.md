@@ -31,7 +31,7 @@ preferences.
 ## File
 | No | Name |File | 
 | -----:| ----- | :------: | 
-|1| Document PDF| <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Assignment1/Assigment%201%20Group%20Nothing%20.pdf" ><img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Images/pdf64.png" width="24px" height="24px" ></a>|
+|1| Document PDF| <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Assignment2/Asg2%20DSA%20.pdf" ><img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Images/pdf64.png" width="24px" height="24px" ></a>|
 
 
 
