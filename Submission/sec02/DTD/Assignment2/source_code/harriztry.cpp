@@ -133,38 +133,43 @@ public:
             break;
 
         case 2:
-            // Delete a node in the middle
-        if (head != nullptr)
+           // Delete a node in the middle
+    if (head != nullptr)
+    {
+        int size = getSize();
+        int middlePosition = (size + 1) / 2;
+
+        if (middlePosition == 1)
         {
-            int size = getSize();
-            int middlePosition = (size + 1) / 2;
+            // If there is only one node, treat it as deleting from the front
+            head = current->next;
+            delete current;
+        }
+        else if (size >= 3)
+        {
+            int currentPosition = 1;
+            Node *prev = nullptr; // Initialize prev here
 
-            if (middlePosition == 1)
+            // Traverse to the node before the middle position
+            while (currentPosition < middlePosition - 1 && current->next)
             {
-                // If there is only one node, treat it as deleting from the front
-                head = current->next;
-                delete current;
+                prev = current;
+                current = current->next;
+                currentPosition++;
             }
-            else if (size >= 3)
+
+            // Delete the node at the middle
+            if (prev != nullptr)
             {
-                int currentPosition = 1;
-
-                // Traverse to the node before the middle position
-                while (currentPosition < middlePosition - 1 && current->next)
-                {
-                    prev = current;
-                    current = current->next;
-                    currentPosition++;
-                }
-
-                // Delete the node at the middle
                 prev->next = current->next;
                 delete current;
             }
-            else
-            {
-                cout << "Not enough nodes to delete from the middle." << endl;
-            }
+        }
+        else
+        {
+            cout << "Not enough nodes to delete from the middle." << endl;
+        }
+        break;
         }
 
         case 3:
@@ -658,6 +663,8 @@ int main()
         case 4:
             // Sort Books
             int sortChoice;
+
+            system("cls");
             cout << "Sort by:" << endl;
             cout << "[1] Title" << endl;
             cout << "[2] Author" << endl;
@@ -670,21 +677,23 @@ int main()
             {
             case 1:
                 library.sortBooksByTitle();
+                library.displayList();
                 break;
             case 2:
                 library.sortBooksByAuthor();
+                library.displayList();
                 break;
             case 3:
                 library.sortBooksByYear();
+                library.displayList();
                 break;
             case 4:
                 library.sortBooksByISBN();
+                library.displayList();
                 break;
             default:
                 cout << "Invalid choice. Please try again." << endl;
             }
-
-            library.displayList();
             break;
         case 5:
             // Display Books
