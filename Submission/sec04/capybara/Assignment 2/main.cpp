@@ -303,38 +303,6 @@ public:
         }
         cout << endl;
     }
-
-    void updateCSVUser(string n, string ic, string p, string mail)
-    {
-        int currentIndex = 0;
-        User *curr = head;
-        User *prev = NULL;
-
-        while (curr != NULL && (n > curr->getName() || (n == curr->getName() && ic > curr->getIC()) || (n == curr->getName() && ic == curr->getIC() && p > curr->getPhone()) || (n == curr->getName() && ic == curr->getIC() && p > curr->getPhone() && mail > curr->getEmail()) || (n == curr->getName() && ic == curr->getIC() && p > curr->getPhone() && mail > curr->getEmail())))
-        {
-            prev = curr;
-            curr = curr->next;
-            currentIndex++;
-        }
-
-        User *newNode = new User(n, ic, p, mail);
-
-        if (head == NULL)
-        {
-            head = newNode;
-        }
-        else
-        {
-            User *current = head;
-            while (current->next != NULL)
-            {
-                current = current->next;
-            }
-            current->next = newNode;
-        }
-
-        NewDataUser(n, ic, p, mail);
-    }
 };
 
 //* List function User
@@ -2184,6 +2152,17 @@ int main()
 
                     if (pilih3 == 2) // end
                     {
+                        cout << "Enter User Name: ";
+                        getline(cin >> ws, Name);
+                        cout << "Enter Identification Number: ";
+                        getline(cin >> ws, IC);
+                        cout << "Enter Telephone Number: ";
+                        getline(cin >> ws, Phone);
+                        cout << "Enter Email: ";
+                        getline(cin >> ws, Email);
+
+                        userList.insertEndNodeUser(Name, IC, Phone, Email);
+                        LoadFiles(users, airlines, reservations);
                     }
 
                     if (pilih3 == 3) // mid
