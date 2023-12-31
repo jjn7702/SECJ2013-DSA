@@ -38,7 +38,54 @@ _Don't forget to hit the :star: if you like this repo._
 
 
 ## Flow of Event 💹
+1. User will be displayed the inventory list including all the inventory details: code, name, type, quantity and price. User will be directed to the main menu of the inventory management system as follow: 
+   **What do you need?**
+   
+   **1. Add Inventory**
+   **2. Delete Inventory**
+   **3. Sort the Inventory**
+   **4. Find an Inventory**
+   **5. Display Inventory List**
+   **6. Exit**
+   **Enter your choice:**
+   
+3. If the user click on the add inventory option, the system will redirect the user to the next add menu
+ where the user can choose to add the data in either of these manner which are:
 
+    𝟏. **Add to the front**
+   
+    𝟐. **Add to the middle**
+   
+    𝟑. **Add to the end**
+       
+4. After choosing the options, the system will show the adding successfully message based on the option that have been chosen by the user.
+
+5. The user would be back to the main menu to have their next operations.
+
+6.  If the user click on the delete inventory option, the system will redirect the user to the next delete menu
+ where the user can choose to add the data in either of these manner which are:
+
+    𝟏. **Delete at the front**
+   
+    𝟐. **Delete at the middle**
+   
+    𝟑. **Delete at the end**
+
+7. After choosing the options, the system will show the linked list afterthe delete operation has been done.
+
+8. The user would be back to the main menu to have their next operations.
+//haven't modified 
+9. If the user click on the searching option, the system will redirect the user to the next search menu where the user can choose to search the data in either manner of code or name.
+
+10. After choosing the option, the system will ask the user to key in the search key
+  
+11. The system will show the output based on the option and search key that have been entered by the user.
+   
+12. The user would be back to the main menu to have their next operations.
+
+13. The user can exit to the program when user choose exit option in main menu
+
+14. All the inventory list data would be stored in output file.
 
 ## Findings 📊
 
