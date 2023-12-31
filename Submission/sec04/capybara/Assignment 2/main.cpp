@@ -254,21 +254,24 @@ public:
     }
 
     //* Find data using specific value
-    int findUserNode(string n)
+    void findUserNode(const string &IC)
     {
-        int currentIndex = 1;
         User *curr = head;
-
-        while (curr != NULL && (curr->getName() != n))
+        while (curr != NULL)
         {
-            curr = curr->next;
-            currentIndex++;
-        }
+            if (curr->getIC() == IC)
+            {
+                cout << "User Found: " << endl;
+                cout << "Name: " << curr->getName() << endl
+                     << "Identification Number: " << curr->getIC() << endl
+                     << "Phone Number: " << curr->getPhone() << endl
+                     << "Email: " << curr->getEmail() << endl;
 
-        if (curr != NULL)
-            return currentIndex;
-        else
-            return 0;
+                return;
+            }
+            curr = curr->next;
+        }
+        cout << "No User found with Identification Number: " << IC << endl;
     }
 
     void displayUserList()
@@ -1396,7 +1399,7 @@ void LoadFiles(vector<User> &users, vector<Airline> &airline, vector<Reservation
 void NewDataReservation(string res, string dept, string arr, string dat, string loc, string cla)
 {
 
-    ofstream reservationFile("reservation.csv", ios::app);
+    ofstream reservationFile("data/reservation.csv", ios::app);
     reservationFile.seekp(0, ios::end);
     reservationFile << "\n"
                     << res << "," << dept << "," << arr << "," << dat << "," << loc << "," << cla;
@@ -1407,7 +1410,7 @@ void NewDataReservation(string res, string dept, string arr, string dat, string 
 
 void deleteDataReservation(string res)
 {
-    ifstream inputFile("reservation.csv");
+    ifstream inputFile("data/reservation.csv");
     ofstream tempFile("temp.csv");
 
     string line;
@@ -1439,8 +1442,8 @@ void deleteDataReservation(string res)
     tempFile.close();
 
     // Remove the original file and rename the temporary file
-    remove("reservation.csv");
-    rename("temp.csv", "reservation.csv");
+    remove("data/reservation.csv");
+    rename("temp.csv", "data/reservation.csv");
 }
 
 int binarySearchByName(const vector<User> &users, const string &name)
@@ -2305,9 +2308,9 @@ int main()
                 if (pilih2 == 1)
                 {
 
-                    cout << "Current User List: " << endl
+                    cout << "Current Reservation List: " << endl
                          << endl;
-                    userList.displayUserList();
+                    reservationList.displayList();
 
                     init.displayAlterInsert();
                     cout << setw(37) << "Option: ";
@@ -2315,12 +2318,12 @@ int main()
 
                     if (pilih3 == 1) // front
                     {
-                        reservationID = 'R' + to_string(reservations.size());
-                        cout << "Enter Identification Number: ";
+                        reservationID = 'R' + to_string(reservations.size() + 1);
+                        cout << "Enter Departure Time: ";
                         getline(cin >> ws, DepartureTime);
-                        cout << "Enter Telephone Number: ";
+                        cout << "Enter Arrival Time: ";
                         getline(cin >> ws, ArrivalTime);
-                        cout << "Enter Email: ";
+                        cout << "Enter Date: ";
                         getline(cin >> ws, Date);
                         cout << "Enter Location: ";
                         getline(cin >> ws, Location);
@@ -2329,6 +2332,10 @@ int main()
 
                         reservationList.updateCSVReservation(reservationID, DepartureTime, ArrivalTime, Date, Location, Class);
                         LoadFiles(users, airlines, reservations);
+
+                        cout << "\nUpdated Reservation List: " << endl
+                             << endl;
+                        reservationList.displayList();
                     }
 
                     if (pilih3 == 1) // end
@@ -2392,6 +2399,9 @@ int main()
                 }
                 else if (pilih2 == 4)
                 {
+                    cout << "Current Reservation List: " << endl
+                         << endl;
+                    reservationList.displayList();
                 }
             }
         }
