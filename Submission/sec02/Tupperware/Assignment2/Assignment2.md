@@ -2,7 +2,7 @@
 # Restaurant Management System
 
 ### Table of Contents
-- [Objectives](#-Objectives of The Project)
+- [Objectives](#-Objectives-of-The-Project)
 - [Synopsis](#-synopsis)
 - [Class Diagram](#-class-diagram)
 - [Flowchart](#-flowchart)
