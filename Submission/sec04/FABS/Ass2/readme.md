@@ -146,15 +146,15 @@ The Courier Management System allows workers to store data about parcels in a mo
 
 ## Assignment Report <a name="report"></a> 🔔
 
-Submission date: 31-Dec-2023 04:55AM (UTC-0800)
+Submission date: 31-Dec-2023 07:17AM (UTC-0800)
 
-Submission ID: 2265594315
+Submission ID: 2265834359
 
-File name: ASSIGNMENT_2_DSA_FABS.pdf (179.44K)
+File name: ASSIGNMENT_2_DSA_FABS.pdf (177.69K)
 
-Word count: 1172
+Word count: 1131
 
-Character count: 5829
+Character count: 5500
 
 ![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass2/files/images/REPORT.jpg)
 
