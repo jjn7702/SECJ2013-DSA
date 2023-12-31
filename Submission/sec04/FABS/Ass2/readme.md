@@ -39,8 +39,9 @@ The linked list is populated by reading courier information from a file(TEST.txt
 
 Menu- Based User Interface
 
-To perform varied operations on the courier list, the program provides a user-friendly menu.
-Validation of DataBasic input confirmation includes checking for valid menu options and handling invalid input while searching. In general, the purpose is to produce a flexible and interactive courier operation system based on linked lists that allows users to efficiently manage and manipulate courier data.
+The program provides a user-friendly menu to perform varied operations on the courier list. 
+Checking for valid menu options and handling invalid input while searching are included in validation of DataBasic input confirmation . The aim is to produce an adjustable and reciprocal courier operation system based on linked lists which allows the users to make the courier data is easily managed.
+
 
 
 ## Synopsis <a name="synopsis"></a> 📝
