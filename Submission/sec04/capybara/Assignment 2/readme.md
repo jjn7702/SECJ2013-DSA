@@ -66,6 +66,17 @@ Insert Functions:
 
 3. **insertEndNodeAirline:** This method adds a new node at the end of the list. It creates a new `Airline` node and, if the list is empty head = NULL, sets the `head` to this new node. Otherwise, it traverses to the end of the list and sets the `next` pointer of the last node to the new node.
 
+**Delete Functions:**
+
+1. **deleteFirstNodeAirline:** This method removes the first node of the list. It sets a temporary pointer to the current `head`, updates `head` to the next node in the list, then deletes the node pointed to by the temporary pointer. This removes the first element from the list.
+
+2. **deleteBackNodeAirline:** To delete the last node, the method iterates through the list, keeping track of the current and previous nodes. Once it reaches the end where the next = NULL, it sets the `next` pointer of the second-to-last node (`stay`) to `NULL` and deletes the last node (`temp`).
+
+3. **deleteMidNodeAirline:** This function deletes a node based on a matching `AirplaneID`. It traverses the list, checking each node's `AirplaneID` against the provided ID. If a match is found and it's not the first node, it adjusts the `next` pointer of the previous node to bypass the current node, removing it from the list. If the node to be deleted is the first node, it updates the `head` to point to the next node. The node is then deleted.
+
+In all delete functions, a call to `deleteDataAirline` is made, presumably to handle related data operations, like updating a file or database. Each of these methods caters to specific needs for manipulating the airline list, be it adding new data or removing existing ones, demonstrating the flexibility and utility of linked list data structures in dynamic data management.
+
+
 
 
 
