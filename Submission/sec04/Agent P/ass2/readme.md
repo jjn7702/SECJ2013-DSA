@@ -19,6 +19,8 @@ The objective for this assignment 2 is to create a Election management system to
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/ac62ef65-848d-41a6-97c2-1ff40be8ecd3" width="3%" height="3%"> Synopsis
 
+Election Management System is a system that can help the election committee to view the voters information like name, faculty, age, matric number, email and IC. The election committee can also register new voters and also delete voters. Election committee can enter or delete voters at the beginning, end or at chosen position of the list. This will give the committee an easier time managing the voters. There is also a sorting and searching algorithm implemented in the system so that committees have an easier time looking for the voter. For example, they can search for the voter from specific faculty so that they can see how many voters have registered. There is also sorting that will arrange the voters in ascending or descending order depending on the information they want to sort. For example, committees can see the voters from oldest to youngest or vice versa.
+
 ## Design 🎨
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/b7b1299f-ead1-4e66-ad2e-95b901f4f03c" width="3%" height="3%"> Class Diagram
