@@ -8,4 +8,20 @@ Iman 28.11.2012 KBR-JHB MasAirline
 Ariff 15.06.2005 KL-JPN MasAirline
 Haziq 20.12.2021 KL-TOK FireFly
 Haziq Iqram 17.6.2013 RUS-TUR FireFly
+Ain 11.20.2050 PNG-KL Emirates
+Faiz 11.20.2050 PNG-KL AirAsia
+Zakwan 11.20.2050 PNG-KL AirAsia
+Ahmad 11.20.2050 PNG-KL Emirates
+Chemi 11.20.2050 PNG-KL FireFly
+Daniel 11.20.2050 PNG-KL Malindo
+Hafizi 11.20.2050 PNG-KL MasAirline
+Nurul 11.20.2050 PNG-KL MasAirline
+Elisya 11.20.2050 PNG-KL Emirates
+Anwar 11.20.2050 PNG-KL QatarAirline
+Ibrahim 11.20.2050 PNG-KL AirAsia
+Zaid 11.20.2050 PNG-KL Emirates
+Hamidi 11.20.2050 PNG-KL Malindo
 Amir 11.20.2050 PNG-KL Emirates
+Amir 11.20.2050 PNG-KL Malindo
+Amir 11.20.2050 PNG-KL MasAirline
+Amir 11.20.2050 PNG-KL MasAirline
