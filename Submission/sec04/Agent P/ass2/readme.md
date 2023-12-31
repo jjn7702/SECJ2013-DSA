@@ -2,7 +2,7 @@
 
 ### Table Of Contents
 - [Introduction](#-introduction)
-- [Objectives](#-ojectives)
+- [Objectives](#-objectives)
 - [Synopsis](#-synopsis)
 - [Class Diagram](#-class-diagram)
 - [Flowchart](#-flowchart)
