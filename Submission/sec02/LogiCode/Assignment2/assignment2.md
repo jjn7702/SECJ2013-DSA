@@ -84,10 +84,10 @@ Figure 1: Class Diagram of Hotel Booking System
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/a7344b35-23b7-4880-8398-dd92c277be88" width="40%" height="40%"><br>
   Figure 18: Flowchart of deleteMid Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/0ebe458b-9ed9-46cf-91b3-971af1140563" width="50%" height="50%"><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/0ebe458b-9ed9-46cf-91b3-971af1140563" width="70%" height="70%"><br>
   Figure 19: Flowchart of deleteMidCR Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/129dc69d-fa4a-4721-9285-55fbcf2dd0a4" width="50%" height="50%"><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/129dc69d-fa4a-4721-9285-55fbcf2dd0a4" width="40%" height="40%"><br>
   Figure 20: Flowchart of deleteEnd Function
   <br><br><br>
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/da35bf9f-ea63-4780-bfc2-f416214a6d1d" width="40%" height="40%"><br>
