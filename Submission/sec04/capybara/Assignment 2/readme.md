@@ -56,7 +56,7 @@ For display data, we have one pointer curr pointing towards the head. Afterwards
 
 ## Airline Section
 
-The `AirLineList` class, designed for managing a linked list of `Airline` nodes, provides various methods for inserting and deleting nodes.
+The `AirLineList` class, designed for managing a linked list of `Airline` nodes, provides various methods.
 
 ### Insert Functions:
 
@@ -74,6 +74,9 @@ The `AirLineList` class, designed for managing a linked list of `Airline` nodes,
 
 3. **deleteMidNodeAirline:** This function deletes a node based on a matching `AirplaneID`. It traverses the list, checking each node's `AirplaneID` against the provided ID. If a match is found and it's not the first node, it adjusts the `next` pointer of the previous node to bypass the current node, removing it from the list. If the node to be deleted is the first node, it updates the `head` to point to the next node. The node is then deleted.
 
+### Display Functions:
+
+The `displayAirplaneList` funtion in the `AirLineList` class iterates through a linked list of `Airline` nodes, displaying the details of each node. It starts from the `head` of the list and uses a `while` loop to go through each node. For every node, it prints the `AirplaneID`, `Capacity`, and `Company` . After displaying the details of a node, it moves to the next node in the list. This process continues until all nodes in the list have been displayed.
 
 
 
