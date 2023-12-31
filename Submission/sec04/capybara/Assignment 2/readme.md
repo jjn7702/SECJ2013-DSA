@@ -1,6 +1,11 @@
 # Airline Reservation System ✈️
 
 ## Table of Content
+- [Description](#description-)
+- [Objectives](#objectives-)
+- [Synopsis](#synopsis-)
+- [Flow Chart](#flow-chart-)
+- [Linked List](#linked-list-)
 
 ## Description 
 For this part of assignment work we are going to implement linked list method in upgrading the functionalities of our airline reservation system. From the existing system that implements vector use, we are now required to prove another method of navigating through our system by the linked list method and perform a link-up with our previous vector algorithm.
@@ -28,6 +33,8 @@ The data that have been added/removed through the linked list will now be pushed
 
 ## Linked List 📦 ➡️ 🛑
 
+## Reservation Section 📅
+
 ### InsertNode in reservationList Class
 
 For insertNode we implement as usual, whereby we have to  pointers both curr and prev. We also take all the parameters for that specific class as logical; if the user wants to insert new data, they should insert all the booking details.  This function already sorts the incoming new data by comparing the existing data in the linked list with the incoming linked list. 
@@ -52,9 +59,11 @@ Write a report that includes an objective, a synopsis, a design (class design in
 
 For display data, we have one pointer curr pointing towards the head. Afterwards, we update this current data in each iteration. Each curr points towards the string of the class data.
 
-## User Section
+## User Section 🛂
 
-## Airline Section
+
+
+## Airline Section 🛫
 
 The `AirLineList` class, designed for managing a linked list of `Airline` nodes, provides various methods for inserting and deleting nodes.
 
@@ -74,7 +83,11 @@ The `AirLineList` class, designed for managing a linked list of `Airline` nodes,
 
 3. **deleteMidNodeAirline:** This function deletes a node based on a matching `AirplaneID`. It traverses the list, checking each node's `AirplaneID` against the provided ID. If a match is found and it's not the first node, it adjusts the `next` pointer of the previous node to bypass the current node, removing it from the list. If the node to be deleted is the first node, it updates the `head` to point to the next node. The node is then deleted.
 
+### Find Data Functions:
+The findAirplaneNode method in the `AirLineList` class searches for an airplane in the linked list using a given `AirplaneID`. It goes through each node in the list and checks if the node's `AirplaneID` matches the one being searched for. If a matching node is found, it displays the airplane's details, including its ID, capacity, and company. If no matching airplane is found by the end of the list, it displays a message stating that no airplane was found with the given ID.
 
+### Display Functions:
+The displayAirplaneList funtion in the `AirLineList` class iterates through a linked list of `Airline` nodes, displaying the details of each node. It starts from the `head` of the list and uses a `while` loop to go through each node. For every node, it prints the `AirplaneID`, `Capacity`, and `Company` . After displaying the details of a node, it moves to the next node in the list. This process continues until all nodes in the list have been displayed.
 
 
 

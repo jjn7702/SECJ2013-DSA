@@ -52,7 +52,7 @@ In a nutshell, the Hospital Management System helps minimize the workload for he
 
 
 ## Findings 📊
-- [Report](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec02/Codera/Assignment2/Report)
+- [Report]()
 - [Source Code](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec02/Codera/Assignment2/source-code)
 
 ## Contribution 🛠️

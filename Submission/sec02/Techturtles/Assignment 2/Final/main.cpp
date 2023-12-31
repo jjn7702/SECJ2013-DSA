@@ -20,8 +20,8 @@ using namespace std;
 class Parcel {
 private:
     string trackingNumber, address, nameSender, nameReceiver;
-    char category; // 'A' for Bulky & Heavy Delivery, 'B' for Standard Delivery
-    int status;    // '0' for Incomplete, '1' for Complete
+    char category; // shipping option: 'A' for Bulky & Heavy Delivery, 'B' for Standard Delivery
+    int status;    // delivery status: '0' for Complete, '1' for Incomplete
 
 public:
     Parcel(string tn, string a, string nSend, string nRec, char c, int s)
@@ -381,6 +381,8 @@ void insertionSort(ParcelList& list, bool ascending) {
 
 
 void displayMenu() {
+    cout << right << endl;
+    cout << setw(46) << "WELCOME TO TECHTURTLES PARCEL SYSTEM...\n";
     cout << "\t+-------------------------------+\n";
     cout << "\t|  Courier Service System Menu  |\n";
     cout << "\t+-------------------------------+\n";
