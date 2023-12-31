@@ -83,4 +83,10 @@ For searching by name, we have implemented sequential search to get the details 
 
 For searching by faculty, we have implemented sequential search to get the details of the voters based on the faculty entered by the user. We have implemented the sequential in this searching function because it can be used in both sorted and unsorted lists. If the entered key was successfully found in the list it will display the details which have the voter’s name,faculty,age,ic,email and their matric num to the corresponding name. If the data is not found in the list it will display the message “Data was not found. Try again later !”.
 
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/folder.png" width="3%" height="3%"> Findings 
 
+- [Source Code]()
+- [Input File]()
+- [Output File 1]()
+- [Output File 2]()
+- [Report]()
