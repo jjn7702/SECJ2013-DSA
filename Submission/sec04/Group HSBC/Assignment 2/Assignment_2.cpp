@@ -337,6 +337,19 @@ int menuDelete(){
 	return choice;
 }
 
+int menuDisplay()
+{
+	int choice;
+
+	cout << "1. Display without sort.\n"
+		 << "2. Display in ascending (account number).\n"
+		 << "3. Display in discending (account number).\n"
+		 << "Enter your choice: ";
+	cin >> choice;
+
+	return choice;
+}
+
 
 int main(){
 	
@@ -462,6 +475,26 @@ int main(){
 		}
 		else{
 			//display all the node
+			int choiceDisp = menuDisplay();
+			int listSize = acc.getSize();
+			
+			switch(choiceDisp)
+			{
+				case 1 :
+					acc.displayNode();
+					break;
+
+				case 2 :
+					acc.BubbleSort(&acc.head, listSize, false);
+					acc.displayNode();
+					break;
+
+				default :
+					acc.BubbleSort(&acc.head, listSize, true);
+					acc.displayNode();
+					break;
+					
+			}
 			acc.displayNode();
 		}
 		
