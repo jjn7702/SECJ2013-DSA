@@ -112,7 +112,7 @@ public:
         head = newNode;
     }
 
- void deleteBook(int nodeChoice)
+    void deleteBook(int nodeChoice)
 {
     Node *current = head;
     Node *prev = nullptr;
@@ -200,9 +200,7 @@ public:
     }
 }
 
-
-
-    // Modify the findNode function to return a Node* instead of Node
+    
     Node *findBook(string key)
     {
         Node *current = head;
@@ -212,7 +210,7 @@ public:
             current = current->next;
         }
 
-        return current; // Return a pointer to the found node or nullptr if not found
+        return current; 
     }
 
     void displayList()
@@ -263,6 +261,7 @@ public:
         temp->next = newNode;
     
 }
+
     void addBookEnd(Book book)
     {
         Node *newNode = new Node{book, nullptr};
@@ -429,7 +428,7 @@ int main()
     string Title, Author, isbn;
     int Year;
 
-    ifstream inputFile("book.txt");
+    ifstream inputFile("books.txt");
 
     // Check if the file is open
     if (!inputFile.is_open())
@@ -445,7 +444,7 @@ int main()
         getline(inputFile, Title, ',');
         getline(inputFile, Author, ',');
         inputFile >> Year;
-        inputFile.ignore(); // Consume the newline character after reading the year
+        inputFile.ignore(); 
         getline(inputFile, isbn);
         Book newBook;
         newBook.setTitle(Title);
@@ -636,9 +635,9 @@ int main()
 
             if (deleteChoice == 1 || deleteChoice == 2 || deleteChoice == 3)
             {
-                cout << "Book deleted successfully!" << endl;
                 system("pause");
                 library.deleteBook(deleteChoice);
+                cout << "Book deleted successfully!" << endl;
                 library.displayList();
             }
             else
