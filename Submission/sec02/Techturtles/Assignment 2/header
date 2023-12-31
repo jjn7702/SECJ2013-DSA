@@ -1,0 +1,10 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <cstdlib>
+#include <algorithm>
+#include <fstream>
+#define COMPLETE 0
+#define INCOMPLETE 1
+#define bulkyheavydelivery 'A'
+#define standarddelivery 'B'
