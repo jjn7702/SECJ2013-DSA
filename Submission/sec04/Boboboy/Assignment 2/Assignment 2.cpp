@@ -213,6 +213,7 @@ class Cart{
 				}
 				current = current ->next;
 			}
+			return NULL;
 		}
         void bubbleSort(){
             int swapped,way;
