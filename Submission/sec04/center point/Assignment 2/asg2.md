@@ -41,13 +41,13 @@ _Don't forget to hit the :star: if you like this repo._
 1. User will be displayed the inventory list including all the inventory details: code, name, type, quantity and price. User will be directed to the main menu of the inventory management system as follow: 
    **What do you need?**
    
-   **1. Add Inventory**
-   **2. Delete Inventory**
-   **3. Sort the Inventory**
-   **4. Find an Inventory**
-   **5. Display Inventory List**
-   **6. Exit**
-   **Enter your choice:**
+   **1. Add Inventory**<br />
+   **2. Delete Inventory**<br />
+   **3. Sort the Inventory**<br />
+   **4. Find an Inventory**<br />
+   **5. Display Inventory List**<br />
+   **6. Exit**<br /><br />
+   **Enter your choice:** <br /><br />
    
 3. If the user click on the add inventory option, the system will redirect the user to the next add menu
  where the user can choose to add the data in either of these manner which are:
