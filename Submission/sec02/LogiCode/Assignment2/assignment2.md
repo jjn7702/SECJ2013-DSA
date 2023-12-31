@@ -145,7 +145,7 @@ Inside merge() function, it checks whether one list is empty. If not, it compare
 <br>
 
 ### Source Codes<br>
-<a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/LogiCode/Assignment2/assignment2.cpp"> <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/896def01-68aa-4cf4-95d9-144436fd3fa1" width="3%" height="3%"></a><br>
+<a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/LogiCode/Assignment2/source-code/assignment2.cpp"> <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/896def01-68aa-4cf4-95d9-144436fd3fa1" width="3%" height="3%"></a><br>
 
 ### Report<br>
 <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/LogiCode/Assignment2/Assignment2_Report_LogiCode.pdf"><img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/4bcb35dd-4e85-4aa3-bdf4-744f58a7477e" width="3%" height="3%"></a>
