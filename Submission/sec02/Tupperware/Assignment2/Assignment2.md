@@ -3,7 +3,7 @@
 
 ### Table of Contents
 - [Objectives of The Project](#Objectives-of-The-Project)
-- [Synopsis](#-Synopsis)
+- [Synopsis](#Synopsis)
 - [Class Diagram](#-class-diagram)
 - [Flowchart](#-flowchart)
 - [Description of how to implement data structure operations: Sorting and Searching](#-description-of-how-to-implement-data-structure-operations-sorting-and-searching)
