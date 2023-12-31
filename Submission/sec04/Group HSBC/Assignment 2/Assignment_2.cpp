@@ -76,6 +76,16 @@ class Node {
     	}
 };
 
+Node* swap(Node* acc1, Node* acc2)
+{
+	Node* temp = acc2->next;
+
+	acc2->next = acc1;
+	acc1->next = temp;
+
+	return acc2;
+}
+
 class List{
 	private:
 		Node* head;
@@ -226,6 +236,19 @@ class List{
         		cout << "Node not found with Account Number " << num << ".\n";
     		}
 		}
+
+		int getSize(){
+			Node* temp = head;
+			int count = 1;
+
+			while(temp)
+			{
+				count++;
+				temp = temp->next;
+			}
+
+			return count;
+		}
 		
 		//display all the node in the list
 		void displayNode(){
@@ -311,6 +334,19 @@ int menuDelete(){
 		 << "3. Deleting the node with specific account number\n"
 		 << "Enter your choice: ";
 	cin >> choice;
+	return choice;
+}
+
+int menuDisplay()
+{
+	int choice;
+
+	cout << "1. Display without sort.\n"
+		 << "2. Display in ascending (account number).\n"
+		 << "3. Display in discending (account number).\n"
+		 << "Enter your choice: ";
+	cin >> choice;
+
 	return choice;
 }
 
@@ -439,6 +475,26 @@ int main(){
 		}
 		else{
 			//display all the node
+			int choiceDisp = menuDisplay();
+			int listSize = acc.getSize();
+			
+			switch(choiceDisp)
+			{
+				case 1 :
+					acc.displayNode();
+					break;
+
+				case 2 :
+					acc.BubbleSort(&acc.head, listSize, false);
+					acc.displayNode();
+					break;
+
+				default :
+					acc.BubbleSort(&acc.head, listSize, true);
+					acc.displayNode();
+					break;
+					
+			}
 			acc.displayNode();
 		}
 		
