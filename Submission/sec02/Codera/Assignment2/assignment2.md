@@ -28,5 +28,8 @@ In order to effectively manage and monitor patients' records in hospitals, a hos
 - Allow healthcare workers to get patient’s information, contact information, and their medical history.
 
 ## Class Diagram 
-
+### The relationships are:
+- Patient and Node: Composition, as each Node contains an instance of Patient.
+- List and Node: Composition, as List contains a collection of Node instances to construct the linked list.
+- List and Patient: Association, as List uses instances of Patient through Node to manage patient information in the linked list.
 <img src = https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Images/DSA_assign2.jpg > <br>
