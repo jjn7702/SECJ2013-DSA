@@ -25,6 +25,16 @@ For inserting at a node,user will enter how many voter’s details they want to 
 
 For delete at the node,user will be asked to enter an index which is the placement of a voter’s detail in the list.Then the voter’s detail at the place chosen by the user will be automatically deleted in the list.After that the system will show the new updated list to the user.
 
+##### 3. Searching
+
+3.5 Search for Matric Num
+
+For searching by matric number, we have implemented sequential search to get the details of the voters based on the matric number entered by the user. We have implemented the sequential in this searching function because it can be used in both sorted and unsorted lists. If the entered key was successfully found in the list it will display the details which have the voter’s name,faculty,age,ic,email and their matric num to the corresponding name. If the data is not found in the list it will display the message “Data was not found. Try again later !”
+
+
+
+
+
 
 
 
