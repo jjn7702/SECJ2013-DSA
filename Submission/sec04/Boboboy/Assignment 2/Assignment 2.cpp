@@ -292,7 +292,37 @@ class Cart{
                     lptr = ptr1;
                 }while (swapped);
             }
-        }
+		else if(way == 5){
+        do {
+            swapped = 0;
+            ptr1 = head;
+
+            while (ptr1->next != lptr) {
+                if (ptr1->getfoodtype() > ptr1->next->getfoodtype()) {
+                    swap(ptr1, ptr1->next);
+                    swapped = 1;
+                }
+                ptr1 = ptr1->next;
+            }
+            lptr = ptr1;
+        } while (swapped);
+    }
+        else if(way == 6){
+        do {
+            swapped = 0;
+            ptr1 = head;
+
+            while (ptr1->next != lptr) {
+                if (ptr1->getfoodtype() < ptr1->next->getfoodtype()) {
+                    swap(ptr1, ptr1->next);
+                    swapped = 1;
+                }
+                ptr1 = ptr1->next;
+            }
+            lptr = ptr1;
+        } while (swapped);
+    }
+     }
 		void swap(Order *a, Order *b) {
         	string temp_code = a->getcode();
         	string temp_name = a->getname();
@@ -310,6 +340,35 @@ class Cart{
         	b->setprice(temp_price);
 		}
 };
+string Cus_order(){
+	string order;
+	bool status;
+	do{
+		status = false;
+		cout << "What order do you want to place?(based on the code given)" << endl; 
+		cout << "Order:"; 
+		cin >> order;
+		for(char &o : order){
+			o = toupper(o);
+		}
+		if((order != "DE1") && (order != "DE2") && (order != "D1") && (order != "D2") && (order != "D3") && (order != "MD1") && (order != "MD2")&& (order != "MD3")&& (order != "MD4")&& (order != "MD5")&& (order != "S1")&& (order != "S2")&& (order != "S3")&& (order != "S4")){
+			cout << "Invalid code for order, Please order again" << endl;
+			status = true;
+		}
+	}while(status);
+	return order;
+}
+
+int waytoInsert(){
+	int action;
+	cout << "Choose the way you want to insert: " << endl;
+	cout << "1. Insert in front" << endl;
+	cout << "2. Insert in middle" << endl;
+	cout << "3. Insert in last" << endl;
+	cout << "Way: ";
+	cin >> action;
+	return action;
+}
 
 Cart Customer_order(Menu a[],Cart c,string C_o, int t){   // C_o = customer order
 		int counter;
@@ -321,6 +380,17 @@ Cart Customer_order(Menu a[],Cart c,string C_o, int t){   // C_o = customer orde
 		Order * o = new Order (a[counter].getcode(),a[counter].getname(),a[counter].getfoodtype(),a[counter].getprice());
 		c.insert(o,t);
 		return c;
+}
+
+int deleteCart(){
+	int Way;
+	cout << "Choose the way you want to delete: " << endl;
+	cout << "1. Delete in front" << endl;
+	cout << "2. Delete in middle" << endl;
+	cout << "3. Delete in last" << endl;
+	cout << "Way: ";
+	cin >> Way;
+	return Way;
 }
 
 Cart deleteorder(Cart b){
@@ -422,6 +492,24 @@ int main(){
 		cout << "5. Exit" << endl;
 		cout << "Your Choice:";
 		cin >> choose;
+		switch(choose){
+			case 1 :		order = Cus_order();
+							cus_action = waytoInsert();
+							b = Customer_order(a,b,order,cus_action);
+							break;
+			case 2 :		b.displayCart();
+							b = deleteorder(b);
+							break;
+			case 3 :		Search_item_in_Cart(b);
+							break;
+			case 4 :		b.bubbleSort();
+							b.displayCart();
+							system("pause");
+							break;
+			case 5 :		cout << "Thank You,Bye" << endl; exit(0); break;
+			default :		cout << "Invalid code enter" << endl;
+		}
 		system("CLS");
 	
+	}
 }
