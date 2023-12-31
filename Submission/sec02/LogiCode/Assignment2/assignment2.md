@@ -19,7 +19,7 @@
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/aff8a4cc-5395-4a39-9329-0660c64eeb0a" width="3%" height="3%"> Class Diagram
 <p align="center">
-<img src="" width="80%"><br>
+<img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/aff8a4cc-5395-4a39-9329-0660c64eeb0a" width="80%"><br>
 Figure 1: Class Diagram of Hotel Booking System
 </p>
 
