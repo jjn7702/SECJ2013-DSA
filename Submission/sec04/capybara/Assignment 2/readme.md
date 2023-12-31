@@ -58,7 +58,7 @@ For display data, we have one pointer curr pointing towards the head. Afterwards
 
 The `AirLineList` class, designed for managing a linked list of `Airline` nodes, provides various methods for inserting and deleting nodes.
 
-Insert Functions:
+**Insert Functions**:
 
 1. **insertFirstNodeAirline:** This method creates a new `Airline` node and inserts it at the beginning of the linked list. It initializes the new node with the provided `id`, `capacity`, and `company`, then sets this node's `next` pointer to the current `head` of the list. Finally, it updates `head` to point to the new node. This method effectively adds the new airline data at the very start of the list.
 
@@ -74,7 +74,7 @@ Insert Functions:
 
 3. **deleteMidNodeAirline:** This function deletes a node based on a matching `AirplaneID`. It traverses the list, checking each node's `AirplaneID` against the provided ID. If a match is found and it's not the first node, it adjusts the `next` pointer of the previous node to bypass the current node, removing it from the list. If the node to be deleted is the first node, it updates the `head` to point to the next node. The node is then deleted.
 
-In all delete functions, a call to `deleteDataAirline` is made, presumably to handle related data operations, like updating a file or database. Each of these methods caters to specific needs for manipulating the airline list, be it adding new data or removing existing ones, demonstrating the flexibility and utility of linked list data structures in dynamic data management.
+
 
 
 
