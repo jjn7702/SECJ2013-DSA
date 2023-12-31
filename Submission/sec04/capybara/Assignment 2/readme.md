@@ -28,6 +28,8 @@ The data that have been added/removed through the linked list will now be pushed
 
 ## Linked List 📦 ➡️ 🛑
 
+## Reservation Section 📅
+
 ### InsertNode in reservationList Class
 
 For insertNode we implement as usual, whereby we have to  pointers both curr and prev. We also take all the parameters for that specific class as logical; if the user wants to insert new data, they should insert all the booking details.  This function already sorts the incoming new data by comparing the existing data in the linked list with the incoming linked list. 
@@ -52,9 +54,11 @@ Write a report that includes an objective, a synopsis, a design (class design in
 
 For display data, we have one pointer curr pointing towards the head. Afterwards, we update this current data in each iteration. Each curr points towards the string of the class data.
 
-## User Section
+## User Section 🛂
 
-## Airline Section
+
+
+## Airline Section 🛫
 
 The `AirLineList` class, designed for managing a linked list of `Airline` nodes, provides various methods for inserting and deleting nodes.
 
