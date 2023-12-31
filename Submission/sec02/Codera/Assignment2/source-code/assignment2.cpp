@@ -302,7 +302,7 @@ public:
         return NULL; // Node not found
     }
 
-// sorting here
+    // sorting here
 
     Node *SortedMerge(Node *a, Node *b)
     {
@@ -376,9 +376,98 @@ public:
         *headRef = SortedMerge(a, b);
     }
 
-        void sortList()
+    void sortList()
     {
         MergeSort(&head);
+    }
+    void sortListAge()
+    {
+        SortedMergeAge(&head);
+    }
+    void sortListDate()
+    {
+        SortedMergeDate(&head);
+    }
+    Node *SortedMergeAge(Node *a, Node *b)
+    {
+        Node *result = NULL;
+
+        if (a == NULL)
+            return b;
+        else if (b == NULL)
+            return a;
+
+        if (a->data.getAge() <= b->data.getAge())
+        {
+            result = a;
+            result->next = SortedMergeAge(a->next, b);
+        }
+        else
+        {
+            result = b;
+            result->next = SortedMergeAge(a, b->next);
+        }
+        return result;
+    }
+
+    void MergeSortAge(Node **headRef)
+    {
+        Node *head = *headRef;
+        Node *a;
+        Node *b;
+
+        if (head == NULL || head->next == NULL)
+        {
+            return;
+        }
+
+        FrontBackSplit(head, &a, &b);
+
+        MergeSortAge(&a);
+        MergeSortAge(&b);
+
+        *headRef = SortedMergeAge(a, b);
+    }
+
+    Node *SortedMergeDate(Node *a, Node *b)
+    {
+        Node *result = NULL;
+
+        if (a == NULL)
+            return b;
+        else if (b == NULL)
+            return a;
+
+        if (a->data.getDate() <= b->data.getDate())
+        {
+            result = a;
+            result->next = SortedMergeDate(a->next, b);
+        }
+        else
+        {
+            result = b;
+            result->next = SortedMergeDate(a, b->next);
+        }
+        return result;
+    }
+
+    void MergeSortDate(Node **headRef)
+    {
+        Node *head = *headRef;
+        Node *a;
+        Node *b;
+
+        if (head == NULL || head->next == NULL)
+        {
+            return;
+        }
+
+        FrontBackSplit(head, &a, &b);
+
+        MergeSortDate(&a);
+        MergeSortDate(&b);
+
+        *headRef = SortedMergeDate(a, b);
     }
 };
 
@@ -412,7 +501,6 @@ void dispHeader()
         cout << "-";
     cout << endl;
 }
-
 
 int main()
 {
@@ -566,7 +654,7 @@ int main()
                 cout << "[2] Search by IC" << endl;
                 cout << "[3] Search by age" << endl;
                 cout << "[4] Back" << endl
-                    << endl;
+                     << endl;
                 cout << "Option: ";
                 cin >> choice;
 
@@ -615,36 +703,54 @@ int main()
         }
 
         else if (opt == 4)
+        {
+            while (true)
             {
-                while (true)
+                system("cls");
+                cout << "<<SORT PATIENT>>" << endl;
+                cout << "[1] Sort by name" << endl;
+                cout << "[2] Sort by name" << endl;
+                cout << "[3] Sort by name" << endl;
+                cout << "[4] Back" << endl
+                     << endl;
+                cout << "Option: ";
+                cin >> choice;
+
+                if (choice == 4)
+                    break;
+
+                if (choice < 1 || choice > 4)
                 {
-                    system("cls");
-                    cout << "<<SORT PATIENT>>" << endl;
-                    cout << "[1] Sort by name" << endl;
-                    cout << "[2] Back" << endl
-                        << endl;
-                    cout << "Option: ";
-                    cin >> choice;
+                    cout << "Invalid option. Please enter a valid option (1 or 2)." << endl;
+                    system("pause");
+                    continue;
+                }
 
-                    if (choice == 2)
-                        break;
+                if (choice == 1)
+                {
+                    list.sortList(); // call the public sort function
+                    dispHeader();
+                    list.dispList();
+                    system("pause");
+                }
 
-                    if (choice < 1 || choice > 2)
-                    {
-                        cout << "Invalid option. Please enter a valid option (1 or 2)." << endl;
-                        system("pause");
-                        continue;
-                    }
+                if (choice == 2)
+                {
+                    list.sortListAge(); // call the public sort function
+                    dispHeader();
+                    list.dispList();
+                    system("pause");
+                }
 
-                    if (choice == 1)
-                    {
-                        list.sortList(); // call the public sort function
-                        dispHeader();
-                        list.dispList();
-                        system("pause");
-                    }
+                if (choice == 3)
+                {
+                    list.sortListDate(); // call the public sort function
+                    dispHeader();
+                    list.dispList();
+                    system("pause");
                 }
             }
+        }
         else if (opt == 5)
         {
             while (true)
