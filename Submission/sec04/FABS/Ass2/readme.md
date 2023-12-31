@@ -154,7 +154,7 @@ Word count: 1172
 
 Character count: 5829
 
-![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass2/files/images/REPORT.jpg)
+![1]([https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass2/files/images/REPORT.jpg)
 
 ## Findings <a name="findings"></a>📊
 
