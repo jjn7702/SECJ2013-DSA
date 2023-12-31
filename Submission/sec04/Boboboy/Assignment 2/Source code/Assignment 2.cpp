@@ -188,9 +188,9 @@ class Cart{
 				cout << "Cart is empty" << endl;
 				return;
 			}
-			cout << "************ CART ************" << endl << endl;
+			cout << "********************** Receipt *******************************" << endl << endl;
 			cout << "-------------------------------------------------------------" << endl;
-			cout << "Code" << setw(17) << "Name" << setw(20) << "Type" << setw(20) << "Price(RM)" << endl;
+			cout << "Code" << setw(18) << "Name" << setw(20) << "Type" << setw(20) << "Price(RM)" << endl;
 			cout << "-------------------------------------------------------------" << endl;
 			while(temp){
 				cout << temp->getcode() << setw(20) << temp->getname() << setw(20) << temp->getfoodtype() << setw(20) << temp->getprice() << endl;
