@@ -51,19 +51,38 @@ public:
         return status;
     }
 
-    void displayDetails(int count) const {
+    void displayDetails(int count) {
         cout << "\t" << left << setw(5) << count
             << setw(15) << trackingNumber
             << setw(30) << address
             << setw(15) << nameSender
             << setw(15) << nameReceiver
-            << setw(10) << category
-            << setw(10) << status << endl;
+            << setw(10);
+        displayShippingCategory();
+        cout << setw(7) << "\t";
+        displayStatusDelivery();
+        cout << endl;
         cout << "\t";
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 120; i++)
         {
             cout << "-";
         }
+        cout << endl;
+    }
+    void displayShippingCategory() {
+        if (category == 'A' || category == 'a') {
+            cout << "Bulky & Heavy Delivery";
+        }
+        else
+            cout << "Standard Delivery";
+
+    }
+    void displayStatusDelivery() {
+        if (status == 0) {
+            cout << "COMPLETE";
+        }
+        else
+            cout << "INCOMPLETE";
         cout << endl;
     }
 };
@@ -274,7 +293,7 @@ public:
         int count = 1;
 
         cout << "\t";
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 120; i++)
         {
             cout << "-";
         }
@@ -283,11 +302,11 @@ public:
             << setw(30) << "Address"
             << setw(15) << "Sender"
             << setw(15) << "Receiver"
-            << setw(10) << "Category"
+            << setw(30) << "Category"
             << setw(10) << "Status" << endl;
 
         cout << "\t";
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 120; i++)
         {
             cout << "-";
         }
@@ -355,7 +374,7 @@ void insertionSort(ParcelList& list, bool ascending) {
             swapParcels(list.getNodeAtPosition(j), list.getNodeAtPosition(j + 1));
             j--;
         }
-        
+
     }
 }
 
@@ -436,6 +455,8 @@ int main() {
             getline(cin, sender_name);
             cout << "Receiver's Name: ";
             getline(cin, receiver_name);
+            cout << endl;
+            cout << "A: Bulky & Heavy Delivery  B: Standard Delivery" << endl;
             cout << "Shipping Option (A/B): ";
             cin >> shipping_option;
             while (shipping_option != 'A' && shipping_option != 'B')
@@ -445,7 +466,7 @@ int main() {
                 cin >> shipping_option;
             }
 
-            cout << "Status Delivery (0 for Incomplete, 1 for Complete): ";
+            cout << "Status Delivery (0 for Complete, 1 for Incomplete): ";
             cin >> status_delivery;
             while (status_delivery != 0 && status_delivery != 1)
             {
@@ -529,11 +550,11 @@ int main() {
                 if (foundNode != nullptr) {
                     cout << "\nParcel found:\n";
                     cout << "\t";
-			        for (int i = 0; i < 100; i++)
-			        {
-			            cout << "-";
-			        }
-			        cout << endl;
+                    for (int i = 0; i < 100; i++)
+                    {
+                        cout << "-";
+                    }
+                    cout << endl;
                     foundNode->data->displayDetails(1);
                 }
                 else {
@@ -586,5 +607,3 @@ int main() {
 
     return 0;
 }
-
-
