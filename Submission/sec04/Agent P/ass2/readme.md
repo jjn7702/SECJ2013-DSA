@@ -15,6 +15,12 @@ The objective for this assignment 2 is to create a Election management system to
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/fabaacbe-18c1-4f64-a3a5-e1b40e910e71" width="4%" height="4%"> Linked List
 ##### 1.1 Insert
 
+1.1.3 Inserting at Node
+
+For inserting at a node,user will enter how many voter’s details they want to enter first and then a new set of voter’s details which are the voter’s name,faculty,age,email,ic,matric and  the placement number they want the details to be placed on the list.Then the voter’s details will be automatically set at the place that user wanted in the list.Meanwhile if the voter’s details already exist in the list , the system will show “Voter already exist!“.
+
+
+
 
 
 
