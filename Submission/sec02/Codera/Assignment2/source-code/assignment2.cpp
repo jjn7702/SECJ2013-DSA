@@ -302,6 +302,8 @@ public:
         return NULL; // Node not found
     }
 
+// sorting here
+
     Node *SortedMerge(Node *a, Node *b)
     {
         Node *result = NULL;
@@ -410,7 +412,7 @@ void dispHeader()
         cout << "-";
     cout << endl;
 }
-// sorting here
+
 
 int main()
 {
