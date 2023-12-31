@@ -516,6 +516,8 @@ int main()
             list.displayAll();
             cout << endl
                  << endl;
+             count++;
+
         }
         else if (opt == 2)
         {
@@ -541,6 +543,8 @@ int main()
             list.displayAll();
             cout << endl
                  << endl;
+            count++;
+
         }
         else if (opt == 3)
         {
@@ -564,6 +568,8 @@ int main()
             list.displayAll();
             cout << endl
                  << endl;
+             count++;
+
         }
         else if (opt == 4)
         {
@@ -572,6 +578,7 @@ int main()
             list.displayAll();
             cout << endl
                  << endl;
+            count--;
         }
 
         else if (opt == 5)
@@ -581,6 +588,7 @@ int main()
             list.displayAll();
             cout << endl
                  << endl;
+            count--;
         }
         else if (opt == 6)
         {
@@ -589,6 +597,7 @@ int main()
             list.displayAll();
             cout << endl
                  << endl;
+            count--;
         }
         else if (opt == 7)
         {
