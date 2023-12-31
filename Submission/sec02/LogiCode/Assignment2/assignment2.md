@@ -20,6 +20,9 @@
 
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/ac62ef65-848d-41a6-97c2-1ff40be8ecd3" width="3%" height="3%"> Synopsis
+The Hotel Booking System is designed for hotel administrators to manage room bookings in a hotel. By using file input operation, the system reads the file containing booking information which are check-in date, check-out date, room number, room type, identification card number and total price of bookings and stores in BookingNode class. With the administrator menu provided, the administrator is able to insert, delete, find, sort and view the booking information stored in the BookingNode class. The menu is further detailed to insert menu and delete menu in which the insert menu involves the insertion of booking data at front, in the middle under certain conditions such as at certain position, before or after certain position, before or after specific booking information like check-in date, check-out date and room number and at the end of the booking data while delete menu involves deleting the first booking, specific position booking, booking with specific check-in date and room number and the last booking data. All menus are operated and implemented with linked list data structure concept and technique. 
+
+<br>
 
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/aff8a4cc-5395-4a39-9329-0660c64eeb0a" width="3%" height="3%"> Class Diagram
