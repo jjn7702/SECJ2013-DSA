@@ -492,6 +492,24 @@ int main(){
 		cout << "5. Exit" << endl;
 		cout << "Your Choice:";
 		cin >> choose;
+		switch(choose){
+			case 1 :		order = Cus_order();
+							cus_action = waytoInsert();
+							b = Customer_order(a,b,order,cus_action);
+							break;
+			case 2 :		b.displayCart();
+							b = deleteorder(b);
+							break;
+			case 3 :		Search_item_in_Cart(b);
+							break;
+			case 4 :		b.bubbleSort();
+							b.displayCart();
+							system("pause");
+							break;
+			case 5 :		cout << "Thank You,Bye" << endl; exit(0); break;
+			default :		cout << "Invalid code enter" << endl;
+		}
 		system("CLS");
 	
+	}
 }
