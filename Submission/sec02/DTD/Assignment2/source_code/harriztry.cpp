@@ -103,7 +103,7 @@ public:
     }
 
     // Linked list operations
-    void addNode(Book book)
+    void addBookfront(Book book)
     {
         Node *newNode = new Node{book, nullptr};
 
@@ -112,7 +112,7 @@ public:
         head = newNode;
     }
 
-    void deleteNode(int nodeChoice)
+    void deleteBook(int nodeChoice)
     {
         Node *current = head;
         Node *prev = nullptr;
@@ -200,7 +200,7 @@ public:
     }
 
     // Modify the findNode function to return a Node* instead of Node
-    Node *findNode(string key)
+    Node *findBook(string key)
     {
         Node *current = head;
 
@@ -239,7 +239,7 @@ public:
         return size;
     }
 
-    void addNodeMiddle(Book book)
+    void addBookMiddle(Book book)
     {
         Node *newNode = new Node{book, nullptr};
 
@@ -270,7 +270,7 @@ public:
         }
     }
 
-    void addNodeEnd(Book book)
+    void addBookEnd(Book book)
     {
         Node *newNode = new Node{book, nullptr};
 
@@ -328,10 +328,8 @@ public:
         } while (swapped);
     }
 
-    // Other sorting methods (by author, year, ISBN) can be implemented similarly
-    // using the appropriate comparison logic.
 
-    // Function to sort books by author (example)
+    // Function to sort books by author 
     void sortBooksByAuthor()
     {
         if (head == nullptr || head->next == nullptr)
@@ -438,7 +436,7 @@ int main()
     string Title, Author, isbn;
     int Year;
 
-    ifstream inputFile("book.txt");
+    ifstream inputFile("books.txt");
 
     // Check if the file is open
     if (!inputFile.is_open())
@@ -461,7 +459,7 @@ int main()
         newBook.setAuthor(Author);
         newBook.setYear(Year);
         newBook.setISBN(isbn);
-        library.addNode(newBook);
+        library.addBookEnd(newBook);
         booksRead++;
     }
 
@@ -529,7 +527,7 @@ int main()
                 getline(cin, isbn);
                 newBook.setISBN(isbn);
 
-                library.addNode(newBook);
+                library.addBookfront(newBook);
                 cout << "Book added successfully!" << endl;
                 system("pause");
 
@@ -555,7 +553,7 @@ int main()
                 getline(cin, isbn);
                 newBook.setISBN(isbn);
 
-                library.addNodeMiddle(newBook);
+                library.addBookMiddle(newBook);
                 cout << "Book added successfully!" << endl;
                 system("pause");
 
@@ -581,7 +579,7 @@ int main()
                 getline(cin, isbn);
                 newBook.setISBN(isbn);
 
-                library.addNodeEnd(newBook);
+                library.addBookEnd(newBook);
                 cout << "Book added successfully!" << endl;
                 system("pause");
 
@@ -604,7 +602,7 @@ int main()
             system("cls");
             cout << setw(39) << " ____________________________________" << endl;
             cout << setw(40) << "|                                    |" << endl;
-            cout << setw(40) << "|              Find Node             |" << endl;
+            cout << setw(40) << "|              Find Book             |" << endl;
             cout << setw(40) << "|____________________________________|" << endl
                  << endl;
 
@@ -612,7 +610,7 @@ int main()
             cin.ignore();
             getline(cin, searchKey);
 
-            Node *foundNode = library.findNode(searchKey);
+            Node *foundNode = library.findBook(searchKey);
 
             if (foundNode == nullptr)
             {
@@ -632,22 +630,22 @@ int main()
             int deleteChoice;
             cout << setw(39) << " ____________________________________" << endl;
             cout << setw(40) << "|                                    |" << endl;
-            cout << setw(40) << "|             Delete Node            |" << endl;
+            cout << setw(40) << "|             Delete Book            |" << endl;
             cout << setw(40) << "|____________________________________|" << endl
                  << endl;
 
-            cout << "[1] Delete Front Node" << endl;
-            cout << "[2] Delete Middle Node" << endl; // Add more options as needed
-            cout << "[3] Delete End Node" << endl;
+            cout << "[1] Delete Front Book" << endl;
+            cout << "[2] Delete Middle Book" << endl; // Add more options as needed
+            cout << "[3] Delete End Book" << endl;
 
             cout << "Please enter your choice: ";
             cin >> deleteChoice;
 
             if (deleteChoice == 1 || deleteChoice == 2 || deleteChoice == 3)
             {
-                cout << "Node deleted successfully!" << endl;
+                cout << "Book deleted successfully!" << endl;
                 system("pause");
-                library.deleteNode(deleteChoice);
+                library.deleteBook(deleteChoice);
                 library.displayList();
             }
             else
