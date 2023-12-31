@@ -76,7 +76,7 @@ The `AirLineList` class, designed for managing a linked list of `Airline` nodes,
 
 ### Display Functions:
 
-The `displayAirplaneList` funtion in the `AirLineList` class iterates through a linked list of `Airline` nodes, displaying the details of each node. It starts from the `head` of the list and uses a `while` loop to go through each node. For every node, it prints the `AirplaneID`, `Capacity`, and `Company` . After displaying the details of a node, it moves to the next node in the list. This process continues until all nodes in the list have been displayed.
+The **displayAirplaneList** funtion in the `AirLineList` class iterates through a linked list of `Airline` nodes, displaying the details of each node. It starts from the `head` of the list and uses a `while` loop to go through each node. For every node, it prints the `AirplaneID`, `Capacity`, and `Company` . After displaying the details of a node, it moves to the next node in the list. This process continues until all nodes in the list have been displayed.
 
 
 
