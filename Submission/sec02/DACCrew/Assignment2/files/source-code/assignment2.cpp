@@ -685,6 +685,3 @@ int main()
         {
             list.displayAll();
         }
-   }
-
-}
