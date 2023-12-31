@@ -428,7 +428,7 @@ int main()
     string Title, Author, isbn;
     int Year;
 
-    ifstream inputFile("books.txt");
+    ifstream inputFile("book.txt");
 
     // Check if the file is open
     if (!inputFile.is_open())
