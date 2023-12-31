@@ -218,6 +218,48 @@ public:
         }
     }
 
+    //main adding function
+    void add(string code,string name,string type,int quantity, float price){
+            int addChoice = AddChoice();
+            Inventory *newInventory;
+            if (addChoice >= 1 && addChoice <= 3)
+            {
+                getInfo(code, name, type, quantity, price);
+                newInventory = new Inventory(code, name, type, quantity, price);
+            }
+            switch (addChoice)
+            {
+            case 1:
+                addFront(newInventory);
+                system("CLS");
+                cout << "New node has been successfully added to front.." << endl
+                     << endl;
+                displayList();
+                break;
+            case 2:
+                int pos;
+                cout << "\n***If the position entered is invalid, it'll automatically insert at the end.***\n"
+                     << "Enter the position to add in the middle: ";
+                cin >> pos;
+                addMiddle(newInventory, pos);
+                cout << "New node has been successfully added to position " << pos << ".." << endl
+                     << endl;
+                displayList();
+                break;
+            case 3:
+                addEnd(newInventory);
+                cout << "New node has been successfully added to the end.." << endl
+                     << endl;
+                displayList();
+                break;
+            case 4:
+                break;
+
+            default:
+                break;
+            }
+    }
+
     // Display all the node
     void displayList()
     {
@@ -516,41 +558,7 @@ int main()
         {
         case 1:
         {
-            addChoice = AddChoice();
-            Inventory *newInventory;
-            if (addChoice >= 1 && addChoice <= 3)
-            {
-                getInfo(code, name, type, quantity, price);
-                newInventory = new Inventory(code, name, type, quantity, price);
-            }
-            switch (addChoice)
-            {
-            case 1:
-                InvList.addFront(newInventory);
-                system("CLS");
-                cout << "New node has been successfully added to front.." << endl
-                     << endl;
-                break;
-            case 2:
-                int pos;
-                cout << "\n***If the position entered is invalid, it'll automatically insert at the end.***\n"
-                     << "Enter the position to add in the middle: ";
-                cin >> pos;
-                InvList.addMiddle(newInventory, pos);
-                cout << "New node has been successfully added to position " << pos << ".." << endl
-                     << endl;
-                break;
-            case 3:
-                InvList.addEnd(newInventory);
-                cout << "New node has been successfully added to the end.." << endl
-                     << endl;
-                break;
-            case 4:
-                break;
-
-            default:
-                break;
-            }
+            InvList.add(code,name,type,quantity,price);
             break;
         }
         case 2:
