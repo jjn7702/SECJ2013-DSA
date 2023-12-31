@@ -130,3 +130,134 @@ class BookList {
         }
         void insertE(string id, string n, string a, int y, string g) {
             Node *newNode = new Node(id, n, a, y, g);
+		if (isEmpty()) {
+			head = newNode;
+		}
+		else {
+                Node *temp = head;
+                while(temp->next != NULL) {
+                    temp = temp->next;
+                }
+                temp->next = newNode;
+		}
+        }
+        void deleteNode(int &n) {
+            int choice;
+            deleteOption();
+            cin >> choice;
+      
+            Node *temp = head;
+            Node *delnode;
+      
+            switch(choice) {
+                case 1: //front
+                if (isEmpty()) {
+                    cout << "List is empty, nothing to delete" << endl;
+                }
+                else if (temp->next != NULL) {
+                    head = temp->next;
+                    temp->next = NULL;
+                    delete temp;
+                }
+                else { //if contains only one node
+                    delete temp;
+                    head = NULL;
+                }
+                n--;
+                display();
+                break;
+          
+                case 2: //end
+                temp = head;
+          
+                if (isEmpty()) {
+                    cout << "List is empty, nothing to delete" << endl;
+                }
+                else if (temp->next == NULL){ //if contains only one node
+                    delete temp;
+                    head = NULL;  
+                }
+                else {
+                    while (temp->next != NULL) {
+                        delnode = temp;
+                        temp = temp->next;
+                    }
+                    delete temp;
+                    delnode->next = NULL;
+                }
+                n--;
+                display();
+                break;
+          
+                case 3: //middle
+                int count = 1;
+                int index;
+          
+                cout << "Enter the position of book information that you want to delete: ";
+                cin >> index;
+          
+                while (temp->next != NULL && count < index-1) {
+                    delnode = temp;
+                    temp = temp->next;
+                    count++;
+                }
+                delnode = temp->next;
+                temp->next = delnode->next;
+                delete delnode;
+                n--;
+                display();
+                break;
+            }
+        }
+        void searchString(int opt, string key){
+        	Node *currNode = head;
+            	int currIndex = 1; 
+ 			
+ 		cout << endl;
+            	switch(opt){
+                case 1: 
+            		while(currNode->getID() != key){
+				currNode = currNode->next;
+				currIndex++;
+			}
+			if(currNode) {
+				header();
+				currNode->displaySearch();
+			}
+                    	else
+                    		cout << "The book ID is invalid.";
+                    	break;
+                case 2:
+                	while(currNode->getName() != key){
+				currNode = currNode->next;
+				currIndex++;
+			}
+			if(currNode) {
+				header();
+				currNode->displaySearch();
+			}
+                    	else
+                        	cout << "The book title is invalid.";
+	                break;
+                case 3:
+                	while(currNode->getAuthor() != key){
+				currNode = currNode->next;
+				currIndex++;
+			}
+			if(currNode) {
+				header();
+				currNode->displaySearch();
+			}
+                    	else
+                        	cout << "The book author is invalid.";
+                   	break;
+                case 4:
+                	while(currNode->getGenre() != key){
+				currNode = currNode->next;
+				currIndex++;
+			}
+			if(currNode) {
+				header();
+				currNode->displaySearch();
+			}
+			else
