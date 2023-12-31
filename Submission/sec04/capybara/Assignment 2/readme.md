@@ -2,18 +2,57 @@
 
 ## Table of Content
 
-   
+## Description 
+For this part of assignment work we are going to implement linked list method in upgrading the functionalities of our airline reservation system. From the existing system that implements vector use, we are now required to prove another method of navigating through our system by the linked list method and perform a link-up with our previous vector algorithm.
+
 ## Objectives 🌈
+The main objective of this assignment part is to show the implementation of a linked list. As we know, a linked list is a dynamic form of data store. It does not have a specified limit to the number of nodes that can be added. 
+
+We have implemented vectors as our main way to store multiple data strings. Vector is a dynamic form of data store, too. This poses a challenge to us on how to interlink both different methods as they both have their structured way of inserting/deleting/finding data(s). By providing a solution to the poses challenge, we will be better able to make our system longevity last longer as the way the system handles data is mostly under dynamic condition
 
 
 
 ## Synopsis 📜
+There are several updated functions we implement throughout. Namely, each class/main function has its own list function. 
+
+Take reservations, for example. This class now have an extra class closely related to it called “reservationList”. This is where the linked list method is mostly implemented. We have several basic key features such as insertFirstNodeReservation, deleteFirstReservation, findNode, isEmpty, and display function. 
+
+Because we implement vectors beforehand, it is very difficult for us to work with linked lists as they both have dynamic structures. However, we managed to counter this problem by inserting first inserting the value of the linked list into a vector and then updating it into a file.
+
+The data that have been added/removed through the linked list will now be pushed/removed to/from the vector list. 
+ 
 
 
 ## Flow Chart 📑
 
 
 ## Linked List 📦 ➡️ 🛑
+
+### InsertNode in reservationList Class
+
+For insertNode we implement as usual, whereby we have to  pointers both curr and prev. We also take all the parameters for that specific class as logical; if the user wants to insert new data, they should insert all the booking details.  This function already sorts the incoming new data by comparing the existing data in the linked list with the incoming linked list. 
+
+Now, assuming that we have found the right position to insert the new Node, we will determine if we want to add it to the front or to the middle/back of the list. Once done, we will return the new node. 
+
+This function will be paired up with the updateCSV function. Whereby we will use the newly added linked list in the CSV file. Ironically, this will also update our vector list.  This function is also interconnected with another function: new data.  newData function will append this new node to the CSV file.  
+
+### DeleteNode in reservation Class
+
+In this function, we implement the usual delete linked list code whereby we have two nodes, both curr and prev. For this function, we only take one parameter for the user to enter to delete their data: their reservation. We have to make sure that every reservation is unique of their own and it serves as the primary key itself.
+
+This function is coupled with the deleteData function, whereby this function takes the argument given by the user and deletes that specific data from a CSV file. We do this by transferring all the data(s) that do not match with the argument of user,to a temporary file which we then rename it to our original csv file.	
+
+### FindData in reservationList, userList, AirlineList
+
+We implement the link list method for the find node function. Whereby we do not interfere with our vector list. We take one string, which is their reservation. We have one pointer called curr and point it to the head of the list. Next, we will swiftly through the list and see if we can find a match and update the current position in each iteration. If we do, we will display that matching data; if not, we will return 0. 
+
+Write a report that includes an objective, a synopsis, a design (class design in a class diagram and algorithm design in pseudo code/a flow chart), and a description of how data structure operations, sorting and searching are implemented.
+
+### DisplayData in reservationList
+
+For display data, we have one pointer curr pointing towards the head. Afterwards, we update this current data in each iteration. Each curr points towards the string of the class data.
+
+
 
 
 
