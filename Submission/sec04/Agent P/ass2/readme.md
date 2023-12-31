@@ -37,6 +37,7 @@ For searching by email, we have implemented sequential search to get the details
 
 ##### 4. Sorting
 
+In this system,we have added sorting in ascending and descending order.User will choose a key,from any of the 6 attributes.The ascending order for each attributes was done by an improved bubble sorting algorithm.In this algorithm,it will check the node adjacent to it and check whether the value in the node is higher, if it is higher, the values will be swapped, if not the pointer will traverse the linked list till it finds it.Hence,the list will be sorted in ascending order  accordingly to the chosen key entered by the user.
 
 
 
