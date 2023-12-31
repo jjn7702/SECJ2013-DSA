@@ -54,7 +54,7 @@ _Don't forget to hit the :star: if you like this repo._
 3. Define a class “Node” <br>
 4. Define a class “OrderList” <br>
 5. Open the file “menu.txt” for reading <br>
-	\t 5.1. If the file cannot be opened, display an error message <br>
+	5.1. If the file cannot be opened, display an error message <br>
 6. While not at the end of the file <br>
 	6.1 Read menu data from file and populate OrderList <br>
 7. End While <br>
