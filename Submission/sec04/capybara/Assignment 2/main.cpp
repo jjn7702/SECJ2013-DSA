@@ -138,12 +138,6 @@ public:
     //* Insert new value at the exact location
     User *insertMidNodeUser(string n, string ic, string p, string mail, int location)
     {
-        if (location < 0)
-        {
-            cout << "Sorry Invalid Location." << endl;
-            return 0;
-        }
-
         int currIndex = 1;
         User *curr = head;
         User *prev = NULL;
@@ -169,7 +163,7 @@ public:
         }
         else
         {
-            cout << "Node number value is over the existing value. Value will be inserted at the end of the node." << endl;
+            cout << "Node number value is over the existing value." << endl;
             prev->next = newNode;
         }
         NewDataUserMid(n, ic, p, mail, location);
@@ -2241,8 +2235,13 @@ int main()
                         cout << "Enter Location of the Node: ";
                         cin >> location;
 
-                        userList.insertMidNodeUser(Name, IC, Phone, Email, location);
-                        LoadFiles(users, airlines, reservations);
+                        if (location <= users.size() && location > 0)
+                        {
+                            userList.insertMidNodeUser(Name, IC, Phone, Email, location);
+                            LoadFiles(users, airlines, reservations);
+                        }
+                        else
+                            break;
                     }
 
                     cout << "\nUpdated User List: " << endl
@@ -2266,10 +2265,14 @@ int main()
 
                     if (pilih3 == 1) // front
                     {
+                        userList.deleteFirstNodeUser();
+                        LoadFiles(users, airlines, reservations);
                     }
 
                     if (pilih3 == 2) // end
                     {
+                        userList.deleteBackNodeUser();
+                        LoadFiles(users, airlines, reservations);
                     }
 
                     if (pilih3 == 3) // mid
@@ -2293,7 +2296,7 @@ int main()
 
                     userList.findUserNode(searchUserIC);
                 }
-                else if (pilih2 == 4) //*Display Sorted(not yet)
+                else if (pilih2 == 4) //*Display Sorted in User
                 {
                     cout << "Current User List: " << endl
                          << endl;
