@@ -960,6 +960,30 @@ public:
         return head;
     }
 
+    void deleteFirstReservation()
+    {
+        Reservation *temp = head;
+        head = temp->next;
+
+        deleteDataReservation(temp->getReservationID());
+        delete temp;
+    }
+    void deleteBackNodeReservation()
+    {
+        Reservation *temp = head;
+        Reservation *stay = NULL;
+
+        while (temp->next != NULL)
+        {
+            stay = temp;
+            temp = temp->next;
+        }
+
+        stay->next = NULL;
+        deleteDataUser(temp->getReservationID());
+        delete temp;
+    }
+
     void insertMidNodeReservation(string res, string dept, string arr, string dat, string loc, string cla, int location)
     {
         if (location < 0)
@@ -2833,9 +2857,9 @@ int main()
                 else if (pilih2 == 2)
                 {
 
-                    cout << "Current User List: " << endl
+                    cout << "Current Reservation List: " << endl
                          << endl;
-                    userList.displayUserList();
+                    reservationList.displayList();
 
                     /* Add option for
                   [1] Front Delete
@@ -2848,10 +2872,14 @@ int main()
 
                     if (pilih3 == 1) // front
                     {
+                        reservationList.deleteFirstReservation();
+                        LoadFiles(users, airlines, reservations);
                     }
 
                     if (pilih3 == 2) // end
                     {
+                        reservationList.deleteBackNodeReservation();
+                        LoadFiles(users, airlines, reservations);
                     }
 
                     if (pilih3 == 3) // mid
@@ -2866,7 +2894,7 @@ int main()
                     }
 
                     cout << "Current User List after deletion: " << endl;
-                    userList.displayUserList();
+                    reservationList.displayList();
                 }
                 else if (pilih2 == 3)
                 {
