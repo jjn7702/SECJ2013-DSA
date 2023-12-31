@@ -113,16 +113,16 @@ The finding operation is implemented by utilizing a counter to track node positi
 First, the findNode() function takes user input as the string parameter. A temporary pointer is set to the first node of the list, and a counter is initialized to 1. Then, a while loop runs as long as the temporary pointer is not null and the IC of the node does not match the user input. Inside the loop, the temporary pointer points to the next node, and the counter is incremented. Once the match is found or the pointer is null, the loop stops. Then the function checks the temporary pointer. It will return the position if the pointer is null, otherwise it displays an error message.
 
 #### 4. Displaying
-dispList() function and getBookingInfo() function are used to display the booking details such as check-in date, check-out date, room number, room type, customer IC, and total price.
+The dispList() function and getBookingInfo() function are used to display the list of customer bookings which contains check-in date, check-out date, room number, room type, customer IC, and total price.
 
-In dispList() function, a temporary pointer is created and pointed to the first node of the list. A counter is also initialised to 0. The while loop will check whether the temporary pointer is null before pre-incrementing the counter, pointing to the next node and calling getBookingInfo() function. The getBookingInfo() function is used to display booking details for each node.
+In dispList() function, a temporary pointer is created and pointed to the first node of the list. A counter is also initialised to 0. The while loop will check whether the temporary pointer is null. If not, it pre-increments the counter, points the pointer to the next node and calls getBookingInfo() function. The getBookingInfo() function is used to display booking details for each node.
 
 #### 5. Sorting
-We have implemented Merge Sort algorithm to sort bookings ascendingly based on check-in date using sortList(), mergeSort(), midPoint() and merge() functions. By dividing the linked list into two parts after finding the midpoint, each section is individually sorted and merged back into the original list.
+We have implemented Merge Sort algorithm to sort bookings ascendingly based on check-in date using sortList(), mergeSort(), midPoint() and merge() functions. By dividing the linked list recursively into two lists after finding the midpoint, two lists will be compared and sorted then merged back into the original list.
 
-First, sortList() function is called in the main function. It assigns the result of mergeSort() function as the first node of the list. mergeSort() function will then check whether the start node of the list is empty. If so, it returns the start node. midPoint() function is called to get the midpoint. The list is then separated into two sublists using the midpoint. The sublists will be separated recursively until lists with one or zero nodes are left and return the result of merge() function using two lists.
+First, sortList() function is called in the main function. The result of mergeSort() function is declared as the first node of the list. mergeSort() function will then check whether the start node of the list is empty. If so, it returns the start node. If not, midPoint() function is called to get the midpoint. The list is then separated into two sublists using the midpoint. The sublists will be separated recursively until all lists with one or zero nodes are left and return the result of merge() function by taking two sublists as parameters.
 
-Inside merge() function, it checks whether each node of each list is empty. If not, it compares the two nodes by their check in date. It will create a new resulting list by inserting the node with earlier check in date as the first node. The merging process continues until all nodes are merged, then the resulting list is returned.
+Inside merge() function, it checks whether one list is empty. If not, it compares the two nodes by their check in date. A new list is created and the node with earlier check in date is inserted as the first node. The merging process will ensure all nodes are merged and return the new list.
 
 <br>
 
