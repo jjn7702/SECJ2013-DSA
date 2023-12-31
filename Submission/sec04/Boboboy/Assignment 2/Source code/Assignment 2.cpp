@@ -193,7 +193,7 @@ class Cart{
 			cout << "Code" << setw(18) << "Name" << setw(20) << "Type" << setw(20) << "Price(RM)" << endl;
 			cout << "-------------------------------------------------------------" << endl;
 			while(temp){
-				cout << temp->getcode() << setw(20) << temp->getname() << setw(20) << temp->getfoodtype() << setw(20) << temp->getprice() << endl;
+				cout << temp->getcode() << setw(20) << temp->getname() << setw(20) << temp->getfoodtype() << setw(18) << temp->getprice() << fixed << setprecision(2)  << endl;
 				temp = temp -> next;
 			}
 			 cout << endl;
