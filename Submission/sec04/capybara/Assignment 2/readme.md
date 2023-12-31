@@ -13,7 +13,7 @@
 ## Flow Chart 📑
 
 
-## Linked List 📟
+## Linked List 📦 ➡️ 🛑
 
 
 
