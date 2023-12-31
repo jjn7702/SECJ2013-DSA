@@ -23,13 +23,13 @@ The types of data structures used in this system are sorting and searching. The 
 
 ### Class Diagram
 <p align="center">
-<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment2/System%20Design/class%20diagaram%20assignment2.drawio.png?raw=true" width="30%"><br>
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment2/System%20Design/class%20diagaram%20assignment2.drawio.png?raw=true" width="80%"><br>
 Figure 1: Class Diagram of Restaurant Management System
 </p>
 
 ### Pseudocode
 <p align="center">
-<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment2/System%20Design/pseudocode.jpg?raw=true" width="30%"><br>
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment2/System%20Design/pseudocode.jpg?raw=true" width="80%"><br>
 Figure 1: Pseudocode of Restaurant Management System
 </p>
 
