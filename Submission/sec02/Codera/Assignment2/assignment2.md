@@ -26,3 +26,7 @@ In order to effectively manage and monitor patients' records in hospitals, a hos
 - Develop a hospital management system.
 - Uses the sorting and searching data structure and algorithm in this hospital management system for management.
 - Allow healthcare workers to get patient’s information, contact information, and their medical history.
+
+  ## Class Diagram 
+
+<img src = >
