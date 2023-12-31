@@ -486,6 +486,11 @@ int main()
         cout << "[8] Search by Account Number" << endl;
         cout << "[9] Search by IC Number" << endl
              << endl;
+        
+        cout << ":: SORT ::" << endl;
+        cout << "[10] Sort Data" << endl
+             << endl;
+        
 
         cout << ":: OTHER ACTION ::" << endl;
         cout << "[11] Display All Data" << endl;
@@ -516,6 +521,8 @@ int main()
             list.displayAll();
             cout << endl
                  << endl;
+             count++;
+
         }
         else if (opt == 2)
         {
@@ -541,6 +548,8 @@ int main()
             list.displayAll();
             cout << endl
                  << endl;
+            count++;
+
         }
         else if (opt == 3)
         {
@@ -564,6 +573,8 @@ int main()
             list.displayAll();
             cout << endl
                  << endl;
+             count++;
+
         }
         else if (opt == 4)
         {
@@ -572,6 +583,7 @@ int main()
             list.displayAll();
             cout << endl
                  << endl;
+            count--;
         }
 
         else if (opt == 5)
@@ -581,6 +593,7 @@ int main()
             list.displayAll();
             cout << endl
                  << endl;
+            count--;
         }
         else if (opt == 6)
         {
@@ -589,6 +602,7 @@ int main()
             list.displayAll();
             cout << endl
                  << endl;
+            count--;
         }
         else if (opt == 7)
         {

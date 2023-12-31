@@ -1,9 +1,9 @@
 # Assignment 1
 ## Contents
-- [Objectives](#-objectives)
-- [Synopsis](#-synopsis)
-- [Design](#-design)
-- [Description](#-description)
+- Objectives
+- Synopsis
+- Design
+- Description
 
 ## Objectives :bulb:
 We have outlined a few objectives for this task, which are crucial in order to provide a guideline that facilitates an efficient execution of the tasks. These said objectives are are as follows:
