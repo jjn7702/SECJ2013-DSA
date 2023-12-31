@@ -28,9 +28,17 @@ In order to effectively manage and monitor patients' records in hospitals, a hos
 - Allow healthcare workers to add or delete patients, search or sort patient record, and view patient medical history.
 
 ## Synopsis
+The hospital management system has been developed to manage the patient records in a hospital effectively. This system will act as a tool to help the healthcare professionals to monitor patient information, contacts, and medical history in a better way. 
 
+This system will allow those healthcare workers to add, delete, search, sort , and display all the patient records. Linked list data structure is used with some operations to perform the functions of this proposed system because linked list is better than array in the modification without moving larger amount of data. The patient record will include with patient name, identity card number, age, contact number, diagnosed disease, and diagnosed date. 
 
-## Class Diagram 
+Firstly, add a new patient function will provide options to insert the data at the beginning, at any position of the middle, or at the end of the patient record. Next, delete a patient function will provide options to delete the first data, any data in the middle, or the last data of patient record. Moreover, search patient function will allow the healthcare staff to search patient medical record based on name, identity card number, or age. Furthermore, sort patient function will allow the healthcare staff to sort the patient list in assending order based on name, age, or diagnosed date. Lastly, the complete patient medical record can be displayed to the healthcare workers. 
+
+The system uses merge sort algorithm with linked list structure in assending order because it has stable and predictable performance. This is because merge sort has an O(n log n) time complexity, where "n" is the number of elements to be sorted. 
+
+In a nutshell, the Hospital Management System helps minimize the workload for healthcare workers in replacing manage patient records manually. The system contributes to efficient  and accurate healthcare services. 
+
+## Class Diagram
 ### The relationships are:
 - Patient and Node: Composition, as each Node contains an instance of Patient.
 - List and Node: Composition, as List contains a collection of Node instances to construct the linked list.
