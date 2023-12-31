@@ -118,6 +118,9 @@ _Don't forget to hit the :star: if you like this repo._
 9. End while user choice == Y or choice == y <br>
 10. Print "Thank youm see you again!" <br>
 
+<h3>Report Assignment 2</h3>
+<a href="[https://docs.google.com/document/d/1Zo1a1CUOtAN9jOG7cpsusQ4GQOKJwSBSsdrvTltsyAc/edit?usp=sharing](https://docs.google.com/document/d/1svn2Y7EqNPjK_v5B6-LRwq7I5qcATWdD85veZjv7Efs/edit?usp=sharing)"><img src="./images/document1.png" width="35px" height="35px" ></a> 
+
 </p>
 <h2>Findings 📊</h2>
 - <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/assingment1.md">Assignment 1 </a><br>
