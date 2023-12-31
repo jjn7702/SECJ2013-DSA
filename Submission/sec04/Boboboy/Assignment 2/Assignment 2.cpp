@@ -206,6 +206,12 @@ class Cart{
 						return current;
 					}
 				}
+				else if(n == 2){
+					if(current -> getname() == target){
+						return current;
+					}
+				}
+				current = current ->next;
 			}
 		}
         void bubbleSort(){
