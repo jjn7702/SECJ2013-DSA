@@ -47,7 +47,7 @@ _Don't forget to hit the :star: if you like this repo._
    **4. Find an Inventory**<br />
    **5. Display Inventory List**<br />
    **6. Exit**<br /><br />
-   **Enter your choice:** <br /><br />
+   **Enter your choice:** <br />
    
 3. If the user click on the add inventory option, the system will redirect the user to the next add menu
  where the user can choose to add the data in either of these manner which are:
@@ -81,7 +81,7 @@ _Don't forget to hit the :star: if you like this repo._
  where the user can choose to find the data in either of these manner which are:<br /><br />
     𝟏. **Inventory Code**<br />
    
-    𝟐. **Inventory Name**<br /><br />
+    𝟐. **Inventory Name**<br />
    
 12. After choosing the option, the system will ask the user to key in the search key
   
