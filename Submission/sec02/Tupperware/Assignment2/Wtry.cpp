@@ -20,6 +20,7 @@ public:
         category = "";
         price = 0.0;
     }
+    
     Menu(string foodId, string name, string category, double price)
         : foodId(foodId), name(name), category(category), price(price) {}
 
@@ -35,14 +36,12 @@ public:
 
         // Display order details
         void displayMenu() const {
-
             cout << left;
             cout << setw(10) << foodId << " | "
                 << setw(21) << name << " | "
                 << setw(13) << category << " | "
                 << fixed << setprecision(2) << setw(4) << price << endl;
     }
-
 };
 
 class Node {
@@ -183,6 +182,95 @@ public:
             }
         return current;
     }
+    
+    // Function to delete a node by foodId
+    void deleteNode(const string& deleteFoodId) {
+        Node* current = head;
+        Node* prev = nullptr;
+
+        if (current != nullptr && current->order.getFoodId() == deleteFoodId) {
+            head = current->next;
+            delete current;
+            return;
+        }
+
+        while (current != nullptr && current->order.getFoodId() != deleteFoodId) {
+            prev = current;
+            current = current->next;
+        }
+
+        if (current == nullptr) {
+            cout << "Node Not Found." << endl;
+            return;
+        }
+
+        if (prev != nullptr) {
+            prev->next = current->next;
+        } else {
+            head = current->next;
+        }
+
+            delete current;
+            cout << "Node Deleted Successfully." << endl;
+    }
+
+    void sortFoodId (bool asc) {
+        Node* current = head;
+
+        while (current != nullptr) {
+        Node* minMaxNode = current;
+        Node* temp = current->next;
+
+        while (temp != nullptr) {
+            if ((asc && temp->order.getFoodId() < minMaxNode->order.getFoodId()) || (!asc && temp->order.getFoodId() > minMaxNode->order.getFoodId())) {
+                minMaxNode = temp;
+            }
+            temp = temp->next;
+        }
+
+        // Swap data of minMaxNode and current
+        Menu tempMenu = current->order;
+        current->order = minMaxNode->order;
+        minMaxNode->order = tempMenu;
+
+        current = current->next;
+        }  
+    }
+
+    void sortPrice (bool asc) {
+        Node* current = head;
+
+    while (current != nullptr) {
+        Node* minMaxNode = current;
+        Node* temp = current->next;
+
+        while (temp != nullptr) {
+            if ((asc && temp->order.getPrice() < minMaxNode->order.getPrice()) || (!asc && temp->order.getPrice() > minMaxNode->order.getPrice())) {
+                minMaxNode = temp;
+            }
+            temp = temp->next;
+        }
+
+        // Swap data of minMaxNode and current
+        Menu tempMenu = current->order;
+        current->order = minMaxNode->order;
+        minMaxNode->order = tempMenu;
+
+        current = current->next;
+        }
+    }
+
+    void swapNodes(Node* a, Node* b, Node* prev) {
+        if (prev != nullptr) {
+            prev->next = b;
+        }
+        else {
+            head = b;
+        }
+
+        a->next = b->next;
+        b->next = a;
+    }
 
     // Function to display all nodes
     void displayNodes() const {
@@ -199,79 +287,8 @@ public:
             current = current->next;
         }
     }
-
 };
 
-void displayHeader() {
-    cout << left;
-    cout << setw(6) << "#" << "|"
-         << setw(10) << "ID" << " | "
-         << setw(21) << "NAME" << " | "
-         << setw(13) << "TYPE" << " | "
-         << fixed << "PRICE" << endl;
-    cout << "---------------------------------------------------------" << endl;
-}
-
-void displayMenu(Menu menuArray[]) {
-    for (int i = 0; i < SIZE; i++) {
-        cout << left;
-        cout << setw(5) << (i+1) << " | "
-             << setw(10) << menuArray[i].getFoodId() << " | "
-             << setw(21) << menuArray[i].getName() << " | "
-             << setw(13) << menuArray[i].getCategory() << " | "
-             << fixed << setprecision(2) << setw(6) << menuArray[i].getPrice() << endl;
-    }
-}
-
-void printSortedResult(Menu menuArray[]) {
-    for (int i = 0; i < SIZE; i++) {
-        cout << left;
-        cout << setw(5) << (i+1) << " | "
-             << setw(10) << menuArray[i].getFoodId() << " | "
-             << setw(21) << menuArray[i].getName() << " | "
-             << setw(13) << menuArray[i].getCategory() << " | "
-             << fixed << setprecision(2) << setw(4) << menuArray[i].getPrice() << endl;
-    }
-}
-
-    // Function to sort the list (using bubble sort as an example)
-void swap(Menu& a, Menu& b) {
-    Menu temp = a;
-    a = b;
-    b = temp;
-}
-
-void FoodIdASC(Menu menuArray[]) {
-    string fI[SIZE];
-    for (int last = SIZE - 1; last >= 1; --last) {
-
-        fI[last] = menuArray[last].getFoodId();
-        int largestIndex = 0;
-        for (int p = 1; p <= last; ++p) {
-            if (menuArray[p].getFoodId() > menuArray[largestIndex].getFoodId())
-                largestIndex = p;
-        }
-        swap(menuArray[largestIndex], menuArray[last]);
-    }
-    displayHeader();
-    printSortedResult(menuArray);
-}
-
-void PriceASC(Menu menuArray[]) {
-    string fI[SIZE];
-    for (int last = SIZE - 1; last >= 1; --last) {
-
-        fI[last] = menuArray[last].getPrice();
-        int largestIndex = 0;
-        for (int p = 1; p <= last; ++p) {
-            if (menuArray[p].getPrice() > menuArray[largestIndex].getPrice())
-                largestIndex = p;
-        }
-        swap(menuArray[largestIndex], menuArray[last]);
-    }
-    displayHeader();
-    printSortedResult(menuArray);
-}
 
 int main() {
     char choice;
@@ -360,10 +377,15 @@ int main() {
                         } break;
                     default:
                         break;
-                }            
-                } break;
+                }   
+                orderList.displayNodes();
+            } break;
 
-            case 2:
+            case 2:{
+                cout << "Enter the food ID to delete: ";
+                cin >> foodId;
+                orderList.deleteNode(foodId);
+            } break;
             
             case 3:
             {
@@ -379,7 +401,6 @@ int main() {
 
                     if (foundNode != nullptr) {
                         cout << "\nNode Found:\n";
-                        displayHeader();
                         foundNode->order.displayMenu();
                     } else {
                         cout << "\nNode Not Found.\n";
@@ -407,7 +428,6 @@ int main() {
 
                     if (foundNode != nullptr) {
                         cout << "\nNode Found:\n";
-                        displayHeader();
                         foundNode->order.displayMenu();
                     } else {
                         cout << "\nNode Not Found.\n";
@@ -417,6 +437,7 @@ int main() {
             } break;
 
             case 4:{
+                cout << endl;
                 cout << "Sort by" << endl;
                 cout << "[1] Food ID" << endl;
                 cout << "[2] Price" << endl;
@@ -425,55 +446,71 @@ int main() {
 
                 switch (sortBy){
                     case 1:{
+                        cout << endl;
                         cout << "Sort in" << endl;
                         cout << "[1] Ascending Order" << endl;
-                        cout << "[2] Decending Order" << endl;
+                        cout << "[2] Descending Order" << endl;
                         cout << "\nEnter your choice: " ;
                         cin >> sortIn;
 
                         switch (sortIn)
                         {
-                        case 1:
-                            FoodIdASC(menuArray);
+                        case 1:{
+                            orderList.sortFoodId(true);
+                            cout << "\nSorted by Food ID in Ascending Order." << endl;
                             break;
-/*                        case 2:
-                            PriceASC(newmenu);
-*/                            break;
+                        } 
+                        case 2:{
+                            orderList.sortFoodId(false);
+                            cout << "\nSorted by Food ID in Descending Order." << endl;
+                            break;
+                        } 
                         default:
-                            break;
+                            cout << "Invalid choice for sorting order." << endl;
                         }
-                    } break;
+                        break;
+                    } 
                     case 2:{
+                        cout << endl;
                         cout << "Sort in" << endl;
                         cout << "[1] Ascending Order" << endl;
-                        cout << "[2] Decending Order" << endl;
+                        cout << "[2] Descending Order" << endl;
                         cout << "\nEnter your choice: " ;
                         cin >> sortIn;
 
                         switch(sortIn){
-                        case 1:
-                            PriceASC(menuArray);
+                        case 1: {
+                            orderList.sortPrice(true);
+                            cout << "\nSorted by Price in Ascending Order." << endl;
                             break;
-                        case 2:
-/*                            PriceASC();
-*/                            break;
+                        } 
+                        case 2: {
+                        	orderList.sortPrice(false);
+                            cout << "\nSorted by Price in Descending Order." << endl;
+                            break;
+                        } 
                         default:
-                            break;
+                            cout << "Invalid choice for sorting order." << endl;
                         }
-                    }break;;
+                        break;
+                    } 
+                    default:
+                        cout << "Invalid choice for sorting type." << endl;
                 }
-            } break;
 
-            case 5:{
-                cout << "Display Menu: " << endl;
-            } break;
+                orderList.displayNodes();
+                break;
+            } 
 
+            case 5: {
+        		cout << "Display Menu: " << endl;
+    		} break;
+	
         }
 
-    } while (opt != 5);
+    } while (opt != 5 && opt < 6 && opt > 0) ;
 
     system("cls");
-    displayHeader();
     orderList.displayNodes();
 
     cout << "\nDo you want to continue? (Y/N): ";
@@ -486,3 +523,4 @@ int main() {
 
     return 0;
 }
+S
