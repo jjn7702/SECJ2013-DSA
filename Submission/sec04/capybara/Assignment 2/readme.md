@@ -61,7 +61,37 @@ For display data, we have one pointer curr pointing towards the head. Afterwards
 
 ## User Section 🛂
 
+## User Section
 
+Inside `UserList` class, we have designed it to manage our linked list that uses the paramerters in the `User`. This create nodes that we have given the option insert, delete, find and display the node.
+
+### Update Funtion ###
+
+1. **updateNodeUser** : This fucntion is used in our code to transfer the data in `user.csv` which is in vector to linked list by converting them to nodes so that insert, delete can function properly.
+
+### Insert Funtion ###
+
+1. **insertFirstNodeUser** : This function method creates a new `User` node and inserts it at the beginning of the linked list. It functions by taking the data of `Name`, `IC`, `Phone number` and `Email` and intiliazing it to a new node the this node will be point `next` to the existing `head` of the linked list. Then it will update the value of `head` to be the `newNode`. This algorithm is used to make sure any new data will always be put at the top of the data file in which `NewDataUserFirst` is used to update the existing data of `User`.
+
+2. **insertMidNodeUser** : This method created a new `User` node and inserts it to a specific `location` that in inputted by the user.  Firstly it will validate whether the `location` is valid or not. If a valid `location` is detected it will traverse to said location of the node. Now if the value of `location` is the first node, the same algorithm will be used as in `insertFirstNodeUser` but if the `location` is within the middle of the list, the new node will be inserted between the `prev` and `curr` nodes. If the `location` exceeded the length of `User` list, the new node will be inserted at the end of the list.
+
+3. **insertEndNodeUser** : This function adds a new node at the end of the list by creating a new `User` node. If the list is empty `head == NULL`, it will set the `head` to the new node. If the list is not empty, it will traverse to the end of the list and set the `next` pointer of the last node to the new node.
+
+### Delete Function ###
+
+1. **deleteFirstNodeUse** : This fucntion removes the first node of the list. It sets a temporary pointer to the current `head` then update the `head` to the next node in the list. Next, it will delete the node pointed to `temp`. This is ultimately removes the first element from the list.
+
+2. **deleteMidNodeUser** : This function deletes an existing `User` node in the list based on mathing the data of `IC` in the `user.csv` file. The algorithm will traverse the lsit going throught each node of `IC` whith the inputed `IC` by the user. When match is found and it is not the first node, it will adjust the `next` pointer of the `prev` node to bypass the current node and removing it from the list. If the the nide is the first node, it will update `next` to point to the next node then it will be deleted.
+
+3. **deleteBackUser** : To delete the last node in the list, it will travserse through the list while keeping track of the current and previous node. Once the end is reached where the next = NULL, it will sets the `next` pointer of the second to last node `stay = NULL` and deletes the last node `temp`.
+
+### Find Data Function ###
+
+1. **findUserNode** : This method in the `UserList` class searches for a user in the linked using the user's `IC`. It will go throught each node in the list and checks if any of the node in `IC` matches the inputted value from the user. If a matching node is found, it will display the User's detail with its `Name`, `IC`, `Phone Number` and `Email`. While if no mathing values is found it will display a message stating the inputted IC value is invalid.
+
+### Display Function ###
+
+1. **displayUserList** : This method will display all the existing data in `user.csv` which exist at the nodes. It will begin from the `head` of the list and uses a while looping algorithm to go through each node in the list. For every node it will print the `Name`, `IC`, `Phone Number`, and `Email` of User. After displaying the information of a node, it will proceed to the next node in the list until the end of the list has been reached.
 
 ## Airline Section 🛫
 
