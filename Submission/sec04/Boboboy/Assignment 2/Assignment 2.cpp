@@ -340,7 +340,24 @@ class Cart{
         	b->setprice(temp_price);
 		}
 };
-
+string Cus_order(){
+	string order;
+	bool status;
+	do{
+		status = false;
+		cout << "What order do you want to place?(based on the code given)" << endl; 
+		cout << "Order:"; 
+		cin >> order;
+		for(char &o : order){
+			o = toupper(o);
+		}
+		if((order != "DE1") && (order != "DE2") && (order != "D1") && (order != "D2") && (order != "D3") && (order != "MD1") && (order != "MD2")&& (order != "MD3")&& (order != "MD4")&& (order != "MD5")&& (order != "S1")&& (order != "S2")&& (order != "S3")&& (order != "S4")){
+			cout << "Invalid code for order, Please order again" << endl;
+			status = true;
+		}
+	}while(status);
+	return order;
+}
 Cart Customer_order(Menu a[],Cart c,string C_o, int t){   // C_o = customer order
 		int counter;
 		for(counter = 0;  counter < N; counter++){
