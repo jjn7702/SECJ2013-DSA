@@ -569,7 +569,50 @@ class List{
                 
             } while (swapped);
         }
-             
+        
+        void import(){
+            string name, ic;
+            int age = 0;
+            string sickness, doc;
+            int i = 0;
+
+            ifstream getdata("\\Users\\haziq\\Desktop\\SECJ2013\\Project\\Asg 1\\Patient.txt");
+            char del;
+            if (!getdata) {
+                cout << "Error in open File Patient.txt (check the path)\n";
+                exit(0);
+            }
+            while (getline(getdata, ic, ',')) {
+
+                getline(getdata, name, ',');
+                getdata >> age;
+                //getdata >> del; // remove comma after age
+                getline(getdata >> del, doc, ',');
+                getline(getdata, sickness);
+                insertFront(ic, name, age, sickness, doc, 1);
+                i++;
+
+            }
+            getdata.close();
+
+            getdata.open("\\Users\\haziq\\Desktop\\SECJ2013\\Project\\Asg 1\\Doctor.txt");
+            del;
+            if (!getdata) {
+                cout << "Error in open File Patient.txt (check the path)\n";
+                exit(0);
+            }
+            while (getline(getdata, ic, ',')) {
+
+                getline(getdata, name, ',');
+                getdata >> age;
+                //getdata >> del; // remove comma after age
+                getline(getdata >> del, doc, ',');
+                getline(getdata, sickness);
+                insertFront(ic, name, age, sickness, doc, 2);
+                i++;
+            }
+            getdata.close();
+        }
 };
 
 void getDataPatient(Patient p[], int const size) {
@@ -1043,12 +1086,15 @@ void assignment2 (List &node, int user){ // user  = patient/ doctor
 int main() {
     List node;
 	//test function to find node later
-	node.insertFront("11","Sarah",40,"Cardiologist","Cardiology", 2);
-	node.insertFront("44","James",38,"Pediatrician","Pediatrics", 2);
-	node.insertFront("77","Linda",55,"Orthopedic Surgeon","Orthopedics", 2);
-    node.insertFront("888777666","David",50, "Arthritis", "Dr. Johnson", 1);
-	node.insertFront("987654321","Bob",45, "Diabetes", "Dr. Jones", 1);
-	node.insertFront("333222111","Emily",60, "Cardiovascular Disease", "Dr. Wilson", 1);
+	// node.insertFront("11","Sarah",40,"Cardiologist","Cardiology", 2);
+	// node.insertFront("44","James",38,"Pediatrician","Pediatrics", 2);
+	// node.insertFront("77","Linda",55,"Orthopedic Surgeon","Orthopedics", 2);
+    // node.insertFront("888777666","David",50, "Arthritis", "Dr. Johnson", 1);
+	// node.insertFront("987654321","Bob",45, "Diabetes", "Dr. Jones", 1);
+	// node.insertFront("333222111","Emily",60, "Cardiovascular Disease", "Dr. Wilson", 1);
+    node.import();
+    node.displayAll(2);
+    node.displayAll(1);
 
     int choice = start();   // Choose program
     int user; // patient or doctor
