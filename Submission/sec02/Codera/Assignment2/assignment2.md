@@ -48,11 +48,20 @@ In a nutshell, the Hospital Management System helps minimize the workload for he
 
 ## Pseudocode
 
-## Description on Linked List Operation
 
+## Description on Linked List Operation
+Adding a Patient: The insert, insertEnd, and insertMiddle functions are used to add a new patient to the list. They all perform same functions which is add new patient records at different position. The insert function will add the node at the beginning of the list. The next pointer of the new node is set to the current head of the list, then the head is updated to the new node. For the insertEnd function, the node is added at the end of the list. This is done by travelling to the last node and next pointer is set to the new node. The insertMiddle function can help to add the node at a middle position. The function move to the desired location and update next pointers of the adjacent nodes to insert the new node. 
+
+Deleting a Patient: The removeFront, removeEnd, and removeMiddle functions are used to remove a patient from the list. The removeFront function deletes the first patient info in the list.  The head is the second node and therefore the system deletes the first node. The head is set to the set The removeEnd function will help to delete the last node in the list. The last second node is set to NULL, then the last node is deleted. The removeMiddle function deletes a node at a position. The node before the node want to be deleted position will be updated for its upgoing pointer, in order to delete that node. 
+
+Searching for a Patient: The findNodeName, findNodeIC, and findNodeAge functions are used to find a patient in the list. Each function will go through the list based on the input. If input match the list, then the system returns that patient info. If no patient found, the system returns NULL. 
+
+Sorting Patients: The MergeSort, MergeSortDate, and MergeSortAge functions are used to sort the list of patients. Merge Sort is a Divide and Conquer algorithm that divides the input array into two parts, sorts the two halves independently, and then merges them. The MergeSort function is a recursive function that continuously divides an array until it reaches the individual elements (base case: if first < last). Once the elements are created individually, they are recombined in the sorted order using the merge function. The sorting is done based on three types sorting, name, date and age of the patient. 
+
+Displaying the Patient List: The dispList function is used to display the current list of patients.  
 
 ## Findings 📊
-- [Report]()
+- [Report](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec02/Codera/Assignment2/Report)
 - [Source Code](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec02/Codera/Assignment2/source-code)
 
 ## Contribution 🛠️
