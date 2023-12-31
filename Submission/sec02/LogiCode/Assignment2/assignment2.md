@@ -28,6 +28,9 @@ Figure 1: Class Diagram of Hotel Booking System
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/be931299-a607-4ab8-9681-33f6ef476b00" width="70%" height="70%"><br>
   Figure 4: Flowchart of insertMenu Function
   <br><br><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/c21d777a-2629-4fc1-a8c3-51038d17f42c" width="30%" height="30%"><br>
+  Figure 6: Flowchart of readBookingData Function
+  <br><br><br>
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/1741b2c0-6aa7-4728-952b-ebef3bb8a7d4" width="30%" height="30%"><br>
   Figure 7: Flowchart of isEmpty Function
   <br><br><br>
@@ -58,6 +61,8 @@ Figure 1: Class Diagram of Hotel Booking System
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/3adf64ac-4530-4e96-8792-85cd2b72c9eb" width="40%" height="40%"><br>
   Figure 16: Flowchart of insertEnd Function
   <br><br><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/a5d7049e-06fc-4548-b25c-369de99d861b" width="40%" height="40%"><br>
+  Figure 22: Flowchart of merge Function
 </p>
 
 
