@@ -36,6 +36,9 @@ The objective for this assignment 2 is to create a Election management system to
 
 For inserting at the front,users will enter how many voter’s details they want to enter first and then  a new set of voter’s details  which are the voter’s name, faculty, age, email, ic, matric. Then the voter’s details will be automatically set at the front of the list.Meanwhile if the voter’s details already exist in the list , the system will show “Voter already exists!“.
 
+1.2 Insert at End
+
+For inserting at the end,user will enter how many voter’s details they want to enter first and then a new set of voter’s details which are the voter’s name, faculty, age, email, ic, matrix.Then the voter’s details will be automatically set at the end of the list.Meanwhile if the voter’s details already exist in the list , the system will show “Voter already exist!“.
 
 1.3 Inserting at Node
 
@@ -46,6 +49,10 @@ For inserting at a node,user will enter how many voter’s details they want to 
 2.1 Delete at Front
 
 For delete at the front,users can simply choose the option to delete at the front of the file.Then the voter’s detail at the front of the list will be automatically deleted.After that, the system will show the new updated list to the user.
+
+2.2 Delete at End
+
+For delete at the end,the user can simply choose the option to delete at the end of the file.Then the voter’s detail at the end of the list will be automatically deleted.After that, the system will show the new updated list to the user.
 
 2.3 Deleting at Node
 
