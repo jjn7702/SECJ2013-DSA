@@ -41,7 +41,7 @@ class Menu{
 			price = p;
 		}
 		void printmenu(){
-		cout << code << setw(20) << name << setw(20) << foodtype << setw(20) << price << endl;		
+		cout << code << setw(20) << name << setw(20) << foodtype << setw(18) << price << fixed << setprecision(2) << endl;		
 		}
 };
 
