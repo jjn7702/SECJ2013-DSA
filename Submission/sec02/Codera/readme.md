@@ -23,8 +23,8 @@ In order to effectively manage and monitor patients' records in hospitals, a hos
 
 ## Findings 📊
 
-- [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec02/Codera/Assignment1)
-- Assignment 2
+- [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec02/Codera/Assignment1/assignment1.md)
+- [Assignment 2](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec02/Codera/Assignment2/assignment2.md)
 - Project
 
 ## Contribution 🛠️
