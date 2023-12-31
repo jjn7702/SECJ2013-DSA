@@ -25,6 +25,9 @@ int binarySearchByAirplaneID(const vector<Airline> &airlines, const string &Airp
 int binarySearchByReservationID(vector<Reservation> &reservations, const string &ReservationID);
 
 void NewDataUser(string n, string ic, string p, string mail);
+void NewDataUserFirst(string n, string ic, string p, string mail);
+void NewDataUserMid(string n, string ic, string p, string mail, int location);
+
 void deleteDataUser(string n);
 
 void NewDataReservation(string res, string dept, string arr, string dat, string loc, string cla);
@@ -94,7 +97,7 @@ public:
     }
 
     //* Insert value at the  start of the node
-    User *insertFirstNodeUser(string n, string ic, string p, string mail)
+    User *updateNodeUser(string n, string ic, string p, string mail)
     {
         int currIndex = 0;
         User *curr = head;
@@ -119,7 +122,16 @@ public:
             newNode->next = prev->next;
             prev->next = newNode;
         }
+        return newNode;
+    }
 
+    User *insertFirstNodeUser(string n, string ic, string p, string mail)
+    {
+        User *newNode = new User(n, ic, p, mail);
+        newNode->next = head;
+
+        head = newNode;
+        NewDataUserFirst(n, ic, p, mail);
         return newNode;
     }
 
@@ -185,6 +197,8 @@ public:
 
             curr->next = newNode;
         }
+
+        NewDataUser(n, ic, p, mail);
 
         return newNode;
     }
@@ -334,6 +348,61 @@ void NewDataUser(string n, string ic, string p, string mail)
     userfile.seekp(0, ios::end);
     userfile.close();
 };
+
+void NewDataUserFirst(string n, string ic, string p, string mail)
+{
+    // Open the CSV file
+    ifstream inputFile("data/user.csv");
+
+    // Check if the file is open
+    if (!inputFile.is_open())
+    {
+        cerr << "Error opening the file." << endl;
+        return;
+    }
+
+    // Read the header
+    string header;
+    getline(inputFile, header);
+
+    // Read existing data
+    vector<string> dataLines;
+    string line;
+    while (getline(inputFile, line))
+    {
+        dataLines.push_back(line);
+    }
+
+    // Close the input file
+    inputFile.close();
+
+    // Insert the new data at the second line
+    string newData = n + "," + ic + "," + p + "," + mail;
+    dataLines.insert(dataLines.begin(), newData);
+
+    // Open the file for writing
+    ofstream outputFile("data/user.csv");
+
+    // Check if the file is open
+    if (!outputFile.is_open())
+    {
+        cerr << "Error opening the file for writing." << endl;
+        return;
+    }
+
+    // Write the header to the output file
+    outputFile << header << endl;
+
+    // Write the data to the output file
+    for (const auto &data : dataLines)
+    {
+        outputFile << data << endl;
+    }
+    outputFile.seekp(0, ios::end);
+
+    // Close the output file
+    outputFile.close();
+}
 
 //*Delete data in File
 void deleteDataUser(string n)
@@ -831,6 +900,7 @@ public:
             newNode->next = prev->next;
             prev->next = newNode;
         }
+
         return newNode;
     }
 
@@ -1786,7 +1856,7 @@ int main()
 
     for (int i = 0; i < users.size(); i++)
     {
-        userList.insertFirstNodeUser(users[i].getName(), users[i].getIC(), users[i].getPhone(), users[i].getEmail());
+        userList.updateNodeUser(users[i].getName(), users[i].getIC(), users[i].getPhone(), users[i].getEmail());
     }
 
     // tambahhhh--------->
@@ -2108,7 +2178,7 @@ int main()
                         cout << "Enter Email: ";
                         getline(cin >> ws, Email);
 
-                        userList.updateCSVUser(Name, IC, Phone, Email);
+                        userList.insertFirstNodeUser(Name, IC, Phone, Email);
                         LoadFiles(users, airlines, reservations);
                     }
 
