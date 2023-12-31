@@ -6,6 +6,20 @@
 ## Description 📝
 The Inventory Management System is aiming to organize, store and manage library resources efficiently. Additionally, it also helps inventory manager to manage inventory and produce reports.It will eventually help improved resource allocation and decision making in the warehouse.
 
+<h3>Report Assignment 1</h3>
+<a href="../center point/Assignment 1/files"><img src="./Images/folder.jpg" width="50px" height="50px" ></a>
+
+# Assignment 2
+
+# Advance Inventory Management System with Linked List Concept
+
+## Description 📝
+In this program, we advanced our system with linked list concept to make our system more integrity, efficiency and usability.
+
+<h3>Report Assignment 2</h3>
+<a href="../center point/Assignment 2/files"><img src="./Images/folder.jpg" width="50px" height="50px" ></a>
+
+# Project
 
 ## Prepared by 🧑‍💻
 
@@ -15,20 +29,10 @@ The Inventory Management System is aiming to organize, store and manage library 
 | ONG KAI XUEN     | A22EC0100       | <a href="https://www.linkedin.com/in/kai-xuen-6521b2257/" title="ONG KEI XUEN LinkedIn"><img src="./Images/kaixuen_UTMpic.JPG" width=80px, height=100px>     |
 | SOH FEI ZHEN      | A22EC0272        | <a href="https://www.linkedin.com/in/fei-zhen-soh-b311a0257/" title="SOH FEI ZHEN LinkedIn"><img src="./Images/SOH FEI ZHEN.jpg" width=80px, height=100px>     |
 
-<h3>Report Assignment 1</h3>
-<a href="../center point/Assignment 1/files"><img src="./Images/folder.jpg" width="50px" height="50px" ></a>
-
-
-
-# Assignment 2
-
-# Project
-
-
 ## Findings 📊
 
 - <a href="../center point/Assignment 1/assignment1.md" >Assignment 1 
-- Assignment 2
+- <a href="../center point/Assignment 2/asg2.md" >Assignment 2
 - Project
 
 ## Contribution 🛠️

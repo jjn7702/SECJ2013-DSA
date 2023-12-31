@@ -97,27 +97,25 @@ The linked list is implemented as nodes, containing a Courier object and a point
 
 2. From the option, the data will be searched by corresponding function either by name, parcel type, source, destination, status or tracking number.
 
-3. The function begins by setting the value of a boolean variable (found) to false.
+3. The function sets the value of a boolean variable (found) to false.
 
 4. It iterates through the linked list, comparing the attributes of each courier to the corresponding attributes in the searchData.
 
-5. If a match is found based on the specified search criteria, the courier's information is displayed using the Courier class's display method.
+    4.1 The findNode function uses searchKey to search the courier data based on the option that was chosen by the user.
 
-    5.1 The findNode function uses searchKey to search the courier data based on the option that was chosen by the user.
+         4.1.1 Option 1: name with specific searchKey will be displayed.
 
-         5.1.1 Option 1: name with specific searchKey will be displayed.
+         4.1.2 Option 2: parcel type with specific searchKey will be displayed.
 
-         5.1.2 Option 2: parcel type with specific searchKey will be displayed.
+         4.1.3 Option 3: source with specific searchKey will be displayed.
 
-         5.1.3 Option 3: source with specific searchKey will be displayed.
+         4.1.4 Option 4: destination with specific searchKey will be displayed.
 
-         5.1.4 Option 4: destination with specific searchKey will be displayed.
+         4.1.5 Option 5: status with specific searchKey will be displayed.
 
-         5.1.5 Option 5: status with specific searchKey will be displayed.
+         4.1.6 Option 6: tracking number with specific searchKey will be displayed.
 
-         5.1.6 Option 6: tracking number with specific searchKey will be displayed.
-
-         5.1.7 Option 0: return back to the main menu.
+         4.1.7 Option 0: return back to the main menu.
 
 
 
@@ -125,21 +123,19 @@ The linked list is implemented as nodes, containing a Courier object and a point
 
 1. Get the option from the main function.
 
-2. The function begins by determining whether the linked list is not empty and has more than one node.
+2. The function determines whether the linked list is not empty and has more than one node.
 
 3. It iteratively traverses the list, comparing and swapping elements based on the sorting criterion selected.
 
-4. The sortCriteria parameter determines the sorting criteria, and the comparison is performed accordingly.
+      3.1 The sortList function uses sortCriteria to sort the courier data based on the option that was chosen by the user.
 
-      4.1 The sortList function uses sortCriteria to sort the courier data based on the option that was chosen by the user.
+            3.1.1 Option 1: courier data sort by name.
 
-            4.1.1 Option 1: courier data sort by name.
+            3.1.2 Option 2: courier data sort by parcel type.
 
-            4.1.2 Option 2: courier data sort by parcel type.
+            3.1.3 Option 3: courier data sort by tracking number.
 
-            4.1.3 Option 3: courier data sort by tracking number.
-
-            4.1.4 Option 0: return back to the main menu.
+            3.1.4 Option 0: return back to the main menu.
 
 #### DISPLAYING THE NODE
 
