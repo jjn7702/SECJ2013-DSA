@@ -181,6 +181,23 @@ class Cart{
 				}
 			}// delete the last
         }
+		void displayCart(){
+			Order *temp;
+			temp = head;
+			if(temp == NULL){
+				cout << "Cart is empty" << endl;
+				return;
+			}
+			cout << "************ CART ************" << endl << endl;
+			cout << "-------------------------------------------------------------" << endl;
+			cout << "Code" << setw(17) << "Name" << setw(20) << "Type" << setw(20) << "Price(RM)" << endl;
+			cout << "-------------------------------------------------------------" << endl;
+			while(temp){
+				cout << temp->getcode() << setw(20) << temp->getname() << setw(20) << temp->getfoodtype() << setw(20) << temp->getprice() << endl;
+				temp = temp -> next;
+			}
+			 cout << endl;
+		}
 		Order* find(string target,int n){
 			Order *current = head;
 			while(current){
