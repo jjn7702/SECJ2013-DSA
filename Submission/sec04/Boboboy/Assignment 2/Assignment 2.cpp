@@ -166,6 +166,20 @@ class Cart{
 					delete temp;
 				}
 			}// delete the number at the middle which the user provide the location
+			else if(w == 3){
+				if(CartEmpty()){
+					cout << "Does not have order can be delete" << endl;
+				}
+				else{
+					Order *temp1;
+					while(temp->next != NULL){
+						temp1 = temp;
+						temp = temp -> next;
+					}
+					temp1->next = NULL;
+					delete temp;
+				}
+			}// delete the last
         }
 		Order* find(string target,int n){
 			Order *current = head;
