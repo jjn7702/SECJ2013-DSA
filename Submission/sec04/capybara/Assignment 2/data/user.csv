@@ -1,6 +1,7 @@
-AirplaneID, Capacity, Company
-MH171,100,Malaysia Airlines
-EY122,250,Etihad Airways
-AF231,300,Air France
-BA900,400,British Airways
-SQ777,230,Singapore Airlines
+Name, IC, Phone, Email
+John Doe,123456789012,5551234,john.doe@email.com
+Jane Smith,234567890123,5555678,jane.smith@email.com
+Robert Johnson,345678901234,5559876,robert.j@email.com
+Emily Davis,456789012345,5554321,emily.davis@email.com
+Michael Brown,567890123456,5558765,michael.b@email.com
+Sophia Wilson,678901234567,5552109,sophia.w@email.com

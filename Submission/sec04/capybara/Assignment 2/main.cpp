@@ -350,10 +350,15 @@ void NewDataAirlineFirst(string id, string cap, string company)
     outputFile << header << endl;
 
     // Write the data to the output file
-    for (const auto &data : dataLines)
+    for (int i = 0; i < dataLines.size(); i++)
     {
-        outputFile << data << endl;
+        outputFile << dataLines[i];
+        if (i != dataLines.size() - 1)
+        {
+            outputFile << endl;
+        }
     }
+
     outputFile.seekp(0, ios::end);
 
     // Close the output file
@@ -368,9 +373,8 @@ void NewDataUser(string n, string ic, string p, string mail)
     userfile << "\n"
              << n << "," << ic << "," << p << "," << mail;
 
-    userfile.seekp(0, ios::end);
     userfile.close();
-};
+}
 
 void NewDataUserFirst(string n, string ic, string p, string mail)
 {
@@ -413,14 +417,18 @@ void NewDataUserFirst(string n, string ic, string p, string mail)
         return;
     }
 
-    // Write the header to the output file
     outputFile << header << endl;
 
     // Write the data to the output file
-    for (const auto &data : dataLines)
+    for (int i = 0; i < dataLines.size(); i++)
     {
-        outputFile << data << endl;
+        outputFile << dataLines[i];
+        if (i != dataLines.size() - 1)
+        {
+            outputFile << endl;
+        }
     }
+
     outputFile.seekp(0, ios::end);
 
     // Close the output file
@@ -475,14 +483,19 @@ void NewDataAirlineMid(string id, string capacity, string company, int i)
         return;
     }
 
-    // Write the header to the output file
     outputFile << header << endl;
 
     // Write the data to the output file
-    for (const auto &data : dataLines)
+    for (int i = 0; i < dataLines.size(); i++)
     {
-        outputFile << data << endl;
+        outputFile << dataLines[i];
+
+        if (i != dataLines.size() - 1)
+        {
+            outputFile << endl;
+        }
     }
+
     outputFile.seekp(0, ios::end);
 
     // Close the output file
@@ -541,10 +554,16 @@ void NewDataUserMid(string n, string ic, string p, string mail, int i)
     outputFile << header << endl;
 
     // Write the data to the output file
-    for (const auto &data : dataLines)
+    for (int i = 0; i < dataLines.size(); i++)
     {
-        outputFile << data << endl;
+        outputFile << dataLines[i];
+
+        if (i != dataLines.size() - 1)
+        {
+            outputFile << endl;
+        }
     }
+
     outputFile.seekp(0, ios::end);
 
     // Close the output file
