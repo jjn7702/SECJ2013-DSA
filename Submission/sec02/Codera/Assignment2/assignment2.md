@@ -27,6 +27,9 @@ In order to effectively manage and monitor patients' records in hospitals, a hos
 - Implement linked list data structure and algorithm to build this hospital mangament system.
 - Allow healthcare workers to add or delete patients, search or sort patient record, and view patient medical history.
 
+## Synopsis
+
+
 ## Class Diagram 
 ### The relationships are:
 - Patient and Node: Composition, as each Node contains an instance of Patient.
