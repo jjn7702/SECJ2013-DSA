@@ -121,6 +121,18 @@ class Cart{
 					temp->next = newNode;
 				}
 			}// insert the number at the middle which the user provide the location
+			else if (w == 3){
+				if(CartEmpty()){
+					head = newNode;
+				}
+				else{
+					Order *temp = head;
+					while(temp->next != NULL){   // make it become null until the last
+						temp = temp->next;
+					}
+					temp-> next = newNode;
+				}
+			}// insert the number at the last
         }
         void deleteNode(int w){
 			Order *temp = head;
@@ -154,7 +166,38 @@ class Cart{
 					delete temp;
 				}
 			}// delete the number at the middle which the user provide the location
+			else if(w == 3){
+				if(CartEmpty()){
+					cout << "Does not have order can be delete" << endl;
+				}
+				else{
+					Order *temp1;
+					while(temp->next != NULL){
+						temp1 = temp;
+						temp = temp -> next;
+					}
+					temp1->next = NULL;
+					delete temp;
+				}
+			}// delete the last
         }
+		void displayCart(){
+			Order *temp;
+			temp = head;
+			if(temp == NULL){
+				cout << "Cart is empty" << endl;
+				return;
+			}
+			cout << "************ CART ************" << endl << endl;
+			cout << "-------------------------------------------------------------" << endl;
+			cout << "Code" << setw(17) << "Name" << setw(20) << "Type" << setw(20) << "Price(RM)" << endl;
+			cout << "-------------------------------------------------------------" << endl;
+			while(temp){
+				cout << temp->getcode() << setw(20) << temp->getname() << setw(20) << temp->getfoodtype() << setw(20) << temp->getprice() << endl;
+				temp = temp -> next;
+			}
+			 cout << endl;
+		}
 		Order* find(string target,int n){
 			Order *current = head;
 			while(current){
@@ -163,7 +206,14 @@ class Cart{
 						return current;
 					}
 				}
+				else if(n == 2){
+					if(current -> getname() == target){
+						return current;
+					}
+				}
+				current = current ->next;
 			}
+			return NULL;
 		}
         void bubbleSort(){
             int swapped,way;
