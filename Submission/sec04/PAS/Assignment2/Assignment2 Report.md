@@ -2,3 +2,5 @@
 ## Contents
 - Objectives 
 - Sinopsis
+- Design
+- Description
