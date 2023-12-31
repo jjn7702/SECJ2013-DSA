@@ -685,8 +685,12 @@ int main()
         {
             list.displayAll();
         }
+<<<<<<< HEAD
 
 
     }
+=======
+   }
+>>>>>>> 3c5406761932d7dd9b50138f03ce584b53a41dcd
 
 }
