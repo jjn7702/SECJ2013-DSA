@@ -351,28 +351,28 @@ public:
         slow->next = NULL;
     }
 
-        void MergeSort(Node **headRef)
+    void MergeSort(Node **headRef)
+    {
+        Node *head = *headRef;
+        Node *a;
+        Node *b;
+
+        /* Base case -- length 0 or 1 */
+        if (head == NULL || head->next == NULL)
         {
-            Node *head = *headRef;
-            Node *a;
-            Node *b;
-
-            // Base case -- length 0 or 1
-            if (head == NULL || head->next == NULL)
-            {
-                return;
-            }
-
-            // Split head into 'a' and 'b' sublists
-            FrontBackSplit(head, &a, &b);
-
-            // Recursively sort the sublists
-            MergeSort(&a);
-            MergeSort(&b);
-
-            // Merge the two sorted lists together
-            *headRef = SortedMerge(a, b);
+            return;
         }
+
+        /* Split head into 'a' and 'b' sublists */
+        FrontBackSplit(head, &a, &b);
+
+        /* Recursively sort the sublists */
+        MergeSort(&a);
+        MergeSort(&b);
+
+        /* answer = merge the two sorted lists together */
+        *headRef = SortedMerge(a, b);
+    }
 
         void sortList()
     {
