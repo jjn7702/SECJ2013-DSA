@@ -261,3 +261,137 @@ class BookList {
 				currNode->displaySearch();
 			}
 			else
+			break;
+            }
+        }          
+        void searchInt(int key){
+            Node *currNode = head;
+            int currIndex = 1;
+                
+             while(currNode->getYear() != key){
+		     currNode = currNode->next;
+		     currIndex++;
+		     }
+		     if(currNode)
+		        currNode->displaySearch();
+		     else
+		        cout << "The year entered is invalid.";
+   			}
+
+};
+
+void insertOption(BookList &list, int &n) {
+    int choice, year;
+    string id, name, author, genre;
+	cout << "\n <<< Insert Menu >>>" << endl
+		 << "[1] Insert at the Beginning" << endl
+		 << "[2] Insert in the Middle" << endl
+		 << "[3] Insert at the End" << endl
+		 << "[4] Done" << endl
+		 << "\nOption: ";
+	cin >> choice;
+	do {
+	    cout << "\n***Book Details***\n";
+	    cout << "ID: ";
+	    cin >> id;
+	    cin.ignore();
+	    cout << "Title: ";
+	    getline(cin, name);
+	    cout << "Author: ";
+	    getline(cin, author);
+	    cout << "Year Published: ";
+	    cin >> year;
+	    cin.ignore();
+	    cout << "Genre: ";
+	    getline(cin, genre);
+	        switch(choice) {
+	        case 1:
+	            list.insertF(id, name, author, year, genre);
+	            break;
+	        case 2:
+	            list.insertM(id, name, author, year, genre, n);
+	            break;
+	        case 3:
+	            list.insertE(id, name, author, year, genre);
+	            break;
+	        }
+	    list.display();
+	    n++;
+	    cout << "\n<<< Insert Menu >>>" << endl
+		     << "[1] Insert at the Beginning" << endl
+		     << "[2] Insert in the Middle" << endl
+		     << "[3] Insert at the End" << endl
+		     << "[4] Done" << endl
+		     << "\nOption: ";
+	    cin >> choice;
+	    } while (choice > 0 && choice < 4);
+}
+
+int mainMenu() {
+    int choice;
+    cout << "\n<<< Main Menu >>>" << endl
+		 << "[1] Insert a Book" << endl
+		 << "[2] Delete a Book" << endl
+		 << "[3] Find a Book" << endl
+		 << "[4] Exit" << endl
+		 << "\nOption: ";
+	cin >> choice;
+	return choice;
+}
+
+int main() {
+    BookList list;
+	int count = 0, opt1, opt2, findInt, opt;
+    string findString;
+	cout << "-----LIBRARY MANAGEMENT SYSTEM-----\n";
+	opt1 = mainMenu();
+	do {
+	    switch(opt1) {
+	        case 1: 
+	            insertOption(list, count);
+	            break;
+	        case 2:
+	            list.deleteNode(count);
+	            break;
+	        case 3:
+	            opt2 = searchOption();
+	            switch (opt2){
+                    case 1:
+                        cout << endl << "Enter ID: ";
+                        cin.ignore();
+                        getline(cin, findString);
+                        list.searchString(opt2 ,findString);
+                        break;
+                    case 2:
+                        cout << endl << "Enter Title: ";
+                        cin.ignore();
+                        getline(cin, findString);
+                        list.searchString(opt2 ,findString);
+                        break;
+                    case 3:
+                        cout << endl << "Enter Autor: ";
+                        getline(cin, findString);
+                        list.searchString(opt2 ,findString);
+                        break;
+                    case 4:
+                        cout << endl << "Enter Genre: ";
+                        cin.ignore();
+                        getline(cin, findString);
+                        list.searchString(opt2 ,findString);
+                        break;
+                    case 5:
+                        cout << endl << "Enter Year: ";
+                        cin >> findInt;
+                        list.searchInt(findInt);
+                        break;
+  
+                }
+	        case 4:
+	            exit(0);
+	            break;
+	    }
+        opt1 = mainMenu();
+    } while (opt1 > 0 && opt1  < 5);
+    return 0;
+}
+
