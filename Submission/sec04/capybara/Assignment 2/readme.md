@@ -5,7 +5,7 @@
 - [Objectives](#objectives-)
 - [Synopsis](#synopsis-)
 - [Flow Chart](#flow-chart-)
-- [Linked List](#linked-list-)
+- [Linked List](#Linked-List-)
 
 ## Description 
 For this part of assignment work we are going to implement linked list method in upgrading the functionalities of our airline reservation system. From the existing system that implements vector use, we are now required to prove another method of navigating through our system by the linked list method and perform a link-up with our previous vector algorithm.
