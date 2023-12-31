@@ -47,7 +47,9 @@ In a nutshell, the Hospital Management System helps minimize the workload for he
 <br><img src = https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Assignment2/Images/class-diagram.png><br>
 
 ## Pseudocode
+<img src = "https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Assignment2/Images/pseudo1.png">
 
+<img src = "https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Assignment2/Images/pseudo2.png">
 
 ## Description on Linked List Operation
 Adding a Patient: The insert, insertEnd, and insertMiddle functions are used to add a new patient to the list. They all perform same functions which is add new patient records at different position. The insert function will add the node at the beginning of the list. The next pointer of the new node is set to the current head of the list, then the head is updated to the new node. For the insertEnd function, the node is added at the end of the list. This is done by travelling to the last node and next pointer is set to the new node. The insertMiddle function can help to add the node at a middle position. The function move to the desired location and update next pointers of the adjacent nodes to insert the new node. 
