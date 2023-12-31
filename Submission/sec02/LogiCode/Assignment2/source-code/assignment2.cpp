@@ -61,7 +61,7 @@ public:
 
   bool isEmpty() { return (head == NULL); }
 
-  void insertFront(BookingNode newBooking) {
+ void insertFront(BookingNode newBooking) {
     BookingNode *newNode = new BookingNode(newBooking);
     if (!isEmpty())
       newNode->next = head;
@@ -211,6 +211,8 @@ public:
       cout << "Sorry, Room Number not found. Cannot insert new booking after "
               "the Room Number."
            << endl;
+      delete newNode;
+      return;
     }
 
     newNode->next = temp->next;
@@ -233,7 +235,7 @@ public:
       temp = temp->next;
     }
 
-    if (!keyFound || prev == nullptr) {
+    if (!keyFound) {
       cout << "Sorry, Room Number not found. Cannot insert new booking before "
               "the Room Number."
            << endl;
@@ -249,7 +251,7 @@ public:
     BookingNode *temp = head;
     BookingNode *newNode = new BookingNode(newBooking);
 
-    if (head == NULL) {
+    if (isEmpty()) {
       head = newNode;
       return;
     }
