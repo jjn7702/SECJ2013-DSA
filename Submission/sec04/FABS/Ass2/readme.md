@@ -17,43 +17,31 @@
 - [Findings](#findings)
 
 ## Objectives <a name="objectives"></a> :heavy_check_mark:
-   The objective is to implement a simple courier management system based on linked lists. The program reads courier data from a file, builds a linked list of courier objects, and provides a menu-driven interface for performing various operations on the courier list. Adding a new courier node to the list, deleting a node from the list, searching for a courier node based on specified criteria, sorting the list based on different criteria, and displaying the list are all supported operations.
+
+   The objective is to implement a courier management system based on linked lists. The program will read courier data from a TEST.txt file, and builds a linked list of courier objects, provides a menu-driven interface for performing some operations such as adding a new courier node to the list, deleting a node from the list, searching for a courier node based on provided options, sorting the list based on provided options, and displaying the updated list. In this coding we use sorted-linked list class and node class to ease the courier management system on adding new node, deleting, sorting and searching system. The system also has a user-friendly interface with a menu-driven system that determines users through the whole process until they choose to exit the system. 
 The following are the code's key features and objectives:
 
 1. Courier Service:
-  
-   A courier is represented by attributes such as name, parcel type, source, destination, status, and tracking number.
-   Provides methods for setting and retrieving these attributes. There is a display method for printing the courier details.
+A courier is  by attributes such as name, parcel type, source, destination, status, and tracking number. There are methods for setting and retrieving and also a display method for printing the courier details.
 
 2. Node Class:
- 
-   A node in a linked list, each of which contains a Courier object and a pointer to the next node.
-
+A node in a linked list, each of which contains a Courier object and a pointer to the next node.
 
 3. LinkedList Class:
-  
-   A linked list of Courier nodes is managed. Allows you to insert a new node at the beginning, middle, or end of the list. Supports operations for removing a node from the list's beginning, middle, or end. Provides a method for locating a node using specified search criteria. This function implements a sorting algorithm. Implements a sorting algorithm to sort the list based on various criteria (such as name, parcel type, and tracking number). The list of couriers is displayed.
+Managed a linked list of Courier nodes.
+Ask and allow the user to insert a new node at the beginning, middle, or end of the list. Have operations for deleting a node from the list's beginning, middle, or end. This class also provides a method for locating a node using specified features. This function implements a sorting algorithm. Implements a sorting algorithm to sort the list based on various criteria (such as name, parcel type, and tracking number).
 
 4. Main Purpose:
-   
-   The linked list is populated by reading courier information from a file. Implements a menu-driven interface for interacting with the courier list. Adding, deleting, searching, sorting, and displaying courier nodes are all options. The program will continue to run until the user chooses to exit.
+The linked list is populated by reading courier information from a file (TEST.txt). Implements a menu-driven interface for interacting with the courier list. Have various options which are adding, deleting, searching, sorting, and displaying courier nodes. The program will continue to run until the user chooses to exit.
 
 5. Input from a File:
-    
-   The program reads courier information from a file (TEST.txt) and uses it to populate the linked list.
-
+The program reads courier information from a file (TEST.txt) and uses it to add the information of the linked list.
 
 6. Menu-Based User Interface:
-    
-   To perform various operations on the courier list, the program provides a user-friendly menu.
+To perform various operations on the courier list, the program provides a user-friendly menu.
 
 7. Validation of Data:
-    
-   Basic input validation includes checking for valid menu options and handling invalid input while searching. In general, the goal is to create a flexible and interactive courier management system based on linked lists that allows users to efficiently manage and manipulate courier data.
-
-
-
-
+Basic input validation includes checking for valid menu options and handling invalid input while searching. In general, the goal is to create a flexible and interactive courier management system based on linked lists that allows users to efficiently manage and manipulate courier data.
 
 ## Synopsis <a name="synopsis"></a> 📝
 
