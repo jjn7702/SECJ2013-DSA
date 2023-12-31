@@ -434,6 +434,132 @@ void NewDataUserFirst(string n, string ic, string p, string mail)
     // Close the output file
     outputFile.close();
 }
+void NewDataReservationMid(string res, string dept, string arr, string dat, string loc, string cla, int i)
+{
+    // Open the CSV file
+    ifstream inputFile("data/reservation.csv");
+
+    // Check if the file is open
+    if (!inputFile.is_open())
+    {
+        cerr << "Error opening the file." << endl;
+        return;
+    }
+
+    // Read the header
+    string header;
+    getline(inputFile, header);
+
+    // Read existing data
+    vector<string> dataLines;
+    string line;
+    while (getline(inputFile, line))
+    {
+        dataLines.push_back(line);
+    }
+
+    // Close the input file
+    inputFile.close();
+
+    // Insert the new data at the specified position
+    if (i >= 1 && i <= dataLines.size() + 1)
+    {
+        dataLines.insert(dataLines.begin() + i - 1, res + "," + dept + "," + arr + "," + dat + "," + loc + "," + cla);
+    }
+    else
+    {
+        cerr << "Invalid position specified." << endl;
+        return;
+    }
+
+    // Open the file for writing
+    ofstream outputFile("data/reservation.csv");
+
+    // Check if the file is open
+    if (!outputFile.is_open())
+    {
+        cerr << "Error opening the file for writing." << endl;
+        return;
+    }
+
+    // Write the header to the output file
+    outputFile << header << endl;
+
+    // Write the data to the output file
+    for (int i = 0; i < dataLines.size(); i++)
+    {
+        outputFile << dataLines[i];
+
+        if (i != dataLines.size() - 1)
+        {
+            outputFile << endl;
+        }
+    }
+
+    outputFile.seekp(0, ios::end);
+
+    // Close the output file
+    outputFile.close();
+}
+
+void NewDataReservationFirst(string res, string dept, string arr, string dat, string loc, string cla)
+{
+    // Open the CSV file
+    ifstream inputFile("data/reservation.csv");
+
+    // Check if the file is open
+    if (!inputFile.is_open())
+    {
+        cerr << "Error opening the file." << endl;
+        return;
+    }
+
+    // Read the header
+    string header;
+    getline(inputFile, header);
+
+    // Read existing data
+    vector<string> dataLines;
+    string line;
+    while (getline(inputFile, line))
+    {
+        dataLines.push_back(line);
+    }
+
+    // Close the input file
+    inputFile.close();
+
+    // Insert the new data at the second line
+    string newData = res + "," + dept + "," + arr + "," + dat + "," + loc + "," + cla;
+    dataLines.insert(dataLines.begin(), newData);
+
+    // Open the file for writing
+    ofstream outputFile("data/reservation.csv");
+
+    // Check if the file is open
+    if (!outputFile.is_open())
+    {
+        cerr << "Error opening the file for writing." << endl;
+        return;
+    }
+
+    outputFile << header << endl;
+
+    // Write the data to the output file
+    for (int i = 0; i < dataLines.size(); i++)
+    {
+        outputFile << dataLines[i];
+        if (i != dataLines.size() - 1)
+        {
+            outputFile << endl;
+        }
+    }
+
+    outputFile.seekp(0, ios::end);
+
+    // Close the output file
+    outputFile.close();
+}
 
 void NewDataAirlineMid(string id, string capacity, string company, int i)
 {
@@ -834,13 +960,60 @@ public:
         return head;
     }
 
+    void insertMidNodeReservation(string res, string dept, string arr, string dat, string loc, string cla, int location)
+    {
+        if (location < 0)
+        {
+            cout << "Sorry Invalid Location." << endl;
+        }
+
+        int currIndex = 1;
+        Reservation *curr = head;
+        Reservation *prev = NULL;
+
+        while (curr != NULL && currIndex < location)
+        {
+            prev = curr;
+            curr = curr->next;
+            currIndex++;
+        }
+
+        Reservation *newNode = new Reservation(res, dept, arr, dat, loc, cla);
+
+        if (currIndex == 1)
+        {
+            newNode->next = head;
+            head = newNode;
+        }
+        else if (currIndex == location)
+        {
+            newNode->next = curr;
+            prev->next = newNode;
+        }
+        else
+        {
+            cout << "Node number value is over the existing value. Value will be inserted at the end of the node." << endl;
+            prev->next = newNode;
+        }
+        NewDataReservationMid(res, dept, arr, dat, loc, cla, location);
+    }
+
+    void insertFirstNodeReservation(string res, string dept, string arr, string dat, string loc, string cla)
+    {
+        Reservation *newNode = new Reservation(res, dept, arr, dat, loc, cla);
+        newNode->next = head;
+
+        head = newNode;
+        NewDataReservationFirst(res, dept, arr, dat, loc, cla);
+    }
+
     Reservation *insertNode(string res, string dept, string arr, string dat, string loc, string cla)
     {
         int currIndex = 0;
         Reservation *curr = head;
-        Reservation *prev = nullptr;
+        Reservation *prev = NULL;
 
-        while (curr != nullptr && (res > curr->getReservationID() || (res == curr->getReservationID() && dept > curr->getDepartureTime()) || (res == curr->getReservationID() && dept == curr->getDepartureTime() && arr > curr->getArrivalTime()) || (res == curr->getReservationID() && dept == curr->getDepartureTime() && arr > curr->getArrivalTime() && dat > curr->getDate()) || (res == curr->getReservationID() && dept == curr->getDepartureTime() && arr > curr->getArrivalTime() && dat > curr->getDate() && loc > curr->getLocation()) || (res == curr->getReservationID() && dept == curr->getDepartureTime() && arr > curr->getArrivalTime() && dat > curr->getDate() && loc > curr->getLocation() && cla > curr->getClass())))
+        while (curr != NULL)
         {
             prev = curr;
             curr = curr->next;
@@ -2576,6 +2749,7 @@ int main()
                 cin >> pilih2;
 
                 string reservationID, DepartureTime, ArrivalTime, Date, Location, Class;
+                int location;
 
                 if (pilih2 == 1)
                 {
@@ -2602,6 +2776,28 @@ int main()
                         cout << "Enter Class: ";
                         getline(cin >> ws, Class);
 
+                        reservationList.insertFirstNodeReservation(reservationID, DepartureTime, ArrivalTime, Date, Location, Class);
+                        LoadFiles(users, airlines, reservations);
+
+                        cout << "\nUpdated Reservation List: " << endl
+                             << endl;
+                        reservationList.displayList();
+                    }
+
+                    if (pilih3 == 2) // end
+                    {
+                        reservationID = 'R' + to_string(reservations.size() + 1);
+                        cout << "Enter Departure Time: ";
+                        getline(cin >> ws, DepartureTime);
+                        cout << "Enter Arrival Time: ";
+                        getline(cin >> ws, ArrivalTime);
+                        cout << "Enter Date: ";
+                        getline(cin >> ws, Date);
+                        cout << "Enter Location: ";
+                        getline(cin >> ws, Location);
+                        cout << "Enter Class: ";
+                        getline(cin >> ws, Class);
+
                         reservationList.updateCSVReservation(reservationID, DepartureTime, ArrivalTime, Date, Location, Class);
                         LoadFiles(users, airlines, reservations);
 
@@ -2610,17 +2806,29 @@ int main()
                         reservationList.displayList();
                     }
 
-                    if (pilih3 == 1) // end
+                    if (pilih3 == 3) // mid
                     {
-                    }
+                        reservationID = 'R' + to_string(reservations.size() + 1);
+                        cout << "Enter Departure Time: ";
+                        getline(cin >> ws, DepartureTime);
+                        cout << "Enter Arrival Time: ";
+                        getline(cin >> ws, ArrivalTime);
+                        cout << "Enter Date: ";
+                        getline(cin >> ws, Date);
+                        cout << "Enter Location: ";
+                        getline(cin >> ws, Location);
+                        cout << "Enter Class: ";
+                        getline(cin >> ws, Class);
+                        cout << "Enter Location";
+                        cin >> location;
 
-                    if (pilih3 == 1) // mid
-                    {
-                    }
+                        reservationList.insertMidNodeReservation(reservationID, DepartureTime, ArrivalTime, Date, Location, Class, location);
+                        LoadFiles(users, airlines, reservations);
 
-                    cout << "\nUpdated User List: " << endl
-                         << endl;
-                    userList.displayUserList();
+                        cout << "\nUpdated Reservation List: " << endl
+                             << endl;
+                        reservationList.displayList();
+                    }
                 }
                 else if (pilih2 == 2)
                 {
