@@ -16,6 +16,7 @@
 - To improve understanding and enhance application of data structure: linked list in a real-world scenario.
 - To utilize file mechanism in C++ to read data from external files as a simulation of the database of the system.
 
+
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/ac62ef65-848d-41a6-97c2-1ff40be8ecd3" width="3%" height="3%"> Synopsis
 
 
