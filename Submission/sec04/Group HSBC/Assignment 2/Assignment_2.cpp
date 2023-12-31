@@ -76,6 +76,16 @@ class Node {
     	}
 };
 
+Node* swap(Node* acc1, Node* acc2)
+{
+	Node* temp = acc2->next;
+
+	acc2->next = acc1;
+	acc1->next = temp;
+
+	return acc2;
+}
+
 class List{
 	private:
 		Node* head;
