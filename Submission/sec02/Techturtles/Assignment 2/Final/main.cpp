@@ -381,6 +381,8 @@ void insertionSort(ParcelList& list, bool ascending) {
 
 
 void displayMenu() {
+    cout << right << endl;
+    cout << setw(46) << "WELCOME TO TECHTURTLES PARCEL SYSTEM...\n";
     cout << "\t+-------------------------------+\n";
     cout << "\t|  Courier Service System Menu  |\n";
     cout << "\t+-------------------------------+\n";
