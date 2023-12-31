@@ -41,7 +41,7 @@ The Library Management System is aiming to organize,store and manage library res
 5. After choosing either one and getting the results, the user can choose to exit the system, go back to the main menu where the user will need to choose either to add book, or search or delete book or sort book or display based on the other attributes.
 6. If the user selects "Search Book". They will be redirected to the Searching Main Menu.
 7. The user can then choose to search the books specifically based on title,author , year of publish or ISBN number.
-8. If the user selects "Delete Book". They will be ask to delete by input the title or ISBN number of the book.
+8. If the user selects "Delete Book". They will be ask to delete the book in the front, middle, or end.
 9. If the user selects "Sort Books". They will then be redirected to the Sorting Main Menu.
 10. The user can then choose to sort the books based on the title (alphabetically from A-Z), author, year of publish, or ISBN number.
 11. If the user selects "Display Books".The system will display the book based on what user prompt in sorting books menu.

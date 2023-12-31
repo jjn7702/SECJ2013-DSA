@@ -18,7 +18,7 @@ The program utilizes a linked list to store information about books. Each book i
 ## Design 🎨
 
 1. Class Diagram
-<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Assignment2/ClassDiagramASG2DSA.drawio%20(2).png">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Assignment2/ClassDiagramASG2DSA.png">
 
 2. Pseudocode
 <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Assignment2/Pseudocode.png">
@@ -40,22 +40,24 @@ The program utilizes a linked list to store information about books. Each book i
 
 ## Implementation
 
-### Linked list
--The linked list implementation is a crucial aspect of the program, as it enables dynamic management of book data. The Library class encapsulates operations such as adding books to the beginning, middle, and end of the list, finding and deleting books based on title or ISBN, and sorting books by title, author, year, or ISBN.
+### Linked List
+The program's linked list is a crucial component. Book data can be managed dynamically with the help of this data structure. The Library class encompasses functions like appending books to the start, middle, and finish of the list, locating and eliminating books according to their ISBN or title, and organising books according to their ISBN, title, author, year, or sort order.
 
-The addNode method facilitates the addition of a new book node at the front of the linked list.By creating a new node with the book's information and updating the head, this operation maintains chronological order in the library. This operation is crucial for efficiently inserting new books and maintaining a chronological order within the library.
+A new book node is added into the list by using the addBookfront function. This function will add a new book that will act as a node to the current list of books. The book will be added to the front of the list.
 
-The addNodeMiddle operation enhances the library's functionality by allowing the insertion of a new book node at the middle position of the linked list. This operation calculates the middle position based on the current size of the list and intelligently inserts the new node, providing a more organized structure.
+In addition,a new node for book is position at the middle or the linked list.The addBookMiddle can add the book to the middle of the book list.The function make it more organised because it is being updated in the middle of the book list depending on how much the total of books following the file and when inserting a new data.
 
-The addNodeEnd operation provides users with the flexibility to append new books to the end of the linked list. it traverses the list to find the last node and seamlessly integrates the new book, accommodating users who prefer appending new entries.This is beneficial when users prefer to add books without disrupting the existing order or when dealing with a continuously expanding collection. 
+Other than that, users can also add new books to the end of the linked list by using the addBookEnd function. By executing this function, the new book will then appear at the end of the list when the displayBook function is called to display the books.
 
-The findNode method searches for a book node in the linked list based on the title or ISBN. This operation is essential for retrieving specific books from the library. Utilizing a pointer to traverse the list and compare titles or ISBNs, this operation returns a pointer to the matching node or null if no match is found. 
+Next is the findBook function, this will enable the users to find books from the library/linked list based on user input. The user can input either the title of the book or the ISBN number of the book that they want to find.
 
-The deleteNode method enables the removal of a book node from the linked list based on the title or ISBN. Employing two pointers to traverse and locate the target node, this operation ensures the list remains updated and accurate in its representation of the library.
+Finally, the deleteNode function can be used to delete the nodes in the data in the file based on the user input. The user can choose to delete the book/node in the front, middle, or end. After the deletion process, the updated list of books will appear and the user can check whether the book is deleted.
+
 
 
 ### Sorting
-- In the program, sorting is implemented using straightforward algorithms, such as the bubble sort algorithm, for simplicity and ease of understanding. Each sorting function corresponds to a specific criterion: title, author, year, or ISBN. The sorting algorithms iterate through the array and compare adjacent elements, swapping them if they are out of order.
+In the program, sorting is also implemented. The type of sorting that is used in the program is the bubble sort. This type of sorting was chosen because it is straightforward and is easier to implement. The user can choose to sort the list of books by the attributes such as title, author, year of publication and ISBN number.
+
 
 
 
@@ -72,7 +74,7 @@ The deleteNode method enables the removal of a book node from the linked list ba
 
 - [Source Code](./Assignment2.cpp)
 - [Input File](./book.txt)
-- [Report](./Assignment2DSA(DTD).pdf)
+- [Report](./Assignment_2_DSA_(DTD).pdf)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
