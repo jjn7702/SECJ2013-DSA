@@ -29,7 +29,7 @@ In a restaurant, it is most important that RMS should be user friendly and show 
 ## Findings 📊
 
 - [Source code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/Source%20code/Assignment%202.cpp)
-- [Inputfile]()
+- [Inputfile](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/input%20file/input.txt.txt)
 - [Report]()
 
 ## Contribution 🛠️
