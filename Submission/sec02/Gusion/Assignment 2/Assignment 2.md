@@ -175,7 +175,7 @@ This pseudocode outlines the structure of our program, including class definitio
 ## Findings 📊
 
 - [Source Code](./Source-code/Assg2.cpp)
-- [Input File]
+- [Input File](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Gusion/Assignment%202/Source-code/booking.txt)
 - [Report]
 
 ## Contribution 🛠️

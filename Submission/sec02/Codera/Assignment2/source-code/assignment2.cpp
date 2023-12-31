@@ -373,6 +373,11 @@ public:
         /* answer = merge the two sorted lists together */
         *headRef = SortedMerge(a, b);
     }
+
+        void sortList()
+    {
+        MergeSort(&head);
+    }
 };
 
 // display patient record
@@ -383,7 +388,7 @@ void Patient::display()
          << setw(5) << age
          << setw(10) << gender
          << setw(17) << contactNum
-         << setw(30) << disease
+         << setw(25) << disease
          << setw(15) << date << endl
          << endl;
 }
@@ -399,9 +404,9 @@ void dispHeader()
          << setw(5) << "Age"
          << setw(10) << "Gender"
          << setw(17) << "Contact Number"
-         << setw(30) << "Disease"
+         << setw(25) << "Disease"
          << setw(15) << "Diagnosed Date" << endl;
-    for (int i = 0; i < 130; i++)
+    for (int i = 0; i < 120; i++)
         cout << "-";
     cout << endl;
 }
@@ -548,24 +553,96 @@ int main()
                 system("pause");
             }
         }
+
         else if (opt == 3)
         {
             while (true)
             {
                 system("cls");
+                cout << "<<SEARCH PATIENT>>" << endl;
+                cout << "[1] Search by name" << endl;
+                cout << "[2] Search by IC" << endl;
+                cout << "[3] Search by age" << endl;
+                cout << "[4] Back" << endl
+                    << endl;
+                cout << "Option: ";
+                cin >> choice;
+
+                if (choice == 4)
+                    break;
+
+                if (choice < 1 || choice > 4)
+                {
+                    cout << "Invalid option. Please enter a valid option (1 to 4)." << endl;
+                    system("pause");
+                    continue;
+                }
+
+                cout << "\nEnter search keyword: ";
+                cin.ignore();
+                string keyword;
+                getline(cin, keyword);
+
+                Node *resultNode = nullptr;
+
+                switch (choice)
+                {
+                case 1:
+                    resultNode = list.findNodeName(keyword);
+                    break;
+                case 2:
+                    resultNode = list.findNodeIC(keyword);
+                    break;
+                case 3:
+                    resultNode = list.findNodeAge(stoi(keyword));
+                    break;
+                }
+
+                if (resultNode != nullptr)
+                {
+                    dispHeader();
+                    resultNode->data.display();
+                }
+                else
+                {
+                    cout << "Patient not found." << endl;
+                }
 
                 system("pause");
             }
         }
+
         else if (opt == 4)
-        {
-            while (true)
             {
-                system("cls");
+                while (true)
+                {
+                    system("cls");
+                    cout << "<<SORT PATIENT>>" << endl;
+                    cout << "[1] Sort by name" << endl;
+                    cout << "[2] Back" << endl
+                        << endl;
+                    cout << "Option: ";
+                    cin >> choice;
 
-                system("pause");
+                    if (choice == 2)
+                        break;
+
+                    if (choice < 1 || choice > 2)
+                    {
+                        cout << "Invalid option. Please enter a valid option (1 or 2)." << endl;
+                        system("pause");
+                        continue;
+                    }
+
+                    if (choice == 1)
+                    {
+                        list.sortList(); // call the public sort function
+                        dispHeader();
+                        list.dispList();
+                        system("pause");
+                    }
+                }
             }
-        }
         else if (opt == 5)
         {
             while (true)

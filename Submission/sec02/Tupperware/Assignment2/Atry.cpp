@@ -183,35 +183,102 @@ public:
         return current;
     }
     
-    // Function to delete a node by foodId
-    void deleteNode(const string& deleteFoodId) {
-        Node* current = head;
-        Node* prev = nullptr;
-
-        if (current != nullptr && current->order.getFoodId() == deleteFoodId) {
-            head = current->next;
-            delete current;
+    // Function to delete a node at the front
+    void deleteFront() {
+        if (isEmpty()) {
+            cout << "List is empty. Nothing to delete." << endl;
             return;
         }
 
-        while (current != nullptr && current->order.getFoodId() != deleteFoodId) {
-            prev = current;
-            current = current->next;
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+        cout << "Node at the front deleted successfully." << endl;
+    }
+
+    // Function to delete a node at the end
+    void deleteEnd() {
+        if (isEmpty()) {
+            cout << "List is empty. Nothing to delete." << endl;
+            return;
         }
 
-        if (current == nullptr) {
-            cout << "Node Not Found." << endl;
+        Node* temp = head;
+        Node* prev = nullptr;
+
+        while (temp->next != nullptr) {
+            prev = temp;
+            temp = temp->next;
+        }
+
+        if (prev != nullptr) {
+            prev->next = nullptr;
+        } else {
+            head = nullptr;
+        }
+
+        delete temp;
+        cout << "Node at the end deleted successfully." << endl;
+    }
+
+    // Function to delete a node at the middle
+    void deleteMiddle(string middle) {
+        if (isEmpty()) {
+            cout << "List is empty. Nothing to delete." << endl;
+            return;
+        }
+
+        Node* temp = head;
+        Node* prev = nullptr;
+
+        while (temp != nullptr && temp->order.getFoodId() != middle) {
+            prev = temp;
+            temp = temp->next;
+        }
+
+        if (temp == nullptr) {
+            cout << "Node with specified ID not found." << endl;
             return;
         }
 
         if (prev != nullptr) {
-            prev->next = current->next;
+            prev->next = temp->next;
         } else {
-            head = current->next;
+            head = temp->next;
         }
 
-            delete current;
-            cout << "Node Deleted Successfully." << endl;
+        delete temp;
+        cout << "Node in the middle deleted successfully." << endl;
+    }
+
+    // Function to delete a node at the specified position
+    void deleteSpecified(string specified) {
+        if (isEmpty()) {
+            cout << "List is empty. Nothing to delete." << endl;
+            return;
+        }
+
+        Node* temp = head;
+        Node* prev = nullptr;
+
+        while (temp != nullptr && temp->order.getFoodId() != specified) {
+            prev = temp;
+            temp = temp->next;
+        }
+
+        if (temp == nullptr) {
+            cout << "Node with specified ID not found." << endl;
+            return;
+        }
+
+        if (prev != nullptr) {
+            prev->next = temp->next;
+        } else {
+            head = temp->next;
+        }
+
+        delete temp;
+        cout << "Node at the specified position deleted successfully." << endl;
     }
 
     void sortFoodId (bool asc) {
@@ -293,7 +360,7 @@ public:
 int main() {
     char choice;
     int opt, ins, sortBy, sortIn, size = 0;
-    string foodId, name, category, middle;
+    string foodId, name, category, middle, specified;
     double price;
     OrderList orderList;
     Menu menuArray[SIZE];
@@ -377,13 +444,41 @@ int main() {
                         } break;
                     default:
                         break;
-                }            
-                } break;
+                }   
+                orderList.displayNodes();
+            } break;
 
-            case 2:{
-                cout << "Enter the food ID to delete: ";
-                cin >> foodId;
-                orderList.deleteNode(foodId);
+            case 2: {
+                cout << "Choose the deletion option:" << endl;
+                cout << "[1] Delete at Front" << endl;
+                cout << "[2] Delete at End" << endl;
+                cout << "[3] Delete in the Middle" << endl;
+                cout << "[4] Delete at Specified Position" << endl;
+                cout << "\nEnter your choice: ";
+                cin >> ins;
+
+                switch (ins) {
+                    case 1:
+                        orderList.deleteFront();
+                        break;
+                    case 2:
+                        orderList.deleteEnd();
+                        break;
+                    case 3: {
+                        cout << "\nEnter food ID in the middle to delete: ";
+                        cin >> middle;
+                        orderList.deleteMiddle(middle);
+                        break;
+                    }
+                    case 4: {
+                        cout << "\nEnter food ID at the specified position to delete: ";
+                        cin >> specified;
+                        orderList.deleteSpecified(specified);
+                        break;
+                    }
+                    default:
+                        cout << "Invalid choice for deletion option." << endl;
+                }
             } break;
             
             case 3:
@@ -448,7 +543,7 @@ int main() {
                         cout << endl;
                         cout << "Sort in" << endl;
                         cout << "[1] Ascending Order" << endl;
-                        cout << "[2] Decending Order" << endl;
+                        cout << "[2] Descending Order" << endl;
                         cout << "\nEnter your choice: " ;
                         cin >> sortIn;
 
@@ -473,7 +568,7 @@ int main() {
                         cout << endl;
                         cout << "Sort in" << endl;
                         cout << "[1] Ascending Order" << endl;
-                        cout << "[2] Decending Order" << endl;
+                        cout << "[2] Descending Order" << endl;
                         cout << "\nEnter your choice: " ;
                         cin >> sortIn;
 
@@ -507,7 +602,7 @@ int main() {
 	
         }
 
-    } while (opt != 5);
+    } while (opt != 5 && opt < 6 && opt > 0) ;
 
     system("cls");
     orderList.displayNodes();

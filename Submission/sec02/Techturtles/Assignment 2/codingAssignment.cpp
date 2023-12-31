@@ -159,3 +159,50 @@ void deleteNode(const string &position = "end")
         }
     }
 }
+const Courier *findNode(const string &searchKey) const
+{
+    Node *current = head;
+    while (current != nullptr)
+    {
+        if (current->data.getTrackingNumber() == searchKey)
+        {
+            return &current->data;
+        }
+        current = current->next;
+    }
+    return nullptr;
+}
+void displayNodes() const
+{
+    Node *current = head;
+    while (current != nullptr)
+    {
+        cout << "Tracking Number: " << current->data.getTrackingNumber() << ", "
+             << "Sender: " << current->data.getSenderName() << ", "
+             << "Receiver: " << current->data.getReceiverName() << ", "
+             << "Status: " << current->data.getDeliveryStatus() << endl;
+        current = current->next;
+    }
+}
+void loadFromFile(const string &filename)
+{
+    ifstream inFile(filename);
+    if (!inFile.is_open())
+    {
+        cerr << "Error opening file for reading." << endl;
+        return;
+    }
+
+    string tracking, sender, receiver, status;
+    while (getline(inFile, tracking, ',') &&
+           getline(inFile, sender, ',') &&
+           getline(inFile, receiver, ',') &&
+           getline(inFile, status))
+    {
+        addNode(Courier(tracking, sender, receiver, status), "end");
+    }
+
+    inFile.close();
+}
+}
+;

@@ -24,8 +24,17 @@ int binarySearchByName(const vector<User> &users, const string &name);
 int binarySearchByAirplaneID(const vector<Airline> &airlines, const string &AirplaneID);
 int binarySearchByReservationID(vector<Reservation> &reservations, const string &ReservationID);
 
-void NewData(string res, string dept, string arr, string dat, string loc, string cla);
-void deleteData(string res);
+void NewDataUser(string n, string ic, string p, string mail);
+void NewDataUserFirst(string n, string ic, string p, string mail);
+void NewDataUserMid(string n, string ic, string p, string mail, int location);
+
+void deleteDataUser(string n);
+
+void NewDataReservation(string res, string dept, string arr, string dat, string loc, string cla);
+void deleteDataReservation(string res);
+
+void NewDataAirline(string AirplaneID, string Capacity, string Company);
+void deleteDataAirline(string AirID);
 
 class User
 {
@@ -36,6 +45,7 @@ private:
     string Email;
 
 public:
+    User *next;
     User(string Name, string IC, string Phone, string Email)
         : Name(Name), IC(IC), Phone(Phone), Email(Email) {}
 
@@ -63,6 +73,337 @@ public:
         cout << setw(33) << "Phone Number: " << Phone << endl;
         cout << setw(26) << "Email: " << Email << endl;
     }
+};
+
+class UserList
+{
+private:
+    User *head;
+
+public:
+    UserList()
+    {
+        head = NULL;
+    }
+
+    bool isEmpty()
+    {
+        return head = NULL;
+    }
+
+    User *getHead() const
+    {
+        return head;
+    }
+
+    //* Insert value at the  start of the node
+    User *updateNodeUser(string n, string ic, string p, string mail)
+    {
+        int currIndex = 0;
+        User *curr = head;
+        User *prev = NULL;
+
+        while (curr != NULL)
+        {
+            prev = curr;
+            curr = curr->next;
+            currIndex++;
+        }
+
+        User *newNode = new User(n, ic, p, mail);
+
+        if (currIndex == 0)
+        {
+            newNode->next = head;
+            head = newNode;
+        }
+        else
+        {
+            newNode->next = prev->next;
+            prev->next = newNode;
+        }
+        return newNode;
+    }
+
+    User *insertFirstNodeUser(string n, string ic, string p, string mail)
+    {
+        User *newNode = new User(n, ic, p, mail);
+        newNode->next = head;
+
+        head = newNode;
+        NewDataUserFirst(n, ic, p, mail);
+        return newNode;
+    }
+
+    //* Insert new value at the exact location
+    User *insertMidNodeUser(string n, string ic, string p, string mail, int location)
+    {
+        if (location < 0)
+        {
+            cout << "Sorry Invalid Location." << endl;
+            return 0;
+        }
+
+        int currIndex = 1;
+        User *curr = head;
+        User *prev = NULL;
+
+        while (curr != NULL && currIndex < location)
+        {
+            prev = curr;
+            curr = curr->next;
+            currIndex++;
+        }
+
+        User *newNode = new User(n, ic, p, mail);
+
+        if (currIndex == 1)
+        {
+            newNode->next = head;
+            head = newNode;
+        }
+        else if (currIndex == location)
+        {
+            newNode->next = curr;
+            prev->next = newNode;
+        }
+        else
+        {
+            cout << "Node number value is over the existing value. Value will be inserted at the end of the node." << endl;
+            prev->next = newNode;
+        }
+
+        return newNode;
+    }
+
+    //* Insert new value at the end of the node
+    User *insertEndNodeUser(string n, string ic, string p, string mail)
+    {
+        User *newNode = new User(n, ic, p, mail);
+
+        if (head == NULL) //*If list is empty insert at head
+        {
+            head = newNode;
+        }
+
+        else
+        {
+            User *curr = head;
+
+            while (curr->next != NULL)
+            {
+                curr = curr->next;
+            }
+
+            curr->next = newNode;
+        }
+
+        NewDataUser(n, ic, p, mail);
+
+        return newNode;
+    }
+
+    //* Delete node at the first Linked List
+    void deleteFirstNodeUser()
+    {
+        User *temp = head;
+        head = temp->next;
+
+        deleteDataUser(temp->getIC());
+        delete temp;
+    }
+
+    //* Delete node with specific value
+    int deleteMidNodeUser(string n)
+    {
+        User *curr = head;
+        User *prev = NULL;
+        int currentIndex = 1;
+
+        while (curr != NULL && (curr->getIC() != n))
+        {
+            prev = curr;
+            curr = curr->next;
+            currentIndex++;
+        }
+
+        if (curr != NULL)
+        {
+            if (prev != NULL)
+            {
+                prev->next = curr->next;
+                delete curr;
+            }
+            else
+            {
+                head = curr->next;
+                delete curr;
+            }
+
+            deleteDataUser(n);
+
+            return currentIndex;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    //* Delete node the end of the Linked List
+    void deleteBackNodeUser()
+    {
+        User *temp = head;
+        User *stay = NULL;
+
+        while (temp->next != NULL)
+        {
+            stay = temp;
+            temp = temp->next;
+        }
+
+        stay->next = NULL;
+        deleteDataUser(temp->getIC());
+        delete temp;
+    }
+
+    //* Find data using specific value
+    void findUserNode(const string &IC)
+    {
+        User *curr = head;
+        while (curr != NULL)
+        {
+            if (curr->getIC() == IC)
+            {
+                cout << "User Found: " << endl;
+                cout << "Name: " << curr->getName() << endl
+                     << "Identification Number: " << curr->getIC() << endl
+                     << "Phone Number: " << curr->getPhone() << endl
+                     << "Email: " << curr->getEmail() << endl;
+
+                return;
+            }
+            curr = curr->next;
+        }
+        cout << "No User found with Identification Number: " << IC << endl;
+    }
+
+    void displayUserList()
+    {
+        User *curr = head;
+        while (curr != NULL)
+        {
+            cout << "Name: " << curr->getName() << endl
+                 << "Identification Number: " << curr->getIC() << endl
+                 << "Phone Number: " << curr->getPhone() << endl
+                 << "Email: " << curr->getEmail() << endl;
+
+            cout << endl;
+            curr = curr->next;
+        }
+        cout << endl;
+    }
+};
+
+//* List function User
+void NewDataUser(string n, string ic, string p, string mail)
+{
+    ofstream userfile("data/user.csv", ios::app);
+    userfile.seekp(0, ios::end);
+    userfile << "\n"
+             << n << "," << ic << "," << p << "," << mail;
+
+    userfile.seekp(0, ios::end);
+    userfile.close();
+};
+
+void NewDataUserFirst(string n, string ic, string p, string mail)
+{
+    // Open the CSV file
+    ifstream inputFile("data/user.csv");
+
+    // Check if the file is open
+    if (!inputFile.is_open())
+    {
+        cerr << "Error opening the file." << endl;
+        return;
+    }
+
+    // Read the header
+    string header;
+    getline(inputFile, header);
+
+    // Read existing data
+    vector<string> dataLines;
+    string line;
+    while (getline(inputFile, line))
+    {
+        dataLines.push_back(line);
+    }
+
+    // Close the input file
+    inputFile.close();
+
+    // Insert the new data at the second line
+    string newData = n + "," + ic + "," + p + "," + mail;
+    dataLines.insert(dataLines.begin(), newData);
+
+    // Open the file for writing
+    ofstream outputFile("data/user.csv");
+
+    // Check if the file is open
+    if (!outputFile.is_open())
+    {
+        cerr << "Error opening the file for writing." << endl;
+        return;
+    }
+
+    // Write the header to the output file
+    outputFile << header << endl;
+
+    // Write the data to the output file
+    for (const auto &data : dataLines)
+    {
+        outputFile << data << endl;
+    }
+    outputFile.seekp(0, ios::end);
+
+    // Close the output file
+    outputFile.close();
+}
+
+//*Delete data in File
+void deleteDataUser(string n)
+{
+    ifstream inputfile("data/user.csv");
+    ofstream tempfile("data/temp.csv");
+
+    string line;
+    getline(inputfile, line);
+
+    tempfile << line << endl;
+
+    while (getline(inputfile, line))
+    {
+        stringstream ss(line);
+        string Name, IC, Phone, Email;
+
+        getline(ss, Name, ',');
+        getline(ss, IC, ',');
+        getline(ss, Phone, ',');
+        getline(ss, Email, ',');
+
+        if (IC != n)
+        {
+            tempfile << line << endl;
+        }
+    }
+
+    inputfile.close();
+    tempfile.close();
+
+    remove("data/user.csv");
+    rename("data/temp.csv", "data/user.csv");
 };
 
 int partitionUsers(vector<User> &users, int bottom, int top, int choice)
@@ -116,6 +457,7 @@ private:
     string Company;
 
 public:
+    Airline *next;
     Airline(string AirplaneID, string Capacity, string Company)
         : AirplaneID(AirplaneID), Capacity(Capacity), Company(Company) {}
 
@@ -140,6 +482,170 @@ public:
         cout << setw(33) << "Plane Brand: " << Company << endl;
     }
 };
+
+void NewDataAirline(string AirplaneID, string Capacity, string Company)
+{
+
+    ofstream airlineFile("data/airline.csv", ios::app);
+    airlineFile.seekp(0, ios::end);
+    airlineFile << "\n"
+                << AirplaneID << "," << Capacity << "," << Company;
+
+    airlineFile.seekp(0, ios::end);
+    airlineFile.close();
+};
+
+void NewDataAirlineFirst(string AirplaneID, string Capacity, string Company)
+{
+    // Open the CSV file
+    ifstream inputFile("data/airline.csv");
+
+    // Check if the file is open
+    if (!inputFile.is_open())
+    {
+        cerr << "Error opening the file." << endl;
+        return;
+    }
+
+    // Read the header
+    string header;
+    getline(inputFile, header);
+
+    // Read existing data
+    vector<string> dataLines;
+    string line;
+    while (getline(inputFile, line))
+    {
+        dataLines.push_back(line);
+    }
+
+    // Close the input file
+    inputFile.close();
+
+    // Insert the new data at the second line
+    string newData = AirplaneID + "," + Capacity + "," + Company;
+    dataLines.insert(dataLines.begin(), newData);
+
+    // Open the file for writing
+    ofstream outputFile("data/airline.csv");
+
+    // Check if the file is open
+    if (!outputFile.is_open())
+    {
+        cerr << "Error opening the file for writing." << endl;
+        return;
+    }
+
+    // Write the header to the output file
+    outputFile << header << endl;
+
+    // Write the data to the output file
+    for (const auto &data : dataLines)
+    {
+        outputFile << data << endl;
+    }
+    outputFile.seekp(0, ios::end);
+
+    // Close the output file
+    outputFile.close();
+}
+
+void NewDataAirlineMid(string name, string capacity, string company, int i)
+{
+    // Open the CSV file
+    ifstream inputFile("data/airline.csv");
+
+    // Check if the file is open
+    if (!inputFile.is_open())
+    {
+        cerr << "Error opening the file." << endl;
+        return;
+    }
+
+    // Read the header
+    string header;
+    getline(inputFile, header);
+
+    // Read existing data
+    vector<string> dataLines;
+    string line;
+    while (getline(inputFile, line))
+    {
+        dataLines.push_back(line);
+    }
+
+    // Close the input file
+    inputFile.close();
+
+    // Insert the new data at the specified position
+    if (i >= 1 && i <= dataLines.size() + 1)
+    {
+        dataLines.insert(dataLines.begin() + i - 1, name + "," + capacity + "," + company);
+    }
+    else
+    {
+        cerr << "Invalid position specified." << endl;
+        return;
+    }
+
+    // Open the file for writing
+    ofstream outputFile("data/airline.csv");
+
+    // Check if the file is open
+    if (!outputFile.is_open())
+    {
+        cerr << "Error opening the file for writing." << endl;
+        return;
+    }
+
+    // Write the header to the output file
+    outputFile << header << endl;
+
+    // Write the data to the output file
+    for (const auto &data : dataLines)
+    {
+        outputFile << data << endl;
+    }
+    outputFile.seekp(0, ios::end);
+
+    // Close the output file
+    outputFile.close();
+}
+
+void deleteDataAirline(string AirID)
+{
+    ifstream inputFile("data/airline.csv");
+    ofstream tempFile("temp.csv");
+
+    string line;
+    getline(inputFile, line); // Read and write the header
+
+    tempFile << line << endl; // Write the header to the temporary file
+
+    while (getline(inputFile, line))
+    {
+        stringstream ss(line);
+        string AirplaneID, Capacity, Company;
+
+        getline(ss, AirplaneID, ',');
+        getline(ss, Capacity, ',');
+        getline(ss, Company, ',');
+
+        // Check if the current line matches the reservation to be deleted
+        if (AirID != AirplaneID)
+        {
+            // Write the line to the temporary file
+            tempFile << line << endl;
+        }
+    }
+
+    inputFile.close();
+    tempFile.close();
+
+    // Remove the original file and rename the temporary file
+    remove("data/airline.csv");
+    rename("temp.csv", "data/airline.csv");
+}
 
 int partitionAirline(vector<Airline> &airlines, int bottom, int top, int choice)
 {
@@ -302,7 +808,7 @@ public:
             }
 
             // Move this line here
-            deleteData(res);
+            deleteDataReservation(res);
 
             return currentIndex;
         }
@@ -312,12 +818,12 @@ public:
         }
     }
 
-    int findNode(string res, string dept, string arr, string dat, string loc, string cla)
+    int findNode(string res)
     {
         int currentIndex = 1;
         Reservation *curr = head;
 
-        while (curr != nullptr && (curr->getReservationID() != res || curr->getArrivalTime() != arr || curr->getClass() != cla || curr->getDate() != dat || curr->getDepartureTime() != dept || curr->getLocation() != loc))
+        while (curr != nullptr && (curr->getReservationID() != res))
         {
             curr = curr->next;
             currentIndex++;
@@ -350,7 +856,7 @@ public:
         cout << endl;
     }
 
-    void updateCSV(string res, string dept, string arr, string dat, string loc, string cla)
+    void updateCSVReservation(string res, string dept, string arr, string dat, string loc, string cla)
     {
         int currIndex = 0;
         Reservation *curr = head;
@@ -380,7 +886,7 @@ public:
             current->next = newNode;
         }
 
-        NewData(res, dept, arr, dat, loc, cla);
+        NewDataReservation(res, dept, arr, dat, loc, cla);
     }
 };
 
@@ -437,6 +943,249 @@ void quickSortReservation(vector<Reservation> &reservations, int bottom, int top
     }
 }
 
+class AirLineList // List
+{
+private:
+    Airline *head;
+    Airline *curr;
+    Airline *prev;
+    Airline *newNode;
+
+public:
+    AirLineList() : head(nullptr)
+    {
+    }
+
+    bool isEmpty()
+    {
+        return head == nullptr;
+    }
+    Airline *getHead() const
+    {
+        return head;
+    }
+
+    //* Insert new value at the exact location
+
+    //* Insert new value at the exact location
+    Airline *insertMidNodeAirline(string name, string cap, string company, int location)
+    {
+        if (location < 0)
+        {
+            cout << "Sorry Invalid Location." << endl;
+            return 0;
+        }
+
+        int currIndex = 1;
+        Airline *curr = head;
+        Airline *prev = NULL;
+
+        while (curr != NULL && currIndex < location)
+        {
+            prev = curr;
+            curr = curr->next;
+            currIndex++;
+        }
+
+        Airline *newNode = new Airline(name, cap, company);
+
+        if (currIndex == 1)
+        {
+            newNode->next = head;
+            head = newNode;
+        }
+        else if (currIndex == location)
+        {
+            newNode->next = curr;
+            prev->next = newNode;
+        }
+        else
+        {
+            cout << "Node number value is over the existing value. Value will be inserted at the end of the node." << endl;
+            prev->next = newNode;
+        }
+        NewDataAirlineMid(name, cap, company, location);
+        return newNode;
+    }
+
+    Airline *insertFirstNodeAirline(string AirplaneID, string Capacity, string Company)
+    {
+        Airline *newNode = new Airline(AirplaneID, Capacity, Company);
+        newNode->next = head;
+
+        head = newNode;
+        NewDataAirlineFirst(AirplaneID, Capacity, Company);
+        return newNode;
+    }
+
+    //* Insert new value at the end of the node
+    Airline *insertEndNodeAirline(string AirplaneID, string Capacity, string Company)
+    {
+        Airline *newNode = new Airline(AirplaneID, Capacity, Company);
+
+        if (head == NULL) //*If list is empty insert at head
+        {
+            head = newNode;
+        }
+
+        else
+        {
+            Airline *curr = head;
+
+            while (curr->next != NULL)
+            {
+                curr = curr->next;
+            }
+
+            curr->next = newNode;
+        }
+
+        return newNode;
+    }
+
+    //* Delete node at the first Linked List
+    void deleteFirstNodeAirline()
+    {
+        Airline *temp = head;
+        head = temp->next;
+
+        deleteDataAirline(temp->getAirplaneID());
+        delete temp;
+    }
+
+    void deleteBackNodeAirline()
+    {
+        Airline *temp = head;
+        Airline *stay = NULL;
+
+        while (temp->next != NULL)
+        {
+            stay = temp;
+            temp = temp->next;
+        }
+
+        stay->next = NULL;
+        deleteDataAirline(temp->getAirplaneID());
+        delete temp;
+    }
+
+    int deleteMidNodeAirline(string AirplaneID)
+    {
+        Airline *prev = nullptr;
+        Airline *curr = head;
+        int currentIndex = 1;
+
+        while (curr != nullptr && (curr->getAirplaneID() != AirplaneID))
+        {
+            prev = curr;
+            curr = curr->next;
+            currentIndex++;
+        }
+
+        if (curr != nullptr)
+        {
+            if (prev != nullptr)
+            {
+                prev->next = curr->next;
+                delete curr;
+            }
+            else
+            {
+                head = curr->next;
+                delete curr;
+            }
+
+            // Move this line here
+            deleteDataAirline(AirplaneID);
+
+            return currentIndex;
+        }
+        else
+        {
+            return 0; // Node not found
+        }
+    }
+
+    // int findAirplaneNode(string AirplaneID)
+    // {
+    //     int currentIndex = 1;
+    //     Airline *curr = head;
+
+    //     while (curr != nullptr && (curr->getAirplaneID() != AirplaneID || curr->getCapacity() != Capacity || curr->getCompany() != Company))
+    //     {
+    //         curr = curr->next;
+    //         currentIndex++;
+    //     }
+
+    //     if (curr != nullptr)
+    //     {
+    //         return currentIndex;
+    //     }
+    //     else
+    //     {
+    //         return 0;
+    //     }
+    // }
+
+    void findAirplaneNode(const string &AirplaneID)
+    {
+        Airline *curr = head;
+        while (curr != nullptr)
+        {
+            if (curr->getAirplaneID() == AirplaneID)
+            {
+                cout << "Airplane Found: ";
+                cout << "\nID: " << curr->getAirplaneID()
+                     << "\nCapacity: " << curr->getCapacity()
+                     << "\nCompany: " << curr->getCompany() << endl;
+                return;
+            }
+            curr = curr->next;
+        }
+        cout << "No airplane found with ID: " << AirplaneID << endl;
+    }
+
+    void displayAirplaneList()
+    {
+        Airline *current = head;
+        while (current != nullptr)
+        {
+            cout << "AirplaneID: " << current->getAirplaneID() << endl;
+            cout << "Capacity : " << current->getCapacity() << endl;
+            cout << "Company : " << current->getCompany() << endl;
+            cout << endl;
+            current = current->next;
+        }
+        cout << endl;
+    }
+
+    void updateAirplaneCSV(string AirplaneID, string Capacity, string Company)
+    {
+        int currIndex = 0;
+        Airline *curr = head;
+        Airline *prev = nullptr;
+
+        Airline *newNode = new Airline(AirplaneID, Capacity, Company);
+
+        if (head == nullptr)
+        {
+            // If the list is empty, make the new node the head
+            head = newNode;
+        }
+        else
+        {
+            Airline *current = head;
+            while (current->next != nullptr)
+            {
+                current = current->next;
+            }
+            current->next = newNode;
+        }
+
+        NewDataAirline(AirplaneID, Capacity, Company);
+    }
+};
+
 class Init
 {
 public:
@@ -457,12 +1206,55 @@ public:
         cout << "                    \\    /  ||/   H   \\||  \\    /" << endl;
         cout << "                     '--'   OO   O|O   OO     '--'" << endl;
         cout << endl;
+        cout << setw(55) << "_________________________________________________________________" << endl;
+        cout << setw(56) << "|      Airline Reservation System                                |" << endl;
+        cout << setw(56) << "|      [1] Reservation Dashboard (Sorting/Searching Function)    |" << endl;
+        cout << setw(56) << "|      [2] Reservation Management (Linked List Implementation)   |" << endl;
+        cout << setw(56) << "|      [3] Exit                                                  |" << endl;
+        cout << setw(56) << "|________________________________________________________________|" << endl;
+        cout << endl;
+        cout << setw(37) << "Option: ";
+    }
 
+    void displayReservationManagement()
+    {
         cout << setw(55) << "_____________________________________" << endl;
-        cout << setw(56) << "|      Airline Reservation System     |" << endl;
-        cout << setw(56) << "|      [1] Reservation Dashboard      |" << endl;
-        cout << setw(56) << "|      [2] Make a new reservation     |" << endl;
-        cout << setw(56) << "|      [3] Exit                       |" << endl;
+        cout << setw(56) << "|      Reservation Management         |" << endl;
+        cout << setw(56) << "|      [1] Manage User                |" << endl;
+        cout << setw(56) << "|      [2] Manage Airline             |" << endl;
+        cout << setw(56) << "|      [3] Manage Reservation         |" << endl;
+        cout << setw(56) << "|      [4] Exit                       |" << endl;
+        cout << setw(56) << "|_____________________________________|" << endl;
+    }
+
+    void displayAlterInsert()
+    {
+        cout << setw(55) << "_____________________________________" << endl;
+        cout << setw(56) << "|      Insert Type                    |" << endl;
+        cout << setw(56) << "|      [1] Front Insert               |" << endl;
+        cout << setw(56) << "|      [2] End Insert                 |" << endl;
+        cout << setw(56) << "|      [3] Specific Insert            |" << endl;
+        cout << setw(56) << "|_____________________________________|" << endl;
+    }
+
+    void displayAlterDelete()
+    {
+        cout << setw(55) << "_____________________________________" << endl;
+        cout << setw(56) << "|      Insert Type                    |" << endl;
+        cout << setw(56) << "|      [1] Front Delete               |" << endl;
+        cout << setw(56) << "|      [2] End Delete                 |" << endl;
+        cout << setw(56) << "|      [3] Specific Delete            |" << endl;
+        cout << setw(56) << "|_____________________________________|" << endl;
+    }
+
+    void displayAlter()
+    {
+        cout << setw(55) << "_____________________________________" << endl;
+        cout << setw(56) << "|      Choose Operation               |" << endl;
+        cout << setw(56) << "|      [1] Insert Data                |" << endl;
+        cout << setw(56) << "|      [2] Delete Data                |" << endl;
+        cout << setw(56) << "|      [3] Find Data                  |" << endl;
+        cout << setw(56) << "|      [4] Display All Data           |" << endl;
         cout << setw(56) << "|_____________________________________|" << endl;
         cout << endl;
         cout << setw(37) << "Option: ";
@@ -747,10 +1539,10 @@ void LoadFiles(vector<User> &users, vector<Airline> &airline, vector<Reservation
     reservationFile.close();
 };
 
-void NewData(string res, string dept, string arr, string dat, string loc, string cla)
+void NewDataReservation(string res, string dept, string arr, string dat, string loc, string cla)
 {
 
-    ofstream reservationFile("reservation.csv", ios::app);
+    ofstream reservationFile("data/reservation.csv", ios::app);
     reservationFile.seekp(0, ios::end);
     reservationFile << "\n"
                     << res << "," << dept << "," << arr << "," << dat << "," << loc << "," << cla;
@@ -759,9 +1551,9 @@ void NewData(string res, string dept, string arr, string dat, string loc, string
     reservationFile.close();
 };
 
-void deleteData(string res)
+void deleteDataReservation(string res)
 {
-    ifstream inputFile("reservation.csv");
+    ifstream inputFile("data/reservation.csv");
     ofstream tempFile("temp.csv");
 
     string line;
@@ -793,8 +1585,8 @@ void deleteData(string res)
     tempFile.close();
 
     // Remove the original file and rename the temporary file
-    remove("reservation.csv");
-    rename("temp.csv", "reservation.csv");
+    remove("data/reservation.csv");
+    rename("temp.csv", "data/reservation.csv");
 }
 
 int binarySearchByName(const vector<User> &users, const string &name)
@@ -1115,13 +1907,35 @@ int main()
     vector<User> users;
     vector<Airline> airlines;
     vector<Reservation> reservations;
-    LoadFiles(users, airlines, reservations);
-    reservationList reservationList;
 
+    LoadFiles(users, airlines, reservations);
+
+    UserList userList;
+    reservationList reservationList;
+    AirLineList airlineList;
     Init init;
-    int option;
+
+    //! Use InsertFirstNode as default insert for entering data to vector
+
+    for (int i = 0; i < reservations.size(); i++)
+    {
+        reservationList.insertNode(reservations[i].getReservationID(), reservations[i].getDepartureTime(), reservations[i].getArrivalTime(), reservations[i].getDate(), reservations[i].getLocation(), reservations[i].getClass());
+    }
+
+    for (int i = 0; i < airlines.size(); i++)
+    {
+        airlineList.insertFirstNodeAirline(airlines[i].getAirplaneID(), airlines[i].getCapacity(), airlines[i].getCompany());
+    }
+
+    for (int i = 0; i < users.size(); i++)
+    {
+        userList.updateNodeUser(users[i].getName(), users[i].getIC(), users[i].getPhone(), users[i].getEmail());
+    }
+
+    // tambahhhh--------->
     while (true)
     {
+        int option;
         init.displayMenu();
 
         cin >> option;
@@ -1336,7 +2150,7 @@ int main()
                             reservations[found].display();
                         }
 
-                        if (choice == 2)
+                        else if (choice == 2)
                         {
                             string DepartureTime;
                             int found = 0;
@@ -1349,7 +2163,7 @@ int main()
                             reservations[found].display();
                         }
 
-                        if (choice == 3)
+                        else if (choice == 3)
                         {
                             string ArrivalTime;
                             int found = 0;
@@ -1362,7 +2176,7 @@ int main()
                             reservations[found].display();
                         }
 
-                        if (choice == 4)
+                        else if (choice == 4)
                         {
                             string Date;
                             int found = 0;
@@ -1375,7 +2189,7 @@ int main()
                             reservations[found].display();
                         }
 
-                        if (choice == 5)
+                        else if (choice == 5)
                         {
                             string Location;
                             int found = 0;
@@ -1398,13 +2212,362 @@ int main()
         break;
         case 2:
         {
-            init.makeReservation();
+            int pilih;
+            init.displayReservationManagement();
+            cout << setw(37) << "Option: ";
+            cin >> pilih;
+
+            int pilih2 = 0; // insert delete
+            int pilih3 = 0; // insert delete yg more specific "3 option - front, end mid"
+            if (pilih == 1)
+            {
+                init.displayAlter();
+                string Name, IC, Phone, Email;
+
+                cin >> pilih2;
+                if (pilih2 == 1) //* Insert new value in User
+                {
+                    /* Add option for
+                    [1] Front Insert
+                    [2] End Insert
+                    [3] Specific Insert*/
+
+                    cout << "Current User List: " << endl
+                         << endl;
+                    userList.displayUserList();
+
+                    init.displayAlterInsert();
+                    cout << setw(37) << "Option: ";
+                    cin >> pilih3;
+
+                    if (pilih3 == 1) // front
+                    {
+                        cout << "Enter User Name: ";
+                        getline(cin >> ws, Name);
+                        cout << "Enter Identification Number: ";
+                        getline(cin >> ws, IC);
+                        cout << "Enter Telephone Number: ";
+                        getline(cin >> ws, Phone);
+                        cout << "Enter Email: ";
+                        getline(cin >> ws, Email);
+
+                        userList.insertFirstNodeUser(Name, IC, Phone, Email);
+                        LoadFiles(users, airlines, reservations);
+                    }
+
+                    if (pilih3 == 2) // end
+                    {
+                        cout << "Enter User Name: ";
+                        getline(cin >> ws, Name);
+                        cout << "Enter Identification Number: ";
+                        getline(cin >> ws, IC);
+                        cout << "Enter Telephone Number: ";
+                        getline(cin >> ws, Phone);
+                        cout << "Enter Email: ";
+                        getline(cin >> ws, Email);
+
+                        userList.insertEndNodeUser(Name, IC, Phone, Email);
+                        LoadFiles(users, airlines, reservations);
+                    }
+
+                    if (pilih3 == 3) // mid
+                    {
+                    }
+
+                    cout << "\nUpdated User List: " << endl
+                         << endl;
+                    userList.displayUserList();
+                }
+                else if (pilih2 == 2) //*Delete existing value in User
+                {
+                    cout << "Current User List: " << endl
+                         << endl;
+                    userList.displayUserList();
+
+                    /* Add option for
+                      [1] Front Delete
+                      [2] End Delete
+                      [3] Specific Delete*/
+
+                    init.displayAlterDelete();
+                    cout << setw(37) << "Option: ";
+                    cin >> pilih3;
+
+                    if (pilih3 == 1) // front
+                    {
+                    }
+
+                    if (pilih3 == 2) // end
+                    {
+                    }
+
+                    if (pilih3 == 3) // mid
+                    {
+                        string deleteUserIC;
+                        cout << "Enter User's Identification Number to delete: ";
+                        getline(cin >> ws, deleteUserIC);
+
+                        userList.deleteMidNodeUser(deleteUserIC);
+                        LoadFiles(users, airlines, reservations);
+                    }
+
+                    cout << "Current User List after deletion: " << endl;
+                    userList.displayUserList();
+                }
+                else if (pilih2 == 3) //*Find value using specific value in User
+                {
+                    cout << "Enter User Identification Number to search\n";
+                    string searchUserIC;
+                    getline(cin >> ws, searchUserIC);
+
+                    userList.findUserNode(searchUserIC);
+                }
+                else if (pilih2 == 4) //*Display Sorted(not yet)
+                {
+                    cout << "Current User List: " << endl
+                         << endl;
+
+                    userList.displayUserList();
+                }
+                else //* Exit User
+                    break;
+            }
+
+            if (pilih == 2)
+            {
+                init.displayAlter();
+                string AirplaneID, Capacity, Company;
+
+                cin >> pilih2;
+                if (pilih2 == 1)
+                {
+                    cout << "Current Airplane List: " << endl
+                         << endl;
+                    airlineList.displayAirplaneList();
+
+                    init.displayAlterInsert();
+                    cout << setw(37) << "Option: ";
+                    cin >> pilih3;
+
+                    if (pilih3 == 1) // front
+                    {
+                        cout << "Enter new Airplane ID: ";
+                        getline(cin >> ws, AirplaneID);
+                        cout << "Enter Capacity: ";
+                        getline(cin >> ws, Capacity);
+                        cout << "Enter Company: ";
+                        getline(cin >> ws, Company);
+
+                        airlineList.insertFirstNodeAirline(AirplaneID, Capacity, Company);
+                        LoadFiles(users, airlines, reservations);
+
+                        // system("cls");
+                    }
+
+                    if (pilih3 == 2) // end
+                    {
+                        cout << "Enter new Airplane ID: ";
+                        getline(cin >> ws, AirplaneID);
+                        cout << "Enter Capacity: ";
+                        getline(cin >> ws, Capacity);
+                        cout << "Enter Company: ";
+                        getline(cin >> ws, Company);
+
+                        airlineList.updateAirplaneCSV(AirplaneID, Capacity, Company);
+                        LoadFiles(users, airlines, reservations);
+                    }
+
+                    if (pilih3 == 3) // mid
+                    {
+                        int location;
+
+                        cout << "Enter new Airplane ID: ";
+                        getline(cin >> ws, AirplaneID);
+                        cout << "Enter Capacity: ";
+                        getline(cin >> ws, Capacity);
+                        cout << "Enter Company: ";
+                        getline(cin >> ws, Company);
+                        cout << "Enter Location: ";
+                        cin >> location;
+
+                        airlineList.insertMidNodeAirline(AirplaneID, Capacity, Company, location);
+                        LoadFiles(users, airlines, reservations);
+                    }
+
+                    cout << "\nUpdated Airplane List: " << endl
+                         << endl;
+                    airlineList.displayAirplaneList();
+                }
+                else if (pilih2 == 2)
+                {
+                    cout << "Current Airplane List: " << endl
+                         << endl;
+                    airlineList.displayAirplaneList();
+
+                    init.displayAlterDelete();
+                    cout << setw(37) << "Option: ";
+                    cin >> pilih3;
+
+                    if (pilih3 == 1) // front
+                    {
+                        airlineList.deleteFirstNodeAirline();
+                        LoadFiles(users, airlines, reservations);
+                    }
+
+                    if (pilih3 == 2) // end
+                    {
+                        airlineList.deleteBackNodeAirline();
+                        LoadFiles(users, airlines, reservations);
+                    }
+
+                    if (pilih3 == 3) // mid
+                    {
+                        string deleteAirplaneID;
+                        cout << "Enter Airplane ID to delete: ";
+                        getline(cin >> ws, deleteAirplaneID);
+
+                        airlineList.deleteMidNodeAirline(deleteAirplaneID);
+                        LoadFiles(users, airlines, reservations);
+                    }
+
+                    cout << "\nCurrent Airplane List after deletion: " << endl;
+                    airlineList.displayAirplaneList();
+                }
+                else if (pilih2 == 3)
+                {
+                    cout << "Enter AirplaneID to search\n";
+                    string searchAirplaneID;
+                    getline(cin >> ws, searchAirplaneID);
+
+                    airlineList.findAirplaneNode(searchAirplaneID);
+                }
+                else if (pilih2 == 4)
+                {
+                    cout << "Current Airplane List: " << endl
+                         << endl;
+                    airlineList.displayAirplaneList();
+                }
+                else
+                    break;
+            }
+
+            if (pilih == 3)
+            {
+                init.displayAlter();
+                cin >> pilih2;
+
+                string reservationID, DepartureTime, ArrivalTime, Date, Location, Class;
+
+                if (pilih2 == 1)
+                {
+
+                    cout << "Current Reservation List: " << endl
+                         << endl;
+                    reservationList.displayList();
+
+                    init.displayAlterInsert();
+                    cout << setw(37) << "Option: ";
+                    cin >> pilih3;
+
+                    if (pilih3 == 1) // front
+                    {
+                        reservationID = 'R' + to_string(reservations.size() + 1);
+                        cout << "Enter Departure Time: ";
+                        getline(cin >> ws, DepartureTime);
+                        cout << "Enter Arrival Time: ";
+                        getline(cin >> ws, ArrivalTime);
+                        cout << "Enter Date: ";
+                        getline(cin >> ws, Date);
+                        cout << "Enter Location: ";
+                        getline(cin >> ws, Location);
+                        cout << "Enter Class: ";
+                        getline(cin >> ws, Class);
+
+                        reservationList.updateCSVReservation(reservationID, DepartureTime, ArrivalTime, Date, Location, Class);
+                        LoadFiles(users, airlines, reservations);
+
+                        cout << "\nUpdated Reservation List: " << endl
+                             << endl;
+                        reservationList.displayList();
+                    }
+
+                    if (pilih3 == 1) // end
+                    {
+                    }
+
+                    if (pilih3 == 1) // mid
+                    {
+                    }
+
+                    cout << "\nUpdated User List: " << endl
+                         << endl;
+                    userList.displayUserList();
+                }
+                else if (pilih2 == 2)
+                {
+
+                    cout << "Current User List: " << endl
+                         << endl;
+                    userList.displayUserList();
+
+                    /* Add option for
+                  [1] Front Delete
+                  [2] End Delete
+                  [3] Specific Delete*/
+
+                    init.displayAlterDelete();
+                    cout << setw(37) << "Option: ";
+                    cin >> pilih3;
+
+                    if (pilih3 == 1) // front
+                    {
+                    }
+
+                    if (pilih3 == 2) // end
+                    {
+                    }
+
+                    if (pilih3 == 3) // mid
+                    {
+                        string deleteReservationID;
+                        cout << "Enter User's Identification Number to delete: ";
+                        getline(cin >> ws, deleteReservationID);
+
+                        reservationList.deleteNodeReservation(deleteReservationID);
+
+                        LoadFiles(users, airlines, reservations);
+                    }
+
+                    cout << "Current User List after deletion: " << endl;
+                    userList.displayUserList();
+                }
+                else if (pilih2 == 3)
+                {
+
+                    cout << "Enter Reservation ID to search\n";
+                    string searchReservationID;
+                    getline(cin >> ws, searchReservationID);
+
+                    reservationList.findNode(searchReservationID);
+                }
+                else if (pilih2 == 4)
+                {
+                    cout << "Current Reservation List: " << endl
+                         << endl;
+                    reservationList.displayList();
+                }
+            }
         }
         break;
-            break;
-        default:
-            cout << setw(41) << "Invalid Choice" << endl;
-            return 1;
         }
+
+        // 2
+
+        // reservationList.updateCSV("1", "2", "33", "$", "%", "23123");
+        // airlineList.updateAirplaneCSV("1", "2", "#");
+        // LoadFiles(users, airlines, reservations);
+
+        // airlineList.displayAirplaneList();
+        // reservationList.displayList();
     }
 }
