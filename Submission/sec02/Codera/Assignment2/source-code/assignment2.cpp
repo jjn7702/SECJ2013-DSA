@@ -14,6 +14,49 @@
 #include <stdio.h>
 
 using namespace std;
+int compareDates(const string &date1, const string &date2)
+{
+    string delimiter = "/";
+    size_t pos1 = 0, pos2 = 0;
+    int day1, month1, year1, day2, month2, year2;
+
+    // Create non-const copies of date1 and date2
+    string mutableDate1 = date1;
+    string mutableDate2 = date2;
+
+    // Extract day, month, and year from date1
+    pos1 = mutableDate1.find(delimiter);
+    day1 = stoi(mutableDate1.substr(0, pos1));
+    mutableDate1.erase(0, pos1 + delimiter.length());
+    pos1 = mutableDate1.find(delimiter);
+    month1 = stoi(mutableDate1.substr(0, pos1));
+    mutableDate1.erase(0, pos1 + delimiter.length());
+    year1 = stoi(mutableDate1);
+
+    // Extract day, month, and year from date2
+    pos2 = mutableDate2.find(delimiter);
+    day2 = stoi(mutableDate2.substr(0, pos2));
+    mutableDate2.erase(0, pos2 + delimiter.length());
+    pos2 = mutableDate2.find(delimiter);
+    month2 = stoi(mutableDate2.substr(0, pos2));
+    mutableDate2.erase(0, pos2 + delimiter.length());
+    year2 = stoi(mutableDate2);
+
+    // Compare years
+    if (year1 != year2)
+    {
+        return year1 - year2;
+    }
+
+    // Compare months
+    if (month1 != month2)
+    {
+        return month1 - month2;
+    }
+
+    // Compare days
+    return day1 - day2;
+}
 
 // Patient
 class Patient
@@ -303,7 +346,6 @@ public:
     }
 
     // sorting here
-
     Node *SortedMerge(Node *a, Node *b)
     {
         Node *result = NULL;
@@ -325,6 +367,52 @@ public:
             result = b;
             result->next = SortedMerge(a, b->next);
         }
+        return result;
+    }
+
+    Node *SortedMergeDate(Node *a, Node *b)
+    {
+        Node *result = NULL;
+
+        if (a == NULL)
+            return b;
+        else if (b == NULL)
+            return a;
+
+        if (compareDates(a->data.getDate(), b->data.getDate()) <= 0)
+        {
+            result = a;
+            result->next = SortedMergeDate(a->next, b);
+        }
+        else
+        {
+            result = b;
+            result->next = SortedMergeDate(a, b->next);
+        }
+
+        return result;
+    }
+
+    Node *SortedMergeAge(Node *a, Node *b)
+    {
+        Node *result = NULL;
+
+        if (a == NULL)
+            return b;
+        else if (b == NULL)
+            return a;
+
+        if (a->data.getAge() <= b->data.getAge())
+        {
+            result = a;
+            result->next = SortedMergeAge(a->next, b);
+        }
+        else
+        {
+            result = b;
+            result->next = SortedMergeAge(a, b->next);
+        }
+
         return result;
     }
 
@@ -376,38 +464,23 @@ public:
         *headRef = SortedMerge(a, b);
     }
 
-    void sortList()
+    void MergeSortDate(Node **headRef)
     {
-        MergeSort(&head);
-    }
-    void sortListAge()
-    {
-        SortedMergeAge(&head);
-    }
-    void sortListDate()
-    {
-        SortedMergeDate(&head);
-    }
-    Node *SortedMergeAge(Node *a, Node *b)
-    {
-        Node *result = NULL;
+        Node *head = *headRef;
+        Node *a;
+        Node *b;
 
-        if (a == NULL)
-            return b;
-        else if (b == NULL)
-            return a;
+        if (head == NULL || head->next == NULL)
+        {
+            return;
+        }
 
-        if (a->data.getAge() <= b->data.getAge())
-        {
-            result = a;
-            result->next = SortedMergeAge(a->next, b);
-        }
-        else
-        {
-            result = b;
-            result->next = SortedMergeAge(a, b->next);
-        }
-        return result;
+        FrontBackSplit(head, &a, &b);
+
+        MergeSortDate(&a);
+        MergeSortDate(&b);
+
+        *headRef = SortedMergeDate(a, b);
     }
 
     void MergeSortAge(Node **headRef)
@@ -429,45 +502,19 @@ public:
         *headRef = SortedMergeAge(a, b);
     }
 
-    Node *SortedMergeDate(Node *a, Node *b)
+    void sortList()
     {
-        Node *result = NULL;
-
-        if (a == NULL)
-            return b;
-        else if (b == NULL)
-            return a;
-
-        if (a->data.getDate() <= b->data.getDate())
-        {
-            result = a;
-            result->next = SortedMergeDate(a->next, b);
-        }
-        else
-        {
-            result = b;
-            result->next = SortedMergeDate(a, b->next);
-        }
-        return result;
+        MergeSort(&head);
     }
 
-    void MergeSortDate(Node **headRef)
+    void sortListAge()
     {
-        Node *head = *headRef;
-        Node *a;
-        Node *b;
+        MergeSortAge(&head);
+    }
 
-        if (head == NULL || head->next == NULL)
-        {
-            return;
-        }
-
-        FrontBackSplit(head, &a, &b);
-
-        MergeSortDate(&a);
-        MergeSortDate(&b);
-
-        *headRef = SortedMergeDate(a, b);
+    void sortListDate()
+    {
+        MergeSortDate(&head);
     }
 };
 
@@ -709,8 +756,8 @@ int main()
                 system("cls");
                 cout << "<<SORT PATIENT>>" << endl;
                 cout << "[1] Sort by name" << endl;
-                cout << "[2] Sort by name" << endl;
-                cout << "[3] Sort by name" << endl;
+                cout << "[2] Sort by age" << endl;
+                cout << "[3] Sort by date" << endl;
                 cout << "[4] Back" << endl
                      << endl;
                 cout << "Option: ";
