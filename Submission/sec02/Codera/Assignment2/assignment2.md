@@ -43,6 +43,7 @@ In a nutshell, the Hospital Management System helps minimize the workload for he
 - Patient and Node: Composition, as each Node contains an instance of Patient.
 - List and Node: Composition, as List contains a collection of Node instances to construct the linked list.
 - List and Patient: Association, as List uses instances of Patient through Node to manage patient information in the linked list.
+  
 <br><img src = https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Assignment2/Images/class-diagram.png><br>
 
 ## Pseudocode
