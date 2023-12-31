@@ -52,6 +52,9 @@ Write a report that includes an objective, a synopsis, a design (class design in
 
 For display data, we have one pointer curr pointing towards the head. Afterwards, we update this current data in each iteration. Each curr points towards the string of the class data.
 
+## User Section
+
+## Airline Section
 
 
 
