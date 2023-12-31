@@ -78,8 +78,11 @@ Figure 1: Class Diagram of Hotel Booking System
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/3adf64ac-4530-4e96-8792-85cd2b72c9eb" width="40%" height="40%"><br>
   Figure 16: Flowchart of insertEnd Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/28d0ea99-0b25-4f65-93c3-74776495663a" width="17%" height="17%"><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/28d0ea99-0b25-4f65-93c3-74776495663a" width="16%" height="16%"><br>
   Figure 17: Flowchart of deleteFront Function
+  <br><br><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/a7344b35-23b7-4880-8398-dd92c277be88" width="30%" height="30%"><br>
+  Figure 18: Flowchart of deleteMid Function
   <br><br><br>
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/da35bf9f-ea63-4780-bfc2-f416214a6d1d" width="40%" height="40%"><br>
   Figure 22: Flowchart of merge Function
