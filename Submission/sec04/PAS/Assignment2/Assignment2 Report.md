@@ -8,11 +8,11 @@
 ## OBJECTIVES :bulb:
 
 We have outlined a few objectives for this task, which are crucial in order to provide a guideline that facilitates an efficient execution of the tasks. These said objectives are are as follows:
-To develop a system that is user-friendly and produce an output display that is neat and comprehensive.
-To develop the system using C++ programming language.
-To ensure that the developed system can run efficiently and effectively.
-To allow insertion and deletion of book information to/from the library book list using linked list.
-To develop a library management system that can conduct processes based on certain criteria.
+- To develop a system that is user-friendly and produce an output display that is neat and comprehensive.
+- To develop the system using C++ programming language.
+- To ensure that the developed system can run efficiently and effectively.
+- To allow insertion and deletion of book information to/from the library book list using linked list.
+- To develop a library management system that can conduct processes based on certain criteria.
 
 
 ## SYNOPSIS 📄
