@@ -382,6 +382,17 @@ Cart Customer_order(Menu a[],Cart c,string C_o, int t){   // C_o = customer orde
 		return c;
 }
 
+int deleteCart(){
+	int Way;
+	cout << "Choose the way you want to delete: " << endl;
+	cout << "1. Delete in front" << endl;
+	cout << "2. Delete in middle" << endl;
+	cout << "3. Delete in last" << endl;
+	cout << "Way: ";
+	cin >> Way;
+	return Way;
+}
+
 Cart deleteorder(Cart b){
 	int Way;
 	char pop;
