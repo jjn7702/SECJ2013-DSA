@@ -119,33 +119,6 @@ public:
         }
     }
 
-    // Insert at the specified position
-    void insertSpecified(OrderList& orderList, Menu newOne, string specified) {
-        Node* newNode = new Node(newOne);
-        Node* temp = orderList.head;
-        Node* prev = nullptr;
-
-        // If the list is empty, insert at the front
-        if (orderList.isEmpty()) {
-            orderList.insertFront(orderList, newOne);
-            return;
-        }
-
-        while (temp != nullptr && temp->order.getFoodId() != specified) {
-            prev = temp;
-            temp = temp->next;
-        }
-
-        // If the specified node is the head, insert at the front
-        if (temp == orderList.head) {
-            newNode->next = orderList.head;
-            orderList.head = newNode; // Update the head
-        } else {
-            newNode->next = temp;
-            prev->next = newNode;
-        }
-    }
-
     //Function to find node by name
     Node* findNodeName(const string& searchName) const {
         Node* current = head;
@@ -251,36 +224,6 @@ public:
         cout << "Node in the middle deleted successfully." << endl;
     }
 
-    // Function to delete a node at the specified position
-    void deleteSpecified(string specified) {
-        if (isEmpty()) {
-            cout << "List is empty. Nothing to delete." << endl;
-            return;
-        }
-
-        Node* temp = head;
-        Node* prev = nullptr;
-
-        while (temp != nullptr && temp->order.getFoodId() != specified) {
-            prev = temp;
-            temp = temp->next;
-        }
-
-        if (temp == nullptr) {
-            cout << "Node with specified ID not found." << endl;
-            return;
-        }
-
-        if (prev != nullptr) {
-            prev->next = temp->next;
-        } else {
-            head = temp->next;
-        }
-
-        delete temp;
-        cout << "Node at the specified position deleted successfully." << endl;
-    }
-
     void sortFoodId (bool asc) {
         Node* current = head;
 
@@ -342,7 +285,9 @@ public:
     // Function to display all nodes
     void displayNodes() const {
         system("cls");
+        cout << endl;
         cout << left;
+        cout << "-----------------------------------------------------------------" << endl;
         cout << setw(10) << "ID" << " | "
              << setw(21) << "NAME" << " | "
              << setw(13) << "TYPE" << " | "
@@ -420,7 +365,6 @@ int main() {
                 cout << "\n[1] At front" << endl;
                 cout << "[2] At Middle" << endl;
                 cout << "[3] At End" << endl;
-                cout << "[4] Replace" << endl;
                 cout << "\nEnter your choice: ";
                 cin >> ins;
 
@@ -437,23 +381,17 @@ int main() {
                     case 3:
                         orderList.insertEnd(orderList,Menu(foodId, name, category, price));
                         break;
-                    case 4:{
-                        cout << "\nGive food ID existed in the Menu list : ";
-                        cin >> middle;
-                        orderList.insertSpecified(orderList, Menu(foodId, name, category, price), middle);
-                        } break;
                     default:
                         break;
-                }   
+                }  
                 orderList.displayNodes();
             } break;
 
             case 2: {
-                cout << "Choose the deletion option:" << endl;
+                cout << "\nChoose the deletion option:" << endl;
                 cout << "[1] Delete at Front" << endl;
                 cout << "[2] Delete at End" << endl;
                 cout << "[3] Delete in the Middle" << endl;
-                cout << "[4] Delete at Specified Position" << endl;
                 cout << "\nEnter your choice: ";
                 cin >> ins;
 
@@ -470,15 +408,10 @@ int main() {
                         orderList.deleteMiddle(middle);
                         break;
                     }
-                    case 4: {
-                        cout << "\nEnter food ID at the specified position to delete: ";
-                        cin >> specified;
-                        orderList.deleteSpecified(specified);
-                        break;
-                    }
                     default:
                         cout << "Invalid choice for deletion option." << endl;
                 }
+                orderList.displayNodes();
             } break;
             
             case 3:
@@ -597,23 +530,20 @@ int main() {
             } 
 
             case 5: {
-        		cout << "Display Menu: " << endl;
+                orderList.displayNodes();
     		} break;
+
+            default:
+                cout << "Invalid option. Please try again." << endl;
 	
         }
 
-    } while (opt != 5 && opt < 6 && opt > 0) ;
+        cout << "\nDo you want to continue? (Y/N): ";
+        cin >> choice;
 
-    system("cls");
-    orderList.displayNodes();
+    } while (choice == 'Y' || choice == 'y') ;
 
-    cout << "\nDo you want to continue? (Y/N): ";
-    cin >> choice;
-
-    if (choice == 'Y' || choice == 'y')
-        main();
-    else    
-        cout << "\nThank you, see you again!" << endl;
+    cout << "\nThank you, see you again!" << endl;
 
     return 0;
 }
