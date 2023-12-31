@@ -1,2 +1,2 @@
-# Assignment 1
+# Assignment 2
 ## Contents
