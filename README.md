@@ -123,3 +123,7 @@ This course contributes to the following Program Learning Outcomes:
 - [Lipschutz, S. (2011). Data Structures With C. McGraw-Hill Education.‌](https://github.com/ahsan-habib-hstu/data-structure/blob/master/Data%20Structures%20With%20C%20-%20by%20schaum%20series_2.pdf)
 - [Miller, B., Ranum, D. and Pearce, J. (n.d.). Problem Solving with Algorithms and Data Structures using C++. Runestone.academy‌](https://runestone.academy/ns/books/published/cppds/index.html)
 - [Learn GitHub](https://github.com/drshahizan/learn-github)
+
+[comment]: <> (This is a comment, it will not be included)
+
+

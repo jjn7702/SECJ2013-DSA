@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Menu {
@@ -9,100 +10,123 @@ private:
     double price;
 
 public:
-    Menu *next;
-    Menu() {
-        foodId = "";
-        name = "";
-        category = "";
-        price = 0.0;
-    }
     Menu(string foodId, string name, string category, double price)
         : foodId(foodId), name(name), category(category), price(price) {}
 
-    	string getFoodId() const { return foodId; }
-        string getName() const { return name; }
-        string getCategory() const { return category; }
-        double getPrice() const { return price; }
-
-        void setFoodId(string foodId) { this->foodId = foodId; }
-        void setName(string name) { this->name = name; }
-        void setCategory(string category) { this->category = category; }
-        void setPrice(double price) { this->price = price; }
+    string getFoodId() { return foodId; }
+    string getName() { return name; }
+    string getCategory() { return category; }
+    double getPrice() { return price; }
 };
 
-class List
-{
-    Menu *head;
+class Node {
+public:
+    Menu menu;
+    Node* next;
 
-    public:
-        List() {head = NULL;} // create empty list first
-        bool isEmtpy() {return head == NULL;} // specify that the list is emtpy
-        void insert(Menu *arr[]){
-            Menu *newNode = new Menu(d);//pass value d into the first node
-            if(!isEmtpy())
-                newNode->next = head;
-            head = newNode;
-        }     
+    Node(Menu m) : menu(m), next(nullptr) {}
+};
 
-        void dispList(){ // requires pointer(loop) to move the node
-            Menu *temp = head;
+class List {
+private:
+    Node* head;
 
-            while (temp) //(temp != NULL)
-            {
-                cout << temp->getData() << "\t"; // display node
-                temp = temp->next; // to move the pointer to the next node
-            }
-            cout << endl;
+public:
+    List() : head(nullptr) {}
+
+    bool isEmpty() { return head == nullptr; }
+
+    // Display list of menu
+    void dispList() {
+        Node* temp = head;
+
+        while (temp) {
+            cout << "Food ID: " << temp->menu.getFoodId() << ", Name: " << temp->menu.getName()
+                 << ", Category: " << temp->menu.getCategory() << ", Price: " << temp->menu.getPrice() << endl;
+            temp = temp->next;
         }
+        cout << endl;
+    }
 
-//ADDITION OF NODE
-//at the end
-void insertEndArray(Menu *&head, Menu *arr[], int size) {
-    for (int i = 0; i < size; i++) {
-        Menu *newNode = new Menu(arr[i]);
-        Menu *temp = head;
-        if (head == NULL)
-            head = newNode;
+    // Insert at the first
+    void insertFront(Menu arr) {
+        Node* newHead = new Node(arr); // pass value into the first node
+        if (!isEmpty())
+            newHead->next = head;
+        head = newHead;
+    }
+
+    // Insert at the end
+    void insertEnd(Menu arr) {
+        Node* temp = head;
+        Node* newEnd = new Node(arr);
+        if (head == nullptr)
+            head = newEnd;
         else {
-            while (temp->next != NULL)
+            while (temp->next != nullptr)
                 temp = temp->next;
-            temp->next = newNode;
+            temp->next = newEnd;
         }
     }
-}
 
-//at the middle
-void insertMiddleArray(Node *&head, Menu *arr[], int size, int middle) {
-    for (int i = 0; i < size; i++) {
-        Menu *newNode = new Menu(arr[i]);
-        Menu *temp = head;
-        if (head->getData() == middle)
-            head = newNode;
-        else {
-            while (temp->getData() != middle) {
-                temp = temp->next;
-            }
+    // Insert at the middle
+    void insertMiddle(Menu newOne, string middle) {
+        Node* newNode = new Node(newOne);
+        Node* temp = head;
+        int count = 1;
+
+        while(temp->menu.getFoodId() != middle){
+            temp = temp->next;
+            count++;
+        }
+
             newNode->next = temp->next;
             temp->next = newNode;
-        }
     }
-}
 
-//at the front
-void insertSpecifiedArray(Node *&head, Menu *arr[], int size, int middle) {
-    for (int i = 0; i < size; i++) {
-        Menu *newNode = new Menu(arr[i]);
-        Menu *temp = head, *prev;
+    // Insert at the specified position
+    void insertSpecified(Menu newOne, string specified) {
+        Node* newNode = new Node(newOne);
+        Node* temp = head;
+        Node* prev = nullptr;
 
-        while (temp->getData() != middle){
+        while (temp != nullptr && temp->menu.getFoodId() != specified) {
             prev = temp;
             temp = temp->next;
         }
 
-        newNode->next = temp->next;
-        prev->next = newNode;
+            newNode->next = temp->next;
+            prev->next = newNode;
     }
-}
 };
 
+int main() {
+    List menuList;
+
+    // Insert at the front
+    menuList.insertFront(Menu("ID001", "Burger", "Fast Food", 5.99));
+    menuList.dispList();
+
+    menuList.insertFront(Menu("ID002", "Pizza", "Italian", 8.99));
+    menuList.dispList();
+
+    // Insert at the end
+    menuList.insertEnd(Menu("ID003", "Pasta", "Italian", 6.99));
+    menuList.dispList();
+
+    menuList.insertEnd(Menu("ID004", "Salad", "Healthy", 4.99));
+    menuList.dispList();
+
+    // Insert at the middle
+    menuList.insertMiddle(Menu("ID005", "Sandwich", "Fast Food", 7.99), "ID002");
+    menuList.dispList();
+
+    // Insert at the specified position
+    menuList.insertSpecified(Menu("ID006", "Sushi", "Japanese", 12.99), "ID003");
+
+    // Display the list
+    menuList.dispList();
+
+    return 0;
+}
 

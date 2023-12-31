@@ -26,7 +26,7 @@ Overview of the project.
 
 ## System Design
 ### 2.1 System Algorithm Design
-Explanation of the algorithms used in the system.
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Images/assignment2pseudo.png">
 
 ### 2.2 Data Structure Operation
 Description of data structures and their operations in the system.

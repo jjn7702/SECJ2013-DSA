@@ -9,21 +9,30 @@ _Don't forget to hit the :star: if you like this repo._
 
 # Task Management System - Assignment 2
 ## Objective
-
+The objective of  this assignment is to implement the linked list concept into the task management system. This method alllows the user to edit the data in several ways such as inserting a new task and delete current tasks in the task list. This reduces the workload of the user to edit the tasks in the list where the users can be able to access any data in the list and execute insertion or deletion method.Users are not required to shift all the subsequent tasks in order to perform the insertion and deletion.Linked list is also known to have dynamic memory allocation where the linked lists can increase or decrease during the execution of program unlike arrays where the size is fixed.
 
 ## Sypnosis 📝
-
+In this assignment, implementation of linked list method in described with a focus of inserting and delting a node that represents tasks.The system enables the user to add and delete the nodes in the system efficiently.Users can access to any location in the lists of tasks and perform modification of lists either insertion of new node( tasks ) or deletion of node( tasks ).Users are allowed to add a new node in three different situation which is at the beginning of the list, the middle of the list ( locate by using the number of the list ) ore at the end of the list.Next,user can also delete the nodes in three different locations which are at the beginning of the list, the middle of th list ( locate by using a number ) and at the end of the list.Implementation of linked list method increases the efficiency of the system in terms of easibility of executing modification, dynamic memory allocation and memory efficiency. 
 
 
 ## Design 🎨
 
 1. Class Diagram
+<img src="https://raw.githubusercontent.com/jjn7702/SECJ2013-DSA/main/Submission/sec02/Tempest/img/Untitled%20Diagram-Page-16.jpg" width=300px, height=500px>
+
+<img src="https://raw.githubusercontent.com/jjn7702/SECJ2013-DSA/main/Submission/sec02/Tempest/img/Untitled%20Diagram-Page-17.jpg" width=500px, height=400px>
 
 
 
-2. Flowchart
+3. Flowchart
 
+<img src="https://raw.githubusercontent.com/jjn7702/SECJ2013-DSA/main/Submission/sec02/Tempest/img/DSAPage2-Page-1.jpg" width=1000px, height=800px>
 
+<img src="https://raw.githubusercontent.com/jjn7702/SECJ2013-DSA/main/Submission/sec02/Tempest/img/New2.jpg" width=1000px, height=800px>
+
+<img src="https://raw.githubusercontent.com/jjn7702/SECJ2013-DSA/main/Submission/sec02/Tempest/img/DSAPage2-Page-3.jpg" width=1000px, height=800px>
+
+<img src="https://raw.githubusercontent.com/jjn7702/SECJ2013-DSA/main/Submission/sec02/Tempest/img/DSAPage2-Page-4.jpg" width=400px, height=400px>
 
 ## Flow of Event 💹
 
@@ -45,11 +54,6 @@ _Don't forget to hit the :star: if you like this repo._
     1. Delete beginning
     2. Delete middle (by a using number)
     3. Delete end
-    4. Delete task by task name
-    5. Delete task by task day
-    6. Delete task by task month
-    7. Delete task by task year
-    8. Delete task by task status
 
 7. After choosing the option, the system will show the output based on the option that have been chosen by the user.
 
@@ -93,9 +97,9 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Findings 📊
 
-- [Source Code]()
+- [Source Code](./source_code/assignment2.cpp)
 - [Input File](./source_code/task.txt)
-- [Report]
+- [Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/assignment2/assignmnet2.pdf)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.

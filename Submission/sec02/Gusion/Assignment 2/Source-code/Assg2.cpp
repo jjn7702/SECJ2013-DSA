@@ -442,9 +442,176 @@ public:
 
 int main()
 {
+    LinkedList custList;
+    string line;
+    int count, size;
 
+    fstream fileIn("booking.txt", ios::in);
 
-    
+    if (!fileIn)
+    {
+        cout << "File input/output error!\n";
+        return 1;
+    }
+    else
+    {
+        while (getline(fileIn, line))
+        {
+            // Use stringstream to parse the line
+            stringstream ss(line);
+            string name, destination, airlines, dateStr;
+            int day, month, years;
+
+            // Read the name
+
+            ss >> name;
+            while (ss >> ws && !isdigit(ss.peek()))
+            {
+                // Append subsequent words to the name
+                string word;
+                ss >> word;
+                name += ' ' + word;
+            }
+
+            // Read the date and other details
+            ss >> day;
+            ss.ignore(); // Ignore the dot
+            ss >> month;
+            ss.ignore(); // Ignore the dot
+            ss >> years;
+
+            ss >> destination >> airlines;
+
+            if (!ss.fail())
+            {
+                // Adding/extract infomation from booking.txt to list
+                custList.addNode(new Cust(name, day, month, years, destination, airlines));
+                size++; // edit
+            }
+            else
+            {
+                cout << "Invalid date format in line: " << line << endl;
+            }
+        }
+    }
+
+    int position; // edit
+    int choice;
+
+    custList.getInitialSize(size - 2);
+    do
+    {
+        cout << "\n\t\t\t\t   +================== MAIN MENU ===================+" << endl;
+        cout << "\t\t\t\t   +1. \t\tAdd a new customer"
+             << "\t\t    +" << endl;
+        cout << "\t\t\t\t   +2. \t\tDelete a customer"
+             << "\t\t    +" << endl;
+        cout << "\t\t\t\t   +3. \t\tFind a customer"
+             << "\t\t\t    +" << endl;
+        cout << "\t\t\t\t   +4. \t\tSort the list"
+             << "\t\t\t    +" << endl;
+        cout << "\t\t\t\t   +5. \t\tDisplay all customer"
+             << "\t\t    +" << endl;
+        cout << "\t\t\t\t   +6. \t\tExit"
+             << "\t\t\t\t    +" << endl;
+        cout << "\t\t\t\t   +================================================+" << endl;
+        cout << "\n\n\t\t\t\t\t\tEnter your choice: ";
+        cin >> choice;
+        cout << endl;
+
+        switch (choice)
+        {
+        ///-----------------------------------------------CODE TO ADD CUSTOMER TO THE LIST----------------------------------------------------------------///    
+        case 1:
+        {
+            // Add a new node
+            // Provide options for adding at the beginning, middle, or end
+            int addChoice;
+            cout << "\t\t\t\t\t\t1. Add at the beginning\n\t\t\t\t\t\t2. Add at the middle\n\t\t\t\t\t\t3. Add at the end\n\n\t\t\t\t\t\tEnter your choice: ";
+            cin >> addChoice;
+
+            string newName, newDestination, newAirlines;
+            int newDay, newMonth, newYear;
+
+            cout << "\n\t\t\t\t\t\tEnter name: ";
+            cin.ignore(); // Clear the newline character from the previous input
+            getline(cin, newName);
+
+            cout << "\n\t\t\t\t\t\tEnter date (day month year): " << endl;
+            cout << "\n\t\t\t\t\t\tDay (eg : 12): ";
+            cin >> newDay;
+            cout << "\t\t\t\t\t\tMonth (eg : 6) : ";
+            cin >> newMonth;
+            cout << "\t\t\t\t\t\tYear (eg : 2002): ";
+            cin >> newYear;
+
+            cout << "\n\t\t\t\t\t\tEnter destination" << endl;
+            cout << "\t\t\t\t\t\t(Attention! Case Sensitive): ";
+            cin >> newDestination;
+
+            cout << "\n\t\t\t\t\t\tEnter airlines" << endl;
+            cout << "\t\t\t\t\t\t(Attention! Case Sensitive): ";
+            cin >> newAirlines;
+
+            Cust *newCust = new Cust(newName, newDay, newMonth, newYear, newDestination, newAirlines);
+
+            switch (addChoice)
+            {
+            case 1:
+                custList.addToBeginning(newCust);
+                cout << "\n\t\t\t\t\t\tCustomer added successfully." << endl;
+                break;
+            case 2:
+                // int position;
+                cout << "\n\t\t\t\t\t\tAdd after position: ";
+                cin >> position;
+                custList.addToMiddle(newCust, position);
+                break;
+            case 3:
+                custList.addToEnd(newCust);
+                cout << "\n\t\t\t\t\t\tCustomer added successfully." << endl;
+                break;
+            default:
+                cout << "\t\t\t\t\t\tInvalid choice." << endl;
+            }
+
+            break;
+        }
+        ///-----------------------------------------------END OF CODE TO ADD CUSTOMER TO THE LIST----------------------------------------------------------------///
+        
+        ///-----------------------------------------------CODE TO DELETE CUSTOMER IN THE LIST----------------------------------------------------------------///
+        case 2:
+        {
+            // Delete a node
+            // Provide options for deleting from the beginning, middle, or end
+            int deleteChoice;
+            cout << "\t\t\t\t\t\t1. Delete from the beginning\n\t\t\t\t\t\t2. Delete from the middle\n\t\t\t\t\t\t3. Delete from the end\n\n\t\t\t\t\t\tEnter your choice: ";
+            cin >> deleteChoice;
+
+            switch (deleteChoice)
+            {
+            case 1:
+                custList.deleteFromBeginning();
+                cout << "\n\t\t\t\t\t\tCustomer deleted successfully." << endl;
+                break;
+            case 2:
+                // int position;
+                cout << "\n\t\t\t\t\t\tEnter position: ";
+                cin >> position;
+                custList.deleteFromMiddle(position);
+                break;
+            case 3:
+                custList.deleteFromEnd();
+                cout << "\n\t\t\t\t\t\tCustomer deleted successfully." << endl;
+                break;
+            default:
+                cout << "\n\t\t\t\t\t\t[Invalid choice.]!!!!" << endl;
+            }
+        
+            break;
+        }
+        ///-----------------------------------------------END OF CODE TO DELETE CUSTOMER TO THE LIST----------------------------------------------------------------///
+ 
                                                 //Task (Ariff) 
 ///-----------------------------------------------CODE TO START THE SEARCHING IN THE LIST----------------------------------------------------------------///
         case 3: // search

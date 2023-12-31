@@ -1,0 +1,7 @@
+class Node {
+public:
+    Parcel* data;
+    Node* next;
+
+    Node(Parcel* p) : data(p), next(nullptr) {}
+};

@@ -10,7 +10,14 @@ _Don't forget to hit the :star: if you like this repo._
 # Inventory Management System
 
 ## Description 📝
-The Inventory Management System is a C++ program designed to efficiently manage and organize inventory-related tasks. It employs sorting algorithms such as Merge Sort and Quick Sort for ascending and descending order, respectively, allowing users to sort inventory items by item number, name, quantity, cost, or location. The system also incorporates searching algorithms, including Binary Search for item numbers and Sequential Search for names or locations. The console-based interface presents a main menu with options for sorting, searching, and exiting, providing a user-friendly experience. The program initializes by reading inventory data from a file, assumes a specific format for the input file, and lacks explicit write-back functionality. Overall, it offers a foundational framework for inventory management with potential for extension and enhancement based on specific business needs.
+The primary goal of the provided C++ code is to establish a robust and interactive inventory management system through the utilization of linked lists. This system 
+is engineered to empower users with a wide array of functionalities, encompassing the addition and deletion of items, as well as the capability to search, sort, 
+and comprehensively display the entire inventory. The code achieves this by introducing an Inventory class, acting as a blueprint for each inventory item and 
+encapsulating vital attributes such as item number, name, description, quantity, cost, and location. The underlying implementation employs the fundamental data 
+structure of a linked list, where each node corresponds to an inventory item and holds a reference to the subsequent node. The system's versatility is underscored 
+by its comprehensive set of operations, allowing users to add, delete, search, and sort items based on various criteria. Moreover, the incorporation of three 
+sorting methods—sorting by item number, by item name, and by item location—provides users with flexibility in organizing inventory data tailored to their 
+preferences.
 
 
 ## Prepared by 🧑‍💻
@@ -30,8 +37,8 @@ The Inventory Management System is a C++ program designed to efficiently manage 
 
 ## Findings 📊
 
-- [Source code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Assignment1/Assignment1.cpp)
-- [Inputfile](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Assignment1/inventory.txt)
+- [Source code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Assignment2/Assignment2.cpp)
+- [Inputfile](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Assignment2/inventory.txt)
 - [Report](https://liveutm-my.sharepoint.com/:w:/g/personal/gohyang_live_utm_my/EdKgVo0MHndPvkDGb8yksB0BWCKPKEYcmF0g2NR4Cq0pXQ?e=dBaKzg)
 
 ## Contribution 🛠️

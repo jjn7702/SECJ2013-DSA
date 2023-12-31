@@ -7,7 +7,8 @@
 using namespace std;
 
 class Doctor {
-    private: string idDoctor;
+    private: 
+    string idDoctor;
     string nameDoctor;
     int ageDoctor;
     string positionDoctor;
@@ -58,7 +59,8 @@ public:
 };
 
 class Patient {
-    private: string icPatient;
+    private: 
+    string icPatient;
     string namePatient;
     int agePatient;
     string sicknessPatient;
@@ -124,58 +126,326 @@ class List{
             p_head = NULL;
         }
         // add more function here
-        bool isEmpty(){
-            return p_head == NULL;
-        }
-        void insertFront(string icNum, string n, int a, string sick, string doc ){
-            Patient *newNode = new Patient(icNum, n, a, sick, doc);
-            if(isEmpty())
-                p_head = newNode;
-            else{
-                newNode->setNext(p_head);
-                p_head->setPrev(newNode);
-                p_head = newNode;
-            }
-        }
-        
-        void findNode(string searchKey) {
-        Patient *tempPatient = p_head;
-        Doctor *tempDoctor = d_head;
-		
-		//patients
-        while (tempPatient != NULL) {
-            if (tempPatient->getNamePatient() == searchKey || tempPatient->getICPatient() == searchKey) {
-                cout << "Patient found:\n";
-                tempPatient->display();
-                return;
-            }
-            tempPatient = tempPatient->getNext();
-        }
-        
-        //doctors
-        while (tempDoctor != NULL) {
-            if (tempDoctor->getNameDoctor() == searchKey || tempDoctor->getIDDoctor() == searchKey) {
-                cout << "Doctor found:\n";
-                tempDoctor->display();
-                return;
-            }
-            tempDoctor = tempDoctor->getNext();
-        }
-        
-        cout << "Node with key '" << searchKey << "' not found.\n";
-    	}
+        void addnewUser(int user, int add){
+            string icNum, name, sp, d; // sp = sickness / position && d = docincharge / department
+            int age;
 
-        void display(){
-            Patient *temp = p_head;
-            if(isEmpty()){
-                cout << "No node in the list\n";
+            // get input from user
+            cout << "\n<< New User information >>\n"
+                 << "IC : ";
+            cin >> icNum;
+            cout << "Name : ";
+            cin.ignore();
+            getline(cin, name);
+            cout << "Age : ";
+            cin >> age;
+            if (user == 1){ // patient
+                cin.ignore();
+                cout << "Sickness : ";
+                getline(cin, sp);
+                cout << "Doctor In-Charge : ";
+                getline(cin, d);
+            }
+            else {  // Doctor
+                cout << "Position : ";
+                cin.ignore();
+                getline(cin, sp);
+                cout << "Department : ";
+                cin >> d;
+            }
+            switch (add)
+            {
+            case 1:
+                insertFront(icNum, name, age, sp, d, user);
+                break;
+            case 2:
+                int position;
+                cout << "Which position to insert :";
+                cin >> position;
+                insertMiddle(icNum, name, age, sp, d, position, user);
+                break;
+            case 3:
+                insertBack(icNum, name, age, sp, d, user);
+                break;
+            default:
+                cout << "Error: Invalid Adding function option\n";
+                break;
+            }
+        }
+
+        bool isEmpty(int user){
+            if (user == 1)
+                return p_head == NULL;
+            else    
+                return d_head == NULL;
+        }
+
+        void insertFront(string icNum, string n, int a, string sick, string doc, int user ){
+            if(user  == 1){
+                Patient *newNode = new Patient(icNum, n, a, sick, doc);
+                if(isEmpty(user))
+                    p_head = newNode;
+                else{
+                    newNode->setNext(p_head);
+                    p_head->setPrev(newNode);
+                    p_head = newNode;
+                }
+            }
+            else if(user == 2){
+                Doctor *newNode = new Doctor(icNum, n, a, sick, doc);
+                if(isEmpty(user))
+                    d_head = newNode;
+                else{
+                    newNode->setNext(d_head);
+                    d_head->setPrev(newNode);
+                    d_head = newNode;
+                }
+            }
+        }
+
+        void insertBack(string icNum, string n, int a, string sick, string doc, int user){
+            
+            if (user == 1){
+                Patient *newNode = new Patient(icNum, n, a, sick, doc);
+                Patient *temp = p_head;
+                if(isEmpty(user))
+                    p_head = newNode;
+                else{
+                    while (temp->getNext() != NULL){
+                        temp = temp->getNext();
+                    }
+                    temp->setNext(newNode);
+                    newNode->setPrev(temp);
+                }
+            }
+            else{
+                Doctor *newDoctor = new Doctor(icNum, n, a, sick, doc);
+                Doctor *temp = d_head;
+
+                if(isEmpty(user))
+                    d_head = newDoctor;
+                else{
+                    while (temp->getNext() != NULL){
+                        temp = temp->getNext();
+                    }
+                    temp->setNext(newDoctor);
+                    newDoctor->setPrev(temp);
+                }
+            }
+            
+        }
+        void insertMiddle(string icNum, string n, int a, string sick, string doc, int position, int user ){
+            int count = 1;
+
+            if(user == 1){
+                Patient *newNode = new Patient(icNum, n, a, sick, doc);
+                Patient *temp = p_head;
+
+                if(isEmpty(user))
+                    p_head = newNode;
+                else{
+                    if(position == 1){          // first position is insert from front
+                        insertFront(icNum, n, a, sick, doc, user);
+                        return;
+                    }
+                    while (temp->getNext() != NULL && count < position){
+                        temp = temp->getNext();
+                        count++;
+                    }
+                    cout << "count : " << count << "\n";
+                    if(count+1 < position && temp->getNext() == NULL){  // check position > number of node in link
+                        cout << "Invalid position\n";
+                        return;
+                    }
+                    else if(count+1  == position && temp->getNext() == NULL){ // last position is insert from back
+                        cout << "Insert back\n";
+                        insertBack(icNum, n, a, sick, doc, user);
+                        return;
+                    }
+                    else{
+                        newNode->setNext(temp);
+                        newNode->setPrev(temp->getPrev());
+                        temp->getPrev()->setNext(newNode);
+                        temp->setPrev(newNode);
+                    }
+                }
+            }
+            else if(user == 2){
+                Doctor *newNode = new Doctor(icNum, n, a, sick, doc);
+                Doctor *temp = d_head;
+
+                if(isEmpty(user))
+                    d_head = newNode;
+                else{
+                    if(position == 1){          // first position is insert from front
+                        insertFront(icNum, n, a, sick, doc, user);
+                        return;
+                    }
+                    while (temp->getNext() != NULL && count < position){
+                        temp = temp->getNext();
+                        count++;
+                    }
+                    cout << "count : " << count << "\n";
+                    if(count+1 < position && temp->getNext() == NULL){  // check position > number of node in link
+                        cout << "Invalid position\n";
+                        return;
+                    }
+                    else if(count+1  == position && temp->getNext() == NULL){ // last position is insert from back
+                        cout << "Insert back\n";
+                        insertBack(icNum, n, a, sick, doc, user);
+                        return;
+                    }
+                    else{
+                        newNode->setNext(temp);
+                        newNode->setPrev(temp->getPrev());
+                        temp->getPrev()->setNext(newNode);
+                        temp->setPrev(newNode);
+                    }
+                }
+            }
+        }
+        int deleteNode(string x, int y) {
+        //for Patient
+        if (y == 1) {
+            Patient* current = p_head;
+            Patient* previous = NULL;
+
+            while (current != NULL && current->getICPatient() != x) {
+                previous = current;
+                current = current->getNext();
+            }
+            
+            // Node not found
+            if (current == NULL) return 0;  
+
+            if (previous == NULL) {
+                p_head = current->getNext();
+            } 
+            
+            else {
+                previous->setNext(current->getNext());
+                if (current->getNext() != NULL) {
+                    current->getNext()->setPrev(previous);
+                }
+            }
+
+            delete current;
+            return 1;
+        
+        }
+        //for Doctor
+        else if (y == 2) {
+            Doctor* current = d_head;
+            Doctor* previous = NULL;
+
+            while (current != NULL && current->getIDDoctor() != x) {
+                previous = current;
+                current = current->getNext();
+            }
+
+            if (current == NULL) return 0; 
+
+            if (previous == NULL) {
+                d_head = current->getNext();
+            } 
+            
+            else {
+                previous->setNext(current->getNext());
+                if (current->getNext() != NULL) {
+                    current->getNext()->setPrev(previous);
+                }
+            }
+
+            delete current;
+            return 1;
+        }
+        //when y invalid
+        return 0;  
+        }
+        
+        
+        void findNode(string searchKey, int user) {
+		    if (user == 1) {
+		        Patient *tempPatient = p_head;
+		        while (tempPatient != NULL) {
+		            if (tempPatient->getNamePatient() == searchKey || tempPatient->getICPatient() == searchKey) {
+		                cout << "\nPatient found:\n";
+		                tempPatient->display();
+		                return;
+		            }
+		            tempPatient = tempPatient->getNext();
+		        }
+		    } else if (user == 2) {
+		        Doctor *tempDoctor = d_head;
+		        while (tempDoctor != NULL) {
+		            if (tempDoctor->getNameDoctor() == searchKey || tempDoctor->getIDDoctor() == searchKey) {
+		                cout << "\nDoctor found:\n";
+		                tempDoctor->display();
+		                return;
+		            }
+		            tempDoctor = tempDoctor->getNext();
+		        }
+		    } else {
+		        cout << "Invalid user type\n";
+		    }
+		    cout << "Node with key '" << searchKey << "' not found.\n";
+		}
+
+        void displayAll(int user){
+            
+            if(isEmpty(user)){
+                cout << endl << "No node in the list\n";
                 return;
             }
-            cout << "\n<< Display all node >>\n";
-            cout << "--------------------------------\n";
-            while (temp != NULL) {
-            temp->display();
-            temp = temp->getNext();
+            if (user == 1){
+                Patient *temp = p_head;
+                cout << "\n<< Display all node >>\n";
+                cout << "--------------------------------\n";
+                while (temp != NULL) {
+                    temp->display();
+                    temp = temp->getNext();
+                }
+            }
+            else if(user == 2){
+                Doctor *temp = d_head;
+                cout << "\n<< Display all node >>\n";
+                cout << "--------------------------------\n";
+                while (temp != NULL) {
+                    temp->display();
+                    temp = temp->getNext();
+                }
+            }
+        }
+
+        void displayNode(int user,string keyIC){
+            
+            if(isEmpty(user)){
+                cout << endl << "No node in the list\n";
+                return;
+            }
+            if (user == 1){
+                Patient *temp = p_head;
+                cout << "\n<< Display selected node >>\n";
+                cout << "--------------------------------\n";
+                while (temp != NULL) {
+                    if (temp->getICPatient() == keyIC){
+                        temp->display();
+                        return;
+                    }
+                    temp = temp->getNext();
+                }
+            }
+            else if(user == 2){
+                Doctor *temp = d_head;
+                cout << "\n<< Display all node >>\n";
+                cout << "--------------------------------\n";
+                while (temp != NULL) {
+                    if (temp->getIDDoctor() == keyIC){
+                        temp->display();
+                        return;
+                    }
+                    temp = temp->getNext();
+                }
             }
         }
 };
@@ -417,7 +687,7 @@ int searchIDDoctor(Doctor p[], string search_key, int size) {
     return -1;
 }
 
-void assigment1(){
+void assignment1(){
     const int size = 5;
     Patient pateint[size];
     Doctor doctor[size];
@@ -567,35 +837,113 @@ int start(){
     return choice;
 }
 
+void assignment2 (List &node, int user){ // user  = patient/ doctor
+    int option;
+    string searchKey;
+    bool loop = 1;
+
+    while (loop){
+        if (user == 1){
+            cout << "\n<< Linked list operation >>\n"
+            << "1. Add new Patient\n"
+            << "2. Delete Patient\n"
+            << "3. Find Patient\n"
+            << "4. Display Patients\n"
+            << "5. Back\n"
+            << "Choose one of the function : ";
+        
+        }
+
+        else if (user == 2){
+            cout << "\n<< Linked list operation >>\n"
+            << "1. Add new Doctor\n"
+            << "2. Delete Doctor\n"
+            << "3. Find Doctor\n"
+            << "4. Display Doctors\n"
+            << "5. Back\n"
+            << "Choose one of the function : ";
+        }
+        
+        cin >> option;
+        switch (option)
+        {
+        case 1:
+            int add;
+            cout << "\n<< Adding Function >>\n"
+                << "1. Add from Front\n"
+                << "2. Add from Middle (specific position)\n"
+                << "3. Add from Back\n"
+                << "Choose where do you want to add: ";
+            cin >> add;
+            node.addnewUser(user, add);
+            break;
+        case 2:
+            cout << "\n<< Delete Node Function >>\n"
+                << "Enter IC : ";
+            cin >> searchKey;
+            cout << endl << "Node that was deleted :" << endl;
+            node.displayNode(user,searchKey);
+            node.deleteNode(searchKey,user);
+            // add menu delete
+            break;
+        case 3:
+                cout << "\nEnter the name or ID to find: ";
+                cin >> searchKey;
+                node.findNode(searchKey, user);
+                break;
+            break;
+        case 4:
+            node.displayAll(user);
+            break;
+        case 5 :
+            return;
+        default:
+            cout << "\nError : Invalid linked list operation option\n";
+            assignment2(node, user);
+        }
+    }
+}
+
 int main() {
-    int choice = start();   // Choose program 
+    List node;
+	//test function to find node later
+	node.insertFront("888777fsd6", "David", 50, "Arthritis", "Dr. Johnson", 1);
+	node.insertFront("999888fgd9", "James", 18, "Fever", "Dr. Robert", 1);
+	node.insertFront("666555fhi0", "lilly", 24, "Scoliosis", "Dr. Ravendra", 1);
+	//node.display(1);
+	//node.display(2);
     
-    if(choice == 1)
-        assigment1();
-    else if (choice == 2)
-        cout << "Assignement 2\n";
-    else if (choice = 3)
-        return 0;
-    else{
-        cout << "Invalid input\n";
-        start();
+	int choice = start();   // Choose program
+    int user; // patient or doctor
+	
+    while (choice != 3){
+        if(choice == 1){
+            assignment1();
+        }
+        else if (choice == 2){
+            cout << "\n<< Assignment 2 >> \n"
+            << "1. Patient\n"
+            << "2. Doctor\n"
+            << "3. End program\n"
+            << "Choose one of the option: ";
+            cin >> user;
+            if(user == 3){
+                return 0;
+            }
+            assignment2(node, user);
+        }
+        else if (choice == 3)
+            return 0;
+        else{
+            cout << "Invalid input\n";
+            start();
+        }
     }
 
-    List node;
-    node.display(); // test if node is empty
+    // test function
 
-    // try insert node in from the front
-    node.insertFront("888777666", "David", 50, "Arthritis", "Dr. Johnson");
-    node.display();
-
-    node.insertFront("88877766s", "avid", 50, "Arthritis", "Dr. Johnson");
-    node.display();
-    
-    //try search node
-    node.findNode("88877766s");
-    cout << endl;
-    node.findNode("David");
-    cout << endl;
+    //node.deleteNode("888777fsd6", user);
+    //node.display(user);
 
     return 0;
 }
