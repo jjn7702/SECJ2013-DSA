@@ -358,6 +358,18 @@ string Cus_order(){
 	}while(status);
 	return order;
 }
+
+int waytoInsert(){
+	int action;
+	cout << "Choose the way you want to insert: " << endl;
+	cout << "1. Insert in front" << endl;
+	cout << "2. Insert in middle" << endl;
+	cout << "3. Insert in last" << endl;
+	cout << "Way: ";
+	cin >> action;
+	return action;
+}
+
 Cart Customer_order(Menu a[],Cart c,string C_o, int t){   // C_o = customer order
 		int counter;
 		for(counter = 0;  counter < N; counter++){
