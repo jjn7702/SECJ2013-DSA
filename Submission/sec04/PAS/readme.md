@@ -25,7 +25,7 @@ The Library Management System is designed to monitor and manage the library's bo
 ## Findings 📊
 
 - [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/PAS/Assignment1)
-- Assignment 2
+- [Assignment 2](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/PAS/Assignment2)
 - Project
 
 ## Contribution 🛠️

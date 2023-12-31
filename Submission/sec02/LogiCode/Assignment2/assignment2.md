@@ -12,6 +12,11 @@
 
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/bc7e2df3-d20d-457c-b9fb-e0574b6a740e" width="3%" height="3%"> Objectives:
+- To simulate an actual Hotel Booking System in a way that administrators can use it to manage the room bookings in a hotel.
+- To improve understanding and enhance application of data structure: linked list in a real-world scenario.
+- To utilize file mechanism in C++ to read data from external files as a simulation of the database of the system.
+
+<br>
 
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/ac62ef65-848d-41a6-97c2-1ff40be8ecd3" width="3%" height="3%"> Synopsis
