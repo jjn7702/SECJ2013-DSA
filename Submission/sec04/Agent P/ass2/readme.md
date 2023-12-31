@@ -23,6 +23,9 @@ For inserting at a node,user will enter how many voter’s details they want to 
 
 2.3 Deleting at Node
 
+For delete at the node,user will be asked to enter an index which is the placement of a voter’s detail in the list.Then the voter’s detail at the place chosen by the user will be automatically deleted in the list.After that the system will show the new updated list to the user.
+
+
 
 
 
