@@ -102,8 +102,8 @@ Figure 1: Class Diagram of Hotel Booking System
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/06c77591-e373-4b55-b770-4d4cc66655c4" width="20%" height="20%"><br>
   Figure 25: Flowchart of sortList Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/fd5f8758-ed4d-4b67-a926-41acea6d391e" width="30%" height="30%"><br>
-  Figure 26: Flowchart of dispList Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/af11da9f-8cb3-4c03-b14f-c6936e5bf004" width="30%" height="30%"><br>
+  Figure 26: Flowchart of findNode Function
 </p>
 
 
