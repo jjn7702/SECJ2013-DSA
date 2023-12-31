@@ -144,15 +144,15 @@ The linked list is implemented as nodes, containing a Courier object and a point
 
 ## Assignment Report <a name="report"></a> 🔔
 
-Submission date: 29-Dec-2023 08:22PM (UTC-0800)
+Submission date: 31-Dec-2023 04:55AM (UTC-0800)
 
 Submission ID: 2265594315
 
-File name: ASSIGNMENT_2_DSA_FABS.pdf (179.03K)
+File name: ASSIGNMENT_2_DSA_FABS.pdf (179.44K)
 
-Word count: 1167
+Word count: 1172
 
-Character count: 5866
+Character count: 5829
 
 ![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass2/files/images/REPORT.jpg)
 
