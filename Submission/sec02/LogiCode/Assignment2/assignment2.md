@@ -64,13 +64,13 @@ Figure 1: Class Diagram of Hotel Booking System
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/da35bf9f-ea63-4780-bfc2-f416214a6d1d" width="40%" height="40%"><br>
   Figure 22: Flowchart of merge Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/8f442b3c-5ae8-4d2b-b29b-b7ef48cd46db" width="40%" height="40%"><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/8f442b3c-5ae8-4d2b-b29b-b7ef48cd46db" width="30%" height="30%"><br>
   Figure 23: Flowchart of midPoint Function
   <br><br><br>
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/40849ca8-7295-4fea-822c-516d3d2f8caa" width="40%" height="40%"><br>
   Figure 24: Flowchart of mergeSort Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/06c77591-e373-4b55-b770-4d4cc66655c4" width="60%" height="60%"><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/06c77591-e373-4b55-b770-4d4cc66655c4" width="40%" height="40%"><br>
   Figure 25: Flowchart of sortList Function
   <br><br><br>
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/fd5f8758-ed4d-4b67-a926-41acea6d391e" width="30%" height="30%"><br>
