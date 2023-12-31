@@ -495,6 +495,123 @@ void NewDataAirline(string AirplaneID, string Capacity, string Company)
     airlineFile.close();
 };
 
+void NewDataAirlineFirst(string AirplaneID, string Capacity, string Company)
+{
+    // Open the CSV file
+    ifstream inputFile("data/airline.csv");
+
+    // Check if the file is open
+    if (!inputFile.is_open())
+    {
+        cerr << "Error opening the file." << endl;
+        return;
+    }
+
+    // Read the header
+    string header;
+    getline(inputFile, header);
+
+    // Read existing data
+    vector<string> dataLines;
+    string line;
+    while (getline(inputFile, line))
+    {
+        dataLines.push_back(line);
+    }
+
+    // Close the input file
+    inputFile.close();
+
+    // Insert the new data at the second line
+    string newData = AirplaneID + "," + Capacity + "," + Company;
+    dataLines.insert(dataLines.begin(), newData);
+
+    // Open the file for writing
+    ofstream outputFile("data/airline.csv");
+
+    // Check if the file is open
+    if (!outputFile.is_open())
+    {
+        cerr << "Error opening the file for writing." << endl;
+        return;
+    }
+
+    // Write the header to the output file
+    outputFile << header << endl;
+
+    // Write the data to the output file
+    for (const auto &data : dataLines)
+    {
+        outputFile << data << endl;
+    }
+    outputFile.seekp(0, ios::end);
+
+    // Close the output file
+    outputFile.close();
+}
+
+void NewDataAirlineMid(string name, string capacity, string company, int i)
+{
+    // Open the CSV file
+    ifstream inputFile("data/airline.csv");
+
+    // Check if the file is open
+    if (!inputFile.is_open())
+    {
+        cerr << "Error opening the file." << endl;
+        return;
+    }
+
+    // Read the header
+    string header;
+    getline(inputFile, header);
+
+    // Read existing data
+    vector<string> dataLines;
+    string line;
+    while (getline(inputFile, line))
+    {
+        dataLines.push_back(line);
+    }
+
+    // Close the input file
+    inputFile.close();
+
+    // Insert the new data at the specified position
+    if (i >= 1 && i <= dataLines.size() + 1)
+    {
+        dataLines.insert(dataLines.begin() + i - 1, name + "," + capacity + "," + company);
+    }
+    else
+    {
+        cerr << "Invalid position specified." << endl;
+        return;
+    }
+
+    // Open the file for writing
+    ofstream outputFile("data/airline.csv");
+
+    // Check if the file is open
+    if (!outputFile.is_open())
+    {
+        cerr << "Error opening the file for writing." << endl;
+        return;
+    }
+
+    // Write the header to the output file
+    outputFile << header << endl;
+
+    // Write the data to the output file
+    for (const auto &data : dataLines)
+    {
+        outputFile << data << endl;
+    }
+    outputFile.seekp(0, ios::end);
+
+    // Close the output file
+    outputFile.close();
+}
+
 void deleteDataAirline(string AirID)
 {
     ifstream inputFile("data/airline.csv");
@@ -830,9 +947,14 @@ class AirLineList // List
 {
 private:
     Airline *head;
+    Airline *curr;
+    Airline *prev;
+    Airline *newNode;
 
 public:
-    AirLineList() : head(nullptr) {}
+    AirLineList() : head(nullptr)
+    {
+    }
 
     bool isEmpty()
     {
@@ -843,37 +965,10 @@ public:
         return head;
     }
 
-    Airline *insertFirstNodeAirline(string AirplaneID, string Capacity, string Company)
-    {
-        int currIndex = 0;
-        Airline *curr = head;
-        Airline *prev = nullptr;
-
-        while (curr != nullptr)
-        {
-            prev = curr;
-            curr = curr->next;
-            currIndex++;
-        }
-
-        Airline *newNode = new Airline(AirplaneID, Capacity, Company);
-
-        if (currIndex == 0)
-        {
-            newNode->next = head;
-            head = newNode;
-        }
-        else
-        {
-            newNode->next = prev->next;
-            prev->next = newNode;
-        }
-
-        return newNode;
-    }
+    //* Insert new value at the exact location
 
     //* Insert new value at the exact location
-    Airline *insertMidNodeAirline(string AirplaneID, string Capacity, string Company, int location)
+    Airline *insertMidNodeAirline(string name, string cap, string company, int location)
     {
         if (location < 0)
         {
@@ -892,7 +987,7 @@ public:
             currIndex++;
         }
 
-        Airline *newNode = new Airline(AirplaneID, Capacity, Company);
+        Airline *newNode = new Airline(name, cap, company);
 
         if (currIndex == 1)
         {
@@ -909,7 +1004,17 @@ public:
             cout << "Node number value is over the existing value. Value will be inserted at the end of the node." << endl;
             prev->next = newNode;
         }
+        NewDataAirlineMid(name, cap, company, location);
+        return newNode;
+    }
 
+    Airline *insertFirstNodeAirline(string AirplaneID, string Capacity, string Company)
+    {
+        Airline *newNode = new Airline(AirplaneID, Capacity, Company);
+        newNode->next = head;
+
+        head = newNode;
+        NewDataAirlineFirst(AirplaneID, Capacity, Company);
         return newNode;
     }
 
@@ -2232,7 +2337,6 @@ int main()
             {
                 init.displayAlter();
                 string AirplaneID, Capacity, Company;
-                int location;
 
                 cin >> pilih2;
                 if (pilih2 == 1)
@@ -2255,7 +2359,6 @@ int main()
                         getline(cin >> ws, Company);
 
                         airlineList.insertFirstNodeAirline(AirplaneID, Capacity, Company);
-                        airlineList.updateAirplaneCSV(AirplaneID, Capacity, Company);
                         LoadFiles(users, airlines, reservations);
 
                         // system("cls");
@@ -2276,6 +2379,8 @@ int main()
 
                     if (pilih3 == 3) // mid
                     {
+                        int location;
+
                         cout << "Enter new Airplane ID: ";
                         getline(cin >> ws, AirplaneID);
                         cout << "Enter Capacity: ";
@@ -2286,7 +2391,6 @@ int main()
                         cin >> location;
 
                         airlineList.insertMidNodeAirline(AirplaneID, Capacity, Company, location);
-                        airlineList.updateAirplaneCSV(AirplaneID, Capacity, Company);
                         LoadFiles(users, airlines, reservations);
                     }
 
