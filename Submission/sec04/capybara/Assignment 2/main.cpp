@@ -172,7 +172,7 @@ public:
             cout << "Node number value is over the existing value. Value will be inserted at the end of the node." << endl;
             prev->next = newNode;
         }
-
+        NewDataUserMid(n, ic, p, mail, location);
         return newNode;
     }
 
@@ -347,6 +347,68 @@ void NewDataUserFirst(string n, string ic, string p, string mail)
     // Insert the new data at the second line
     string newData = n + "," + ic + "," + p + "," + mail;
     dataLines.insert(dataLines.begin(), newData);
+
+    // Open the file for writing
+    ofstream outputFile("data/user.csv");
+
+    // Check if the file is open
+    if (!outputFile.is_open())
+    {
+        cerr << "Error opening the file for writing." << endl;
+        return;
+    }
+
+    // Write the header to the output file
+    outputFile << header << endl;
+
+    // Write the data to the output file
+    for (const auto &data : dataLines)
+    {
+        outputFile << data << endl;
+    }
+    outputFile.seekp(0, ios::end);
+
+    // Close the output file
+    outputFile.close();
+}
+
+void NewDataUserMid(string n, string ic, string p, string mail, int i)
+{
+    // Open the CSV file
+    ifstream inputFile("data/user.csv");
+
+    // Check if the file is open
+    if (!inputFile.is_open())
+    {
+        cerr << "Error opening the file." << endl;
+        return;
+    }
+
+    // Read the header
+    string header;
+    getline(inputFile, header);
+
+    // Read existing data
+    vector<string> dataLines;
+    string line;
+    while (getline(inputFile, line))
+    {
+        dataLines.push_back(line);
+    }
+
+    // Close the input file
+    inputFile.close();
+
+    // Insert the new data at the specified position
+    if (i >= 1 && i <= dataLines.size() + 1)
+    {
+        dataLines.insert(dataLines.begin() + i - 1, n + "," + ic + "," + p + "," + mail);
+    }
+    else
+    {
+        cerr << "Invalid position specified." << endl;
+        return;
+    }
 
     // Open the file for writing
     ofstream outputFile("data/user.csv");
@@ -2167,6 +2229,20 @@ int main()
 
                     if (pilih3 == 3) // mid
                     {
+                        int location;
+                        cout << "Enter User Name: ";
+                        getline(cin >> ws, Name);
+                        cout << "Enter Identification Number: ";
+                        getline(cin >> ws, IC);
+                        cout << "Enter Telephone Number: ";
+                        getline(cin >> ws, Phone);
+                        cout << "Enter Email: ";
+                        getline(cin >> ws, Email);
+                        cout << "Enter Location of the Node: ";
+                        cin >> location;
+
+                        userList.insertMidNodeUser(Name, IC, Phone, Email, location);
+                        LoadFiles(users, airlines, reservations);
                     }
 
                     cout << "\nUpdated User List: " << endl
