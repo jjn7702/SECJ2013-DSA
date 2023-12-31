@@ -27,6 +27,6 @@ In order to effectively manage and monitor patients' records in hospitals, a hos
 - Uses the sorting and searching data structure and algorithm in this hospital management system for management.
 - Allow healthcare workers to get patient’s information, contact information, and their medical history.
 
-  ## Class Diagram 
+## Class Diagram 
 
-<img src = >
+<img src = https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Images/DSA_assign2.jpg > <br>
