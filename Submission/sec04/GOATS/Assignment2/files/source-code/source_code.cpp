@@ -43,6 +43,18 @@ public:
     int getAgeDoctor() const {
         return ageDoctor;
     }
+    string getposition(){
+        return positionDoctor;
+    }
+    string getdept(){
+        return departmentDoctor;
+    }
+    void setID(string id) { idDoctor = id; }
+    void setname(string name) { nameDoctor = name; }
+    void setage(int age) { ageDoctor = age; }
+    void setposition(string position) { positionDoctor = position; }
+    void setdept(string dept) { departmentDoctor = dept;}
+
     // Linked list
     Doctor* getNext(){
         return next;
@@ -86,6 +98,12 @@ public:
             "\nSickness: " << sicknessPatient <<
             "\nDoctor In-Charge: " << docInchargePatient << "\n\n";
     }
+    void setIC(string ic) { icPatient = ic; }
+    void setname(string name) { namePatient = name; }
+    void setage(int age) { agePatient = age; }
+    void setsick(string sick) { sicknessPatient = sick; }
+    void setdoc(string doc) { docInchargePatient = doc; }
+
     string getICPatient() const {
         return icPatient;
     }
@@ -151,7 +169,8 @@ class List{
                 cin.ignore();
                 getline(cin, sp);
                 cout << "Department : ";
-                cin >> d;
+                cin.ignore();
+                getline(cin, d);
             }
             switch (add)
             {
@@ -232,8 +251,8 @@ class List{
                     newDoctor->setPrev(temp);
                 }
             }
-            
         }
+
         void insertMiddle(string icNum, string n, int a, string sick, string doc, int position, int user ){
             int count = 1;
 
@@ -304,6 +323,7 @@ class List{
                 }
             }
         }
+
         int deleteNode(string x, int y) {
         //for Patient
         if (y == 1) {
@@ -361,7 +381,7 @@ class List{
         }
         //when y invalid
         return 0;  
-        }
+        }   
         
         
         void findNode(string searchKey, int user) {
@@ -399,7 +419,7 @@ class List{
             }
             if (user == 1){
                 Patient *temp = p_head;
-                cout << "\n<< Display all node >>\n";
+                cout << "\n<< Display Patients >>\n";
                 cout << "--------------------------------\n";
                 while (temp != NULL) {
                     temp->display();
@@ -408,7 +428,7 @@ class List{
             }
             else if(user == 2){
                 Doctor *temp = d_head;
-                cout << "\n<< Display all node >>\n";
+                cout << "\n<< Display Doctors >>\n";
                 cout << "--------------------------------\n";
                 while (temp != NULL) {
                     temp->display();
@@ -448,10 +468,111 @@ class List{
                 }
             }
         }
+
+
+        void swap(Patient* &large, Patient* &small){
+            string icPatient = small->getICPatient();
+            string namePatient = small->getNamePatient();
+            int agePatient = small->getAgePatient();
+            string sicknessPatient = small->getSickness() ;
+            string docInchargePatient = small->getDoctorInCharge();
+
+            small->setIC(large->getICPatient());
+            small->setname(large->getNamePatient());
+            small->setage(large->getAgePatient());
+            small->setsick(large->getSickness());
+            small->setdoc(large->getDoctorInCharge());
+
+            large->setIC(icPatient);
+            large->setname(namePatient);
+            large->setage(agePatient);
+            large->setsick(sicknessPatient);
+            large->setdoc(docInchargePatient);
+
+        }
+        void swapDoctor(Doctor* &large, Doctor* &small){
+            string icPatient = small->getIDDoctor();
+            string namePatient = small->getNameDoctor();
+            int agePatient = small->getAgeDoctor();
+            string position = small->getposition();
+            string department = small->getdept();
+
+            small->setID(large->getIDDoctor());
+            small->setname(large->getNameDoctor());
+            small->setage(large->getAgeDoctor());
+            small->setposition(large->getposition());
+            small->setdept(large->getdept());
+
+            large->setID(icPatient);
+            large->setname(namePatient);
+            large->setage(agePatient);
+            large->setposition(position);
+            large->setdept(department);
+
+        }
+
+        void sorting(int type, int user){
+            if (isEmpty(user)) {
+                // List is empty or has only one element, no need to sort
+                cout << "Sorting Error : List is Empty\n";
+                return;
+            }
+
+            bool swapped;
+            do {
+                swapped = false;
+                if(user == 1){
+                    Patient* current = p_head;
+                    while (current->getNext() != nullptr) {
+                        if (type == 1){
+                            if (current->getICPatient() > current->getNext()->getICPatient()) {
+                                Patient *temp;
+                                temp = current->getNext();
+                                swap(current, temp);
+                                swapped = true;
+                            }
+                        }
+                        else {
+                            if (current->getNamePatient() > current->getNext()->getNamePatient()) {
+                                Patient *temp;
+                                temp = current->getNext();
+                                swap(current, temp);
+                                swapped = true;
+                            }
+                        }
+                        current = current->getNext();
+                    }
+                }
+                else if(user == 2){
+                    Doctor* current = d_head;
+                    while (current->getNext() != nullptr) {
+                        if (type == 1){
+                            if (current->getIDDoctor() > current->getNext()->getIDDoctor()) {
+                                Doctor *temp;
+                                temp = current->getNext();
+                                swapDoctor(current, temp);
+                                swapped = true;
+                            }
+                        }
+                        else {
+                            if (current->getNameDoctor() > current->getNext()->getNameDoctor()) {
+                                Doctor *temp;
+                                temp = current->getNext();
+                                swapDoctor(current, temp);
+                                swapped = true;
+                            }
+                        }
+                        current = current->getNext();
+                    }
+                }
+                
+                
+            } while (swapped);
+        }
+             
 };
 
-void getDataPatient(Patient p[], int
-    const size) {
+void getDataPatient(Patient p[], int const size) {
     string name, ic;
     int age = 0;
     string sickness, doc;
@@ -474,6 +595,7 @@ void getDataPatient(Patient p[], int
         i++;
 
     }
+    getdata.close();
 }
 
 void getDataDoc(Doctor d[], int size) {
@@ -499,6 +621,7 @@ void getDataDoc(Doctor d[], int size) {
         i++;
 
     }
+    getdata.close();
 }
 
 class Sorting {
@@ -849,7 +972,8 @@ void assignment2 (List &node, int user){ // user  = patient/ doctor
             << "2. Delete Patient\n"
             << "3. Find Patient\n"
             << "4. Display Patients\n"
-            << "5. Back\n"
+            << "5. Sorting List\n"
+            << "6. Back\n"
             << "Choose one of the function : ";
         
         }
@@ -860,7 +984,8 @@ void assignment2 (List &node, int user){ // user  = patient/ doctor
             << "2. Delete Doctor\n"
             << "3. Find Doctor\n"
             << "4. Display Doctors\n"
-            << "5. Back\n"
+            << "5. Sorting List\n"
+            << "6. Back\n"
             << "Choose one of the function : ";
         }
         
@@ -895,7 +1020,18 @@ void assignment2 (List &node, int user){ // user  = patient/ doctor
         case 4:
             node.displayAll(user);
             break;
-        case 5 :
+        case 5:
+            int type;
+            cout << "\n<< Sorting menu >> \n"
+                 << "1. Sort by IC/ID\n"
+                 << "2. Sort by Name\n"
+                 << "Choose your sorting key: ";
+
+            cin >> type;
+            node.sorting(type,user);
+            node.displayAll(user);
+            break;
+        case 6 :
             return;
         default:
             cout << "\nError : Invalid linked list operation option\n";
@@ -907,13 +1043,14 @@ void assignment2 (List &node, int user){ // user  = patient/ doctor
 int main() {
     List node;
 	//test function to find node later
-	node.insertFront("888777fsd6", "David", 50, "Arthritis", "Dr. Johnson", 1);
-	node.insertFront("999888fgd9", "James", 18, "Fever", "Dr. Robert", 1);
-	node.insertFront("666555fhi0", "lilly", 24, "Scoliosis", "Dr. Ravendra", 1);
-	//node.display(1);
-	//node.display(2);
-    
-	int choice = start();   // Choose program
+	node.insertFront("11","Sarah",40,"Cardiologist","Cardiology", 2);
+	node.insertFront("44","James",38,"Pediatrician","Pediatrics", 2);
+	node.insertFront("77","Linda",55,"Orthopedic Surgeon","Orthopedics", 2);
+    node.insertFront("888777666","David",50, "Arthritis", "Dr. Johnson", 1);
+	node.insertFront("987654321","Bob",45, "Diabetes", "Dr. Jones", 1);
+	node.insertFront("333222111","Emily",60, "Cardiovascular Disease", "Dr. Wilson", 1);
+
+    int choice = start();   // Choose program
     int user; // patient or doctor
 	
     while (choice != 3){
@@ -921,6 +1058,7 @@ int main() {
             assignment1();
         }
         else if (choice == 2){
+            repeat:
             cout << "\n<< Assignment 2 >> \n"
             << "1. Patient\n"
             << "2. Doctor\n"
@@ -929,6 +1067,9 @@ int main() {
             cin >> user;
             if(user == 3){
                 return 0;
+            }
+            else if(user != 1 && user != 2){
+                goto repeat;
             }
             assignment2(node, user);
         }
@@ -939,11 +1080,6 @@ int main() {
             start();
         }
     }
-
-    // test function
-
-    //node.deleteNode("888777fsd6", user);
-    //node.display(user);
 
     return 0;
 }
