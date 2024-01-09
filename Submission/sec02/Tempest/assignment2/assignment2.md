@@ -99,7 +99,7 @@ In this assignment, implementation of linked list method in described with a foc
 
 - [Source Code](./source_code/assignment2.cpp)
 - [Input File](./source_code/task.txt)
-- [Report]
+- [Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/assignment2/assignmnet2.pdf)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.

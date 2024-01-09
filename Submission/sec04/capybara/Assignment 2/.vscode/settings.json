@@ -1,7 +1,17 @@
 {
     "files.associations": {
+        "*.rmd": "markdown",
         "iosfwd": "cpp",
         "*.tcc": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "istream": "cpp",
+        "memory": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "xlocmon": "cpp",
+        "xlocnum": "cpp",
+        "xloctime": "cpp",
+        "xutility": "cpp"
     }
 }

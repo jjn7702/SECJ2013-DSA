@@ -14,6 +14,49 @@
 #include <stdio.h>
 
 using namespace std;
+int compareDates(const string &date1, const string &date2)
+{
+    string delimiter = "/";
+    size_t pos1 = 0, pos2 = 0;
+    int day1, month1, year1, day2, month2, year2;
+
+    // Create non-const copies of date1 and date2
+    string mutableDate1 = date1;
+    string mutableDate2 = date2;
+
+    // Extract day, month, and year from date1
+    pos1 = mutableDate1.find(delimiter);
+    day1 = stoi(mutableDate1.substr(0, pos1));
+    mutableDate1.erase(0, pos1 + delimiter.length());
+    pos1 = mutableDate1.find(delimiter);
+    month1 = stoi(mutableDate1.substr(0, pos1));
+    mutableDate1.erase(0, pos1 + delimiter.length());
+    year1 = stoi(mutableDate1);
+
+    // Extract day, month, and year from date2
+    pos2 = mutableDate2.find(delimiter);
+    day2 = stoi(mutableDate2.substr(0, pos2));
+    mutableDate2.erase(0, pos2 + delimiter.length());
+    pos2 = mutableDate2.find(delimiter);
+    month2 = stoi(mutableDate2.substr(0, pos2));
+    mutableDate2.erase(0, pos2 + delimiter.length());
+    year2 = stoi(mutableDate2);
+
+    // Compare years
+    if (year1 != year2)
+    {
+        return year1 - year2;
+    }
+
+    // Compare months
+    if (month1 != month2)
+    {
+        return month1 - month2;
+    }
+
+    // Compare days
+    return day1 - day2;
+}
 
 // Patient
 class Patient
@@ -302,8 +345,7 @@ public:
         return NULL; // Node not found
     }
 
-// sorting here
-
+    // sorting here
     Node *SortedMerge(Node *a, Node *b)
     {
         Node *result = NULL;
@@ -325,6 +367,52 @@ public:
             result = b;
             result->next = SortedMerge(a, b->next);
         }
+        return result;
+    }
+
+    Node *SortedMergeDate(Node *a, Node *b)
+    {
+        Node *result = NULL;
+
+        if (a == NULL)
+            return b;
+        else if (b == NULL)
+            return a;
+
+        if (compareDates(a->data.getDate(), b->data.getDate()) <= 0)
+        {
+            result = a;
+            result->next = SortedMergeDate(a->next, b);
+        }
+        else
+        {
+            result = b;
+            result->next = SortedMergeDate(a, b->next);
+        }
+
+        return result;
+    }
+
+    Node *SortedMergeAge(Node *a, Node *b)
+    {
+        Node *result = NULL;
+
+        if (a == NULL)
+            return b;
+        else if (b == NULL)
+            return a;
+
+        if (a->data.getAge() <= b->data.getAge())
+        {
+            result = a;
+            result->next = SortedMergeAge(a->next, b);
+        }
+        else
+        {
+            result = b;
+            result->next = SortedMergeAge(a, b->next);
+        }
+
         return result;
     }
 
@@ -376,9 +464,57 @@ public:
         *headRef = SortedMerge(a, b);
     }
 
-        void sortList()
+    void MergeSortDate(Node **headRef)
+    {
+        Node *head = *headRef;
+        Node *a;
+        Node *b;
+
+        if (head == NULL || head->next == NULL)
+        {
+            return;
+        }
+
+        FrontBackSplit(head, &a, &b);
+
+        MergeSortDate(&a);
+        MergeSortDate(&b);
+
+        *headRef = SortedMergeDate(a, b);
+    }
+
+    void MergeSortAge(Node **headRef)
+    {
+        Node *head = *headRef;
+        Node *a;
+        Node *b;
+
+        if (head == NULL || head->next == NULL)
+        {
+            return;
+        }
+
+        FrontBackSplit(head, &a, &b);
+
+        MergeSortAge(&a);
+        MergeSortAge(&b);
+
+        *headRef = SortedMergeAge(a, b);
+    }
+
+    void sortList()
     {
         MergeSort(&head);
+    }
+
+    void sortListAge()
+    {
+        MergeSortAge(&head);
+    }
+
+    void sortListDate()
+    {
+        MergeSortDate(&head);
     }
 };
 
@@ -412,7 +548,6 @@ void dispHeader()
         cout << "-";
     cout << endl;
 }
-
 
 int main()
 {
@@ -448,7 +583,7 @@ int main()
     while (!logout)
     {
         system("cls");
-        cout << "\nHospital Management System\n\n<<MAIN PAGE>>\n1. Add new patient\n2. Delete patient\n3. Search patient\n4. Sort patient\n5. Display patient list\n6. Logout"
+        cout << "\nHospital Management System\n\n<<MAIN PAGE>>\n[1] Add new patient\n[2] Delete patient\n[3] Search patient\n[4] Sort patient\n[5] Display patient list\n[6] Logout"
              << endl;
         cout << "\nOption: ";
         cin >> opt;
@@ -566,7 +701,7 @@ int main()
                 cout << "[2] Search by IC" << endl;
                 cout << "[3] Search by age" << endl;
                 cout << "[4] Back" << endl
-                    << endl;
+                     << endl;
                 cout << "Option: ";
                 cin >> choice;
 
@@ -615,36 +750,54 @@ int main()
         }
 
         else if (opt == 4)
+        {
+            while (true)
             {
-                while (true)
+                system("cls");
+                cout << "<<SORT PATIENT>>" << endl;
+                cout << "[1] Sort by name" << endl;
+                cout << "[2] Sort by age" << endl;
+                cout << "[3] Sort by date" << endl;
+                cout << "[4] Back" << endl
+                     << endl;
+                cout << "Option: ";
+                cin >> choice;
+
+                if (choice == 4)
+                    break;
+
+                if (choice < 1 || choice > 4)
                 {
-                    system("cls");
-                    cout << "<<SORT PATIENT>>" << endl;
-                    cout << "[1] Sort by name" << endl;
-                    cout << "[2] Back" << endl
-                        << endl;
-                    cout << "Option: ";
-                    cin >> choice;
+                    cout << "Invalid option. Please enter a valid option (1 or 2)." << endl;
+                    system("pause");
+                    continue;
+                }
 
-                    if (choice == 2)
-                        break;
+                if (choice == 1)
+                {
+                    list.sortList(); // call the public sort function
+                    dispHeader();
+                    list.dispList();
+                    system("pause");
+                }
 
-                    if (choice < 1 || choice > 2)
-                    {
-                        cout << "Invalid option. Please enter a valid option (1 or 2)." << endl;
-                        system("pause");
-                        continue;
-                    }
+                if (choice == 2)
+                {
+                    list.sortListAge(); // call the public sort function
+                    dispHeader();
+                    list.dispList();
+                    system("pause");
+                }
 
-                    if (choice == 1)
-                    {
-                        list.sortList(); // call the public sort function
-                        dispHeader();
-                        list.dispList();
-                        system("pause");
-                    }
+                if (choice == 3)
+                {
+                    list.sortListDate(); // call the public sort function
+                    dispHeader();
+                    list.dispList();
+                    system("pause");
                 }
             }
+        }
         else if (opt == 5)
         {
             while (true)
