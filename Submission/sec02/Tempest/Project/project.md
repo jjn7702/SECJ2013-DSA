@@ -60,7 +60,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 11. If the user click on the Add subtask option, the user can choose which task that they wanted to add the subtask. Once added the user can view all of the task with its subtask.
 
-11. After choosing the option, the system will show the output based on the option that have been chosen by the user.
+12. If the user click on the Delete subtask option, the user can choose which subtask they wanted to delete. Once deleted the system will shown all the updated task and its subtask
 
 12. The user can exit to the main menu and will be showed again the first event. There the user can choose again which option that the user wants.
 
