@@ -62,7 +62,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 12. If the user click on the Delete subtask option, the user can choose which subtask they wanted to delete. Once deleted the system will shown all the updated task and its subtask
 
-12. The user can exit to the main menu and will be showed again the first event. There the user can choose again which option that the user wants.
+13. The user can exit to the main menu and will be showed again the first event. There the user can choose again which option that the user wants.
 
 ## Prepared by 🧑‍💻
 
