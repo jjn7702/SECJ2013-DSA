@@ -10,7 +10,7 @@ _Don't forget to hit the :star: if you like this repo._
 # Assignment 2
 
 ### Table Of Contents
-- [Objectives](#-objectives)
+- [Objectives](#objectives)
 - [Synopsis](#-synopsis)
 - [Class Diagram](#-class-diagram)
 - [Flowchart](#-flowchart)
