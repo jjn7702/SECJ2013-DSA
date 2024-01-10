@@ -22,22 +22,22 @@ In a restaurant, it is most important that RMS should be user friendly and show 
 ## Main Body
 ![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/mainbodyA2.drawio%20(1).png)
 
-# function deleteorder
+# Function deleteorder
 ![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/deleteorder.drawio.png)
 
-# function deleteCart
+# Function deleteCart
 ![3](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/deleteCart.drawio.png)
 
-# function Search_item_in_Cart
+# Function Search_item_in_Cart
 ![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/Search_item_in_Cart.drawio.png)
 
-# function Customer_order
+# Function Customer_order
 ![5](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/Customer_order.drawio.png)
 
-# function Cus_order
+# Function Cus_order
 ![6](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/Cus_order.drawio.png)
 
-# function waytoInsert
+# Function waytoInsert
 ![7](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/waytoInsert.drawio.png)
 
 ## Prepared by 🧑‍💻
