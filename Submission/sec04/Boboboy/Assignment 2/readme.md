@@ -9,13 +9,13 @@ _Don't forget to hit the :star: if you like this repo._
 
 # Assignment 2
 
-### Table Of Contents
+## Table Of Contents
 - [Objectives](#objectives-)
-- [Synopsis](#synopsis)
-- [Linked list](#Linked-list)
-- [Class Diagram](#class-diagram)
-- [Flowchart](#flowchart)
-- [Findings](#Findings)
+- [Synopsis](#synopsis-)
+- [Linked list](#Linked-list-)
+- [Class Diagram](#class-diagram-)
+- [Flowchart](#flowchart-)
+- [Findings](#Findings-)
 
 ## Objectives 📚
 
@@ -23,35 +23,35 @@ The main objective of  BOBOBOY's Restaurant Management System (RMS) is to optimi
 All the features, panel and functions are to make sure the customers have good feedback to our restaurant and satisfy not only about the food, but also the whole system and environment of the BOBOBOY restaurant.
 
 
-## Synopsis
+## Synopsis 📌
 In a restaurant, it is most important that RMS should be user friendly and show a detailed menu in a simple way. Besides, the customer's emotion is very important as they want to get the food they ordered as fast as possible. In BOBOBOY restaurant, the RMS contained two main functions in the menu which is sorting and searching. The purpose of implementing these two functions is because we want the customers to look through the menu based on their favorite arrangement such as food name with ascending alphabet arrangement. . After that, if they cannot find what specific food they want on the menu, they can type the details or info about that food on the search panel and it will show the position of that product so next time they can straight away order from the menu without wasting time. Besides, inside the order cart, the customer can add on or delete the item straight away inside the cart so there is no need to go back to the menu to do this action. Inside the cart also got a searching and sorting function which helps customers to get through their order fast and easier. All of these are to make our customers like the ordering system of BOBOBOY restaurants and they feel easy and simple when ordering their desired food.
 
-## Linked List
+## Linked List 🗂️
 In a restaurant, it is most important that RMS should be user friendly and show a detailed menu in a simple way. Besides, the customer's emotion is very important as they want to get the food they ordered as fast as possible. In BOBOBOY restaurant, the RMS contained two main functions in the menu which is sorting and searching. The purpose of implementing these two functions is because we want the customers to look through the menu based on their favorite arrangement such as food name with ascending alphabet arrangement. . After that, if they cannot find what specific food they want on the menu, they can type the details or info about that food on the search panel and it will show the position of that product so next time they can straight away order from the menu without wasting time. Besides, inside the order cart, the customer can add on or delete the item straight away inside the cart so there is no need to go back to the menu to do this action. Inside the cart also got a searching and sorting function which helps customers to get through their order fast and easier. All of these are to make our customers like the ordering system of BOBOBOY restaurants and they feel easy and simple when ordering their desired food.
 
-## Class Diagram
+## Class Diagram 📑
 
-## Flowchart
+## Flowchart ✏️
 
-## Main Body
+### Main Body
 ![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/mainbodyA2.drawio%20(1).png)
 
 ### Function deleteorder
 ![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/deleteorder.drawio.png)
 
-# Function deleteCart
+### Function deleteCart
 ![3](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/deleteCart.drawio.png)
 
-# Function Search_item_in_Cart
+### Function Search_item_in_Cart
 ![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/Search_item_in_Cart.drawio.png)
 
-# Function Customer_order
+### Function Customer_order
 ![5](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/Customer_order.drawio.png)
 
-# Function Cus_order
+### Function Cus_order
 ![6](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/Cus_order.drawio.png)
 
-# Function waytoInsert
+### Function waytoInsert
 ![7](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/waytoInsert.drawio.png)
 
 ## Prepared by 🧑‍💻
