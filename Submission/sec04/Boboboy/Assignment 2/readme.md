@@ -18,7 +18,7 @@ _Don't forget to hit the :star: if you like this repo._
 - [Sorting and Searching](#-sorting-and-searching)
 - [Findings](#-Findings)
 
-### <img src="https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/Boboboy/Assignment%202#objective" width="3%" height="3%"> Objectives📚
+## Objectives📚
 
 The main objective of  BOBOBOY's Restaurant Management System (RMS) is to optimize the order management system with effectiveness features and to minimize the time to get through our ordering system. Our system is created for a full process from ordering to payment session and it can be done via through the system and the customers can get the food in the best condition without wasting any time on waiting or getting used to the system. 
 All the features, panel and functions are to make sure the customers have good feedback to our restaurant and satisfy not only about the food, but also the whole system and environment of the BOBOBOY restaurant.
