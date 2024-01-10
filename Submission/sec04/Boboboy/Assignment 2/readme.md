@@ -13,7 +13,7 @@ _Don't forget to hit the :star: if you like this repo._
 - [Objectives](#objectives-)
 - [Synopsis](#synopsis-)
 - [Linked List](#linked-list)
-- [Class Diagram](#class-diagram-)
+- [Class Diagram](#class-diagram)
 - [Flowchart](#flowchart-)
 - [Findings](#Findings-)
 
@@ -31,7 +31,7 @@ In a restaurant, it is most important that RMS should be user friendly and show 
 
 ## Class Diagram
 
-## Flowchart ✏️
+## Flowchart 
 
 ### Main Body
 ![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/mainbodyA2.drawio%20(1).png)
