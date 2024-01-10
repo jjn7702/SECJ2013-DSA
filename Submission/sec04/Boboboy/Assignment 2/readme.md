@@ -12,9 +12,9 @@ _Don't forget to hit the :star: if you like this repo._
 ## Table Of Contents
 - [Objectives](#objectives-)
 - [Synopsis](#synopsis-)
-- [Linked List](#linked-list-)
+- [Linked List](#linked-list)
 - [Class Diagram](#class-diagram-)
-- [Flowchart](#flowchart-)
+- [Flowchart](#flowchart)
 - [Findings](#Findings-)
 
 ## Objectives 📚
