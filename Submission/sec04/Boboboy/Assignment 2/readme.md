@@ -17,6 +17,9 @@ All the features, panel and functions are to make sure the customers have good f
 ## Synopsis
 In a restaurant, it is most important that RMS should be user friendly and show a detailed menu in a simple way. Besides, the customer's emotion is very important as they want to get the food they ordered as fast as possible. In BOBOBOY restaurant, the RMS contained two main functions in the menu which is sorting and searching. The purpose of implementing these two functions is because we want the customers to look through the menu based on their favorite arrangement such as food name with ascending alphabet arrangement. . After that, if they cannot find what specific food they want on the menu, they can type the details or info about that food on the search panel and it will show the position of that product so next time they can straight away order from the menu without wasting time. Besides, inside the order cart, the customer can add on or delete the item straight away inside the cart so there is no need to go back to the menu to do this action. Inside the cart also got a searching and sorting function which helps customers to get through their order fast and easier. All of these are to make our customers like the ordering system of BOBOBOY restaurants and they feel easy and simple when ordering their desired food.
 
+## Flowchart
+
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/mainbodyA2.drawio%20(1).png)
 
 ## Prepared by 🧑‍💻
 
