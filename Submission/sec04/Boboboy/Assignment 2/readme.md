@@ -55,24 +55,11 @@ In a restaurant, it is most important that RMS should be user friendly and show 
 ### Function waytoInsert
 ![7](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/waytoInsert.drawio.png)
 
-## Prepared by 🧑‍💻
-
-| Name             | Matric Number | Photo                                                         |
-| :---------------- | :-------------: | :------------------------------------------------------------: |
-|  Tay Shun Wei  |    A22EC0110     | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/photo_2023-06-18_21-46-08.jpg" title="Icon by Trazobanana"><img src="./images/photo_2023-06-18_21-46-08.jpg" width=80px, height=80px>     |
-|  Aeron Goh Ming Lun    |    A22EC0033    | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/rsz_1rsz_1img_0290.jpg" title="Icon by Trazobanana"><img src="./images/rsz_1rsz_1img_0290.jpg" width=80px, height=80px>         |
-|    Lin Chong Hui   |    A22EC0184    | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/images/photo_2023-12-20_13-55-45.jpg" title="Icon by Trazobanana"><img src="./images/photo_2023-12-20_13-55-45.jpg" width=80px, height=80px>         |
 
 ## Findings 📊
 
 - [Source code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/Source%20code/Assignment%202.cpp)
 - [Inputfile](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/input%20file/input.txt.txt)
 - [Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/Report/DSA_A2.pdf)
-
-## Contribution 🛠️
-Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
-
-[![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fjjn7702&labelColor=%23697689&countColor=%23555555&style=plastic)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fjjn7702)
-![](https://hit.yhype.me/github/profile?user_id=81284918)
 
 
