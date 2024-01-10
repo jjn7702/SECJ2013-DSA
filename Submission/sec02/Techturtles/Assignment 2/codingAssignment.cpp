@@ -204,5 +204,36 @@ void loadFromFile(const string &filename)
 
     inFile.close();
 }
+};
+nt main() {
+    CourierServiceSystem courierSystem;
+
+    // Load data from file
+    courierSystem.loadFromFile("courier_data.txt");
+
+    // Adding nodes
+    courierSystem.addNode(Courier("999", "Eve", "Mallory", "Pending"), "beginning");
+
+    // Displaying nodes
+    cout << "Nodes in the list:" << endl;
+    courierSystem.displayNodes();
+
+    // Deleting nodes
+    courierSystem.deleteNode("end");
+
+    // Finding a node
+    string searchKey = "123";
+    const Courier* foundCourier = courierSystem.findNode(searchKey);
+    if (foundCourier != nullptr) {
+        cout << "Courier found with tracking number " << searchKey << ": "
+             << foundCourier->getSenderName() << " to " << foundCourier->getReceiverName() << endl;
+    } else {
+        cout << "Courier with tracking number " << searchKey << " not found." << endl;
+    }
+
+    // Displaying nodes after deletion
+    cout << "\nNodes in the list after deletion:" << endl;
+    courierSystem.displayNodes();
+
+    return 0;
 }
-;

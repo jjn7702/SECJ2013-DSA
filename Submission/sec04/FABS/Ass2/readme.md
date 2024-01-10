@@ -49,7 +49,7 @@ Checking for valid menu options and handling invalid input while searching are i
 
 ## Synopsis <a name="synopsis"></a> 📝
 
-The Courier Management System uses a linked list to store and manage courier data. The program reads data from a file, populates a linked list, and then provides a menu-driven interface for users to do various processes on the courier list. These processes include the adding, deleting, search, sorting, and the display of courier information.
+The Courier Management System allows workers to store data about parcels in a more organized way. For instance, we can update new data when we receive a parcel order by the customer and delete it a few days after the parcel has been delivered. We also can search the data based on the specified criteria of the parcel. Moreover, this system also can sort the data of parcels in ascending orders (name,parcel type,tracking number) .
 
 ## Design <a name="design"></a> 🎨
 ![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass2/files/images/dsa.jpg)
@@ -57,8 +57,6 @@ The Courier Management System uses a linked list to store and manage courier dat
 ## Design Description <a name="designdescription"></a> 💹
 
 #### LINKED LIST FUNCTION
-
-The linked list is implemented as nodes, containing a Courier object and a pointer to the next node. These nodes are managed by the LinkedList class, which includes methods for adding a new node (insertFront, insertMiddle, insertBack), deleting a node (deleteFront, deleteMiddle, deleteBack), finding the node (findNode), sorting the list (sortList), and displaying all the nodes (displayList) for the Courier Management System.
 
 #### ADDING A NEW NODE
 
@@ -148,15 +146,15 @@ The linked list is implemented as nodes, containing a Courier object and a point
 
 ## Assignment Report <a name="report"></a> 🔔
 
-Submission date: 31-Dec-2023 04:55AM (UTC-0800)
+Submission date: 31-Dec-2023 07:17AM (UTC-0800)
 
-Submission ID: 2265594315
+Submission ID: 2265834359
 
-File name: ASSIGNMENT_2_DSA_FABS.pdf (179.44K)
+File name: ASSIGNMENT_2_DSA_FABS.pdf (177.69K)
 
-Word count: 1172
+Word count: 1131
 
-Character count: 5829
+Character count: 5500
 
 ![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass2/files/images/REPORT.jpg)
 

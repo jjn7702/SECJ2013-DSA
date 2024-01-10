@@ -151,8 +151,8 @@ int main(){
             while(true){
                 cout << "Enter cost: ";
                 cin >> inp;
-                if(isNumber(inp)){
-                    cost = stod(inp);
+                if(isfloat(inp)){
+                    cost = stof(inp);
                     if(cost >= 0){
                         system("cls");
                         break;
@@ -192,6 +192,7 @@ int main(){
                 list.insertNode(*item, index);
             }
             cout << "Item added successfully!\n";
+            system("pause");
             system("cls");
         }
         else if(choice == 2){
@@ -222,7 +223,7 @@ int main(){
                     cout << "Item deleted successfully!\n";
                 }
                 else if(choice == 2){
-                    list.deleteNode(list.count() - 1);
+                    list.deleteNode(list.count());
                     cout << "Item deleted successfully!\n";
                 }
                 else if(choice == 3){
@@ -244,6 +245,8 @@ int main(){
                     list.deleteNode(index);
                     cout << "Item deleted successfully!\n";
                 }
+                system("pause");
+                system("cls");
             }
         }
         else if(choice == 3){
@@ -319,6 +322,8 @@ int main(){
                     << setw(15) << left << "Item location" << endl;
                     list.insertNode(*item, list.findNodeLocation(itemLocation) - 1)->item.print();
                 }
+                system("pause");
+                system("cls");
             }
         }
         else if(choice == 4){
@@ -332,8 +337,8 @@ int main(){
                 while(true){
                     cout << "1. Sort by item number\n2. Sort by item name\n3. Sort by item location\n4. Back\n\nEnter your choice: ";
                     cin >> inp;
-                    if(isNumber(inp)){
-                        choice = stoi(inp);
+                    if(isfloat(inp)){
+                        choice = stof(inp);
                         if(inp.length() == 1 && choice >= 1 && choice <= 4){
                             system("cls");
                             break;
@@ -367,6 +372,8 @@ int main(){
                 << setw(15) << left << "Cost" 
                 << setw(15) << left << "Item location" << endl;
                 list.displayList();
+                system("pause");
+                system("cls");
             }
         }
         else break;
@@ -549,7 +556,7 @@ int List::count(){
     }
     return count;
 }
-//bubblesort
+
 void List::SortbyNumber() {
     if (head == NULL)
         return;

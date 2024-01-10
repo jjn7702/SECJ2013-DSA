@@ -29,7 +29,7 @@ The data that have been added/removed through the linked list will now be pushed
 
 
 ## Flow Chart 📑
-
+![](../Image/itsthesameyearanyways.jpg)
 
 ## Linked List 📦 ➡️ 🛑
 
