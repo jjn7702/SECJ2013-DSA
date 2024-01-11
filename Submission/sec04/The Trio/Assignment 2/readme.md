@@ -270,12 +270,16 @@ This hotel booking system uses a constant change of linked lists, allowing for t
 ### Display Function
 #### displayList()
   1. Check if the linked list is empty
+
       1.1 If the customer list is empty
-          1.1.1 Inform user the list is empty and need to insert data first then return
+
+     1.1.1 Inform user the list is empty and need to insert data first then return
   2. Set the current pointer point to the head of the list.
   3. Looping while current pointer is not NULL
+   
       3.1 Print customer information
-      3.2 Move current point to the next node in the list
+
+     3.2 Move current point to the next node in the list
 
 ## Findings 📊
 
