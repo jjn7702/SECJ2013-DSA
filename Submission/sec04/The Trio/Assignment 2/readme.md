@@ -31,15 +31,15 @@ Main function
 
      3.1 Select to add customer at the front of the list
 
-       3.1.1 call function addCustAtBegin()
+        3.1.1 call function addCustAtBegin()
 
      3.2 Select to add customer in the middle of any position of the list
 
-       3.2.1 call function addCustAtMid()
+        3.2.1 call function addCustAtMid()
 
      3.3 Select to add customer at end of the list
 
-       3.3.1 call function addCustAtEnd()
+        3.3.1 call function addCustAtEnd()
   4. Switch case: Case 2 : Delete Customer
 
      4.1 Select to delete first customer from the list
