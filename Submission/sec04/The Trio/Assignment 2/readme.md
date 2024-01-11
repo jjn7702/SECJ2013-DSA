@@ -242,21 +242,29 @@ This hotel booking system uses a constant change of linked lists, allowing for t
 #### sorting()
   1. Check if the linked list is empty
   2. If the linked list is empty
+
       2.1 Inform user the list is empty and unable to sort then return
   3. Initializing variables
-      3.1 Declare pointers current, prev and temp
-      3.2 Set size = 1
+
+     3.1 Declare pointers current, prev and temp
+
+     3.2 Set size = 1
   4. For loop is used to get current list size, set current point to head of the list and add
      condition of looping if current is not NULL, update current point to the next node
-      4.1 size increase by 1
+
+     4.1 size increase by 1
   5. Nested loop for bubble sort
-      5.1 For outer loop, iterate from 1 to size
-          5.1.1 Set current point to head and prev point to NULL in every outer loop
-      5.2 For inner loop, iterating j from 0 to size-pass
+
+     5.1 For outer loop, iterate from 1 to size
+
+     5.1.1 Set current point to head and prev point to NULL in every outer loop
+
+     5.2 For inner loop, iterating j from 0 to size-pass
   6. Inside the inner loop
       6.1 Check if current and current->next is valid and if current->getName() is larger than
           current->next->getName()
-          6.1.1 switch the position of current and current->next
+
+     6.1.1 switch the position of current and current->next
   7. Inform the user the data is sorted.
 
 ### Display Function
