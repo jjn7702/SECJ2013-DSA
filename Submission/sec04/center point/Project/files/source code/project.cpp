@@ -402,12 +402,12 @@ public:
         }while(temp != back->next);
     }
 
-    // check duplicate
-    bool checkDuplicate(string code)
+    // check duplicate code
+    bool checkDuplicateCode(string code)
     {
         if (isEmpty())
         {
-            return false; // No duplicates if the queue is empty
+            return false; 
         }
 
         Inventory *temp = back->next;
@@ -420,7 +420,28 @@ public:
 
         } while (temp != back->next);
 
-        return false; // Code does not exist
+        return false;
+    }
+
+    bool checkDuplicateName(string name){
+
+        if (isEmpty())
+        {
+            return false; 
+        }
+
+        Inventory *temp = back->next;
+
+        do
+        {
+            if (temp->getName() == name)
+                return true;
+            temp = temp->next;
+
+        } while (temp != back->next);
+
+        return false;
+
     }
 };
 
@@ -437,7 +458,7 @@ void getInfo(Queue &InvList, string &code, string &name, string &type, int &quan
         // Check code format
         bool checkc = checkCode(code);
         // Check duplicate
-        bool checkd = InvList.checkDuplicate(code);
+        bool checkd = InvList.checkDuplicateCode(code);
 
         if (checkc && !checkd)
             break; // both condition meet only can out the loop
@@ -457,10 +478,21 @@ void getInfo(Queue &InvList, string &code, string &name, string &type, int &quan
     }
     code = changeToUpper(code);
 
-    cout << "Enter Inventory Name: ";
-    cin.ignore();
-    getline(cin, name);
-    name = changeToUpper(name);
+    while (true) {
+        cout << "Enter Inventory Name: ";
+        cin.ignore();
+        getline(cin, name);
+        name = changeToUpper(name);
+
+        // Check duplicate name
+        bool checkDuplicateName = InvList.checkDuplicateName(name);
+
+        if (!checkDuplicateName) {
+            break; // Break the loop if no duplicate name is found
+        } else {
+            cout << "Invalid name! The name already exists. Re-enter." << endl;
+        }
+    }
 
     cout << "Enter Inventory Type: ";
     getline(cin, type);
