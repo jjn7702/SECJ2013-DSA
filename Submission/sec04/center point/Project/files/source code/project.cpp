@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <cctype>
 #include <cstring>
+
 using namespace std;
 
 // Constraints
@@ -20,31 +21,23 @@ string changeToUpper(string value)
 
 //quantity cannot be < 0
 bool checkQuantity(int q){
-    return q >= 0;
+    return q > 0;
 }
 
 //Code format should be in IXXX (where X should be digit)
 bool checkCode(string iCode){
-    bool result = true;
-    int count = 0;
 
-    while(count < iCode.length()){
-        char c = iCode[count];
+    if (iCode.length() > 4) return false;  // If length is more than 4 characters, it's invalid
 
-        if(count == 0){
-            if(c != 'I')
-                result = false;
-        }else{
-            if(!isdigit(c))
-                result = false;
+    if (iCode[0] != 'I') return false;  // The first character should be 'I' 
+
+    for (int i= 1; i< iCode.length(); i++) {
+        if (!isdigit(iCode[i])) {
+            return false;  
         }
     }
 
-    if(iCode.length() > 4){
-        result = false;
-    }
-
-    return result;
+    return true; 
 }
 
 
@@ -103,26 +96,194 @@ public:
     float getPrice() { return price; }
 };
 
+
 class Queue{
     private:
         Inventory *back; 
 
     public:
-        Queue(){back = NULL;}
-        bool isEmpty(){
-            return back==NULL;
-        }
+        //create an empty queue
+        Queue(){back=NULL;}
+        //check is empty
+        bool isEmpty(){return back==NULL;}
+
         //Add Inventory
-        void enQueue(){};
+        void enQueue(Inventory *newInventory){
+
+            //case 1: queue is empty
+            if(isEmpty()){
+             back = newInventory;
+                newInventory->next =back;
+            }
+
+            //case 2 : queue have thing inside
+            else{
+                newInventory->next= back->next;
+                back->next=newInventory;
+                back=newInventory;
+            }
+        }
+
+
         //Delete Inventory
+        void deQueue(){ 
+
+            //is empty
+            if(isEmpty()){cout<<"No nodes left!!"<<endl;}
+
+            else { 
+                Inventory *temp= back->next;
+
+                if(back->next!=back){//more than 1 nodes
+                  back->next=temp->next;
+                }
+
+                else{ //left only 1 nodes
+                    back=NULL;
+                }
+
+                temp->next=NULL;
+                delete temp;
+            }
+        }
+
+        
         //Sort the Inventory
+
+
+
+
+
         //Find an inventory
+
+
+
+
+
         //Display Inventory List based on category
+
+
+
+
+
         //Display Full Inventory List
+        void displayList()
+        {
+            cout << "\t\t\t:::::::Inventory List:::::::\n"
+                << endl;
+            for (int i = 0; i < 84; i++){cout << "-";}
+                cout << endl;
+                cout << left << setw(20) << "Inventory Code"
+                    << setw(20) << "Inventory Name"
+                    << setw(20) << "Inventory Type"
+                    << setw(15) << "Quantity"
+                    << setw(10) << "Price" << endl;
+
+            for (int i = 0; i < 84; i++){cout << "-";}
+            cout << endl;
+
+            Inventory *temp= back->next;
+
+            do{
+                cout << left << setw(20) << temp->getCode()
+                 << setw(20) << temp->getName()
+                 << setw(20) << temp->getType()
+                 << setw(15) << temp->getQuantity()
+                 << setw(10) << fixed << setprecision(2) << temp->getPrice() << endl
+                 << endl;
+
+                temp = temp->next;
+
+            }while (temp!=back->next);
+    
+        }
+        
+           
         //Update an Inventory
+
+
+
+
+
         //Check Low Stock Inventory
+
+
+
+
+
         //Store into database
+
+
+
+        //check duplicate
+        bool checkDuplicate(string code) {
+                if (isEmpty()) {
+                    return false;  // No duplicates if the queue is empty
+                }
+
+                Inventory *temp = back->next;
+
+                do {
+                    if (temp->getCode() == code) return true;  
+                    temp = temp->next;
+
+                } while (temp != back->next);
+
+                return false;  // Code does not exist
+        }
+
 };
+
+// get info for added inventory
+void getInfo(Queue &InvList, string &code, string &name, string &type, int &quantity, float &price)
+{
+    cout << "----------New inventory Info----------" << endl;
+
+    while (true) {
+        cout << "Enter Inventory Code: ";
+        cin >> code;
+
+        // Check code format
+        bool checkc = checkCode(code);
+        // Check duplicate
+        bool checkd = InvList.checkDuplicate(code);
+
+        if (checkc && !checkd) break; //both condition meet only can out the loop
+         
+        else {
+            cout << "Invalid code!";
+            if (!checkc) {
+                cout << " Re-enter your code (IXXX) where X should be a digit." << endl;
+            } else if (checkd) {
+                cout << " The code already exists." << endl;
+            }
+        }
+    }
+    code = changeToUpper(code);
+
+
+    cout << "Enter Inventory Name: ";
+    cin.ignore();
+    getline(cin, name);
+    name = changeToUpper(name);
+
+    cout << "Enter Inventory Type: ";
+    getline(cin, type);
+    type = changeToUpper(type);
+
+    cout << "Enter Quantity: ";
+    cin >> quantity;
+    //check quantity must >0
+    bool checkq=checkQuantity(quantity);
+    while(!checkq){
+        cout<<"Invalid quantity! Reenter! "<<endl;
+        cin >> quantity;
+        checkq=checkQuantity(quantity);
+    }
+
+    cout << "Enter Price: ";
+    cin >> price;
+}
 
 int main()
 {
@@ -153,7 +314,7 @@ int main()
         inp >> price;
         inp.ignore();
         Inventory *inv = new Inventory(code, name, type, quantity, price);
-        //InvList.enQueue(inv);
+        InvList.enQueue(inv);
     }
 
     inp.close();
@@ -165,28 +326,37 @@ int main()
         menuChoice = mainMenu();
         switch (menuChoice)
         {
-        case 1:
-            break;   
-        case 2:
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
-        case 5:
-            break;
-        case 6:
-            break;
-        case 7:
-            break;
-        case 8:
-            break;
-        case 9:
-            loop = false;
-            break;
-        default:
-            cout << "Please enter a valid choice! :)\n";
-            break;
+        case 1: { 
+                getInfo(InvList, code, name, type, quantity, price);
+                Inventory *newInventory = new Inventory(code, name, type, quantity, price);
+                InvList.enQueue(newInventory);
+                cout<<"Congrats! You inventory has been added!"<<endl<<endl;
+                break;
+                }
+   
+        case 2: {
+                InvList.deQueue();
+                cout<<"Congrats! Your first inventory has been deleted!"<<endl<<endl;
+                break;
+                }
+
+        //case 3:
+            //break;
+        //case 4:
+            //break;
+        //case 5:
+            //break;
+        case 6: InvList.displayList();
+                break;
+        //case 7:
+           // break;
+        //case 8:
+           // break;
+        case 9: loop = false;
+                break;
+
+        default: cout << "Please enter a valid choice! :)\n";
+                 break; 
         }
     }
 
