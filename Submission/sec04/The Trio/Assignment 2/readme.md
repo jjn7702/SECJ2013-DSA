@@ -6,6 +6,13 @@
 | Nursyuhada Binti Badren     | A22EC0253 |
 | Eddy Koh Wei Hen            | A22EC0154 |
 
+## Findings 📊
+
+- [Source Code](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/The%20Trio/Assignment%202/Source%20code)
+- [Plagiarism Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/The%20Trio/Assignment%202/Assignment%202%20Plagiarism%20Report.pdf)
+- [Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/The%20Trio/Assignment%202/ASSIGNMENT%202%20(DSA)%20.pdf)
+
+  
 ## Objective
 Our objectives for this assignment are:
 
@@ -290,8 +297,3 @@ This hotel booking system uses a constant change of linked lists, allowing for t
 
      3.2 Move current point to the next node in the list
 
-## Findings 📊
-
-- [Source Code](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/The%20Trio/Assignment%202/Source%20code)
-- [Plagiarism Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/The%20Trio/Assignment%202/Assignment%202%20Plagiarism%20Report.pdf)
-- [Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/The%20Trio/Assignment%202/ASSIGNMENT%202%20(DSA)%20.pdf)
