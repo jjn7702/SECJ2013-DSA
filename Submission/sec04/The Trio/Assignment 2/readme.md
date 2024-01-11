@@ -30,7 +30,6 @@ Main function
   3. Switch case: Case 1: Add Customer
 
      3.1 Select to add customer at the front of the list
-          
           3.1.1 call function addCustAtBegin()
       3.2 Select to add customer in the middle of any position of the list
           3.2.1 call function addCustAtMid()
