@@ -72,13 +72,13 @@ This hotel booking system uses a constant change of linked lists, allowing for t
 
 
 ### Add Function
-AddCustAtBegin()
+#### AddCustAtBegin()
   1. Check if the linked list is empty
   2. If the linked list is empty, make the new customer at the head of the list.
   3. If the linked list is not empty, point the new customer to the current head.
   4. Make the new customer the new head of the list.
 
-AddCustAtMid()
+#### AddCustAtMid()
   1. Check if the position is valid or not
   2. Move the linked list to find the node at specified position.
 
@@ -92,7 +92,7 @@ AddCustAtMid()
   3. Add the new customer to the middle of the list by setting its next pointer to the node at
      specified position and setting the next pointer of the previous node to the new customer.
 
-AddCustAtEnd()
+#### AddCustAtEnd()
   1. Check if the linked list is empty.
   2. If the list is empty,
 
@@ -104,7 +104,7 @@ AddCustAtEnd()
      the new customer.
 
 ### Delete Function
-deleteFront()
+#### deleteFront()
   1. Check if the linked list is empty.
   2. If the list is empty
       2.1 Inform user the list is empty and return
@@ -112,7 +112,7 @@ deleteFront()
       3.1 Delete the first node of the list by setting the head of the list to the next node,
           and delete the original head node.
 
-deleteMid()
+##### deleteMid()
   1. Check if the linked list is empty.
   2. Reject if position is not valid.
   3. If the list is empty
@@ -123,7 +123,7 @@ deleteMid()
   7. Delete the node at specified position by setting the next pointer of the previous node to
      the node after the node to be deleted and then deleting the node.
 
-deleteEnd()
+#### deleteEnd()
   1. Check if the linked list is empty.
   2. If the linked list is empty,
       2.1 Inform user the list is empty and return
@@ -132,7 +132,7 @@ deleteEnd()
       3.2 Delete the last node of the linked list.
 
 ### Find Function
-findCustomer()
+#### findCustomer()
   1. Check if the linked list is empty.
   2. If the linked list is empty,
 
@@ -147,6 +147,7 @@ findCustomer()
      4.3 Set found flag to false
   5. Enter switch statement after user select the search option
 
+
      5.1 Search by name
 
        5.1.1 Enter name to search
@@ -158,6 +159,7 @@ findCustomer()
        5.1.3 Move prev to current
   
        5.1.4 Move current to next node
+
 
 
       5.2 Search by Age
@@ -173,6 +175,7 @@ findCustomer()
        5.2.4 Move current to next node
 
 
+
       5.3 Search by IC Number
 
        5.3.1 Enter IC number to search
@@ -184,6 +187,7 @@ findCustomer()
      5.3.3 Move prev to current
 
      5.3.4 Move current to next node
+
 
 
       5.4 Search by Phone Number
@@ -199,6 +203,7 @@ findCustomer()
       5.4.4 Move current to next node
 
 
+
      5.5 Search by Room Number
 
        5.5.1 Enter room number to search
@@ -212,6 +217,7 @@ findCustomer()
        5.5.4 Move current to next node
 
 
+
      5.6 Search by Check In Date
           5.6.1 Enter check in date to search
           5.6.2 If current node’s check in date matches search name
@@ -219,6 +225,7 @@ findCustomer()
      5.6.2.1 Set found to true to break the loop after current loop
           5.6.3 Move prev to current
           5.6.4 Move current to next node
+
 
 
      5.7 Default
@@ -231,8 +238,8 @@ findCustomer()
 
      6.2.1 Inform user not record found
 
-# Sort Function
-sorting()
+### Sort Function
+#### sorting()
   1. Check if the linked list is empty
   2. If the linked list is empty
       2.1 Inform user the list is empty and unable to sort then return
@@ -252,8 +259,8 @@ sorting()
           6.1.1 switch the position of current and current->next
   7. Inform the user the data is sorted.
 
-# Display Function
-displayList()
+### Display Function
+#### displayList()
   1. Check if the linked list is empty
       1.1 If the customer list is empty
           1.1.1 Inform user the list is empty and need to insert data first then return
