@@ -31,35 +31,45 @@ Main function
 
      3.1 Select to add customer at the front of the list
 
-     3.1.1 call function addCustAtBegin()
+       3.1.1 call function addCustAtBegin()
 
      3.2 Select to add customer in the middle of any position of the list
 
-     3.2.1 call function addCustAtMid()
+       3.2.1 call function addCustAtMid()
 
      3.3 Select to add customer at end of the list
 
-     3.3.1 call function addCustAtEnd()
-  5. Switch case: Case 2 : Delete Customer
-      4.1 Select to delete first customer from the list
-          4.1.1 call function deleteFront()
-      4.2 Select to delete customer in the middle of any position of the
+       3.3.1 call function addCustAtEnd()
+  4. Switch case: Case 2 : Delete Customer
+
+     4.1 Select to delete first customer from the list
+
+       4.1.1 call function deleteFront()
+
+     4.2 Select to delete customer in the middle of any position of the
           list
-          4.2.1 call function deleteMid()
-      4.3 Select to delete last customer from the list
-          4.3.1 call function deleteEnd()
-  6. Switch case: Case 3 : Find Customer
-      5.1 call function findCustomer() to search for customers based on
+
+       4.2.1 call function deleteMid()
+
+     4.3 Select to delete last customer from the list
+
+       4.3.1 call function deleteEnd()
+  5. Switch case: Case 3 : Find Customer
+
+     5.1 call function findCustomer() to search for customers based on
           specified criteria
-  7. Switch case: Case 4 : Sort Customer
-      6.1 call function sorting() to sort customer list based on names
+  6. Switch case: Case 4 : Sort Customer
+
+     6.1 call function sorting() to sort customer list based on names
           using bubble sort algorithm
-  8. Switch case: Case 5 : Display Customer
-      7.1 Call the function displayList() to display the entire list of
+  7. Switch case: Case 5 : Display Customer
+
+     7.1 Call the function displayList() to display the entire list of
           customers.
-  9. Case Default : Quit
-      8.1 Display “Bye” and quit the program/system.
-  10. The program will infinite loop until user key in quit option
+  8. Case Default : Quit
+
+     8.1 Display “Bye” and quit the program/system.
+  9. The program will infinite loop until user key in quit option
 
 
 # Add Function
