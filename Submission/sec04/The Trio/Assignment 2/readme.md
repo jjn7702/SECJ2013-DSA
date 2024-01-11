@@ -137,15 +137,15 @@ findCustomer()
   2. If the linked list is empty,
 
       2.1 Inform user the list is empty and unable to search, then return
-  4. Display search options
-  5. Initializing variables
+  3. Display search options
+  4. Initializing variables
 
      4.1 Set current pointer to the head of the list
 
      4.2 Set prev pointer to NULL
 
      4.3 Set found flag to false
-  7. Enter switch statement after user select the search option
+  5. Enter switch statement after user select the search option
 
      5.1 Search by name
 
@@ -159,7 +159,8 @@ findCustomer()
   
        5.1.4 Move current to next node
 
-     5.2 Search by Age
+
+      5.2 Search by Age
 
        5.2.1 Enter age to search
 
@@ -170,6 +171,7 @@ findCustomer()
        5.2.3 Move prev to current
 
        5.2.4 Move current to next node
+
 
       5.3 Search by IC Number
 
@@ -183,31 +185,51 @@ findCustomer()
 
      5.3.4 Move current to next node
 
-     5.4 Search by Phone Number
-          5.4.1 Enter phone number to search
-          5.4.2 If current node’s phone number matches search name
-              5.4.2.1 Set found to true to break the loop after current loop
-          5.4.3 Move prev to current
-          5.4.4 Move current to next node
-      5.5 Search by Room Number
-          5.5.1 Enter room number to search
-          5.5.2 If current node’s room number matches search name
-              5.5.2.1 Set found to true to break the loop after current loop
-          5.5.3 Move prev to current
-          5.5.4 Move current to next node
-      5.6 Search by Check In Date
+
+      5.4 Search by Phone Number
+
+       5.4.1 Enter phone number to search
+
+       5.4.2 If current node’s phone number matches search name
+  
+       5.4.2.1 Set found to true to break the loop after current loop
+
+        5.4.3 Move prev to current
+
+      5.4.4 Move current to next node
+
+
+     5.5 Search by Room Number
+
+       5.5.1 Enter room number to search
+
+        5.5.2 If current node’s room number matches search name
+
+       5.5.2.1 Set found to true to break the loop after current loop
+
+       5.5.3 Move prev to current
+
+       5.5.4 Move current to next node
+
+
+     5.6 Search by Check In Date
           5.6.1 Enter check in date to search
           5.6.2 If current node’s check in date matches search name
-              5.6.2.1 Set found to true to break the loop after current loop
+
+     5.6.2.1 Set found to true to break the loop after current loop
           5.6.3 Move prev to current
           5.6.4 Move current to next node
-      5.7 Default
+
+
+     5.7 Default
           5.7.1 Inform the user the option is invalid and let them choose again
-  9. Display results
+  6. Display results
       6.1 If a match is found
-          6.1.1 Print customer information
+
+     6.1.1 Print customer information
       6.2 If no match is found
-          6.2.1 Inform user not record found
+
+     6.2.1 Inform user not record found
 
 # Sort Function
 sorting()
