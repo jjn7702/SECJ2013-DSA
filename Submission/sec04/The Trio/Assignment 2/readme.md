@@ -71,7 +71,7 @@ Main function
   10. The program will infinite loop until user key in quit option
 
 
-# Add Function
+### Add Function
 AddCustAtBegin()
   1. Check if the linked list is empty
   2. If the linked list is empty, make the new customer at the head of the list.
@@ -81,10 +81,12 @@ AddCustAtBegin()
 AddCustAtMid()
   1. Check if the position is valid or not
   2. Move the linked list to find the node at specified position.
-      2.1 If the position is the last one
+
+     2.1 If the position is the last one
 
        2.1.1 Reject the new customer
-      2.2 If the position is the first one
+
+     2.2 If the position is the first one
 
        2.2.1 Reject the new customer
   3. Add the new customer to the middle of the list by setting its next pointer to the node at
@@ -93,9 +95,11 @@ AddCustAtMid()
 AddCustAtEnd()
   1. Check if the linked list is empty.
   2. If the list is empty,
-      2.1 Make the new customer the head of the list.
+
+     2.1 Make the new customer the head of the list.
   3. If the list is not empty,
-      3.1 Move the linked list to find the last node.
+
+     3.1 Move the linked list to find the last node.
   4. Add the new customer to the end of the list by setting the next pointer of the last node to
      the new customer.
 
