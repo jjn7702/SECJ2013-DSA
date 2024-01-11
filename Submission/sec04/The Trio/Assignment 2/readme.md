@@ -25,7 +25,7 @@ This hotel booking system uses a constant change of linked lists, allowing for t
 
 
 ### Flowchart
-[Flowchart}(https://app.diagrams.net/#G1_IaB1tLsIodmKWIh0TbjkgSj5COdUm9j)
+[Flowchart](https://app.diagrams.net/#G1_IaB1tLsIodmKWIh0TbjkgSj5COdUm9j)
 
 
 
