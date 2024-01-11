@@ -20,6 +20,13 @@ c. To allow changeable functions such as adding, deleting, finding, sorting cust
 ## Synopsis📝
 This hotel booking system uses a constant change of linked lists, allowing for the easy handling of customer information in a way similar to the changeable movement of customers throughout a hotel. For example, when customers move  into their rooms, it easily inserts new customers by entering their data at any location they want within the list. When customers check out, their data is easily removed from the list, creating an easy checkout procedure. This ability to change, which is similar to the constant change of hotel operations, provides an easy and effective experience for both staff and customers.
 
+## Design
+### Class Diagram
+
+
+### Flowchart
+[Flowchart}(https://app.diagrams.net/#G1_IaB1tLsIodmKWIh0TbjkgSj5COdUm9j)
+
 
 
 ## Design Description
