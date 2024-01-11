@@ -24,7 +24,7 @@ This hotel booking system uses a constant change of linked lists, allowing for t
 
 
 ## Design Description
-Main function
+### Main function
   1. Declare array ‘customer’ of 100 ‘Customer’
   2. Read customer information from an input file.
   3. Switch case: Case 1: Add Customer
@@ -103,7 +103,7 @@ AddCustAtEnd()
   4. Add the new customer to the end of the list by setting the next pointer of the last node to
      the new customer.
 
-# Delete Function
+### Delete Function
 deleteFront()
   1. Check if the linked list is empty.
   2. If the list is empty
@@ -131,36 +131,59 @@ deleteEnd()
       3.1 Move to the last node of the linked list.
       3.2 Delete the last node of the linked list.
 
-# Find Function
+### Find Function
 findCustomer()
   1. Check if the linked list is empty.
   2. If the linked list is empty,
+
       2.1 Inform user the list is empty and unable to search, then return
-  3. Display search options
-  4. Initializing variables
-      4.1 Set current pointer to the head of the list
-      4.2 Set prev pointer to NULL
-      4.3 Set found flag to false
-  5. Enter switch statement after user select the search option
-      5.1 Search by name
-          5.1.1 Enter name to search
-          5.1.2 If current node’s name matches search name
-              5.1.2.1 Set found to true to break the loop after current loop
-          5.1.3 Move prev to current
-          5.1.4 Move current to next node
-      5.2 Search by Age
-          5.2.1 Enter age to search
-          5.2.2 If current node’s age matches search name
-              5.2.2.1 Set found to true to break the loop after current loop
-          5.2.3 Move prev to current
-          5.2.4 Move current to next node
+  4. Display search options
+  5. Initializing variables
+
+     4.1 Set current pointer to the head of the list
+
+     4.2 Set prev pointer to NULL
+
+     4.3 Set found flag to false
+  7. Enter switch statement after user select the search option
+
+     5.1 Search by name
+
+       5.1.1 Enter name to search
+
+       5.1.2 If current node’s name matches search name
+
+       5.1.2.1 Set found to true to break the loop after current loop
+
+       5.1.3 Move prev to current
+  
+       5.1.4 Move current to next node
+
+     5.2 Search by Age
+
+       5.2.1 Enter age to search
+
+        5.2.2 If current node’s age matches search name
+
+        5.2.2.1 Set found to true to break the loop after current loop
+
+       5.2.3 Move prev to current
+
+       5.2.4 Move current to next node
+
       5.3 Search by IC Number
-          5.3.1 Enter IC number to search
-          5.3.2 If current node’s IC number matches search name
-              5.3.2.1 Set found to true to break the loop after current loop
-          5.3.3 Move prev to current
-          5.3.4 Move current to next node
-      5.4 Search by Phone Number
+
+       5.3.1 Enter IC number to search
+
+       5.3.2 If current node’s IC number matches search name
+
+       5.3.2.1 Set found to true to break the loop after current loop
+
+     5.3.3 Move prev to current
+
+     5.3.4 Move current to next node
+
+     5.4 Search by Phone Number
           5.4.1 Enter phone number to search
           5.4.2 If current node’s phone number matches search name
               5.4.2.1 Set found to true to break the loop after current loop
@@ -180,7 +203,7 @@ findCustomer()
           5.6.4 Move current to next node
       5.7 Default
           5.7.1 Inform the user the option is invalid and let them choose again
-  6. Display results
+  9. Display results
       6.1 If a match is found
           6.1.1 Print customer information
       6.2 If no match is found
