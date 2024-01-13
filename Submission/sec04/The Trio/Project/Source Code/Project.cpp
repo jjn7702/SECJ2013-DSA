@@ -150,3 +150,115 @@ int managerMenu()  // Hotel Manager Menu
 	return option ;
 }
 
+int main()
+{
+	Customer customer[100] ;
+	Stack s ;
+	Queue q ;
+	int custNum = 0 ;
+	
+	cout << "- Hotel Booking System -" << endl << endl ;
+	
+	userLoop:
+	int user = User() ;
+	
+	switch(user)
+    {
+    	case 1 : {	
+    				int agent ;
+    				repeatAgent:
+					agent = agentMenu() ;
+					
+					switch(agent)
+					{
+						case 1 : {  // Add customer to reservation list
+									Customer *tempCust ;
+    								int cusOpt ;
+    					
+				    				cout << "\nChoose the customer you want to add" << endl 
+				    					 << "Select from 1 to 10" << endl << endl 
+				    					 << "Customer -> " ;
+				    				cin >> cusOpt ;
+				    				
+				    				tempCust = &customer[cusOpt-1] ;
+				    				
+				    				q.makeReservation(tempCust) ;
+									break;
+								 }
+						case 2 : {	// Find customer from reservation list
+									q.findCustReserveList() ;
+									break;
+								 }
+						case 3 : {	// Display the reservation list
+									q.displayReservationList() ;
+									break;
+								 }
+						default: {  // Quit
+									break;
+								 }
+					}
+					
+					if(agent != 4) // Loop if user no select to quit
+					{
+						cout << endl ;
+						goto repeatAgent ;
+					}
+					
+					break ;
+				 }
+				 
+		case 2 : {	
+					int manager ;
+					repeatManager:
+					manager = managerMenu() ;
+					switch(manager)
+					{
+						case 1 : {  // Accept customer from reservation list
+									s.processBookingRequest(q) ; 
+									break;
+								 }
+						case 2 : {  // Cancel customer data from accepted request list
+									s.cancelBookingRequest() ;
+									break;
+								 }
+						case 3 : {	// Display the reservation list
+									q.displayReservationList() ;
+									break;
+								 }
+						case 4 : {  // Find customer from accepted request list
+									s.findCustAcceptList() ;
+									break;
+								 }
+						case 5 : {	// Display accepted request list
+									s.displayRequestList() ;
+									break;
+								 }
+						default: {  // Quit
+									break;
+								 }
+					}
+					
+					if(manager != 6)  // Loop if user no select to quit
+					{
+						cout << endl ;
+						goto repeatManager ;
+					}
+					
+					break ;
+				 }
+				 
+		default: {	// Quit program
+					cout << "\nBye" << endl ;
+					return 1 ;
+					break;
+				 }
+	}
+	
+	if(user != 3)  // Loop if user does not select exit
+    {
+    	cout << endl ;
+		goto userLoop ;
+	}
+	
+	return 0 ;
+}
