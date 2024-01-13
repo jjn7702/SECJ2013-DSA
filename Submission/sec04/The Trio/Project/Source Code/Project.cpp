@@ -81,3 +81,25 @@ class Stack{  // used by hotel manager
 
 		}   
 };
+
+int User()  //Choose the character
+{
+	int user ;
+	
+	UserLoop: // Loop if key in invalid option
+	cout << "--- User Menu --- " << endl ;
+	cout << "1. Agent" << endl 
+		 << "2. Hotel Manager" << endl 
+		 << "3. Exit\n" << endl 
+		 << "Option: " ;
+	
+	cin >> user ;
+	
+	if(user < 1 || user > 3)
+	{
+		cout << "Please choose a valid option\n" << endl ;
+		goto UserLoop ;
+	}
+	
+	return user ;
+}
