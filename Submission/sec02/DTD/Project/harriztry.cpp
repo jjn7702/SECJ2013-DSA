@@ -38,28 +38,24 @@ public:
 
 class Library {
 private:
-    static const int MAX_SIZE = 100;  // Maximum size for stack and queue
+    static const int MAX_SIZE = 100;  // Maximum size for the stack
     Book stackArray[MAX_SIZE];        // Array for stack
-    Book queueArray[MAX_SIZE];        // Array for queue
     int top;                          // Top index for stack
-    int front;                        // Front index for queue
-    int rear;                         // Rear index for queue
 
 public:
     // Constructor
-    Library() : top(-1), front(0), rear(-1) {}
+    Library() : top(-1) {}
 
     // Stack operations
-    void pushBookToStack(const Book& book) {
+    void pushBook(const Book& book) {
         if (top < MAX_SIZE - 1) {
             stackArray[++top] = book;
-            cout << "Book added to the stack: " << book.getTitle() << endl;
         } else {
             cout << "Stack is full. Cannot add more books.\n";
         }
     }
 
-    void popBookFromStack() {
+    void popBook() {
         if (top >= 0) {
             cout << "Book removed from the stack: " << stackArray[top].getTitle() << endl;
             top--;
@@ -68,64 +64,31 @@ public:
         }
     }
 
-    // Queue operations
-    void enqueueBook() {
-        Book newBook;
-        cin.ignore(); // Ignore newline character from previous input
-        cout << "Enter book title: ";
-        getline(cin, newBook.setTitle);
-        cout << "Enter book author: ";
-        getline(cin, newBook.setAuthor);
-        cout << "Enter year of publication: ";
-        cin >> newBook.setYear;
-        cin.ignore(); // Ignore newline character from previous input
-        cout << "Enter ISBN (Example: 123-1234567890): ";
-        getline(cin, newBook.setISBN);
-
-        if (rear < MAX_SIZE - 1) {
-            queueArray[++rear] = newBook;
-            cout << "Book enqueued: " << newBook.getTitle() << endl;
-        } else {
-            cout << "Queue is full. Cannot enqueue more books.\n";
-        }
-    }
-
-    void dequeueBook() {
-        if (front <= rear) {
-            cout << "Book dequeued: " << queueArray[front].getTitle() << endl;
-            front++;
-        } else {
-            cout << "Queue is empty. No book to dequeue.\n";
-            front = 0;
-            rear = -1;
-        }
-    }
-
     // Display books in the stack
-    void displayStack() const {
+    void displayStack() {
+                 system("cls");
         cout << "Books in the stack:\n";
+       
+        cout << "-----------------------------------------------------------------------------------------------------------" << endl;
+        cout << setw(50) << left << "| Title"
+             << setw(30) << left << "| Author"
+             << setw(10) << left << "| Year"
+             << setw(15) << left << "| ISBN"
+             << " |" << endl;
+        cout << "-----------------------------------------------------------------------------------------------------------" << endl;
         for (int i = top; i >= 0; i--) {
             stackArray[i].displayBook();
         }
-        cout << "------------------------\n";
-    }
-
-    // Display books in the queue
-    void displayQueue() const {
-        cout << "Books in the queue:\n";
-        for (int i = front; i <= rear; i++) {
-            queueArray[i].displayBook();
-        }
-        cout << "------------------------\n";
+         cout << "-----------------------------------------------------------------------------------------------------------" << endl;
     }
 };
 
 int main() {
     Library library;
     int choice;
+    Book newBook;
     string Title, Author, ISBN;
     int Year;
-
     ifstream inputFile("Book.txt");
 
     // Check if the file is open
@@ -134,28 +97,23 @@ int main() {
         return 1;  // Return with an error code
     }
 
-    // Read books from the file and add them to the library
-    int booksRead = 0;
-
     while (!inputFile.eof()) {
+        
+
         getline(inputFile, Title, ',');
         getline(inputFile, Author, ',');
         inputFile >> Year;
         inputFile.ignore();  // Consume the newline character after reading the year
         getline(inputFile, ISBN);
 
-        Book newBook;
         newBook.setTitle(Title);
         newBook.setAuthor(Author);
         newBook.setYear(Year);
         newBook.setISBN(ISBN);
 
-        library.pushBookToStack(newBook);
-        library.enqueueBook(newBook);
-        booksRead++;
+        library.pushBook(newBook);
     }
 
-    cout << "Number of books read: " << booksRead << endl;
 
     // Close the file
     inputFile.close();
@@ -165,10 +123,7 @@ int main() {
         cout << "[1] Add Book to Stack\n";
         cout << "[2] Remove Book from Stack\n";
         cout << "[3] Display Books in Stack\n";
-        cout << "[4] Enqueue Book to Queue\n";
-        cout << "[5] Dequeue Book from Queue\n";
-        cout << "[6] Display Books in Queue\n";
-        cout << "[7] Exit\n";
+        cout << "[4] Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -186,36 +141,29 @@ int main() {
                 cin >> Year;
                 newBook.setYear(Year);
                 cin.ignore(); // Ignore newline character from previous input
-                cout << "Enter ISBN (Example: 123-1234567890): ";
+                cout << "Enter ISBN (Example : 123-1234567890): ";
                 getline(cin, ISBN);
                 newBook.setISBN(ISBN);
 
-                library.pushBookToStack(newBook);
+                library.pushBook(newBook);
                 break;
             }
             case 2:
-                library.popBookFromStack();
+                library.popBook();
                 break;
             case 3:
                 library.displayStack();
                 break;
             case 4:
-                library.enqueueBook();
-                break;
-            case 5:
-                library.dequeueBook();
-                break;
-            case 6:
-                library.displayQueue();
-                break;
-            case 7:
                 cout << "Exiting the program. Goodbye!\n";
                 break;
             default:
                 cout << "Invalid choice. Please try again.\n";
         }
 
-    } while (choice != 7);
+        cout << "---------------------------------\n";
+
+    } while (choice != 4);
 
     return 0;
 }
