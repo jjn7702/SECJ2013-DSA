@@ -53,15 +53,16 @@ public:
         return backPtr == NULL && frontPtr == NULL;
     };
 
-    void insertQueueReservation(Node *newUser)
+    void enQueueReservation(Node *newUser) // make it circular
     {
         if (isEmpty())
         {
-            frontPtr = newUser;
+            newUser->next = newUser;
             backPtr = newUser;
         }
         else
         {
+            newUser->next = backPtr->next;
             backPtr->next = newUser;
             backPtr = newUser;
         }
@@ -92,6 +93,10 @@ public:
             cout << endl;
         }
     }
+
+    void deQueueReservation(){
+
+    };
 };
 
 void getData(QueueReservation &Reservation)
@@ -142,7 +147,7 @@ void getData(QueueReservation &Reservation)
 
         newPassenger->numCompanionChildren = indexChild;
 
-        Reservation.insertQueueReservation(newPassenger);
+        Reservation.enQueueReservation(newPassenger);
     };
 }
 
