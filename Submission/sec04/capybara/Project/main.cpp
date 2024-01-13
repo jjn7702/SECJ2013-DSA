@@ -53,12 +53,13 @@ public:
         return backPtr == NULL && frontPtr == NULL;
     };
 
-    void enQueueReservation(Node *newUser) // make it circular
+    void enQueueReservation(Node *newUser)
     {
         if (isEmpty())
         {
             newUser->next = newUser;
             backPtr = newUser;
+            frontPtr = newUser;
         }
         else
         {
@@ -71,7 +72,12 @@ public:
     void displayQueueReservation()
     {
         Node *temp = frontPtr;
-        while (temp != NULL)
+
+        if (isEmpty())
+        {
+            cout << "\nThe queue is empty\n";
+        };
+        while (temp->next != frontPtr)
         {
             cout << "Passenger ID: " << temp->userID << ", Name: " << temp->userName << endl;
 
@@ -90,12 +96,74 @@ public:
             cout << endl;
 
             temp = temp->next;
+
             cout << endl;
         }
+
+        cout << "Passenger ID: " << temp->userID << ", Name: " << temp->userName << endl;
+
+        cout << "Companion Adults: ";
+        for (int i = 0; i < temp->numCompanionAdults; ++i)
+        {
+            cout << "ID: " << temp->companionAdultIDs[i] << ", Name: " << temp->companionAdultNames[i] << " | ";
+        }
+        cout << endl;
+
+        cout << "Companion Children: ";
+        for (int i = 0; i < temp->numCompanionChildren; ++i)
+        {
+            cout << "ID: " << temp->companionChildIDs[i] << ", Name: " << temp->companionChildNames[i] << ", Age: " << temp->companionChildAges[i] << " | ";
+        }
+        cout << endl;
+
+        temp = temp->next;
+
+        cout << endl;
     }
 
-    void deQueueReservation(){
+    void deQueueReservation()
+    {
+        Node *delQueue = frontPtr;
 
+        if (isEmpty())
+        {
+            cout << "\nNo one is in queue\n";
+        }
+        else if (frontPtr == backPtr)
+        {
+            frontPtr = backPtr = NULL;
+            delete delQueue;
+        }
+        else
+        {
+            frontPtr = frontPtr->next;
+            backPtr->next = frontPtr;
+            delete delQueue;
+        };
+    }
+    void peekQueueReservation()
+    {
+        if (isEmpty())
+        {
+            cout << "The queue is empty\n";
+        }
+        else
+        {
+            cout << "Passenger ID: " << frontPtr->userID << ", Name: " << frontPtr->userName << endl;
+            cout << "Companion Adults: ";
+            for (int i = 0; i < frontPtr->numCompanionAdults; ++i)
+            {
+                cout << "ID: " << frontPtr->companionAdultIDs[i] << ", Name: " << frontPtr->companionAdultNames[i] << " | ";
+            }
+            cout << endl;
+
+            cout << "Companion Children: ";
+            for (int i = 0; i < frontPtr->numCompanionChildren; ++i)
+            {
+                cout << "ID: " << frontPtr->companionChildIDs[i] << ", Name: " << frontPtr->companionChildNames[i] << ", Age: " << frontPtr->companionChildAges[i] << " | ";
+            }
+            cout << endl;
+        }
     };
 };
 
@@ -153,7 +221,6 @@ void getData(QueueReservation &Reservation)
 
 int main()
 {
-
     // Creating Queue
     QueueReservation Reservation;
 
