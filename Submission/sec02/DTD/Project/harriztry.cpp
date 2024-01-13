@@ -1,5 +1,7 @@
 #include <iostream>
 #include <iomanip>
+#include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -36,17 +38,13 @@ public:
 
 class Library {
 private:
-    static const int MAX_SIZE = 100;  // Maximum size for the stack and queue
+    static const int MAX_SIZE = 100;  // Maximum size for the stack
     Book stackArray[MAX_SIZE];        // Array for stack
     int top;                          // Top index for stack
 
-    Book queueArray[MAX_SIZE];        // Array for queue
-    int front;                        // Front index for queue
-    int rear;                         // Rear index for queue
-
 public:
     // Constructor
-    Library() : top(-1), front(-1), rear(-1) {}
+    Library() : top(-1) {}
 
     // Stack operations
     void pushBook(const Book& book) {
@@ -75,64 +73,54 @@ public:
         }
         cout << "------------------------\n";
     }
-
-    // Queue operations
-    void reserveBook(const Book& book) {
-        if (rear < MAX_SIZE - 1) {
-            if (front == -1) {
-                // If the queue is empty, set front to 0
-                front = 0;
-            }
-
-            queueArray[++rear] = book;
-            cout << "Book reserved successfully: " << book.getTitle() << endl;
-        } else {
-            cout << "Queue is full. Cannot reserve more books.\n";
-        }
-    }
-
-    void processReservations() {
-        if (front <= rear && front != -1) {
-            cout << "Processing reservation for: " << queueArray[front].getTitle() << endl;
-
-            // Move front to the next position
-            front++;
-
-            // If all elements are processed, reset front and rear
-            if (front > rear) {
-                front = -1;
-                rear = -1;
-            }
-        } else {
-            cout << "No book reservations to process.\n";
-        }
-    }
-
-    // Display books in the queue
-    void displayQueue() const {
-        cout << "Books in the queue:\n";
-        for (int i = front; i <= rear && front != -1; i++) {
-            queueArray[i].displayBook();
-        }
-        cout << "------------------------\n";
-    }
 };
 
 int main() {
     Library library;
     int choice;
-    string Title, Author, ISBN;
-    int Year;
+    ifstream inputFile("Book.txt");
+    Book newBook;
+        string Title, Author, ISBN;
+        int Year;
+
+    // Check if the file is open
+    if (!inputFile.is_open()) {
+        cout << "Error opening file: Book.txt" << endl;
+        return 1;  // Return with an error code
+    }
+
+    // Read books from the file and add them to the library
+    int booksRead = 0;
+
+    while (!inputFile.eof()) {
+        
+
+        getline(inputFile, Title, ',');
+        getline(inputFile, Author, ',');
+        inputFile >> Year;
+        inputFile.ignore();  // Consume the newline character after reading the year
+        getline(inputFile, ISBN);
+
+        newBook.setTitle(Title);
+        newBook.setAuthor(Author);
+        newBook.setYear(Year);
+        newBook.setISBN(ISBN);
+
+        library.pushBook(newBook);
+        booksRead++;
+    }
+
+    cout << "Number of books read: " << booksRead << endl;
+
+    // Close the file
+    inputFile.close();
 
     do {
         cout << "Library Management System\n";
         cout << "[1] Add Book to Stack\n";
         cout << "[2] Remove Book from Stack\n";
         cout << "[3] Display Books in Stack\n";
-        cout << "[4] Reserve Book in Queue\n";
-        cout << "[5] Process Reservations in Queue\n";
-        cout << "[6] Display Reserved Books in Queue\n";
-        cout << "[7] Exit\n";
+        cout << "[4] Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -163,33 +151,7 @@ int main() {
             case 3:
                 library.displayStack();
                 break;
-            case 4: {
-                Book newBook;
-                cin.ignore(); // Ignore newline character from previous input
-                cout << "Enter book title: ";
-                getline(cin, Title);
-                newBook.setTitle(Title);
-                cout << "Enter book author: ";
-                getline(cin, Author);
-                newBook.setAuthor(Author);
-                cout << "Enter year of publication: ";
-                cin >> Year;
-                newBook.setYear(Year);
-                cin.ignore(); // Ignore newline character from previous input
-                cout << "Enter ISBN (Example : 123-1234567890): ";
-                getline(cin, ISBN);
-                newBook.setISBN(ISBN);
-
-                library.reserveBook(newBook);
-                break;
-            }
-            case 5:
-                library.processReservations();
-                break;
-            case 6:
-                library.displayQueue();
-                break;
-            case 7:
+            case 4:
                 cout << "Exiting the program. Goodbye!\n";
                 break;
             default:
@@ -198,7 +160,7 @@ int main() {
 
         cout << "---------------------------------\n";
 
-    } while (choice != 7);
+    } while (choice != 4);
 
     return 0;
 }
