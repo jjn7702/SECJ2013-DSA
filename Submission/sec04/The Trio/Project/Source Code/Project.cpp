@@ -126,3 +126,27 @@ int agentMenu()  // Agent Menu
 	return option ;
 }
 
+int managerMenu()  // Hotel Manager Menu
+{
+	int option ;
+			
+	managerloop: // Loop if key in invalid option
+	cout << "\n:: What Do You Want To Do ::" << endl 
+		 << "[1] Accept Customer's Booking Request" << endl 
+		 << "[2] Cancel Customer's Booking Request" << endl 
+		 << "[3] Display Customer Booking Request List" << endl 
+		 << "[4] Find Customer Data From Accepted List" << endl
+		 << "[5] Display Accepted List" << endl
+		 << "[6] Quit" << endl ;
+	cout << "OPTION >> " ;
+	cin >> 	option ;
+			
+	if((option < 1) || (option > 6))
+	{
+		cout << "\nInvalid. Please choose again...\n" << endl ; 
+		goto managerloop ;				
+	}	
+			
+	return option ;
+}
+
