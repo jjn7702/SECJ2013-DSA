@@ -46,5 +46,14 @@ class Stack{  // used by hotel manager
 			}
 		}
 
-        
+        void cancelBookingRequest() // pop out
+		{	
+			if(isEmpty())
+				cout << "\nNo booking request in the queue" << endl ;
+			else
+			{
+				cout << "\nYou have cancel " << cust[top].getName() << "'s booking request" << endl ;
+				top-- ;	
+			}				
+		}        
 };
