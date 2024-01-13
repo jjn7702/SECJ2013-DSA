@@ -157,7 +157,7 @@ int main()
 	Queue q ;
 	int custNum = 0 ;
 	
-	cout << "- Hotel Booking System -" << endl << endl ;
+	cout << "- Agent-Based Hotel Booking System -" << endl << endl ;
 	
 	userLoop:
 	int user = User() ;
