@@ -55,5 +55,29 @@ class Stack{  // used by hotel manager
 				cout << "\nYou have cancel " << cust[top].getName() << "'s booking request" << endl ;
 				top-- ;	
 			}				
-		}        
+		}     
+
+        void displayRequestList()  // Display the accepted booking request list
+		{
+			if(isEmpty())
+				cout << "\nThe request list is empty" << endl ; 
+			else
+			{
+				cout << "\nThe Accepted Booking Request List" << endl ;
+				cout << left ;
+				
+				for(int i = top ; i >= 0 ; i--)
+				{
+					cout << "Name: " << setw(10) << cust[i].getName() 
+						 << ", Age: " << setw(3) << cust[i].getAge() 
+						 << ", IC: " << setw(15) << cust[i].getIC()
+		                 << ", Phone Number: " << setw(12) << cust[i].getPhone() 
+		                 << ", Room: " << setw(4) << cust[i].getNum() 
+						 << ", Date: " << cust[i].getDate() << endl;
+				}
+				
+				cout << endl ;
+			}
+
+		}   
 };
