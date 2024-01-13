@@ -103,3 +103,26 @@ int User()  //Choose the character
 	
 	return user ;
 }
+
+int agentMenu()  // Agent Menu
+{
+	int option ;
+			
+	agentloop: // Loop if key in invalid option
+	cout << "\n:: What Can I Help You ::" << endl 
+		 << "[1] Help Customer Make Reservation" << endl  
+		 << "[2] Find Customer Data" << endl 
+		 << "[3] Display Customer Reservation List" << endl 
+		 << "[4] Quit" << endl ;
+	cout << "OPTION >> " ;
+	cin >> 	option ;
+			
+	if((option < 1) || (option > 4))
+	{
+		cout << "\nInvalid. Please choose again...\n" << endl ; 
+		goto agentloop ;				
+	}	
+			
+	return option ;
+}
+
