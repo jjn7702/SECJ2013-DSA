@@ -1,0 +1,47 @@
+{
+    "passengers": [
+        {
+            "passengerID": 1,
+            "name": "John Doe",
+            "companionAdults": [
+                {
+                    "passengerID": 2,
+                    "name": "Jane Doe"
+                },
+                {
+                    "passengerID": 8,
+                    "name": "Bob Johnson"
+                }
+            ],
+            "companionChildren": [
+                {
+                    "passengerID": 3,
+                    "childName": "Adam",
+                    "age": 8
+                },
+                {
+                    "passengerID": 4,
+                    "childName": "Fahmi",
+                    "age": 5
+                }
+            ]
+        },
+        {
+            "passengerID": 5,
+            "name": "Alice Smith",
+            "companionAdults": [
+                {
+                    "passengerID": 6,
+                    "name": "Bob Smith"
+                }
+            ],
+            "companionChildren": [
+                {
+                    "passengerID": 7,
+                    "childName": "Megat",
+                    "age": 10
+                }
+            ]
+        }
+    ]
+}
