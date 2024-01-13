@@ -51,7 +51,7 @@ public:
     }
 
     bool isFull() {
-        return false; // Assuming linked list, so it won't be full
+        return false; 
     }
 
     void enQueue(Node* newNode) {
