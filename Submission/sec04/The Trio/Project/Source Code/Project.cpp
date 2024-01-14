@@ -34,7 +34,6 @@ class Customer{
 		string getDate(){ return checkInDate ; } 
 };
 
-
 class Queue{  // used by agent
 	private:
 		Customer *front, *back ;
@@ -346,6 +345,7 @@ class Stack{  // used by hotel manager
 			}				
 		}
 
+// Find customer data from accepted booking request list
 		void findCustAcceptList()
 		{
 			if(isEmpty())
