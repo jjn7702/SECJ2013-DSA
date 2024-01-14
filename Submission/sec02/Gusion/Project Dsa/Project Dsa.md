@@ -19,7 +19,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 An extensive application software called the Airline Reservation System was created to automate and simplify the process of handling airline reservations. This project, which was created with the C++ programming language, uses important ideas like sorting, searching, queue, and stack to improve productivity and structure.
 
-Component of the features in the Airline Reservation System :
+**Component of the features in the Airline Reservation System** 
 
 1. Reservation Management
 2. Sorting Algorithms
