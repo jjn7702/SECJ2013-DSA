@@ -1,0 +1,2 @@
+
+const int MAX_COMPANION_CHILDREN = 10;

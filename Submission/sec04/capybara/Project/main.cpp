@@ -1,12 +1,124 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
 const int MAX_COMPANION_ADULTS = 10;
 const int MAX_COMPANION_CHILDREN = 10;
 
+//! Code STACK
+class Stack
+{
+public:
+    Stack *next;
+
+    string passangerName;
+    string baggageID;
+    string typeBaggage;
+    string baggageWeight;
+    string baggageCheckIn;
+
+    Stack(string &pName, string &bID, string &typBaggage, string &bWeight, string &bCheckIn)
+    {
+        passangerName = pName;
+        baggageID = bID;
+        typeBaggage = typBaggage;
+        baggageWeight = bWeight;
+        baggageCheckIn = bCheckIn;
+
+        next = NULL;
+    }
+
+    string getPassangerName() const
+    {
+        return passangerName;
+    }
+
+    string getBaggageID() const
+    {
+        return baggageID;
+    }
+
+    string getTypeBaggage() const
+    {
+        return typeBaggage;
+    }
+
+    string getBaggageWeight() const
+    {
+        return baggageWeight;
+    }
+
+    string getBaggageCheckIn() const
+    {
+        return baggageCheckIn;
+    }
+};
+
+class StackList
+{
+private:
+    Stack *top;
+
+public:
+    StackList()
+    {
+        top = NULL;
+    }
+
+    bool isEmpty()
+    {
+        return top == NULL;
+    }
+
+    void pushBaggage(string &passangerName, string &baggageID, string &typeBaggage, string &baggageWeight, string &baggageCheckIn)
+    {
+        Stack *newNode = new Stack(passangerName, baggageID, typeBaggage, baggageWeight, baggageCheckIn);
+
+        if (!isEmpty())
+        {
+            newNode->next = top;
+        }
+        top = newNode;
+    }
+
+    void popBaggage()
+    {
+        if (isEmpty())
+        {
+            cout << "Stack is empty. No baggage to pop." << endl;
+        }
+        else
+        {
+            Stack *temp = top;
+            top = temp->next;
+            temp->next = NULL;
+            delete temp;
+        }
+    }
+
+    void displayStack()
+    {
+        Stack *temp = top;
+        while (temp)
+        {
+            cout << "Name: " << temp->getPassangerName() << endl;
+            cout << "Baggage ID: " << temp->getBaggageID() << endl;
+            cout << "Type of Baggage: " << temp->getTypeBaggage() << endl;
+            cout << "Baggaga Weight: " << temp->getBaggageWeight() << endl;
+            cout << "Baggage Checked In: " << temp->getBaggageCheckIn() << endl;
+            cout << endl;
+
+            temp = temp->next;
+        }
+        cout << endl;
+    }
+};
+
+//! Code QUEUE
 class Node
 {
 public:
@@ -172,6 +284,41 @@ int main()
 
     // Data Initialization
     Reservation.displayQueueReservation();
+
+    //? Kena buang line atas untuk tgk Stack
+    //* Stack akan ada function display, add and delete yg proper after this
+
+    //! Output Stack
+    StackList BS;
+
+    ifstream inputFile("data/baggage.csv");
+    if (inputFile.is_open())
+    {
+        string line;
+
+        while (getline(inputFile, line))
+        {
+            istringstream iss(line);
+            string passangerName, baggageID, typeBaggage, baggageWeight, baggageCheckIn;
+
+            if (getline(iss, passangerName, ',') && getline(iss, baggageID, ',') && getline(iss, typeBaggage, ',') && getline(iss, baggageWeight, ',') && getline(iss, baggageCheckIn, ','))
+            {
+                BS.pushBaggage(passangerName, baggageID, typeBaggage, baggageWeight, baggageCheckIn);
+            }
+            else
+            {
+                cout << "Error: " << line << endl;
+            }
+        }
+        inputFile.close();
+    }
+    else
+    {
+        cout << "Error while opening file: " << endl;
+        return 1;
+    }
+
+    BS.displayStack();
 
     return 0;
 }
