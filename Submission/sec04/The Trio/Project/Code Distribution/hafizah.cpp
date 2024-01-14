@@ -56,3 +56,30 @@ class Queue{  // used by agent
 				//delete delcust ;
 			}
 		}
+
+		void displayReservationList()  // Display the reservation list
+		{
+			Customer *temp = front ;
+			Customer *prev ;
+			
+			if(isEmpty())	
+				cout << "\nThe reservation list is empty" << endl ;
+			else
+			{
+				cout << "\nThe Reservation List" << endl ;
+				while(temp != NULL) 
+				{   
+					prev = temp ;
+					cout << left ;
+			        cout << "Name: " << setw(10) << prev->getName() 
+						 << ", Age: " << setw(3) << prev->getAge() 
+						 << ", IC: " << setw(15) << prev->getIC()
+			             << ", Phone Number: " << setw(12) << prev->getPhone() 
+			             << ", Room: " << setw(4) << prev->getNum() 
+						 << ", Date: " << prev->getDate() << endl;
+			        temp = temp->next;  // Move to next customer	
+		        }
+	    	}
+			cout << endl ;
+		}
+};
