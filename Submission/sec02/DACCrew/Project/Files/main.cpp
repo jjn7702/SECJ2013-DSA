@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#define N 5
 using namespace std;
 
 class TransactionHistory()
@@ -17,6 +18,8 @@ public:
     double getAmount() const { return amount; }
     string getSender() const { return sender; }
     string getReceiver() const { return receiver; }
+
+
 };
 
 class BankAccount
@@ -35,9 +38,23 @@ public:
     string getPassword() const { return password; } 
     double getBalance() const { return balance; } 
 
+    void setUsername(stirng name) { username = name; }
+    void setPassword(string oldP, string newP)
+    {
+        if(password == oldP)
+        {
+            password = newP;
+            cout << "Password is successfully updated!" << endl;
+        }
+        else 
+            cout << "Old password is incorrect! Password is not updated."
+    }
+    
+    void setBalance(double newBalance) { balance = newBalance; }
+
     void deposit(double amount) { balance += amount; }
 
-    bool withdraw(double amount, const std::string& enteredPassword) {
+    bool withdraw(double amount, string& enteredPassword) {
         // Verify password before withdrawal
         if (enteredPassword == password && amount <= balance) {
             balance -= amount;
@@ -46,7 +63,7 @@ public:
         return false; // Withdrawal failed
     }
 
-    void transfer(double amount, BankAccount& receiver, const std::string& enteredPassword) {
+    void transfer(double amount, BankAccount& receiver, string& enteredPassword) {
         // Verify password before transfer
         if (enteredPassword == password && amount <= balance) {
             balance -= amount;
@@ -55,8 +72,33 @@ public:
     }
 };
 
+
+class BankingSystem {
+private:
+    BankAccount accounts[5];
+
+public:
+    // Load bank accounts from file
+    void loadAccounts(const string& filename) {
+        ifstream file(filename);
+        string username, password;
+        double balance;
+        for(int i = 0; i < N; i++)
+        {
+            file >> username >> password >> balance;
+            accounts.emplace_back(username, password, balance);
+        }
+        /**while (file >> username >> password >> balance) {
+            accounts.emplace_back(username, password, balance);
+        }*/
+        file.close();
+    }
+
+};
+
 int main()
 {
+    fstream
     int choice;
 
     cout << "<<<<<<<<WELCOME TO DACCrew ONLINE BANKING SYSTEM>>>>>>>" << endl;
