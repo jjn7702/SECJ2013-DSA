@@ -23,6 +23,22 @@ class Queue{  // used by agent
 				return front ; 
 		}
 
+		void makeReservation(Customer *newCustomer) // enQueue
+		{
+			if(isEmpty())
+			{
+				front = newCustomer ;
+				back = newCustomer ;
+			}
+			else
+			{
+				back->next = newCustomer ;	
+				back = newCustomer ;
+			}
+				
+			cout << "\nThe agent has helped "  << newCustomer->getName() << " made the reservation" << endl ;
+		}
+
 class Stack{  // used by hotel manager
 	private:
 		Customer cust[100] ;
