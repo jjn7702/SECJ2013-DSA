@@ -17,6 +17,10 @@ _Don't forget to hit the :star: if you like this repo._
   <img src="https://i.ibb.co/Krb7W8J/aeroplane.gif" alt="aeroplane" width="400" height="300" />
 </p>
 
+An extensive application software called the Airline Reservation System was created to automate and simplify the process of handling airline reservations. This project, which was created with the C++ programming language, uses important ideas like sorting, searching, queue, and stack to improve productivity and structure.
+
+
+
 
 
 ## Flow of Event 💹
