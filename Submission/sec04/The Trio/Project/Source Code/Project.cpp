@@ -603,6 +603,43 @@ int main()
 	Stack s ;
 	Queue q ;
 	int custNum = 0 ;
+
+	string name, IC, phoneNum, date ;
+	int age, room ; 
+	
+	// file as database
+	ifstream input("Project.txt") ;
+
+    if(!input) 
+	{
+        cout << "Cannot open the file\n" ;
+        return 1;
+    }
+    
+	// Get input
+    while(getline(input, name, '/'))
+	{
+		input >> age ;
+		input.ignore() ;
+		getline(input, IC, '/') ;
+		getline(input, phoneNum, '/') ;
+		input >> room ;
+		input.ignore() ;
+		input >> date ;
+		input.ignore() ;
+		
+	
+		customer[custNum].setName(name) ;
+		customer[custNum].setAge(age) ;
+		customer[custNum].setIC(IC) ;
+		customer[custNum].setPhone(phoneNum) ;
+		customer[custNum].setNum(room) ;
+		customer[custNum].setDate(date) ;
+				        
+		custNum++ ; 
+	}
+	
+	input.close() ; // close the input file
 	
 	cout << "- Agent-Based Hotel Booking System -" << endl << endl ;
 	
