@@ -1,5 +1,9 @@
 #include <iostream>
+#include <iomanip>  // to use put_time
+#include <fstream>
 #include <string>
+#include <ctime>
+#include <chrono>
 
 using namespace std;
 
@@ -9,9 +13,10 @@ public:
     string name;
     string contactInfo;
     string reason;
+    time_t appointmentTime;
     Node* next;
 
-    Node(int number, string n, string contact, string r) : waitingNumber(number), name(n), contactInfo(contact), reason(r), next(nullptr) {}
+    Node(int number, string n, string contact, string r, time_t time) : waitingNumber(number), name(n), contactInfo(contact), reason(r), appointmentTime(time), next(nullptr) {}
 };
 
 class Doctor {
@@ -171,6 +176,9 @@ public:
     void requestAppointment() {
         string name, contact, reason;
 
+        // Get the current system time
+        time_t currentTime = chrono::system_clock::to_time_t(chrono::system_clock::now());
+
         cout << "Enter your name: ";
         getline(cin, name);
 
@@ -180,7 +188,7 @@ public:
         cout << "Enter reason for the appointment: ";
         getline(cin, reason);
 
-        Node* patientNode = new Node(0, name, contact, reason);  // 0 is a placeholder for waiting number
+        Node* patientNode = new Node(0, name, contact, reason, currentTime);  // 0 is a placeholder for waiting number
         appointmentQueue.enQueue(patientNode);
 
         cout << "Appointment request submitted successfully. Your waiting number is: " << patientNode->waitingNumber << endl;
@@ -218,7 +226,8 @@ public:
 
 
     void addDoctor(Doctor doctor) {
-        Node* doctorNode = new Node(0, doctor.name, "", "");  // 0 is a placeholder for waiting number
+        time_t currentTime = chrono::system_clock::to_time_t(chrono::system_clock::now());
+        Node* doctorNode = new Node(0, doctor.name, "", "",currentTime);  // 0 is a placeholder for waiting number
         availableDoctors.enQueue(doctorNode);
         cout << "Doctor " << doctor.name << " is now available.\n";
     }
@@ -230,12 +239,26 @@ public:
             cout << "Empty\n";
             return;
         }
-
+        ofstream exportHistory("\\HistoryMedication.txt");
+        if(!exportHistory){
+            cout << "Failed to export data! please check the path\n\n";
+            Node* current = prescriptionHistoryStack.getTop();
+            while (current != NULL) {
+                cout << "Patient Name: " << current->name << "\t Contact: " << current->contactInfo << "\t Reason: " << current->reason << endl;
+                current = current->next;
+            }
+            return;
+        }
         Node* current = prescriptionHistoryStack.getTop();
+        exportHistory << "\t\t\t<< Hospital Mediacation Prescription History >>" << endl << "-------------------------------------------------------------------------------------------" << endl;
         while (current != NULL) {
             cout << "Patient Name: " << current->name << "\t Contact: " << current->contactInfo << "\t Reason: " << current->reason << endl;
+            exportHistory << "Patient Name: " << current->name << "\t Contact: " << current->contactInfo << "\t Reason: " << current->reason << "\t Time: " 
+                          << put_time(localtime(&current->appointmentTime), "%Y-%m-%d %H:%M:%S") << endl;
             current = current->next;
         }
+
+        exportHistory.close();
     }
 
 
