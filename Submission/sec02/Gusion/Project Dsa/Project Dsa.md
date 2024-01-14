@@ -74,9 +74,9 @@ function main():
                 read new customer details
                 create a new Cust object
                 switch on addChoice:
-                    case 1: add to the beginning
-                    case 2: read position, add to the middle
-                    case 3: add to the end
+                    case 1: 
+                    case 2: 
+                    case 3: 
             case 2:
                 get deleteChoice from user (1, 2, or 3)
                 switch on :
@@ -86,11 +86,11 @@ function main():
             case 3:
                 get searchKey from user (1 to 5)
                 switch on searchKey:
-                    case 1: search by name
-                    case 2: search by destination
-                    case 3: search by airline
-                    case 4: search by date
-                    case 5: exit search
+                    case 1: 
+                    case 2: 
+                    case 3: 
+                    case 4: 
+                    case 5: 
             case 4:
                 call bubbleSort on custList
             case 5:
