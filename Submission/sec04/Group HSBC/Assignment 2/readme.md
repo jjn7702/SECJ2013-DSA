@@ -10,13 +10,17 @@ _Don't forget to hit the :star: if you like this repo._
 # Banking System
 
 ## Table Of Contents
-- [Description](#-description)
-- [Objective](#-objective)
-- [Synopsis](#-synopsis)
-- [Class Diagram](#-class-diagram)
-- [Pseudocode](#-pseudocode)
+- [Description](#description)
+- [Objective](#objective)
+- [Synopsis](#synopsis)
 - [Design](#design)
-- [Findings](#-Findings)
+  - [Class Diagram](#class-diagram)
+  - [Pseudocode](#pseudocode)
+  - [Design Description](#design-description)
+- [Prepared by](#prepared-by)
+- [Findings](#findings)
+- [Contribution](#contribution)
+
 
 
 ## Description 📝
