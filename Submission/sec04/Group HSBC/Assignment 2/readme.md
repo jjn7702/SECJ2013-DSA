@@ -19,10 +19,10 @@ _Don't forget to hit the :star: if you like this repo._
 - [Findings](#-Findings)
 
 
-## Description 📝
+### Description 📝
 The main goal of HSBC's Banking System is to enhance the user experience and smoothen the flow of control of the system. In assignment 2, we implement the linked list which use pointer concept to replace the array to enhance our system's performance and the storage is unlimited.
 
-## <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/bc7e2df3-d20d-457c-b9fb-e0574b6a740e" width="3%" height="3%"> Objective
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/bc7e2df3-d20d-457c-b9fb-e0574b6a740e" width="3%" height="3%"> Objective
 The objectives of creating this banking system:
 1) To manage the banking transaction
 2) To implement banking system using linked list
