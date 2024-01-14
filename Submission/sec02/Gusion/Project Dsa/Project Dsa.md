@@ -34,7 +34,7 @@ An extensive application software called the Airline Reservation System was crea
 
 
 
-## Design 
+## Design 🎨
 **PSEUDOCODE**
 Here's a pseudocode for the main part of our program:
 
