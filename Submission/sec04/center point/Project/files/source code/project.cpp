@@ -66,6 +66,20 @@ int mainMenu()
     return menuChoice;
 }
 
+// Find menu
+int menuFinding()
+{
+    int fchoice;
+    cout << "Do you want to find the inventory details based on\n"
+         << "[1] Inventory Code" << endl
+         << "[2] Inventory Name" << endl
+         << "[3] Exit" << endl
+         << "Option: ";
+    cin >> fchoice;
+    system("CLS");
+    return fchoice;
+}
+
 // update menu
 int updateMenu()
 {
@@ -189,13 +203,169 @@ public:
     }
 
     // Sort the Inventory
+    void sort()
+    {
+        // case 1: The queue is empty
+        if (isEmpty())
+            cout << "The queue is empty\n";
+        else
+        {
+            Inventory *first = back->next;                      // to point to the first node of original node as the back address is renewed afterward
+            Inventory *curr = back->next;                       // point to current node of original queue, at first, point to the first node
+            Inventory *sBack = new Inventory("", "", "", 0, 0); // to store the sortedQueue back pointer
+            sBack->next = sBack;                                // to make it circular
+
+            do
+            {
+                Inventory *Next = curr->next;
+                // add at the front
+                if (curr->getCode() < sBack->next->getCode())
+                {
+                    curr->next = sBack->next;
+                    sBack->next = curr;
+                }
+                else // add at middle or end
+                {
+                    Inventory *temp = sBack->next->next; // point to the current node of sorted queue
+                    Inventory *prev = sBack->next;
+
+                    // to find the position where to put the current node of oriQ to sortedQ
+                    while (temp != sBack->next && curr->getCode() > temp->getCode())
+                    {
+                        prev = temp;
+                        temp = temp->next;
+                    }
+
+                    // add at end of sortedQ
+                    if (temp == sBack->next)
+                    {
+                        curr->next = sBack->next;
+                        sBack->next = curr;
+                        sBack = curr;
+                    }
+                    // add at middle of sortedQ
+                    else
+                    {
+                        prev->next = curr;
+                        curr->next = temp;
+                    }
+                }
+                curr = Next;
+            } while (curr != first);
+            // delete first node - the zero data
+            sBack->next = sBack->next->next;
+            // to link sortedQueue back to original queue
+            back = sBack;
+        }
+        cout << "Inventory List is sorted by Inventory Code in Ascending\n";
+        displayList();
+    }
 
     // Find an inventory
+    void find()
+    {
+        Inventory *temp = back->next;
+        bool found = 0;
+        int fChoice = menuFinding();
+        string sKey;
+
+        cout << "--Find the Inventory--\n\n"
+             << "Please enter the value of ";
+
+        if (fChoice == 1)
+        {
+            cout << "Inventory Code: ";
+            cin >> sKey;
+            sKey = changeToUpper(sKey);
+            do
+            {
+                if (temp->getCode() == sKey)
+                {
+                    found = true;
+                    printDetail(temp);
+                }
+                temp = temp->next;
+            } while (temp != back->next && found == false);
+        }
+        else if (fChoice == 2)
+        {
+            cout << "Inventory Name: ";
+            cin.ignore();
+            getline(cin, sKey);
+            sKey = changeToUpper(sKey);
+            do
+            {
+                if (temp->getName() == sKey)
+                {
+                    found = true;
+                    printDetail(temp);
+                }
+                temp = temp->next;
+            } while (temp != back->next && found == false);
+        }
+        else
+        {
+            return;
+        }
+
+        if (found == false)
+        {
+            cout << "\nThe entered value is invalid!\n\n";
+        }
+    }
 
     // Display Inventory List based on category
+    void dispCat()
+    {
+        string cat;
+        cout << "Pls enter the category you wish to find: ";
+        cin >> cat;
+        cat = changeToUpper(cat);
+
+        cout << "\n\t\t:::::::INVENTORY LIST IN CATEGORY " << cat << ":::::::\n"
+             << endl;
+        for (int i = 0; i < 84; i++)
+        {
+            cout << "-";
+        }
+        cout << endl;
+        cout << left << setw(20) << "Inventory Code"
+             << setw(20) << "Inventory Name"
+             << setw(20) << "Inventory Type"
+             << setw(15) << "Quantity"
+             << setw(10) << "Price" << endl;
+
+        for (int i = 0; i < 84; i++)
+        {
+            cout << "-";
+        }
+        cout << endl;
+
+        bool found = false;
+        Inventory *temp = back->next;
+        do
+        {
+            if (temp->getType() == cat)
+            {
+                cout << left << setw(20) << temp->getCode()
+                     << setw(20) << temp->getName()
+                     << setw(20) << temp->getType()
+                     << setw(15) << temp->getQuantity()
+                     << setw(10) << fixed << setprecision(2) << temp->getPrice() << endl
+                     << endl;
+            }
+            temp = temp->next;
+        } while (temp != back->next);
+
+        if (!found)
+        {
+            cout << "There is no such category in inventory list. Pls try again\n\n";
+        }
+    }
 
     // Display Full Inventory List
-    void displayList()
+    void
+    displayList()
     {
         cout << "\t\t\t:::::::Inventory List:::::::\n"
              << endl;
@@ -390,16 +560,16 @@ public:
         Inventory *temp = back->next;
         do
         {
-            out << left << setw(20) << temp->getCode()
-                << setw(20) << temp->getName()
-                << setw(20) << temp->getType()
-                << setw(15) << temp->getQuantity()
-                << setw(10) << fixed << setprecision(2) << temp->getPrice();
+            out << temp->getCode() << ","
+                << temp->getName() << ","
+                << temp->getType() << ","
+                << temp->getQuantity() << ","
+                << fixed << setprecision(2) << temp->getPrice();
 
-            if (temp->next != NULL)
+            if (temp->next != back->next)
                 out << endl;
             temp = temp->next;
-        }while(temp != back->next);
+        } while (temp != back->next);
     }
 
     // check duplicate code
@@ -407,7 +577,7 @@ public:
     {
         if (isEmpty())
         {
-            return false; 
+            return false;
         }
 
         Inventory *temp = back->next;
@@ -423,11 +593,12 @@ public:
         return false;
     }
 
-    bool checkDuplicateName(string name){
+    bool checkDuplicateName(string name)
+    {
 
         if (isEmpty())
         {
-            return false; 
+            return false;
         }
 
         Inventory *temp = back->next;
@@ -441,7 +612,6 @@ public:
         } while (temp != back->next);
 
         return false;
-
     }
 };
 
@@ -478,7 +648,8 @@ void getInfo(Queue &InvList, string &code, string &name, string &type, int &quan
     }
     code = changeToUpper(code);
 
-    while (true) {
+    while (true)
+    {
         cout << "Enter Inventory Name: ";
         cin.ignore();
         getline(cin, name);
@@ -487,9 +658,12 @@ void getInfo(Queue &InvList, string &code, string &name, string &type, int &quan
         // Check duplicate name
         bool checkDuplicateName = InvList.checkDuplicateName(name);
 
-        if (!checkDuplicateName) {
+        if (!checkDuplicateName)
+        {
             break; // Break the loop if no duplicate name is found
-        } else {
+        }
+        else
+        {
             cout << "Invalid name! The name already exists. Re-enter." << endl;
         }
     }
@@ -573,12 +747,15 @@ int main()
             break;
         }
 
-        // case 3:
-        // break;
-        // case 4:
-        // break;
-        // case 5:
-        // break;
+        case 3:
+            InvList.sort();
+            break;
+        case 4:
+            InvList.find();
+            break;
+        case 5:
+            InvList.dispCat();
+            break;
         case 6:
             InvList.displayList();
             break;
@@ -599,7 +776,7 @@ int main()
     }
 
     out.open("input.txt");
-    // InvList.storeData(out);
+    InvList.storeData(out);
     //  close both files
     out.close();
     system("pause");
