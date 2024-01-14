@@ -46,7 +46,7 @@ In this assignment, we choose the topic Banking System as our group assignment. 
 
 ![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Image/DSA%20Assignment%202%20Report%20-%20Google%20Docs_page-0003.jpg)
 
-### Design Description
+### ### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/clipboard.png" width="4%" height="4%"> Design Description
 ##### 1. Adding a new node
 For adding a new node, we create 3 member functions inside the class which are  insertBeginning function, insertEnd function and insertMiddle function. The insertBeginning function assigns a node pointer named ‘newNode’ which is assigned as the new node which is input by the user and checks whether the list is empty or not. If it is empty, it will set the head to the ‘newNode’. If it is not empty, it will set the next of the ‘newNode’ to head and the head will be set to the ‘newNode’. 
 
@@ -162,7 +162,8 @@ For displaying the node, we create a member function, void displayNode() in clas
 |  Chan Qing Yee     |   A22EC0040      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Assignment%202/Picture/profilepic900kb.jpg" title="Icon by Trazobanana"><img src="Picture/profilepic900kb.jpg" width=80px, height=80px>         |
 |  Ooi Wei Sian     |   A22EC0102      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Assignment%202/Picture/weisian.jpg" title="Icon by Trazobanana"><img src="Picture/weisian.jpg" width=80px, height=80px>         |
 
-### Findings 📊
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/folder.png" width="3%" height="3%"> Findings 
+
 
 - [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/Group%20HSBC/Assignment1)
 - [Assignment 2](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/Group%20HSBC/Assignment%202)
