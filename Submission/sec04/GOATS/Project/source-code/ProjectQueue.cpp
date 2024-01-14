@@ -21,6 +21,55 @@ public:
     Doctor(string n) : name(n) {}
 };
 
+class Stack {
+    private:
+        Node* top;
+
+    public:
+        Stack() : top(NULL) {}
+
+        ~Stack() {
+            destroyStack();
+        }
+
+       void push(Node* newNode) {
+            if (isEmpty()) {
+                top = newNode;
+            } else {
+                newNode->next = top;
+                top = newNode;
+            }
+        }
+
+        Node* pop() {
+            if (isEmpty()) {
+                cout << "Stack is empty. Cannot pop.\n";
+                return NULL;
+            }
+
+            Node* temp = top;
+            top = top->next;
+            temp->next = NULL;
+            return temp;
+        }
+
+        bool isEmpty() {
+            return top == NULL;
+        }
+
+        void destroyStack() {
+            while (!isEmpty()) {
+                Node* temp = pop();
+                delete temp; // Add this line to free the memory
+            }
+            top = NULL;
+        }    
+
+        Node* getTop() {
+            return top;
+        }
+};
+
 class Queue {
 private:
     Node* front;
@@ -77,7 +126,7 @@ public:
             rear = nullptr;
             counter = 0;  // Reset counter when the queue is empty
         }
-
+        temp->next = nullptr;
         return temp;
     }
 
@@ -92,6 +141,7 @@ private:
     Queue checkInQueue;
     Queue prescriptionQueue;
     Queue availableDoctors;
+    Stack prescriptionHistoryStack;
 
 public:
     void displayLists() {
@@ -149,20 +199,22 @@ public:
     }
 
     void prescribeMedication() {
-    if (checkInQueue.isEmpty()) {
-        cout << "No patients in the waiting list. Cannot prescribe medication.\n";
-        return;
+        if (checkInQueue.isEmpty()) {
+            cout << "No patients in the waiting list. Cannot prescribe medication.\n";
+            return;
+        }
+        Node* patientNode = checkInQueue.deQueue();
+        prescriptionQueue.enQueue(patientNode);
+
+        cout << "Prescription requested for patient " << patientNode->name << ".\n";
+
+        // After prescribing medication, dequeue the patient from the prescription queue
+        Node* prescribedPatient = prescriptionQueue.deQueue();
+        cout << "Medication prescribed for patient " << prescribedPatient->name << ".\n";
+
+        // Record the patient in the prescription history stack
+        prescriptionHistoryStack.push(prescribedPatient);
     }
-
-    Node* patientNode = checkInQueue.deQueue();
-    prescriptionQueue.enQueue(patientNode);
-
-    cout << "Prescription requested for patient " << patientNode->name << ".\n";
-
-    // After prescribing medication, dequeue the patient from the prescription queue
-    Node* prescribedPatient = prescriptionQueue.deQueue();
-    cout << "Medication prescribed for patient " << prescribedPatient->name << ".\n";
-}
 
 
     void addDoctor(Doctor doctor) {
@@ -170,6 +222,22 @@ public:
         availableDoctors.enQueue(doctorNode);
         cout << "Doctor " << doctor.name << " is now available.\n";
     }
+
+    void displayPrescriptionHistory() {
+        cout << "\nPrescription History:\n";
+
+        if (prescriptionHistoryStack.isEmpty()) {
+            cout << "Empty\n";
+            return;
+        }
+
+        Node* current = prescriptionHistoryStack.getTop();
+        while (current != NULL) {
+            cout << "Patient Name: " << current->name << "\t Contact: " << current->contactInfo << "\t Reason: " << current->reason << endl;
+            current = current->next;
+        }
+    }
+
 
 };
 
@@ -190,7 +258,8 @@ int main() {
         cout << "2. Check-in\n";
         cout << "3. Prescribe Medication\n";
         cout << "4. Display Lists\n";
-        cout << "5. Exit\n";
+        cout << "5. Display Prescription History\n";
+        cout << "6. Exit\n";
         cout << "Enter your choice: ";
         cin >> option;
         cin.ignore();  // Consume the newline character left in the buffer
@@ -209,14 +278,18 @@ int main() {
                 hospital.displayLists();
                 break;
             case 5:
+                hospital.displayPrescriptionHistory();
+                break;
+            case 6:
                 cout << "Exiting program.\n";
                 break;
             default:
                 cout << "Invalid option. Please try again.\n";
         }
 
-
-    } while (option != 5);
+        system("pause");
+        system("cls");
+    } while (option != 6);
 
     return 0;
 }
