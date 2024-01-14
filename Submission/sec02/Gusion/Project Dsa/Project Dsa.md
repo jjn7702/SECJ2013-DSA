@@ -13,6 +13,10 @@ _Don't forget to hit the :star: if you like this repo._
 
 
 ## Description 📝
+<p align="center">
+  <img src="https://i.ibb.co/Krb7W8J/aeroplane.gif" alt="aeroplane" width="400" height="300" />
+</p>
+
 
 
 ## Flow of Event 💹
