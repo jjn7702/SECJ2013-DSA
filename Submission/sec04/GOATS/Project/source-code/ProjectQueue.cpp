@@ -51,7 +51,7 @@ public:
     }
 
     bool isFull() {
-        return false; 
+        return false; // Assuming linked list, so it won't be full
     }
 
     void enQueue(Node* newNode) {
@@ -149,16 +149,21 @@ public:
     }
 
     void prescribeMedication() {
-        if (checkInQueue.isEmpty()) {
-            cout << "No patients in the waiting list. Cannot prescribe medication.\n";
-            return;
-        }
-
-        Node* patientNode = checkInQueue.deQueue();
-        prescriptionQueue.enQueue(patientNode);
-
-        cout << "Prescription requested for patient " << patientNode->name << ".\n";
+    if (checkInQueue.isEmpty()) {
+        cout << "No patients in the waiting list. Cannot prescribe medication.\n";
+        return;
     }
+
+    Node* patientNode = checkInQueue.deQueue();
+    prescriptionQueue.enQueue(patientNode);
+
+    cout << "Prescription requested for patient " << patientNode->name << ".\n";
+
+    // After prescribing medication, dequeue the patient from the prescription queue
+    Node* prescribedPatient = prescriptionQueue.deQueue();
+    cout << "Medication prescribed for patient " << prescribedPatient->name << ".\n";
+}
+
 
     void addDoctor(Doctor doctor) {
         Node* doctorNode = new Node(0, doctor.name, "", "");  // 0 is a placeholder for waiting number
