@@ -353,6 +353,7 @@ public:
                      << setw(15) << temp->getQuantity()
                      << setw(10) << fixed << setprecision(2) << temp->getPrice() << endl
                      << endl;
+                found = true;
             }
             temp = temp->next;
         } while (temp != back->next);
