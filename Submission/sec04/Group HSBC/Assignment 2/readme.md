@@ -46,7 +46,7 @@ In this assignment, we choose the topic Banking System as our group assignment. 
 
 ![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Image/DSA%20Assignment%202%20Report%20-%20Google%20Docs_page-0003.jpg)
 
-### ### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/clipboard.png" width="4%" height="4%"> Design Description
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/clipboard.png" width="4%" height="4%"> Design Description
 ##### 1. Adding a new node
 For adding a new node, we create 3 member functions inside the class which are  insertBeginning function, insertEnd function and insertMiddle function. The insertBeginning function assigns a node pointer named ‘newNode’ which is assigned as the new node which is input by the user and checks whether the list is empty or not. If it is empty, it will set the head to the ‘newNode’. If it is not empty, it will set the next of the ‘newNode’ to head and the head will be set to the ‘newNode’. 
 
