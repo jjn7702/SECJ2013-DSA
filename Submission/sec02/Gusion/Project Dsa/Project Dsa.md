@@ -92,9 +92,9 @@ function main():
                     case 4: 
                     case 5: 
             case 4:
-                call bubbleSort on custList
+                
             case 5:
-                display all customers in custList
+                
             case 6:
                 print "Exiting the program. Goodbye!"
             default:
