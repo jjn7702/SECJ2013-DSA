@@ -16,3 +16,19 @@ class Queue{  // used by agent
 			else
 				return front ; 
 		}
+
+		void makeReservation(Customer *newCustomer) // enQueue
+		{
+			if(isEmpty())
+			{
+				front = newCustomer ;
+				back = newCustomer ;
+			}
+			else
+			{
+				back->next = newCustomer ;	
+				back = newCustomer ;
+			}
+				
+			cout << "\nThe agent has helped "  << newCustomer->getName() << " made the reservation" << endl ;
+		}
