@@ -13,11 +13,95 @@ _Don't forget to hit the :star: if you like this repo._
 
 
 ## Description 📝
+<p align="center">
+  <img src="https://i.ibb.co/Krb7W8J/aeroplane.gif" alt="aeroplane" width="400" height="300" />
+</p>
+
+An extensive application software called the Airline Reservation System was created to automate and simplify the process of handling airline reservations. This project, which was created with the C++ programming language, uses important ideas like sorting, searching, and queue to improve productivity and structure.
+
+**Component of the features in the Airline Reservation System** 
+
+1. Reservation Management
+2. Sorting Algorithms
+3. Searching functionality
+4. Queue for Check-in and Boarding
+
+
+
 
 
 ## Flow of Event 💹
 
 
+
+## Design 🎨
+**PSEUDOCODE**
+Here's a pseudocode for the main part of our program:
+
+```plaintext
+`class Cust:`
+    properties: 
+
+`class Node:`
+    properties: 
+
+`class LinkedList:`
+    properties: 
+    Methods: 
+
+
+function main():
+    initialize custList as an empty LinkedList
+    open fileIn for reading "booking.txt"
+
+    if fileIn not found:
+        print "File input/output error!"
+        return 1
+    else:
+        while there are lines in fileIn:
+            read a line from fileIn
+            parse the line using stringstream to extract customer information
+            create a new Cust object with extracted information
+            add the Cust object to custList using addNode
+
+    initialize position, choice
+    display main menu
+    repeat until choice is 6:
+        read user choice
+        switch on user choice:
+            case 1:
+                get addChoice from user (1, 2, or 3)
+                read new customer details
+                create a new Cust object
+                switch on addChoice:
+                    case 1: 
+                    case 2: 
+                    case 3: 
+            case 2:
+                get deleteChoice from user (1, 2, or 3)
+                switch on :
+                    case 1: 
+                    case 2: 
+                    case 3: 
+            case 3:
+                get searchKey from user (1 to 5)
+                switch on searchKey:
+                    case 1: 
+                    case 2: 
+                    case 3: 
+                    case 4: 
+                    case 5: 
+            case 4:
+                (SORTING)
+            case 5:
+                (DISPLAY)
+            case 6:
+                print "Exiting the program. Goodbye!"
+            default:
+                print "Invalid choice. Please enter a valid option."
+```
+
+This pseudocode outlines the structure of our program, including class definitions and the main logic for handling user input and interacting with the linked list of customers. We use this as a guide to implement the actual C++ code.
 
 
 ## Prepared by 🧑‍💻

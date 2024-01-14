@@ -1,0 +1,3 @@
+Alice Password123 1500.50
+Bob SecretPass 800.25
+Eve StrongPwd 2000.75
