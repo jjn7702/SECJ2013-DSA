@@ -13,10 +13,10 @@ _Don't forget to hit the :star: if you like this repo._
 - [Description](#-description)
 - [Objective](#-objective)
 - [Synopsis](#-synopsis)
-- [Class Diagram](#-class-diagram)
-- [Pseudocode](#-pseudocode)
-- [Design Description](#-design-description)
-- [Findings](#-Findings)
+- [Class Diagram](#class-diagram-)
+- [Pseudocode](#pseudocode-)
+- [Design Description](#design-description-)
+- [Findings](#Findings-)
 
 ## Description 📝
 The main goal of HSBC's Banking System is to enhance the user experience and smoothen the flow of control of the system. In assignment 2, we implement the linked list which use pointer concept to replace the array to enhance our system's performance and the storage is unlimited.
