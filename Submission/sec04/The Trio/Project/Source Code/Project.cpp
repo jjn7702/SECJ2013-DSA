@@ -141,7 +141,30 @@ class Stack{  // used by hotel manager
 				cout << "\nYou have cancel " << cust[top].getName() << "'s booking request" << endl ;
 				top-- ;	
 			}				
-		}     
+		}
+
+		void findCustAcceptList()
+		{
+			if(isEmpty())
+			{
+				cout << "\nThe booking request list is empty. Unable to search ..." << endl ;
+				return ;
+			}
+			
+			int option, i ;
+			
+			findloop: // Loop if key in invalid option
+			cout << "\n:: Find Customer Data Based On Option Chosen ::\n"
+				 << "[1] Name\n"
+				 << "[2] Age\n"
+				 << "[3] IC Number\n"
+				 << "[4] Phone Number\n"
+				 << "[5] Room Number\n"
+				 << "[6] Check In Date\n"
+				 << "Please Choose The Option: " ;
+			cin >> option ;
+			
+			bool found = false ;     
 
         void displayRequestList()  // Display the accepted booking request list
 		{
