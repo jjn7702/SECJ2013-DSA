@@ -92,9 +92,9 @@ function main():
                     case 4: 
                     case 5: 
             case 4:
-                
+                (SORTING)
             case 5:
-                
+                (DISPLAY)
             case 6:
                 print "Exiting the program. Goodbye!"
             default:
