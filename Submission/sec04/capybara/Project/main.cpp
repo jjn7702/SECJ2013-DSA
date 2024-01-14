@@ -1,10 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "json/single_include/nlohmann/json.hpp"
 
 using namespace std;
-using json = nlohmann::json;
 
 const int MAX_COMPANION_ADULTS = 10;
 const int MAX_COMPANION_CHILDREN = 10;
@@ -164,60 +162,8 @@ public:
             }
             cout << endl;
         }
-    };
-};
-
-void getData(QueueReservation &Reservation)
-{
-    ifstream userFile("data/user.json");
-
-    if (!userFile.is_open())
-    {
-        cout << "\nThere is a problem to obtain the file.\n";
     }
-
-    json jsonArray;
-
-    userFile >> jsonArray;
-
-    for (const auto &passenger : jsonArray["passengers"])
-    {
-        int passengerID = passenger["passengerID"];
-        string passengerName = passenger["name"];
-
-        Node *newPassenger = new Node(passengerID, passengerName);
-
-        // Companion Adults
-
-        int indexAdult = 0;
-        for (const auto &adult : passenger["companionAdults"])
-        {
-            int adultID = adult["passengerID"];
-            string adultName = adult["name"];
-            newPassenger->companionAdultIDs[indexAdult] = adultID;
-            newPassenger->companionAdultNames[indexAdult] = adultName;
-            ++indexAdult;
-        }
-        newPassenger->numCompanionAdults = indexAdult;
-
-        // Companion Children
-        int indexChild = 0;
-        for (const auto &child : passenger["companionChildren"])
-        {
-            int childID = child["passengerID"];
-            string childName = child["childName"];
-            int childAge = child["age"];
-            newPassenger->companionChildIDs[indexChild] = childID;
-            newPassenger->companionChildNames[indexChild] = childName;
-            newPassenger->companionChildAges[indexChild] = childAge;
-            ++indexChild;
-        }
-
-        newPassenger->numCompanionChildren = indexChild;
-
-        Reservation.enQueueReservation(newPassenger);
-    };
-}
+};
 
 int main()
 {
@@ -225,7 +171,6 @@ int main()
     QueueReservation Reservation;
 
     // Data Initialization
-    getData(Reservation);
     Reservation.displayQueueReservation();
 
     return 0;
