@@ -9,30 +9,27 @@ _Don't forget to hit the :star: if you like this repo._
 
 # Banking System
 
-## Table Of Contents
-- [Description](#-description)
-- [Objective](#-objective)
+### Table Of Contents
+- [Description](#-Description)
+- [Objective](#-Objective)
 - [Synopsis](#-synopsis)
-- [Design](#-design)
-  - [Class Diagram](#class-diagram)
-  - [Pseudocode](#pseudocode)
-  - [Design Description](#design-description)
-- [Prepared by](#-prepared-by)
-- [Findings](#-findings)
-- [Contribution](#-contribution)
+- [Class Diagram](#-class-diagram)
+- [Pseudocode](#-pseudocode)
+- [Design Description](#-design-description)
+- [Findings](#-Findings)
 
 
 
-## Description 📝
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/project-management.png" width="3%" height="3%"> Description
 The main goal of HSBC's Banking System is to enhance the user experience and smoothen the flow of control of the system. In assignment 2, we implement the linked list which use pointer concept to replace the array to enhance our system's performance and the storage is unlimited.
 
-## <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/bc7e2df3-d20d-457c-b9fb-e0574b6a740e" width="3%" height="3%"> Objective
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/bc7e2df3-d20d-457c-b9fb-e0574b6a740e" width="3%" height="3%"> Objective
 The objectives of creating this banking system:
 1) To manage the banking transaction
 2) To implement banking system using linked list
 3) Display all the banking transaction history that has been made by the user
 
-## <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/ac62ef65-848d-41a6-97c2-1ff40be8ecd3" width="3%" height="3%"> Synopsis
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/ac62ef65-848d-41a6-97c2-1ff40be8ecd3" width="3%" height="3%"> Synopsis
 In this assignment, we choose the topic Banking System as our group assignment. The purpose of this coding is to create a simple banking system that is able to manage the banking transaction by implementing the concept of linked list. There are some functions of linked lists which are adding a new node, deleting a node, finding a node and also displaying all of the nodes in the list. For adding a new node, the user is able to insert the details of the banking transaction based on their preference. For deleting a node, the user is able to remove the first, last or specific account number of a banking transaction. For finding a node, the user is able to find the transaction history of a specific account number. Finally for the displaying all the nodes in the list, this allow the user to have a look on all the banking transaction history.
 
 ## Design 🎨
@@ -156,7 +153,7 @@ For displaying the node, we create a member function, void displayNode() in clas
 
 
 
-## Prepared by 🧑‍💻
+### Prepared by 🧑‍💻
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
@@ -171,7 +168,7 @@ For displaying the node, we create a member function, void displayNode() in clas
 - [Assignment 2](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/Group%20HSBC/Assignment%202)
 - Project
 
-## Contribution 🛠️
+### Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
 
 [![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fjjn7702&labelColor=%23697689&countColor=%23555555&style=plastic)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fjjn7702)
