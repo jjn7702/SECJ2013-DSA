@@ -34,6 +34,75 @@ An extensive application software called the Airline Reservation System was crea
 
 
 
+## Design 
+**PSEUDOCODE**
+Here's a pseudocode for the main part of our program:
+
+```plaintext
+`class Cust:`
+    properties: 
+
+`class Node:`
+    properties: 
+
+`class LinkedList:`
+    properties: 
+    Methods: 
+
+
+function main():
+    initialize custList as an empty LinkedList
+    open fileIn for reading "booking.txt"
+
+    if fileIn not found:
+        print "File input/output error!"
+        return 1
+    else:
+        while there are lines in fileIn:
+            read a line from fileIn
+            parse the line using stringstream to extract customer information
+            create a new Cust object with extracted information
+            add the Cust object to custList using addNode
+
+    initialize position, choice
+    display main menu
+    repeat until choice is 6:
+        read user choice
+        switch on user choice:
+            case 1:
+                get addChoice from user (1, 2, or 3)
+                read new customer details
+                create a new Cust object
+                switch on addChoice:
+                    case 1: add to the beginning
+                    case 2: read position, add to the middle
+                    case 3: add to the end
+            case 2:
+                get deleteChoice from user (1, 2, or 3)
+                switch on :
+                    case 1: 
+                    case 2: 
+                    case 3: 
+            case 3:
+                get searchKey from user (1 to 5)
+                switch on searchKey:
+                    case 1: search by name
+                    case 2: search by destination
+                    case 3: search by airline
+                    case 4: search by date
+                    case 5: exit search
+            case 4:
+                call bubbleSort on custList
+            case 5:
+                display all customers in custList
+            case 6:
+                print "Exiting the program. Goodbye!"
+            default:
+                print "Invalid choice. Please enter a valid option."
+```
+
+This pseudocode outlines the structure of our program, including class definitions and the main logic for handling user input and interacting with the linked list of customers. We use this as a guide to implement the actual C++ code.
+
 
 ## Prepared by 🧑‍💻
 
