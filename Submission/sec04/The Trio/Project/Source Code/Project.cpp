@@ -164,7 +164,142 @@ class Stack{  // used by hotel manager
 				 << "Please Choose The Option: " ;
 			cin >> option ;
 			
-			bool found = false ;     
+			bool found = false ; 
+
+			switch (option)
+		    {
+		    	case 1: // Search by Name
+		           		{
+		           			string n ;
+		           			cout << "\nPlease key in the name you want to search" << endl
+		           				 << "Name -> " ;
+		           			cin >> n ;	 
+		           			
+		           			for(i = top ; i >= 0 ; i--)
+		           			{
+		           				if(cust[i].getName() == n)
+								{
+									 found = true ;
+									 break ;
+								}
+							}
+							
+		            		break;
+		            	}
+		        case 2: // Search by Age
+		            	{
+		           			int a ;
+		           			cout << "\nPlease key in the age you want to search" << endl
+		           				 << "Age -> " ;
+		           			cin >> a ;	 
+		           			
+							for(i = top ; i >= 0 ; i--)
+		           			{
+		           				if(cust[i].getAge() == a)
+								{
+									 found = true ;
+									 break ;
+								}
+							}
+							
+		            		break;
+		            	}
+		        case 3: // Search by IC Number
+		            	{
+		           			string ic ;
+		           			cout << "\nPlease key in the IC number you want to search" << endl
+		           				 << "Please include '-'" << endl 
+		           				 << "IC Number -> " ;
+		           			cin >> ic ;	 
+
+							for(i = top ; i >= 0 ; i--)
+		           			{
+		           				if(cust[i].getIC()  == ic)
+								{
+									 found = true ;
+									 break ;
+								}
+							}
+							
+		            		break;
+		            	}
+		        case 4: // Search by Phone Number
+		            	{
+		           			string p ;
+		           			cout << "\nPlease key in the phone number you want to search" << endl
+		           				 << "Please include '-'" << endl 
+		           				 << "Phone Number -> " ;
+		           			cin >> p ;	 
+							
+							for(i = top ; i >= 0 ; i--)
+		           			{
+		           				if(cust[i].getPhone() == p)
+								{
+									 found = true ;
+									 break ;
+								}
+							}
+							
+		            		break;
+		            	}
+		        case 5: // Search by Room Number
+		                {
+		           			int r ;
+		           			cout << "\nPlease key in the room number you want to search" << endl
+		           				 << "Room Number -> " ;
+		           			cin >> r ;	 
+							
+							for(i = top ; i >= 0 ; i--)
+		           			{
+		           				if(cust[i].getNum()   == r)
+								{
+									 found = true ;
+									 break ;
+								}
+							}
+							
+		            		break;
+		            	}
+		        case 6: // Search by Check In Date
+		                {
+		           			string d ;
+		           			cout << "\nPlease key in the check in date you want to search" << endl
+		           				 << "Please include '-'" << endl 
+		           				 << "Check In Date -> " ;
+		           			cin >> d ;	 
+							
+							for(i = top ; i >= 0 ; i--)
+		           			{
+		           				if(cust[i].getDate() == d)
+								{
+									 found = true ;
+									 break ;
+								}
+							}
+							
+		            		break;
+		            	}
+		        default:{
+		        			cout << "\nInvalid option. Please choose a number between 1 and 6" << endl;
+		                	goto findloop ;
+							break;
+						}    
+		    }
+		
+			if(found)
+			{
+				cout << "\nCustomer Data" << endl 
+					 << "Name: " << cust[i].getName() << endl
+					 << "Age: " << cust[i].getAge() << endl
+					 << "IC Number: " << cust[i].getIC() << endl
+					 << "Phone Number: " << cust[i].getPhone() << endl
+					 << "Room Number: " << cust[i].getNum() << endl
+					 << "Check In Date: " << cust[i].getDate() << endl
+					 << endl ;		 
+			}
+			else
+				cout << "\nNo record found" << endl << endl ;							        	
+		}    
 
         void displayRequestList()  // Display the accepted booking request list
 		{
