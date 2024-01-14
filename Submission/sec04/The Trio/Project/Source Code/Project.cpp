@@ -39,6 +39,30 @@ class Queue{  // used by agent
 			cout << "\nThe agent has helped "  << newCustomer->getName() << " made the reservation" << endl ;
 		}
 
+		void DoneBooking() // deQueue by hotel manager  //only available by hotel manager
+		{
+			if(isEmpty())	
+				cout << "\nNo reservation in the list" << endl ;
+			else
+			{
+				Customer *delcust = front ;
+				
+				if(delcust != back)
+				{
+					front = front->next ;
+					delcust->next = NULL ; // to break the line
+				}
+				else // front = back - only one item in queue
+				{
+					front = NULL ;
+					back = NULL ;
+				}
+
+				delcust = NULL ;
+				//delete delcust ;
+			}
+		}
+
 class Stack{  // used by hotel manager
 	private:
 		Customer cust[100] ;
