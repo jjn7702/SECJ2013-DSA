@@ -159,7 +159,7 @@ For displaying the node, we create a member function, void displayNode() in clas
 |  Chan Qing Yee     |   A22EC0040      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Assignment%202/Picture/profilepic900kb.jpg" title="Icon by Trazobanana"><img src="Picture/profilepic900kb.jpg" width=80px, height=80px>         |
 |  Ooi Wei Sian     |   A22EC0102      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Assignment%202/Picture/weisian.jpg" title="Icon by Trazobanana"><img src="Picture/weisian.jpg" width=80px, height=80px>         |
 
-## Findings 📊
+### Findings 📊
 
 - [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/Group%20HSBC/Assignment1)
 - [Assignment 2](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/Group%20HSBC/Assignment%202)
