@@ -15,7 +15,7 @@ _Don't forget to hit the :star: if you like this repo._
 - [Synopsis](#-synopsis)
 - [Class Diagram](#-class-diagram)
 - [Pseudocode](#-pseudocode)
-- [Design](#-design)
+- [Design](#design)
 - [Findings](#-Findings)
 
 
