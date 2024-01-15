@@ -122,7 +122,7 @@ void getInitialSize(int size) {
         Node* current = front;
         while (current != nullptr) {
             cout << "\t\t\t";
-            current->data->printResult(0);  // Adjust count as needed
+            current->data->printResult(1);  // Adjust count as needed
             current = current->next;
         }
     }
