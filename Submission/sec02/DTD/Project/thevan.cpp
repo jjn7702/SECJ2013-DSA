@@ -103,3 +103,57 @@ public:
         }
     }
 };
+
+class Stack {
+private:
+    Node* top; 
+
+public:
+    Stack() : top(nullptr) {}
+
+    ~Stack() {
+        while (!isEmpty()) {
+            pop();
+        }
+    }
+
+    void push(const Book& book) {
+        Node* newNode = new Node(book, top);
+        top = newNode;
+    }
+
+    Book pop() {
+        Book result;
+        if (!isEmpty()) {
+            Node* temp = top;
+            result = top->data;
+            top = top->next;
+            delete temp;
+        }
+        return result;
+    }
+
+   Book getTop() const {
+    if (top != nullptr) {
+        return top->data;
+    } else {
+        return Book(); 
+    }
+}
+
+    bool isEmpty() const {
+        return top == nullptr;
+    }
+
+    void displayStack() const {
+        cout << "Borrowed History:\n";
+        Node* current = top;
+
+        while (current != nullptr) {
+            current->data.displayBook();
+            current = current->next;
+        }
+
+        cout << "----------------------\n";
+    }
+};
