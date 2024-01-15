@@ -157,3 +157,249 @@ public:
         cout << "----------------------\n";
     }
 };
+
+
+class Library {
+private:
+    Node* head;
+    int size;
+    Queue bookQueue;
+    Queue userQueue;
+
+public:
+    Stack borrowedHistory; 
+
+    Library() : head(nullptr), size(0) {}
+
+    ~Library() {
+        while (head) {
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+        }
+    }
+
+    void displayList() const {
+        system("cls");
+        cout << "-----------------------------------------------------------------------------------------------------------" << endl;
+        cout << setw(50) << left << "| Title"
+             << setw(30) << left << "| Author"
+             << setw(10) << left << "| Year"
+             << setw(15) << left << "| ISBN"
+             << " |" << endl;
+        cout << "-----------------------------------------------------------------------------------------------------------" << endl;
+
+        Node* current = head;
+
+        while (current != nullptr) {
+            current->data.displayBook();
+            current = current->next;
+        }
+
+        cout << "-----------------------------------------------------------------------------------------------------------" << endl;
+    }
+
+    int getSize() const {
+        return size;
+    }
+
+
+    void addBookEnd(const Book& book) {
+        Node* newNode = new Node(book, nullptr);
+
+        if (head == nullptr) {
+            head = newNode;
+        } else {
+            Node* current = head;
+
+            while (current->next) {
+                current = current->next;
+            }
+
+            current->next = newNode;
+        }
+
+        size++;
+    }
+
+    void deleteBook(const string& isbn) {
+        if (head == nullptr) {
+            cout << "Error: The library is empty.\n";
+            return;
+        }
+
+        Node* current = head;
+        Node* prev = nullptr;
+
+        // Search for the book with the specified ISBN
+        while (current != nullptr && current->data.getISBN() != isbn) {
+            prev = current;
+            current = current->next;
+        }
+
+        if (current == nullptr) {
+            cout << "Error: Book with ISBN " << isbn << " not found.\n";
+            return;
+        }
+
+        // Found the book, now delete it
+        if (prev == nullptr) {
+            // Book is at the beginning of the list
+            head = head->next;
+        } else {
+            prev->next = current->next;
+        }
+
+        delete current;
+        size--;
+        cout << "Book with ISBN " << isbn << " deleted successfully.\n";
+    }
+
+    void requestBookBorrowing(const Book& book) {
+        userQueue.enqueue(book);
+        cout << "Your request to borrow the book '" << book.getTitle() << "' has been added to the queue.\n";
+    }
+
+    void processUserBorrowRequests() {
+        system("cls");
+        cout << "Processing User Borrow Requests:\n";
+
+        if (!userQueue.isEmpty()) {
+            // Display the book at the front of the queue
+            userQueue.displayQueueFront();
+
+            // Check if the user's request has been processed
+            Book requestedBook = userQueue.getFront();
+            bool bookFound = isBookInLibrary(requestedBook);
+
+            if (bookFound) {
+                // Book is available, request is approved
+                cout << "Your request to borrow the book '" << requestedBook.getTitle() << "' has been approved.\n";
+                cout << "You can now collect the book.\n";
+
+                // Remove the book from the library
+                deleteBook(requestedBook.getISBN());
+
+                // Add to borrowed history
+                borrowedHistory.push(requestedBook);
+
+                userQueue.dequeue();  // Remove the request from the queue
+            } else {
+                cout << "Book cannot be borrowed as it's not available\n";
+            }
+        } else {
+            cout << "No user borrow requests to process.\n";
+        }
+
+        cout << "-----------------------------------------------------------------------------------------------------------" << endl;
+    }
+
+   void displayBorrowedHistory() const {
+    borrowedHistory.displayStack();
+}
+
+Book getTop() const {
+    return borrowedHistory.getTop();
+}
+
+    bool isBookInLibrary(const Book& book) {
+        Node* current = head;
+        while (current != nullptr) {
+            if (current->data.getISBN() == book.getISBN()) {
+                return true;
+            }
+            current = current->next;
+        }
+        return false;
+    }
+
+    void patronMenu() {
+        int choice;
+        do {
+            cout << "Patron Menu\n";
+            cout << "[1] Request to Borrow a Book\n";
+            cout << "[2] Check Borrow Request Status\n";
+            cout << "[3] Display Books\n";
+            cout << "[4] Exit\n";
+            cout << "Enter your choice: ";
+            cin >> choice;
+
+            switch (choice) {
+                case 1: {
+                    displayList();
+                    Book requestedBook;
+                    cin.ignore();
+                    string input;
+                    cout << "Enter the title of the book you want to borrow: ";
+                    getline(cin, input);
+                    requestedBook.setTitle(input);
+
+                    cout << "Enter the author of the book: ";
+                    getline(cin, input);
+                    requestedBook.setAuthor(input);
+
+                    cout << "Enter the year of publication: ";
+                    cin >> input; // Assuming Year is a string
+                    requestedBook.setYear(stoi(input));
+
+                    cin.ignore(); // Clear the newline character
+                    cout << "Enter the ISBN (Example: 123-1234567890): ";
+                    getline(cin, input);
+                    requestedBook.setISBN(input);
+
+                    requestBookBorrowing(requestedBook);
+                    break;
+                }
+                case 2:
+                    processUserBorrowRequests();
+                    break;
+                case 3:
+                    displayList();
+                    break;
+                case 4:
+                    cout << "Exiting patron menu.\n";
+                    break;
+                default:
+                    cout << "Invalid choice. Please try again.\n";
+            }
+
+            cout << "---------------------------------\n";
+        } while (choice != 4);
+    }
+
+    void staffMenu() {
+    int choice;
+    do {
+        cout << "Staff Menu\n";
+        cout << "[1] Check Borrowed History\n";
+        cout << "[2] Last Book borrowed\n";
+        cout << "[3] Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+       switch (choice) {
+        case 1:
+            displayBorrowedHistory(); 
+            break;
+        case 2: {
+            Book lastBorrowedBook = getTop();
+            if (lastBorrowedBook.getISBN() != "") { // Add the if condition here
+                cout << "Last Book Borrowed:\n";
+                lastBorrowedBook.displayBook();
+        }   else {
+            cout << "No books have been borrowed yet.\n";
+        }
+            break;
+        }
+        case 3:
+            cout << "Exiting staff menu.\n";
+            break;
+        default:
+        cout << "Invalid choice. Please try again.\n";
+}
+
+
+        cout << "---------------------------------\n";
+    } while (choice != 3);
+}
+};
