@@ -11,17 +11,8 @@ _Don't forget to hit the :star: if you like this repo._
 ## Objective 
 
 In our data structure and algorithm project, the main objectives of developing the Inventory management system are :
-Develop an Inventory Management System using queue
-Manage inventory in a warehouse by features
-Add Inventory
-Delete Inventory
-Sort Inventory
-Find Inventory
-Display Inventory (based on category or display all)
-Update current inventory information
-Check low stock inventory
-
-
+- Develop an Inventory Management System using queue
+- Manage inventory in a warehouse by features:
 <img align="right" alt="Coding" width="400" src="https://media.licdn.com/dms/image/D4D12AQEGH0grNgGe3w/article-cover_image-shrink_600_2000/0/1663428061606?e=2147483647&v=beta&t=vci9t4_Sun-qVHZfCJOGhoLxGNbjnC5KAuRcbtW-MMs">
 
 
