@@ -65,12 +65,37 @@ class NodeQueue{
     Menu menu;
 
     public:
-    NodeQueue *next, *prev;
+    NodeQueue *next;
 
     NodeQueue(Menu m){
         menu = m;
         next = NULL;
-        prev = NULL;
     }
-    
 };
+
+class queueOrder{
+    public:
+        NodeQueue *back, *front;
+
+        queueOrder(){
+            front = NULL;
+            back = NULL;
+        }
+
+        //indicates that the queue is empty
+        bool isEmpty(){
+            return ((front == NULL) && (back == NULL));
+        }
+
+        void enQueue(Menu menu){
+            NodeQueue *newOrder = new NodeQueue(menu);
+
+            if (isEmpty()){
+                front = newOrder;
+                back = newOrder;
+            } else {
+                back->next = newOrder;
+                back = newOrder;
+            }
+        }
+}
