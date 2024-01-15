@@ -619,6 +619,23 @@ inputFile.close();
                 CourierQueue.displayQueue();
                 break;
         	}
+	    case 9: {
+                Courier newCourier = courierList.getNewCourier();
+                courierStack.push(newCourier);
+                cout << "Courier pushed to the stack.\n" << endl;
+                break;
+            }
+            case 10: {
+                courierStack.pop();
+                break; 
+        	}
+            case 0: {
+                cout << "Exiting program.\n";
+                break;
+        	}
+            default:
+                cout << "Invalid choice. Please try again.\n" << endl;
+                break;
   }
     } while (choice != 0);
 
