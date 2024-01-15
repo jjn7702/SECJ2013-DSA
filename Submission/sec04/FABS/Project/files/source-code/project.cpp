@@ -51,7 +51,7 @@ class Node {
 		Node(Courier d) {
 			data = d;
 			next = NULL;
-		} // ... (unchanged)
+		} 
 };
 
 class LinkedList {
@@ -376,6 +376,26 @@ public:
     }
 };
 
+class CourierStack {
+    stack<Courier> CourierStack;
+
+public:
+    void push(const Courier& courier) {
+        courierStack.push(courier);
+    }
+
+    void pop() {
+        if (!courierStack.empty()) {
+            courierStack.pop();
+        } else {
+            cout << "Stack is empty. Nothing to pop.\n";
+        }
+    }
+
+  
+};
+
+
 int main() {
     
     ifstream inputFile("TEST.txt");
@@ -386,6 +406,7 @@ int main() {
 
     LinkedList courierList;
     Queue courierQueue;
+    CourierStack courierStack;
     
 	
   string line;
