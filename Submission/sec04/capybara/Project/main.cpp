@@ -21,6 +21,11 @@ public:
     string baggageWeight;
     string baggageCheckIn;
 
+    string flightNumber;
+    string seatNumber;
+    string dateFlight;
+    string timeFlight;
+
     Stack(string &pName, string &bID, string &typBaggage, string &bWeight, string &bCheckIn)
     {
         passangerName = pName;
@@ -30,6 +35,14 @@ public:
         baggageCheckIn = bCheckIn;
 
         next = NULL;
+    }
+
+    Stack(string fNumber, string sNumber, string dFlight, string tFlight)
+    {
+        flightNumber = fNumber;
+        seatNumber = sNumber;
+        dateFlight = dFlight;
+        timeFlight = tFlight;
     }
 
     string getPassangerName() const
@@ -55,6 +68,26 @@ public:
     string getBaggageCheckIn() const
     {
         return baggageCheckIn;
+    }
+
+    string getFlightNumber()
+    {
+        return flightNumber;
+    }
+
+    string getSeatNumber()
+    {
+        return seatNumber;
+    }
+
+    string getDateFlight()
+    {
+        return dateFlight;
+    }
+
+    string getTimeFlight()
+    {
+        return timeFlight;
     }
 };
 
@@ -85,6 +118,17 @@ public:
         top = newNode;
     }
 
+    void pushCheckIn(string &fNumber, string &sNumber, string &dFlight, string &tFlight)
+    {
+        Stack *newNode = new Stack(fNumber, sNumber, dFlight, tFlight);
+
+        if (!isEmpty())
+        {
+            newNode->next = top;
+        }
+        top = newNode;
+    }
+
     void popBaggage()
     {
         if (isEmpty())
@@ -100,7 +144,22 @@ public:
         }
     }
 
-    void displayStack()
+    void popCheckIn()
+    {
+        if (isEmpty())
+        {
+            cout << "Stack is empty. No baggage to pop." << endl;
+        }
+        else
+        {
+            Stack *temp = top;
+            top = temp->next;
+            temp->next = NULL;
+            delete temp;
+        }
+    }
+
+    void displayStackBaggage()
     {
         Stack *temp = top;
         while (temp)
@@ -110,6 +169,23 @@ public:
             cout << "Type of Baggage: " << temp->getTypeBaggage() << endl;
             cout << "Baggaga Weight: " << temp->getBaggageWeight() << endl;
             cout << "Baggage Checked In: " << temp->getBaggageCheckIn() << endl;
+            cout << endl;
+
+            temp = temp->next;
+        }
+        cout << endl;
+    }
+
+    void displayStackCheckIn()
+    {
+        Stack *temp = top;
+        while (temp)
+        {
+            cout << "Name: " << temp->getPassangerName() << endl;
+            cout << "Flight ID: " << temp->getFlightNumber() << endl;
+            cout << "Seat Number: " << temp->getSeatNumber() << endl;
+            cout << "Date Flight: " << temp->getDateFlight() << endl;
+            cout << "Time Flight: " << temp->getTimeFlight() << endl;
             cout << endl;
 
             temp = temp->next;
@@ -318,7 +394,7 @@ int main()
         return 1;
     }
 
-    BS.displayStack();
+    BS.displayStackBaggage();
 
     return 0;
 }
