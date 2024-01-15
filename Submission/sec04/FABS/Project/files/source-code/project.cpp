@@ -626,11 +626,11 @@ inputFile.close();
                 break;
             }
         case 7: {
-                CourierQueue.dequeue();
+                courierQueue.dequeue();
                 break;
         	}
         case 8: {
-                CourierQueue.displayQueue();
+                courierQueue.displayQueue();
                 break;
         	}
 	case 9: {
