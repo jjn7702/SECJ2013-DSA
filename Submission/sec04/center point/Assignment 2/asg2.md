@@ -152,13 +152,13 @@ The implementation of linked list concept into the inventory system is a strong 
    - And lastly update the head with sortedList
    - Finally, display the sorted InvList
 
-4.**Find**
-  - find the inventory based on inventory code or inventory name.
-  - It will loop the list since it has not achieved the last node in the list and show the        details of the inventory if the value of temp->getCode() is the same as the sKey that is      input by users.
+4. **Find**
+   - find the inventory based on inventory code or inventory name.
+   - It will loop the list since it has not achieved the last node in the list and show the        details of the inventory if the value of temp->getCode() is the same as the sKey that is      input by users.
 
-5.**Display**
-  - display all the inventory node in the InvList linked list. 
-  - It will loop the list since it has not achieved the last node in the list and display the     data by calling the accessor of the inventory node.
+5. **Display**
+   - display all the inventory node in the InvList linked list.
+   - It will loop the list since it has not achieved the last node in the list and display         the data by calling the accessor of the inventory node.
 
 
 
