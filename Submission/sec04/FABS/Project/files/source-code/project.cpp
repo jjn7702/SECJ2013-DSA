@@ -100,11 +100,24 @@ public:
     }
 
     void dequeue() {
-        if (!courierQueue.empty()) {
-            courierQueue.pop();
-        } else {
-            cout << "Queue is empty. Nothing to dequeue.\n";
+        if (isEmpty()) {
+            cout << "Sorry, cannot dequeue item from queue. The queue is empty!!" << endl;
+            return;
         }
+
+        Courier* delNode = front;
+        front = delNode->getNext();
+
+        cout << "<<<<<<< Dequeue Courier >>>>>>>" << endl << endl
+             << "Name            : " << delNode->getName() << endl
+             << "Parcel Type     : " << delNode->getParcelType() << endl
+             << "Status          : " << delNode->getStatus() << endl
+             << "Destination     : " << delNode->getDestination() << endl
+             << "Tracking Number : " << delNode->getTrackingNum() << endl << endl;
+
+        delete delNode;
+        cout << "<< Press any key to continue >>";
+        cin.get();
     }
 
     void displayQueue() {
