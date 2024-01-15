@@ -376,8 +376,8 @@ public:
     }
 };
 
-class CourierStack {
-    stack<Courier> CourierStack;
+class Stack {
+    stack<Courier> courierStack;
 
 public:
     void push(const Courier& courier) {
@@ -406,7 +406,7 @@ int main() {
 
     LinkedList courierList;
     Queue courierQueue;
-    CourierStack courierStack;
+    Stack courierStack;
     
 	
   string line;
