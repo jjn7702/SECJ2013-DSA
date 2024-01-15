@@ -41,11 +41,26 @@ public:
 
     void push(const TaskData &d)
     {
+        if(isfull())
+        cout<<"Stack is full"<<endl;
+
+        else
+        {
+            top++;
+            data[top]=d;
+        }
         
     }
 
     void pop()
     {
+        if(isempty())
+        {
+            cout<<"Stack is empty"<<endl;
+        }
+
+        else
+        top--;
         
     }
 
