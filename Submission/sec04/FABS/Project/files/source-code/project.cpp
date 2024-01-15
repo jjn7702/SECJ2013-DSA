@@ -344,6 +344,38 @@ class LinkedList {
 		}
 };
 
+class Queue {
+    queue<Courier> CourierQueue;
+
+public:
+    void enqueue(const Courier& courier) {
+        courierQueue.push(courier);
+    }
+
+    void dequeue() {
+        if (!courierQueue.empty()) {
+            courierQueue.pop();
+        } else {
+            cout << "Queue is empty. Nothing to dequeue.\n";
+        }
+    }
+
+    void displayQueue() {
+        queue<Courier> tempQueue = courierQueue;
+
+        cout << "\nCourier Queue:\n";
+        int count;
+        while (!tempQueue.empty()) {
+            const Courier& currentData = tempQueue.front();
+            cout << "[" << count << "] ";
+            currentData.display(true);
+            tempQueue.pop();
+            count++;
+        }
+       
+    }
+};
+
 int main() {
     
     ifstream inputFile("TEST.txt");
@@ -353,7 +385,9 @@ int main() {
     }
 
     LinkedList courierList;
-
+    Queue courierQueue;
+    
+	
   string line;
     while (getline(inputFile, line)) {
         stringstream ss(line);
