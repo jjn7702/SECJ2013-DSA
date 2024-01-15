@@ -8,7 +8,7 @@
 _Don't forget to hit the :star: if you like this repo._
 
 # Inventory Management System - Project
-## Objective 
+## Objective 💡
 
 In our data structure and algorithm project, the main objectives of developing the Inventory management system are :
 - Develop an Inventory Management System using queue
