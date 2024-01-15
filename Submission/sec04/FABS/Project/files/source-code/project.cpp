@@ -366,6 +366,10 @@ public:
         cout << "\nCourier Queue:\n";
         int count = 1;
         while (!tempQueue.empty()) {
+	    cout << left << setw(6) << "No." << setw(20) << "Tracking Number" << setw(20) << "Name"
+		 << setw(20) << "Parcel Type" << setw(20) << "Source"
+	         << setw(20) << "Destination" << setw(20) << "Status" << endl;
+	    cout << setfill('-') << setw(120) << "" << setfill(' ') << endl;
             const Courier& currentData = tempQueue.front();
             cout << "[" << count << "] ";
             currentData.display(false);
@@ -397,6 +401,10 @@ public:
         cout << "\nCourier Stack:\n";
         int count;
         while (!tempStack.empty()) {
+	    cout << left << setw(6) << "No." << setw(20) << "Tracking Number" << setw(20) << "Name"
+		 << setw(20) << "Parcel Type" << setw(20) << "Source"
+	         << setw(20) << "Destination" << setw(20) << "Status" << endl;
+	    cout << setfill('-') << setw(120) << "" << setfill(' ') << endl;
             const Courier& currentData = tempStack.top();
             cout << "[" << count << "] ";
             currentData.display(false);
