@@ -38,6 +38,13 @@ _Don't forget to hit the :star: if you like this repo._
 
 The implementation of linked list concept into the inventory system is a strong and also fast way to manage things like stocks or goods. It helps organize data in a convenient method. The main features of the tool are adding new things to stock, removing items, looking for inventory items that users need. Sorting list and display inventory list are also  convenient functions for this system.
 
+
+
+## Flowchart 💹
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/center%point/images/A2-FLOW1.png)
+
+
+
 ## Flow of Event 💹
 1. User will be displayed the inventory list including all the inventory details: code, name, type, quantity and price. User will be directed to the main menu of the inventory management system as follow:<br /><br /> 
    **What do you need?** <br />
