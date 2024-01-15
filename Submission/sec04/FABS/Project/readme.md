@@ -19,6 +19,7 @@
 ## Overview of The Project <a name="overview"></a> :heavy_check_mark:
 
 ## Design <a name="design"></a> 🎨
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/databaseprojek.drawio.png)
 
 ## Design Description <a name="designdescription"></a> 💹
 
