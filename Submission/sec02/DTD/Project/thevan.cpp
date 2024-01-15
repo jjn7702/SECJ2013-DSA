@@ -383,7 +383,7 @@ Book getTop() const {
             break;
         case 2: {
             Book lastBorrowedBook = getTop();
-            if (lastBorrowedBook.getISBN() != "") { // Add the if condition here
+            if (lastBorrowedBook.getISBN() != "") { 
                 cout << "Last Book Borrowed:\n";
                 lastBorrowedBook.displayBook();
         }   else {
@@ -403,3 +403,68 @@ Book getTop() const {
     } while (choice != 3);
 }
 };
+
+
+int main() {
+    Library library;
+    int userType;
+
+    // Reading books from the file
+    ifstream inputFile("book.txt");
+    if (!inputFile.is_open()) {
+        cout << "Error opening file: book.txt" << endl;
+    }
+
+    int booksRead = 0;
+    while (!inputFile.eof()) {
+        string Title, Author, isbn;
+        int Year;
+
+        getline(inputFile, Title, ',');
+        getline(inputFile, Author, ',');
+        inputFile >> Year;
+        inputFile.ignore();
+        getline(inputFile, isbn);
+
+        Book newBook;
+        newBook.setTitle(Title);
+        newBook.setAuthor(Author);
+        newBook.setYear(Year);
+        newBook.setISBN(isbn);
+
+        library.addBookEnd(newBook);
+        booksRead++;
+    }
+
+    cout << "Number of books read: " << booksRead << endl;
+
+    inputFile.close();
+
+     do {
+        cout << "Welcome to the Library Management System!\n";
+        cout << "Are you a staff or a patron?\n";
+        cout << "[1] Staff\n";
+        cout << "[2] Patron\n";
+        cout << "[3] Exit\n";
+        cout << "Enter your choice: ";
+        cin >> userType;
+
+        switch (userType) {
+            case 1:
+                library.staffMenu();
+                break;
+            case 2:
+                library.patronMenu();
+                break;
+            case 3:
+                cout << "Exiting the program.\n";
+                break;
+            default:
+                cout << "Invalid choice. Please try again.\n";
+        }
+
+        cout << "---------------------------------\n";
+    } while (userType != 3);
+
+    return 0;
+}
