@@ -32,18 +32,22 @@ class Courier {
 	    string getStat() const { return status; }
 	    int getTrackNum() const { return trackingNum; }
 	    
-	    void display(bool printHeader = true) const {
-		    if (printHeader) {
-			    cout << left << setw(20) << "Tracking Number" << setw(20) << "Name"
-				 << setw(20) << "Parcel Type" << setw(20) << "Source"
-				 << setw(20) << "Destination" << setw(20) << "Status" << endl;
-			    cout << setfill('-') << setw(120) << " " << setfill(' ') << endl;
-        	    }
+	    Courier* getNext() const { return next; }
+   	    void setNext(Courier* node) { next = node; }
 
-		    cout << left << setw(20) << trackingNum << setw(20) << name
-			 << setw(20) << parcelType << setw(20) << source 
-			 << setw(20) << destination << setw(20) << status << endl;
-	    }
+    	    void displayHeader()  {
+            cout << left << setw(1) << "No." << setw(20) << "Tracking Number" << setw(20) << "Name"
+                 << setw(20) << "Parcel Type" << setw(20) << "Source"
+                 << setw(20) << "Destination" << setw(20) << "Status" << endl;
+            cout << setfill('-') << setw(130) << " " << setfill(' ') << endl;
+          }
+
+           void display(int index) {
+           cout << "[" << setw(2) << index << "]"
+                << setw(6)  << trackingNum << setw(20) << name
+                << setw(20) << parcelType << setw(20) << source
+                << setw(20) << destination << setw(20) << status << endl;
+    	  }
 };
 
 class Queue {
