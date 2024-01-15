@@ -345,7 +345,7 @@ class LinkedList {
 };
 
 class Queue {
-    queue<Courier> CourierQueue;
+    queue<Courier> courierQueue;
 
 public:
     void enqueue(const Courier& courier) {
@@ -364,11 +364,11 @@ public:
         queue<Courier> tempQueue = courierQueue;
 
         cout << "\nCourier Queue:\n";
-        int count;
+        int count = 1;
         while (!tempQueue.empty()) {
             const Courier& currentData = tempQueue.front();
             cout << "[" << count << "] ";
-            currentData.display(true);
+            currentData.display(false);
             tempQueue.pop();
             count++;
         }
