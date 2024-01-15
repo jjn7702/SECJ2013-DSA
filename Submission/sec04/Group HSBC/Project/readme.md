@@ -53,107 +53,184 @@ In this project, our group HSBC decided to complete a simple banking system. We 
 ###### a. Insert a new transaction
 For inserting a new transaction, we create a member function named insertNode function. The insertNode function checks whether the node is NULL. If the node is NULL, it will create a new transaction node with parameter of acc and return it. If the referenceNumber of the account is less than the referenceNumber of the node, it will set the left node to the referenceNumber of the account. If the referenceNumber of the account is more than the referenceNumber of the node, it will set the right node to the referenceNumber of the account. 
 
-void insertBeginning(Account a){
-            Node* newNode = new Node(a);
-           
-            if(isEmpty()){
-                head = newNode;
+        Transaction* insertNode(Transaction* node, Transaction& acc) {
+            if (node == NULL) {
+                return new Transaction(acc); 
             }
-            else{
-                newNode->next = head;
-                head = newNode;
+            if(acc.referenceNumber < node->referenceNumber){
+                node->left = insertNode(node->left, acc);
             }
-        }
-       
-        //add node at end
-        void insertEnd(Account a){
-            Node* newNode = new Node(a);
-           
-            if (isEmpty()) {
-                head = newNode;
+            else if(acc.referenceNumber > node->referenceNumber){
+                node->right = insertNode(node->right, acc);
             }
-            else {
-                Node* current = head;
-                while (current->next != NULL) {
-                    current = current->next;
-                }
-                current->next = newNode;
-            }
-        }
-       
-        //add node at middle
-        void insertMiddle(Account a){
-            Node* newNode = new Node(a);
-           
-            if(isEmpty()){
-                head = newNode;
-                return;
-            }
-           
-            Node* slow = head;
-            Node* fast = head->next;
-           
-            //move fast by 2 steps and slow by 1 step
-            //when fast reach end, the slow will move to middle
-            while( fast != NULL && fast->next != NULL){
-                slow = slow->next;
-                fast = fast->next->next;
-            }
-           
-            //insert the new node after the middle node(after slow)
-            newNode->next = slow->next;
-            slow->next = newNode;
+
+            return node; // Return the updated root of the current subtree
         }
 
 ###### b. View Current Balance
 For viewing current balance, we create a get_balance function which allows us to view the current balance of the account. When the user successfully login to the system, it will record the index of the account and set it to targetAcc. This allows the user to correctly get the balance of the account.
 
-void findNode(string num){
-            Node* current = head;
-            bool found = false;
-
-
-            while (current != NULL) {
-                if (current->account.getAccNum() == num) {
-                    cout << "Node found with Account Number " << num << ":\n";
-                    current->account.printTitle();
-                    current->account.printDetails();
-                    found = true;
-                    break;
-                }
-                current = current->next;
-            }
-
-
-            if (!found) {
-                cout << "Node not found with Account Number " << num << ".\n";
-            }
+        float get_balance()
+        {
+            return balance;
         }
 
 
 ###### c. Display own transaction history
 For displaying all the transactions of the account, we create a member function named searchAccount function. This function will check whether there is a transaction inside. If there is, it will print all the transaction details
 
-        void displayNode(){
-            Node* current = head;
-            current->account.printTitle();
-            while (current != NULL) {
-                current->account.printDetails();
-                current = current->next;
+	void printDetails(){
+                        cout << setw(7) << referenceNumber;
+	            cout <<"             ";        
+		cout <<account_number<<"  " 
+		     <<setw(19)<<transaction_date << "        "
+		     <<transaction_type;
+			
+		if(transaction_type == "DEPOSIT")
+		     cout << "   ";
+		else if(transaction_type == "TRANSFER")
+		      cout << "  ";
+				
+	            cout<<setw(13)<<transaction_amount
+		    <<"                 "<<target_account<<endl;
+		}
+
+        void searchNode(Transaction* node, string& accNum, vector<Transaction*>& result){
+            if(node == NULL){
+                return;
+            }
+            
+            if(node->account_number == accNum){
+                result.push_back(node);
+            }
+
+            searchNode(node->left, accNum, result);
+            searchNode(node->right, accNum, result);
+        }
+        
+        void searchAccount(string accNum){
+            vector<Transaction*> result;
+            searchNode(root, accNum, result);
+            printTitle();
+
+            if(!result.empty())
+            {
+                cout << "Found Account with number " << accNum << ":\n";
+
+                for(const auto& node : result){
+                    node->printDetails();
+                }
+            }
+            else{
+                cout << "No Account found with number " << accNum << "\n";
             }
         }
 
+        
 ##### 2. Staff View
 ###### a. Search a transaction by account number
 For searching a transaction by account number, it will first search the account number and display the transaction related to the account number. For searching the account number, we created a function called searchAccount function. It takes the accNum parameter and searches for the account number. If the account number is true, it will display all the transactions that are related to the account number that has been entered. If the account number is not true, the system will display an error message which indicates that the account number is not inside the system.
 
-###### b. Search a transaction by account number
+	void printDetails(){
+                        cout << setw(7) << referenceNumber;
+	            cout <<"             ";        
+		cout <<account_number<<"  " 
+		     <<setw(19)<<transaction_date << "        "
+		     <<transaction_type;
+			
+		if(transaction_type == "DEPOSIT")
+		     cout << "   ";
+		else if(transaction_type == "TRANSFER")
+		      cout << "  ";
+				
+	            cout<<setw(13)<<transaction_amount
+		    <<"                 "<<target_account<<endl;
+		}
+
+        void searchNode(Transaction* node, string& accNum, vector<Transaction*>& result){
+            if(node == NULL){
+                return;
+            }
+            
+            if(node->account_number == accNum){
+                result.push_back(node);
+            }
+
+            searchNode(node->left, accNum, result);
+            searchNode(node->right, accNum, result);
+        }
+        
+        void searchAccount(string accNum){
+            vector<Transaction*> result;
+            searchNode(root, accNum, result);
+            printTitle();
+
+            if(!result.empty())
+            {
+                cout << "Found Account with number " << accNum << ":\n";
+
+                for(const auto& node : result){
+                    node->printDetails();
+                }
+            }
+            else{
+                cout << "No Account found with number " << accNum << "\n";
+            }
+        }
+
+###### b. Displaying all the transaction
 For displaying all the transactions that occurred in this system, we create a member function inside the class which is called displayAccount function. Inside this function, it will call a function that is named as displayInOrder. displayInOrder function checks whether the node is NULL. If it is not NULL, it recursively calls the left node to ensure the left subtree is traversed first. After that, it will print all the details of the node. For displayInOrder(node->right), this is to allow the right subtree to traverse at last. By doing all this, all the transactions that are relevant will be printed out and displayed when the user wants to display all the transactions.
 
-##### c. Delete a transaction
+        void displayInOrder(Transaction* node){
+            if(node != NULL) {
+                displayInOrder(node->left);
+                node->printDetails();
+                displayInOrder(node->right);
+            }
+        }
+
+###### c. Delete a transaction
 For deleting a transaction, we create a function called deleteAccount function. Inside the function, it will call a function named deleteNode. The deleteNode has 2 parameters which are root and refer. Inside the deleteNode function, it checks whether the node is NULL. If it is NULL, it will return the original node. If the reference number is smaller than the node of referenceNumber, it will start searching at the left subtree. If the reference number is larger than the node of referenceNumber, it will start searching at the right subtree. If the node has one child or no children, it will verify whether the left child is NULL. If it is null, we create a new node pointer which is named temp and it is assigned to the right child. After that, we delete the node which is wanted to be deleted and return the temp pointer. Else, if the right child is NULL, we create a temp pointer that is assigned to the left child. We delete the node and return the temp pointer. For conditions such as the node has two children. We create a temp pointer which is assigned to the minimum value at the right children and we assign the node of referenceNumber is equal to the temp node of the referenceNumber and the right child is equal to the deleteNode function. Lastly, we return the node. For the transactionFile_update function, it updates the text file and removes the information of the node that has been deleted.
 
+        Transaction* deleteNode(Transaction* node, int& refer){
+            //case 1: if the node is null
+            if (node == NULL)   
+                return node;
+            
+            //case 2: small the go left subtree
+            if(refer < node->referenceNumber){
+                node->left = deleteNode(node->left, refer);
+            }
+            //case 3: larger then go right subtree
+            else if(refer > node->referenceNumber){
+                node->right = deleteNode(node->right, refer);
+            }
+            //case 4: current node == acc that want to be deleted
+            else{
+                //case 4.1: if the node has one child or no child
+                if(node->left == NULL){
+                    Transaction* temp = node->right;
+                    delete node;
+                    return temp;
+                }
+                else if(node->right == NULL){
+                    Transaction* temp = node->left;
+                    delete node;
+                    return temp;
+                }
 
+                //case 4.2: if the node has two child
+                Transaction* temp = findMinValueNode(node->right);
+                node->referenceNumber = temp->referenceNumber;
+                node->right = deleteNode(node->right, temp->referenceNumber);
+            }
+
+            return node;
+        }
+        
+        void deleteAccount(int& refer){
+            root = deleteNode(root, refer);
+        }
 
 
 
