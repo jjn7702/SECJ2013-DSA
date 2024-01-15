@@ -32,3 +32,74 @@ public:
              << setw(15) << left << "| " + ISBN + "|" << endl;
     }
 };
+
+struct Node {
+    Book data;
+    Node* next;
+
+    Node(const Book& b, Node* n = nullptr) : data(b), next(n) {}
+};
+
+class Queue {
+private:
+    Node* front;
+    Node* rear;
+
+public:
+    Queue() : front(nullptr), rear(nullptr) {}
+
+    ~Queue() {
+        while (!isEmpty()) {
+            dequeue();
+        }
+    }
+
+    void enqueue(const Book& book) {
+        Node* newNode = new Node(book);
+        if (isEmpty()) {
+            front = rear = newNode;
+        } else {
+            rear->next = newNode;
+            rear = newNode;
+        }
+    }
+
+    Book dequeue() {
+        Book result;
+        if (!isEmpty()) {
+            Node* temp = front;
+            result = front->data;
+            front = front->next;
+            delete temp;
+        }
+        return result;
+    }
+
+   Book getFront() const {
+    if (front != nullptr) {
+        return front->data;
+    } else {
+        return Book();
+    }
+}
+
+
+    bool isEmpty() const {
+        return front == nullptr;
+    }
+
+    void displayQueue() const {
+        cout << "Books in the queue:\n";
+       
+    }
+
+    void displayQueueFront() const {
+        if (!isEmpty()) {
+            cout << "Next book in the queue:\n";
+            front->data.displayBook();
+          
+        } else {
+            cout << "Queue is empty.\n";
+        }
+    }
+};
