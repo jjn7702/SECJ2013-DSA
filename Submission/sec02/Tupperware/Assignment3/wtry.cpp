@@ -3,7 +3,6 @@
 #include <iomanip>
 using namespace std;
 
-
 class Menu {
 private:
     string foodId;
@@ -43,28 +42,35 @@ public:
 };
 
 
-// instead quantity of food at the order list, make it in the menu
 class Order{
-    Menu m;
+    Menu menu;
     int tableNum, pax;
     double totalPrice;
     int quantity;
 
     public:
-    Order(Menu m, int tableNum, int pax, double totalPrice, int quantity)
-    : m(m), tableNum(tableNum), pax(pax), quantity(quantity){}
+    Order(Menu menu, int tableNum, int pax, double totalPrice, int quantity)
+    : menu(menu), tableNum(tableNum), pax(pax), quantity(quantity) {}
 
-}
+    //Order getMenu(){return menu;}
+    //Order getTableNum(){return menu;}
+    //Order getPax(){return pax;}
+    //Order gettotalPrice(){return totalPrice;}
+    //Order getQuantity(){return quantity;}
+};
+
+
+
 class NodeQueue{
     Menu menu;
 
     public:
-    NodeQueue *next;
-    Node(Menu m){
-        Menu = m;
-        next = NULL;
-    }
+    NodeQueue *next, *prev;
 
-    Menu getMenu(){return Menu;}
+    NodeQueue(Menu m){
+        menu = m;
+        next = NULL;
+        prev = NULL;
+    }
     
-}
+};
