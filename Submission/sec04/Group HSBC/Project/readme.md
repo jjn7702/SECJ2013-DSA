@@ -38,15 +38,17 @@ In this project, our group HSBC decided to complete a simple banking system. We 
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/b7b1299f-ead1-4e66-ad2e-95b901f4f03c" width="3%" height="3%"> Class Diagram
 
-![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Image/DSA%20Assignment%202%20Class%20Diagram.PNG)
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Project/image/class%20diagram.JPG)
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/8b3596b0-7214-4cc8-b868-9ab2a0314386" width="3%" height="3%"> Pseudocode
 
-![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Image/DSA%20Assignment%202%20Report%20-%20Google%20Docs_page-0001.jpg)
+![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Project/image/p1.JPG)
 
-![3](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Image/DSA%20Assignment%202%20Report%20-%20Google%20Docs_page-0002.jpg)
+![3](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Project/image/p2.JPG)
 
-![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Image/DSA%20Assignment%202%20Report%20-%20Google%20Docs_page-0003.jpg)
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Project/image/p3.JPG)
+
+![5](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Project/image/p4.JPG)
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/clipboard.png" width="4%" height="4%"> Design Description
 ##### 1. User View
