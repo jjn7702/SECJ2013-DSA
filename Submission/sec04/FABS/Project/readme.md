@@ -32,7 +32,7 @@
 ## Findings <a name="findings"></a>📊
 
 - [Source Code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/source-code/project.cpp)
-- [Input File]()
+- [Input File](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/source-code/COURIER.TXT)
 - [Project Report]()
 - [Similarity Report]()
 
