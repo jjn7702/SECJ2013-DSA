@@ -1,120 +1,42 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#define N 5
+#define D "Deposit"
+#define W "Withdraw"
+#define T "Transfer"
 using namespace std;
 
-class TransactionHistory()
+class Transaction()
 {
-    char operation;
+    string senderAcc, receiverAcc;
     double amount;
-    string sender, receiver;
+    char type;
 
 public:
+    // For D & W
+    Transaction(string s, double a, char t) : 
+    senderAcc(s), receiverAcc(NULL), amount(a), type(t) {}
 
-    TransactionHistory() : default;
+    // For T
+    Transaction(string s, string r, double a, char t) : 
+    senderAcc(s), receiverAcc(r), amount(a), type(t) {}
 
-    char getOperation() const { return getOperation; }
+    void setSenderAcc(stirng s) { senderAcc = s; }
+    void setReceiverAcc(stirng r) { receiverAcc = r; }
+    void setAmount(double a) { amount = a; }
+    void setType(char t) { type= t; }
+
+    string getSenderAcc() const { return senderAcc; }
+    string getReceiverAcc() const { return receiverAcc; }
     double getAmount() const { return amount; }
-    string getSender() const { return sender; }
-    string getReceiver() const { return receiver; }
-
-
-};
-
-class BankAccount
-{
-    string username, password;
-    double balance;
-    TransactionHistory history;
-
-public:
-    BankAccount() = default;
-
-    BankAccount(string& username, string& password, double initialBalance) : 
-    username(username), password(password), balance(initialBalance) {}
-
-    string getUsername() const { return username; }
-    string getPassword() const { return password; } 
-    double getBalance() const { return balance; } 
-
-    void setUsername(stirng name) { username = name; }
-    void setPassword(string oldP, string newP)
+    char getType() const
     {
-        if(password == oldP)
-        {
-            password = newP;
-            cout << "Password is successfully updated!" << endl;
-        }
+        if(type == D)
+            return "Deposit";
+        else if(type == W)
+            return "Withdraw";
         else 
-            cout << "Old password is incorrect! Password is not updated."
-    }
-    
-    void setBalance(double newBalance) { balance = newBalance; }
-
-    void deposit(double amount) { balance += amount; }
-
-    bool withdraw(double amount, string& enteredPassword) {
-        // Verify password before withdrawal
-        if (enteredPassword == password && amount <= balance) {
-            balance -= amount;
-            return true; // Withdrawal successful
-        }
-        return false; // Withdrawal failed
-    }
-
-    void transfer(double amount, BankAccount& receiver, string& enteredPassword) {
-        // Verify password before transfer
-        if (enteredPassword == password && amount <= balance) {
-            balance -= amount;
-            receiver.deposit(amount);
-        }
-    }
-};
-
-
-class BankingSystem {
-private:
-    BankAccount accounts[5];
-
-public:
-    // Load bank accounts from file
-    void loadAccounts(const string& filename) {
-        ifstream file(filename);
-        string username, password;
-        double balance;
-        for(int i = 0; i < N; i++)
-        {
-            file >> username >> password >> balance;
-            accounts.emplace_back(username, password, balance);
-        }
-        /**while (file >> username >> password >> balance) {
-            accounts.emplace_back(username, password, balance);
-        }*/
-        file.close();
+            return "Transfer";
     }
 
 };
-
-int main()
-{
-    fstream
-    int choice;
-
-    cout << "<<<<<<<<WELCOME TO DACCrew ONLINE BANKING SYSTEM>>>>>>>" << endl;
-    do
-    {
-        cout << "Please select an operation" << endl;
-        cout << "[1] Deposit" << endl
-             << "[2] Withdrawal" << endl
-             << "[3] Instant Transfer" << endl
-             << "[4] View Account" << endl
-             << "[5] View Transaction History" << endl
-             << "[6] Abort" << endl
-             << "Choice:";
-        
-        cin >> choice;
-
-
-    }while(choice != 6)
-}
