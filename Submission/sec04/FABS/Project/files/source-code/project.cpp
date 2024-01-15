@@ -51,7 +51,7 @@ class Node {
 		Node(Courier d) {
 			data = d;
 			next = NULL;
-		} // ... (unchanged)
+		} 
 };
 
 class LinkedList {
@@ -344,6 +344,58 @@ class LinkedList {
 		}
 };
 
+class Queue {
+    queue<Courier> courierQueue;
+
+public:
+    void enqueue(const Courier& courier) {
+        courierQueue.push(courier);
+    }
+
+    void dequeue() {
+        if (!courierQueue.empty()) {
+            courierQueue.pop();
+        } else {
+            cout << "Queue is empty. Nothing to dequeue.\n";
+        }
+    }
+
+    void displayQueue() {
+        queue<Courier> tempQueue = courierQueue;
+
+        cout << "\nCourier Queue:\n";
+        int count = 1;
+        while (!tempQueue.empty()) {
+            const Courier& currentData = tempQueue.front();
+            cout << "[" << count << "] ";
+            currentData.display(false);
+            tempQueue.pop();
+            count++;
+        }
+       
+    }
+};
+
+class Stack {
+    stack<Courier> courierStack;
+
+public:
+    void push(const Courier& courier) {
+        courierStack.push(courier);
+    }
+
+    void pop() {
+        if (!courierStack.empty()) {
+            courierStack.pop();
+        } else {
+            cout << "Stack is empty. Nothing to pop.\n";
+        }
+    }
+
+  
+};
+
+
 int main() {
     
     ifstream inputFile("TEST.txt");
@@ -353,7 +405,10 @@ int main() {
     }
 
     LinkedList courierList;
-
+    Queue courierQueue;
+    Stack courierStack;
+    
+	
   string line;
     while (getline(inputFile, line)) {
         stringstream ss(line);
