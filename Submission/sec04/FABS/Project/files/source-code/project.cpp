@@ -578,6 +578,47 @@ inputFile.close();
 		courierList.findNode(searchCourier);
 		break;
            	}
+	case 4: {
+                 int sortCriteria;
+	            bool sorting;
+	            do {
+	                cout << "\n[1] Sort by name\n[2] Sort by parcel type\n[3] Sort by tracking number\n[0] Back to Main Menu\nEnter your choice: ";
+	                cin >> sortCriteria;
+	
+	                if (sortCriteria == 0) {
+	                    cout << "Returning to Main Menu.\n" << endl;
+	                    break;
+	                } else if (sortCriteria < 1 || sortCriteria > 3) {
+	                    cout << "Invalid option. Please try again.\n";
+	                    sorting = false;
+	                    continue;
+	                }
+	                courierList.sortList(sortCriteria);
+	                cout << endl;
+	                sorting = true;
+	            } while (!sorting);
+	            break;
+	        }
+            
+            case 5: {
+                courierList.displayList();
+                cout << endl;
+                break;
+            }
+	case 6: {
+                Courier newCourier = courierList.getNewCourier();
+                courierQueue.enqueue(newCourier);
+                cout << "Courier enqueued to the queue.\n" << endl;
+                break;
+            }
+            case 7: {
+                CourierQueue.dequeue();
+                break;
+        	}
+            case 8: {
+                CourierQueue.displayQueue();
+                break;
+        	}
   }
     } while (choice != 0);
 
