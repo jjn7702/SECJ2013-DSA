@@ -162,4 +162,4 @@ First, we declare two private attributes for the class which are cust[100] and t
 
 ## Source Code Demonstration about Data Structure Concept Employed and User Guide
 ### Please refer the report for this part
-[Report]
+[Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/The%20Trio/Project/DSA%20Project%20Report.pdf)
