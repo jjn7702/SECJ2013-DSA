@@ -41,7 +41,7 @@ The implementation of linked list concept into the inventory system is a strong 
 
 
 ## Flowchart 💹
-![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/center%20point/images/A2-FLOW1.png)
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/center%20point/Images/A2-FLOW1.png)
 
 
 
