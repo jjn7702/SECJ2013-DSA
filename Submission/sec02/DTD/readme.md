@@ -57,7 +57,7 @@ The Library Management System is aiming to organize,store and manage library res
 
 - [Assignment 1](./Assignment1/assignment1.md)
 - [Assignment 2](./Assignment2/assignment2.md)
-- [Project](./project/project.md)
+- [Project](./Project/Project.md)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
