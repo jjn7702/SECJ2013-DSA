@@ -47,9 +47,12 @@ The inventory management system is essential for one business or organization to
 
 ## Problem analysis
 
-Regarding warehouse management, the current manual inventory system often causes issues related to efficiency and accuracy. This mode of operation is not automated to achieve maximum resource optimization, and it may often cause 
-❗errors
-❗inefficiencies
+𝐑𝐞𝐠𝐚𝐫𝐝𝐢𝐧𝐠 𝐰𝐚𝐫𝐞𝐡𝐨𝐮𝐬𝐞 𝐦𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭, 𝐭𝐡𝐞 𝐜𝐮𝐫𝐫𝐞𝐧𝐭 𝐦𝐚𝐧𝐮𝐚𝐥 𝐢𝐧𝐯𝐞𝐧𝐭𝐨𝐫𝐲 𝐬𝐲𝐬𝐭𝐞𝐦 𝐨𝐟𝐭𝐞𝐧 𝐜𝐚𝐮𝐬𝐞𝐬 𝐢𝐬𝐬𝐮𝐞𝐬 𝐫𝐞𝐥𝐚𝐭𝐞𝐝 𝐭𝐨 𝐞𝐟𝐟𝐢𝐜𝐢𝐞𝐧𝐜𝐲 𝐚𝐧𝐝 𝐚𝐜𝐜𝐮𝐫𝐚𝐜𝐲. 𝐓𝐡𝐢𝐬 𝐦𝐨𝐝𝐞 𝐨𝐟 𝐨𝐩𝐞𝐫𝐚𝐭𝐢𝐨𝐧 𝐢𝐬 𝐧𝐨𝐭 𝐚𝐮𝐭𝐨𝐦𝐚𝐭𝐞𝐝 𝐭𝐨 𝐚𝐜𝐡𝐢𝐞𝐯𝐞 𝐦𝐚𝐱𝐢𝐦𝐮𝐦 𝐫𝐞𝐬𝐨𝐮𝐫𝐜𝐞 𝐨𝐩𝐭𝐢𝐦𝐢𝐳𝐚𝐭𝐢𝐨𝐧, 𝐚𝐧𝐝 𝐢𝐭 𝐦𝐚𝐲 𝐨𝐟𝐭𝐞𝐧 𝐜𝐚𝐮𝐬𝐞
+
+❗️𝐞𝐫𝐫𝐨𝐫𝐬
+
+❗️𝐢𝐧𝐞𝐟𝐟𝐢𝐜𝐢𝐞𝐧𝐜𝐢𝐞𝐬
+
 
 💡To overcome these challenges, our Inventory Management System aims at using a queue data structure for an organized and automated solution. 
 
