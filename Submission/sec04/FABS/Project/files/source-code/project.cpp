@@ -3,17 +3,20 @@
 #include <sstream>
 #include <string>
 #include <iomanip>
-#include <queue>
-#include <stack>
+
 using namespace std;
 
 class Courier {
     string name, parcelType, source, destination, status;
     int trackingNum;
+    Courier *next;
 
 	public:
-	    Courier(string n = " ", string p = " ", string s = " ", string d = " ", string st = " ", int t = 0)
-	        : name(n), parcelType(p), source(s), destination(d), status(st), trackingNum(t) {}
+	    Courier()
+	    : name(" "), parcelType(" "), source(" "), destination(" "), status(" "), trackingNum(0), next(NULL) {}
+
+       	    Courier(string name, string parcelType, string source, string destination, string status, int trackingNum)
+            : name(name), parcelType(parcelType), source(source), destination(destination), status(status), trackingNum(trackingNum), next(NULL) {}
 	
 	    void setName(string n) { name = n; }
 	    void setType(string p) { parcelType = p; }
@@ -43,313 +46,53 @@ class Courier {
 	    }
 };
 
-class Node {
-   	public:
-		Courier data;
-		Node* next;
-		
-		Node(Courier d) {
-			data = d;
-			next = NULL;
-		} 
-};
-
-class LinkedList {
-   Node* head;
-	
-	public:
-		LinkedList() {
-			head = NULL;
-		}
-		
-		Courier getNewCourier() {
-	        string n, parcel, sourc, dest, stat;
-	        int track;
-	
-	        cout << "\nEnter details for the new Courier:" << endl;
-	
-	        cout << "Name: ";
-	        cin.ignore();
-	        getline(cin, n);
-	
-	        cout << "Parcel Type: ";
-	        getline(cin, parcel);
-	
-	        cout << "Source: ";
-	        getline(cin, sourc);
-	
-	        cout << "Destination: ";
-	        getline(cin, dest);
-	
-	        cout << "Status: ";
-	        getline(cin, stat);
-	
-	        cout << "Tracking Number: ";
-	        cin >> track;
-			
-	        cin.ignore();
-	
-	        return Courier(n, parcel, sourc, dest, stat, track);
-    	}
-	
-		void insertFront(Courier d) {
-			Node* newNode = new Node(d);
-			newNode->next = head;
-			head = newNode;
-			cout << "Courier added at the beginning.\n" << endl;
-		}
-		
-		void insertMiddle(Courier d, int position) {
-			Node* newNode = new Node(d);
-			
-			if (!head) {
-				if (position == 1) {
-					head = newNode;
-					return;
-				}
-				else {
-					cout << "Invalid position. List is empty." << endl;
-					return;
-				}
-			}
-			
-			int listSize = 1;
-		    Node* sizeChecker = head;
-		    while (sizeChecker->next) {
-		        listSize++;
-		        sizeChecker = sizeChecker->next;
-		    }
-		    if (position == 1) {
-		        cout << "Invalid position. Use 'Insert at the beginning' option instead.\n" << endl;
-		        delete newNode;
-		        return;
-		    } else if (position == listSize) {
-		        cout << "Invalid position. Use 'Insert at the end' option instead.\n" << endl;
-		        delete newNode;
-		        return;
-		    }
-			
-			Node* curr = head;
-			int currPosition = 1;
-			
-			while (currPosition < position -1 && curr->next != NULL) {
-				curr = curr->next;
-				currPosition++;
-			}
-			
-			if (currPosition < position - 1) {
-				cout << "Invalid position." << endl;
-				delete newNode;
-				return;
-			}
-			
-			newNode->next = curr->next;
-			curr->next = newNode;
-			cout << "Courier added at the position " << position << ".\n" << endl;
-		}
-		
-		void insertBack(Courier d) {
-			Node* newNode = new Node(d);
-			if (!head) {
-				head = newNode;
-				return;
-			}
-			Node* curr = head;
-			while (curr->next) {
-				curr = curr->next;
-			}
-			curr->next = newNode;
-		}
-		
-		void deleteFront() {
-			if (!head) {
-				cout << "List is empty." << endl;
-				return;
-			}
-			Node* temp = head;
-			head = head->next;
-			delete temp;
-			cout << "Courier deleted at the beginning.\n" << endl;
-		}
-		
-		void deleteMiddle(int position) {
-			if (!head) {
-      			cout << "List is empty." << endl;
-       			return;
-    		}
-    		
-    		int listSize = 1;
-		    Node* sizeChecker = head;
-		    while (sizeChecker->next) {
-		        listSize++;
-		        sizeChecker = sizeChecker->next;
-		    }
-		     if (position == 1) {
-		        cout << "Invalid position. Use 'Delete at the beginning' option instead.\n" << endl;
-		        return;
-		    } else if (position == listSize) {
-		        cout << "Invalid position. Use 'Delete at the end' option instead.\n" << endl;
-		        return;
-		    }
-    		
-    		Node* curr = head;
-    		Node* prev = NULL;
-    		int currPosition = 1;
-    		
-    		while (currPosition < position && curr) {
-    			prev = curr;
-    			curr = curr->next;
-    			currPosition++;
-			}
-			
-			if (currPosition < position) {
-				cout << "Invalid position." << endl;
-        		return;
-			}
-			
-			prev->next = curr->next;
-			delete curr;
-			cout << "Courier deleted at the position " << position << ".\n" << endl;
-		}
-		
-		void deleteBack() {
-			if (!head) {
-            	cout << "List is empty. Nothing to delete." << endl;
-            	return;
-        	}
-        	if (!head->next) {
-        		delete head;
-        		head = NULL;
-        		return;
-			}
-			Node* curr = head;
-			while (curr->next->next) {
-				curr = curr->next;
-			}
-			delete curr->next;
-			curr->next = NULL;
-			cout << "Courier deleted at the end.\n" << endl;
-		}
-		
-		void findNode(const Courier& searchData) {
-		    Node* curr = head;
-		    bool found = false;
-			
-		    while (curr) {
-		        const Courier& currentData = curr->data;
-		
-		        if ((searchData.getName().empty() || currentData.getName() == searchData.getName()) ||
-		            (searchData.getType().empty() || currentData.getType() == searchData.getType()) ||
-		            (searchData.getSource().empty() || currentData.getSource() == searchData.getSource()) ||
-		            (searchData.getDest().empty() || currentData.getDest() == searchData.getDest()) ||
-		            (searchData.getStat().empty() || currentData.getStat() == searchData.getStat()) ||
-		            (searchData.getTrackNum() != 0 && currentData.getTrackNum() == searchData.getTrackNum())) {
-
-			     currentData.display(!found);
-			     cout << endl;
-			     found = true;
-		        }
-		
-		        curr = curr->next;
-		    }
-		    if (!found)
-			    cout << "\nCourier not found. Please try again.\n" << endl;
-		}
-
-		void sortList(int sortCriteria) {
-		    if (!head || !head->next) {
-		        return;
-		    }
-		    bool swapped;
-		    Node* current;
-		    Node* lastSorted = NULL;
-		
-		    do {
-		        swapped = false;
-		        current = head;
-		
-		        while (current->next != lastSorted) {
-		            const Courier& currentData = current->data;
-		            const Courier& nextData = current->next->data;
-		
-		            switch (sortCriteria) {
-		                case 1:
-					if (currentData.getName() > nextData.getName()) {
-		                        Courier temp = current->data;
-		                        current->data = current->next->data;
-		                        current->next->data = temp;
-		                        swapped = true;
-		                    }
-		     
-		                    break;
-		                case 2: 
-		                    if (currentData.getType() > nextData.getType()) {
-		                        Courier temp = current->data;
-		                        current->data = current->next->data;
-		                        current->next->data = temp;
-		                        swapped = true;
-		                    }
-		                    break;
-		                case 3: 
-		                   if (currentData.getTrackNum() > nextData.getTrackNum()) {
-		                        Courier temp = current->data;
-		                        current->data = current->next->data;
-		                        current->next->data = temp;
-		                        swapped = true;
-		                    }
-		                    break;
-		                default:
-		                    cout << "Invalid sort criteria.\n";
-		                    return;
-		            }
-		            current = current->next;
-		        }
-		
-		    lastSorted = current; 
-		    } while (swapped);
-		    
-		    switch (sortCriteria) {
-		        case 1:
-		            cout << "List sorted by name.\n";
-		            break;
-		        case 2:
-		            cout << "List sorted by parcel type.\n";
-		            break;
-		        case 3:
-		            cout << "List sorted by tracking number.\n";
-		            break;
-		        default:
-		        	cout << "Invalid sort criteria.\n";
-		            break;
-		    }
-		}
-		
-		void displayList() {
-		    Node* current = head;
-		    int nodeNumber = 1; 
-			cout << endl;
-		    cout << left << setw(6) << "No." << setw(20) << "Tracking Number" << setw(20) << "Name"
-		         << setw(20) << "Parcel Type" << setw(20) << "Source"
-		         << setw(20) << "Destination" << setw(20) << "Status" << endl;
-		    cout << setfill('-') << setw(120) << "" << setfill(' ') << endl;
-		
-		    while (current) {
-		        const Courier& currentData = current->data;
-		        cout << left << setw(6) << "[" + to_string(nodeNumber) + "]" << setw(20) << currentData.getTrackNum() << setw(20) << currentData.getName()
-		             << setw(20) << currentData.getType() << setw(20) << currentData.getSource()
-		             << setw(20) << currentData.getDest() << setw(20) << currentData.getStat() << endl;
-		        current = current->next;
-		        nodeNumber++;
-		    }
-		}
-};
-
 class Queue {
-    queue<Courier> courierQueue;
+private:
+    Courier* front;
+    Courier* rear;
 
 public:
-    void enqueue(const Courier& courier) {
-        courierQueue.push(courier);
+    Queue() : front(NULL), rear(NULL) {}
+
+    bool isEmpty() const {
+        return front == NULL;
+    }
+
+    Courier* getFront() const {
+        return front;
+    }
+
+    void enqueue() {
+        string newName, newParcelType, newSource, newDestination, newStatus;
+        int newTrackingNum;
+
+        cout << "<<<<<<< Enqueue Courier >>>>>>>" << endl << endl;
+        cout << "Name : ";
+        getline(cin, newName);
+
+        cout << "Parcel Type : ";
+        getline(cin, newParcelType);
+
+        cout << "Source : ";
+        getline(cin, newSource);
+
+        cout << "Destination : ";
+        getline(cin, newDestination);
+
+        cout << "Status : ";
+        getline(cin, newStatus);
+
+        cout << "Tracking Number : ";
+        cin >> newTrackingNum;
+
+        Courier* node = new Courier(newName, newParcelType, newSource, newDestination, newStatus, newTrackingNum);
+
+        if (isEmpty()) {
+            front = rear = node;
+        } else {
+            rear->setNext(node);
+            rear = node;
+        }
     }
 
     void dequeue() {
@@ -380,42 +123,7 @@ public:
     }
 };
 
-class Stack {
-    stack<Courier> courierStack;
 
-public:
-    void push(const Courier& courier) {
-        courierStack.push(courier);
-    }
-
-    void pop() {
-        if (!courierStack.empty()) {
-            courierStack.pop();
-        } else {
-            cout << "Stack is empty. Nothing to pop.\n";
-        }
-    }
-   void displayStack() {
-        stack<Courier> tempStack = courierStack;
-
-        cout << "\nCourier Stack:\n";
-        int count;
-        while (!tempStack.empty()) {
-	    cout << left << setw(6) << "No." << setw(20) << "Tracking Number" << setw(20) << "Name"
-		 << setw(20) << "Parcel Type" << setw(20) << "Source"
-	         << setw(20) << "Destination" << setw(20) << "Status" << endl;
-	    cout << setfill('-') << setw(120) << "" << setfill(' ') << endl;
-            const Courier& currentData = tempStack.top();
-            cout << "[" << count << "] ";
-            currentData.display(false);
-            tempStack.pop();
-            count = count + 1;
-        }
-        cout << endl;
-    }
-
-  
-};
 
 
 int main() {
