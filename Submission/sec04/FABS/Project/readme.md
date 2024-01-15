@@ -10,7 +10,6 @@
 ## Appendix :red_circle:
 
 - [Overview of The Project](#overview)
-- [Synopsis](#synopsis)
 - [Design](#design)
 - [Design Description](#designdescription)
 - [User Manual/Guide](#usermanual)
@@ -19,15 +18,11 @@
 
 ## Overview of The Project <a name="overview"></a> :heavy_check_mark:
 
-
-## Synopsis <a name="synopsis"></a> 📝
-
-
 ## Design <a name="design"></a> 🎨
 
 ## Design Description <a name="designdescription"></a> 💹
 
-## User Manual/Guide <a name="usermanual"></a> 💹
+## User Manual/Guide <a name="usermanual"></a> 📝
 
 ## Similarity Report <a name="report"></a> 🔔
 
