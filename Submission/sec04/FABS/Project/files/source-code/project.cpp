@@ -140,6 +140,34 @@ public:
         cout << "<< Press any key to continue >>";
         cin.get();
     }
+
+     void search() {
+        string input;
+
+        Courier* currNode;
+        bool found = false;
+
+        cout << "<<<<<<< Search Courier(s) >>>>>>>" << endl;
+        cout << "Enter Status : ";
+        getline(cin, input);
+
+        currNode = front;
+        currNode->displayHeader();
+        while (currNode) {
+            if (currNode->getStatus() == input) {
+                currNode->display(1);
+                found = true;
+            }
+            currNode = currNode->getNext();
+        }
+
+        if (!found) {
+            cout << "Status not found in the queue." << endl;
+        }
+
+        cout << "<< Finish searching... Press any key to continue >>";
+        cin.get();
+    }
        
 };
 
