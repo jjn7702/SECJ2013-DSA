@@ -420,7 +420,7 @@ public:
 
 int main() {
     
-    ifstream inputFile("TEST.txt");
+    ifstream inputFile("COURIER.txt");
     if (!inputFile.is_open()) {
         cout << "Error opening file." << endl;
         return 1;
