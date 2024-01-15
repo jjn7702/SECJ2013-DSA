@@ -55,6 +55,7 @@ The inventory management system is essential for one business or organization to
 
 
 💡To overcome these challenges💡
+
 Our Inventory Management System aims at using a queue data structure for an organized and automated solution. 
 
 This system simplifies the warehousing process through the ability to add and delete inventory items by the FIFO (First In First Out) rule. It also aims to improve the organization by implementing a sorting feature to allow quick searches and offering a user-friendly interface to view and edit inventory data. The real-time updates and a low-stock alert function, it enable timely actions to avoid shortages. Through these goals and characteristics, the Inventory Management System will provide efficiency and accuracy for every warehouse management.
