@@ -111,7 +111,7 @@ The implementation of linked list concept into the inventory system is a strong 
 
 
 ## Linked List Implementation 💹
-1. **Add**
+1. **Add**<br />
    1.1 Add at front
    - If the list is empty, set head = newInventory
    - Else, newInventory->next = head->next and head = newInventory
@@ -127,7 +127,7 @@ The implementation of linked list concept into the inventory system is a strong 
    - Then, the newInventory will be inserted at the position
    - If the entered position value is invalid, it will auto inserted at the end of list
 
-2. **Delete**
+2. **Delete**<br />
    2.1 Delete at front
    - New head will become the next node of head
    - And the previous head is deleted
