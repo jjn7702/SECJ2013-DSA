@@ -391,6 +391,20 @@ public:
             cout << "Stack is empty. Nothing to pop.\n";
         }
     }
+   void displayStack() {
+        stack<Courier> tempStack = courierStack;
+
+        cout << "\nCourier Stack:\n";
+        int count;
+        while (!tempStack.empty()) {
+            const Courier& currentData = tempStack.top();
+            cout << "[" << count << "] ";
+            currentData.display(false);
+            tempStack.pop();
+            count = count + 1;
+        }
+        cout << endl;
+    }
 
   
 };
@@ -600,7 +614,7 @@ inputFile.close();
 	            break;
 	        }
             
-            case 5: {
+        case 5: {
                 courierList.displayList();
                 cout << endl;
                 break;
@@ -611,29 +625,33 @@ inputFile.close();
                 cout << "Courier enqueued to the queue.\n" << endl;
                 break;
             }
-            case 7: {
+        case 7: {
                 CourierQueue.dequeue();
                 break;
         	}
-            case 8: {
+        case 8: {
                 CourierQueue.displayQueue();
                 break;
         	}
-	    case 9: {
+	case 9: {
                 Courier newCourier = courierList.getNewCourier();
                 courierStack.push(newCourier);
                 cout << "Courier pushed to the stack.\n" << endl;
                 break;
             }
-            case 10: {
+        case 10: {
                 courierStack.pop();
                 break; 
         	}
-            case 0: {
+	case 11: {
+                courierStack.displayStack();
+                break;
+        	}
+         case 0: {
                 cout << "Exiting program.\n";
                 break;
         	}
-            default:
+         default:
                 cout << "Invalid choice. Please try again.\n" << endl;
                 break;
   }
