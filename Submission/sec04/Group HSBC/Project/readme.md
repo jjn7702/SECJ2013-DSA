@@ -25,12 +25,14 @@ The main goal of HSBC's Banking System is to enhance the user experience and smo
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/bc7e2df3-d20d-457c-b9fb-e0574b6a740e" width="3%" height="3%"> Objective
 The objectives of creating this banking system:
-1) To manage the banking transaction
-2) To implement banking system using linked list
-3) Display all the banking transaction history that has been made by the user
+1) To provide a secure and functionable system
+2) To implement banking system using binary tree concept
+3) Able to display the transaction history from user’s view and from staff’s view.
+4) To provide 2 view spots in the system which are from users and from manager.
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/ac62ef65-848d-41a6-97c2-1ff40be8ecd3" width="3%" height="3%"> Synopsis
-In this assignment, we choose the topic Banking System as our group assignment. The purpose of this coding is to create a simple banking system that is able to manage the banking transaction by implementing the concept of linked list. There are some functions of linked lists which are adding a new node, deleting a node, finding a node and also displaying all of the nodes in the list. For adding a new node, the user is able to insert the details of the banking transaction based on their preference. For deleting a node, the user is able to remove the first, last or specific account number of a banking transaction. For finding a node, the user is able to find the transaction history of a specific account number. Finally for the displaying all the nodes in the list, this allow the user to have a look on all the banking transaction history.
+In this project, our group HSBC decided to complete a simple banking system. We also created the system from 2 view spots which are users and staff. Our purpose is to provide a banking system with the register and login function and can also manage the banking transactions. The concept of a binary tree that we implemented in this project is to manage the user account like adding a node and delete a node. For adding a node, users have to create a node by input their account info such as secure pin, password and account number. For deleting a node, this function can be only used by staff which is to delete the transaction details of a user by key in the reference number of the transaction. For searching a node, the staff can enter the account number that he/she wants to search for its information and it will display the transaction information of the account. Lastly, for the displaying function in this project, users can only view themselves transaction history whereas for the staff, they can display all the user’s transaction’s information as this can make it easier if they want to have a check on transactio
+
 
 ## Design 🎨
 
@@ -47,12 +49,9 @@ In this assignment, we choose the topic Banking System as our group assignment. 
 ![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Image/DSA%20Assignment%202%20Report%20-%20Google%20Docs_page-0003.jpg)
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/clipboard.png" width="4%" height="4%"> Design Description
-##### 1. Adding a new node
-For adding a new node, we create 3 member functions inside the class which are  insertBeginning function, insertEnd function and insertMiddle function. The insertBeginning function assigns a node pointer named ‘newNode’ which is assigned as the new node which is input by the user and checks whether the list is empty or not. If it is empty, it will set the head to the ‘newNode’. If it is not empty, it will set the next of the ‘newNode’ to head and the head will be set to the ‘newNode’. 
-
-The insertEnd function assigns a node pointer named ‘newNode’ which is assigned as the new node which is input by the user and checks whether the list is empty or not. If it is empty, it will set the head to the ‘newNode’. If it is not empty, we assign a new node pointer which is named ‘current’ and it is set to the head. While loop is executed with condition the next of the ‘current’ is not null. It will set the ‘current’ to the next of the ‘current’. After the loop ends, the next of the ‘current’ is set to newNode. 
-
-The insertMiddle function assigns a node pointer named ‘newNode’ which is assigned as the new node which is input by the user and checks whether the list is empty or not. If it is empty, it will set the head to the ‘newNode’ and end the function. If it is not empty, we assign two node pointers which are ‘slow’ and it is set to the head and for the ‘fast’ pointer, it will be set to the next of the head. While function is executed with condition ‘fast’ is not null and the next of the ‘fast’ is not null. Inside the loop, the node pointer ‘slow’ will be set to the next of the node pointer ‘slow’ and node pointer ‘fast’ will be set to the next of the next node pointer ‘fast’. After the loop ends, the next node pointer ‘newNode’ will be set to the next of node pointer ‘slow’ and the next of the node pointer ‘slow’ is set to newNode.
+##### 1. User View
+###### a. Insert a new transaction
+For inserting a new transaction, we create a member function named insertNode function. The insertNode function checks whether the node is NULL. If the node is NULL, it will create a new transaction node with parameter of acc and return it. If the referenceNumber of the account is less than the referenceNumber of the node, it will set the left node to the referenceNumber of the account. If the referenceNumber of the account is more than the referenceNumber of the node, it will set the right node to the referenceNumber of the account. 
 
 void insertBeginning(Account a){
             Node* newNode = new Node(a);
@@ -106,8 +105,8 @@ void insertBeginning(Account a){
             slow->next = newNode;
         }
 
-##### 2. Finding node
-For the finding node function, we create a member function called findNode with return type void which accepts account number, ‘num’ as a parameter and also as a search key. In this function, we assign a node pointer named ‘current’ which is assigned as head and set boolean variable, found to false. We use a while loop with a condition, current not equal to NULL, to compare the account number in every node with the parameter ‘num’ until the end of the node. Once the account number is matched to the ‘num’, it will call the function in class Account which are printTitle and printDetails for the specific account number and set the ‘found’ to true and use break to stop the loop. On the other hand, if the parameter passed cannot match the information in every node, it will show “Node not found with Account Number” along with the ‘num’ passed.
+###### b. View Current Balance
+For viewing current balance, we create a get_balance function which allows us to view the current balance of the account. When the user successfully login to the system, it will record the index of the account and set it to targetAcc. This allows the user to correctly get the balance of the account.
 
 void findNode(string num){
             Node* current = head;
@@ -132,8 +131,8 @@ void findNode(string num){
         }
 
 
-##### 3. Display the node
-For displaying the node, we create a member function, void displayNode() in class List. In this function, we also create a node pointer named ‘current’ and point it to the head node. Then, we will call the function , printTitle() in class Account to print out the title. Next, we create a while loop with condition, current not equal to NULL to print the account details in every node. We also update the current node to the next node by the code ‘ current = current->next’ to ensure the while loop can loop until the end of the node.
+###### c. Display own transaction history
+For displaying all the transactions of the account, we create a member function named searchAccount function. This function will check whether there is a transaction inside. If there is, it will print all the transaction details
 
         void displayNode(){
             Node* current = head;
@@ -144,10 +143,15 @@ For displaying the node, we create a member function, void displayNode() in clas
             }
         }
 
+##### 2. Staff View
+###### a. Search a transaction by account number
+For searching a transaction by account number, it will first search the account number and display the transaction related to the account number. For searching the account number, we created a function called searchAccount function. It takes the accNum parameter and searches for the account number. If the account number is true, it will display all the transactions that are related to the account number that has been entered. If the account number is not true, the system will display an error message which indicates that the account number is not inside the system.
 
+###### b. Search a transaction by account number
+For displaying all the transactions that occurred in this system, we create a member function inside the class which is called displayAccount function. Inside this function, it will call a function that is named as displayInOrder. displayInOrder function checks whether the node is NULL. If it is not NULL, it recursively calls the left node to ensure the left subtree is traversed first. After that, it will print all the details of the node. For displayInOrder(node->right), this is to allow the right subtree to traverse at last. By doing all this, all the transactions that are relevant will be printed out and displayed when the user wants to display all the transactions.
 
-
-
+##### c. Delete a transaction
+For deleting a transaction, we create a function called deleteAccount function. Inside the function, it will call a function named deleteNode. The deleteNode has 2 parameters which are root and refer. Inside the deleteNode function, it checks whether the node is NULL. If it is NULL, it will return the original node. If the reference number is smaller than the node of referenceNumber, it will start searching at the left subtree. If the reference number is larger than the node of referenceNumber, it will start searching at the right subtree. If the node has one child or no children, it will verify whether the left child is NULL. If it is null, we create a new node pointer which is named temp and it is assigned to the right child. After that, we delete the node which is wanted to be deleted and return the temp pointer. Else, if the right child is NULL, we create a temp pointer that is assigned to the left child. We delete the node and return the temp pointer. For conditions such as the node has two children. We create a temp pointer which is assigned to the minimum value at the right children and we assign the node of referenceNumber is equal to the temp node of the referenceNumber and the right child is equal to the deleteNode function. Lastly, we return the node. For the transactionFile_update function, it updates the text file and removes the information of the node that has been deleted.
 
 
 
@@ -157,7 +161,7 @@ For displaying the node, we create a member function, void displayNode() in clas
 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
-|  Hayden Huan Kee Jiun |    A22EC0166     | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Assignment%202/Picture/photo_2023-12-11_08-21-15%20(1).jpg" title="Icon by Trazobanana"><img src="Picture/photo_2023-12-11_08-21-15%20(1).jpg" width=80px, height=80px>     |
+|  Hayden Huan Kee Jiun |    A22EC0166     | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Project/image/photo_2023-12-11_08-21-15%20(1).jpg" title="Icon by Trazobanana"><img src="Picture/photo_2023-12-11_08-21-15%20(1).jpg" width=80px, height=80px>     |
 |   Liow Chee Suan   |   A22EC0072      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Assignment%202/Picture/IMG_20231220_173159%20(1).jpg" title="Icon by Trazobanana"><img src="Picture/IMG_20231220_173159%20(1).jpg" width=80px, height=80px>         |
 |  Chan Qing Yee     |   A22EC0040      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Assignment%202/Picture/profilepic900kb.jpg" title="Icon by Trazobanana"><img src="Picture/profilepic900kb.jpg" width=80px, height=80px>         |
 |  Ooi Wei Sian     |   A22EC0102      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Assignment%202/Picture/weisian.jpg" title="Icon by Trazobanana"><img src="Picture/weisian.jpg" width=80px, height=80px>         |
@@ -167,7 +171,7 @@ For displaying the node, we create a member function, void displayNode() in clas
 
 - [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/Group%20HSBC/Assignment1)
 - [Assignment 2](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/Group%20HSBC/Assignment%202)
-- Project
+- [Project](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/Group%20HSBC/Project)
 
 ### Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
