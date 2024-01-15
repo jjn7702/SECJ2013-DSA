@@ -162,9 +162,9 @@ For deleting a transaction, we create a function called deleteAccount function. 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
 |  Hayden Huan Kee Jiun |    A22EC0166     | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Project/image/photo_2023-12-11_08-21-15%20(1).jpg" title="Icon by Trazobanana"><img src="image/photo_2023-12-11_08-21-15%20(1).jpg" width=80px, height=80px>     |
-|   Liow Chee Suan   |   A22EC0072      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Assignment%202/Picture/IMG_20231220_173159%20(1).jpg" title="Icon by Trazobanana"><img src="Picture/IMG_20231220_173159%20(1).jpg" width=80px, height=80px>         |
-|  Chan Qing Yee     |   A22EC0040      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Assignment%202/Picture/profilepic900kb.jpg" title="Icon by Trazobanana"><img src="Picture/profilepic900kb.jpg" width=80px, height=80px>         |
-|  Ooi Wei Sian     |   A22EC0102      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Assignment%202/Picture/weisian.jpg" title="Icon by Trazobanana"><img src="Picture/weisian.jpg" width=80px, height=80px>         |
+|   Liow Chee Suan   |   A22EC0072      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Project/image/IMG_20231102_111152.jpg" title="Icon by Trazobanana"><img src="image/IMG_20231102_111152.jpg" width=80px, height=80px>         |
+|  Chan Qing Yee     |   A22EC0040      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Project/image/profilepic900kb.jpg" title="Icon by Trazobanana"><img src="image/profilepic900kb.jpg" width=80px, height=80px>         |
+|  Ooi Wei Sian     |   A22EC0102      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Project/image/weisian.jpg" title="Icon by Trazobanana"><img src="image/weisian.jpg" width=80px, height=80px>         |
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/folder.png" width="3%" height="3%"> Findings 
 
