@@ -8,7 +8,7 @@
 
 ## Findings 📊
 
-- [Source Code]
+- [Source Code](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/The%20Trio/Project/Source%20Code)
 - [Plagiarism Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/The%20Trio/Project/Project%20Plagiarism%20Report.pdf)
 - [Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/The%20Trio/Project/DSA%20Project%20Report.pdf)
 - [UML Diagram and Flow Chart](https://app.diagrams.net/#G1qRs-q7iZpkrkau2ri2tI_dkmzvK0DKnU)
