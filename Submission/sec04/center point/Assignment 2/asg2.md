@@ -38,6 +38,20 @@ _Don't forget to hit the :star: if you like this repo._
 
 The implementation of linked list concept into the inventory system is a strong and also fast way to manage things like stocks or goods. It helps organize data in a convenient method. The main features of the tool are adding new things to stock, removing items, looking for inventory items that users need. Sorting list and display inventory list are also  convenient functions for this system.
 
+
+
+## Flowchart 💹
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/center%20point/Images/A2-FLOW1.png)
+![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/center%20point/Images/A2-FLOW2.png)
+![3](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/center%20point/Images/A2-FLOW3.png)
+
+
+
+## Class Diagram 💹
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/center%20point/Images/A2-Class.png)
+
+
+
 ## Flow of Event 💹
 1. User will be displayed the inventory list including all the inventory details: code, name, type, quantity and price. User will be directed to the main menu of the inventory management system as follow:<br /><br /> 
    **What do you need?** <br />
@@ -93,6 +107,60 @@ The implementation of linked list concept into the inventory system is a strong 
 15. The user can exit to the program when user choose exit option in main menu
 
 16. All the inventory list data would be stored in output file which is input.txt.
+
+
+
+## Linked List Implementation 💹
+1. **Add**<br />
+   1.1 Add at front
+   - If the list is empty, set head = newInventory
+   - Else, newInventory->next = head->next and head = newInventory
+
+   1.2 Add at middle
+   - If the list is empty, set head = newInventory
+   - Else, loop until find the last node in the linked list, set newInventory->next = NULL         and insert the newInventory after the last node
+
+   1.3 Add at end
+   - If the list is empty, set head = newInventory
+   - If (position == 1), addFront()
+   - While(NO achieve the last node in the list AND count < position-1 AND NO found), temp         will become its next value and increase count by 1
+   - Then, the newInventory will be inserted at the position
+   - If the entered position value is invalid, it will auto inserted at the end of list
+
+2. **Delete**<br />
+   2.1 Delete at front
+   - New head will become the next node of head
+   - And the previous head is deleted
+
+   2.2 Delete at middle
+   - If the position is 1, delFront()
+   - Else, loop and find the node which position is smaller than pos-1
+   - If the node found is second last node, the last node will be deleted
+   - Else, the node with the pos position will be deleted
+
+   2.3 Delete at end
+   - Loop the node until find the second last node
+   - Modify the new last node becomes the second last node
+   - Delete the previous last node
+
+3. **Sort**
+   - sort the invList based on Inventory Code in ascending order
+   - it will compare the inventory code value from sortedList and curr
+   - If the inventory code from curr is smaller than inventory code from sorted list,              inventory code from curr will be stored in front of inventory code from sorted list
+   - Else, set a temp = sortedList and start looping with condition (NO achieve the end of         list AND temp->next inventory Code value is smaller than the inventory code from curr),       temp will go to next value. Until out of looping, store the inventory code from curr at       the next of the inventory code of temp
+   - Then, move the curr to be curr->next value
+   - And lastly update the head with sortedList
+   - Finally, display the sorted InvList
+
+4. **Find**
+   - find the inventory based on inventory code or inventory name.
+   - It will loop the list since it has not achieved the last node in the list and show the        details of the inventory if the value of temp->getCode() is the same as the sKey that is      input by users.
+
+5. **Display**
+   - display all the inventory node in the InvList linked list.
+   - It will loop the list since it has not achieved the last node in the list and display         the data by calling the accessor of the inventory node.
+
+
 
 ## Findings 📊
 

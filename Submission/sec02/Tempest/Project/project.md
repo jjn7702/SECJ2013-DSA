@@ -27,7 +27,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Flow of Event 💹
 
-1. User will be directed to the main menu of the task management system. In the main menu user can see all the task with its date and status. User will also can see the option menu that have stack, queue and task breakdown.
+1. User will be directed to the main menu of the task management system. In the main menu user can see all the task with its date and status. User will also can see the option menu that have stack and queue.
 
 2. If the user click on the stack option, the system will redirect the user to the next option menu where the user can choose to use the stack implementation(last-in-first-out) for the task data manipulation in such manner:
 
@@ -50,19 +50,6 @@ _Don't forget to hit the :star: if you like this repo._
 7. After choosing the option, the system will show the output based on the option that have been chosen by the user.
 
 8. The user can exit to the main menu and will be showed again the first event. There the user can choose again which option that the user wants.
-
-9. If the user choose the third option which is tree, the system will redirect the user to the next option menu.
-
-10. If the user click on the task breakdown option, the system will redirect the user to the next option menu where the user can choose either to add or delete a subtask:
-
-    1. Add subtask
-    2. Delete subtask
-
-11. If the user click on the Add subtask option, the user can choose which task that they wanted to add the subtask. Once added the user can view all of the task with its subtask.
-
-12. If the user click on the Delete subtask option, the user can choose which subtask they wanted to delete. Once deleted the system will shown all the updated task and its subtask
-
-13. The user can exit to the main menu and will be showed again the first event. There the user can choose again which option that the user wants.
 
 ## Prepared by 🧑‍💻
 
