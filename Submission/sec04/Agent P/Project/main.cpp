@@ -1199,3 +1199,23 @@ void AdminLogin(Admin arr[],int j){
 	
 		}while(found==false);
 	}
+
+    void adminVoter(VoterQueue v){
+    system("CLS");
+    int opt;
+    cout<<"How would you like to view voters.\n";
+    cout<<"\n[1] Name"<<endl;
+    cout<<"[2] Faculty"<<endl;
+    cout<<"[3] Matric"<<endl;
+    cout<<"Please choose an option : ";
+    cin>>opt;
+
+    switch (opt){
+        case(1) :   v.ascendName();
+                    break;
+        case(2) :   v.facAsc();
+                    break;
+        case(3) :   v.MatricAsc();
+                    break;
+    }
+}
