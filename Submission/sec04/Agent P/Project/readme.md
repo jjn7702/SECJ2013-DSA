@@ -46,6 +46,8 @@ For dequeue, this can only be done by the admin. This is because, in the queue t
 
 ##### 3. Sort
 
+For the voter and candidate classes, the sorting was done in ascending order and used the improved bubble sort. For voter class, name, faculty, and matric number attributes are used in sorting. For candidate class, name, faculty, matric number, vote count are used as sorting attributes. 
+
 ##### 4. Search
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/project-management.png"  width="4%" height="4%"> User Guide
