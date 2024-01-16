@@ -682,3 +682,12 @@ int main(){
 			case 2 :		b.displayCart();
 							b = deleteorder(b);
 							break;
+			case 3 :		Search_item_in_Cart(b);
+							break;
+			case 4 :		b.bubbleSort();
+							ordernum = getordernum();
+							q.enQueue(ordernum);
+							b.order_list(ordernum);
+							b.displayReceipt(ordernum);
+							system("pause");
+							break;
