@@ -605,3 +605,10 @@ void Search_item_in_Cart(Cart b){
 		cin >> status;
 	}while((status == 'Y')||(status == 'y'));
 }
+
+int getordernum(){
+	int num;
+	cout << "Enter Your Order Number: ";
+	cin >> num;
+	return num;
+}
