@@ -27,6 +27,7 @@ We have outlined a few objectives for this project, which are crucial in order t
 
 ## PROJECT DESIGNS 🖌️
 ![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/dsa-Page-1.drawio%20(1).png)
+
 Figure 1: Overall Class Diagram for the Software Application
 
 &emsp;&emsp;&emsp;For the software application, we implemented three different
@@ -35,6 +36,7 @@ functions and purposes for the software application which will be broken down on
 one.
 
 ![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/dsa-Page-2.drawio.png)
+
 Figure 2: Node Class Diagram for the Software Application
 
 &emsp;&emsp;&emsp;The above figure shows the first implementation of a class called
@@ -45,6 +47,7 @@ as well as a display() function for printing purposes. The main purpose of this
 class is to serve as a linked list implementation for the next class which is Stack.
 
 ![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/dsa-Page-3.drawio.png)
+
 Figure 3: Stack Class Diagram for the Software Application
 
 &emsp;&emsp;&emsp;Apart from that, we have also implemented Stack class in our
@@ -58,6 +61,7 @@ employs the Last-In-First-Out concept.. Lastly, the purpose of isEmpty() functio
 to return a boolean value to determine whether or not the stack is empty. 
 
 ![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/dsa-Page-4.drawio.png)
+
 Figure 4: Queue Class Diagram for the Software Application
 
 &emsp;&emsp;&emsp;For the last class, which is Queue, it stores multiple public
@@ -75,6 +79,7 @@ the class also implements another deQueue() function that removes data at a spec
 position.
 
 ![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/dsa-Page-5.drawio%20(1).png)
+
 Figure 5: Flowchart for the Software Application Operation
 
 &emsp;&emsp;&emsp;The above diagram illustrates the flow of processes that the
