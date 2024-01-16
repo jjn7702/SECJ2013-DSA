@@ -582,3 +582,26 @@ void Search_item_in_Cart(Cart b){
 			}
 			foundo = b.find(target,item_search);  
 		}
+		else if(item_search == 2){
+			cout << "Enter the name: ";
+			cin >> target;
+			for(char &t : target){
+			t = toupper(t);
+			}
+			foundo = b.find(target,item_search);
+		}
+		if(foundo){
+			cout << "Order found" << endl;
+		}
+		else{
+			if(b.CartEmpty()){
+				cout << "No item in the Cart" << endl;
+			}
+			else{
+			cout << "Order not found" << endl;
+			}
+		}
+		cout << "Continue search?(Press Y to continue)";
+		cin >> status;
+	}while((status == 'Y')||(status == 'y'));
+}
