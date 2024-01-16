@@ -13,7 +13,92 @@ using namespace std;
 //class Transaction - Hayden
 
 //ALL
-class BinaryTree(){ 
+class BinaryTree {
+    private:
+        Transaction* root;
+
+        //insertNode - Hayden
+    
+
+        //QY
+        Transaction* findMinValueNode(Transaction* node){
+            Transaction* current = node;
+
+            while(current->left != NULL){
+                current = current->left;
+            }
+
+            return current;
+        }
+
+        //QY
+        Transaction* deleteNode(Transaction* node, int& refer){
+            //case 1: if the node is null
+            if (node == NULL)   
+                return node;
+            
+            //case 2: small the go left subtree
+            if(refer < node->referenceNumber){
+                node->left = deleteNode(node->left, refer);
+            }
+            //case 3: larger then go right subtree
+            else if(refer > node->referenceNumber){
+                node->right = deleteNode(node->right, refer);
+            }
+            //case 4: current node == acc that want to be deleted
+            else{
+                //case 4.1: if the node has one child or no child
+                if(node->left == NULL){
+                    Transaction* temp = node->right;
+                    delete node;
+                    return temp;
+                }
+                else if(node->right == NULL){
+                    Transaction* temp = node->left;
+                    delete node;
+                    return temp;
+                }
+
+                //case 4.2: if the node has two child
+                Transaction* temp = findMinValueNode(node->right);
+                node->referenceNumber = temp->referenceNumber;
+                node->right = deleteNode(node->right, temp->referenceNumber);
+            }
+
+            return node;
+        }
+
+        //searchNode() - WS
+        
+
+        //displayInOrder() - WS
+        
+
+        //update() - CS
+        
+
+    public:
+        BinaryTree() : root(NULL) {}
+
+        //insertAccount() - Hayden
+    
+
+        //QY
+        void deleteAccount(int& refer){
+            root = deleteNode(root, refer);
+        }
+
+        //searchAccount() - WS
+        
+
+        //displayAccount() - WS
+        
+
+        //transactionFile_update() - CS
+        
+
+        //findMax_Red() - CS
+        
 
 };
 
