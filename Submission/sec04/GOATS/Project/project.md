@@ -10,9 +10,9 @@ Among the difficulties the system will face include effectively allocating waiti
 
 ## Objectives
 
-### To provide easy management system for to record patient and staff of hospital.
-### To provide sorting and searching function in the system.
-### To provide efficient and effective with high accuracy in sorting and searching by implemented data structure algorithm.
+### Patients should be able to request appointments, check in, and receive prescriptions using a queue-based data structure to manage appointment requests, patient check-ins, or prescription requests. This will maintain order in the check-in process based on waiting numbers.
+### The system aims to manage patient records efficiently by incorporating a stack-based data structure for maintaining an updated record of daily hospital appointments. This will help in memory-clearing during system shutdown.
+### Patient record organization is a critical aspect, and we achieve this through the implementation of a Tree structure by utilizing the Binary Tree concept. This is to ensure efficient sorting, retrieval, and deletion of patient records, allows for systematic arrangement of patient record.
 
 
 ## Flow Chart
