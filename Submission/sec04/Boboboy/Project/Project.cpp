@@ -199,3 +199,156 @@ class Cart{
 			}
 			 cout << endl;
 		}
+        void displayReceipt(int order_num){
+			fstream outfile("Receipt.txt",ios :: out);
+			Order *temp;
+			temp = head;
+			float totalprice;
+			if(temp == NULL){
+				outfile << "Cart is empty" << endl;
+				cout << "Cart is empty" << endl;
+			}
+			outfile << "Your Order Number is: " << order_num << endl;
+			outfile << "********************** Receipt *******************************" << endl << endl;
+			outfile << "--------------------------------------------------------------" << endl;
+			outfile << "Code" << setw(18) << "Name" << setw(20) << "Type" << setw(20) << "Price(RM)" << endl;
+			outfile << "--------------------------------------------------------------" << endl;
+			cout << "********************** Receipt *******************************" << endl << endl;
+			cout << "--------------------------------------------------------------" << endl;
+			cout << "Code" << setw(18) << "Name" << setw(20) << "Type" << setw(20) << "Price(RM)" << endl;
+			cout << "--------------------------------------------------------------" << endl;
+			while(temp){
+				cout << temp->getcode() << setw(20) << temp->getname() << setw(20) << temp->getfoodtype() << setw(20) << temp->getprice() << endl;
+				outfile << temp->getcode() << setw(20) << temp->getname() << setw(20) << temp->getfoodtype() << setw(20) << temp->getprice() << endl;
+				totalprice += temp->getprice();
+				temp = temp -> next;
+			}
+			outfile << "The Total Price is " << setw(43) << totalprice << endl;
+			 cout << endl;
+			 outfile << endl;
+		}
+        Order* find(string target,int n){
+			Order *current = head;
+			while(current){
+				if(n == 1){
+					if(current -> getcode() == target){
+						return current;
+					}
+				}
+				else if(n == 2){
+					if(current -> getname() == target){
+						return current;
+					}
+				}
+				current = current ->next;
+			}
+			return NULL; 
+		}
+		void bubbleSort(){
+        int swapped,way;
+        Order *ptr1;
+        Order *lptr = NULL;
+        
+        cout << "Select Receipt display type: " << endl;
+    	cout << "1. Arrange the Receipt by following the code (ascending order)" << endl;
+    	cout << "2. Arrange the Receipt by following the code (descending order)" << endl;
+    	cout << "3. Arrange the Receipt by following the name (ascending order)" << endl;
+    	cout << "4. Arrange the Receipt by following the name (descending order)" << endl;
+    	cout << "5. Arrange the Receipt by following the foodtype (ascending order)" << endl;
+    	cout << "6. Arrange the Receipt by following the foodtype (descending order)" << endl;
+    	cout << "Your choice:";
+    	cin >> way;
+        // Checking for empty list
+        if (head == NULL)
+            return;
+        if(way == 1){
+        do {
+            swapped = 0;
+            ptr1 = head;
+
+            while (ptr1->next != lptr) {
+                if (ptr1->getcode() > ptr1->next->getcode()) {
+                    swap(ptr1, ptr1->next);
+                    swapped = 1;
+                }
+                ptr1 = ptr1->next;
+            }
+            lptr = ptr1;
+        } while (swapped);
+    }
+        else if(way == 2){
+        do {
+            swapped = 0;
+            ptr1 = head;
+
+            while (ptr1->next != lptr) {
+                if (ptr1->getcode() < ptr1->next->getcode()) {
+                    swap(ptr1, ptr1->next);
+                    swapped = 1;
+                }
+                ptr1 = ptr1->next;
+            }
+            lptr = ptr1;
+        } while (swapped);
+    }
+     else if(way == 3){
+        do {
+            swapped = 0;
+            ptr1 = head;
+
+            while (ptr1->next != lptr) {
+                if (ptr1->getname() > ptr1->next->getname()) {
+                    swap(ptr1, ptr1->next);
+                    swapped = 1;
+                }
+                ptr1 = ptr1->next;
+            }
+            lptr = ptr1;
+        } while (swapped);
+    }
+        else if(way == 4){
+        do {
+            swapped = 0;
+            ptr1 = head;
+
+            while (ptr1->next != lptr) {
+                if (ptr1->getname() < ptr1->next->getname()) {
+                    swap(ptr1, ptr1->next);
+                    swapped = 1;
+                }
+                ptr1 = ptr1->next;
+            }
+            lptr = ptr1;
+        } while (swapped);
+    }
+	else if(way == 5){
+        do {
+            swapped = 0;
+            ptr1 = head;
+
+            while (ptr1->next != lptr) {
+                if (ptr1->getfoodtype() > ptr1->next->getfoodtype()) {
+                    swap(ptr1, ptr1->next);
+                    swapped = 1;
+                }
+                ptr1 = ptr1->next;
+            }
+            lptr = ptr1;
+        } while (swapped);
+    }
+            if(way == 6){
+        do {
+            swapped = 0;
+            ptr1 = head;
+
+            while (ptr1->next != lptr) {
+                if (ptr1->getfoodtype() < ptr1->next->getfoodtype()) {
+                    swap(ptr1, ptr1->next);
+                    swapped = 1;
+                }
+                ptr1 = ptr1->next;
+            }
+            lptr = ptr1;
+        } while (swapped);
+    }
+    }
