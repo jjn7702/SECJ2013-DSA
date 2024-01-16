@@ -1339,3 +1339,23 @@ int main()
                                     cout<<"\nVoters after deletion : \n";
                                     l.display();
                                     break;
+                                     case 4  :   c.display();
+                                    cout<<"\nPlease enter the position you want to delete : ";
+                                    cin>>del;
+                                    if(del==1){
+                                    c.deleteFront();
+                                    }
+                                    else{
+                                    c.deleteAtNode(del);
+                                    }
+                                    system("CLS");
+                                    cout<<"Candidates after deletion : \n";
+                                    c.display();
+                                    break;
+                        case 5  :   c.insertAdmin();
+                                    break;
+                        case 6 :   exit(0);
+                    }
+                break;
+    	case 2 : if(count==1)
+				 	l2 = l.Voterlogin();
