@@ -291,3 +291,33 @@ class Cart{
             lptr = ptr1;
         } while (swapped);
     }
+     else if(way == 3){
+        do {
+            swapped = 0;
+            ptr1 = head;
+
+            while (ptr1->next != lptr) {
+                if (ptr1->getname() > ptr1->next->getname()) {
+                    swap(ptr1, ptr1->next);
+                    swapped = 1;
+                }
+                ptr1 = ptr1->next;
+            }
+            lptr = ptr1;
+        } while (swapped);
+    }
+        else if(way == 4){
+        do {
+            swapped = 0;
+            ptr1 = head;
+
+            while (ptr1->next != lptr) {
+                if (ptr1->getname() < ptr1->next->getname()) {
+                    swap(ptr1, ptr1->next);
+                    swapped = 1;
+                }
+                ptr1 = ptr1->next;
+            }
+            lptr = ptr1;
+        } while (swapped);
+    }
