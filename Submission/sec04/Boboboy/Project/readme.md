@@ -13,6 +13,7 @@ _Don't forget to hit the :star: if you like this repo._
 - [Objectives](#objectives-)
 - [Synopsis](#synopsis-)
 - [Linked List in Ordering System](#linked-list-in-ordering-system)
+- [Queue in Ordering System](#queue-in-ordering-system)
 - [Class Diagram](#class-diagram)
 - [Flowchart](#flowchart)
 - [Findings](#Findings-)
