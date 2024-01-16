@@ -126,42 +126,10 @@ class historyStack{
                 return false;
         }
 
-        void push(goods item, char action){
-            historyNodeStack *newNode = new historyNodeStack;
-            newNode->item = item;
-            newNode->action = action;
-            newNode->next = NULL;
-            newNode->prev = NULL;
 
-            if(isEmpty()){
-                top = newNode;
-                bottom = newNode;
-            }else{
-                newNode->prev = top;
-                top->next = newNode;
-                top = newNode;
-            }
-            size++;
-        }
 
-        void pop(){
-            if(top == NULL){
-                cout << "Stack is empty" << endl;
-            }else{
-                historyNodeStack *temp = top;
-                top = top->prev;
-                top->next = NULL;
-                delete temp;
-                size--;
-            }
-        }
 
-        char getAction(){
-            if(isEmpty())
-                cout << "Stack is empty" << endl;
-            else
-                return top->action;
-        }
+
 
         goods getItem(){
             if(isEmpty())
