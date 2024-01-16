@@ -755,6 +755,211 @@ class CandidateList
             
         }
 	}
+
+    	void displayProfile(Candidate *s3){
+        	 cout<<"\nName         : "<<s3->getName()<<endl;
+             cout<<"Faculty      : "<<s3->getFaculty()<<endl;
+             cout<<"Age          : "<<s3->getAge()<<endl;
+             cout<<"IC           : "<<s3->getIC()<<endl;
+             cout<<"Email        : "<<s3->getEmail()<<endl;
+             cout<<"Matric       : "<<s3->getMatric()<<endl;
+             cout<<"Phone number : " <<s3->getPhone() << endl;
+             cout<<"Vote Count   : "<<s3->getVoteCount() << endl;
+		}
+	
+	void facAsc(){
+    Candidate *temp,*temp2;
+    bool sorted=false;
+	string n,f,e,i,m,p,ph;
+    int a,v;
+
+     for(temp=Chead; (temp->next!=NULL)&&!sorted ; temp=temp->next)
+            {	sorted = true;
+                for(temp2=Chead; temp2->next!=NULL; temp2=temp2->next)
+                {
+
+                        if( temp2->getFaculty() > (temp2->next->getFaculty()) )
+                    {
+						n = temp2->getName();
+						f = temp2->getFaculty();
+                        e = temp2->getEmail();
+                        i = temp2->getIC();
+                        m = temp2->getMatric();
+                        p = temp2->getPass();
+                        a = temp2->getAge();
+                        v = temp2->getVoteCount();
+                        ph = temp2->getPhone();
+                        
+
+                        temp2->setName(temp2->next->getName());
+                        temp2->setFaculty(temp2->next->getFaculty());
+                        temp2->setEmail(temp2->next->getEmail());
+                        temp2->setIC(temp2->next->getIC());
+                        temp2->setMatric(temp2->next->getMatric());
+                        temp2->setAge(temp2->next->getAge());
+                        temp2->setVoteCount(temp2->next->getVoteCount());
+                        temp2->setPass(temp2->next->getPass());
+                        temp2->setPhone(temp2->next->getPhone());
+
+                        temp2->next->setName(n);
+                        temp2->next->setFaculty(f);
+                        temp2->next->setEmail(e);
+                        temp2->next->setIC(i);
+                        temp2->next->setMatric(m);
+                        temp2->next->setAge(a);
+                        temp2->next->setPass(p);
+                        temp2->next->setPhone(ph);
+                        temp2->next->setVoteCount(v);
+                        sorted = false;
+                    }
+                    }
+
+                }
+            display();
+                
+}
+
+	void NameAsc(){
+    Candidate *temp,*temp2;
+    bool sorted=false;
+	string n,f,e,i,m,p,ph;
+    int a,v;
+
+     for(temp=Chead; (temp->next!=NULL)&&!sorted ; temp=temp->next)
+            {	sorted = true;
+                for(temp2=Chead; temp2->next!=NULL; temp2=temp2->next)
+                {
+
+                        if( temp2->getName() > (temp2->next->getName() ) )
+                    {
+						n = temp2->getName();
+						f = temp2->getFaculty();
+                        e = temp2->getEmail();
+                        i = temp2->getIC();
+                        m = temp2->getMatric();
+                        p = temp2->getPass();
+                        a = temp2->getAge();
+                        v = temp2->getVoteCount();
+                        ph = temp2->getPhone();
+                        
+
+                        temp2->setName(temp2->next->getName());
+                        temp2->setFaculty(temp2->next->getFaculty());
+                        temp2->setEmail(temp2->next->getEmail());
+                        temp2->setIC(temp2->next->getIC());
+                        temp2->setMatric(temp2->next->getMatric());
+                        temp2->setAge(temp2->next->getAge());
+                        temp2->setVoteCount(temp2->next->getVoteCount());
+                        temp2->setPass(temp2->next->getPass());
+                        temp2->setPhone(temp2->next->getPhone());
+
+                        temp2->next->setName(n);
+                        temp2->next->setFaculty(f);
+                        temp2->next->setEmail(e);
+                        temp2->next->setIC(i);
+                        temp2->next->setMatric(m);
+                        temp2->next->setAge(a);
+                        temp2->next->setPass(p);
+                        temp2->next->setPhone(ph);
+                        temp2->next->setVoteCount(v);
+                        sorted = false;
+                    }
+                    }
+
+                }
+            display();
+                
+}
+
+	void MatricAsc(){
+    Candidate *temp,*temp2;
+    bool sorted=false;
+	string n,f,e,i,m,p,ph;
+    int a,v;
+
+     for(temp=Chead; (temp->next!=NULL)&&!sorted ; temp=temp->next)
+            {	sorted = true;
+                for(temp2=Chead; temp2->next!=NULL; temp2=temp2->next)
+                {
+
+                        if( temp2->getMatric() > (temp2->next->getMatric() ) )
+                    {
+						n = temp2->getName();
+						f = temp2->getFaculty();
+                        e = temp2->getEmail();
+                        i = temp2->getIC();
+                        m = temp2->getMatric();
+                        p = temp2->getPass();
+                        a = temp2->getAge();
+                        v = temp2->getVoteCount();
+                        ph = temp2->getPhone();
+                        
+
+                        temp2->setName(temp2->next->getName());
+                        temp2->setFaculty(temp2->next->getFaculty());
+                        temp2->setEmail(temp2->next->getEmail());
+                        temp2->setIC(temp2->next->getIC());
+                        temp2->setMatric(temp2->next->getMatric());
+                        temp2->setAge(temp2->next->getAge());
+                        temp2->setVoteCount(temp2->next->getVoteCount());
+                        temp2->setPass(temp2->next->getPass());
+                        temp2->setPhone(temp2->next->getPhone());
+
+                        temp2->next->setName(n);
+                        temp2->next->setFaculty(f);
+                        temp2->next->setEmail(e);
+                        temp2->next->setIC(i);
+                        temp2->next->setMatric(m);
+                        temp2->next->setAge(a);
+                        temp2->next->setPass(p);
+                        temp2->next->setPhone(ph);
+                        temp2->next->setVoteCount(v);
+                        sorted = false;
+                    }
+                    }
+
+                }
+            display();
+                
+}
+
+
+void VoteAsc(){
+    Candidate *temp,*temp2;
+    bool sorted=false;
+	string n,f,e,i,m,p,ph;
+    int a,v;
+
+     for(temp=Chead; (temp->next!=NULL)&&!sorted ; temp=temp->next)
+            {	sorted = true;
+                for(temp2=Chead; temp2->next!=NULL; temp2=temp2->next)
+                {
+
+                        if( temp2->getVoteCount() > (temp2->next->getVoteCount() ) )
+                    {
+						n = temp2->getName();
+						f = temp2->getFaculty();
+                        e = temp2->getEmail();
+                        i = temp2->getIC();
+                        m = temp2->getMatric();
+                        p = temp2->getPass();
+                        a = temp2->getAge();
+                        v = temp2->getVoteCount();
+                        ph = temp2->getPhone();
+                        
+
+                        temp2->setName(temp2->next->getName());
+                        temp2->setFaculty(temp2->next->getFaculty());
+                        temp2->setEmail(temp2->next->getEmail());
+                        temp2->setIC(temp2->next->getIC());
+                        temp2->setMatric(temp2->next->getMatric());
+                        temp2->setAge(temp2->next->getAge());
+                        temp2->setVoteCount(temp2->next->getVoteCount());
+                        temp2->setPass(temp2->next->getPass());
+                        temp2->setPhone(temp2->next->getPhone());
+
+                        temp2->next->setName(n);
+                        temp2->next->setFaculty(f);
 	
 
 
