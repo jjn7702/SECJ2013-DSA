@@ -3,8 +3,8 @@
 - [Problem Analysis](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/project_report.md#problem-analysis-%EF%B8%8F)
 - [Project Designs](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/project_report.md#project-designs-%EF%B8%8F)
 - Data Structure Concept Implementation
-- Source Code
-- User Manual/Guides
+- [Source Code](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/PAS/Project/files/source%20code)
+- [User Manual/Guides](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/project_report.md#user-manual-)
 
 ## PROBLEM ANALYSIS 📊
 ### OBJECTIVES 💡
