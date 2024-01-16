@@ -36,6 +36,9 @@ Election Management System is a system that will be used during the UTM voting d
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/fabaacbe-18c1-4f64-a3a5-e1b40e910e71" width="4%" height="4%"> Queue Implementation
 ##### 1. Enqueue
 
+For enqueue, since the queue is First in, First out, a new item can only be inserted at the back. 
+Since the voter class used a queue, whenever a new voter registered himself, they would be at the back of the list. This is done because the voters at the back will be new users while the one at the front are the old students. 
+
     
 ##### 2. Dequeue
 
