@@ -173,3 +173,48 @@ class itemQueue{
                 return front->item;
         }
 };
+
+void welcomeScreen();
+void displayHeader();
+void menu();
+itemQueue import();
+
+int main(){
+    displayHeader();
+    welcomeScreen();
+    itemQueue item;
+    while(true){
+        displayHeader();
+        menu();
+        int choice;
+        cout << "Enter your choice: ";
+        cin >> choice;
+    }
+    return 0;
+}
+
+void welcomeScreen(){
+    system("cls");
+    cout << "Welcome to the warehouse inventory management system!\n";
+    this_thread::sleep_for(chrono::milliseconds(500));
+    system("cls");
+}
+
+void displayHeader() {
+    system("cls");
+    cout << "=========================================\n";
+    cout << "|    Warehouse Inventory Management     |\n";
+    cout << "|                System                 |\n";
+    cout << "=========================================\n";
+}
+
+void menu() {
+    cout << "Please select an option:\n";
+    cout << "1.  Add item\n";
+    cout << "2.  Remove item\n";
+    cout << "3.  Search item\n";
+    cout << "4.  Display item\n";
+    cout << "5.  Undo\n";
+    cout << "6.  Redo\n";
+    cout << "7.  Exit\n";
+}
