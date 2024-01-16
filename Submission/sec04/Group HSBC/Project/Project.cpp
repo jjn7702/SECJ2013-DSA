@@ -311,6 +311,43 @@ class BinaryTree {
 };
 
 //read_data() - QY
+int read_Userdata(UserAcc acc[], string filename)
+{
+    ifstream inp(filename);
+
+    if(!inp){
+		cout<<"Error opening file: "<<filename<<endl;
+		exit(0);
+	}
+
+    int i = 0;
+    while(!inp.eof())
+    {
+        string accnum, pw;
+        float balance;
+        int pin;
+
+        getline(inp, accnum, ',');
+        acc[i].set_accNum(accnum);
+
+        inp >> balance;
+        inp.ignore();
+        acc[i].set_balance(balance);
+
+        inp >> pin;
+        inp.ignore();
+        acc[i].set_pin(pin);
+
+        getline(inp, pw, '\n');
+        acc[i].set_password(pw);
+
+        i++;
+    }
+
+    inp.close();
+    return i;
+}
+
 
 //read_Userdata() - CS
 int read_Userdata(UserAcc acc[], string filename)
