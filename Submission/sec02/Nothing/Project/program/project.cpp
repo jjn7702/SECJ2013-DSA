@@ -3,21 +3,96 @@
 
 using namespace std;
 
-class Inventory{
+class goods{
     private:
-        int itemNumber;
-        int quantity;
-        double cost;
-        double totalCost;
+        int id;
+        string name;
+        int price;
+        string itemLocation;
+    
     public:
-        Inventory();
-        Inventory(int, int, double);
-        void setItemNumber(int);
-        void setQuantity(int);
-        void setCost(double);
-        void setTotalCost();
-        int getItemNumber();
-        int getQuantity();
-        double getCost();
-        double getTotalCost();
+        goods(int id, string name, int price, string itemLocation){
+            this->id = id;
+            this->name = name;
+            this->price = price;
+            this->itemLocation = itemLocation;
+        }
+
+        int getId(){
+            return id;
+        }
+
+        string getName(){
+            return name;
+        }
+
+        int getPrice(){
+            return price;
+        }
+
+        string getItemLocation(){
+            return itemLocation;
+        }
 };
+
+class itemNodeQueue{
+    public:
+        goods item;
+        itemNodeQueue *next;
+        itemNodeQueue *prev;
+}
+
+class itemQueue{
+    public:
+        itemNodeQueue *front;
+        itemNodeQueue *rear;
+
+        void createQueue(){
+            front = NULL;
+            rear = NULL;
+            size = 0;
+        }
+
+        bool isEmpty(){
+            if(front == NULL)
+                return true;
+            else
+                return false;
+        }
+
+        void enqueue(goods item){
+            itemNodeQueue *newNode = new itemNodeQueue;
+            newNode->item = item;
+            newNode->next = NULL;
+            newNode->prev = NULL;
+
+            if(isEmpty()){
+                front = newNode;
+                rear = newNode;
+            }else{
+                newNode->prev = rear;
+                rear->next = newNode;
+                rear = newNode;
+            }
+            size++;
+        }
+
+        void dequeue(){
+            if(isEmpty()){
+                cout << "Queue is empty" << endl;
+            }else{
+                itemNodeQueue *temp = front;
+                front = front->next;
+                front->prev = NULL;
+                delete temp;
+                size--;
+            }
+        }
+
+        goods getItem(){
+            if(isEmpty())
+                cout << "Queue is empty" << endl;
+            else
+                return front->item;
+        }
+}

@@ -1,0 +1,10 @@
+B001,To Kill a Mockingbird,Harper Lee,1960,Classic
+B002,Pride and Prejudice,Jane Austen,1813,Romance
+B003,The Diary of a Young Girl,Anne Frank,1947,Biography
+B004,Animal Farm,George Orwell,1945,Dystopia
+B005,The Little Prince,Antoine de Saint-Exupéry,1943,Fantasy
+B006,The Great Gatsby,F. Scott Fitzgerald,1925,Historical Fiction
+B007,The Catcher in the Rye,J.D. Salingerm,1951,Young Adult
+B008,The Book Thief,Markus Zusak,2005,War
+B009,Little Women,Louisa May Alcott,1868,Classic
+B010,The Picture of Dorian Gray,Oscar Wilde,1890,Horror
