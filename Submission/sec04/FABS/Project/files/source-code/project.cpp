@@ -181,78 +181,134 @@ public:
       }
 };
 
+class Customer {
+private:
+	Queue &courierQueue;
+public:
+	Customer(Queue &queue) : courierQueue(queue) {}
+	void customerMenu() {
+		int choice;
+
+		system("CLS");
+		do{
+			cout << "===== Customer Menu =====" << endl;
+		        cout << "1. Add Courier" << endl;
+		        cout << "2. View Courier Queue" << endl;
+		        cout << "3. Search Courier by Tracking Number" << endl;
+		        cout << "4. Exit" << endl;
+		        cout << "Enter your choice: ";
+		        cin >> choice;
+
+		switch (choice) {
+                case 1: {
+                    string name, parcelType, source, destination, status;
+                    int trackingNum;
+
+                    cout << "\nEnter Courier details:" << endl;
+                    cout << "Name: ";
+                    cin.ignore(); // Clear buffer
+                    getline(cin, name);
+                    cout << "Parcel Type: ";
+                    getline(cin, parcelType);
+                    cout << "Source: ";
+                    getline(cin, source);
+                    cout << "Destination: ";
+                    getline(cin, destination);
+                    status = "Pending"; // Set status to "pending" initially
+                    cout << "Tracking Number: ";
+                    cin >> trackingNum;
+
+					cout << "\nCourier added successfully with status 'pending'." << endl;
+					cout << endl;
+                    Courier newCourier(name, parcelType, source, destination, status, trackingNum);
+                    courierQueue.enqueue(newCourier);
+
+                    break;
+                }
+
+		case 2: {
+                    // View Courier Queue
+                    cout << endl;
+                    courierQueue.display();
+                    break;
+                }
+                case 3: {
+                    // Search Courier by Tracking Number
+                    int trackingNum;
+                    cout << "\nEnter Tracking Number to search: ";
+                    cin >> trackingNum;
+
+                    Courier* foundCourier = courierQueue.searchByTrackingNum(trackingNum);
+
+                    if (foundCourier) {
+                        cout << "\nCourier found:" << endl;
+                        cout << endl;
+                        foundCourier->displayHeader();
+                        foundCourier->display(1);
+                        cout << endl;
+                    } else {
+                        cout << "\nCourier with Tracking Number " << trackingNum << " not found." << endl;
+                        cout << endl;
+                    }
+                    break;
+                }
+                case 4:
+                    cout << "\nExiting customer menu. Have a nice day!" << endl;
+                    cout << endl;
+                    break;
+                default:
+                    cout << "Invalid choice. Please try again." << endl;
+            }
+        } while (choice != 4);
+    }
+};
+
 
 
 int main() {
+	Queue courierQueue;
+	courierQueue.updatedFromFile("COURIER.txt");
+	Customer customer(courierQueue);
+	Admin admin(courierQueue);
+	Worker worker(courierQueue);
 
-   ifstream inputFile("COURIER.TXT");
-    if (!inputFile.is_open()) {
-        cout << "Error opening file." << endl;
-        return 1;
-    }
+	int choice;
+	system("CLS");
+	do{
+		cout << "===== Main Menu =====" << endl;
+	        cout << "1. Customer Menu" << endl;
+	        cout << "2. Admin Menu" << endl;
+	        cout << "3. Worker Menu" << endl;
+	        cout << "4. Save Courier Data to File" << endl;
+	        cout << "5. Exit" << endl;
+	        cout << "Enter your choice: ";
+	        cin >> choice;
 
-   Queue courierQueue;
-	
-   string line;
-    while (getline(inputFile, line)) {
-        stringstream ss(line);
-        string n, parcel, sourc, dest, stat;
-        int track;
-
-        if (getline(ss >> std::ws, n, ',') &&
-            getline(ss >> std::ws, parcel, ',') &&
-            getline(ss >> std::ws, sourc, ',') &&
-            getline(ss >> std::ws, dest, ',') &&
-            getline(ss >> std::ws, stat, ',') &&
-            (ss >> track)) {
-
-            Courier newCourier(n, parcel, sourc, dest, stat, track);
-            courierQueue.insertBack(newCourier);
-        }
-    }
-
-    inputFile.close();
-
-    int choice;
-
-    do {
-        dispMenu();
-        cout << "\nEnter your choice [1-5]: ";
-        cin >> choice;
-        cin.ignore();
-
-        switch (choice) {
-            case 1:
-                courierQueue.enqueue();
-                break;
-            case 2:
-                courierQueue.dequeue();
-                break;
-            case 3:
-                courierQueue.search();
-                break;
-            case 4:
-                courierQueue.display();
-                break;
-            case 5:
-                cout << "\nThank you.. see you again.." << endl;
-
-                // Save the courier list back to the file
-                ofstream outputFile("COURIER.TXT");
-                Courier* currNode = courierQueue.getFront();
-                while (currNode != NULL) {
-                    outputFile << currNode->getName() << "," << currNode->getParcelType() << ","
-                                << currNode->getSource() << "," << currNode->getDestination() << ","
-                                << currNode->getStatus() << "," << currNode->getTrackingNum() << endl;
-
-                    currNode = currNode->getNext();
-                }
-
-                outputFile.close();
-        }
-
-    } while (choice > 0 && choice < 5);
-
+		switch (choice) {
+	            case 1:
+	                customer.customerMenu();
+	                break;
+	            case 2:
+	                admin.adminMenu();
+	                break;
+	            case 3:
+	                worker.workerMenu();
+	                break;
+	            case 4: {
+	                // Save courier data to a file
+	                string filename = "COURIER.TXT";
+	                courierQueue.saveToFile(filename);
+	                cout << "\nCourier data saved to file (COURIER.TXT)." << endl;
+	                cout << endl;
+	                break;
+	            }
+	            case 5:
+	                cout << "\nExiting main menu. Goodbye!" << endl;
+	                break;
+	            default:
+	                cout << "\nInvalid choice. Please try again." << endl;
+	        }
+	    } while (choice != 5);
     return 0;
 }
 
