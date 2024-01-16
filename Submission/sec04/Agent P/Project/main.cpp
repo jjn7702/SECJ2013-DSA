@@ -1410,3 +1410,44 @@ int main()
 				 else
 				 	cout<<"\nYou have already voted!"<<endl;
 				 break;
+                 case 2 : l.profile(l2);	 
+				 break;
+		case 3 : cout<<"Search By : ";
+                 cout<<"\n[1] Name"<<endl;
+			     cout<<"[2] Faculty"<<endl;
+			     cout<<"[3] Age"<<endl;
+			     cout<<"[4] IC"<<endl;
+			     cout<<"[5] Email"<<endl;
+			     cout<<"[6] Matric"<<endl;
+			     cout<<"Please choose an option : ";
+			     cin>>opt7;
+			     cin.ignore();
+			     if(opt7 == 3){
+			         cout<<"\nPlease enter the key : ";
+			         cin>>key2;
+		         }
+		    	 else if(opt7>=1&&opt7<=6){
+			         cout<<"\nPlease enter the key : ";
+			         getline(cin,key3);
+		    	}
+		    	else
+		    		cout<<"Invalid option entered!"<<endl;
+				 c.search(opt7,key3,key2);
+				 break;
+		default : break;
+	}
+	
+	cout<<"\nDo you want to continue (y/n): ";
+	cin>>ch;
+	if(ch=='n')
+	{
+		l.outFile();
+		l.outFile2();
+		c.CandFile();
+	}
+	system("CLS");
+	count++;
+	}while(ch=='y');
+	//l.display();
+ 	
+}
