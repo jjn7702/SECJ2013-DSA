@@ -56,7 +56,87 @@ Users will need to choose whether to login as Admin, Voter or Candidate here by 
 
 Step 1
 
-https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20185433.png
+![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20185433.png)
+
+Every admin will be asked to enter their username and password.
+
+Step 2
+
+![3](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20185734.png)
+
+Admin will be redirected to their profile, here they can choose few options to do, 1 to view voter, 2 for view candidate, 3 for delete voter, 4 for delete candidate and 5 for insert candidate.
+
+Step 3.1
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20190013.png)
+
+If option 1 is selected, then the admin can choose how they want to view the voters, the list will be sorted in ascending order of the chosen attribute, 1 for name, 2 for faculty and 3 for matric.
+
+Step 3.1.1
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20190730.png)
+
+Sample output if option 3 is selected. 
+
+The admin can choose to continue or end the process here by entering ‘y’ to continue and ‘n’ for ending the process.
+
+Step 3.2
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20190529.png)
+
+If option 2 is selected, then the admin can choose how they want to view the candidate, the list will be sorted in ascending order of the chosen attribute, 1 for name, 2 for faculty, 3 for matric and 4 for vote count.
+
+Step 3.2.1
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20190730.png)
+
+Sample output if option 1 is selected. 
+
+The admin can choose to continue or end the process here by entering ‘y’ to continue and ‘n’ for ending the process.
+
+Step 3.3
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20190847.png)
+
+If option 3 is selected, the admin can delete voter(s) by specifying how many voters they want to delete. Since we have implemented a queue only voters at the front of the list will be deleted.
+
+Step 3.3.1
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20191115.png)
+
+Sample output if the number of voters to be deleted is 1.
+
+The admin can choose to continue or end the process here by entering ‘y’ to continue and ‘n’ for ending the process.
+
+Step 3.4
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20191227.png)
+
+If option 4 is selected, the admin can delete a candidate at specific position which starts with 1.
+
+![4]()
+
+Sample output if the chosen position is 1. 
+
+The admin can choose to continue or end the process here by entering ‘y’ to continue and ‘n’ for ending the process.
+
+Step 3.5
+
+![4])()
+![4]()
+If the admin chose option 5, then the admin inserts an admin by inserting all the details.
+**Name, Faculty, IC, Phone number, Email, Matric Number, Password are all string while age is integer. 
+
+The admin can choose to continue or end the process here by entering ‘y’ to continue and ‘n’ for ending the process.
+
+Step 3.6
+
+![4][()
+
+If the admin chose option 6, the system will end.
+
+**Any other option that is not 1-6 will make the system exit.
+
 
 ##### 3. Voter
 
