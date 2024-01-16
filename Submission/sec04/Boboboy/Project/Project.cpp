@@ -135,3 +135,17 @@ class Cart{
 				}
 			}// insert the number at the last
 		}
+        void deleteNode(int w){
+			Order *temp = head;
+			if(w == 1){
+				if(CartEmpty()){
+					cout << "Does not have order can be delete" << endl; 
+				}
+				else{
+					if(temp->next != NULL){
+					head = head->next;
+					temp ->next = NULL;
+					}
+					delete temp;
+				}
+			}// delete the first number
