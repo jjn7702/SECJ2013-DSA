@@ -990,6 +990,18 @@ void VoteAsc(){
                 
 }
 
+	void VoteDes(){
+    Candidate *temp,*temp2;
+    bool sorted=false;
+	string n,f,e,i,m,p,ph;
+    int a,v;
 
+     for(temp=Chead; (temp->next!=NULL)&&!sorted ; temp=temp->next)
+            {	sorted = true;
+                for(temp2=Chead; temp2->next!=NULL; temp2=temp2->next)
+                {
+
+                        if( temp2->getVoteCount() < (temp2->next->getVoteCount()) )
+                    {
 	
 };
