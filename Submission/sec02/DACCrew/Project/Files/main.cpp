@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <iomanip>
+#include <sstream>
 #define D "Deposit"
 #define W "Withdraw"
 #define T "Transfer"
@@ -108,17 +109,16 @@ public:
             dispHeader();
             for (int i = front; i <= back; i++)
             {
-                cout << "|" << setw(29) << left << list[i].getSenderAcc()
-                     << "|"
-                     << setw(30) << list[i].getReceiverAcc()
-                     << "|"
-                     << setw(14) << list[i].getType()
-                     << "|"
-                     << setw(10) << list[i].getAmount()
-                     << "|"
-                     << setw(10) << list[i].getBalance()
-                     << "|" << endl;
-
+                cout << "| " << setw(28) << left << list[i].getSenderAcc()
+                     << "| "
+                     << setw(29) << list[i].getReceiverAcc()
+                     << "| "
+                     << setw(13) << list[i].getType()
+                     << "| "
+                     << setw(9) << list[i].getAmount()
+                     << "| "
+                     << setw(9) << list[i].getBalance()
+                     << "| " << endl;
                 for (int j = 0; j < 99; j++)
                     cout << "-";
                 cout << endl;
@@ -138,25 +138,26 @@ int main()
 {
     TransactionList list;
 
-    fstream inputFile("accList.txt");
-
-    if (!inputFile.is_open())
-    {
-        cout << "Error opening file" << endl;
-        return 1; // Exit with an error code
-    }
+    fstream inputFile("accList.txt", ios::in);
 
     for (int i = 0; i < N; i++)
-    {
-        string senderAcc, receiverAcc;
-        double amount, balance;
-        char type;
+{
+    string senderAcc, receiverAcc;
+    double amount, balance;
+    char type;
 
-        if (inputFile >> senderAcc >> type >> amount >> balance)
+    // Read the entire line
+    string line;
+    if (getline(inputFile, line))
+    {
+        // Use a stringstream to extract values from the line
+        stringstream ss(line);
+        if (ss >> senderAcc >> type >> amount >> balance)
         {
+            cout << senderAcc << type << amount << balance;
             if (type == 'T')
             {
-                inputFile >> receiverAcc;
+                ss >> receiverAcc;
                 Transaction newNode(senderAcc, type, amount, balance, receiverAcc);
                 list.enQueue(newNode);
             }
@@ -167,6 +168,8 @@ int main()
             }
         }
     }
+}
+
 
     int choice;
 
