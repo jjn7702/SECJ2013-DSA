@@ -31,11 +31,11 @@ There are few features in the courier management system which is
 
 2. Remove or delete data couriers
 
-   Remove or delete the information of the parcel from the input file (COURIER.txt). The information will be deleted from the top/front of the list of the parcel in the input file.
+   Remove or delete the information about the parcel. The information will be deleted from the top/front of the list in the Queue.
 
 3. Search courier information
 
-   Can search any data that exists in the list by the status of the parcel. The algorithm used is a linked list implementation of queue.
+   Can find any data that exists in the list by inserting the tracking number for the parcel. The algorithm used is a linked list implementation of queue.
 
 4. Display data courier
   
@@ -61,7 +61,7 @@ There are few features in the courier management system which is
 #### Flowchart
 ![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/databaseprojek.drawio.png)
 #### Class Diagram
-![2]()
+![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/class%20diagram.jpg)
 
 ## Design Description <a name="designdescription"></a> 💹
 
