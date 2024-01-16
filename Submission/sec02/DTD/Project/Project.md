@@ -13,7 +13,7 @@ The primary objective of this program is to create an efficient library manageme
 
 
 ## Problem Analysis 📝
-	By deliberately combining stack and queue concepts of data structures and algorithms, a library management system (LMS) aims to optimize book borrowing and return processes. When a user borrows a book, the system monitors the queue, removes the book from the queue of available books, and adds it to the stack of borrowed books. Returning a book, on the other hand, uses a last-in, first-out approach where the book is taken from the borrowed book stack and placed back into the available book queue. The system must handle these operations efficiently to ensure fast transactions and maintain data integrity. Simultaneous use of multiple users is taken into account, requiring synchronization mechanisms to avoid conflicts. Implementing error handling mechanisms is critical, especially in situations where users are trying to borrow or return books that don't exist. Rigorous testing, including different scenarios such as simultaneous events, is essential to confirm system reliability. Overall, integrating stack and queue concepts into a library management system improves the organization of book management and provides a seamless experience for both librarians and users.
+	
 
 ## Design 🎨
 
