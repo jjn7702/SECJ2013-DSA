@@ -605,7 +605,7 @@ class CandidateList
             out.close();
 		}
 
-        	void insertAdmin()
+        void insertAdmin()
 		{
             system("CLS");
             Candidate *temp = Chead;
@@ -630,7 +630,28 @@ class CandidateList
                         cout<<"Password : ";
                         cin>>pass;
 
+                                    while(temp != NULL)
+						{
+							if(temp->getMatric() == m)
+							{
+								cout<<temp->getName()<<", Record already exists in system!"<<endl<<endl;
+							}
+							
+							temp = temp->next;
+						}
 
+			Candidate *nn = new Candidate(n,f,a,ic,p,v,m,pass,e);
+			
+			if(isEmpty())
+				Chead = nn;
+			else
+			{
+				nn->next = Chead;
+				Chead = nn;
+			}
+			
+			CandFile();
+            cout<<"The candidate is registered successfully!"<<endl;
 		}
 
 	
