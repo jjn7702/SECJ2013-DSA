@@ -283,6 +283,7 @@ int main()
             cout << left << setw(10) << "STATUS" << endl
                  << endl;
              // Display the entire stack
+             s.print();
             cout << endl;
         }
         break;
@@ -299,6 +300,7 @@ int main()
             cout << left << setw(10) << "STATUS" << endl
                  << endl;
              // Display the entire stack
+             s.print();
             cout << endl;
         }
         break;
@@ -328,6 +330,7 @@ int main()
             cout << left << setw(10) << "STATUS" << endl
             << endl;
              // Display the entire queue
+             q.display();
             cout << endl;
         }
         break;
@@ -344,6 +347,7 @@ int main()
             cout << left << setw(10) << "STATUS" << endl
             << endl;
              // Display the entire queue
+             q.display();
             cout << endl;
         }
         break;

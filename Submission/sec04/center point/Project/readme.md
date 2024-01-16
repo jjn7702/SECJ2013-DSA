@@ -81,7 +81,7 @@ This system simplifies the warehousing process through the ability to add and de
 
 ## Findings 📊
 
-- [Source Code](./source_code)
-- [Report](./report)
+- [Source Code](./files/source%20code)
+- [Report](./files/reports)
 
 ## Contribution 🛠️
