@@ -145,6 +145,26 @@ class BinaryTree {
         
 
         //update() - CS
+        void Update(Transaction* node, vector<string>& transaction)
+        {
+            if(node != NULL)
+            {
+                string detail = to_string(node->referenceNumber) + "," + node->account_number + "," + node->transaction_date + "," + node->transaction_type + "," + to_string(node->transaction_amount);
+                if(node->transaction_type == "TRANSFER")
+                {
+                    detail = detail + "," + node->target_account;
+                }
+
+                transaction.push_back(detail);
+
+                Update(node->left, transaction);
+                Update(node->right, transaction);
+            }
+            else
+            {
+                return;
+            }
+        }
         
 
     public:
@@ -167,16 +187,72 @@ class BinaryTree {
         
 
         //transactionFile_update() - CS
+        void transactionFile_update(){
+
+            ofstream op("inputProject.txt");
+            vector<string> transaction;
+            Update(root, transaction);
+
+            for(int i = 0; i < transaction.size(); i++)
+            {
+                op << transaction[i] << endl;
+            }
+        }
         
 
         //findMax_Red() - CS
-        
+        int findMax_Ref() {
+
+            Transaction* node = root;
+            while(node->right != NULL)
+            {
+                node = node->right;
+            }
+
+            return node->referenceNumber;
+        }
 
 };
 
 //read_data() - QY
 
 //read_Userdata() - CS
+int read_Userdata(UserAcc acc[], string filename)
+{
+    ifstream inp(filename);
+
+    if(!inp){
+		cout<<"Error opening file: "<<filename<<endl;
+		exit(0);
+	}
+
+    int i = 0;
+    while(!inp.eof())
+    {
+        string accnum, pw;
+        float balance;
+        int pin;
+
+        getline(inp, accnum, ',');
+        acc[i].set_accNum(accnum);
+
+        inp >> balance;
+        inp.ignore();
+        acc[i].set_balance(balance);
+
+        inp >> pin;
+        inp.ignore();
+        acc[i].set_pin(pin);
+
+        getline(inp, pw, '\n');
+        acc[i].set_password(pw);
+
+        i++;
+    }
+
+    inp.close();
+    return i;
+}
 
 //menuUser() - WS
 
@@ -252,10 +328,236 @@ void calculate_del(Transaction trans[], UserAcc account[], int ref, int count, i
 }
 
 //userFile_update() - CS
+void userFile_update(UserAcc acc[], int n)
+{
+    ofstream op("userAcc.txt");
+
+    for(int i = 0; i < n-1; i++)
+    {
+        op  << acc[i].get_accNum() << ","
+            << acc[i].get_balance() << ","
+            << acc[i].get_pin() << ","
+            << acc[i].get_password() << endl;
+    }
+
+    op.close();
+}
 
 //menuFirstPage() - qy
 
 //role1() - CS
+void role1(UserAcc userInfo[], int& n, BinaryTree& tree, Transaction account[], int& count, int& choice, bool& conti){
+
+    int userLogin, pin;
+    int targetAcc;
+    bool login = 0;
+    string acc, pw;
+
+    do{
+        do{
+            cout << "Login Menu :\n"
+                 << "1. Login\n"
+                 << "2. Create Account\n"
+                 <<"Enter Your Choice : ";
+             cin >> userLogin;
+            system("cls");
+
+            if(userLogin <= 0 || userLogin >= 3)
+            {
+                cout << "Something went wrong... please try again" << endl;
+                system("pause");
+                system("cls");
+            }
+
+        }while(userLogin <= 0 || userLogin >= 3);
+                    
+        if(userLogin == 1)
+        {
+            cout << "Please enter account number : ";
+            cin >> acc;
+
+            cout << "Please enter password : ";
+            cin >> pw;
+
+            system("cls");
+
+            for(int i = 0; i < n; i++)
+            {
+                if(userInfo[i].get_accNum() == acc)
+                {
+                    if(userInfo[i].get_password() == pw)
+                    {
+                        cout << "Login Successful" << endl;
+                        targetAcc = i;
+                        login = 1;
+                        break;
+                    }
+                    else
+                    {
+                        cout << "Wrong password" << endl;
+                        system("pause");
+                        system("cls");
+                        break;
+                    }
+                }
+                else if(i == n-1)
+                {
+                    cout << "invalid account number" << endl;
+                    system("pause");
+                    system("cls");
+                }
+            }
+        }
+        else
+        {
+            bool sameAcc;
+            do{
+                sameAcc = 0;
+                cout << "Please enter account number : ";
+                cin >> acc;
+
+                for(int i = 0; i < n; i++)
+                {
+                    if(acc == userInfo[i].get_accNum())
+                    {
+                        sameAcc = 1;
+                        cout << "existed account number ! please try again\n";
+                    }
+                }
+
+            }while(sameAcc);
+
+            cout << "Please enter securety pin (4 digit) : ";
+            cin >> pin;
+
+            cout << "Please enter password : ";
+            cin >> pw;
+
+            userInfo[n].set_accNum(acc);
+            userInfo[n].set_pin(pin);
+            userInfo[n].set_password(pw);
+            userInfo[n++].set_balance(50.00);
+
+            ofstream op("userAcc.txt", ios::app);
+            op  << acc << ","
+                << 50.00 << ","
+                << pin << ","
+                << pw << endl;
+            
+            op.close();
+
+            cout << "Successfully register !\n";
+            system("pause");
+            system("cls");
+        }
+
+        if(login == true)
+        {
+            do{
+                choice = menuUser();
+
+                switch(choice){
+                    case 1 :{
+                                string acc_num, type, date, target;
+                                double balance, amt;
+                                int typeNum;
+
+                                acc_num = userInfo[targetAcc].get_accNum();
+
+                                cout << "Transaction date(YYYY-MM-DD): ";
+                                cin >> date;
+
+                                do{
+                                    cout << "Transaction type(1.DEPOSIT/2.WITHDRAWAL/3.TRANSFER): ";
+                                    cin >> typeNum;
+
+                                    switch(typeNum)
+                                    {
+                                        case 1 :
+                                            type = "DEPOSIT";
+                                            break;
+
+                                        case 2 :
+                                            type = "WITHDRAWAL";
+                                            break;
+
+                                        case 3 :
+                                            type = "TRANSFER";
+                                            break;
+
+                                        default :
+                                            cout << "Something went wrong... Please try again" << endl;
+                                            break;
+                                    }
+
+                                }while(typeNum <= 0 || typeNum >= 4);
+
+                                if (type == "TRANSFER") {
+                                    cout << "Target Account: ";
+                                    cin >> target;
+                                }
+                                cout << "Amount: ";
+                                cin >> amt;
+                                
+                                if(typeNum == 2 || typeNum == 3)
+                                {
+                                    int pin;
+                                    cout << "Please enter pin (4 digit) :";
+                                    cin >> pin;
+
+                                    if(pin != userInfo[targetAcc].get_pin())
+                                    {
+                                        cout << "Wrong pin number" << endl;
+                                        system("pause");
+                                        system("cls");
+                                        break;
+                                    }
+                                }
+
+                                calculate_add(typeNum, userInfo, amt, target, targetAcc, n);
+                                userFile_update(userInfo, n);
+
+                                Transaction newAcc(acc_num);
+                                newAcc.setTransactionDate(date);
+                                newAcc.setTransactionType(type);
+                                newAcc.setTargetAccount(target);
+                                newAcc.setTransactionAmount(amt);
+                                newAcc.setReferNum(tree.findMax_Ref() + 1);
+                                count++;
+
+                                tree.insertAccount(newAcc);
+                                tree.transactionFile_update();
+                                cout << "\nInserting the new transaction successfully.\n";
+                                cout << "\n\n\n\nBack to menu (1: yes / 0: no) : ";
+                                cin >> conti;
+                                break;
+                            }
+                    case 2 :{
+                                cout << "Your Current Balance : RM " << userInfo[targetAcc].get_balance();
+                                cout << "\n\n\n\nBack to menu (1: yes / 0: no) : ";
+                                cin >> conti;
+                                break;
+                            }
+                    case 3 :{
+                                tree.searchAccount(userInfo[targetAcc].get_accNum());
+                                cout << "\n\n\n\nBack to menu (1: yes / 0: no) : ";
+                                cin >> conti;
+                                break;
+                            }
+                    case 4 :{
+                                conti = false;
+                                break;
+                            }
+                            
+                }
+                system("cls");
+                            
+            }while(conti == true);
+        }
+
+
+    } while(userLogin <= 0 || userLogin >= 3);
+}
 
 //role2() - QY
 
