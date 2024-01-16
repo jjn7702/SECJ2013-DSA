@@ -549,3 +549,16 @@ int deleteCart(){
 	cin >> Way;
 	return Way;
 }
+
+Cart deleteorder(Cart b){
+	int Way;
+	char pop;
+		do{
+			Way = deleteCart();
+			b.deleteNode(Way);
+			cout << "Continue delete?" << endl;
+			cout << "Choice(press Y to continue delete):";
+			cin >> pop;
+		}while(pop == 'Y');
+		return b;
+}
