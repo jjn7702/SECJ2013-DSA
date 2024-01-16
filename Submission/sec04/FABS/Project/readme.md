@@ -46,7 +46,7 @@ Displaying all updated courier information including name, parcel type, source, 
 ### Flowchart
 ![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/databaseprojek.drawio.png)
 ### Class Diagram
-![2]()
+![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/classdiagram.jpg)
 
 ## Design Description <a name="designdescription"></a> 💹
 
