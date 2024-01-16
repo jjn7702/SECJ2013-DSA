@@ -19,11 +19,11 @@ Users encounter a comprehensive display of tasks, which includes dates and statu
 ## Design 🎨
 
 1. Class Diagram
-
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/WhatsApp%20Image%202024-01-16%20at%2020.09.18_c792ba2c.jpg">
 
 
 2. Flowchart
-
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/img/WhatsApp%20Image%202024-01-16%20at%2020.09.18_7862cded.jpg">
 
 
 ## Flow of Event 💹
