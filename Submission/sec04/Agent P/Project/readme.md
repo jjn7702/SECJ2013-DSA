@@ -13,7 +13,7 @@
 As from the agent P group we decided to develop an Election Management System for  UTM.For this system there will three type of users , Admin , Voter and Candidate.The admin can insert the candidate into the candidate list , remove candidate and voter and also view the list of voters and candidates.As for the Voters they can cast three votes , register if they’re not in the list and view the list of candidates.Finally for the Candidates , they can view their profile , view the candidate list and also withdraw.
   
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/bc7e2df3-d20d-457c-b9fb-e0574b6a740e" width="3%" height="3%"> Objectives:
-
+The objective for this project is to create a fully functional  Election management system during voting day at UTM.There are 3 users in this system and each one of them has their own objectives.The 3 users are the Admin , Voters and Candidates.The Admin objective is to manage the voters and candidates.They can insert a new Candidate to the candidate list while remove a candidate or voter from their list.Admin also will view the candidate list and voters list in this system.As for the Candidate , their objective is to view their profile and also if they want to withdraw they can do it so.For the voters , their objective is to register themself if they are not in the list , cast their vote by choosing any three candidates and also view the candidate’s list.Thus,the aim of this system is to create a user-friendly interface where users can easily use and manage .
 
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/ac62ef65-848d-41a6-97c2-1ff40be8ecd3" width="3%" height="3%"> Synopsis
