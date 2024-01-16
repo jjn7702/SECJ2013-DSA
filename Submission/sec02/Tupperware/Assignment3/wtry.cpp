@@ -1,6 +1,8 @@
 // try to do queue link 
 #include <iostream>
 #include <iomanip>
+#include <string>
+#include <vector> 
 using namespace std;
 
 class Menu {
@@ -50,8 +52,13 @@ class Order{
 
 
     public:
+    //default counter
     Order(Menu menu, int tableNum, int pax, double totalPrice, int quantity)
     : menu(menu), tableNum(tableNum), pax(pax), quantity(quantity) {}
+
+    //order only counter
+    Order(Menu menu, int quantity)
+    : menu(menu), quantity(quantity) {}
 
     Menu getMenu(){return menu;}
     int getTableNum(){return tableNum;}
@@ -136,7 +143,73 @@ class queueOrder{
     }
 }
 
-
-
-
 };
+
+int CustomerView() {
+
+
+    cout << "Welcome to the customer View\n";
+    cout << "[1]Make order\n";
+    cout << "[2]View current queueing order\n";
+    cout << "[3]Cancel order\n";
+    cout << "Please make your choice\n";
+    int choice;
+    cout << "Choice : ";
+    cin >> choice;
+
+    vector<Menu> menuList;  // Use a vector to store multiple Menu objects
+
+    // Populate the menuList with Menu objects
+    menuList.push_back(Menu("F001", "Burger", "Fast Food", 5.99));
+    menuList.push_back(Menu("F002", "Pizza", "Fast Food", 8.99));
+    // Add more menu items if needed
+
+    string foodId;
+    int quantitiy, tableNum;
+
+    Menu menu1("F001", "Burger", "Fast Food", 5.99);
+    Menu menu2("F002", "Pizza", "Fast Food", 8.99);
+
+    cout << "What is your table number ? : ";
+    cin >> tableNum; 
+
+    cout << endl;
+
+    cout << "Pick your order\n";
+    cout << "foodID : ";
+    cin.ignore();
+    getline(cin, foodId);
+    cout << "Quantitiy : ";
+    cin >> quantitiy;
+
+    Menu selectedMenu;
+
+    for (const Menu& menu : menuList) {
+        if (foodId == menu.getFoodId()) {
+            selectedMenu = menu;
+            break;
+        }
+    }
+
+    // Check if the foodId is valid
+    if (selectedMenu.getFoodId().empty()) {
+        cout << "Invalid food ID\n";
+        return 1; // Exit with an error code
+    }
+
+    Order order(selectedMenu, quantitiy);
+
+    queueOrder orderQueue;
+
+    orderQueue.enQueue(order);
+
+    cout << "Current Orders:\n";
+    orderQueue.printOrder();
+
+    orderQueue.deQueue();
+
+    cout << "\nOrders after dequeue:\n";
+    orderQueue.printOrder();
+
+    return 0;
+}

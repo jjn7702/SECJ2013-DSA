@@ -551,6 +551,25 @@ void userFile_update(UserAcc acc[], int n)
 }
 
 //menuFirstPage() - qy
+int menuFirstPage(){
+	int role;
+	
+	do{
+		cout << "\n\nBank Management System ---\n"
+         	 << "Enter System As : \n"
+         	 << "1. User    [1]\n"
+         	 << "2. Staff   [2]\n"
+         	 << "3. Exit system  [Other]\n"
+         	 << "Enter your Choice : ";
+        cin >> role;
+        if(role<1 || role>3){
+        	system("cls");
+        	cout << "Please enter a valid number...\n";
+		}    	
+	}while(role<1 || role>3);
+	system("cls");
+    return role;
+}
 
 //role1() - CS
 void role1(UserAcc userInfo[], int& n, BinaryTree& tree, Transaction account[], int& count, int& choice, bool& conti){
@@ -767,7 +786,50 @@ void role1(UserAcc userInfo[], int& n, BinaryTree& tree, Transaction account[], 
 }
 
 //role2() - QY
+void role2(UserAcc userInfo[],int& n, BinaryTree& tree,Transaction account[], int& count, int& choice, bool& conti)
+{
+    do{
+        choice = menuStaff();
 
+                
+        switch(choice)
+        {
+            case 1 :{
+            			cout << "Account Number to Search : ";
+            			string accNum;
+            			cin >> accNum;
+            			tree.searchAccount(accNum);
+            			break;
+            		}
+
+            case 2 : tree.displayAccount(); break;
+                    
+            case 3 :{
+                        int ref_num;
+                        cout << "Enter the Reference Number: ";
+                        cin >> ref_num;
+                        tree.deleteAccount(ref_num);
+                        tree.transactionFile_update();
+                        calculate_del(account, userInfo, ref_num, count, n);
+
+                        cout << "\nDeleting the transaction successfully.\n";
+                        break;
+            		}
+
+            default : conti = false; break;
+        }
+
+        if(conti == true)
+        {
+            cout << "\n\n\n\nBack to menu (1: yes / 0: no) : ";
+            cin >> conti;
+        }
+
+        system("cls");
+
+    }while(conti == 1);
+                    
+}
 
 int main()
 {
