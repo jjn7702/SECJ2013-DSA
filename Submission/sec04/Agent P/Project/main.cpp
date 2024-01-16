@@ -1219,3 +1219,27 @@ void AdminLogin(Admin arr[],int j){
                     break;
     }
 }
+
+void adminCand(CandidateList c){
+    system("CLS");
+    int opt;
+    cout<<"How would you like to view candidate.\n";
+    cout<<"\n[1] Name"<<endl;
+    cout<<"[2] Faculty"<<endl;
+    cout<<"[3] Matric"<<endl;
+    cout<<"[4] Vote Count"<<endl;
+    cout<<"Please choose an option : ";
+    cin>>opt;
+
+    switch (opt){
+        case(1) :   c.NameAsc();
+                    break;
+        case(2) :   c.facAsc();
+                    break;
+        case(3) :   c.MatricAsc();
+                    break;
+        case(4) :   c.VoteAsc();
+                    break;
+    }
+
+}
