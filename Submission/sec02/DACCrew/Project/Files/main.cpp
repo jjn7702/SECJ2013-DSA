@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <iomanip>
+#include <sstream>
 #define D "Deposit"
 #define W "Withdraw"
 #define T "Transfer"
@@ -108,17 +109,16 @@ public:
             dispHeader();
             for (int i = front; i <= back; i++)
             {
-                cout << "|" << setw(29) << left << list[i].getSenderAcc()
-                     << "|"
-                     << setw(30) << list[i].getReceiverAcc()
-                     << "|"
-                     << setw(14) << list[i].getType()
-                     << "|"
-                     << setw(10) << list[i].getAmount()
-                     << "|"
-                     << setw(10) << list[i].getBalance()
-                     << "|" << endl;
-
+                cout << "| " << setw(28) << left << list[i].getSenderAcc()
+                     << "| "
+                     << setw(29) << list[i].getReceiverAcc()
+                     << "| "
+                     << setw(13) << list[i].getType()
+                     << "| "
+                     << setw(9) << list[i].getAmount()
+                     << "| "
+                     << setw(9) << list[i].getBalance()
+                     << "| " << endl;
                 for (int j = 0; j < 99; j++)
                     cout << "-";
                 cout << endl;
@@ -126,6 +126,41 @@ public:
 
             cout << endl;
         }
+    }
+
+    void searchByAccount(string account) const
+    {
+        bool found = false;
+        bool headerDisplayed = false;  // Flag to check if the header is displayed
+        for (int i = front; i <= back; i++)
+        {
+            if (list[i].getSenderAcc() == account || list[i].getReceiverAcc() == account)
+            {
+                found = true;
+                if (!headerDisplayed)
+                {
+                    dispHeader();
+                    headerDisplayed = true;
+                }
+                found = true;
+                cout << "| " << setw(28) << left << list[i].getSenderAcc()
+                     << "| "
+                     << setw(29) << list[i].getReceiverAcc()
+                     << "| "
+                     << setw(13) << list[i].getType()
+                     << "| "
+                     << setw(9) << list[i].getAmount()
+                     << "| "
+                     << setw(9) << list[i].getBalance()
+                     << "| " << endl;
+                for (int j = 0; j < 99; j++)
+                    cout << "-";
+                cout << endl;
+            }
+        }
+
+        if (!found)
+            cout << "No transactions found for account: " << account << endl;
     }
 
     ~TransactionList()
@@ -138,13 +173,7 @@ int main()
 {
     TransactionList list;
 
-    fstream inputFile("accList.txt");
-
-    if (!inputFile.is_open())
-    {
-        cout << "Error opening file" << endl;
-        return 1; // Exit with an error code
-    }
+    fstream inputFile("accList.txt", ios::in);
 
     for (int i = 0; i < N; i++)
     {
@@ -152,29 +181,38 @@ int main()
         double amount, balance;
         char type;
 
-        if (inputFile >> senderAcc >> type >> amount >> balance)
+        // Read the entire line
+        string line;
+        if (getline(inputFile, line))
         {
-            if (type == 'T')
+            // Use a stringstream to extract values from the line
+            stringstream ss(line);
+            if (ss >> senderAcc >> type >> amount >> balance)
             {
-                inputFile >> receiverAcc;
-                Transaction newNode(senderAcc, type, amount, balance, receiverAcc);
-                list.enQueue(newNode);
-            }
-            else
-            {
-                Transaction newNode(senderAcc, type, amount, balance);
-                list.enQueue(newNode);
+                if (type == 'T')
+                {
+                    ss >> receiverAcc;
+                    Transaction newNode(senderAcc, type, amount, balance, receiverAcc);
+                    list.enQueue(newNode);
+                }
+                else
+                {
+                    Transaction newNode(senderAcc, type, amount, balance);
+                    list.enQueue(newNode);
+                }
             }
         }
     }
 
     int choice;
+    string searchAccount;
 
     do
     {
         cout << "<<<<<WELCOME TO DACCrew BANKING MANAGEMENT SYSTEM>>>>>" << endl;
         cout << "1. Display Transaction List" << endl;
-        cout << "2. Exit" << endl;
+        cout << "2. Search Transaction History by Account" << endl;
+        cout << "3. Exit" << endl;
         cout << "Your choice: ";
         cin >> choice;
 
@@ -184,13 +222,18 @@ int main()
             list.printTransactionList();
             break;
         case 2:
+            cout << "Enter the account to search: ";
+            cin >> searchAccount;
+            list.searchByAccount(searchAccount);
+            break;
+        case 3:
             cout << "Exiting..." << endl;
             break;
         default:
             cout << "Invalid choice. Try again." << endl;
         }
 
-    } while (choice != 2);
+    } while (choice != 3);
 
     return 0;
 }
