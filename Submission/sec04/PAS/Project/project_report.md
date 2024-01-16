@@ -6,7 +6,7 @@
 - Source Code
 - User Manual/Guides
 
-## PROBLEM ANALYSIS 🖋️
+## PROBLEM ANALYSIS 📊
 ### OBJECTIVES 💡
 We have outlined a few objectives for this project, which are crucial in order to provide methods for a librarian to execute a task more efficiently and effectively. In this program, a librarian is able:
 - To view and manage all books in the library
