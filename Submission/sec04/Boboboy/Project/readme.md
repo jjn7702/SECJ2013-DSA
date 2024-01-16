@@ -77,13 +77,13 @@ focus on the last uncompleted orders in the list
 ![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Project/Images/mainbody3.drawio%20(1).png)
 
 ### Function deleteorder
-![2]()
+![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Project/Images/deleteorder.drawio.png)
 
 ### Function deleteCart
-![3]()
+![3](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Project/Images/deleteCart.drawio.png)
 
 ### Function Search_item_in_Cart
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Project/Images/Search_item_in_Cart.drawio.png)
 
 ### Function Customer_order
 ![5]()
