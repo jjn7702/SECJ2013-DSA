@@ -36,12 +36,21 @@ Election Management System is a system that will be used during the UTM voting d
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/fabaacbe-18c1-4f64-a3a5-e1b40e910e71" width="4%" height="4%"> Queue Implementation
 ##### 1. Enqueue
 
+For enqueue, since the queue is First in, First out, a new item can only be inserted at the back. 
+Since the voter class used a queue, whenever a new voter registered himself, they would be at the back of the list. This is done because the voters at the back will be new users while the one at the front are the old students. 
+
     
 ##### 2. Dequeue
 
+For dequeue, this can only be done by the admin. This is because, in the queue the deleted item will be the first item in the queue. So voters can’t delete themselves from the queue. The admin can also specify how many voters to delete at the same time since all the old voters can be deleted at the same time.
+
 ##### 3. Sort
 
+For the voter and candidate classes, the sorting was done in ascending order and used the improved bubble sort. For voter class, name, faculty, and matric number attributes are used in sorting. For candidate class, name, faculty, matric number, vote count are used as sorting attributes. 
+
 ##### 4. Search
+
+Search is implemented using sequential search in the candidate class. This is done to help the voters to identify the candidates they might know. The attributes used for searching is name, faculty, email, age, ic and matric number.With this the voters can search for the candidate they know. 
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/project-management.png"  width="4%" height="4%"> User Guide
 
