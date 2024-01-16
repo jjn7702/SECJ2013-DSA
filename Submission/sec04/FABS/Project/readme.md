@@ -125,6 +125,24 @@ There are few features in the courier management system which is
    
 6. Return back to the admin/worker menu.
 
+### SEARCHING THE COURIER
+
+1. Get the option from the customer menu.
+   
+2. From the option, courier information will be searched by tracking the  tracking number entered from the customer.
+   
+   2.1 Iterates through the queue, comparing the attributes of each courier to the corresponding search key.
+   
+   2.1 If the courier found
+
+      2.1.1 Display the courier information with the search key.
+   
+   2.2 If the courier not found
+   
+      2.2.1 Notifies the customer that there is no information for the courier with the corresponding search key.
+   
+3. Return back to the customer menu.
+
 
 
 
