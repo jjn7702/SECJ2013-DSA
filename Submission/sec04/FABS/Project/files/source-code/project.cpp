@@ -269,6 +269,83 @@ private:
 
 public:
     Admin(Queue &queue) : courierQueue(queue) {}
+    void adminMenu() {
+        int choice;
+
+        system("CLS");
+        do {
+            cout << "===== Admin Menu =====" << endl;
+            cout << "1. View Courier Queue" << endl;
+            cout << "2. Approve Courier" << endl;
+            cout << "3. Dequeue Courier" << endl;  // Added option to dequeue
+            cout << "4. Exit" << endl;
+            cout << "Enter your choice: ";
+            cin >> choice;
+
+            switch (choice) {
+                case 1: {
+                    // View Courier Queue
+                    int counter = 1;
+                    Courier* currentCourier = courierQueue.getFront();
+
+                    if (!currentCourier) {
+                        cout << "\nQueue is empty." << endl;
+                        cout << endl;
+                    } else {
+                        currentCourier->displayHeader();
+
+                        while (currentCourier) {
+                            currentCourier->display(counter);
+                            currentCourier = currentCourier->getNext();
+                            counter++;
+                        }
+                        cout << endl;
+                    }
+                    break;
+                }
+                case 2: {
+                    // Approve Courier
+                    bool foundPendingCourier = false;
+                    Courier* currentCourier = courierQueue.getFront();
+
+                    while (currentCourier) {
+                        if (currentCourier->getStatus() == "Pending") {
+                            foundPendingCourier = true;
+                            currentCourier->setStatus("Approved");
+                            cout << "\nCourier with Tracking Number " << currentCourier->getTrackingNum() << " approved." << endl;
+                        }
+
+                        currentCourier = currentCourier->getNext(); // Move to the next courier
+                    }
+
+                    if (!foundPendingCourier) {
+                        cout << "\nNo more pending couriers to approve." << endl;
+                    }
+
+                    cout << endl;
+                    break;
+                }
+                case 3: {
+                    // Dequeue Courier
+                    if (!courierQueue.isEmpty()) {
+                        cout << "\nDequeued a courier." << endl;
+                        courierQueue.dequeue();
+                    } else {
+                        cout << "\nQueue is empty. No courier to dequeue." << endl;
+                    }
+                    cout << endl;
+                    break;
+                }
+                case 4:
+                    cout << "\nExiting admin menu. Have a nice day!" << endl;
+                    cout << endl;
+                    break;
+                default:
+                    cout << "\nInvalid choice. Please try again." << endl;
+            }
+        } while (choice != 4);
+    }
+
 };
 
 
