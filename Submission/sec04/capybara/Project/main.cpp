@@ -229,7 +229,8 @@ int main()
         cout << setw(56) << "|      [1] Review All Ticket          |" << endl;
         cout << setw(56) << "|      [2] Cancel Ticket              |" << endl;
         cout << setw(56) << "|      [3] Show Primary Booker        |" << endl;
-        cout << setw(56) << "|      [4] Exit                       |" << endl;
+        cout << setw(56) << "|      [4] Edit Reservation Ticke    |" << endl;
+        cout << setw(56) << "|      [5] Exit                       |" << endl;
         cout << setw(56) << "|_____________________________________|" << endl
              << endl;
 
@@ -256,7 +257,48 @@ int main()
             }
             else if (selection == 4)
             {
-                cout << "Thank You!" << endl;
+                cout << setw(55) << "Enter passenger name to modify: ";
+                cin.ignore();
+                getline(cin, user_info);
+
+                // Search for the passenger in the queue
+                ReservationNode *current = reservationQueue.getFront();
+                bool found = false;
+                while (current != nullptr)
+                {
+                    if (current->user_info == user_info)
+                    {
+                        // Modify passenger information
+                        string newName;
+
+                        cout << setw(55) << "Enter a different user name: ";
+                        getline(cin, newName);
+
+                        cout
+                            << setw(55) << "Enter new baggage weight (in kg): ";
+                        cin >> baggage_weight;
+
+                        current->user_info = newName;
+                        current->baggage_info = to_string(baggage_weight);
+
+                        cout << setw(55) << "Passenger information modified successfully." << endl;
+                        found = true;
+                        break;
+                    }
+                    current = current->next;
+                }
+
+                if (!found)
+                {
+                    cout << setw(55) << "Passenger not found in the reservation list." << endl;
+                }
+
+                removeDataFromFile();
+                writeToFile(reservationQueue);
+            }
+            else if (selection == 5)
+            {
+                cout << setw(55) << "Thank You!" << endl;
                 return 1;
             };
 
@@ -265,14 +307,15 @@ int main()
             cout << setw(56) << "|      [1] Review All Ticket          |" << endl;
             cout << setw(56) << "|      [2] Cancel Ticket              |" << endl;
             cout << setw(56) << "|      [3] Show Primary Booker        |" << endl;
-            cout << setw(56) << "|      [4] Exit                       |" << endl;
+            cout << setw(56) << "|      [4] Edit Reservation Ticket    |" << endl;
+            cout << setw(56) << "|      [5] Exit                       |" << endl;
             cout << setw(56) << "|_____________________________________|" << endl
                  << endl;
 
             cout << setw(39) << "Selection: ";
             cin >> selection;
 
-        } while (selection >= 1 && selection <= 3);
+        } while (selection >= 1 && selection <= 4);
     }
     else
     {

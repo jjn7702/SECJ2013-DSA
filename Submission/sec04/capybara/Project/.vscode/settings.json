@@ -1,4 +1,8 @@
 {
     "editor.defaultFormatter": "ms-vscode.cpptools",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "files.associations": {
+        "iomanip": "cpp",
+        "iostream": "cpp"
+    }
 }
