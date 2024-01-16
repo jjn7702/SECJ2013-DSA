@@ -1102,5 +1102,58 @@ void search(int opt,string key,int key2) // SEARCHING CANDIDATE
                         temp = temp->next;
                     }
                     break; 
+                    case 4:
+                        while(temp != NULL)
+                        {
+                            if(temp->getIC() == key)
+                            {
+                                cout<<"\nName  : "<<temp->getName()<<endl;
+                                cout<<"Faculty : "<<temp->getFaculty()<<endl;
+                                cout<<"Age     : "<<temp->getAge()<<endl;
+                                cout<<"IC      : "<<temp->getIC()<<endl;
+                                cout<<"Email   : "<<temp->getEmail()<<endl;
+                                cout<<"Matric  : "<<temp->getMatric()<<endl;
+                                found = true;
+                            }
+                            temp = temp->next;
+                        }
+                        break;
+                    case 5:
+                        while(temp != NULL)
+                        {
+                            if(temp->getEmail() == key)
+                        {
+                            cout<<"\nName  : "<<temp->getName()<<endl;
+                            cout<<"Faculty : "<<temp->getFaculty()<<endl;
+                            cout<<"Age     : "<<temp->getAge()<<endl;
+                            cout<<"IC      : "<<temp->getIC()<<endl;
+                            cout<<"Email   : "<<temp->getEmail()<<endl;
+                            cout<<"Matric  : "<<temp->getMatric()<<endl;
+                            found = true;
+                        }
+                            temp = temp->next;
+                        }
+                        break;
+                    case 6:
+                    while(temp != NULL)
+                    {
+                        if(temp->getMatric() == key)
+                        {
+                            cout<<"\nName  : "<<temp->getName()<<endl;
+                            cout<<"Faculty : "<<temp->getFaculty()<<endl;
+                            cout<<"Age     : "<<temp->getAge()<<endl;
+                            cout<<"IC      : "<<temp->getIC()<<endl;
+                            cout<<"Email   : "<<temp->getEmail()<<endl;
+                            cout<<"Matric  : "<<temp->getMatric()<<endl;
+                            found = true;
+                        }
+                        temp = temp->next;
+                    }
+                    break;
+			}
+            if(!found)
+                    cout<<"Data was not found. Try again later !"<<endl;
+			}
+		}
 	
 };
