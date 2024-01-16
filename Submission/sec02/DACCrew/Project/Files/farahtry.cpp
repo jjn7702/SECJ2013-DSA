@@ -58,6 +58,118 @@ public:
 
     // Add this function to get access to the 'top' pointer
     nodeStack *getTop() const { return top; }
+
+
+void searchByDate(string searchDate)
+{
+    if (isEmpty())
+    {
+        cout << "\nNo transactions in the stack!" << endl;
+        return;
+    }
+
+    bool found = false;
+    nodeStack *temp = top;
+    for (int i = 0; i < 63; i++)
+        cout << "-";
+    cout << endl;
+    cout << setw(15) << left << "| Date "
+         << "|"
+         << setw(14) << " Type "
+         << "|"
+         << setw(15) << " Amount "
+         << "|"
+         << setw(15) << " Balance "
+         << "|" << endl;
+
+    for (int i = 0; i < 63; i++)
+        cout << "-";
+    cout << endl;
+
+    while (temp)
+    {
+        if (temp->getDate() == searchDate)
+        {
+            found = true;
+            cout << "| " << setw(13) << left << temp->getDate()
+                 << "| "
+                 << setw(13) << temp->getType()
+                 << "| "
+                 << setw(14) << temp->getAmount()
+                 << "| "
+                 << setw(14) << temp->getBalance()
+                 << "| " << endl;
+
+            for (int i = 0; i < 63; i++)
+                cout << "-";
+            cout << endl;
+        }
+
+        temp = temp->next;
+    }
+
+    if (!found)
+        cout << "No matching transactions found." << endl << endl;
+
+    cout << endl;
+}
+
+void searchByType(char searchType)
+{
+    if (isEmpty())
+    {
+        cout << "\nNo transactions in the stack!" << endl;
+        return;
+    }
+
+    bool found = false;
+    nodeStack *temp = top;
+
+    for (int i = 0; i < 63; i++)
+        cout << "-";
+    cout << endl;
+    cout << setw(15) << left << "| Date "
+         << "|"
+         << setw(14) << " Type "
+         << "|"
+         << setw(15) << " Amount "
+         << "|"
+         << setw(15) << " Balance "
+         << "|" << endl;
+
+    for (int i = 0; i < 63; i++)
+        cout << "-";
+    cout << endl;
+
+    while (temp)
+    {
+        if (temp->getType()[0] == searchType) // Check the first character of the type
+        {
+            found = true;
+            cout << "| " << setw(13) << left << temp->getDate()
+                 << "| "
+                 << setw(13) << temp->getType()
+                 << "| "
+                 << setw(14) << temp->getAmount()
+                 << "| "
+                 << setw(14) << temp->getBalance()
+                 << "| " << endl;
+
+            for (int i = 0; i < 63; i++)
+                cout << "-";
+            cout << endl;
+        }
+
+        temp = temp->next;
+    }
+
+    if (!found)
+        cout << "\nNo matching transactions found." << endl;
+
+    cout << endl;
+}
+
+
 };
 
 void saveToFile(stack &transactionStack)
@@ -81,50 +193,6 @@ void saveToFile(stack &transactionStack)
     }
 }
 
-void readFromFile(stack &transactionStack, double &balance)
-{
-    ifstream file("transaction_history.txt");
-
-    if (file.is_open())
-    {
-        string line;
-
-        while (getline(file, line))
-        {
-            string date, type, amountStr, balanceStr;
-            
-            // Find the first two commas to separate date and type
-            size_t pos1 = line.find(',');
-            size_t pos2 = line.find(',', pos1 + 1);
-
-            if (pos1 != string::npos && pos2 != string::npos)
-            {
-                date = line.substr(0, pos1);
-                type = line.substr(pos1 + 1, pos2 - pos1 - 1);
-                amountStr = line.substr(pos2 + 1);
-
-                // Convert amountStr to double (assuming the rest is the amount)
-                double amount = stod(amountStr);
-
-                // Update balance
-                balance += amount;
-
-                transactionStack.push(date, type, amount, balance);
-            }
-            else
-            {
-                cout << "Error processing line: " << line << endl;
-            }
-        }
-
-        file.close();
-        cout << "Transaction history loaded from 'transaction_history.txt'." << endl;
-    }
-    else
-    {
-        cout << "No existing transaction history file found." << endl;
-    }
-}
 
 
 
@@ -255,15 +323,12 @@ int main()
     cout << "\n<<<<< WELCOME TO DACCrew BANKING MANAGEMENT SYSTEM >>>>>\n"
          << endl;
 
-    // Load transactions from file at the start
-    readFromFile(transactionStack, balance);
-
     do
     {
-
-        cout << "1. Display Transaction List" << endl
-             << "2. Perform Transaction" << endl
-             
+        cout << "1. Check Balance" << endl
+             << "2. Display Transaction List" << endl
+             << "3. Perform Transaction" << endl
+             << "4. Search for Transaction" << endl
              << "5. Exit" << endl
              << "Your choice: ";
         cin >> choice;
@@ -271,13 +336,38 @@ int main()
         switch (choice)
         {
         case 1:
-            print(transactionStack, balance);
+            cout << "Current Balance: " << balance << endl << endl;
             break;
         case 2:
+            print(transactionStack, balance);
+            break;
+        case 3:
             performTransaction(transactionStack, balance);
             break;
-       
-        case 3:
+        case 4:
+            int searchChoice;
+            cout << "\n[1] Search by Type" << endl
+                 << "[2] Search by Date" << endl
+                 << "[3] Back to Main Menu" << endl
+                 << "Your choice:";
+            cin >> searchChoice;
+            if (searchChoice == 1)
+            {
+                char searchType;
+                cout << "Enter transaction type (D: Deposit/W: Withdraw/T: Transfer): ";
+                cin >> searchType;
+                transactionStack.searchByType(searchType);
+            }
+            else if (searchChoice == 2)
+            {
+                string searchDate;
+                cout << "Enter date (DD-MM-YYYY): ";
+                cin >> searchDate;
+                transactionStack.searchByDate(searchDate);
+            }
+            else if (searchChoice == 3)
+                break;
+        case 5:
             cout << "Exiting..." << endl;
             break;
         default:
