@@ -28,7 +28,6 @@ _Don't forget to hit the :star: if you like this repo._
 
 ## Design 
 
-##### 1. User View
 
 
 
