@@ -18,6 +18,21 @@
 
 ## Overview of The Project <a name="overview"></a> :heavy_check_mark:
 ### Objective
+The main objective for developing the courier management system is to ease the courier and customer to insert, delete, search and display the courier information. The courier management system is designed to make the process of insertion and deletion of the courier information run smoothly and follow the flow as it follows the “First In, First Out” (FIFO) principle and get packages to their destination safely and on time. The system provides a user-friendly interface for simplicity of use, with a menu-driven system that leads users through the full process of selecting the menu provided until they choose to exit the system. The system implements the queue principle as that principle is more suitable to be implemented for the courier management system. Typically, the initial detail of a parcel will be delivered to the customer first since the parcel was sent earlier than subsequent parcels, allowing the administrator to remove the information flow by flow. Usually, the first detail will be delivered first to the customer as the parcel was sent earlier than other parcels so that the admin can delete the information flow by flow. To maintain data integrity during file activity, the system also additionally employs a data hiding concept. Data hiding ensures exclusive data access to class members exclusively and preserves object integrity by limiting modifications and disruptions, whether planned or unintended.
+
+There are few features in the courier management system which is
+
+1. Insert data courier 
+Insert information of the parcel including name, parcel type, source, destination, status and tracking number. The new information will be inserted at the back/last of the list of parcel details.
+
+2. Remove or delete data couriers
+Remove or delete the information of the parcel from the input file (COURIER.txt). The information will be deleted from the top/front of the list of the parcel in the input file.
+
+3. Search courier information
+Can search any data that exists in the list by the status of the parcel. The algorithm used is a linked list implementation of queue.
+
+4. Display data courier
+Displaying all updated courier information including name, parcel type, source, destination, status and tracking number.
 
 ### Synopsis
 
