@@ -616,3 +616,31 @@ int getordernum(){
 void report(Retaurant q){
 	cout << "The Number of Customer today is : " << q.getcustomer_num() << endl;
 }
+
+int main(){
+    string menu_code, menu_name, menu_type,order;
+	float menu_price;
+	Menu a [N];
+	int i = 0,cus_action,option,ordernum;
+	Cart b;
+	Retaurant q;
+	ifstream file("input.txt.txt");
+	/*
+	if(!file){
+		cout << " Error opening file" << endl;
+	}
+	else{
+		cout << "File can run" << endl; // use for testing the file
+	}
+	*/
+	while(getline(file,menu_code,',')){
+		getline(file,menu_name,',');
+		getline(file,menu_type,',');
+		file >> menu_price;
+		file.ignore();
+		a[i].setcode(menu_code);
+		a[i].setname(menu_name);
+		a[i].settype(menu_type);
+		a[i].setprice(menu_price);
+		i++;
+	}
