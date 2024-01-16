@@ -140,12 +140,12 @@ class Queue {
         bool isFull() {
             return (count == N);
         }
-		Node* getBook() {
-			return b[front];
-		}
-		string getName(int idx) {
-			return name[idx];
-		}
+	Node* getBook() {
+	    return b[front];
+	}
+	string getName(int idx) {
+	    return name[idx];
+	}
         void enQueue(string n, Node* bb) {
             if (isFull())
                 cout << "\tCannot insert. Queue is full!" << endl;
@@ -165,12 +165,12 @@ class Queue {
             }
         }
         void deQueue(int index) {
-        	for (int i = index; i < back; i++) {
-        		name[i] = name[i+1];
-        		b[i] = b[i+1];
-        	}
-        	back--;
-        	count--;
+            for (int i = index; i < back; i++) {
+        	name[i] = name[i+1];
+        	b[i] = b[i+1];
+            }
+            back--;
+            count--;
         }
 
         void print() {
