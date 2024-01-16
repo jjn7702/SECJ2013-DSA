@@ -393,3 +393,19 @@ class Cart{
 			cout << "file cannot open" << endl;
 		}
 	}
+    void display_order_list(){
+	string name,number;
+	cout << "Enter the Order Number :";
+	cin >> number;
+	ifstream inputfile("Order_"+number+".txt");
+	cout << "The Order list :" << endl;
+	if(inputfile.is_open()){
+		while(getline(inputfile,name)){
+			cout << name << endl;
+		}
+	}
+	else{
+		cout << "file cannot open" << endl;
+	}
+}
+};
