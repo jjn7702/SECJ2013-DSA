@@ -130,70 +130,6 @@ public:
         }
         cout << "-----------------------------------------------------------------------------------------------------------" << endl;
     }
-
-    void staffMenu()
-    {
-        system("cls");
-        int stackChoice;
-        cout << setw(39) << " ____________________________________" << endl;
-        cout << setw(40) << "|                                    |" << endl;
-        cout << setw(40) << "|             Staff Menu             |" << endl;
-        cout << setw(40) << "|____________________________________|" << endl
-             << endl;
-
-        cout << setw(5) << "[1] Add New Book (Push)" << endl;
-        cout << setw(5) << "[2] Remove Book (Pop)" << endl;
-        cout << setw(5) << "[3] Display Current List (DisplayStack)" << endl;
-        cout << setw(5) << "[4] Back" << endl
-             << endl;
-        cout << "Please enter your choice : ";
-        cin >> stackChoice;
-
-        if (stackChoice == 1)
-        {
-            string title, author, isbn;
-            int year;
-
-            cout << "Enter the title of the book : ";
-            cin.ignore();
-            getline(cin, title);
-            cout << "Enter the author of the book : ";
-            getline(cin, author);
-            cout << "Enter the year of the book : ";
-            cin >> year;
-            cout << "Enter the ISBN of the book : ";
-            cin.ignore();
-            getline(cin, isbn);
-
-            Book newBook;
-            newBook.setTitle(title);
-            newBook.setAuthor(author);
-            newBook.setYear(year);
-            newBook.setISBN(isbn);
-
-            push(newBook);
-            displayStack();
-            cout << "Book has been added!" << endl;
-        }
-        else if (stackChoice == 2)
-        {
-            pop();
-            displayStack();
-            cout << "Book has been removed!" << endl;
-        }
-        else if (stackChoice == 3)
-        {
-            displayStack();
-        }
-        else if (stackChoice == 4)
-        {
-            return;
-        }
-        else
-        {
-            cout << "Invalid input!" << endl;
-        }
-    }
 };
 
 class Queue
@@ -284,6 +220,8 @@ int main()
     Queue patronQueue;
 
     int choice;
+    char yn;
+    do{
         system("cls");
         cout << setw(39) << " ____________________________________" << endl;
         cout << setw(40) << "|                                    |" << endl;
@@ -301,7 +239,68 @@ int main()
         switch (choice)
         {
         case 1:
-            bookStack.staffMenu();
+            system("cls");
+        int stackChoice;
+        cout << setw(39) << " ____________________________________" << endl;
+        cout << setw(40) << "|                                    |" << endl;
+        cout << setw(40) << "|             Staff Menu             |" << endl;
+        cout << setw(40) << "|____________________________________|" << endl
+             << endl;
+
+        cout << setw(5) << "[1] Add New Book (Push)" << endl;
+        cout << setw(5) << "[2] Remove Book (Pop)" << endl;
+        cout << setw(5) << "[3] Display Current List (DisplayStack)" << endl;
+        cout << setw(5) << "[4] Approve Borrow Request" << endl
+             << endl;
+        cout << "Please enter your choice : ";
+        cin >> stackChoice;
+
+        if (stackChoice == 1)
+        {
+            string title, author, isbn;
+            int year;
+
+            cout << "Enter the title of the book : ";
+            cin.ignore();
+            getline(cin, title);
+            cout << "Enter the author of the book : ";
+            getline(cin, author);
+            cout << "Enter the year of the book : ";
+            cin >> year;
+            cout << "Enter the ISBN of the book : ";
+            cin.ignore();
+            getline(cin, isbn);
+
+            Book newBook;
+            newBook.setTitle(title);
+            newBook.setAuthor(author);
+            newBook.setYear(year);
+            newBook.setISBN(isbn);
+
+            bookStack.push(newBook);
+            bookStack.displayStack();
+            cout << "Book has been added!" << endl;
+        }
+        else if (stackChoice == 2)
+        {
+             bookStack.pop();
+             bookStack.displayStack();
+            cout << "Book has been removed!" << endl;
+        }
+        else if (stackChoice == 3)
+        {
+             bookStack.displayStack();
+        }
+        else if (stackChoice == 4)
+        {
+                patronQueue.dequeue();
+                patronQueue.displayQueue();
+                cout << "Book request canceled!" << endl;
+        }
+        else
+        {
+            cout << "Invalid input!" << endl;
+        }
             break;
 
         case 2:
@@ -315,9 +314,8 @@ int main()
                  << endl;
 
             cout << setw(5) << "[1] Request a Book (Enqueue)" << endl;
-            cout << setw(5) << "[2] Cancel Request (Dequeue)" << endl;
-            cout << setw(5) << "[3] Display Current Requests (DisplayQueue)" << endl;
-            cout << setw(5) << "[4] Back" << endl
+            cout << setw(5) << "[2] Display Current Requests (DisplayQueue)" << endl;
+            cout << setw(5) << "[3] Back" << endl
                  << endl;
             cout << "Please enter your choice : ";
             cin >> queueChoice;
@@ -344,11 +342,11 @@ int main()
                 patronQueue.displayQueue();
                 cout << "Book request canceled!" << endl;
             }
-            else if (queueChoice == 3)
+            else if (queueChoice == 2)
             {
                 patronQueue.displayQueue();
             }
-            else if (queueChoice == 4)
+            else if (queueChoice == 3)
             {
                 
             }
@@ -366,6 +364,9 @@ int main()
             cout << "Invalid input!" << endl;
         }
 
+        cout << "Do you still want to use the system? (Y/N) : ";
+        cin >> yn;
+    } while (yn == 'Y' || yn == 'y');
 
 
     return 0;

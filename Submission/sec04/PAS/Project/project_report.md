@@ -1,10 +1,10 @@
 # Project
 ## CONTENTS
-- [Problem Analysis](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/project_report.md#problem-analysis-%EF%B8%8F)
-- [Project Designs](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/project_report.md#project-designs-%EF%B8%8F)
-- [Data Structure Concept Implementation](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/project_report.md#data-structure-concept-implementation)
-- [Source Code](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/PAS/Project/files/source%20code)
-- [User Manual/Guides](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/project_report.md#user-manual-)
+- 1️⃣ [Problem Analysis](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/project_report.md#problem-analysis-%EF%B8%8F) 
+- 2️⃣ [Project Designs](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/project_report.md#project-designs-%EF%B8%8F)
+- 3️⃣ [Data Structure Concept Implementation](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/project_report.md#data-structure-concept-implementation)
+- 4️⃣ [Source Code](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/PAS/Project/files/source%20code)
+- 5️⃣ [User Manual/Guides](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/project_report.md#user-manual-)
 
 ## PROBLEM ANALYSIS 📊
 ### OBJECTIVES 💡
@@ -90,7 +90,7 @@ operations such as inserting or removing books into a stack in the library, and
 allowing books borrowing via queue operations. Each step of the operation is crucial
 in order to produce the correct output efficiently.
 
-## DATA STRUCTURE CONCEPT IMPLEMENTATION
+## DATA STRUCTURE CONCEPT IMPLEMENTATION 🖥️
 In this project, we implemented 2 different data structures learnt in the 
 Data Structure and Algorithm course throughout this semester which are 
 stack and queue. The Library Management System is designed to manage and 
@@ -107,7 +107,7 @@ the name of the customer that queued for a book that is previously
 unavailable and enter the customer’s name and the details of the borrowed 
 book into the ‘borrower’ queue.
 
-### DATA STRUCTURE: STACK
+### DATA STRUCTURE: STACK 📚
 Book information is stored in a stack. For the implementation of stack, 2 
 classes are written in the code which are class Node and class Stack. In 
 this project, the program reads the book details from an input file named 
@@ -137,7 +137,7 @@ the code segment below.
 ![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/STACK%20IMAGE%202.png
 )
 
-### DATA STRUCTURE: QUEUE 
+### DATA STRUCTURE: QUEUE 🧑‍🤝‍🧑🧍‍♂️🧍🧍‍♀️🧍‍♀️🤸‍♀️
 
 For the implementation of queue data structure, we implemented class Queue 
 and 2 objects for the class queue are implemented in the main() function, 
