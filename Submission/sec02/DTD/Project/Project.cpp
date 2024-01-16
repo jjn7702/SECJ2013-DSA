@@ -2,7 +2,8 @@
 #include <iomanip>
 #include <fstream>
 #include <string>
-#include <queue>
+
+#define MAX_SIZE 100
 
 using namespace std;
 
@@ -16,15 +17,15 @@ private:
 public:
     Book() : title(""), author(""), year(0), ISBN("") {}
 
-    string getTitle() const { return title; }
-    string getAuthor() const { return author; }
-    int getYear() const { return year; }
-    string getISBN() const { return ISBN; }
+    string getTitle()  { return title; }
+    string getAuthor()  { return author; }
+    int getYear()  { return year; }
+    string getISBN()  { return ISBN; }
 
-    void setTitle(const string& t) { title = t; }
-    void setAuthor(const string& a) { author = a; }
+    void setTitle(string& t) { title = t; }
+    void setAuthor(string& a) { author = a; }
     void setYear(int y) { year = y; }
-    void setISBN(const string& i) { ISBN = i; }
+    void setISBN(string& i) { ISBN = i; }
 
     void displayBook() const {
         cout << setw(50) << left << "| " + title
@@ -36,14 +37,13 @@ public:
 
 class Library {
 private:
-    static const int MAX_SIZE = 100;
     Book stackArray[MAX_SIZE];
     int top;
 
 public:
     Library() : top(-1) {}
 
-    void pushBook(const Book& book) {
+    void pushBook(Book& book) {
         if (top < MAX_SIZE - 1) {
             stackArray[++top] = book;
         } else {
@@ -76,7 +76,7 @@ public:
         cout << "-----------------------------------------------------------------------------------------------------------" << endl;
     }
 
-    void enqueueRequest(const string& patronName, const string& bookTitle) {
+    void enqueueRequest(string& patronName,string& bookTitle) {
         ofstream outputFile("PatronQueue.txt", ios::app);
         if (outputFile.is_open()) {
             outputFile << patronName << "," << bookTitle << endl;
@@ -92,7 +92,6 @@ void dequeueRequest() {
 
     if (file.is_open()) {
         string patronName, bookTitle;
-        streampos currentPosition = file.tellg();
         bool requestFound = false;
 
         ofstream tempFile("temp.txt", ios::app);
@@ -104,7 +103,6 @@ void dequeueRequest() {
             } else {
                 tempFile << patronName << "," << bookTitle << endl;
             }
-            currentPosition = file.tellg();
         }
 
         if (!requestFound) {
@@ -114,7 +112,6 @@ void dequeueRequest() {
         file.close();
         tempFile.close();
 
-        // Replace the original file with the temporary file
         remove("PatronQueue.txt");
         rename("temp.txt", "PatronQueue.txt");
     } else {
@@ -125,13 +122,16 @@ void dequeueRequest() {
     void displayQueue() {
         ifstream inputFile("PatronQueue.txt");
         if (inputFile.is_open()) {
-            cout << "Patron requests in the queue:\n";
-            cout << "-----------------------------------------" << endl;
+            system("cls");
+            cout << "Patron requests in the queue:\n\n";
+            cout << "--------------------------------------------------" << endl;
+            cout << "| " << setw(20) << left << "Patron Name" << " | " << setw(23) << left << "Requested Book Title" << " |" << endl;
+            cout << "--------------------------------------------------" << endl;
             string patronName, bookTitle;
             while (getline(inputFile, patronName, ',') && getline(inputFile, bookTitle)) {
-                cout << "| " << setw(20) << left << patronName << " | " << setw(30) << left << bookTitle << " |" << endl;
+                cout << "| " << setw(20) << left << patronName << " | " << setw(23) << left << bookTitle << " |" << endl;
             }
-            cout << "-----------------------------------------" << endl;
+            cout << "--------------------------------------------------" << endl;
             inputFile.close();
         } else {
             cout << "Error opening file: PatronQueue.txt" << endl;
@@ -142,6 +142,7 @@ void dequeueRequest() {
 int main() {
     Library library;
     int choice, stackChoice, queueChoice;
+    char yn1;
     Book newBook;
     string Title, Author, ISBN, patronName, requestedBookTitle;
     int Year;
@@ -169,6 +170,7 @@ int main() {
 
     inputFile.close();
 
+do {
     system("cls");
     cout << setw(39) << " ____________________________________" << endl;
     cout << setw(40) << "|                                    |" << endl;
@@ -225,7 +227,6 @@ int main() {
                 cout << "Book added to the stack: " << newBook.getTitle() << endl;
                 library.displayStack();
                 system("pause");
-                main();
             } else if (stackChoice == 2) {
                 system("cls");
                 cout << setw(39) << " ____________________________________" << endl;
@@ -235,13 +236,11 @@ int main() {
                 library.popBook();
                 library.displayStack();
                 system("pause");
-                main();
             } else if (stackChoice == 3) {
                 library.displayStack();
             } else {
                 cout << "Invalid input. Please try again." << endl;
                 system("pause");
-                main();
             }
             break;
 
@@ -276,7 +275,6 @@ int main() {
                 library.enqueueRequest(patronName, requestedBookTitle);
                 library.displayQueue();
                 system("pause");
-                main();
             } else if (queueChoice == 2) {
                 system("cls");
                 cout << setw(39) << " ____________________________________" << endl;
@@ -287,24 +285,23 @@ int main() {
                 library.dequeueRequest();
                 library.displayQueue();
                 system("pause");
-                main();
             } else if (queueChoice == 3) {
                 library.displayQueue();
             } else {
                 cout << "Invalid input. Please try again." << endl;
-                system("pause");
-                main();
             }
             break;
 
         case 3:
-            return 0;
+            cout << "Exiting the program. Goodbye!" << endl;
+            break;
 
         default:
             cout << "Invalid input. Please try again." << endl;
-            system("pause");
-            main();
     }
+    cout << "Do you still want to use the program? (Y/N): ";
+    cin >> yn1;
+} while (yn1 == 'Y' || yn1 == 'y');
 
     return 0;
 }
