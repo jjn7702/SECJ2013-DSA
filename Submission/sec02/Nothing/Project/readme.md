@@ -12,19 +12,27 @@ _Don't forget to hit the :star: if you like this repo._
 ## Description 📝
 The Inventory Management System is a C++ program designed to efficiently manage and organize inventory-related tasks. It employs sorting algorithms such as Merge Sort and Quick Sort for ascending and descending order, respectively, allowing users to sort inventory items by item number, name, quantity, cost, or location. The system also incorporates searching algorithms, including Binary Search for item numbers and Sequential Search for names or locations. The console-based interface presents a main menu with options for sorting, searching, and exiting, providing a user-friendly experience. The program initializes by reading inventory data from a file, assumes a specific format for the input file, and lacks explicit write-back functionality. Overall, it offers a foundational framework for inventory management with potential for extension and enhancement based on specific business needs.
 
+
 ## Prepared by 🧑‍💻
 
-| Name             | Matric Number | Photo                                                         |
-| :---------------- | :-------------: | :------------------------------------------------------------: |
-|  GOH JING YANG   |    A22EC0052    | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230519010247.jpg" title="Icon by Trazobanana"><img src="./Images/微信图片_20230519010247.jpg" width=80px, height=80px>     |
-|   LOO JIA CHANG    |   A22EC0074     | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Images/129271114.jpg" title="Icon by Trazobanana"><img src="./Images/129271114.jpg" width=80px, height=80px>         |
-|  LOW JIE SHENG    |   A22EC0075      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Images/photo_2023-12-20_13-55-45.jpg" title="Icon by Trazobanana"><img src="./Images/129199459.jpg" width=80px, height=80px>         |
+| Name             | Matric Number |
+| :---------------- | :-------------: |
+|  GOH JING YANG   |    A22EC0052    | 
+|   LOO JIA CHANG    |   A22EC0074     |
+|  LOW JIE SHENG    |   A22EC0075      | 
+
+## File
+| No | Name |File | 
+| -----:| ----- | :------: | 
+|1| Document PDF| <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Assignment1/Assigment%201%20Group%20Nothing%20.pdf" ><img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Images/pdf64.png" width="24px" height="24px" ></a>|
+
+
 
 ## Findings 📊
 
-- [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Assignment1/readme.md)
-- [Assignment 2](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec02/Nothing/Assignment2/readme.md)
-- Project
+- [Source code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Assignment1/Assignment1.cpp)
+- [Inputfile](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Assignment1/inventory.txt)
+- [Report](https://liveutm-my.sharepoint.com/:w:/g/personal/gohyang_live_utm_my/EbJmJgSrYGVGoqGdawd4zv0BWrYCpVwkQh_qHuz98ZVKPQ?e=MN48xn)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
