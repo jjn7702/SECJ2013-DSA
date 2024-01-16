@@ -21,7 +21,7 @@ The primary objective of this program is to create an efficient library manageme
 <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Project/ClassDiagramProject.drawio.png">
 
 2. Pseudocode
-<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Assignment2/Pseudocode.png">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Project/PseudocodeProject.png">
 
 
 ## Flow of System 💹
