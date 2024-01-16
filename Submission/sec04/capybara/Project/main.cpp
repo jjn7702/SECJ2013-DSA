@@ -635,9 +635,6 @@ int main()
 {
     string deletepassengerID;
 
-    //! Output Stack // ni utk ape?
-
-    // //! Display Baggage Stack
     StackList BS;
     getBaggageData(BS);
 
