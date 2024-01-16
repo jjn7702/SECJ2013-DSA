@@ -143,7 +143,21 @@ There are few features in the courier management system which is
    
 3. Return back to the customer menu.
 
+### DISPLAYING THE COURIER 
 
+1. Get the option form the customer, admin and worker menu.
+   
+2. Display the content in the courier queue starting from front to rear.
+   
+3. Return back to the customer/admin/worker menu.
+
+### SAVE COURIER INFORMATION 
+
+1. Get the option in the main menu.
+   
+2. Save the latest courier queue to the filename “COURIER.TXT”.
+   
+3. Return back to the main menu.
 
 
 ## User Manual/Guide <a name="usermanual"></a> 📝
