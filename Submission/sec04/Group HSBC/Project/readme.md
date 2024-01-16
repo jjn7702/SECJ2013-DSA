@@ -69,6 +69,10 @@ For inserting a new transaction, we create a member function named insertNode fu
             return node; // Return the updated root of the current subtree
         }
 
+         void insertAccount(Transaction& acc){
+            root = insertNode(root, acc);
+        }
+
 ###### b. View Current Balance
 For viewing current balance, we create a get_balance function which allows us to view the current balance of the account. When the user successfully login to the system, it will record the index of the account and set it to targetAcc. This allows the user to correctly get the balance of the account.
 
