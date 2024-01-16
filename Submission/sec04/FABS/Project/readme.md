@@ -63,7 +63,7 @@ There are few features in the courier management system which is
 
 ## Design <a name="design"></a> 🎨
 #### Flowchart
-![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/databaseprojek.drawio.png)
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/dsaflowchart.png)
 #### Class Diagram
 ![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/class%20diagram.jpg)
 
