@@ -284,7 +284,6 @@ int main()
     Queue patronQueue;
 
     int choice;
-    do()
         system("cls");
         cout << setw(39) << " ____________________________________" << endl;
         cout << setw(40) << "|                                    |" << endl;
