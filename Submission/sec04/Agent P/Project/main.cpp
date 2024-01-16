@@ -1171,3 +1171,31 @@ int LoginUI()
 	
 	return opt1;
 }
+void AdminLogin(Admin arr[],int j){
+			bool found = false;
+			do
+			{
+                cin.ignore();
+				string loginId,loginPass;
+				cout<<"Please enter your USERNAME & PASSWORD"<<endl;
+				cout<<"USERNAME : ";
+				cin>>loginId;
+				cout<<"PASSWORD : ";
+				cin>>loginPass;
+				cout<<endl;
+				system("CLS");
+				
+				
+				for(int i=0;i<j;i++){
+                    if((arr[i].getUsername() == loginId) && (arr[i].getPassword() == loginPass )){
+                        cout<<"\nWelcome, "<<arr[i].getUsername()<<endl;
+						found = true;
+						break;
+                }
+                }
+		
+				if(found==false)
+					cout<<"ID or Password entered is wrong!"<<endl<<endl;
+	
+		}while(found==false);
+	}
