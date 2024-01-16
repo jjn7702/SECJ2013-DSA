@@ -10,15 +10,15 @@
 - [User Guide](#-Findings)
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/project-management.png" width="3%" height="3%"> Introduction
-As from the agent P group we decided to develop an election management system for   UTM. From this system UTM can  handle the elections easily and efficiently. For assignment 1 we had developed a class for candidates which contain 7 attributes which define a candidate. The attributes are name , age , identification number , phone number , vote count , faculty and matric number. 
+As from the agent P group we decided to develop an Election Management System for  UTM.For this system there will three type of users , Admin , Voter and Candidate.The admin can insert the candidate into the candidate list , remove candidate and voter and also view the list of voters and candidates.As for the Voters they can cast three votes , register if they’re not in the list and view the list of candidates.Finally for the Candidates , they can view their profile , view the candidate list and also withdraw.
   
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/bc7e2df3-d20d-457c-b9fb-e0574b6a740e" width="3%" height="3%"> Objectives:
-The objective for this assignment 1 is to create an Election management system.In this system it will enable users to get a sorted version of the Election candidate list by attributes like name,faculty,age,vote count ,IC and matric num.Each attributes stated will be sorted in ascending and descending order where user can choose which way they want to view the candidate list.The system will also enable users to do searching on the stated attributes.If the the user wanted to get the detail of a candidate by entering any of the attributes value,the system will display the candidate’s details.Thus, the aim of this system is to create a user friendly interface where user can easily use the election management system.
+
 
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/ac62ef65-848d-41a6-97c2-1ff40be8ecd3" width="3%" height="3%"> Synopsis
 
-Election Management System is a system that can help students in UTM to view the candidates information like name, faculty, age, matric number, phone number and vote count. There is also a sorting and searching algorithm implemented in the system so that students have an easier time looking for the candidates. For example, students can search for the candidates from their faculty so that they can support the candidate from their faculty. There is also sorting that will arrange the candidates in ascending or descending order depending on the information they want to sort. For example, students can see the candidates from oldest to youngest or vice versa. This system will ease students in their search for candidates as all candidates are registered in the system. 
+
 
 
 ## Design 🎨
