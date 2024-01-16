@@ -27,11 +27,11 @@ Election Management System is a system that will be used during the UTM voting d
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/b7b1299f-ead1-4e66-ad2e-95b901f4f03c" width="3%" height="3%"> Class Diagram
 
-![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/classDIAGRAM.png)
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Class_Project.png)
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/8b3596b0-7214-4cc8-b868-9ab2a0314386" width="3%" height="3%"> Flowchart
 
-![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Ass1%20(1).jpg)
+![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Project_Flowchart.png)
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/fabaacbe-18c1-4f64-a3a5-e1b40e910e71" width="4%" height="4%"> Queue Implementation
 ##### 1. Enqueue
@@ -114,7 +114,7 @@ Step 3.4
 
 If option 4 is selected, the admin can delete a candidate at specific position which starts with 1.
 
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20191347.png)
 
 Sample output if the chosen position is 1. 
 
@@ -122,8 +122,9 @@ The admin can choose to continue or end the process here by entering ‘y’ to 
 
 Step 3.5
 
-![4])()
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20191705.png)
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20191755.png)
 If the admin chose option 5, then the admin inserts an admin by inserting all the details.
 **Name, Faculty, IC, Phone number, Email, Matric Number, Password are all string while age is integer. 
 
@@ -131,16 +132,183 @@ The admin can choose to continue or end the process here by entering ‘y’ to 
 
 Step 3.6
 
-![4][()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20192503.png)
 
 If the admin chose option 6, the system will end.
 
 **Any other option that is not 1-6 will make the system exit.
 
-
 ##### 3. Voter
 
+Step 1.1
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20194916.png)
+
+*Users who have registered before
+Users will be needed to enter their ID(matric number) and password is something that is decided by the user.
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20195215.png)
+
+Users will have the options if they want to try again to enter the id and password.
+
+Step 1.2
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20195215.png)
+
+*Users who have not have registered before
+Users can register as a new Voter by entering option 2.
+
+Step 1.2.1
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20200049.png)
+
+Users will need to fill in all this information.
+**Name, Faculty, IC, Email, Matric Number are all strings while age is integer. 
+**If the matric number is the same then, the system will display a message and exit the system. 
+
+Step 1.2.2
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20200249.png)
+
+Users will need to enter a password for authentication purpose. 
+
+Step 1.2.3.
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20200515.png)
+
+Users will be asked to enter their newly registered id and password.
+
+**Users who have registered before cannot register as a voter again. 
+
+Step 2
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20200737.png)
+
+Voters have the option to vote(1), view profile(2), Search for candidate(3), and exit(4). 
+**Any option other than 0-4 will make the system end.
+
+Step 3.1
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20201841.png)
+
+If the voter chose option 1, then the list of candidates will be displayed and the voter will need to choose 3 candidates. 
+**A candidate can only be chosen once.
+
+
+Step 3.1.1
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20202014.png)
+
+The system will then display the information of the chosen candidate. 
+
+The voter can choose to continue or end the process here by entering ‘y’ to continue and ‘n’ for ending the process.
+
+
+Step 3.2
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20202404.png)
+
+If option 2 is selected, the voter can see their information and they can change it if they enter ‘y’ and not edit it if ‘n’ is entered. 
+
+Step 3.2.1
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20202520.png)
+
+*If the voter want to change their profile
+The voter can now choose which attribute they want to change
+1 for name, 2 for faculty, 3 for age, 4 for IC, 5 for Email, 6 for matric number.
+
+
+Step 3.2.2
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20202848.png)
+
+The voter can choose the attribute they want to change and enter the new information. 
+
+The voter can choose to continue or end the process here by entering ‘y’ to continue and ‘n’ for ending the process.
+
+Step 3.2.3
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20202930.png)
+
+If the voter chose option 3, then they can search for candidates by using the above attributes. 
+
+Step 3.3.1
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20203047.png)
+
+The voter can choose the attribute and enter the information, in this sample, the name was used. If the information is the same as the one in the candidate list then the information about the candidate will be displayed.
+
+Step 3.3.2
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20203308.png)
+
+If the information is not found, an error message will appear. 
+
+The voter can choose to continue or end the process here by entering ‘y’ to continue and ‘n’ for ending the process.
+
+Step 3.4
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20203552.png)
+
+If the voter chose option 4, the system will end.
+
 ##### 4. Candidate
+
+Step 1.1
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20204325.png)
+
+Candidates will need to enter their ID(Matric Number) and password.
+
+Step 1.2
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20204437.png)
+
+If the candidate entered the wrong id or password, then they will need to enter it back till they get it right. 
+
+Step 2
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20205234.png)
+
+The candidate will be redirected to the page where they can view profile(1), view all candidates(2), withdraw from election(3) and exit(4).
+
+Step 3.1
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20205501.png)
+
+If the candidate chose option 1, they can view their information like name, faculty, age, IC, Email, matric number, phone number, vote count. 
+
+The voter can choose to continue or end the process here by entering ‘y’ to continue and ‘n’ for ending the process.
+
+Step 3.2
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20205727.png)
+
+If the candidate chose option 2, they can view all candidates information like name, faculty, IC,age, matric number, email and vote count.
+
+The voter can choose to continue or end the process here by entering ‘y’ to continue and ‘n’ for ending the process.
+
+Step 3.3
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/WhatsApp%20Image%202024-01-16%20at%209.02.35%20PM.jpeg)
+
+If the candidate chose option 3, then they will withdraw from the election process and their name will be removed from the candidate list and the system will end.
+
+Step 3.4
+
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20210430.png)
+
+If the candidate chose option 4, then they will exit the system. 
+**If the candidate enters any option other than 1-4, the system will end.
+
+
+
+
+
+
+
+
 
 
 

@@ -151,7 +151,7 @@ public:
         return (rear == MAX_SIZE - 1);
     }
 
-    void enqueue(const Book &newBook)
+    void enqueue(Book &newBook)
     {
         if (isFull())
         {
@@ -215,12 +215,14 @@ public:
 int main()
 {
     Stack bookStack;
-    bookStack.readFromFile();
-
     Queue patronQueue;
+    bookStack.readFromFile();
 
     int choice;
     char yn;
+    int queueChoice;
+
+    
     do{
         system("cls");
         cout << setw(39) << " ____________________________________" << endl;
@@ -250,8 +252,8 @@ int main()
         cout << setw(5) << "[1] Add New Book (Push)" << endl;
         cout << setw(5) << "[2] Remove Book (Pop)" << endl;
         cout << setw(5) << "[3] Display Current List (DisplayStack)" << endl;
-        cout << setw(5) << "[4] Approve Borrow Request" << endl
-             << endl;
+        cout << setw(5) << "[4] Approve Borrow Request" << endl ;
+        cout << setw(5) << "[5] Back" << endl;
         cout << "Please enter your choice : ";
         cin >> stackChoice;
 
@@ -260,6 +262,7 @@ int main()
             string title, author, isbn;
             int year;
 
+            system("cls");
             cout << "Enter the title of the book : ";
             cin.ignore();
             getline(cin, title);
@@ -297,6 +300,11 @@ int main()
                 patronQueue.displayQueue();
                 cout << "Book request canceled!" << endl;
         }
+        else if (stackChoice == 5)
+        {
+            main();
+        }
+
         else
         {
             cout << "Invalid input!" << endl;
@@ -305,7 +313,7 @@ int main()
 
         case 2:
             system("cls");
-            int queueChoice;
+            
 
             cout << setw(39) << " ____________________________________" << endl;
             cout << setw(40) << "|                                    |" << endl;
@@ -338,17 +346,11 @@ int main()
             }
             else if (queueChoice == 2)
             {
-                patronQueue.dequeue();
-                patronQueue.displayQueue();
-                cout << "Book request canceled!" << endl;
-            }
-            else if (queueChoice == 2)
-            {
                 patronQueue.displayQueue();
             }
             else if (queueChoice == 3)
             {
-                
+                main();
             }
             else
             {
@@ -357,15 +359,19 @@ int main()
             break;
 
         case 3:
+            system("cls");
             cout << "Thank you for using DTD Library!" << endl;
             break;
 
         default:
+            system("cls");
             cout << "Invalid input!" << endl;
+            break;
         }
 
         cout << "Do you still want to use the system? (Y/N) : ";
         cin >> yn;
+
     } while (yn == 'Y' || yn == 'y');
 
 

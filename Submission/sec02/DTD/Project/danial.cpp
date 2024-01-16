@@ -3,9 +3,12 @@
 #include <fstream>
 #include <string>
 
+#define MAX_SIZE 100
+
 using namespace std;
 
-class Book {
+class Book
+{
 private:
     string title;
     string author;
@@ -15,17 +18,18 @@ private:
 public:
     Book() : title(""), author(""), year(0), ISBN("") {}
 
-    string getTitle() const { return title; }
-    string getAuthor() const { return author; }
-    int getYear() const { return year; }
-    string getISBN() const { return ISBN; }
+    string getTitle() { return title; }
+    string getAuthor() { return author; }
+    int getYear() { return year; }
+    string getISBN() { return ISBN; }
 
-    void setTitle(const string& t) { title = t; }
-    void setAuthor(const string& a) { author = a; }
+    void setTitle(const string &t) { title = t; }
+    void setAuthor(const string &a) { author = a; }
     void setYear(int y) { year = y; }
-    void setISBN(const string& i) { ISBN = i; }
+    void setISBN(const string &i) { ISBN = i; }
 
-    void displayBook() const {
+    void displayBook() const
+    {
         cout << setw(50) << left << "| " + title
              << setw(30) << left << "| " + author
              << setw(10) << left << "| " + to_string(year)
@@ -33,440 +37,337 @@ public:
     }
 };
 
-struct Node {
-    Book data;
-    Node* next;
-
-    Node(const Book& b, Node* n = nullptr) : data(b), next(n) {}
-};
-
-class Queue {
+class Stack
+{
 private:
-    Node* front;
-    Node* rear;
+    int top;
+    Book book[MAX_SIZE];
 
 public:
-    Queue() : front(nullptr), rear(nullptr) {}
+    Stack() : top(-1) {}
 
-    ~Queue() {
-        while (!isEmpty()) {
-            dequeue();
+    void push(const Book &newBook)
+    {
+        if (isFull())
+        {
+            cout << "Stack is full" << endl;
+        }
+        else
+        {
+            top++;
+            book[top] = newBook;
         }
     }
 
-    void enqueue(const Book& book) {
-        Node* newNode = new Node(book);
-        if (isEmpty()) {
-            front = rear = newNode;
-        } else {
-            rear->next = newNode;
-            rear = newNode;
+    void pop()
+    {
+        if (isEmpty())
+        {
+            cout << "Stack is empty" << endl;
+        }
+        else
+        {
+            top--;
         }
     }
 
-    Book dequeue() {
-        Book result;
-        if (!isEmpty()) {
-            Node* temp = front;
-            result = front->data;
-            front = front->next;
-            delete temp;
-        }
-        return result;
+    bool isEmpty()
+    {
+        return (top == -1);
     }
 
-   Book getFront() const {
-    if (front != nullptr) {
-        return front->data;
-    } else {
-        return Book();
-    }
-}
-
-
-    bool isEmpty() const {
-        return front == nullptr;
+    bool isFull()
+    {
+        return (top == MAX_SIZE - 1);
     }
 
-    void displayQueue() const {
-        cout << "Books in the queue:\n";
-       
-    }
+    void readFromFile()
+    {
+        ifstream inputFile("book.txt");
 
-    void displayQueueFront() const {
-        if (!isEmpty()) {
-            cout << "Next book in the queue:\n";
-            front->data.displayBook();
-          
-        } else {
-            cout << "Queue is empty.\n";
-        }
-    }
-};
-
-class Stack {
-private:
-    Node* top; 
-
-public:
-    Stack() : top(nullptr) {}
-
-    ~Stack() {
-        while (!isEmpty()) {
-            pop();
-        }
-    }
-
-    void push(const Book& book) {
-        Node* newNode = new Node(book, top);
-        top = newNode;
-    }
-
-    Book pop() {
-        Book result;
-        if (!isEmpty()) {
-            Node* temp = top;
-            result = top->data;
-            top = top->next;
-            delete temp;
-        }
-        return result;
-    }
-
-   Book getTop() const {
-    if (top != nullptr) {
-        return top->data;
-    } else {
-        return Book(); 
-    }
-}
-
-    bool isEmpty() const {
-        return top == nullptr;
-    }
-
-    void displayStack() const {
-        cout << "Borrowed History:\n";
-        Node* current = top;
-
-        while (current != nullptr) {
-            current->data.displayBook();
-            current = current->next;
+        // Check if the file is open
+        if (!inputFile.is_open())
+        {
+            cout << "Error opening file: book.txt" << endl;
         }
 
-        cout << "----------------------\n";
-    }
-};
+        // Read the file
+        string Title, Author, isbn;
+        int Year;
 
+        while (!inputFile.eof())
+        {
+            getline(inputFile, Title, ',');
+            getline(inputFile, Author, ',');
+            inputFile >> Year;
+            inputFile.ignore(); // Consume the newline character after reading the year
+            getline(inputFile, isbn);
+            Book newBook;
+            newBook.setTitle(Title);
+            newBook.setAuthor(Author);
+            newBook.setYear(Year);
+            newBook.setISBN(isbn);
 
-class Library {
-private:
-    Node* head;
-    int size;
-    Queue bookQueue;
-    Queue userQueue;
-
-public:
-    Stack borrowedHistory; 
-
-    Library() : head(nullptr), size(0) {}
-
-    ~Library() {
-        while (head) {
-            Node* temp = head;
-            head = head->next;
-            delete temp;
+            push(newBook);
         }
+
+        // Close the file
+        inputFile.close();
     }
 
-    void displayList() const {
+    void displayStack()
+    {
         system("cls");
         cout << "-----------------------------------------------------------------------------------------------------------" << endl;
         cout << setw(50) << left << "| Title"
              << setw(30) << left << "| Author"
              << setw(10) << left << "| Year"
-             << setw(15) << left << "| ISBN"
-             << " |" << endl;
+             << setw(15) << left << "| ISBN" << " |" << endl;
         cout << "-----------------------------------------------------------------------------------------------------------" << endl;
-
-        Node* current = head;
-
-        while (current != nullptr) {
-            current->data.displayBook();
-            current = current->next;
+        for (int i = top; i >= 0; i--)
+        {
+            book[i].displayBook();
         }
-
         cout << "-----------------------------------------------------------------------------------------------------------" << endl;
     }
-
-    int getSize() const {
-        return size;
-    }
-
-
-    void addBookEnd(const Book& book) {
-        Node* newNode = new Node(book, nullptr);
-
-        if (head == nullptr) {
-            head = newNode;
-        } else {
-            Node* current = head;
-
-            while (current->next) {
-                current = current->next;
-            }
-
-            current->next = newNode;
-        }
-
-        size++;
-    }
-
-    void deleteBook(const string& isbn) {
-        if (head == nullptr) {
-            cout << "Error: The library is empty.\n";
-            return;
-        }
-
-        Node* current = head;
-        Node* prev = nullptr;
-
-        // Search for the book with the specified ISBN
-        while (current != nullptr && current->data.getISBN() != isbn) {
-            prev = current;
-            current = current->next;
-        }
-
-        if (current == nullptr) {
-            cout << "Error: Book with ISBN " << isbn << " not found.\n";
-            return;
-        }
-
-        // Found the book, now delete it
-        if (prev == nullptr) {
-            // Book is at the beginning of the list
-            head = head->next;
-        } else {
-            prev->next = current->next;
-        }
-
-        delete current;
-        size--;
-        cout << "Book with ISBN " << isbn << " deleted successfully.\n";
-    }
-
-    void requestBookBorrowing(const Book& book) {
-        userQueue.enqueue(book);
-        cout << "Your request to borrow the book '" << book.getTitle() << "' has been added to the queue.\n";
-    }
-
-    void processUserBorrowRequests() {
-        system("cls");
-        cout << "Processing User Borrow Requests:\n";
-
-        if (!userQueue.isEmpty()) {
-            // Display the book at the front of the queue
-            userQueue.displayQueueFront();
-
-            // Check if the user's request has been processed
-            Book requestedBook = userQueue.getFront();
-            bool bookFound = isBookInLibrary(requestedBook);
-
-            if (bookFound) {
-                // Book is available, request is approved
-                cout << "Your request to borrow the book '" << requestedBook.getTitle() << "' has been approved.\n";
-                cout << "You can now collect the book.\n";
-
-                // Remove the book from the library
-                deleteBook(requestedBook.getISBN());
-
-                // Add to borrowed history
-                borrowedHistory.push(requestedBook);
-
-                userQueue.dequeue();  // Remove the request from the queue
-            } else {
-                cout << "Book cannot be borrowed as it's not available\n";
-            }
-        } else {
-            cout << "No user borrow requests to process.\n";
-        }
-
-        cout << "-----------------------------------------------------------------------------------------------------------" << endl;
-    }
-
-   void displayBorrowedHistory() const {
-    borrowedHistory.displayStack();
-}
-
-Book getTop() const {
-    return borrowedHistory.getTop();
-}
-
-    bool isBookInLibrary(const Book& book) {
-        Node* current = head;
-        while (current != nullptr) {
-            if (current->data.getISBN() == book.getISBN()) {
-                return true;
-            }
-            current = current->next;
-        }
-        return false;
-    }
-
-    void patronMenu() {
-        int choice;
-        do {
-            cout << "Patron Menu\n";
-            cout << "[1] Request to Borrow a Book\n";
-            cout << "[2] Check Borrow Request Status\n";
-            cout << "[3] Display Books\n";
-            cout << "[4] Exit\n";
-            cout << "Enter your choice: ";
-            cin >> choice;
-
-            switch (choice) {
-                case 1: {
-                    displayList();
-                    Book requestedBook;
-                    cin.ignore();
-                    string input;
-                    cout << "Enter the title of the book you want to borrow: ";
-                    getline(cin, input);
-                    requestedBook.setTitle(input);
-
-                    cout << "Enter the author of the book: ";
-                    getline(cin, input);
-                    requestedBook.setAuthor(input);
-
-                    cout << "Enter the year of publication: ";
-                    cin >> input; // Assuming Year is a string
-                    requestedBook.setYear(stoi(input));
-
-                    cin.ignore(); // Clear the newline character
-                    cout << "Enter the ISBN (Example: 123-1234567890): ";
-                    getline(cin, input);
-                    requestedBook.setISBN(input);
-
-                    requestBookBorrowing(requestedBook);
-                    break;
-                }
-                case 2:
-                    processUserBorrowRequests();
-                    break;
-                case 3:
-                    displayList();
-                    break;
-                case 4:
-                    cout << "Exiting patron menu.\n";
-                    break;
-                default:
-                    cout << "Invalid choice. Please try again.\n";
-            }
-
-            cout << "---------------------------------\n";
-        } while (choice != 4);
-    }
-
-    void staffMenu() {
-    int choice;
-    do {
-        cout << "Staff Menu\n";
-        cout << "[1] Check Borrowed History\n";
-        cout << "[2] Last Book borrowed\n";
-        cout << "[3] Exit\n";
-        cout << "Enter your choice: ";
-        cin >> choice;
-
-       switch (choice) {
-        case 1:
-            displayBorrowedHistory(); 
-            break;
-        case 2: {
-            Book lastBorrowedBook = getTop();
-            if (lastBorrowedBook.getISBN() != "") { 
-                cout << "Last Book Borrowed:\n";
-                lastBorrowedBook.displayBook();
-        }   else {
-            cout << "No books have been borrowed yet.\n";
-        }
-            break;
-        }
-        case 3:
-            cout << "Exiting staff menu.\n";
-            break;
-        default:
-        cout << "Invalid choice. Please try again.\n";
-}
-
-
-        cout << "---------------------------------\n";
-    } while (choice != 3);
-}
 };
 
+class Queue
+{
+private:
+    int front, rear;
+    Book book[MAX_SIZE];
 
-int main() {
-    Library library;
-    int userType;
+public:
+    Queue() : front(-1), rear(-1) {}
 
-    // Reading books from the file
-    ifstream inputFile("book.txt");
-    if (!inputFile.is_open()) {
-        cout << "Error opening file: book.txt" << endl;
+    bool isEmpty()
+    {
+        return (front == -1);
     }
 
-    int booksRead = 0;
-    while (!inputFile.eof()) {
-        string Title, Author, isbn;
-        int Year;
-
-        getline(inputFile, Title, ',');
-        getline(inputFile, Author, ',');
-        inputFile >> Year;
-        inputFile.ignore();
-        getline(inputFile, isbn);
-
-        Book newBook;
-        newBook.setTitle(Title);
-        newBook.setAuthor(Author);
-        newBook.setYear(Year);
-        newBook.setISBN(isbn);
-
-        library.addBookEnd(newBook);
-        booksRead++;
+    bool isFull()
+    {
+        return (rear == MAX_SIZE - 1);
     }
 
-    cout << "Number of books read: " << booksRead << endl;
+    void enqueue(const Book &newBook)
+    {
+        if (isFull())
+        {
+            cout << "Queue is full. Cannot enqueue book." << endl;
+        }
+        else
+        {
+            if (isEmpty())
+            {
+                front = rear = 0;
+            }
+            else
+            {
+                rear++;
+            }
+            book[rear] = newBook;
+            cout << "Book added to the queue." << endl;
+        }
+    }
 
-    inputFile.close();
+    void dequeue()
+    {
+        if (isEmpty())
+        {
+            cout << "Queue is empty. Cannot dequeue." << endl;
+        }
+        else
+        {
+            if (front == rear)
+            {
+                front = rear = -1;
+            }
+            else
+            {
+                front++;
+            }
+            cout << "Book removed from the queue." << endl;
+        }
+    }
 
-     do {
-        cout << "Welcome to the Library Management System!\n";
-        cout << "Are you a staff or a patron?\n";
-        cout << "[1] Staff\n";
-        cout << "[2] Patron\n";
-        cout << "[3] Exit\n";
-        cout << "Enter your choice: ";
-        cin >> userType;
+    void displayQueue() 
+    {
+        if (isEmpty())
+        {
+            cout << "Queue is empty." << endl;
+        }
+        else
+        {
+            cout << "Books in the queue:" << endl;
+            int i = front;
+            do
+            {
+                cout << "[ " << book[i].getTitle() << " ] ";
+                i++;
+            } while (i <= rear);
+            cout << endl;
+        }
+    }
+};
 
-        switch (userType) {
-            case 1:
-                library.staffMenu();
-                break;
-            case 2:
-                library.patronMenu();
-                break;
-            case 3:
-                cout << "Exiting the program.\n";
-                break;
-            default:
-                cout << "Invalid choice. Please try again.\n";
+int main()
+{
+    Stack bookStack;
+    bookStack.readFromFile();
+
+    Queue patronQueue;
+
+    int choice;
+    char yn;
+    do{
+        system("cls");
+        cout << setw(39) << " ____________________________________" << endl;
+        cout << setw(40) << "|                                    |" << endl;
+        cout << setw(40) << "|       Welcome to DTD Library!      |" << endl;
+        cout << setw(40) << "|____________________________________|" << endl
+             << endl;
+
+        cout << setw(5) << "[1] Staff (Stack)" << endl;
+        cout << setw(5) << "[2] Patron (Queue)" << endl;
+        cout << setw(5) << "[3] Exit" << endl
+             << endl;
+        cout << "Please enter your choice : ";
+        cin >> choice;
+
+        switch (choice)
+        {
+        case 1:
+            system("cls");
+        int stackChoice;
+        cout << setw(39) << " ____________________________________" << endl;
+        cout << setw(40) << "|                                    |" << endl;
+        cout << setw(40) << "|             Staff Menu             |" << endl;
+        cout << setw(40) << "|____________________________________|" << endl
+             << endl;
+
+        cout << setw(5) << "[1] Add New Book (Push)" << endl;
+        cout << setw(5) << "[2] Remove Book (Pop)" << endl;
+        cout << setw(5) << "[3] Display Current List (DisplayStack)" << endl;
+        cout << setw(5) << "[4] Approve Borrow Request" << endl
+             << endl;
+        cout << "Please enter your choice : ";
+        cin >> stackChoice;
+
+        if (stackChoice == 1)
+        {
+            string title, author, isbn;
+            int year;
+
+            cout << "Enter the title of the book : ";
+            cin.ignore();
+            getline(cin, title);
+            cout << "Enter the author of the book : ";
+            getline(cin, author);
+            cout << "Enter the year of the book : ";
+            cin >> year;
+            cout << "Enter the ISBN of the book : ";
+            cin.ignore();
+            getline(cin, isbn);
+
+            Book newBook;
+            newBook.setTitle(title);
+            newBook.setAuthor(author);
+            newBook.setYear(year);
+            newBook.setISBN(isbn);
+
+            bookStack.push(newBook);
+            bookStack.displayStack();
+            cout << "Book has been added!" << endl;
+        }
+        else if (stackChoice == 2)
+        {
+             bookStack.pop();
+             bookStack.displayStack();
+            cout << "Book has been removed!" << endl;
+        }
+        else if (stackChoice == 3)
+        {
+             bookStack.displayStack();
+        }
+        else if (stackChoice == 4)
+        {
+                patronQueue.dequeue();
+                patronQueue.displayQueue();
+                cout << "Book request canceled!" << endl;
+        }
+        else
+        {
+            cout << "Invalid input!" << endl;
+        }
+            break;
+
+        case 2:
+            system("cls");
+            int queueChoice;
+
+            cout << setw(39) << " ____________________________________" << endl;
+            cout << setw(40) << "|                                    |" << endl;
+            cout << setw(40) << "|            Patron Menu             |" << endl;
+            cout << setw(40) << "|____________________________________|" << endl
+                 << endl;
+
+            cout << setw(5) << "[1] Request a Book (Enqueue)" << endl;
+            cout << setw(5) << "[2] Display Current Requests (DisplayQueue)" << endl;
+            cout << setw(5) << "[3] Back" << endl
+                 << endl;
+            cout << "Please enter your choice : ";
+            cin >> queueChoice;
+
+            if (queueChoice == 1)
+            {
+                string patronName, title;
+                cout << "Enter your name : ";
+                cin.ignore();
+                getline(cin, patronName);
+                cout << "Enter the title of the requested book : ";
+                getline(cin, title);
+
+                Book requestedBook;
+                requestedBook.setTitle(title);
+                requestedBook.setAuthor(patronName); // Using Author field to store patron name for tracking
+                patronQueue.enqueue(requestedBook);
+                patronQueue.displayQueue();
+                cout << "Book request added!" << endl;
+            }
+            else if (queueChoice == 2)
+            {
+                patronQueue.dequeue();
+                patronQueue.displayQueue();
+                cout << "Book request canceled!" << endl;
+            }
+            else if (queueChoice == 2)
+            {
+                patronQueue.displayQueue();
+            }
+            else if (queueChoice == 3)
+            {
+                
+            }
+            else
+            {
+                cout << "Invalid input!" << endl;
+            }
+            break;
+
+        case 3:
+            cout << "Thank you for using DTD Library!" << endl;
+            break;
+
+        default:
+            cout << "Invalid input!" << endl;
         }
 
-        cout << "---------------------------------\n";
-    } while (userType != 3);
+        cout << "Do you still want to use the system? (Y/N) : ";
+        cin >> yn;
+    } while (yn == 'Y' || yn == 'y');
 
-        inputFile.close();
 
     return 0;
 }

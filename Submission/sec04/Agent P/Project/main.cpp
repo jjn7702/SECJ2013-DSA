@@ -990,6 +990,464 @@ void VoteAsc(){
                 
 }
 
+	void VoteDes(){
+    Candidate *temp,*temp2;
+    bool sorted=false;
+	string n,f,e,i,m,p,ph;
+    int a,v;
 
+     for(temp=Chead; (temp->next!=NULL)&&!sorted ; temp=temp->next)
+            {	sorted = true;
+                for(temp2=Chead; temp2->next!=NULL; temp2=temp2->next)
+                {
+
+                        if( temp2->getVoteCount() < (temp2->next->getVoteCount()) )
+                    {	n = temp2->getName();
+						f = temp2->getFaculty();
+                        e = temp2->getEmail();
+                        i = temp2->getIC();
+                        m = temp2->getMatric();
+                        p = temp2->getPass();
+                        a = temp2->getAge();
+                        v = temp2->getVoteCount();
+                        ph = temp2->getPhone();
+                        
+
+                        temp2->setName(temp2->next->getName());
+                        temp2->setFaculty(temp2->next->getFaculty());
+                        temp2->setEmail(temp2->next->getEmail());
+                        temp2->setIC(temp2->next->getIC());
+                        temp2->setMatric(temp2->next->getMatric());
+                        temp2->setAge(temp2->next->getAge());
+                        temp2->setVoteCount(temp2->next->getVoteCount());
+                        temp2->setPass(temp2->next->getPass());
+                        temp2->setPhone(temp2->next->getPhone());
+
+                        temp2->next->setName(n);
+                        temp2->next->setFaculty(f);
+                        temp2->next->setEmail(e);
+                        temp2->next->setIC(i);
+                        temp2->next->setMatric(m);
+                        temp2->next->setAge(a);
+                        temp2->next->setPass(p);
+                        temp2->next->setPhone(ph);
+                        temp2->next->setVoteCount(v);
+                        sorted = false;
+                    }
+                    }
+
+                }
+            display();
+                
+}
+void search(int opt,string key,int key2) // SEARCHING CANDIDATE
+        {
+            Candidate *temp = Chead;
+            bool found = false;
+
+            if(isEmpty()){
+                cout<<"The list is empty!"<<endl;
+                return;
+            }
+
+            else{
+            switch(opt)
+            {
+                case 1 : 
+                    while(temp != NULL)
+                    {
+                        if(temp->getName() == key)
+                        {
+                            cout<<"\nName  : "<<temp->getName()<<endl;
+                            cout<<"Faculty : "<<temp->getFaculty()<<endl;
+                            cout<<"Age     : "<<temp->getAge()<<endl;
+                            cout<<"IC      : "<<temp->getIC()<<endl;
+                            cout<<"Email   : "<<temp->getEmail()<<endl;
+                            cout<<"Matric  : "<<temp->getMatric()<<endl;
+                            found = true;
+                        }
+                        temp = temp->next;
+                    }
+                    break;
+                case 2:
+                    while(temp != NULL)
+                    {
+                        if(temp->getFaculty() == key)
+                        {
+                            cout<<"\nName  : "<<temp->getName()<<endl;
+                            cout<<"Faculty : "<<temp->getFaculty()<<endl;
+                            cout<<"Age     : "<<temp->getAge()<<endl;
+                            cout<<"IC      : "<<temp->getIC()<<endl;
+                            cout<<"Email   : "<<temp->getEmail()<<endl;
+                            cout<<"Matric  : "<<temp->getMatric()<<endl;
+                            found = true;
+                        }
+                        temp = temp->next;
+                    }
+                    break;
+
+                    case 3: 
+                        while(temp != NULL)
+                    {
+                        if(temp->getAge() == key2)
+                        {
+                            cout<<"\nName  : "<<temp->getName()<<endl;
+                            cout<<"Faculty : "<<temp->getFaculty()<<endl;
+                            cout<<"Age     : "<<temp->getAge()<<endl;
+                            cout<<"IC      : "<<temp->getIC()<<endl;
+                            cout<<"Email   : "<<temp->getEmail()<<endl;
+                            cout<<"Matric  : "<<temp->getMatric()<<endl;
+                            found = true;
+                        }
+                        temp = temp->next;
+                    }
+                    break; 
+                    case 4:
+                        while(temp != NULL)
+                        {
+                            if(temp->getIC() == key)
+                            {
+                                cout<<"\nName  : "<<temp->getName()<<endl;
+                                cout<<"Faculty : "<<temp->getFaculty()<<endl;
+                                cout<<"Age     : "<<temp->getAge()<<endl;
+                                cout<<"IC      : "<<temp->getIC()<<endl;
+                                cout<<"Email   : "<<temp->getEmail()<<endl;
+                                cout<<"Matric  : "<<temp->getMatric()<<endl;
+                                found = true;
+                            }
+                            temp = temp->next;
+                        }
+                        break;
+                    case 5:
+                        while(temp != NULL)
+                        {
+                            if(temp->getEmail() == key)
+                        {
+                            cout<<"\nName  : "<<temp->getName()<<endl;
+                            cout<<"Faculty : "<<temp->getFaculty()<<endl;
+                            cout<<"Age     : "<<temp->getAge()<<endl;
+                            cout<<"IC      : "<<temp->getIC()<<endl;
+                            cout<<"Email   : "<<temp->getEmail()<<endl;
+                            cout<<"Matric  : "<<temp->getMatric()<<endl;
+                            found = true;
+                        }
+                            temp = temp->next;
+                        }
+                        break;
+                    case 6:
+                    while(temp != NULL)
+                    {
+                        if(temp->getMatric() == key)
+                        {
+                            cout<<"\nName  : "<<temp->getName()<<endl;
+                            cout<<"Faculty : "<<temp->getFaculty()<<endl;
+                            cout<<"Age     : "<<temp->getAge()<<endl;
+                            cout<<"IC      : "<<temp->getIC()<<endl;
+                            cout<<"Email   : "<<temp->getEmail()<<endl;
+                            cout<<"Matric  : "<<temp->getMatric()<<endl;
+                            found = true;
+                        }
+                        temp = temp->next;
+                    }
+                    break;
+			}
+            if(!found)
+                    cout<<"Data was not found. Try again later !"<<endl;
+			}
+		}
 	
 };
+
+int LoginUI()
+{
+	int opt1;
+	bool found = false;
+		do{
+			cout<<"*****Main Menu*****";
+			cout<<"\n[1] Login as Admin\n[2] Login as Voter\n[3] Login as Candidate\nPlease choose the option : ";
+			cin>>opt1;
+			system("CLS");
+		}while(opt1<1 || opt1>3);
+	
+	return opt1;
+}
+void AdminLogin(Admin arr[],int j){
+			bool found = false;
+			do
+			{
+                cin.ignore();
+				string loginId,loginPass;
+				cout<<"Please enter your USERNAME & PASSWORD"<<endl;
+				cout<<"USERNAME : ";
+				cin>>loginId;
+				cout<<"PASSWORD : ";
+				cin>>loginPass;
+				cout<<endl;
+				system("CLS");
+				
+				
+				for(int i=0;i<j;i++){
+                    if((arr[i].getUsername() == loginId) && (arr[i].getPassword() == loginPass )){
+                        cout<<"\nWelcome, "<<arr[i].getUsername()<<endl;
+						found = true;
+						break;
+                }
+                }
+		
+				if(found==false)
+					cout<<"ID or Password entered is wrong!"<<endl<<endl;
+	
+		}while(found==false);
+	}
+
+    void adminVoter(VoterQueue v){
+    system("CLS");
+    int opt;
+    cout<<"How would you like to view voters.\n";
+    cout<<"\n[1] Name"<<endl;
+    cout<<"[2] Faculty"<<endl;
+    cout<<"[3] Matric"<<endl;
+    cout<<"Please choose an option : ";
+    cin>>opt;
+
+    switch (opt){
+        case(1) :   v.ascendName();
+                    break;
+        case(2) :   v.facAsc();
+                    break;
+        case(3) :   v.MatricAsc();
+                    break;
+    }
+}
+
+void adminCand(CandidateList c){
+    system("CLS");
+    int opt;
+    cout<<"How would you like to view candidate.\n";
+    cout<<"\n[1] Name"<<endl;
+    cout<<"[2] Faculty"<<endl;
+    cout<<"[3] Matric"<<endl;
+    cout<<"[4] Vote Count"<<endl;
+    cout<<"Please choose an option : ";
+    cin>>opt;
+
+    switch (opt){
+        case(1) :   c.NameAsc();
+                    break;
+        case(2) :   c.facAsc();
+                    break;
+        case(3) :   c.MatricAsc();
+                    break;
+        case(4) :   c.VoteAsc();
+                    break;
+    }
+
+}
+
+int main()
+{
+    string name,faculty,email,ic,matric,key,pass,phone,status;
+    int age,opt1,vote,count=1;
+    char answer,answer2,ch;
+    VoterQueue l;
+    Voter *l2 = NULL;
+
+    ifstream in;
+    in.open("voter.csv");
+    
+    while(getline(in,name,','))
+    {
+        getline(in,faculty,',');
+        getline(in,ic,',');
+        in>>age;
+        in.ignore();
+        getline(in,matric,',');
+        getline(in,pass,',');
+        getline(in,email,',');
+        getline(in,status,'\n');
+        l.Enqueue(name,faculty,age,ic,email,matric,pass,status);
+		
+    }
+    in.close();
+    
+    CandidateList c;
+    Candidate *c2 = NULL;
+    
+    ifstream inp;
+    inp.open("cand.csv");
+    
+    while(getline(inp,name,','))
+    {
+        getline(inp,faculty,',');
+        inp>>age;
+        inp.ignore();
+        getline(inp,ic,',');
+        getline(inp,phone,',');
+        inp>>vote;
+        inp.ignore();
+        getline(inp,matric,',');
+        getline(inp,pass,',');
+        getline(inp,email,'\n');
+        c.insertFront(name,faculty,age,ic,phone,vote,matric,pass,email);
+		//cout<<name<<" "<<faculty<<" "<<ic<<" "<<age<<" "<<matric<<" "<<pass<<" "<<email<<" "<<phone<<" "<<vote<<endl;
+        //getline(in,name,',');
+    }
+
+    string user;
+    int j=0;
+    Admin adm[10];
+
+    ifstream inx;
+    inx.open("admin.csv");
+
+    
+    while(getline(inx,pass,',')){
+	    getline(inx,user,'\n');
+	    //cout<<"User : "<<user<<" Pass : "<<pass<<endl;
+	    adm[j] = Admin(user,pass);
+	    j++;
+    }
+    	inx.close();
+    opt1 = LoginUI();
+    
+    do
+    {
+    
+    int voteC[3]={-1,-2,-3};
+    int opt6,opt5,opt9;
+    string ex;
+    switch(opt1)
+    {
+    	case 1 : if(count==1){
+         			AdminLogin(adm,j);}
+                 cout<<" [1] View Voter\n [2] View Candidate\n [3] Delete Voter\n [4] Delete Candidate\n [5] Insert Candidate\n [6] Exit\n";
+                 cout<<"Option : ";
+                 cin>>opt5;
+                 switch(opt5){
+                        case 1  :   adminVoter(l);
+                                    break;
+                        case 2  :   adminCand(c);
+                                    break;
+                        case 3  :   l.display();
+                                    int del;
+                                    cout<<"How many voter(s) you want to delete? : ";
+                                    cin>>del;
+                                    for(int i=0;i<del;i++){
+                                        l.Dequeue();
+                                    }
+                                    system("CLS");
+                                    cout<<"\nVoters after deletion : \n";
+                                    l.display();
+                                    break;
+                                     case 4  :   c.display();
+                                    cout<<"\nPlease enter the position you want to delete : ";
+                                    cin>>del;
+                                    if(del==1){
+                                    c.deleteFront();
+                                    }
+                                    else{
+                                    c.deleteAtNode(del);
+                                    }
+                                    system("CLS");
+                                    cout<<"Candidates after deletion : \n";
+                                    c.display();
+                                    break;
+                        case 5  :   c.insertAdmin();
+                                    break;
+                        case 6 :   exit(0);
+                    }
+                break;
+    	case 2 : if(count==1)
+				 	l2 = l.Voterlogin();
+                    cout<<"[1] Vote \n[2] View profile \n[3] Search for candidate\n [4] Exit\n";
+    			 cout<<"Please choose an option : ";
+    			 cin>>opt6;
+    			 system("CLS");
+    			 break;
+    	case 3 : 
+    			 if(count==1)
+					c2 = c.CandLogin();
+				 cout<<"[1] View Profile\n[2] View Candidate\n[3] Withdraw\n[4] Exit\n";
+                 cout<<"Option : ";
+                 cin>>opt9;
+                 switch(opt9){
+                        case 1  :   c.displayProfile(c2);
+                                    break;
+                        case 2  :   c.display();
+                                    break;
+                        case 3  :   c.delsearch(c2);
+                                    break;
+                        default : exit(0);
+                    }
+	}
+	
+	int key2,opt7;
+	string key3;
+	
+	switch(opt6)
+	{
+		case 1 : 
+				 if(l2->getVoteStatus()=="null")
+				 {
+				 	 c.facAsc();
+					 cout<<"\nPlease choose 3 candidates : ";
+					 cout<<"\nChoice 1 : ";
+					 cin>>voteC[0];
+					 do
+					 {
+					 	cout<<"\nChoice 2 : ";
+					 	cin>>voteC[1];
+					 }while(voteC[0]==voteC[1]);
+					 do
+					 {
+					 	cout<<"\nChoice 3 : ";
+					 	cin>>voteC[2];
+					 }while((voteC[0]==voteC[1])||(voteC[1]==voteC[2])||(voteC[2]==voteC[0]));
+					 
+					 l.voteStat(l2);
+					 c.voteCand(voteC);
+				 }
+				 else
+				 	cout<<"\nYou have already voted!"<<endl;
+				 break;
+                 case 2 : l.profile(l2);	 
+				 break;
+		case 3 : cout<<"Search By : ";
+                 cout<<"\n[1] Name"<<endl;
+			     cout<<"[2] Faculty"<<endl;
+			     cout<<"[3] Age"<<endl;
+			     cout<<"[4] IC"<<endl;
+			     cout<<"[5] Email"<<endl;
+			     cout<<"[6] Matric"<<endl;
+			     cout<<"Please choose an option : ";
+			     cin>>opt7;
+			     cin.ignore();
+			     if(opt7 == 3){
+			         cout<<"\nPlease enter the key : ";
+			         cin>>key2;
+		         }
+		    	 else if(opt7>=1&&opt7<=6){
+			         cout<<"\nPlease enter the key : ";
+			         getline(cin,key3);
+		    	}
+		    	else
+		    		cout<<"Invalid option entered!"<<endl;
+				 c.search(opt7,key3,key2);
+				 break;
+		default : break;
+	}
+	
+	cout<<"\nDo you want to continue (y/n): ";
+	cin>>ch;
+	if(ch=='n')
+	{
+		l.outFile();
+		l.outFile2();
+		c.CandFile();
+	}
+	system("CLS");
+	count++;
+	}while(ch=='y');
+	//l.display();
+ 	
+}

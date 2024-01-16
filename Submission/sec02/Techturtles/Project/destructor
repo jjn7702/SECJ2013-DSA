@@ -1,0 +1,6 @@
+~ParcelList() {
+    while (!parcelStack.empty()) {
+        delete parcelStack.top();
+        parcelStack.pop();
+    }
+}
