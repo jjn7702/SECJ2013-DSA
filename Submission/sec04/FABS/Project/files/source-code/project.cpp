@@ -1,29 +1,22 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <string>
 #include <iomanip>
+#include <cstdlib>
 
 using namespace std;
 
 class Courier {
     string name, parcelType, source, destination, status;
     int trackingNum;
-    Courier *next;
 
 	public:
+	    Courier *next;
 	    Courier()
 	    : name(" "), parcelType(" "), source(" "), destination(" "), status(" "), trackingNum(0), next(NULL) {}
 
        	    Courier(string name, string parcelType, string source, string destination, string status, int trackingNum)
             : name(name), parcelType(parcelType), source(source), destination(destination), status(status), trackingNum(trackingNum), next(NULL) {}
-	
-	    void setName(string n) { name = n; }
-	    void setType(string p) { parcelType = p; }
-	    void setSource(string s) { source = s; }
-	    void setDest(string d) { destination = d; }
-	    void setStat(string st) { status = st; }
-	    void setTrackNum(int t) { trackingNum = t; }
 	
 	    string getName() const { return name; }
 	    string getType() const { return parcelType; }
@@ -34,19 +27,20 @@ class Courier {
 	    
 	    Courier* getNext() const { return next; }
    	    void setNext(Courier* node) { next = node; }
+	    void setStatus(string s) {status = s;}
 
-    	    void displayHeader()  {
-            cout << left << setw(1) << "No." << setw(20) << "Tracking Number" << setw(20) << "Name"
-                 << setw(20) << "Parcel Type" << setw(20) << "Source"
-                 << setw(20) << "Destination" << setw(20) << "Status" << endl;
-            cout << setfill('-') << setw(120) << " " << setfill(' ') << endl;
+    	    void displayHeader() const {
+            cout << left << setw(5) << "No." << setw(20) << "Tracking Number" << setw(20) << "Name"
+                 << setw(20) << "Parcel Type" << setw(25) << "Source"
+                 << setw(25) << "Destination" << setw(20) << "Status" << endl;
+            cout << setfill('-') << setw(135) << " " << setfill(' ') << endl;
           }
 
            void display(int index) {
-           cout << "[" << setw(2) << index << "]"
-                << setw(6)  << trackingNum << setw(20) << name
-                << setw(20) << parcelType << setw(20) << source
-                << setw(20) << destination << setw(20) << status << endl;
+           cout << "[" << setw(1) << index << "]"
+                << setw(20)  << trackingNum << setw(20) << name
+                << setw(20) << parcelType << setw(25) << source
+                << setw(25) << destination << setw(20) << status << endl;
     	  }
 };
 
@@ -62,34 +56,15 @@ public:
         return front == NULL;
     }
 
-    Courier* getFront() const {
-        return front;
-    }
-
-    void enqueue() {
-        string newName, newParcelType, newSource, newDestination, newStatus;
-        int newTrackingNum;
-
-        cout << "<<<<<<< Enqueue Courier >>>>>>>" << endl << endl;
-        cout << "Name : ";
-        getline(cin, newName);
-
-        cout << "Parcel Type : ";
-        getline(cin, newParcelType);
-
-        cout << "Source : ";
-        getline(cin, newSource);
-
-        cout << "Destination : ";
-        getline(cin, newDestination);
-
-        cout << "Status : ";
-        getline(cin, newStatus);
-
-        cout << "Tracking Number : ";
-        cin >> newTrackingNum;
-
-        Courier* node = new Courier(newName, newParcelType, newSource, newDestination, newStatus, newTrackingNum);
+    void enqueue(const Courier& newCourier) {
+        Courier* node = new Courier(
+            newCourier.getName(),
+            newCourier.getParcelType(),
+            newCourier.getSource(),
+            newCourier.getDestination(),
+            newCourier.getStatus(),
+            newCourier.getTrackingNum()
+	);
 
         if (isEmpty()) {
             front = rear = node;
@@ -108,16 +83,15 @@ public:
         Courier* delNode = front;
         front = delNode->getNext();
 
-        cout << "<<<<<<< Dequeue Courier >>>>>>>" << endl << endl
-             << "Name            : " << delNode->getName() << endl
-             << "Parcel Type     : " << delNode->getParcelType() << endl
-             << "Status          : " << delNode->getStatus() << endl
-             << "Destination     : " << delNode->getDestination() << endl
-             << "Tracking Number : " << delNode->getTrackingNum() << endl << endl;
-
         delete delNode;
-        cout << "<< Press any key to continue >>";
-        cin.get();
+    }
+
+    Courier* getFront() const {
+	    return front;
+    }
+
+    Courier* getRear() const {
+	    return rear;
     }
 
     void display() {
@@ -134,148 +108,207 @@ public:
                 currNode->display(counter);
                 currNode = currNode->getNext();
                 counter++;
+		cout << endl;
             }
         }
-
-        cout << "<< Press any key to continue >>";
-        cin.get();
     }
 
-     void search() {
-        string input;
+     Courier* searchByTrackingNum(int trackingNum) const {
+	     Courier* currNode = front;
 
-        Courier* currNode;
-        bool found = false;
+	     while (currNode) {
+		     if (currNode->getTrackingNum() == trackingNum) {
+			     return currNode;
+		     }
+		     currNode = currNode->getNext();
+	     }
+	     return NULL;
+     }
 
-        cout << "<<<<<<< Search Courier(s) >>>>>>>" << endl;
-        cout << "Enter Status : ";
-        getline(cin, input);
+      void updateFromFile(const string& filename) {
+	      ifstream inputFile(filename);
 
-        currNode = front;
-        currNode->displayHeader();
-        while (currNode) {
-            if (currNode->getStatus() == input) {
-                currNode->display(1);
-                found = true;
-            }
-            currNode = currNode->getNext();
-        }
+	      if (!inputFile.is_open()) {
+		      cout << "Error opening file: " << filename << endl;
+		      return;
+	      }
 
-        if (!found) {
-            cout << "Status not found in the queue." << endl;
-        }
+	      while (!isEmpty()) {
+		      dequeue();
+	      }
 
-        cout << "<< Finish searching... Press any key to continue >>";
-        cin.get();
-    }
+	      string line;
+	      while (getline(inputFile, line)) {
+		      stringstream ss(line);
+		      string name, parcelType, source, destination, status;
+		      int trackingNum;
+		      
+		      if (getline(ss >> std::ws, name, ',') &&
+		          getline(ss >> std::ws, parcelType, ',') &&
+		          getline(ss >> std::ws, source, ',') &&
+		          getline(ss >> std::ws, destination, ',') &&
+		          getline(ss >> std::ws, status, ',') &&
+		                 (ss >> trackingNum)) {
+	
+	            	  Courier newCourier(name, parcelType, source, destination, status, trackingNum);
+	            	  enqueue(newCourier);
+	        	}
+	      }
+       	      inputFile.close();
+      }
 
-	void insertBack(Courier& newCourier) {
-        Courier* node = new Courier(newCourier.getName(), newCourier.getParcelType(), newCourier.getSource(),
-                                    newCourier.getDestination(), newCourier.getStatus(), newCourier.getTrackingNum());
+      void saveToFile(const string& filename) const {
+	      ofstream file(filename);
 
-        if (isEmpty()) {
-            front = rear = node;
-        } else {
-            rear->setNext(node);
-            rear = node;
-        }
-    }
+	      if (!file.is_open()) {
+		      cout << "Error opening file: " << filename << endl;
+		      return;
+	      }
 
-    ~Queue() {
-        Courier* currNode = front;
-        Courier* nextNode;
+	      Courier* currNode = front;
 
-        while (currNode != NULL) {
-            nextNode = currNode->getNext();
-            delete currNode;
-            currNode = nextNode;
-        }
-    }
-       
+	      while (currNode) {
+		file << currNode->getName() << ","
+	             << currNode->getParcelType() << ","
+	             << currNode->getSource() << ","
+	             << currNode->getDestination() << ","
+	             << currNode->getStatus() << ","
+	             << currNode->getTrackingNum() << endl;
+	
+	        currNode = currNode->getNext();
+	       } 
+	      file.close();
+      }
 };
 
-// To display main menu
-void dispMenu() {
-    system("CLS");
-    cout << "COURIER MANAGEMENT SYSTEM" << endl
-         << "\n\t1. Enqueue Courier (Queue)"
-         << "\n\t2. Dequeue Courier (Queue)"
-         << "\n\t3. Search Courier  (Queue)"
-         << "\n\t4. Display Courier (Queue)"
-         << "\n\t5. Exit" << endl;
-}
+class Customer {
+private:
+	Queue &courierQueue;
+public:
+	Customer(Queue &queue) : courierQueue(queue) {}
+	void customerMenu() {
+		int choice;
+
+		system("CLS");
+		do{
+			cout << "===== Customer Menu =====" << endl;
+		        cout << "1. Add Courier" << endl;
+		        cout << "2. View Courier Queue" << endl;
+		        cout << "3. Search Courier by Tracking Number" << endl;
+		        cout << "4. Exit" << endl;
+		        cout << "Enter your choice: ";
+		        cin >> choice;
+
+		switch (choice) {
+                case 1: {
+                    string name, parcelType, source, destination, status;
+                    int trackingNum;
+
+                    cout << "\nEnter Courier details:" << endl;
+                    cout << "Name: ";
+                    cin.ignore(); // Clear buffer
+                    getline(cin, name);
+                    cout << "Parcel Type: ";
+                    getline(cin, parcelType);
+                    cout << "Source: ";
+                    getline(cin, source);
+                    cout << "Destination: ";
+                    getline(cin, destination);
+                    status = "Pending"; // Set status to "pending" initially
+                    cout << "Tracking Number: ";
+                    cin >> trackingNum;
+
+					cout << "\nCourier added successfully with status 'pending'." << endl;
+					cout << endl;
+                    Courier newCourier(name, parcelType, source, destination, status, trackingNum);
+                    courierQueue.enqueue(newCourier);
+
+                    break;
+                }
+
+		case 2: {
+                    // View Courier Queue
+                    cout << endl;
+                    courierQueue.display();
+                    break;
+                }
+                case 3: {
+                    // Search Courier by Tracking Number
+                    int trackingNum;
+                    cout << "\nEnter Tracking Number to search: ";
+                    cin >> trackingNum;
+
+                    Courier* foundCourier = courierQueue.searchByTrackingNum(trackingNum);
+
+                    if (foundCourier) {
+                        cout << "\nCourier found:" << endl;
+                        cout << endl;
+                        foundCourier->displayHeader();
+                        foundCourier->display(1);
+                        cout << endl;
+                    } else {
+                        cout << "\nCourier with Tracking Number " << trackingNum << " not found." << endl;
+                        cout << endl;
+                    }
+                    break;
+                }
+                case 4:
+                    cout << "\nExiting customer menu. Have a nice day!" << endl;
+                    cout << endl;
+                    break;
+                default:
+                    cout << "Invalid choice. Please try again." << endl;
+            }
+        } while (choice != 4);
+    }
+};
+
 
 
 int main() {
+	Queue courierQueue;
+	courierQueue.updatedFromFile("COURIER.txt");
+	Customer customer(courierQueue);
+	Admin admin(courierQueue);
+	Worker worker(courierQueue);
 
-   ifstream inputFile("COURIER.TXT");
-    if (!inputFile.is_open()) {
-        cout << "Error opening file." << endl;
-        return 1;
-    }
+	int choice;
+	system("CLS");
+	do{
+		cout << "===== Main Menu =====" << endl;
+	        cout << "1. Customer Menu" << endl;
+	        cout << "2. Admin Menu" << endl;
+	        cout << "3. Worker Menu" << endl;
+	        cout << "4. Save Courier Data to File" << endl;
+	        cout << "5. Exit" << endl;
+	        cout << "Enter your choice: ";
+	        cin >> choice;
 
-   Queue courierQueue;
-	
-   string line;
-    while (getline(inputFile, line)) {
-        stringstream ss(line);
-        string n, parcel, sourc, dest, stat;
-        int track;
-
-        if (getline(ss >> std::ws, n, ',') &&
-            getline(ss >> std::ws, parcel, ',') &&
-            getline(ss >> std::ws, sourc, ',') &&
-            getline(ss >> std::ws, dest, ',') &&
-            getline(ss >> std::ws, stat, ',') &&
-            (ss >> track)) {
-
-            Courier newCourier(n, parcel, sourc, dest, stat, track);
-            courierQueue.insertBack(newCourier);
-        }
-    }
-
-    inputFile.close();
-
-    int choice;
-
-    do {
-        dispMenu();
-        cout << "\nEnter your choice [1-5]: ";
-        cin >> choice;
-        cin.ignore();
-
-        switch (choice) {
-            case 1:
-                courierQueue.enqueue();
-                break;
-            case 2:
-                courierQueue.dequeue();
-                break;
-            case 3:
-                courierQueue.search();
-                break;
-            case 4:
-                courierQueue.display();
-                break;
-            case 5:
-                cout << "\nThank you.. see you again.." << endl;
-
-                // Save the courier list back to the file
-                ofstream outputFile("COURIER.TXT");
-                Courier* currNode = courierQueue.getFront();
-                while (currNode != NULL) {
-                    outputFile << currNode->getName() << "," << currNode->getParcelType() << ","
-                                << currNode->getSource() << "," << currNode->getDestination() << ","
-                                << currNode->getStatus() << "," << currNode->getTrackingNum() << endl;
-
-                    currNode = currNode->getNext();
-                }
-
-                outputFile.close();
-        }
-
-    } while (choice > 0 && choice < 5);
-
+		switch (choice) {
+	            case 1:
+	                customer.customerMenu();
+	                break;
+	            case 2:
+	                admin.adminMenu();
+	                break;
+	            case 3:
+	                worker.workerMenu();
+	                break;
+	            case 4: {
+	                // Save courier data to a file
+	                string filename = "COURIER.TXT";
+	                courierQueue.saveToFile(filename);
+	                cout << "\nCourier data saved to file (COURIER.TXT)." << endl;
+	                cout << endl;
+	                break;
+	            }
+	            case 5:
+	                cout << "\nExiting main menu. Goodbye!" << endl;
+	                break;
+	            default:
+	                cout << "\nInvalid choice. Please try again." << endl;
+	        }
+	    } while (choice != 5);
     return 0;
 }
 

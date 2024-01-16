@@ -7,4 +7,4 @@ Rahman Putra,Laptop,Kuala Lumpur,Ayer Hitam,In transit,234539
 Emily Lisa,Watch,Pasir Gudang,Tangkak,Out for Delivery,876565
 Kamal Kamarudin,Hat,Ipoh,Sabah,Delivered,432121
 Aisha Sofea,Glasses,Rompin,Sungai Petani,In transit,567837
-Mohammed Omar,Camera,Karak,Alor Gajah,Delivered,987602
+Mohammed Omar,Camera,Karak,Alor Gajah,Pending,987602

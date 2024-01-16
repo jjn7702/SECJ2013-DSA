@@ -41,27 +41,25 @@ public:
 
     void push(const TaskData &d)
     {
-        if(isfull())
-        cout<<"Stack is full"<<endl;
+        if (isfull())
+            cout << "Stack is full" << endl;
 
         else
         {
             top++;
-            data[top]=d;
+            data[top] = d;
         }
-        
     }
 
     void pop()
     {
-        if(isempty())
+        if (isempty())
         {
-            cout<<"Stack is empty"<<endl;
+            cout << "Stack is empty" << endl;
         }
 
         else
-        top--;
-        
+            top--;
     }
 
     TaskData stacktop()
@@ -119,7 +117,7 @@ public:
 
     void enqueue(const TaskData &newTask)
     {
-         if (isfull())
+        if (isfull())
         {
             cout << "Sorry, the queue is full" << endl;
         }
@@ -133,7 +131,7 @@ public:
 
     void dequeue()
     {
-         if (isempty())
+        if (isempty())
         {
             cout << "Sorry, the queue is empty" << endl;
         }
@@ -142,7 +140,6 @@ public:
             front = (front + 1) % N;
             count--;
         }
-        
     }
 
     TaskData getfront()
@@ -226,18 +223,15 @@ int main()
     cout << left << setw(2) << "|";
     cout << left << setw(10) << "STATUS" << endl
          << endl;
-     // Display the entire stack
+    s.print(); // Display the entire stack
     cout << endl;
 
     // Display tasks using queue method
     cout << "\nTasks using Queue method:" << endl;
-    cout << left << setw(40) << "TASK";
-    cout << left << setw(2) << "|";
-    cout << left << setw(20) << "DATE";
-    cout << left << setw(2) << "|";
-    cout << left << setw(10) << "STATUS" << endl
+    cout << "TASK|DATE|STATUS" << endl
          << endl;
-    // Display the entire queue
+
+    q.display(); // Display the entire queue
     cout << endl;
 
     int choice;
@@ -262,8 +256,9 @@ int main()
         {
             cout << "Enter new task details:" << endl;
             TaskData newTask;
+            cin.ignore(); // Clear the input buffer
             cout << "Task: ";
-            cin >> newTask.tasks;
+            getline(cin, newTask.tasks);
             cout << "Day: ";
             cin >> newTask.day;
             cout << "Month: ";
@@ -282,8 +277,8 @@ int main()
             cout << left << setw(2) << "|";
             cout << left << setw(10) << "STATUS" << endl
                  << endl;
-             // Display the entire stack
-             s.print();
+            // Display the entire stack
+            s.print();
             cout << endl;
         }
         break;
@@ -299,8 +294,8 @@ int main()
             cout << left << setw(2) << "|";
             cout << left << setw(10) << "STATUS" << endl
                  << endl;
-             // Display the entire stack
-             s.print();
+            // Display the entire stack
+            s.print();
             cout << endl;
         }
         break;
@@ -309,8 +304,9 @@ int main()
         {
             cout << "Enter new task details:" << endl;
             TaskData newTask;
+            cin.ignore(); // Clear the input buffer
             cout << "Task: ";
-            cin >> newTask.tasks;
+            getline(cin, newTask.tasks);
             cout << "Day: ";
             cin >> newTask.day;
             cout << "Month: ";
@@ -323,14 +319,10 @@ int main()
             q.enqueue(newTask);
             // Display tasks using queue method
             cout << "\nTasks using Queue method:" << endl;
-            cout << left << setw(40) << "TASK";
-            cout << left << setw(2) << "|";
-            cout << left << setw(20) << "DATE";
-            cout << left << setw(2) << "|";
-            cout << left << setw(10) << "STATUS" << endl
-            << endl;
-             // Display the entire queue
-             q.display();
+            cout << "TASK|DATE|STATUS" << endl
+                 << endl;
+            // Display the entire queue
+            q.display();
             cout << endl;
         }
         break;
@@ -340,14 +332,10 @@ int main()
             q.dequeue();
             // Display tasks using queue method
             cout << "\nTasks using Queue method:" << endl;
-            cout << left << setw(40) << "TASK";
-            cout << left << setw(2) << "|";
-            cout << left << setw(20) << "DATE";
-            cout << left << setw(2) << "|";
-            cout << left << setw(10) << "STATUS" << endl
-            << endl;
-             // Display the entire queue
-             q.display();
+            cout << "TASK|DATE|STATUS" << endl
+                 << endl;
+            // Display the entire queue
+            q.display();
             cout << endl;
         }
         break;
@@ -361,7 +349,7 @@ int main()
             break;
         }
 
-    } while (choice != 0);
+    } while (choice != 5);
 
     return 0;
 }
