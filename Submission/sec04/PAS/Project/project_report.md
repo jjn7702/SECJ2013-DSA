@@ -121,7 +121,7 @@ into the stack. Switch case is implemented in our program where the switch
 expression is the user's option from an option menu as shown in the diagram 
 below.
 
-GAMBAR 1
+![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/QUEUE%20IMAGE.png)
 
 When the user enters option 1, the system will ask for the book’s details 
 to be pushed into the stack as explained above. Next, pop() function is 
