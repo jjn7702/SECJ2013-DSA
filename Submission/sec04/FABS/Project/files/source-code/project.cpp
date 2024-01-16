@@ -168,6 +168,29 @@ public:
         cout << "<< Finish searching... Press any key to continue >>";
         cin.get();
     }
+
+	void insertBack(Courier& newCourier) {
+        Courier* node = new Courier(newCourier.getName(), newCourier.getParcelType(), newCourier.getSource(),
+                                    newCourier.getDestination(), newCourier.getStatus(), newCourier.getTrackingNum());
+
+        if (isEmpty()) {
+            front = rear = node;
+        } else {
+            rear->setNext(node);
+            rear = node;
+        }
+    }
+
+    ~Queue() {
+        Courier* currNode = front;
+        Courier* nextNode;
+
+        while (currNode != NULL) {
+            nextNode = currNode->getNext();
+            delete currNode;
+            currNode = nextNode;
+        }
+    }
        
 };
 
