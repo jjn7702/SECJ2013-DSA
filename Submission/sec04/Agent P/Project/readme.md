@@ -153,14 +153,13 @@ Users will have the options if they want to try again to enter the id and passwo
 
 Step 1.2
 
-![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20200049.png)
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20195215.png)
 
 *Users who have not have registered before
 Users can register as a new Voter by entering option 2.
 
 Step 1.2.1
-
-![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20200249.png)
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20200049.png)
 
 Users will need to fill in all this information.
 **Name, Faculty, IC, Email, Matric Number are all strings while age is integer. 
@@ -168,29 +167,28 @@ Users will need to fill in all this information.
 
 Step 1.2.2
 
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20200249.png)
 
 Users will need to enter a password for authentication purpose. 
 
 Step 1.2.3.
 
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20200515.png)
 
 Users will be asked to enter their newly registered id and password.
 
 **Users who have registered before cannot register as a voter again. 
 
-
 Step 2
 
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20200737.png)
 
 Voters have the option to vote(1), view profile(2), Search for candidate(3), and exit(4). 
 **Any option other than 0-4 will make the system end.
 
 Step 3.1
 
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20201841.png)
 
 If the voter chose option 1, then the list of candidates will be displayed and the voter will need to choose 3 candidates. 
 **A candidate can only be chosen once.
@@ -198,7 +196,7 @@ If the voter chose option 1, then the list of candidates will be displayed and t
 
 Step 3.1.1
 
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20202014.png)
 
 The system will then display the information of the chosen candidate. 
 
@@ -207,7 +205,7 @@ The voter can choose to continue or end the process here by entering ‘y’ to 
 
 Step 3.2
 
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20202404.png)
 
 If option 2 is selected, the voter can see their information and they can change it if they enter ‘y’ and not edit it if ‘n’ is entered. 
 
