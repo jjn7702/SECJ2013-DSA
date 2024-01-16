@@ -163,4 +163,10 @@ class historyStack{
                 return top->action;
         }
 
-        
+        goods getItem(){
+            if(isEmpty())
+                cout << "Stack is empty" << endl;
+            else
+                return top->item;
+        }   
+}
