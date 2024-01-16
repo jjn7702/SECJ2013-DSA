@@ -49,7 +49,6 @@ class Order{
 	Menu menu;
 	string code,name, foodtype;
 	float price;
-	int counter_num;
 		
 	public:
 		Order *next;
@@ -58,7 +57,6 @@ class Order{
 			name = n;
 			foodtype = f;
 			price = p;
-			counter_num = 1;
 			next = NULL;
 		}
 		string getcode(){
