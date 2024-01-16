@@ -1,7 +1,7 @@
 # Airline Reservation System ✈️
 
 ## Table of Content
-- [Project Overview](#project-ov-)
+- [Project Overview](#project-overview)
 - [Pseudocode](#pseudocode-)
 - [Flow Chart](#synopsis-)
 - [UML](#flow-chart-)
