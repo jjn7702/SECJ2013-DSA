@@ -55,6 +55,11 @@ In a restaurant, it is most important that RMS should be user friendly and show 
 ### Function waytoInsert
 ![7]()
 
+### Function report
+！[8]()
+
+### Function getordernum
+![9]()
 
 ## Findings 📊
 
