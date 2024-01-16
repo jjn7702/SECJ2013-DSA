@@ -163,7 +163,7 @@ There are few features in the courier management system which is
 ## User Manual/Guide <a name="usermanual"></a> 📝
 ![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/Screenshot%202024-01-16%20210723.png)
 ![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/Screenshot%202024-01-16%20210820.png)
-![3](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/Screenshot%202024-01-16%20210949.png)
+![3](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/Screenshot%202024-01-16%20212006.png)
 
 ## Similarity Report <a name="report"></a> 🔔
 
