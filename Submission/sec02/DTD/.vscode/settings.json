@@ -1,10 +1,11 @@
 {
-    "files.associations": {
-        "ostream": "cpp",
-        "string": "cpp",
-        "iostream": "cpp",
-        "iosfwd": "cpp",
-        "fstream": "cpp",
-        "xstring": "cpp"
-    }
+  "files.associations": {
+    "ostream": "cpp",
+    "string": "cpp",
+    "iostream": "cpp",
+    "iosfwd": "cpp",
+    "fstream": "cpp",
+    "xstring": "cpp"
+  },
+  "C_Cpp_Runner.msvcBatchPath": ""
 }
