@@ -52,6 +52,183 @@ Users encounter a comprehensive display of tasks, which includes dates and statu
 
 8. The user can exit to the main menu and will be showed again the first event. There the user can choose again which option that the user wants.
 
+## Source Code Demonstrating The Data Structure Concept Employed 💹
+
+1. Stack Concept Code
+
+class stack
+{
+
+private:
+
+    int top;
+    TaskData data[N]; // Array of structures to store task details
+
+public:
+
+    stack()
+    {
+        top = -1;
+    }
+
+    bool isfull()
+    {
+        return top == N - 1;
+    }
+
+    bool isempty()
+    {
+        return top == -1;
+    }
+
+    void push(const TaskData &d)
+    {
+        if (isfull())
+            cout << "Stack is full" << endl;
+
+        else
+        {
+            top++;
+            data[top] = d;
+        }
+    }
+
+    void pop()
+    {
+        if (isempty())
+        {
+            cout << "Stack is empty" << endl;
+        }
+
+        else
+            top--;
+    }
+
+    TaskData stacktop()
+    {
+        return data[top];
+    }
+
+    void print()
+    {
+        if (isempty())
+        {
+            cout << "sorry, stack is empty" << endl;
+        }
+        else
+        {
+            for (int a = top; a >= 0; a--)
+            {
+                cout << left << setw(40) << data[a].tasks;
+                cout << left << setw(2) << "|";
+                cout << left << setw(20) << data[a].day + "-" + data[a].month + "-" + data[a].year;
+                cout << left << setw(2) << "|";
+                cout << left << setw(10) << data[a].status << endl;
+
+                cout << endl;
+            }
+        }
+    }
+    };
+
+2. Queue Concept Code
+
+class queue
+{
+
+private:
+
+    int front;
+    int rear;
+    TaskData data[N];
+    int count;
+
+public:
+
+    queue()
+    {
+        front = 0;
+        rear = N - 1;
+        count = 0;
+    }
+
+    bool isempty()
+    {
+        return count == 0;
+    }
+
+    bool isfull()
+    {
+        return count == N;
+    }
+
+    void enqueue(const TaskData &newTask)
+    {
+        if (isfull())
+        {
+            cout << "Sorry, the queue is full" << endl;
+        }
+        else
+        {
+            rear = (rear + 1) % N; //*
+            data[rear] = newTask;
+            count++;
+        }
+    }
+
+    void dequeue()
+    {
+        if (isempty())
+        {
+            cout << "Sorry, the queue is empty" << endl;
+        }
+        else
+        {
+            front = (front + 1) % N;
+            count--;
+        }
+    }
+
+    TaskData getfront()
+    {
+        return data[front];
+    }
+
+    TaskData getrear()
+    {
+        return data[rear];
+    }
+
+    void display()
+    {
+        if (isempty())
+        {
+            cout << "queue is empty" << endl;
+        }
+        else if (front <= rear)
+        {
+            for (int a = front; a < rear; a++)
+            {
+                cout << data[a].tasks << "|" << data[a].day + "-" + data[a].month + "-" + data[a].year << "|" << data[a].status << " -> ";
+            }
+            // Display the last element without the arrow
+            cout << data[rear].tasks << "|" << data[rear].day + "-" + data[rear].month + "-" + data[rear].year << "|" << data[rear].status;
+        }
+        else
+        {
+            for (int a = front; a < N - 1; a++)
+            {
+                cout << data[a].tasks << "|" << data[a].day + "-" + data[a].month + "-" + data[a].year << "|" << data[a].status << "->";
+            }
+            // Display the last element without the arrow
+            cout << data[rear].tasks << "|" << data[rear].day + "-" + data[rear].month + "-" + data[rear].year << "|" << data[rear].status;
+        }
+        cout << endl;
+    }
+    };
+
+
+
 ## Prepared by 🧑‍💻
 
 | Name             | Matric Number | Photo                                                         |
