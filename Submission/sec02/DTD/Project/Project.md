@@ -40,25 +40,31 @@ The primary objective of this program is to create an efficient library manageme
 
 ## Implementation
 
-### Linked List
-The program's linked list is a crucial component. Book data can be managed dynamically with the help of this data structure. The Library class encompasses functions like appending books to the start, middle, and finish of the list, locating and eliminating books according to their ISBN or title, and organising books according to their ISBN, title, author, year, or sort order.
+### Stack
+  1.Stack Implementation
+    a. The “Stack” class implements both push and pop operations to manage the books in the library.
+    b. These two operations are used to add new books to the top of the list of books and remove a book from the top of the list.
+    c. The “Stack” class methods can only be accessed by a Staff.
 
-A new book node is added into the list by using the addBookfront function. This function will add a new book that will act as a node to the current list of books. The book will be added to the front of the list.
-
-In addition,a new node for book is position at the middle or the linked list.The addBookMiddle can add the book to the middle of the book list.The function make it more organised because it is being updated in the middle of the book list depending on how much the total of books following the file and when inserting a new data.
-
-Other than that, users can also add new books to the end of the linked list by using the addBookEnd function. By executing this function, the new book will then appear at the end of the list when the displayBook function is called to display the books.
-
-Next is the findBook function, this will enable the users to find books from the library/linked list based on user input. The user can input either the title of the book or the ISBN number of the book that they want to find.
-
-Finally, the deleteNode function can be used to delete the nodes in the data in the file based on the user input. The user can choose to delete the book/node in the front, middle, or end. After the deletion process, the updated list of books will appear and the user can check whether the book is deleted.
-
-
-
-### Sorting
-In the program, sorting is also implemented. The type of sorting that is used in the program is the bubble sort. This type of sorting was chosen because it is straightforward and is easier to implement. The user can choose to sort the list of books by the attributes such as title, author, year of publication and ISBN number.
+### Queue
+  2.Queue Implementation
+    a. The “Queue” class handles two operations : enqueue and dequeue.
+    b. The enqueue method can only be accessed by the patrons/ users of the Library Management System while the dequeue is accessed by the staff.
+    c. The enqueue is used to add the name of the patron and the title of the book that they want to borrow.
+    d. The dequeue is used by the staff to approve the request of the patron to borrow the book.
 
 
+## User Guide
+
+  1.Staff Operations
+    a. Add New Book (Push) : Staff can add a new book to the top of the list.
+    b. Remove Book (Pop) : Staff can remove the book at the top of the list.
+    c. Display Current List (DisplayStack) : Staff can display the current list of books.
+    d. Approve Borrow Request : Staff can approve the borrow request done by the patrons and this will dequeue the request from the queue.
+
+  2.Patron Operations
+    a. Request a book (Enqueue) : Patrons will make a request to borrow books from the library.
+    b. Display Current Requests (DisplayQueue) :   Patrons can display the list of requests.
 
 
 ## Prepared by 🧑‍💻
