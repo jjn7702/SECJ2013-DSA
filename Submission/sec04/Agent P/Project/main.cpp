@@ -500,5 +500,11 @@ class Candidate
 class CandidateList
 {
 	Candidate *Chead;
+
+    public:
+		CandidateList()
+		{
+			Chead = NULL;
+		}
 	
 };
