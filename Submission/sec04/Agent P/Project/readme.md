@@ -220,7 +220,7 @@ The voter can now choose which attribute they want to change
 
 Step 3.2.2
 
-![4](  `)
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20202848.png)
 
 The voter can choose the attribute they want to change and enter the new information. 
 
@@ -228,19 +228,19 @@ The voter can choose to continue or end the process here by entering ‘y’ to 
 
 Step 3.2.3
 
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20202930.png)
 
 If the voter chose option 3, then they can search for candidates by using the above attributes. 
 
 Step 3.3.1
 
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20203047.png)
 
 The voter can choose the attribute and enter the information, in this sample, the name was used. If the information is the same as the one in the candidate list then the information about the candidate will be displayed.
 
 Step 3.3.2
 
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20203308.png)
 
 If the information is not found, an error message will appear. 
 
@@ -248,7 +248,7 @@ The voter can choose to continue or end the process here by entering ‘y’ to 
 
 Step 3.4
 
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20203552.png)
 
 If the voter chose option 4, the system will end.
 
@@ -256,25 +256,25 @@ If the voter chose option 4, the system will end.
 
 Step 1.1
 
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20204325.png)
 
 Candidates will need to enter their ID(Matric Number) and password.
 
 Step 1.2
 
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20204437.png)
 
 If the candidate entered the wrong id or password, then they will need to enter it back till they get it right. 
 
 Step 2
 
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20205234.png)
 
 The candidate will be redirected to the page where they can view profile(1), view all candidates(2), withdraw from election(3) and exit(4).
 
 Step 3.1
 
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20205501.png)
 
 If the candidate chose option 1, they can view their information like name, faculty, age, IC, Email, matric number, phone number, vote count. 
 
@@ -282,7 +282,7 @@ The voter can choose to continue or end the process here by entering ‘y’ to 
 
 Step 3.2
 
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20205727.png)
 
 If the candidate chose option 2, they can view all candidates information like name, faculty, IC,age, matric number, email and vote count.
 
@@ -296,7 +296,7 @@ If the candidate chose option 3, then they will withdraw from the election proce
 
 Step 3.4
 
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20210430.png)
 
 If the candidate chose option 4, then they will exit the system. 
 **If the candidate enters any option other than 1-4, the system will end.
