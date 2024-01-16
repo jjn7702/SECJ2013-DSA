@@ -114,7 +114,7 @@ Step 3.4
 
 If option 4 is selected, the admin can delete a candidate at specific position which starts with 1.
 
-![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent P/images/Screenshot 2024-01-16 191347.png)
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20191347.png)
 
 Sample output if the chosen position is 1. 
 
@@ -122,7 +122,7 @@ The admin can choose to continue or end the process here by entering ‘y’ to 
 
 Step 3.5
 
-![4])(https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20191705.png)
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20191705.png)
 
 ![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20191755.png)
 If the admin chose option 5, then the admin inserts an admin by inserting all the details.
