@@ -612,3 +612,7 @@ int getordernum(){
 	cin >> num;
 	return num;
 }
+
+void report(Retaurant q){
+	cout << "The Number of Customer today is : " << q.getcustomer_num() << endl;
+}
