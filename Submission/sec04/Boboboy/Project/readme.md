@@ -95,10 +95,10 @@ focus on the last uncompleted orders in the list
 ![7]()
 
 ### Function report
-！[8]()
+![8]()
 
 ### Function getordernum
-![9]()
+![9](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Project/Images/getordernum.png)
 
 ## Findings 📊
 
