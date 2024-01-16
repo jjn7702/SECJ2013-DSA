@@ -604,5 +604,34 @@ class CandidateList
             }
             out.close();
 		}
+
+        	void insertAdmin()
+		{
+            system("CLS");
+            Candidate *temp = Chead;
+            string n,f,ic,p,m,pass,e;
+            int a;
+            int v = 0;
+            cout<<"Please enter the following details =>"<<endl;
+						cout<<"Name : ";
+						cin>>n;
+						cout<<"Faculty : ";
+			            cin>>f;
+			            cout<<"Age : ";
+			            cin>>a;
+			            cout<<"IC : ";
+			            cin>>ic;
+                        cout<<"Phone Number : ";
+                        cin>>p;
+			            cout<<"Email : ";
+			            cin>>e;
+			            cout<<"Matric No. : ";
+			            cin>>m;
+                        cout<<"Password : ";
+                        cin>>pass;
+
+
+		}
+
 	
 };
