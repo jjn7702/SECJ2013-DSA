@@ -95,7 +95,7 @@ class itemQueue{
             else
                 return front->item;
         }
-}
+};
 
 class historyNodeStack{
     public:
