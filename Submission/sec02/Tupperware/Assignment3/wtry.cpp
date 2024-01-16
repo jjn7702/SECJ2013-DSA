@@ -139,32 +139,22 @@ class queueOrder{
                 cout << "Quantity: " << currentOrder.getQuantity() << "\n";
 
                 temp = temp->next;
-        }
-    }
-}
+                }
+            }
+        }           
 
 };
 
-int main() {
 
-int opt;
-char choice;
-vector<Menu> menuList;  // Use a vector to store multiple Menu objects
-string foodId;
-int quantitiy, tableNum;
-Menu selectedMenu;
-queueOrder orderQueue;
+void customerView(){
+    int opt, quantity, tableNum;
+    char choice;
+    string foodId;
+    Menu selectedMenu;
+    vector<Menu> menuList;  // Use a vector to store multiple Menu objects
+    queueOrder order;
+    
 
-// Order order;
-
-do {
-
-} while (choice == 'y' || choice == 'Y');
-// ape2 code utk stack 
-
-switch (opt)
-{
-case 1 :
         cout << "Welcome to the customer View\n";
         cout << "[1]Make order\n";
         cout << "[2]View current queueing order\n";
@@ -173,57 +163,75 @@ case 1 :
         cout << "Choice : ";
         cin >> opt;
 
+        switch (opt)
+        {
+        case 1 :
+            cout << "What is your table number ? : ";
+            cin >> tableNum; 
 
-        // Populate the menuList with Menu objects
-        menuList.push_back(Menu("F001", "Burger", "Fast Food", 5.99));
-        menuList.push_back(Menu("F002", "Pizza", "Fast Food", 8.99));
-        // Add more menu items if needed
+            if((tableNum < 0  && tableNum > 10) || (tableNum != static_cast<int>(tableNum)))
+                cout << "The table number you entered is invalid";
 
+            cout << "Pick your order\n";
+            cout << "foodID : ";
+            cin.ignore();
+            getline(cin, foodId);
+            cout << "Quantity : ";
+            cin >> quantity;
 
-        cout << "What is your table number ? : ";
-        cin >> tableNum; 
+            // to check if the foodID existed.
+            bool validFoodId = false;
 
-        cout << endl;
+            NodeQueue *temp;
 
-        cout << "Pick your order\n";
-        cout << "foodID : ";
-        cin.ignore();
-        getline(cin, foodId);
-        cout << "Quantitiy : ";
-        cin >> quantitiy;
+            while (temp) {
+                Order currentOrder = temp->getOrder();
+                Menu currentMenu = currentOrder.getMenu();
 
-
-        for (const Menu& menu : menuList) {
-            if (foodId == menu.getFoodId()) {
-                selectedMenu = menu;
-                break;
+                if (currentMenu.getFoodId() == foodId) {
+                    validFoodId = true;
+                }
+                temp = temp->next;
             }
+
+            if(validFoodId == false)
+                cout << "Sorry, the food is not existed";
+            else  {
+                order.enQueue(Order(selectedMenu, quantity));
+            }
+
+            break;
+
+        case 2:
+            cout << "Viewing current queueing orders:\n";
+            order.printOrder();
+            break;
+
+        default:
+            break;
+
         }
 
-        // Check if the foodId is valid
-        if (selectedMenu.getFoodId().empty()) {
-            cout << "Invalid food ID\n";
-            return 1; // Exit with an error code
-        }
-
-        Order order(selectedMenu, quantitiy);
+        // Order order(selectedMenu, quantitiy);
 
 
-        orderQueue.enQueue(order);
+        // orderQueue.enQueue(order);
 
-        cout << "Current Orders:\n";
-        orderQueue.printOrder();
+        // cout << "Current Orders:\n";
+        // orderQueue.printOrder();
 
-        orderQueue.deQueue();
+        // orderQueue.deQueue();
 
-        cout << "\nOrders after dequeue:\n";
-        orderQueue.printOrder();
+        // cout << "\nOrders after dequeue:\n";
+        // orderQueue.printOrder();
 
-    break;
-
-default:
-    break;
 }
 
-    return 0;
-}
+
+// int main() {
+//     do {
+
+// } while (choice == 'y' || choice == 'Y');
+//     return 0;
+
+// }
