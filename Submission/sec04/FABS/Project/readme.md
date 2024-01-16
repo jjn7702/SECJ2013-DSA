@@ -10,6 +10,9 @@
 ## Appendix :red_circle:
 
 - [Overview of The Project](#overview)
+- [Objective](#objective)
+- [Synopsis](#synopsis)
+- [Problem Analysis](#problemanalysis)
 - [Design](#design)
 - [Design Description](#designdescription)
 - [User Manual/Guide](#usermanual)
@@ -17,7 +20,7 @@
 - [Findings](#findings)
 
 ## Overview of The Project <a name="overview"></a> :heavy_check_mark:
-#### OBJECTIVE
+## Objective <a name="objective"></a> 🧠
   The main objective for developing the courier management system is to ease the courier and customer to insert, delete, search and display the courier information. The courier management system is designed to make the process of insertion and deletion of the courier information run smoothly and follow the flow as it follows the “First In, First Out” (FIFO) principle and get packages to their destination safely and on time. The system provides a user-friendly interface for simplicity of use, with a menu-driven system that leads users through the full process of selecting the menu provided until they choose to exit the system. The system implements the queue principle as that principle is more suitable to be implemented for the courier management system. Typically, the initial detail of a parcel will be delivered to the customer first since the parcel was sent earlier than subsequent parcels, allowing the administrator to remove the information flow by flow. Usually, the first detail will be delivered first to the customer as the parcel was sent earlier than other parcels so that the admin can delete the information flow by flow. To maintain data integrity during file activity, the system also additionally employs a data hiding concept. Data hiding ensures exclusive data access to class members exclusively and preserves object integrity by limiting modifications and disruptions, whether planned or unintended.
 
 There are few features in the courier management system which is
@@ -28,33 +31,37 @@ There are few features in the courier management system which is
 
 2. Remove or delete data couriers
 
-   Remove or delete the information of the parcel from the input file (COURIER.txt). The information will be deleted from the top/front of the list of the parcel in the input file.
+   Remove or delete the information about the parcel. The information will be deleted from the top/front of the list in the Queue.
 
 3. Search courier information
 
-   Can search any data that exists in the list by the status of the parcel. The algorithm used is a linked list implementation of queue.
+   Can find any data that exists in the list by inserting the tracking number for the parcel. The algorithm used is a linked list implementation of queue.
 
 4. Display data courier
   
    Displaying all updated courier information including name, parcel type, source, destination, status and tracking number.
 
-#### SYNOPSIS
-  The courier management system is used to send our parcel to the specific destination. We designed the courier system by implementing the queue method to easily allow the user to insert, delete, search and display the info of the parcel. When the admin submits the parcel details in the system, the details will be stored in the input file (COURIER.TXT). Using a queue is suitable for this situation because it follows the “first in, first out” (FIFO) principle. The first parcel detail submitted and stored is the first to be processed by the admin.
+## Synopsis <a name="synopsis"></a> ✨
+  The courier management system is used to send the parcel to the specific destination and track the current location. We designed the courier system by implementing the Queue method to easily allow the user to insert, delete,change status, search and display the information of the parcel. When the customers submit the parcel details in the system, the details will be stored in the input file (COURIER.TXT). Using a Queue is suitable for a courier management system as it follows the “First In, First Out” (FIFO) principle. The first parcel detail submitted and stored is the first to be processed by the admin and worker.
 
-  In our system, the user can insert the new details about the parcel that contains, name, the tracking number, type of parcel, source, destination, and the status of the parcel. The information will be inserted after the last information of the parcel. In addition, the user also can remove the details of the parcel from the input file and the details will be deleted from the top of the input file. Furthermore, we also implement the search feature for the user to search the details of the parcel by using the status of the parcel. Then, the system will display all the details of the parcel that have status as the user entered into the system. Last but not least, the system also has a display menu to display all and updated details of the parcel from the input file.
+  In our system, the customer has a menu to choose whether they want to add details of parcel, view the courier queue, and search courier by tracking number and exit the customer menu. The customer can insert the new details about the parcel that contains, name, type of parcel, source, destination, and the status of the parcel, and tracking number. The information will be inserted as the last/back position of information of the parcel by following the Queue principle (enqueue). The status of new detail that is inserted by the customer will be “Pending” and will be changed to the “Approved” by the Admin after the admin approves the pending couriers. Next, the Worker will update the parcel to “In Transit” status. In addition, the admin also has a menu to choose whether they want to view the courier queue, approve courier, dequeue the courier (remove data) and exit from admin’s menu.  While, the worker has a menu to choose whether they want to view the courier queue, mark courier as In transit, dequeue the courier (remove data) and exit from worker’s menu.The admin and worker can remove or delete the details of the parcel from the input file and the details will be deleted from the top/first parcel’s information of the input file by regarding the Queue principle (dequeue). Furthermore, we also implement the search feature for the customers to search the details of the parcel by entering the tracking number. Then, the system will display all the details of the parcel that have the same tracking number as the user entered into the system. Last but not least, the system also has a display/view menu for customers, admins and workers to display all and updated details of the parcel from the input file(COURIER.txt).
 
 
-#### PROBLEM ANALYSIS
-  The courier management system is designed to facilitate and improve the courier management by handling all the information that they receive from customers and synchronizing it with the updated delivery status for their parcel. To make all the process become a lot more easier than before, we have decided to use a Queue data structure that will follow the principle of “First In,First Out” (FIFO). As a result the first data to enter the system (enqueue) will also be the first data deleted (dequeue) from the system. 
+## Problem Analysis <a name="problemanalysis"></a> 🕵🏻‍♀️🕵🏻‍♂️
+  The courier management system is designed to facilitate and improve the courier services management by handling all the information that they receive from customers and synchronizing it with the updated delivery status for their parcel. To make all the process become a lot more easier than before, we have decided to use a Queue data structure that will follow the principle of 
+“First In,First Out” (FIFO). As a result the first data to enter the system (enqueue) will also be the first data deleted (dequeue) from the system. 
 
-  Other than that, to help the workers at the courier service to find all the data for which parcel’s status has been delivered or not, we have decided to implement a searching process. Our system has the ability to search information about couriers by inserting the status of the parcel (eg; Delivered). All the parcels that contain the similar status like the one that we entered will be displayed. In conclusion, the courier management system is a very useful program that could help the courier management to improve their user experience and its functionality.
+  Other than that, to help the customer at the courier service center to find all the data for which parcel’s status has been delivered or not, we have decided to implement a searching process. Our system has the ability to search information about couriers by inserting the tracking number of the parcel. All the parcel details that contain the similar tracking number like the one that we searched will be displayed. Meanwhile, the admin of the system can approve the new data either the data was inserted by input file (COURIER.TXT) or customer. Admin also have the ability to delete the first data inserted to the system each time the dequeue function is being called.
+
+  In addition, our system also offers the workers of the courier service to update the status from being “Approved” to “In Transit”. From this update, customers can know that their parcels are currently being processed. The workers also have the same ability like admin which is to delete the first data inserted to the system each time the dequeue function is being called. Last but not least, our system also can save the updated data into the file after we exit the system. As a conclusion, the courier management system is a very useful system that could help all courier services management to improve their functionality and its user experience.
+
 
 
 ## Design <a name="design"></a> 🎨
 #### Flowchart
 ![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/databaseprojek.drawio.png)
 #### Class Diagram
-![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/classdiagram.jpg)
+![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/class%20diagram.jpg)
 
 ## Design Description <a name="designdescription"></a> 💹
 
