@@ -1266,6 +1266,44 @@ int main()
         getline(in,email,',');
         getline(in,status,'\n');
         l.Enqueue(name,faculty,age,ic,email,matric,pass,status);
-		//cout<<name<<" "<<faculty<<" "<<ic<<" "<<age<<" "<<matric<<" "<<pass<<" "<<email<<" "<<status<<endl;
+		
+    }
+    in.close();
+    
+    CandidateList c;
+    Candidate *c2 = NULL;
+    
+    ifstream inp;
+    inp.open("cand.csv");
+    
+    while(getline(inp,name,','))
+    {
+        getline(inp,faculty,',');
+        inp>>age;
+        inp.ignore();
+        getline(inp,ic,',');
+        getline(inp,phone,',');
+        inp>>vote;
+        inp.ignore();
+        getline(inp,matric,',');
+        getline(inp,pass,',');
+        getline(inp,email,'\n');
+        c.insertFront(name,faculty,age,ic,phone,vote,matric,pass,email);
+		//cout<<name<<" "<<faculty<<" "<<ic<<" "<<age<<" "<<matric<<" "<<pass<<" "<<email<<" "<<phone<<" "<<vote<<endl;
         //getline(in,name,',');
+    }
+
+    string user;
+    int j=0;
+    Admin adm[10];
+
+    ifstream inx;
+    inx.open("admin.csv");
+
+    
+    while(getline(inx,pass,',')){
+	    getline(inx,user,'\n');
+	    //cout<<"User : "<<user<<" Pass : "<<pass<<endl;
+	    adm[j] = Admin(user,pass);
+	    j++;
     }
