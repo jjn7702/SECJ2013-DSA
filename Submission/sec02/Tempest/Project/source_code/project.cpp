@@ -321,6 +321,12 @@ int main()
             q.enqueue(newTask);
             // Display tasks using queue method
             cout << "\nTasks using Queue method:" << endl;
+            cout << left << setw(40) << "TASK";
+            cout << left << setw(2) << "|";
+            cout << left << setw(20) << "DATE";
+            cout << left << setw(2) << "|";
+            cout << left << setw(10) << "STATUS" << endl
+            << endl;
              // Display the entire queue
             cout << endl;
         }
