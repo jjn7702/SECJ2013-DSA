@@ -9,11 +9,12 @@ _Don't forget to hit the :star: if you like this repo._
 
 # Task Management System - Assignment 2
 ## Objective
+The stack technique is used in this task management system to facilitate user navigation by preserving a history stack that allows users to easily backtrack through their interactions. A stack is also used to implement a reverse feature, which allows users to return to previous states. The queue technique, on the other hand, is used to manage tasks in a first-in, first-out manner, ensuring task execution fairness. Furthermore, an update queue is implemented, which uses a queue to organise and present updates to users in a systematic manner. These techniques, when combined, improve data accessibility and user experience in the system.
 
 
 ## Sypnosis 📝
  
-
+Users encounter a comprehensive display of tasks, which includes dates and statuses, in the task management system's main menu, as well as an option menu with distinct options such as stack and queue. When users select the stack option, they are redirected to a sub-menu designed for last-in-first-out (LIFO) task data manipulation. Users can add tasks (push them onto the stack), remove tasks (pop them off the stack), and inspect tasks in a stacked manner, providing a dynamic and simple approach to task management. In the same way, selecting the queue option directs users to a sub-menu designed for first-in-first-out (FIFO) task manipulation. This menu contains options for adding tasks (enqueuing), removing tasks (dequeuing), and examining tasks in a queued manner, introducing a systematic and ordered approach to task management.
 
 ## Design 🎨
 

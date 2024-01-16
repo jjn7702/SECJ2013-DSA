@@ -66,15 +66,13 @@ This system simplifies the warehousing process through the ability to add and de
 
 
 ## Flowchart 💹
-
-
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/center%20point/Images/A2-FLOW1.png)
+![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/center%20point/Images/DSA%20PROJECT%20FLOW2.drawio.png)
+![3](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/center%20point/Images/PROJECT%20FLOW%203.drawio.png)
 
 ## Class Diagram 💹
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/center%20point/Images/project%20class.drawio.png)
 
-
-
-
-## Flow of Event 💹
 
 
 ## Linked List Implementation 💹
