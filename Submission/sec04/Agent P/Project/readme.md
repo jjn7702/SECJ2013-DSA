@@ -43,7 +43,7 @@ Election Management System is a system that will be used during the UTM voting d
 
 ##### 4. Search
 
-### 
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/project-management.png"> User Guide
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/folder.png" width="3%" height="3%"> Findings 
 
