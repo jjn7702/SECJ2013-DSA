@@ -355,14 +355,6 @@ public:
 
 int main()
 {
-    // Creating Queue
-    QueueReservation Reservation;
-
-    // Data Initialization
-    Reservation.displayQueueReservation();
-
-    //? Kena buang line atas untuk tgk Stack
-    //* Stack akan ada function display, add and delete yg proper after this
 
     //! Output Stack
     StackList BS;
@@ -371,6 +363,8 @@ int main()
     if (inputFile.is_open())
     {
         string line;
+
+        getline(inputFile, line);
 
         while (getline(inputFile, line))
         {
