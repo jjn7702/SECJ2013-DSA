@@ -122,3 +122,16 @@ class Cart{
 					temp->next = newNode;
 				}
 			}// insert the number at the middle which the user provide the location
+			else if (w == 3){
+				if(CartEmpty()){
+					head = newNode;
+				}
+				else{
+					Order *temp = head;
+					while(temp->next != NULL){   // make it become null until the last
+						temp = temp->next;
+					}
+					temp-> next = newNode;
+				}
+			}// insert the number at the last
+		}
