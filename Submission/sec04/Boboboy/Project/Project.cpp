@@ -691,3 +691,25 @@ int main(){
 							b.displayReceipt(ordernum);
 							system("pause");
 							break;
+			case 5 :		q.checkStatus(); system("pause"); break;	
+			case 6 :		b.clearCart(); status = false; break;
+		}
+	}
+	}
+	else{
+		bool status_admin = true;
+		int action_admin;
+		while(status_admin){
+			system("CLS");
+			cout << "Process: " << endl;
+			cout << "1. Checking number of order" << endl;
+			cout << "2. Display the order list" << endl;
+			cout << "3. The order is done " << endl;
+			cout << "4. Generate sales report(By Day) " << endl;
+			cout << "5. Back to the home page " << endl;
+			cout << "6. The system is closed" << endl;
+			cout << "Your choice: ";
+			cin >> action_admin;
+			switch(action_admin){
+				case 1 : q.print(); system("pause"); break;
+				case 2 : b.display_order_list(); system("pause"); break;
