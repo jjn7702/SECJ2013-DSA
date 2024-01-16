@@ -705,6 +705,20 @@ class CandidateList
             }
         }
 
+        void display() //DISPLAY CANDIDATE
+        {
+            Candidate *temp = Chead;
+            cout<<"------------------------------------------------------------------------------------------------------------------------------------"<<endl;
+            cout<<"|       Name       "<<" | "<<"      Faculty      "<<" | "<<"      IC     "<<" | "<<"   Age  "<<" | "<<"   Matric Number  "<<" | "<<"         Email            |"<<" Vote Count |"<<endl;
+            cout<<"------------------------------------------------------------------------------------------------------------------------------------"<<endl;
+             while(temp != NULL)
+            {
+                cout<<left<<"|  "<<setw(16)<<temp->getName()<<" |       "<<setw(13)<<temp->getFaculty()<<" |  "<<setw(12)<<temp->getIC()<<" |     "<<setw(4)<<temp->getAge()<<" |    "<<setw(16)<<temp->getMatric()<<"|  "<<setw(25)<<temp->getEmail()<<"|    "<<setw(8)<<temp->getVoteCount()<<"|"<<endl;
+                cout<<"------------------------------------------------------------------------------------------------------------------------------------"<<endl;
+                temp = temp->next;
+            }
+        }
+
          void delsearch(Candidate *s3){
 		 Candidate* temp = Chead, *prev;
             bool found = false;
