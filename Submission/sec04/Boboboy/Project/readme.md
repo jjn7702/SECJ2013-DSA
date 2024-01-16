@@ -86,10 +86,10 @@ focus on the last uncompleted orders in the list
 ![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Project/Images/Search_item_in_Cart.drawio.png)
 
 ### Function Customer_order
-![5]()
+![5](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Project/Images/Customer_order.drawio.png)
 
 ### Function Cus_order
-![6]()
+![6](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Project/Images/Cus_order.drawio.png)
 
 ### Function waytoInsert
 ![7](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Project/Images/waytoInsert.drawio.png)
