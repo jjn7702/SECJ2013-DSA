@@ -207,19 +207,16 @@ void dispMenu() {
 
 
 int main() {
-    
-    ifstream inputFile("COURIER.txt");
+
+   ifstream inputFile("COURIER.TXT");
     if (!inputFile.is_open()) {
         cout << "Error opening file." << endl;
         return 1;
     }
 
-    LinkedList courierList;
-    Queue courierQueue;
-    Stack courierStack;
-    
+   Queue courierQueue;
 	
-  string line;
+   string line;
     while (getline(inputFile, line)) {
         stringstream ss(line);
         string n, parcel, sourc, dest, stat;
@@ -233,225 +230,52 @@ int main() {
             (ss >> track)) {
 
             Courier newCourier(n, parcel, sourc, dest, stat, track);
-            courierList.insertBack(newCourier);
+            courierQueue.insertBack(newCourier);
         }
     }
 
-inputFile.close();
- int choice;
+    inputFile.close();
+
+    int choice;
+
     do {
-        cout << "Menu:\n[1] Add a new courier\n[2] Delete a courier\n[3] Find a courier\n"
-             << "[4] Sort the list(ascending)\n[5] Display all couriers\n"
-             << "[6] Enqueue to Courier Queue\n[7] Dequeue from Courier Queue\n"
-             << "[8] Display Courier Queue\n[9] Push to Courier Stack\n"
-             << "[10] Pop from Courier Stack\n[11] Display Courier Stack\n[0] Exit\n";
-        cout << "Enter your choice: ";
+        dispMenu();
+        cout << "\nEnter your choice [1-5]: ";
         cin >> choice;
+        cin.ignore();
 
         switch (choice) {
-            case 1: {
-                int insertChoice;
-                do {
-                    cout << "\nAdd Courier Menu:\n[1] Insert at the beginning\n[2] Insert at the middle\n"
-                         << "[3] Insert at the end\n[0] Back to Main Menu\nEnter your choice: ";
-                    cin >> insertChoice;
-
-                    switch (insertChoice) {
-                          case 1: {
-	                        Courier newCourier = courierList.getNewCourier();
-	                        courierList.insertFront(newCourier);
-	                        break;
-	                    }
-	                    case 2: {
-	                        int position;
-	                        cout << "Enter the position to insert: ";
-	                        cin >> position;
-	                        Courier newCourier = courierList.getNewCourier();
-	                        courierList.insertMiddle(newCourier, position);
-	                        break;
-	                    }
-	                    case 3: {
-	                        Courier newCourier = courierList.getNewCourier();
-	                        courierList.insertBack(newCourier);
-	                        cout << "Courier added at the back.\n" << endl;
-	                        break;
-	                    }
-	                    case 0: {
-	                        cout << "Returning to Main Menu.\n" << endl;
-	                        break;
-	                    }
-	                    default: {
-	                        cout << "\nInvalid choice. Please try again.";
-	                        cout << endl;
-	                        break;
-	                    }
-	                }
-                    
-                } while (insertChoice != 0 && insertChoice != 1 && insertChoice != 2 && insertChoice != 3);
+            case 1:
+                courierQueue.enqueue();
                 break;
-            }
-            case 2: {
-                int deleteChoice;
-                do {
-                    cout << "\nDelete Courier Menu:\n[1] Delete at the beginning\n[2] Delete at the middle\n"
-                         << "[3] Delete at the end\n[0] Back to Main Menu\nEnter your choice: ";
-                    cin >> deleteChoice;
-
-                    switch (deleteChoice) {
-                          case 1:
-	                        courierList.deleteFront();
-	                        break;
-	                    case 2: {
-	                        int position;
-	                        cout << "Enter the position to delete: ";
-	                        cin >> position;
-	                        courierList.deleteMiddle(position);
-	                        break;
-	                    }
-	                    case 3:
-	                        courierList.deleteBack();
-	                        break;                   
-	                    case 0:
-	                        cout << "Returning to Main Menu.\n" << endl;
-	                        break;
-	                    default:
-	                        cout << "Invalid choice. Please try again.\n";
-	                        break;
-	                } 
-                    
-                } while (deleteChoice != 0 && deleteChoice != 1 && deleteChoice != 2 && deleteChoice != 3);
-                break;
-            }
-            case 3: {
-                int searchOption;
-		cout << "\nSearch by:\n";
-		cout << "[1] Name\n[2] Parcel Type\n[3] Source\n[4] Destination\n[5] Status\n[6] Tracking Number\n[0] Back to Main Menu\nEnter you choice: ";
-		cin >> searchOption;
-
-		if (searchOption == 0) {
-			cout << "Returning to Main Menu.\n" << endl;
-			break;
-		} else if (searchOption < 1 || searchOption > 6) {
-			cout << "Invalid option. Please try again." << endl;
-			break;
-		}
-			
-                string searchKey;
-                Courier searchCourier;
-
-                    cout << "Enter the search key: ";
-                    cin.ignore();
-                    getline(cin, searchKey);
-
-                    switch (searchOption) {
-                        case 1:
-                            if (!searchKey.empty()) {
-                                searchCourier.setName(searchKey);
-                            }
-                            break;
-                        case 2:
-                            if (!searchKey.empty()) {
-                                searchCourier.setType(searchKey);
-                            }
-                            break;
-                        case 3:
-                            if (!searchKey.empty()) {
-                                searchCourier.setSource(searchKey);
-                            }
-                            break;
-                        case 4:
-                            if (!searchKey.empty()) {
-                                searchCourier.setDest(searchKey);
-                            }
-                            break;
-                        case 5:
-                            if (!searchKey.empty()) {
-                                searchCourier.setStat(searchKey);
-                            }
-                            break;
-                        case 6:
-                            if (!searchKey.empty()) {
-				try {
-                                	searchCourier.setTrackNum(stoi(searchKey));
-                            }
-				catch (const invalid_argument& e) {
-					cout << "Invalid tracking number. Please enter a valid number. \n";
-					break;
-				}
-			    }
-                            break;
-                        default:
-                            break;
-                    }
-
-		cout << "\nSearching...\n";
-		courierList.findNode(searchCourier);
-		break;
-           	}
-	case 4: {
-                 int sortCriteria;
-	            bool sorting;
-	            do {
-	                cout << "\n[1] Sort by name\n[2] Sort by parcel type\n[3] Sort by tracking number\n[0] Back to Main Menu\nEnter your choice: ";
-	                cin >> sortCriteria;
-	
-	                if (sortCriteria == 0) {
-	                    cout << "Returning to Main Menu.\n" << endl;
-	                    break;
-	                } else if (sortCriteria < 1 || sortCriteria > 3) {
-	                    cout << "Invalid option. Please try again.\n";
-	                    sorting = false;
-	                    continue;
-	                }
-	                courierList.sortList(sortCriteria);
-	                cout << endl;
-	                sorting = true;
-	            } while (!sorting);
-	            break;
-	        }
-            
-        case 5: {
-                courierList.displayList();
-                cout << endl;
-                break;
-            }
-	case 6: {
-                Courier newCourier = courierList.getNewCourier();
-                courierQueue.enqueue(newCourier);
-                cout << "Courier enqueued to the queue.\n" << endl;
-                break;
-            }
-        case 7: {
+            case 2:
                 courierQueue.dequeue();
                 break;
-        	}
-        case 8: {
-                courierQueue.displayQueue();
+            case 3:
+                courierQueue.search();
                 break;
-        	}
-	case 9: {
-                Courier newCourier = courierList.getNewCourier();
-                courierStack.push(newCourier);
-                cout << "Courier pushed to the stack.\n" << endl;
+            case 4:
+                courierQueue.display();
                 break;
-            }
-        case 10: {
-                courierStack.pop();
-                break; 
-        	}
-	case 11: {
-                courierStack.displayStack();
-                break;
-        	}
-         case 0: {
-                cout << "Exiting program.\n";
-                break;
-        	}
-         default:
-                cout << "Invalid choice. Please try again.\n" << endl;
-                break;
-  }
-    } while (choice != 0);
+            case 5:
+                cout << "\nThank you.. see you again.." << endl;
+
+                // Save the courier list back to the file
+                ofstream outputFile("COURIER.TXT");
+                Courier* currNode = courierQueue.getFront();
+                while (currNode != NULL) {
+                    outputFile << currNode->getName() << "," << currNode->getParcelType() << ","
+                                << currNode->getSource() << "," << currNode->getDestination() << ","
+                                << currNode->getStatus() << "," << currNode->getTrackingNum() << endl;
+
+                    currNode = currNode->getNext();
+                }
+
+                outputFile.close();
+        }
+
+    } while (choice > 0 && choice < 5);
 
     return 0;
 }
+
