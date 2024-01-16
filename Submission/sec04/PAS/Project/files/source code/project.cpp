@@ -258,3 +258,132 @@ int main() {
 			count++;
 			cout << title_ << " is succesfully added into the library.";
 			books.display();
+	    	break;
+	   case 2: //Delete latest book in the library
+	        for (int i = 0; i < count; i++) {
+	    	    if (id[i] == books.stackTop())
+	    	        removed = i;
+	    	}
+	    	cout << endl << name[removed] << " is succesfully removed into the library.\n";
+	    	books.pop();
+	    	books.display();
+	    	count--;
+	    	break;
+        case 3: //Check amount of books in the library
+            	cout << "There are currently " << count << " books in the library.\n" << endl;
+            	break;
+        case 4: //Display details of most recent book in the library
+		    for (int i = 0; i < count; i++) {
+	    	    if (id[i] == books.stackTop())
+	    	        recent = i;
+	    	}
+	    	cout << "The most recently added book is:\n\n";
+	    	header();
+	    	cout << left 
+				 << setw(8) << id[recent] << " " 
+				 << setw(30) << name[recent] << " " 
+				 << setw(28) << author[recent] << " "
+				 << setw(8) << year[recent] << " " 
+				 << setw(10) << genre[recent] << endl << endl;
+	    	break;
+        case 5: //Display all books available in the library
+            	books.display();
+            	break;
+        case 6: //Borrow book
+            {
+            cout << "\nEnter the name of borrower: ";
+            cin.ignore();
+            getline(cin, borrower);
+            
+            cout << "Enter the ID of the book to borrow: ";
+            string bID;
+            cin >> bID;
+            
+            Node* borrowedBook = NULL;
+            Node* currBook = books.stackTopN();
+            
+            //To find the soecific ID book entered by user
+            while (currBook != NULL) {
+            	if ((currBook->getID() == bID)) {
+            		borrowedBook = currBook;
+            		break;
+            	}
+            	currBook = currBook->next;
+            }
+            //To check if the book is available to borrow or not
+            if (borrowedBook != NULL) {
+            	bool isBorrowed = false;
+            	for (int i = borrow.front; i <= borrow.back; i++) {
+            		if (borrow.b[i]->getID() == bID) {
+            			isBorrowed = true;
+            			break;
+            		}
+            	}
+               	if (!isBorrowed) { //Add to borrowing queue if book is available
+				   borrow.enQueue(borrower, borrowedBook);
+				   cout << "\nList of People Borrowing Books: \n" << endl;
+				   borrow.print();
+				   cout << borrowedBook->getName() << " is successfully borrowed by " << borrower << ".\n\n";
+	        	}
+        		else { //Add to requesting queue if book is currently borrowed by someone else
+        			request.enQueue(borrower, borrowedBook);
+        			cout << "\nBook is not successfully borrowed by " << borrower << ". " << borrower << " is now in the queue." << endl << endl;
+        			cout << "\nList of People Queueing to Borrow Books: \n" << endl;
+					request.print();
+        		}
+    		}
+    		else {
+    			cout << "\nBook does not exist in the library.\n" << endl;
+    		}
+    		}
+            break;
+            
+        case 7: //Return book & let next person borrow the returned book (if any)
+        	{
+        	Node *returnedBook = borrow.getBook();
+        	borrow.deQueue();
+        	cout << "\nReturned Book Details: " << endl;
+        	header();
+        	returnedBook->display();
+        	cout << endl;
+        	
+        	if (!request.isEmpty()) {
+        		bool findBook = false;
+        		int index = 0;
+	        	for (int i = request.front; i <= request.back; i++) {
+	            	if (request.b[i]->getID() == returnedBook->getID()) {
+	            		findBook = true;
+	            		index = i;
+	            		break;
+	            	}
+	            }
+	            if (!findBook) {
+	            	cout << "\nThe returned book is not in the request queue." << endl;
+	            }
+	            else {
+	            	//Add requested book to borrow that is same with returned book to borrowing queue
+	            	borrow.enQueue(request.getName(index), request.b[index]);
+	            	cout << "\nList of people borrowed books(updated): \n" << endl;
+	            	borrow.print();
+	            	cout << returnedBook->getName() << " is successfully borrowed by " << request.getName(index) << ".\n\n";
+	            	//Remove the book & borrower from request queue
+	            	request.deQueue(index);
+	            }
+        	}
+        	else {
+        		cout << "\nNo requests in the queue.\n" << endl;
+        	}
+            break;
+        	}
+        case 8: //Display
+        	cout << "List of People Queueing to Borrow Books: \n" << endl;
+        	request.print();
+        	break;
+        case 9:
+            exit(0);
+        }
+        opt1 = mainMenu();
+    }
+	
+	return 0;
+}
