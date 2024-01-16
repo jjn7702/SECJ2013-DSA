@@ -376,3 +376,20 @@ class Cart{
     		    delete temp;
 		    }
 	    }
+	void order_list(int ordernum){
+		Order *temp;
+		temp = head;
+		string number_as_string = to_string(ordernum);
+		ofstream outputfile("Order_"+number_as_string+".txt");
+		if(outputfile.is_open()){
+		//cout << "File can open " << endl;
+			while(temp){
+				outputfile << temp->getname() << endl;
+				temp = temp->next;
+			//cout << "file can output" << endl;
+			}
+		}
+		else{
+			cout << "file cannot open" << endl;
+		}
+	}
