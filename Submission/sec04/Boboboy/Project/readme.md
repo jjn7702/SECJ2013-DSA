@@ -46,6 +46,27 @@ After that, for a restaurant, we need to know how many orders are completed in o
 
 These are the basic problems that our group members found out and faced throughout the project. All of these problems are solved in an effective way and we also add on the features to make the ordering system more efficient and multi-functional. This project can be developed successfully as we used the data structure concepts stated above, which are the queue data structure and also linked-list for ht menu display.
 
+## Linked List in Ordering System
+In our system, the linked list is used in our system as a cart that can record the order from the
+customers. We used the linked list data structure for the cart because all the adding and delete
+functions will be able to be used in the cart. Linked list can control the items inside the cart by
+adding at front, middle and back. The deletion function also can delete from that three positions
+based on the implementation of linked list. This helps customers easier to manage their cart and
+no need to reorder if any misclick occurs. After the confirmation of customers about their food,
+the order will be sent to the kitchen and payment will come out of the system.
+
+## Queue in Ordering System
+In our system, the queue is used to display the food order based on the order number. The queue
+is using first in first out which is very suitable for the ordering system. The ordering system is
+first come first serve which is the same as the queue. After ordering the food, the customers need
+to type in the order number provided at the restaurant. The system will enqueue the order number
+into the queue. The system will show the order number in which phase such as preparing phase
+or ready to serve. This is to help the customers to know the status of their order easily. The
+customers can sit and wait until their order number shows on the ready to serve phase. After the
+order has been delivered to the customers , the admin of the system can dequeue the order
+number from the queue and it will not affect the order number after it. The kitchen staff can
+focus on the last uncompleted orders in the list
+
 
 ## Class Diagram
 ![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Project/Images/class%20diagram%20project.jpeg)
