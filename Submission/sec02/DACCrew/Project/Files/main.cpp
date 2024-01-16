@@ -6,7 +6,7 @@
 #define D "Deposit"
 #define W "Withdraw"
 #define T "Transfer"
-#define N 11
+#define N 20 // Increased the size of the queue
 using namespace std;
 
 void dispHeader()
@@ -87,7 +87,7 @@ public:
     void enQueue(Transaction t)
     {
         if (isFull())
-            cout << "The queue is full" << endl;
+            cout << "The queue is full. Cannot insert new transaction." << endl;
         else
             list[++back] = t;
     }
@@ -115,7 +115,7 @@ public:
                 cout << "| " << setw(28) << left << list[i].getSenderAcc()
                      << "| "
                      << setw(14) << left << list[i].getDate()
-                     << "|"
+                     << "| "
                      << setw(30) << list[i].getReceiverAcc()
                      << "| "
                      << setw(13) << list[i].getType()
@@ -176,6 +176,39 @@ public:
     }
 };
 
+void insertNewTransaction(TransactionList& list)
+{
+    string senderAcc, receiverAcc, date;
+    double amount, balance;
+    char type;
+
+    cout << "Enter sender account: ";
+    cin >> senderAcc;
+    cout << "Enter date: ";
+    cin >> date;
+    cout << "Enter type (D/W/T): ";
+    cin >> type;
+    cout << "Enter amount: ";
+    cin >> amount;
+    cout << "Enter balance: ";
+    cin >> balance;
+
+    if (type == 'T')
+    {
+        cout << "Enter receiver account: ";
+        cin >> receiverAcc;
+        Transaction newNode(senderAcc, date, type, amount, balance, receiverAcc);
+        list.enQueue(newNode);
+    }
+    else
+    {
+        Transaction newNode(senderAcc, date, type, amount, balance);
+        list.enQueue(newNode);
+    }
+
+    cout << "Transaction inserted successfully." << endl;
+}
+
 int main()
 {
     TransactionList list;
@@ -219,7 +252,8 @@ int main()
         cout << "<<<<<WELCOME TO DACCrew BANKING MANAGEMENT SYSTEM>>>>>" << endl;
         cout << "1. Display Transaction List" << endl;
         cout << "2. Search Transaction History by Account" << endl;
-        cout << "3. Exit" << endl;
+        cout << "3. Insert New Transaction" << endl;
+        cout << "4. Exit" << endl;
         cout << "Your choice: ";
         cin >> choice;
 
@@ -234,13 +268,16 @@ int main()
             list.searchByAccount(searchAccount);
             break;
         case 3:
+            insertNewTransaction(list);
+            break;
+        case 4:
             cout << "Exiting..." << endl;
             break;
         default:
             cout << "Invalid choice. Try again." << endl;
         }
 
-    } while (choice != 3);
+    } while (choice != 4);
 
     return 0;
 }
