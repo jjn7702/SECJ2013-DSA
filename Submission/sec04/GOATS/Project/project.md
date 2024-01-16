@@ -1,6 +1,12 @@
+# Hospital Reservation System (Project)
 
+## Problem Analysis
+The efficient operation of a hospital depends on the efficient maintenance of patient records. The obstacles of efficient patient record keeping in a hospital context are addressed by the Hospital keeping System. By implementing necessary data structures concepts which are stack, queue and tree, the system seeks to manage patient records effectively and guarantee a dynamic and well-organized workflow inside the hospital. 
+One necessity that is particularly important is patient records management, which includes efficient monitoring of prescriptions, check-ins, and appointments. The selected data structure or structures must be implemented with precision and efficiency, and they must work in unison with the unique requirements of the hospital administration system.
+The main objectives are to create a reliable software programme for managing hospitals, implement the right data structures to manage patient records, make use of the stack, queue, and tree data structure principles and ensure that C++ is used correctly to apply the data structures concepts. 
+Requests for prescriptions, check-ins, and appointments will be handled using a queue-based data structure. The queue guarantees a systematic and well-organized procedure and is implemented using arrays or linked lists. In order to ensure proper record-keeping, a stack-based data structure will also preserve an updated record of daily hospital visits, using the Last In First Out (LIFO) concept. In order to support consultations, doctors will also be seamlessly added to the system, adding to a comprehensive approach to healthcare management.
+Among the difficulties the system will face include effectively allocating waiting numbers for appointments, ensuring that the check-in procedure is organised according to waiting numbers, and putting in place a memory-clearing mechanism for when the system shuts down. The data structure concept that will be applied will be implemented to solve the difficulties that the system is facing.
 
-# Hospital Reservation System (ASSIGNMENT 2)
 
 ## Objectives
 
@@ -8,64 +14,123 @@
 ### To provide sorting and searching function in the system.
 ### To provide efficient and effective with high accuracy in sorting and searching by implemented data structure algorithm.
 
-## Synopsis
-
-A hospital management system is a system which develops to provide efficient management of large data with high accuracy. We implemented various data structure algorithms in this system which give high performance. This system allowed users to sort in ascending and descending and also to search by name or IC or ID. Before the search process the system will sort the data according to the key the user chooses. So this makes the searching faster. So in this system we have divided the program into two parts : Assignment 1 and Assignment 2. 
-
-In Assignment 1, we implement the sorting and searching algorithm by using an array while in Assignment 2, we implement the algorithm using a linked list which has unlimited size. Arrays have limited size while linked lists have unlimited size which we can insert data. Linked list is suitable for large data while array is suitable for small size data. At both assignments, we implemented encapsulation concepts and data hiding concepts , which give security, flexibility and modularity.
-
 
 ## Flow Chart
 
-![Alt text](files/images/Flowchart.jpg)
+![Alt text](images/Flowchart.jpg)
 
-## Linked list Implementation.
-Linked list used in the Hospital Management System is doubly linked list which node is the class Patient or class Doctor, which have added a next pointer and prev pointer as private attribute for each class to implement data hiding which enhance the security of the data.
+## Data structure concept implementation
 
 
-## Add Node Functionality
-In this assignment 2 program, it has 3 add functions which add nodes into the list but each function will add a specific position. Since we use doubly linked lists it is easier to add nodes into the list. Additionally, the attributes of the patient class and doctor class have the same number of attributes and  data type, so in each function we can add either patient or doctor. For all the functions it will check if the list is empty or not. If empty, the list head pointer will point to the new node that the user wants to insert. Before the add function is called the user needs to choose user type (patient/ doctor) then insert the user information and only if the user wants to insert at the middle user will need to give the position.
+## Queue : Appointment system 
+Effective patient record management in a hospital is the goal of the hospital management system. The implementation of queues using linked lists ensures a dynamic and scalable approach to manage medication prescriptions, check-ins, and appointments. The Hospital Management System is designed to handle patient appointments, check-ins, and prescriptions. Queue functions are implemented in the system to handle appointments requests, patients checking-in and medicines prescription. Patients are able to check in, make appointment requests and get prescriptions filled. Doctors are added to the system so that patients can consult with them. The system uses a queue-based data structure to monitor prescriptions, check-ins, and patient appointments. A linked list is used to implement each queue, with each node representing a patient or physician. Patients who request an appointment are given a waiting number, and lines are kept orderly and organised. The system makes sure that patients are only able to check in if their waiting number corresponds with the expected waiting number.
 
- ### Type of Add function : 
-### Add node at the front
-To insert from the front, the new node next pointer needs to point to the head of the list first and then the head prev pointer needs to point to the new node. Lastly, the head is changed to the new node to keep the head at front.
-### Add node at the middle (specific position)
-To insert from the middle, the user will input the position where the user wants the node to be in the list. So, in the function we will loop through the list until we get to the position or until the node next pointer points to the null.
 
-If the position is greater than the number of nodes in the list, an error message will be displayed.
+## Stack : Appointment History
+In this hospital management system, where we focus on the appointment system, a Stack was created to retain an updated record every day of the hospital appointment. It also employs a linked list to offer an infinite size to hold many patients in a day of appointment operation. This stack will automatically add patients who have completed their visits and received their prescribed medicine into it. Furthermore, the stack adheres to the Last in First Out (LIFO) principle, which states that the most recent patient added to the stack is the first to be withdrawn. With this stack, we also include a function that generates a report of the appointment history, including all patient information. This report will be generated before the system is closed down. After the report is generated the stack element will pop one by one until empty to clear the memory.
 
-If the position is equal to 1, the addFront function will be called to insert at the front.
 
-Also if the position is equal to the number of nodes in the list, the addBack function will be called to insert at the back.
-### Add node at the back
-To insert from the back, it is almost the same as insert at the front but we need to traverse the list until the node next pointer points to the null. So, the new node prev pointer will point to the current node that we transverse, the current node next pointer will point to the new node. 
+## Tree : 
 
-## Delete Node Functionality
-The deleteNode function allows the user to remove a node, either a Patient or a Doctor, based on their IDs. Each are specified in the code with either 'p' for patient or 'd' for doctor. The function will first scan through the respective linked list (patients or doctors) to locate the node with the matching the key, ID.
 
-Head Node Deletion (Unlinking): 
+## User guideline
+This system focuses on part of the hospital's function. So we Focus on the appointment system. The system is easy to learn and easy to use with one click all operation is completed. Almost all operations are automated by the system.
 
-If the node to be deleted is the first node or the head of the list, the head pointer is updated to point to the next node. If the list becomes empty, the head is set to NULL.
+### 1. Make Appointment
+![Alt text](images/appointment1.PNG)
+1. The system will display a menu.
+2. Choose (key in 1) to add a new appointment.
 
-Middle or Last Node Deletion (Unlinking): 
+![Alt text](images/appointment2.PNG)
 
-If the node is in the middle or at the end of the list, the function updates the links of the surrounding nodes to allow for the node to be deleted. This is done by adjusting the next and prev pointers of nodes.
+3. Insert Patient name, contact information, and reason for appointment.
+4. Press enter
 
-Final touches (& Deletion):
+![Alt text](images/appointment3.PNG)
 
-Once the node is successfully unlinked from the list, the function deletes the node. The function returns an integer (1 or 0) indicating the success of the deletion operation.
+5. The system will display a success notification that means that the appointment has been added.
 
-## Find Node Functionality
-The findNode function allows the user to find a node based on the search key entered and type of user. The search key uses the two attributes which is name and IC/ID(Based on the type of user, and the user indicates 1 for patient and 2 for doctor.
+### 2. Check-in for an appointment.
 
-The function accept two parameters which is searchKey and user. The function then check the linked list of patients/doctors, comparing the searchKey input with the names or IC/IDs stored in the list.
+![Alt text](images/checkin1.PNG)
 
-If found:
-The function display the data of the patients/doctors
+1. The system will display a menu.
+2. Choose (key in 2) option 2 to check in for an appointment (Check means that the patient gets ready to make an appointment).
 
-If not found:
-The function display error message saying the key is not matched with any data in the list.
+![Alt text](images/checkin2.PNG)
 
-## Sorting Node Functionality
-Sorting Linked list function will implement the bubble sort algorithm, in which users need to choose whether to sort by name or IC/ID for the patient and doctor. This function will be implemented before the findnode function is called. So, When the list is sorted it more faster to find the node.
+3. The system will display a success message to notify that the patient has a successful check-in. 
+4. The patient will be in a waiting queue for the next check-up.
+
+![Alt text](images/checkin3.PNG)
+
+5. You can check if the user is in the queue by keying in option 4 in the menu. (you do this with other operations to check if the user is added to the queue or not)
+
+![Alt text](images/checkin4.PNG)
+
+6. If you got this message means that there is no patient in the queue so cannot do the operation.
+
+### 3. Call the patient to get a Medication prescription
+
+![Alt text](images/medic1.PNG)
+
+1. The system will display a menu.
+2. Choose (key in 3) option 3 to move the patient in the queue to get medication after the doctor's discussion.
+3. The system will automatically remove patients that have got their medication.
+
+![Alt text](images/medic2.PNG)
+
+4. The system will display a success message of the patient getting a turn to get medication and the medication that the patient is given.
+
+![Alt text](images/medic3.PNG)
+
+5. If you got this message means that there is no patient in the queue so cannot do the operation.
+
+### 4. Check the waiting list queue
+
+![Alt text](images/list1.PNG)
+
+1. The system will display a menu.
+2. Choose (key in 4) option 4 to look at all the waiting queues.
+
+![Alt text](images/list2.PNG)
+
+currently no patient in the list.
+3. The system will display all the waiting queues for patients that have not checked in yet, have checked in, and are waiting to get medication.
+
+### 5. To view the history of the Hospital appointment
+
+![Alt text](images/histo1.PNG)
+
+1. The system will display a menu.
+2. Choose (key in 5) option 5 to view the list of all patients that do a discussion with the doctor. 
+
+![Alt text](images/histo2.PNG)
+
+3. The system will display all the Patients that have made the appointment only.
+
+### 6. To export the history of the appointment hospital.
+
+![Alt text](images/histo1.PNG)
+
+1. The system will display a menu.
+2. Choose the (key in 5) option which will display all patients that have done an appointment.
+
+![Alt text](images/histo3.PNG)
+
+3. The system will automatically export data into a text file.
+4. You can find the txt file in the C directory in folder History.
+
+### 7. End the program
+
+![Alt text](images/exit1.PNG)
+
+1. The system will display a menu.
+2. Choose (key in 6) option 6 to exit the system.
+3. The system will remove all the patient records that are still in the queue and the history.
+
+![Alt text](images/exit2.PNG)
+
+4. The system will display a message before the end of the program
+
 

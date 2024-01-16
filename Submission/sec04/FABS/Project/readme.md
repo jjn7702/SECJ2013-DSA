@@ -41,6 +41,10 @@ There are few features in the courier management system which is
   
    Displaying all updated courier information including name, parcel type, source, destination, status and tracking number.
 
+5. Update data courier
+
+   Update the status attributes in couriers from "Pending" to "Approve" and from "Approve" to "In transit".
+
 ## Synopsis <a name="synopsis"></a> ✨
   The courier management system is used to send the parcel to the specific destination and track the current location. We designed the courier system by implementing the Queue method to easily allow the user to insert, delete,change status, search and display the information of the parcel. When the customers submit the parcel details in the system, the details will be stored in the input file (COURIER.TXT). Using a Queue is suitable for a courier management system as it follows the “First In, First Out” (FIFO) principle. The first parcel detail submitted and stored is the first to be processed by the admin and worker.
 
@@ -59,17 +63,120 @@ There are few features in the courier management system which is
 
 ## Design <a name="design"></a> 🎨
 #### Flowchart
-![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/databaseprojek.drawio.png)
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/dsaflowchart.png)
 #### Class Diagram
 ![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/class%20diagram.jpg)
 
 ## Design Description <a name="designdescription"></a> 💹
 
+### ADDING A NEW COURIER
+
+1. Get the option from the customer menu.
+   
+2. The customer menu provides an option for customers to add a new courier into the queue at the rear.
+   
+   2.1 The enqueue function in the Courier Service Systems allows customers to add new              couriers to the system.
+   
+   2.1.1 Calls the ‘enqueue’ function in the ‘Queue’ class to add a new courier into the              system.
+   
+   2.1.2 User inputs courier details such as name, parcel type, source, destination,                  tracking number.
+   
+   2.1.3 The status will be automatically set to “Pending’ by default.
+   
+   2.1.4 The courier is added to the rear of the courier que (follow queue rule).
+   
+   2.1.5 Return back to the customer menu.
+
+### UPDATING AND REMOVING FROM QUEUE
+
+1. Get the option from the admin and worker menu.
+   
+2. From the admin menu, the courier status can be updated from “Pending” to “Approved”.
+   
+   2.1 Iterates through the courier queue to find the first courier with status “Pending”.
+   
+   2.1.1 If found, change the status from “Pending” to “Approved”.
+   
+   2.1.2 Notifies the approval to the admin.
+   
+   2.2 If no status “Pending” is found
+   
+      2.2.1 Notify the admin that there are no more pending status to approve.
+   
+3. From the worker menu, the courier status can be updated from “Approved” to “In Transit”.
+   
+   3.1 Iterates through the courier queue to find the first courier with status “Approved”.
+
+      3.1.1 If found, change the status from “Approved” to “In transit”.
+
+      3.1.2 Notifies the change to the worker.
+
+    3.2 If no status “Approve” in found
+
+      3.2.1 Notify the worker that there are no more approved status to be changed to in transit.
+   
+4. From the admin menu, the courier queue can be deleted (dequeue)
+   
+    4.1 The courier at the front is removed from the courier queue.
+   
+5. From the worker menu, the courier queue can be deleted (dequeue)
+   
+    5.1 The courier at the front is removed from the courier queue.
+   
+6. Return back to the admin/worker menu.
+
+### SEARCHING THE COURIER
+
+1. Get the option from the customer menu.
+   
+2. From the option, courier information will be searched by tracking the  tracking number entered from the customer.
+   
+   2.1 Iterates through the queue, comparing the attributes of each courier to the corresponding search key.
+   
+   2.1 If the courier found
+
+      2.1.1 Display the courier information with the search key.
+   
+   2.2 If the courier not found
+   
+      2.2.1 Notifies the customer that there is no information for the courier with the corresponding search key.
+   
+3. Return back to the customer menu.
+
+### DISPLAYING THE COURIER 
+
+1. Get the option form the customer, admin and worker menu.
+   
+2. Display the content in the courier queue starting from front to rear.
+   
+3. Return back to the customer/admin/worker menu.
+
+### SAVE COURIER INFORMATION 
+
+1. Get the option in the main menu.
+   
+2. Save the latest courier queue to the filename “COURIER.TXT”.
+   
+3. Return back to the main menu.
+
+
 ## User Manual/Guide <a name="usermanual"></a> 📝
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/Screenshot%202024-01-16%20210723.png)
+![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/Screenshot%202024-01-16%20210820.png)
+![3](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/Screenshot%202024-01-16%20212006.png)
 
 ## Similarity Report <a name="report"></a> 🔔
+Submission date: 16-Jan-2024 05:18AM (UTC-0800)
 
+Submission ID: 2271861129
 
+File name: PROJECT_DSA.pdf (427.53K)
+
+Word count: 2121
+
+Character count: 10197
+
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/similarity.png)
 
 ## Findings <a name="findings"></a>📊
 
