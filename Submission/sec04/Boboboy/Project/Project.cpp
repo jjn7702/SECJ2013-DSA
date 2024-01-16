@@ -713,3 +713,5 @@ int main(){
 			switch(action_admin){
 				case 1 : q.print(); system("pause"); break;
 				case 2 : b.display_order_list(); system("pause"); break;
+                case 3 : q.deQueue(); system("pause"); break;
+				case 4 : report(q); system("pause"); break;
