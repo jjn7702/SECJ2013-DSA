@@ -348,6 +348,85 @@ public:
 
 };
 
+class Worker {
+private:
+    Queue &courierQueue;
+
+public:
+    Worker(Queue &queue) : courierQueue(queue) {}
+
+    void workerMenu() {
+        int choice;
+
+        system("CLS");
+        do {
+            cout << "===== Worker Menu =====" << endl;
+            cout << "1. View Courier Queue" << endl;
+            cout << "2. Mark Courier as In transit" << endl;
+            cout << "3. Dequeue Courier" << endl;  // Added option to dequeue
+            cout << "4. Exit" << endl;
+            cout << "Enter your choice: ";
+            cin >> choice;
+
+            switch (choice) {
+                case 1: {
+                    // View Courier Queue
+                    int counter = 1;
+                    Courier* currentCourier = courierQueue.getFront();
+
+                    if (!currentCourier) {
+                        cout << "Queue is empty." << endl;
+                    } else {
+                        currentCourier->displayHeader();
+
+                        while (currentCourier) {
+                            currentCourier->display(counter);
+                            currentCourier = currentCourier->getNext();
+                            counter++;
+                        }
+                        cout << endl;
+                    }
+                    break;
+                }
+                case 2: {
+                    // Mark Courier as Delivered
+                    Courier* currentCourier = courierQueue.getFront();
+
+                    while (currentCourier) {
+                        if (currentCourier->getStatus() == "Approved") {
+                            currentCourier->setStatus("In transit");
+                            cout << "\nCourier with Tracking Number " << currentCourier->getTrackingNum() << " marked as in transit." << endl;
+                        }
+
+                        currentCourier = currentCourier->getNext();
+                    }
+
+                    cout << endl;
+                    break;
+                }
+                case 3: {
+                    // Dequeue Courier
+                    if (!courierQueue.isEmpty()) {
+                        cout << "\nDequeued a courier." << endl;
+                        courierQueue.dequeue();
+                    } else {
+                        cout << "\nQueue is empty. No courier to dequeue." << endl;
+                    }
+                    cout << endl;
+                    break;
+                }
+                case 4:
+                    cout << "\nExiting worker menu. Have a nice day!" << endl;
+                    cout << endl;
+                    break;
+                default:
+                    cout << "\nInvalid choice. Please try again." << endl;
+            }
+        } while (choice != 4);
+    }
+};
+
+
 
 int main() {
 	Queue courierQueue;
