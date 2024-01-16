@@ -558,5 +558,36 @@ class CandidateList
 		}while(found==false);
     return NULL;
 	} 
+
+    void voteCand(int v[]) //VOTING FOR CANDIDATE
+	{
+		cout<<"\nVoted for : ";
+		Candidate *temp;
+		for(int i=0;i<3;i++)
+		{
+			temp = Chead;
+			if(v[i]==1)
+			{
+				temp->setVoteCount(temp->getVoteCount()+1);
+				cout<<"\nName    : "<<temp->getName()<<endl;
+				cout<<"Faculty : "<<temp->getFaculty()<<endl;
+				cout<<"Email   : "<<temp->getEmail()<<endl;
+				cout<<"Vote    : "<<temp->getVoteCount()<<endl;
+			}
+			else
+			{
+				for(int j=1;j<v[i];j++)
+					temp = temp->next;
+
+				temp->setVoteCount(temp->getVoteCount()+1);
+				cout<<"\nName    : "<<temp->getName()<<endl;
+				cout<<"Faculty : "<<temp->getFaculty()<<endl;
+				cout<<"Email   : "<<temp->getEmail()<<endl;
+				cout<<"Vote    : "<<temp->getVoteCount()<<endl;
+			}
+		}
+		
+		CandFile();
+	}
 	
 };
