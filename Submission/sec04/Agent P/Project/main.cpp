@@ -1157,3 +1157,17 @@ void search(int opt,string key,int key2) // SEARCHING CANDIDATE
 		}
 	
 };
+
+int LoginUI()
+{
+	int opt1;
+	bool found = false;
+		do{
+			cout<<"*****Main Menu*****";
+			cout<<"\n[1] Login as Admin\n[2] Login as Voter\n[3] Login as Candidate\nPlease choose the option : ";
+			cin>>opt1;
+			system("CLS");
+		}while(opt1<1 || opt1>3);
+	
+	return opt1;
+}
