@@ -1,102 +1,104 @@
 #include <iostream>
-#include <queue>
-#include <string>
 #include <iomanip>
-#define D "Deposit"
-#define W "Withdraw"
-#define T "Transfer"
+#include <string>
+
 using namespace std;
 
-void dispHeader()
-{
-    for (int i = 0; i < 115; i++)
-        cout << "-";
-    cout << endl;
-    cout << setw(15) << left << "| Date "
-         << "|"
-         << setw(14) << " Type "
-         << "|"
-         << setw(10) << " Amount "
-         << "|"
-         << setw(10) << " Balance "
-         << "|" << endl;
-    for (int i = 0; i < 115; i++)
-        cout << "-";
-    cout << endl;
-}
-
-class Transaction
+class nodeStack
 {
     string date;
     double amount, balance;
     char type;
 
 public:
-    Transaction() : date(""), amount(0.0), type(' '), balance(0.0) {}
-
-    Transaction(string d, char t, double a, double b) : date(d), amount(a), type(t), balance(b) {}
-
-    void setDate(string d) { date = d; }
-    void setAmount(double a) { amount = a; }
-    void setBalance(double b) { balance = b; }
-    void setType(char t) { type = t; }
+    nodeStack *next;
+    nodeStack(string d, char t, double a, double b) : date(d), type(t), amount(a), balance(b), next(NULL) {}
 
     string getDate() const { return date; }
+    char getType() const { return type; }
     double getAmount() const { return amount; }
     double getBalance() const { return balance; }
-    string getType() const
-    {
-        if (type == 'D')
-            return D;
-        else if (type == 'W')
-            return W;
-        else
-            return T;
-    }
 };
 
-class TransactionList
+class stack
 {
-    queue<Transaction> transactionQueue;
+private:
+    nodeStack *top;
 
 public:
-    bool isEmpty() const { return transactionQueue.empty(); }
+    stack() : top(NULL) {}
 
-    void enqueueTransaction(Transaction t)
+    bool isEmpty() const { return (top == NULL); }
+
+    void push(string d, char t, double a, double b)
     {
-        transactionQueue.push(t);
+        nodeStack *nn = new nodeStack(d, t, a, b);
+
+        if (!isEmpty())
+            nn->next = top;
+
+        top = nn;
     }
 
-    void printTransactionList() const
+    void pop()
     {
         if (isEmpty())
-            cout << "Sorry, no transactions available." << endl;
+            cout << "Sorry, Cannot pop item from stack. Stack is still empty!" << endl;
         else
         {
-            dispHeader();
-            queue<Transaction> tempQueue = transactionQueue; // Create a temporary queue for display
-            while (!tempQueue.empty())
+            nodeStack *del = top;
+            top = del->next;
+            del->next = NULL;
+            delete del;
+        }
+    }
+
+    void print()
+    {
+        if (isEmpty())
+        {
+            cout << "No transactions in the stack!" << endl;
+        }
+        else
+        {
+            cout << setw(15) << left << "| Date "
+                 << "|"
+                 << setw(14) << " Type "
+                 << "|"
+                 << setw(10) << " Amount "
+                 << "|"
+                 << setw(10) << " Balance "
+                 << "|" << endl;
+
+            for (int i = 0; i < 58; i++)
+                cout << "-";
+            cout << endl;
+
+            nodeStack *temp = top;
+
+            while (temp)
             {
-                Transaction currentTransaction = tempQueue.front();
-                tempQueue.pop();
-                cout << "| " << setw(14) << left << currentTransaction.getDate()
+                cout << "| " << setw(14) << left << temp->getDate()
                      << "| "
-                     << setw(13) << currentTransaction.getType()
+                     << setw(13) << temp->getType()
                      << "| "
-                     << setw(9) << currentTransaction.getAmount()
+                     << setw(9) << temp->getAmount()
                      << "| "
-                     << setw(9) << currentTransaction.getBalance()
+                     << setw(9) << temp->getBalance()
                      << "| " << endl;
-                for (int j = 0; j < 115; j++)
+
+                for (int i = 0; i < 58; i++)
                     cout << "-";
                 cout << endl;
+
+                temp = temp->next;
             }
-            cout << endl;
         }
+        cout << endl;
     }
 };
 
-void performTransaction(TransactionList &transactionList, double &balance)
+void performTransaction(stack &transactionStack, double &balance)
 {
     string date;
     double amount;
@@ -113,12 +115,15 @@ void performTransaction(TransactionList &transactionList, double &balance)
         cout << "Enter deposit amount: ";
         cin >> amount;
         balance += amount;
+        transactionStack.push(date, type, amount, balance);
         break;
     case 'W':
         cout << "Enter withdrawal amount: ";
         cin >> amount;
-        if (amount <= balance)
+        if (amount <= balance){
             balance -= amount;
+            transactionStack.push(date, type, amount, balance);
+            }
         else
             cout << "Insufficient funds for withdrawal." << endl;
         break;
@@ -128,8 +133,7 @@ void performTransaction(TransactionList &transactionList, double &balance)
         if (amount <= balance)
         {
             balance -= amount;
-            Transaction newTransaction(date, type, amount, balance);
-            transactionList.enqueueTransaction(newTransaction);
+            transactionStack.push(date, type, amount, balance);
         }
         else
             cout << "Insufficient funds for transfer." << endl;
@@ -139,19 +143,18 @@ void performTransaction(TransactionList &transactionList, double &balance)
         return;
     }
 
-    Transaction newTransaction(date, type, amount, balance);
-    transactionList.enqueueTransaction(newTransaction);
+    
     cout << "Transaction completed successfully." << endl;
 }
 
 int main()
 {
-    TransactionList transactionList;
+    stack transactionStack;
     double balance = 0.0;
 
     int choice;
 
-    cout << "\n<<<<<WELCOME TO DACCrew BANKING MANAGEMENT SYSTEM>>>>>\n"
+    cout << "\n<<<<< WELCOME TO DACCrew BANKING MANAGEMENT SYSTEM >>>>>\n"
          << endl;
 
     do
@@ -165,10 +168,10 @@ int main()
         switch (choice)
         {
         case 1:
-            transactionList.printTransactionList();
+            transactionStack.print();
             break;
         case 2:
-            performTransaction(transactionList, balance);
+            performTransaction(transactionStack, balance);
             break;
         case 3:
             cout << "Exiting..." << endl;
