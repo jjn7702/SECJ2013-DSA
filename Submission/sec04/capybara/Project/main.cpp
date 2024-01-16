@@ -201,6 +201,8 @@ int main()
             {
                 for (int i = 0; i < numPassengers; i++)
                     reservationQueue.dequeue();
+
+                removeDataFromFile();
             }
             else if (selection == 3)
             {
