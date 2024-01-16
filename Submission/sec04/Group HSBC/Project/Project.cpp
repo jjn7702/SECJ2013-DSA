@@ -259,12 +259,12 @@ class BinaryTree {
         void searchAccount(string accNum){
             vector<Transaction*> result;
             searchNode(root, accNum, result);
-            printTitle();
+            
 
             if(!result.empty())
             {
                 cout << "Found Account with number " << accNum << ":\n";
-
+                printTitle();
                 for(const auto& node : result){
                     node->printDetails();
                 }
