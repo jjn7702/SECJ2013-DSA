@@ -64,4 +64,5 @@ Looking at the primary booker, it is to show the value of the front node.
 
 ### Is Empty Method
 ![Alt text](./images/image-5.png)
+
 This method is relatively straightforward. It will return the true or false value if the front value is NULL.
