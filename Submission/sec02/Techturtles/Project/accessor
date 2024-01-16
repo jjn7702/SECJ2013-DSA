@@ -1,0 +1,3 @@
+Parcel* getTopParcel() const {
+    return parcelStack.empty() ? nullptr : parcelStack.top();
+}

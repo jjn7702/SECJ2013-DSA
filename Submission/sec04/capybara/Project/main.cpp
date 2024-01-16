@@ -258,7 +258,7 @@ int main()
             }
             else if (selection == 4)
             {
-                cout << setw(55) << "Enter passenger name to modify: ";
+                cout << setw(50) << "Enter passenger name to modify: ";
                 cin.ignore();
                 getline(cin, user_info);
 
@@ -272,17 +272,18 @@ int main()
                         // Modify passenger information
                         string newName;
 
-                        cout << setw(55) << "Enter a different user name: ";
+                        cout << setw(50) << "Enter a different user name: ";
                         getline(cin, newName);
 
                         cout
-                            << setw(55) << "Enter new baggage weight (in kg): ";
+                            << setw(50) << "Enter new baggage weight (in kg): ";
                         cin >> baggage_weight;
 
                         current->user_info = newName;
                         current->baggage_info = to_string(baggage_weight);
 
-                        cout << setw(55) << "Passenger information modified successfully." << endl;
+                        cout << setw(59) << "Passenger information modified successfully." << endl;
+                        cout << endl;
                         found = true;
                         break;
                     }

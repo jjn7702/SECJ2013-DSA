@@ -24,7 +24,7 @@ The main goal of BOBOBOY's Restaurant Management System (RMS) is to improve and 
 
 - [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%201/readme.md)
 - [Assignment 2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Assignment%202/readme.md)
-- [Project](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Project/read.md)
+- [Project](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Project/readme.md)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.

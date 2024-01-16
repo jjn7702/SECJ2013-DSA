@@ -2,17 +2,21 @@
 
 ## Problem Analysis
 The efficient operation of a hospital depends on the efficient maintenance of patient records. The obstacles of efficient patient record keeping in a hospital context are addressed by the Hospital keeping System. By implementing necessary data structures concepts which are stack, queue and tree, the system seeks to manage patient records effectively and guarantee a dynamic and well-organized workflow inside the hospital. 
+
 One necessity that is particularly important is patient records management, which includes efficient monitoring of prescriptions, check-ins, and appointments. The selected data structure or structures must be implemented with precision and efficiency, and they must work in unison with the unique requirements of the hospital administration system.
+
 The main objectives are to create a reliable software programme for managing hospitals, implement the right data structures to manage patient records, make use of the stack, queue, and tree data structure principles and ensure that C++ is used correctly to apply the data structures concepts. 
+
 Requests for prescriptions, check-ins, and appointments will be handled using a queue-based data structure. The queue guarantees a systematic and well-organized procedure and is implemented using arrays or linked lists. In order to ensure proper record-keeping, a stack-based data structure will also preserve an updated record of daily hospital visits, using the Last In First Out (LIFO) concept. In order to support consultations, doctors will also be seamlessly added to the system, adding to a comprehensive approach to healthcare management.
+
 Among the difficulties the system will face include effectively allocating waiting numbers for appointments, ensuring that the check-in procedure is organised according to waiting numbers, and putting in place a memory-clearing mechanism for when the system shuts down. The data structure concept that will be applied will be implemented to solve the difficulties that the system is facing.
 
 
 ## Objectives
 
-### To provide easy management system for to record patient and staff of hospital.
-### To provide sorting and searching function in the system.
-### To provide efficient and effective with high accuracy in sorting and searching by implemented data structure algorithm.
+### Patients should be able to request appointments, check in, and receive prescriptions using a queue-based data structure to manage appointment requests, patient check-ins, or prescription requests. This will maintain order in the check-in process based on waiting numbers.
+### The system aims to manage patient records efficiently by incorporating a stack-based data structure for maintaining an updated record of daily hospital appointments. This will help in memory-clearing during system shutdown.
+### Patient record organization is a critical aspect, and we achieve this through the implementation of a Tree structure by utilizing the Binary Tree concept. This is to ensure efficient sorting, retrieval, and deletion of patient records, allows for systematic arrangement of patient record.
 
 
 ## Flow Chart

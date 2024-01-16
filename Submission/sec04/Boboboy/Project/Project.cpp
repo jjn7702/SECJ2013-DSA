@@ -393,3 +393,332 @@ class Cart{
 			cout << "file cannot open" << endl;
 		}
 	}
+    void display_order_list(){
+	string name,number;
+	cout << "Enter the Order Number :";
+	cin >> number;
+	ifstream inputfile("Order_"+number+".txt");
+	cout << "The Order list :" << endl;
+	if(inputfile.is_open()){
+		while(getline(inputfile,name)){
+			cout << name << endl;
+		}
+	}
+	else{
+		cout << "file cannot open" << endl;
+	}
+}
+};
+
+class Retaurant{
+	int front;
+	int back;
+	int count;
+	int customer_num; 
+	int items[N];
+	public:
+		Retaurant(){
+			front = 0;
+			count = 0;
+			back = N-1;
+			customer_num = 0;
+		}
+		bool isEmpty(){
+			return (count == 0);
+		}
+		bool isFull(){
+			return (count == N);
+		}
+		void enQueue(int d){
+			if(isFull()){
+				cout << "Sorry, the queue is full" << endl;
+			}
+			else{
+			    back = (back + 1) % N;
+			    items[back] = d; // items[++ back] = d
+			    count ++;
+			    customer_num++;
+		    }
+		}
+		void deQueue(){
+			if(isEmpty()){
+				cout << "Sorry, no item in the queue" << endl;
+			}
+			else{
+				cout << "The customer Order "<< items[front] <<" has been done" << endl;
+				front = (front + 1) % N;
+				count --;
+			}
+		}
+		int getFront(){
+			return items[front];
+		}
+		int getBack(){
+			return items[back];
+		}
+		int getcustomer_num(){
+			return customer_num;
+		}
+		void print(){
+			if(isEmpty()){
+				cout << "No order is placed" << endl;
+			}
+			else{
+			if(front > back){
+				for(int i = front; i<N; i++){
+					cout << "The Number Order " << items[i] << " is placed" << endl;
+				}
+				for(int i = 0; i <= back; i++){
+					cout << "The Number Order " << items[i] << " is placed" << endl;
+			    }
+			}
+			else{
+				for(int i = front; i <= back; i++){
+					cout << "The Number Order " << items[i] << " is placed" << endl;	
+			    }
+			}
+		}
+		cout << endl;
+	}
+	void checkStatus() {
+	int expectedNumber;
+	cout << "Enter Your Order Number: ";
+	cin >> expectedNumber;
+    bool orderFound = false;
+
+    for (int i = front; i <= back; i++) {
+        int currentNumber = items[i];
+        if (currentNumber == expectedNumber) {
+            orderFound = true;
+            cout << "Order Number " << currentNumber << " is in progress." << endl;
+            break;  // Exit the loop once the order is found
+        }
+    }
+
+    if (!orderFound) {
+        cout << "Order Number " << expectedNumber << " completed." << endl;
+    }
+}
+};
+string Cus_order(){
+	string order;
+	do{
+		cout << "What order do you want to place?(based on the code given)" << endl; 
+		cout << "Order:"; 
+		cin >> order;
+		for(char &o : order){
+			o = toupper(o);
+		}
+		if((order != "DE1") && (order != "DE2") && (order != "D1") && (order != "D2") && (order != "D3") && (order != "MD1") && (order != "MD2")&& (order != "MD3")&& (order != "MD4")&& (order != "MD5")&& (order != "S1")&& (order != "S2")&& (order != "S3")&& (order != "S4")){
+			cout << "Invalid code for order, Please order again" << endl;
+		}
+	}while((order != "DE1") && (order != "DE2") && (order != "D1") && (order != "D2") && (order != "D3") && (order != "MD1") && (order != "MD2")&& (order != "MD3")&& (order != "MD4")&& (order != "MD5")&& (order != "S1")&& (order != "S2")&& (order != "S3")&& (order != "S4"));
+	return order;
+}
+
+int waytoInsert(){
+	int action;
+	cout << "Choose the way you want to insert: " << endl;
+	cout << "1. Insert in front" << endl;
+	cout << "2. Insert in middle" << endl;
+	cout << "3. Insert in last" << endl;
+	cout << "Way: ";
+	cin >> action;
+	return action;
+}
+
+Cart Customer_order(Menu a[],Cart c,string C_o, int t){   // C_o = customer order
+		int counter;
+		for(counter = 0;  counter < N; counter++){
+			if(C_o == a[counter].getcode()){
+				break;
+			}	
+		}
+		Order * o = new Order (a[counter].getcode(),a[counter].getname(),a[counter].getfoodtype(),a[counter].getprice());
+		c.insert(o,t);
+		return c;
+}
+
+int deleteCart(){
+	int Way;
+	cout << "Choose the way you want to delete: " << endl;
+	cout << "1. Delete in front" << endl;
+	cout << "2. Delete in middle" << endl;
+	cout << "3. Delete in last" << endl;
+	cout << "Way: ";
+	cin >> Way;
+	return Way;
+}
+
+Cart deleteorder(Cart b){
+	int Way;
+	char pop;
+		do{
+			Way = deleteCart();
+			b.deleteNode(Way);
+			cout << "Continue delete?" << endl;
+			cout << "Choice(press Y to continue delete):";
+			cin >> pop;
+		}while(pop == 'Y');
+		return b;
+}
+
+void Search_item_in_Cart(Cart b){
+	int item_search;
+	string target;
+	Order *foundo;
+	char status;
+	do{
+		cout << "Seacrh the Cart by using:" << endl;
+		cout << "1. Code" << endl;
+		cout << "2. Name" << endl;
+		cout << "Choice: ";
+		cin >> item_search;
+		if(item_search == 1){
+			cout << "Enter the code:";
+			cin >> target;			
+			for(char &t : target){
+			t = toupper(t);
+			}
+			foundo = b.find(target,item_search);  
+		}
+		else if(item_search == 2){
+			cout << "Enter the name: ";
+			cin >> target;
+			for(char &t : target){
+			t = toupper(t);
+			}
+			foundo = b.find(target,item_search);
+		}
+		if(foundo){
+			cout << "Order found" << endl;
+		}
+		else{
+			if(b.CartEmpty()){
+				cout << "No item in the Cart" << endl;
+			}
+			else{
+			cout << "Order not found" << endl;
+			}
+		}
+		cout << "Continue search?(Press Y to continue)";
+		cin >> status;
+	}while((status == 'Y')||(status == 'y'));
+}
+
+int getordernum(){
+	int num;
+	cout << "Enter Your Order Number: ";
+	cin >> num;
+	return num;
+}
+
+void report(Retaurant q){
+	cout << "The Number of Customer today is : " << q.getcustomer_num() << endl;
+}
+
+int main(){
+    string menu_code, menu_name, menu_type,order;
+	float menu_price;
+	Menu a [N];
+	int i = 0,cus_action,option,ordernum;
+	Cart b;
+	Retaurant q;
+	ifstream file("input.txt.txt");
+	/*
+	if(!file){
+		cout << " Error opening file" << endl;
+	}
+	else{
+		cout << "File can run" << endl; // use for testing the file
+	}
+	*/
+	while(getline(file,menu_code,',')){
+		getline(file,menu_name,',');
+		getline(file,menu_type,',');
+		file >> menu_price;
+		file.ignore();
+		a[i].setcode(menu_code);
+		a[i].setname(menu_name);
+		a[i].settype(menu_type);
+		a[i].setprice(menu_price);
+		i++;
+	}
+	while(true){
+	do{
+		system("CLS");
+		cout << "Login your character " << endl;
+		cout << "1. Customer" << endl;
+		cout << "2. Kitchen" << endl;
+		cout << "Option: ";
+		cin >> option;
+	}while(option != 1 && option != 2);
+	int choose;
+	bool status = true;
+	if(option == 1){
+	while(status){
+		system("CLS");
+		cout << "************ Welcome to BOBOBOY Restaurant's Ordering System ************" << endl << endl;
+		cout << "--------------------------------------------------------------" << endl;
+		cout << "Code" << setw(18) << "Name" << setw(20) << "Type" << setw(20) << "Price(RM)" << endl;
+		cout << "--------------------------------------------------------------" << endl;
+        for(int i = 0; i <N; i++){
+			a[i].printmenu();
+		}
+		cout << "Process:" << endl;
+		cout << "1. Add Order" << endl;
+		cout <<"2. Delete Order" << endl;
+		cout << "3. Find the item you ordered in Cart" << endl;
+		cout << "4. Confirm Order" << endl;
+		cout << "5. Check the Order Status" << endl;
+		cout << "6. Back to the home page" << endl;
+		cout << "Your Choice:";
+		cin >> choose;
+		switch(choose){
+			case 1 :		order = Cus_order();
+							cus_action = waytoInsert();
+							b = Customer_order(a,b,order,cus_action);
+							break;
+			case 2 :		b.displayCart();
+							b = deleteorder(b);
+							break;
+			case 3 :		Search_item_in_Cart(b);
+							break;
+			case 4 :		b.bubbleSort();
+							ordernum = getordernum();
+							q.enQueue(ordernum);
+							b.order_list(ordernum);
+							b.displayReceipt(ordernum);
+							system("pause");
+							break;
+			case 5 :		q.checkStatus(); system("pause"); break;	
+			case 6 :		b.clearCart(); status = false; break;
+		}
+	}
+	}
+	else{
+		bool status_admin = true;
+		int action_admin;
+		while(status_admin){
+			system("CLS");
+			cout << "Process: " << endl;
+			cout << "1. Checking number of order" << endl;
+			cout << "2. Display the order list" << endl;
+			cout << "3. The order is done " << endl;
+			cout << "4. Generate sales report(By Day) " << endl;
+			cout << "5. Back to the home page " << endl;
+			cout << "6. The system is closed" << endl;
+			cout << "Your choice: ";
+			cin >> action_admin;
+			switch(action_admin){
+				case 1 : q.print(); system("pause"); break;
+				case 2 : b.display_order_list(); system("pause"); break;
+                case 3 : q.deQueue(); system("pause"); break;
+				case 4 : report(q); system("pause"); break;
+				case 5 : status_admin = false; break;
+				case 6 : cout << "System closed" << endl; return 0;
+			} 
+		}
+	}
+}
+}
