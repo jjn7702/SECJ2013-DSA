@@ -92,10 +92,10 @@ focus on the last uncompleted orders in the list
 ![6]()
 
 ### Function waytoInsert
-![7]()
+![7](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Project/Images/waytoInsert.drawio.png)
 
 ### Function report
-![8]()
+![8](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Project/Images/report.png)
 
 ### Function getordernum
 ![9](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Project/Images/getordernum.png)
