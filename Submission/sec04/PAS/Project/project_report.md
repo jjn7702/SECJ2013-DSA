@@ -121,7 +121,7 @@ into the stack. Switch case is implemented in our program where the switch
 expression is the user's option from an option menu as shown in the diagram 
 below.
 
-![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/QUEUE%20IMAGE.png)
+![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/STACK%20IMAGE%201.png)
 
 When the user enters option 1, the system will ask for the book’s details 
 to be pushed into the stack as explained above. Next, pop() function is 
@@ -134,7 +134,8 @@ the program uses the stackTop() function from class Stack to get the book
 information stored at the top of the stack. This can be clearly shown by 
 the code segment below. 
 
-GAMBAR 2
+![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/STACK%20IMAGE%202.png
+)
 
 ### DATA STRUCTURE: QUEUE 
 
@@ -156,6 +157,8 @@ been returned from the ‘borrow’ queue. If there are people requesting for
 the recently returned book in the ‘request’ queue, the book returned will 
 automatically be given to the first person in the ‘request’ queue. This can 
 be clearly shown in the output diagram below.
+
+![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/QUEUE%20IMAGE.png)
 
 
 ## SOURCE CODE 🧩
