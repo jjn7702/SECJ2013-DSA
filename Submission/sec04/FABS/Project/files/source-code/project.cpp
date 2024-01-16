@@ -194,7 +194,16 @@ public:
        
 };
 
-
+// To display main menu
+void dispMenu() {
+    system("CLS");
+    cout << "COURIER MANAGEMENT SYSTEM" << endl
+         << "\n\t1. Enqueue Courier (Queue)"
+         << "\n\t2. Dequeue Courier (Queue)"
+         << "\n\t3. Search Courier  (Queue)"
+         << "\n\t4. Display Courier (Queue)"
+         << "\n\t5. Exit" << endl;
+}
 
 
 int main() {
