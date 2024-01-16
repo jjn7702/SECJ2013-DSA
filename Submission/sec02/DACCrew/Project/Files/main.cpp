@@ -11,10 +11,12 @@ using namespace std;
 
 void dispHeader()
 {
-    for (int i = 0; i < 99; i++)
+    for (int i = 0; i < 115; i++)
         cout << "-";
     cout << endl;
     cout << setw(30) << left << "| Sender Account "
+         << "|"
+         << setw(15) << left << " Date "
          << "|"
          << setw(30) << " Receiver Account "
          << "|"
@@ -24,23 +26,23 @@ void dispHeader()
          << "|"
          << setw(10) << " Balance "
          << "|" << endl;
-    for (int i = 0; i < 99; i++)
+    for (int i = 0; i < 115; i++)
         cout << "-";
     cout << endl;
 }
 
 class Transaction
 {
-    string senderAcc, receiverAcc;
+    string senderAcc, receiverAcc, date;
     double amount, balance;
     char type;
 
 public:
-    Transaction() : senderAcc(""), receiverAcc(""), amount(0.0), type(' '), balance(0.0) {}
+    Transaction() : senderAcc(""), receiverAcc(""), date(""), amount(0.0), type(' '), balance(0.0) {}
 
-    Transaction(string s, char t, double a, double b) : senderAcc(s), receiverAcc(""), amount(a), type(t), balance(b) {}
+    Transaction(string s, string d, char t, double a, double b) : senderAcc(s), date(d), receiverAcc(""), amount(a), type(t), balance(b) {}
 
-    Transaction(string s, char t, double a, double b, string r) : senderAcc(s), receiverAcc(r), amount(a), type(t), balance(b) {}
+    Transaction(string s, string d, char t, double a, double b, string r) : senderAcc(s), date(d), receiverAcc(r), amount(a), type(t), balance(b) {}
 
     void setSenderAcc(string s) { senderAcc = s; }
     void setReceiverAcc(string r) { receiverAcc = r; }
@@ -50,6 +52,7 @@ public:
 
     string getSenderAcc() const { return senderAcc; }
     string getReceiverAcc() const { return receiverAcc; }
+    string getDate() const { return date; }
     double getAmount() const { return amount; }
     double getBalance() const { return balance; }
     string getType() const
@@ -111,7 +114,9 @@ public:
             {
                 cout << "| " << setw(28) << left << list[i].getSenderAcc()
                      << "| "
-                     << setw(29) << list[i].getReceiverAcc()
+                     << setw(14) << left << list[i].getDate()
+                     << "|"
+                     << setw(30) << list[i].getReceiverAcc()
                      << "| "
                      << setw(13) << list[i].getType()
                      << "| "
@@ -119,7 +124,7 @@ public:
                      << "| "
                      << setw(9) << list[i].getBalance()
                      << "| " << endl;
-                for (int j = 0; j < 99; j++)
+                for (int j = 0; j < 115; j++)
                     cout << "-";
                 cout << endl;
             }
@@ -145,7 +150,9 @@ public:
                 found = true;
                 cout << "| " << setw(28) << left << list[i].getSenderAcc()
                      << "| "
-                     << setw(29) << list[i].getReceiverAcc()
+                     << setw(14) << left << list[i].getDate()
+                     << "|"
+                     << setw(30) << list[i].getReceiverAcc()
                      << "| "
                      << setw(13) << list[i].getType()
                      << "| "
@@ -153,7 +160,7 @@ public:
                      << "| "
                      << setw(9) << list[i].getBalance()
                      << "| " << endl;
-                for (int j = 0; j < 99; j++)
+                for (int j = 0; j < 115; j++)
                     cout << "-";
                 cout << endl;
             }
@@ -177,7 +184,7 @@ int main()
 
     for (int i = 0; i < N; i++)
     {
-        string senderAcc, receiverAcc;
+        string senderAcc, date, receiverAcc;
         double amount, balance;
         char type;
 
@@ -187,17 +194,17 @@ int main()
         {
             // Use a stringstream to extract values from the line
             stringstream ss(line);
-            if (ss >> senderAcc >> type >> amount >> balance)
+            if (ss >> senderAcc >> date >> type >> amount >> balance)
             {
                 if (type == 'T')
                 {
                     ss >> receiverAcc;
-                    Transaction newNode(senderAcc, type, amount, balance, receiverAcc);
+                    Transaction newNode(senderAcc, date, type, amount, balance, receiverAcc);
                     list.enQueue(newNode);
                 }
                 else
                 {
-                    Transaction newNode(senderAcc, type, amount, balance);
+                    Transaction newNode(senderAcc, date, type, amount, balance);
                     list.enQueue(newNode);
                 }
             }
