@@ -506,5 +506,23 @@ class CandidateList
 		{
 			Chead = NULL;
 		}
+
+        bool isEmpty()
+		{
+			return Chead == NULL;
+		}
+		
+		void insertFront(string n,string f,int a,string ic,string p,int v,string m,string pass,string e) //INSERT FRONT
+		{
+			Candidate *nn = new Candidate(n,f,a,ic,p,v,m,pass,e);
+			
+			if(isEmpty())
+				Chead = nn;
+			else
+			{
+				nn->next = Chead;
+				Chead = nn;
+			}
+		}
 	
 };
