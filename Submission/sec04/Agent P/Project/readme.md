@@ -211,19 +211,16 @@ If option 2 is selected, the voter can see their information and they can change
 
 Step 3.2.1
 
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20202520.png)
 
 *If the voter want to change their profile
 The voter can now choose which attribute they want to change
 1 for name, 2 for faculty, 3 for age, 4 for IC, 5 for Email, 6 for matric number.
 
 
-
-
-
 Step 3.2.2
 
-![4]()
+![4](  `)
 
 The voter can choose the attribute they want to change and enter the new information. 
 
