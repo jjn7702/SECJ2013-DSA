@@ -183,7 +183,7 @@ Character count: 10197
 
 - [Source Code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/source-code/project.cpp)
 - [Input File](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/source-code/COURIER.TXT)
-- [Project Report]()
-- [Similarity Report]()
+- [Project Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/PROJECT%20REPORT%20DSA.pdf)
+- [Similarity Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Project%20Report.pdf)
 
 
