@@ -50,6 +50,8 @@ For the voter and candidate classes, the sorting was done in ascending order and
 
 ##### 4. Search
 
+Search is implemented using sequential search in the candidate class. This is done to help the voters to identify the candidates they might know. The attributes used for searching is name, faculty, email, age, ic and matric number.With this the voters can search for the candidate they know. 
+
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/project-management.png"  width="4%" height="4%"> User Guide
 
 ##### 1. Main Menu
