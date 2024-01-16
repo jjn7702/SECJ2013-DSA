@@ -499,5 +499,4 @@ class Retaurant{
         cout << "Order Number " << expectedNumber << " completed." << endl;
     }
 }
-
 };
