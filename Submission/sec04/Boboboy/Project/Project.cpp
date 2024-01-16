@@ -526,3 +526,26 @@ int waytoInsert(){
 	cin >> action;
 	return action;
 }
+
+Cart Customer_order(Menu a[],Cart c,string C_o, int t){   // C_o = customer order
+		int counter;
+		for(counter = 0;  counter < N; counter++){
+			if(C_o == a[counter].getcode()){
+				break;
+			}	
+		}
+		Order * o = new Order (a[counter].getcode(),a[counter].getname(),a[counter].getfoodtype(),a[counter].getprice());
+		c.insert(o,t);
+		return c;
+}
+
+int deleteCart(){
+	int Way;
+	cout << "Choose the way you want to delete: " << endl;
+	cout << "1. Delete in front" << endl;
+	cout << "2. Delete in middle" << endl;
+	cout << "3. Delete in last" << endl;
+	cout << "Way: ";
+	cin >> Way;
+	return Way;
+}
