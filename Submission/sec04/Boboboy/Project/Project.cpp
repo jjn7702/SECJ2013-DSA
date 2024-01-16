@@ -321,3 +321,34 @@ class Cart{
             lptr = ptr1;
         } while (swapped);
     }
+	else if(way == 5){
+        do {
+            swapped = 0;
+            ptr1 = head;
+
+            while (ptr1->next != lptr) {
+                if (ptr1->getfoodtype() > ptr1->next->getfoodtype()) {
+                    swap(ptr1, ptr1->next);
+                    swapped = 1;
+                }
+                ptr1 = ptr1->next;
+            }
+            lptr = ptr1;
+        } while (swapped);
+    }
+            if(way == 6){
+        do {
+            swapped = 0;
+            ptr1 = head;
+
+            while (ptr1->next != lptr) {
+                if (ptr1->getfoodtype() < ptr1->next->getfoodtype()) {
+                    swap(ptr1, ptr1->next);
+                    swapped = 1;
+                }
+                ptr1 = ptr1->next;
+            }
+            lptr = ptr1;
+        } while (swapped);
+    }
+    }
