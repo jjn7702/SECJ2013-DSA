@@ -496,3 +496,9 @@ class Candidate
         void setPass(string pa){pass=pa;}
         void setEmail(string e){email=e;}
 };
+
+class CandidateList
+{
+	Candidate *Chead;
+	
+};
