@@ -8,6 +8,7 @@
 - [Flowchart](#-flowchart)
 - [Queue Implementation](#-queue-implementation)
 - [User Guide](#-Findings)
+- [Finding](#-Finding)
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/project-management.png" width="3%" height="3%"> Introduction
 As from the agent P group we decided to develop an Election Management System for  UTM.For this system there will three type of users , Admin , Voter and Candidate.The admin can insert the candidate into the candidate list , remove candidate and voter and also view the list of voters and candidates.As for the Voters they can cast three votes , register if they’re not in the list and view the list of candidates.Finally for the Candidates , they can view their profile , view the candidate list and also withdraw.
@@ -42,10 +43,7 @@ Election Management System is a system that will be used during the UTM voting d
 
 ##### 4. Search
 
-
-
-
-
+### 
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/folder.png" width="3%" height="3%"> Findings 
 
