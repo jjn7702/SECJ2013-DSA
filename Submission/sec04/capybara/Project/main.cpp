@@ -229,8 +229,9 @@ int main()
         cout << setw(56) << "|      [1] Review All Ticket          |" << endl;
         cout << setw(56) << "|      [2] Cancel Ticket              |" << endl;
         cout << setw(56) << "|      [3] Show Primary Booker        |" << endl;
-        cout << setw(56) << "|      [4] Edit Reservation Ticke    |" << endl;
-        cout << setw(56) << "|      [5] Exit                       |" << endl;
+        cout << setw(56) << "|      [4] Edit Reservation Ticke     |" << endl;
+        cout << setw(56) << "|      [5] Total Reservation          |" << endl;
+        cout << setw(56) << "|      [6] Exit                       |" << endl;
         cout << setw(56) << "|_____________________________________|" << endl
              << endl;
 
@@ -298,6 +299,20 @@ int main()
             }
             else if (selection == 5)
             {
+                double totalWeight = 0;
+
+                ReservationNode *current = reservationQueue.getFront();
+                while (current != nullptr)
+                {
+                    // Convert baggage_info to double and add to totalWeight
+                    totalWeight += stod(current->baggage_info);
+                    current = current->next;
+                }
+
+                cout << setw(55) << "Total baggage weight for reservations: " << totalWeight << " kg" << endl;
+            }
+            else if (selection == 6)
+            {
                 cout << setw(55) << "Thank You!" << endl;
                 return 1;
             };
@@ -308,14 +323,15 @@ int main()
             cout << setw(56) << "|      [2] Cancel Ticket              |" << endl;
             cout << setw(56) << "|      [3] Show Primary Booker        |" << endl;
             cout << setw(56) << "|      [4] Edit Reservation Ticket    |" << endl;
-            cout << setw(56) << "|      [5] Exit                       |" << endl;
+            cout << setw(56) << "|      [5] Total Reservation          |" << endl;
+            cout << setw(56) << "|      [6] Exit                       |" << endl;
             cout << setw(56) << "|_____________________________________|" << endl
                  << endl;
 
             cout << setw(39) << "Selection: ";
             cin >> selection;
 
-        } while (selection >= 1 && selection <= 4);
+        } while (selection >= 1 && selection <= 5);
     }
     else
     {
