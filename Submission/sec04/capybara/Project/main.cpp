@@ -9,6 +9,8 @@ using namespace std;
 const int MAX_COMPANION_ADULTS = 10;
 const int MAX_COMPANION_CHILDREN = 10;
 
+void newCheckIn(string &pID, string &fNumber, string &sNumber, string &dFlight, string &tFlight);
+
 //! Code STACK
 class Stack
 {
@@ -21,13 +23,15 @@ public:
     string baggageWeight;
     string baggageCheckIn;
 
+    string passengerId;
     string flightNumber;
     string seatNumber;
     string dateFlight;
     string timeFlight;
 
-    Stack(string &pName, string &bID, string &typBaggage, string &bWeight, string &bCheckIn)
+    Stack(string pId, string &pName, string &bID, string &typBaggage, string &bWeight, string &bCheckIn)
     {
+        passengerId = pId;
         passangerName = pName;
         baggageID = bID;
         typeBaggage = typBaggage;
@@ -37,12 +41,14 @@ public:
         next = NULL;
     }
 
-    Stack(string fNumber, string sNumber, string dFlight, string tFlight)
+    Stack(string pId, string fNumber, string sNumber, string dFlight, string tFlight)
     {
+        passengerId = pId;
         flightNumber = fNumber;
         seatNumber = sNumber;
         dateFlight = dFlight;
         timeFlight = tFlight;
+        next = NULL;
     }
 
     string getPassangerName() const
@@ -89,6 +95,11 @@ public:
     {
         return timeFlight;
     }
+
+    string getPassengerId()
+    {
+        return passengerId;
+    }
 };
 
 class StackList
@@ -118,15 +129,17 @@ public:
         top = newNode;
     }
 
-    void pushCheckIn(string &fNumber, string &sNumber, string &dFlight, string &tFlight)
+    void pushCheckIn(string &pID, string &fNumber, string &sNumber, string &dFlight, string &tFlight)
     {
-        Stack *newNode = new Stack(fNumber, sNumber, dFlight, tFlight);
+        Stack *newNode = new Stack(pID, fNumber, sNumber, dFlight, tFlight);
 
         if (!isEmpty())
         {
             newNode->next = top;
         }
         top = newNode;
+
+        // add new data
     }
 
     void popBaggage()
@@ -148,7 +161,7 @@ public:
     {
         if (isEmpty())
         {
-            cout << "Stack is empty. No baggage to pop." << endl;
+            cout << "Stack is empty. No check-in data to pop." << endl;
         }
         else
         {
@@ -181,7 +194,7 @@ public:
         Stack *temp = top;
         while (temp)
         {
-            cout << "Name: " << temp->getPassangerName() << endl;
+            cout << "Passenger ID : " << temp->getPassengerId() << endl;
             cout << "Flight ID: " << temp->getFlightNumber() << endl;
             cout << "Seat Number: " << temp->getSeatNumber() << endl;
             cout << "Date Flight: " << temp->getDateFlight() << endl;
@@ -192,185 +205,222 @@ public:
         }
         cout << endl;
     }
+
+    // void display semua babi
 };
 
 //! Code QUEUE
-class Node
+class Reservation
 {
 public:
-    int userID;
-    string userName;
+    string passengerName;
+    string seatNumber;
 
-    // adultInfo
-    int companionAdultIDs[MAX_COMPANION_ADULTS];
-    string companionAdultNames[MAX_COMPANION_ADULTS];
-    int numCompanionAdults;
-
-    // childrenInfo
-    int companionChildIDs[MAX_COMPANION_CHILDREN];
-    string companionChildNames[MAX_COMPANION_CHILDREN];
-    int companionChildAges[MAX_COMPANION_CHILDREN];
-
-    int numCompanionChildren;
-
-    Node *next;
-
-    Node(int id, string userName) : userID(id), userName(userName), next(NULL), numCompanionAdults(0), numCompanionChildren(0) {}
+    Reservation(const string &name, const string &seat) : passengerName(name), seatNumber(seat) {}
 };
 
-class QueueReservation
+class Node
 {
+    Reservation data;
+    Node *next;
+
 public:
-    Node *backPtr, *frontPtr;
+    Node(const Reservation &d) : data(d), next(NULL) {}
 
-    QueueReservation()
+    Reservation getData()
     {
-        createQueueReservation();
-    };
+        return data;
+    }
 
-    void createQueueReservation()
-    {
-        backPtr = NULL;
-        frontPtr = NULL;
-    };
+    friend class Queue; // So Queue can access private members of Node
+};
+
+class Queue
+{
+    Node *front;
+    Node *back;
+
+public:
+    Queue() : front(NULL), back(NULL) {}
 
     bool isEmpty()
     {
-        return backPtr == NULL && frontPtr == NULL;
-    };
+        return front == NULL;
+    }
 
-    void enQueueReservation(Node *newUser)
+    void enQueue(const Reservation &d)
     {
+        Node *newNode = new Node(d);
         if (isEmpty())
         {
-            newUser->next = newUser;
-            backPtr = newUser;
-            frontPtr = newUser;
+            front = back = newNode;
         }
         else
         {
-            newUser->next = backPtr->next;
-            backPtr->next = newUser;
-            backPtr = newUser;
+            back->next = newNode;
+            back = newNode;
         }
     }
 
-    void displayQueueReservation()
+    void deQueue()
     {
-        Node *temp = frontPtr;
-
         if (isEmpty())
         {
-            cout << "\nThe queue is empty\n";
-        };
-        while (temp->next != frontPtr)
-        {
-            cout << "Passenger ID: " << temp->userID << ", Name: " << temp->userName << endl;
-
-            cout << "Companion Adults: ";
-            for (int i = 0; i < temp->numCompanionAdults; ++i)
-            {
-                cout << "ID: " << temp->companionAdultIDs[i] << ", Name: " << temp->companionAdultNames[i] << " | ";
-            }
-            cout << endl;
-
-            cout << "Companion Children: ";
-            for (int i = 0; i < temp->numCompanionChildren; ++i)
-            {
-                cout << "ID: " << temp->companionChildIDs[i] << ", Name: " << temp->companionChildNames[i] << ", Age: " << temp->companionChildAges[i] << " | ";
-            }
-            cout << endl;
-
-            temp = temp->next;
-
-            cout << endl;
-        }
-
-        cout << "Passenger ID: " << temp->userID << ", Name: " << temp->userName << endl;
-
-        cout << "Companion Adults: ";
-        for (int i = 0; i < temp->numCompanionAdults; ++i)
-        {
-            cout << "ID: " << temp->companionAdultIDs[i] << ", Name: " << temp->companionAdultNames[i] << " | ";
-        }
-        cout << endl;
-
-        cout << "Companion Children: ";
-        for (int i = 0; i < temp->numCompanionChildren; ++i)
-        {
-            cout << "ID: " << temp->companionChildIDs[i] << ", Name: " << temp->companionChildNames[i] << ", Age: " << temp->companionChildAges[i] << " | ";
-        }
-        cout << endl;
-
-        temp = temp->next;
-
-        cout << endl;
-    }
-
-    void deQueueReservation()
-    {
-        Node *delQueue = frontPtr;
-
-        if (isEmpty())
-        {
-            cout << "\nNo one is in queue\n";
-        }
-        else if (frontPtr == backPtr)
-        {
-            frontPtr = backPtr = NULL;
-            delete delQueue;
+            cout << "Nothing in the Queue!!" << endl;
         }
         else
         {
-            frontPtr = frontPtr->next;
-            backPtr->next = frontPtr;
-            delete delQueue;
-        };
+            Node *temp = front;
+            front = front->next;
+            if (front == NULL)
+                back = NULL;
+            delete temp;
+        }
     }
-    void peekQueueReservation()
+
+    Reservation getFront()
     {
-        if (isEmpty())
+        if (!isEmpty())
         {
-            cout << "The queue is empty\n";
+            return front->getData();
         }
         else
         {
-            cout << "Passenger ID: " << frontPtr->userID << ", Name: " << frontPtr->userName << endl;
-            cout << "Companion Adults: ";
-            for (int i = 0; i < frontPtr->numCompanionAdults; ++i)
-            {
-                cout << "ID: " << frontPtr->companionAdultIDs[i] << ", Name: " << frontPtr->companionAdultNames[i] << " | ";
-            }
-            cout << endl;
+            // Handle empty queue case
+            return Reservation("", "");
+        }
+    }
 
-            cout << "Companion Children: ";
-            for (int i = 0; i < frontPtr->numCompanionChildren; ++i)
+    void print()
+    {
+        Node *temp = front;
+        if (isEmpty())
+        {
+            cout << "Queue is empty" << endl;
+        }
+        else
+        {
+            while (temp != NULL)
             {
-                cout << "ID: " << frontPtr->companionChildIDs[i] << ", Name: " << frontPtr->companionChildNames[i] << ", Age: " << frontPtr->companionChildAges[i] << " | ";
+                Reservation res = temp->getData();
+                cout << res.passengerName << " (" << res.seatNumber << ") ";
+                temp = temp->next;
             }
             cout << endl;
         }
     }
+};
+
+class Seat
+{
+public:
+    string seatNumber;
+    bool isBooked;
+
+    Seat() : seatNumber(""), isBooked(false) {}
+
+    void setSeatNumber(const string &number)
+    {
+        seatNumber = number;
+    }
+};
+
+class Flight
+{
+public:
+    string airline, destination, takeoffTime;
+
+    Flight(const string &a, const string &d, const string &t)
+        : airline(a), destination(d), takeoffTime(t) {}
+};
+
+class AirlineReservationSystem
+{
+private:
+    Seat seats[5][6];
+    Queue reservations;
+    Flight flight;
+
+public:
+    AirlineReservationSystem(const Flight &f) : flight(f)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 6; j++)
+            {
+                seats[i][j].setSeatNumber((i < 2 ? 'A' : 'B') + to_string(i + 1) + char('1' + j));
+            }
+        }
+    }
+
+    void displaySeats() const
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 6; j++)
+            {
+                if (j == 3)
+                {
+                    cout << "   ";
+                }
+                cout << "[" << seats[i][j].seatNumber << (seats[i][j].isBooked ? " X" : " O") << "] ";
+            }
+            cout << endl;
+        }
+    }
+
+    void displayFlightInfo() const
+    {
+        cout << "Airline: " << flight.airline << endl;
+        cout << "Destination: " << flight.destination << endl;
+        cout << "Takeoff Time: " << flight.takeoffTime << endl;
+    }
+
+    void makeReservation(const string &passengerName, const string &seatNumber)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 6; j++)
+            {
+                if (seats[i][j].seatNumber == seatNumber && !seats[i][j].isBooked)
+                {
+                    seats[i][j].isBooked = true;
+                    reservations.enQueue(Reservation(passengerName, seatNumber));
+                    cout << "Reservation successful for " << passengerName << " at seat " << seatNumber << endl;
+                    return;
+                }
+            }
+        }
+        cout << "Reservation failed: Seat not available or does not exist." << endl;
+    }
+};
+
+// buat newdata function
+void newCheckIn(string &pID, string &fNumber, string &sNumber, string &dFlight, string &tFlight)
+{
+
+    ofstream reservationFile("data/checkin.csv", ios::app);
+    reservationFile.seekp(0, ios::end);
+    reservationFile << "\n"
+                    << pID << "," << fNumber << "," << sNumber << "," << dFlight << "," << tFlight;
+
+    reservationFile.seekp(0, ios::end);
+    reservationFile.close();
 };
 
 int main()
 {
-    // Creating Queue
-    QueueReservation Reservation;
-
-    // Data Initialization
-    Reservation.displayQueueReservation();
-
-    //? Kena buang line atas untuk tgk Stack
-    //* Stack akan ada function display, add and delete yg proper after this
 
     //! Output Stack
     StackList BS;
 
     ifstream inputFile("data/baggage.csv");
+
     if (inputFile.is_open())
     {
         string line;
+
+        getline(inputFile, line);
 
         while (getline(inputFile, line))
         {
@@ -394,7 +444,47 @@ int main()
         return 1;
     }
 
-    BS.displayStackBaggage();
+    StackList checkIn; // Fix the identifier name
+    ifstream userFile("data/checkin.csv");
+    string lineUser;
+    string passengerID, flightNumber, seatNumber, dateFlight, timeFlight;
+
+    getline(userFile, lineUser); // skip the headings
+
+    while (getline(userFile, lineUser))
+    {
+        stringstream ss(lineUser); // get the whole line
+        getline(ss, passengerID, ',');
+        getline(ss, flightNumber, ',');
+        getline(ss, seatNumber, ',');
+        getline(ss, dateFlight, ',');
+        getline(ss, timeFlight, ',');
+        checkIn.pushCheckIn(passengerID, flightNumber, seatNumber, dateFlight, timeFlight);
+    }
+
+    userFile.close();
+
+    cout << "Add new data: ";
+    cin >> passengerID >> flightNumber >> seatNumber >> dateFlight >> timeFlight;
+    checkIn.pushCheckIn(passengerID, flightNumber, seatNumber, dateFlight, timeFlight);
+    newCheckIn(passengerID, flightNumber, seatNumber, dateFlight, timeFlight);
+
+    checkIn.displayStackCheckIn(); // Display the updated stack
+
+    // checkIn.displayStackCheckIn(); // Use correct identifier
+
+    //! Output Queue
+    Flight flightInfo("Example Airline", "New York", "10:00");
+    AirlineReservationSystem system(flightInfo);
+
+    system.displayFlightInfo();
+    system.displaySeats();
+
+    system.makeReservation("arif", "A11");
+    system.makeReservation("megat", "B32");
+    system.makeReservation("Derf", "B41");
+
+    system.displaySeats();
 
     return 0;
 }

@@ -119,11 +119,29 @@ public:
 
     void enqueue(const TaskData &newTask)
     {
-        
+         if (isfull())
+        {
+            cout << "Sorry, the queue is full" << endl;
+        }
+        else
+        {
+            rear = (rear + 1) % N; //*
+            data[rear] = newTask;
+            count++;
+        }
     }
 
     void dequeue()
     {
+         if (isempty())
+        {
+            cout << "Sorry, the queue is empty" << endl;
+        }
+        else
+        {
+            front = (front + 1) % N;
+            count--;
+        }
         
     }
 
@@ -213,7 +231,13 @@ int main()
 
     // Display tasks using queue method
     cout << "\nTasks using Queue method:" << endl;
-     // Display the entire queue
+    cout << left << setw(40) << "TASK";
+    cout << left << setw(2) << "|";
+    cout << left << setw(20) << "DATE";
+    cout << left << setw(2) << "|";
+    cout << left << setw(10) << "STATUS" << endl
+         << endl;
+    // Display the entire queue
     cout << endl;
 
     int choice;
@@ -259,6 +283,7 @@ int main()
             cout << left << setw(10) << "STATUS" << endl
                  << endl;
              // Display the entire stack
+             s.print();
             cout << endl;
         }
         break;
@@ -275,6 +300,7 @@ int main()
             cout << left << setw(10) << "STATUS" << endl
                  << endl;
              // Display the entire stack
+             s.print();
             cout << endl;
         }
         break;
@@ -297,7 +323,14 @@ int main()
             q.enqueue(newTask);
             // Display tasks using queue method
             cout << "\nTasks using Queue method:" << endl;
+            cout << left << setw(40) << "TASK";
+            cout << left << setw(2) << "|";
+            cout << left << setw(20) << "DATE";
+            cout << left << setw(2) << "|";
+            cout << left << setw(10) << "STATUS" << endl
+            << endl;
              // Display the entire queue
+             q.display();
             cout << endl;
         }
         break;
@@ -307,7 +340,14 @@ int main()
             q.dequeue();
             // Display tasks using queue method
             cout << "\nTasks using Queue method:" << endl;
+            cout << left << setw(40) << "TASK";
+            cout << left << setw(2) << "|";
+            cout << left << setw(20) << "DATE";
+            cout << left << setw(2) << "|";
+            cout << left << setw(10) << "STATUS" << endl
+            << endl;
              // Display the entire queue
+             q.display();
             cout << endl;
         }
         break;

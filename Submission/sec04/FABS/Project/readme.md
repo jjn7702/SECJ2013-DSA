@@ -19,6 +19,7 @@
 ## Overview of The Project <a name="overview"></a> :heavy_check_mark:
 
 ## Design <a name="design"></a> 🎨
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/databaseprojek.drawio.png)
 
 ## Design Description <a name="designdescription"></a> 💹
 
@@ -31,7 +32,7 @@
 ## Findings <a name="findings"></a>📊
 
 - [Source Code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/source-code/project.cpp)
-- [Input File]()
+- [Input File](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/source-code/COURIER.TXT)
 - [Project Report]()
 - [Similarity Report]()
 

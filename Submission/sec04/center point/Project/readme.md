@@ -36,7 +36,7 @@ In our data structure and algorithm project, the main objectives of developing t
 
 📤𝗨𝗽𝗱𝗮𝘁𝗲 𝗶𝗻𝘃𝗲𝗻𝘁𝗼𝗿𝘆 𝗶𝗻𝗳𝗼
 
-❗𝗖𝗵𝗲𝗰𝗸 𝗹𝗢𝗪 𝘀𝘁𝗼𝗰𝗸 𝗶𝗻𝘃𝗲𝗻𝘁𝗼𝗿𝘆
+❗𝗖𝗵𝗲𝗰𝗸 **LOW** 𝘀𝘁𝗼𝗰𝗸 𝗶𝗻𝘃𝗲𝗻𝘁𝗼𝗿𝘆
 
 
 
@@ -66,23 +66,22 @@ This system simplifies the warehousing process through the ability to add and de
 
 
 ## Flowchart 💹
-
-
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/center%20point/Images/A2-FLOW1.png)
+![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/center%20point/Images/DSA%20PROJECT%20FLOW2.drawio.png)
+![3](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/center%20point/Images/PROJECT%20FLOW%203.drawio.png)
 
 ## Class Diagram 💹
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/center%20point/Images/project%20class.drawio.png)
 
-
-
-
-## Flow of Event 💹
 
 
 ## Linked List Implementation 💹
+![5](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/center%20point/Images/dataStructurre.jpg)
 
 
 ## Findings 📊
 
-- [Source Code](./source_code)
-- [Report](./report)
+- [Source Code](./files/source%20code)
+- [Report](./files/reports)
 
 ## Contribution 🛠️
