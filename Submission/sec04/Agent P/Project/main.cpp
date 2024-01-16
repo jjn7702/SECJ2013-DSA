@@ -705,5 +705,58 @@ class CandidateList
             }
         }
 
+         void delsearch(Candidate *s3){
+		 Candidate* temp = Chead, *prev;
+            bool found = false;
+            
+        	if(temp->getMatric() == s3->getMatric())
+        	{
+        		Chead = temp->next;
+        		temp->next = NULL;
+        		delete temp;
+                display();
+                cout<<"\nYou have successfully withdrawn!";
+                CandFile();
+                exit(0);
+			}
+			
+			else
+			{
+	            while(temp->next != NULL){
+	                if(temp->getMatric()== s3->getMatric()){
+	                    found = true;
+	                    break;
+	                }
+	
+	                prev= temp;
+	                temp = temp->next;
+	            }
+	            if(found){
+	            	if(temp->next==NULL)
+	            	{
+	            		prev->next = NULL;
+	            		delete temp;
+                        display();
+                        cout<<"\nYou have successfully withdrawn!";
+                        CandFile();
+                        exit(0);
+					}
+					else
+					{
+						prev->next = temp->next;
+		                temp->next = NULL;
+		                delete temp;
+		                display();
+                        cout<<"\nYou have successfully withdrawn!";
+                        CandFile();
+                        exit(0);
+					}
+	            }
+            
+        }
+	}
+	
+
+
 	
 };
