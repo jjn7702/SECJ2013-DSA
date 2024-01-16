@@ -6,7 +6,7 @@
 #define D "Deposit"
 #define W "Withdraw"
 #define T "Transfer"
-#define N 20 // Increased the size of the queue
+#define N 20 
 using namespace std;
 
 void dispHeader()
@@ -116,7 +116,7 @@ public:
                      << "| "
                      << setw(14) << left << list[i].getDate()
                      << "| "
-                     << setw(30) << list[i].getReceiverAcc()
+                     << setw(29) << list[i].getReceiverAcc()
                      << "| "
                      << setw(13) << list[i].getType()
                      << "| "
@@ -136,7 +136,7 @@ public:
     void searchByAccount(string account) const
     {
         bool found = false;
-        bool headerDisplayed = false;  // Flag to check if the header is displayed
+        bool headerDisplayed = false;
         for (int i = front; i <= back; i++)
         {
             if (list[i].getSenderAcc() == account || list[i].getReceiverAcc() == account)
@@ -151,8 +151,8 @@ public:
                 cout << "| " << setw(28) << left << list[i].getSenderAcc()
                      << "| "
                      << setw(14) << left << list[i].getDate()
-                     << "|"
-                     << setw(30) << list[i].getReceiverAcc()
+                     << "| "
+                     << setw(29) << list[i].getReceiverAcc()
                      << "| "
                      << setw(13) << list[i].getType()
                      << "| "
@@ -176,7 +176,7 @@ public:
     }
 };
 
-void insertNewTransaction(TransactionList& list)
+void insertNewTransaction(TransactionList &list)
 {
     string senderAcc, receiverAcc, date;
     double amount, balance;
@@ -184,9 +184,9 @@ void insertNewTransaction(TransactionList& list)
 
     cout << "Enter sender account: ";
     cin >> senderAcc;
-    cout << "Enter date: ";
+    cout << "Enter date(DD-MM-YYYY): ";
     cin >> date;
-    cout << "Enter type (D/W/T): ";
+    cout << "Enter transaction type (D: Deposit/W: Withdraw/T: Transfer): ";
     cin >> type;
     cout << "Enter amount: ";
     cin >> amount;
@@ -247,35 +247,40 @@ int main()
     int choice;
     string searchAccount;
 
+    cout << "\n<<<<<WELCOME TO DACCrew BANKING MANAGEMENT SYSTEM>>>>>\n"
+         << endl;
     do
     {
-        cout << "<<<<<WELCOME TO DACCrew BANKING MANAGEMENT SYSTEM>>>>>" << endl;
-        cout << "1. Display Transaction List" << endl;
-        cout << "2. Search Transaction History by Account" << endl;
-        cout << "3. Insert New Transaction" << endl;
-        cout << "4. Exit" << endl;
-        cout << "Your choice: ";
+        cout << "1. Display Transaction List" << endl
+             << "2. Search Transaction History by Account" << endl
+             << "3. Insert New Transaction" << endl
+             << "4. Exit" << endl
+             << "Your choice: ";
         cin >> choice;
-
-        switch (choice)
+        if (choice >= 1 && choice <= 3)
         {
-        case 1:
-            list.printTransactionList();
-            break;
-        case 2:
-            cout << "Enter the account to search: ";
-            cin >> searchAccount;
-            list.searchByAccount(searchAccount);
-            break;
-        case 3:
-            insertNewTransaction(list);
-            break;
-        case 4:
-            cout << "Exiting..." << endl;
-            break;
-        default:
-            cout << "Invalid choice. Try again." << endl;
+            switch (choice)
+            {
+            case 1:
+                list.printTransactionList();
+                break;
+            case 2:
+                cout << "Enter the account to search: ";
+                cin >> searchAccount;
+                list.searchByAccount(searchAccount);
+                break;
+            case 3:
+                insertNewTransaction(list);
+                break;
+            case 4:
+                cout << "Exiting..." << endl;
+                break;
+            default:
+                cout << "Invalid choice. Try again." << endl;
+            }
         }
+        else
+            cout << "\nPlease enter a valid option!\n" << endl;
 
     } while (choice != 4);
 
