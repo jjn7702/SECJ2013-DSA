@@ -396,6 +396,17 @@ public:
 };
 
 // buat newdata function
+void newCheckIn(string &pID, string &fNumber, string &sNumber, string &dFlight, string &tFlight)
+{
+
+    ofstream reservationFile("data/checkin.csv", ios::app);
+    reservationFile.seekp(0, ios::end);
+    reservationFile << "\n"
+                    << pID << "," << fNumber << "," << sNumber << "," << dFlight << "," << tFlight;
+
+    reservationFile.seekp(0, ios::end);
+    reservationFile.close();
+};
 
 int main()
 {
