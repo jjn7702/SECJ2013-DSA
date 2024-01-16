@@ -974,7 +974,21 @@ void VoteAsc(){
 
                         temp2->next->setName(n);
                         temp2->next->setFaculty(f);
-	
+                         temp2->next->setEmail(e);
+                        temp2->next->setIC(i);
+                        temp2->next->setMatric(m);
+                        temp2->next->setAge(a);
+                        temp2->next->setPass(p);
+                        temp2->next->setPhone(ph);
+                        temp2->next->setVoteCount(v);
+                        sorted = false;
+                    }
+                    }
+
+                }
+            display();
+                
+}
 
 
 	
