@@ -2,3 +2,5 @@ passengerID,flightNumber,seatNumber,dateFlight,timeFlight
 1,MH371,ABC123,12-04-2024,8:00AM
 2,MH372,DEF234,13-04-2024,9:00AM
 3,MH373,GHI345,14-04-2024,10:00AM
+1,1,1,1,1
+1,1,1,1,1
