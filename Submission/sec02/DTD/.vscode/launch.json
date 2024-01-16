@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/muham/Documents/GitHub/SECJ2013-DSA/Submission/sec02/DTD/Assignment2",
-      "program": "c:/Users/muham/Documents/GitHub/SECJ2013-DSA/Submission/sec02/DTD/Assignment2/build/Debug/outDebug",
+      "cwd": "c:/Users/muham/Documents/GitHub/SECJ2013-DSA/Submission/sec02/DTD/Project",
+      "program": "c:/Users/muham/Documents/GitHub/SECJ2013-DSA/Submission/sec02/DTD/Project/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

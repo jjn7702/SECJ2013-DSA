@@ -204,7 +204,7 @@ public:
             int i = front;
             do
             {
-                cout << "[ " << book[i].getTitle() << " ] ";
+                cout << "[ " << book[i].getTitle() << " requested by " << book[i].getAuthor() << " ] ";
                 i++;
             } while (i <= rear);
             cout << endl;
@@ -372,7 +372,7 @@ int main()
         cout << "Do you still want to use the system? (Y/N) : ";
         cin >> yn;
 
-    } while (yn == 'Y' || yn == 'y');
+    }  while (yn == 'Y' || yn == 'y');
 
 
     return 0;
