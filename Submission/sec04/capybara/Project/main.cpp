@@ -9,6 +9,8 @@ using namespace std;
 const int MAX_COMPANION_ADULTS = 10;
 const int MAX_COMPANION_CHILDREN = 10;
 
+void newCheckIn(string &pID, string &fNumber, string &sNumber, string &dFlight, string &tFlight);
+
 //! Code STACK
 class Stack
 {
@@ -21,13 +23,15 @@ public:
     string baggageWeight;
     string baggageCheckIn;
 
+    string passengerId;
     string flightNumber;
     string seatNumber;
     string dateFlight;
     string timeFlight;
 
-    Stack(string &pName, string &bID, string &typBaggage, string &bWeight, string &bCheckIn)
+    Stack(string pId, string &pName, string &bID, string &typBaggage, string &bWeight, string &bCheckIn)
     {
+        passengerId = pId;
         passangerName = pName;
         baggageID = bID;
         typeBaggage = typBaggage;
@@ -37,12 +41,14 @@ public:
         next = NULL;
     }
 
-    Stack(string fNumber, string sNumber, string dFlight, string tFlight)
+    Stack(string pId, string fNumber, string sNumber, string dFlight, string tFlight)
     {
+        passengerId = pId;
         flightNumber = fNumber;
         seatNumber = sNumber;
         dateFlight = dFlight;
         timeFlight = tFlight;
+        next = NULL;
     }
 
     string getPassangerName() const
@@ -89,6 +95,11 @@ public:
     {
         return timeFlight;
     }
+
+    string getPassengerId()
+    {
+        return passengerId;
+    }
 };
 
 class StackList
@@ -118,15 +129,17 @@ public:
         top = newNode;
     }
 
-    void pushCheckIn(string &fNumber, string &sNumber, string &dFlight, string &tFlight)
+    void pushCheckIn(string &pID, string &fNumber, string &sNumber, string &dFlight, string &tFlight)
     {
-        Stack *newNode = new Stack(fNumber, sNumber, dFlight, tFlight);
+        Stack *newNode = new Stack(pID, fNumber, sNumber, dFlight, tFlight);
 
         if (!isEmpty())
         {
             newNode->next = top;
         }
         top = newNode;
+
+        // add new data
     }
 
     void popBaggage()
@@ -148,7 +161,7 @@ public:
     {
         if (isEmpty())
         {
-            cout << "Stack is empty. No baggage to pop." << endl;
+            cout << "Stack is empty. No check-in data to pop." << endl;
         }
         else
         {
@@ -181,7 +194,7 @@ public:
         Stack *temp = top;
         while (temp)
         {
-            cout << "Name: " << temp->getPassangerName() << endl;
+            cout << "Passenger ID : " << temp->getPassengerId() << endl;
             cout << "Flight ID: " << temp->getFlightNumber() << endl;
             cout << "Seat Number: " << temp->getSeatNumber() << endl;
             cout << "Date Flight: " << temp->getDateFlight() << endl;
@@ -192,6 +205,8 @@ public:
         }
         cout << endl;
     }
+
+    // void display semua babi
 };
 
 //! Code QUEUE
@@ -353,13 +368,27 @@ public:
     }
 };
 
+void newCheckIn(string &pID, string &fNumber, string &sNumber, string &dFlight, string &tFlight)
+{
+
+    ofstream reservationFile("data/checkin.csv", ios::app);
+    reservationFile.seekp(0, ios::end);
+    reservationFile << "\n"
+                    << pID << "," << fNumber << "," << sNumber << "," << dFlight << "," << tFlight;
+
+    reservationFile.seekp(0, ios::end);
+    reservationFile.close();
+};
+
+// buat newdata function
+
 int main()
 {
     // Creating Queue
     QueueReservation Reservation;
 
     // Data Initialization
-    Reservation.displayQueueReservation();
+    // Reservation.displayQueueReservation();
 
     //? Kena buang line atas untuk tgk Stack
     //* Stack akan ada function display, add and delete yg proper after this
@@ -368,6 +397,7 @@ int main()
     StackList BS;
 
     ifstream inputFile("data/baggage.csv");
+
     if (inputFile.is_open())
     {
         string line;
@@ -394,7 +424,34 @@ int main()
         return 1;
     }
 
-    BS.displayStackBaggage();
+    StackList checkIn; // Fix the identifier name
+    ifstream userFile("data/checkin.csv");
+    string lineUser;
+    string passengerID, flightNumber, seatNumber, dateFlight, timeFlight;
+
+    getline(userFile, lineUser); // skip the headings
+
+    while (getline(userFile, lineUser))
+    {
+        stringstream ss(lineUser); // get the whole line
+        getline(ss, passengerID, ',');
+        getline(ss, flightNumber, ',');
+        getline(ss, seatNumber, ',');
+        getline(ss, dateFlight, ',');
+        getline(ss, timeFlight, ',');
+        checkIn.pushCheckIn(passengerID, flightNumber, seatNumber, dateFlight, timeFlight);
+    }
+
+    userFile.close();
+
+    cout << "Add new data: ";
+    cin >> passengerID >> flightNumber >> seatNumber >> dateFlight >> timeFlight;
+    checkIn.pushCheckIn(passengerID, flightNumber, seatNumber, dateFlight, timeFlight);
+    newCheckIn(passengerID, flightNumber, seatNumber, dateFlight, timeFlight);
+
+    checkIn.displayStackCheckIn(); // Display the updated stack
+
+    // checkIn.displayStackCheckIn(); // Use correct identifier
 
     return 0;
 }

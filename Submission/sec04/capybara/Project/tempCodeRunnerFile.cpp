@@ -1,2 +1,1 @@
-
-const int MAX_COMPANION_CHILDREN = 10;
+        top = newNode;
