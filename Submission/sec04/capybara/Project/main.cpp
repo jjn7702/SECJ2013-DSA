@@ -364,6 +364,8 @@ int main()
     {
         string line;
 
+        getline(inputFile, line);
+
         while (getline(inputFile, line))
         {
             istringstream iss(line);
