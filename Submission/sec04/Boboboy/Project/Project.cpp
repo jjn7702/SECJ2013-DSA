@@ -500,3 +500,29 @@ class Retaurant{
     }
 }
 };
+string Cus_order(){
+	string order;
+	do{
+		cout << "What order do you want to place?(based on the code given)" << endl; 
+		cout << "Order:"; 
+		cin >> order;
+		for(char &o : order){
+			o = toupper(o);
+		}
+		if((order != "DE1") && (order != "DE2") && (order != "D1") && (order != "D2") && (order != "D3") && (order != "MD1") && (order != "MD2")&& (order != "MD3")&& (order != "MD4")&& (order != "MD5")&& (order != "S1")&& (order != "S2")&& (order != "S3")&& (order != "S4")){
+			cout << "Invalid code for order, Please order again" << endl;
+		}
+	}while((order != "DE1") && (order != "DE2") && (order != "D1") && (order != "D2") && (order != "D3") && (order != "MD1") && (order != "MD2")&& (order != "MD3")&& (order != "MD4")&& (order != "MD5")&& (order != "S1")&& (order != "S2")&& (order != "S3")&& (order != "S4"));
+	return order;
+}
+
+int waytoInsert(){
+	int action;
+	cout << "Choose the way you want to insert: " << endl;
+	cout << "1. Insert in front" << endl;
+	cout << "2. Insert in middle" << endl;
+	cout << "3. Insert in last" << endl;
+	cout << "Way: ";
+	cin >> action;
+	return action;
+}
