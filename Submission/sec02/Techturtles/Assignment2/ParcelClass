@@ -1,0 +1,80 @@
+class Parcel
+{
+private:
+    string trackingNumber, address, nameSender, nameReceiver;
+    char category;
+    int status;
+    int count; // edit
+
+public:
+    Parcel(string tn, string a, string nSend, string nRec, char c, int s)
+    {
+        trackingNumber = tn;
+        address = a;
+        nameSender = nSend;
+        nameReceiver = nRec;
+        category = c;
+        status = s;
+    }
+
+void printResult(int count)
+    {
+        cout << "\t\t\t" << left << setw(5) << count 
+		 << setw(15) << trackingNumber
+		 << setw(2) << address
+		 << setw(2) << nameSender
+		 << setw(2) << nameReceiver
+		 << setw(2) << category
+		 << setw(2) << status << endl;
+    }
+
+ string getTrackingNumber()
+    {
+        return trackingNumber;
+    }
+
+    string getAddress()
+    {
+        return address;
+    }
+
+    string getSender()
+    {
+        return nameSender;
+    }
+
+    string getReceiver()
+    {
+        return nameReceiver;
+    }
+    
+    char getCategory()
+    {
+    	return category;
+	}
+	
+	int getStatus()
+    {
+    	return status;
+	}
+	
+    
+    void displayShippingCategory() {
+        if (category == 'A' || category == 'a') {
+            cout << "Bulky & Heavy Delivery";
+        }
+        else
+            cout << "Standard Delivery";
+        cout << endl;
+    }
+    
+    void displayStatus_Delivery() {
+        if (status == 0) {
+            cout << "COMPLETE";
+        }
+        else
+            cout << "INCOMPLETE";
+        cout << endl;
+    }
+
+};

@@ -48,16 +48,20 @@ There are few features in the courier management system which is
 
 
 ## Problem Analysis <a name="problemanalysis"></a> 🕵🏻‍♀️🕵🏻‍♂️
-  The courier management system is designed to facilitate and improve the courier management by handling all the information that they receive from customers and synchronizing it with the updated delivery status for their parcel. To make all the process become a lot more easier than before, we have decided to use a Queue data structure that will follow the principle of “First In,First Out” (FIFO). As a result the first data to enter the system (enqueue) will also be the first data deleted (dequeue) from the system. 
+  The courier management system is designed to facilitate and improve the courier services management by handling all the information that they receive from customers and synchronizing it with the updated delivery status for their parcel. To make all the process become a lot more easier than before, we have decided to use a Queue data structure that will follow the principle of 
+“First In,First Out” (FIFO). As a result the first data to enter the system (enqueue) will also be the first data deleted (dequeue) from the system. 
 
-  Other than that, to help the workers at the courier service to find all the data for which parcel’s status has been delivered or not, we have decided to implement a searching process. Our system has the ability to search information about couriers by inserting the status of the parcel (eg; Delivered). All the parcels that contain the similar status like the one that we entered will be displayed. In conclusion, the courier management system is a very useful program that could help the courier management to improve their user experience and its functionality.
+  Other than that, to help the customer at the courier service center to find all the data for which parcel’s status has been delivered or not, we have decided to implement a searching process. Our system has the ability to search information about couriers by inserting the tracking number of the parcel. All the parcel details that contain the similar tracking number like the one that we searched will be displayed. Meanwhile, the admin of the system can approve the new data either the data was inserted by input file (COURIER.TXT) or customer. Admin also have the ability to delete the first data inserted to the system each time the dequeue function is being called.
+
+  In addition, our system also offers the workers of the courier service to update the status from being “Approved” to “In Transit”. From this update, customers can know that their parcels are currently being processed. The workers also have the same ability like admin which is to delete the first data inserted to the system each time the dequeue function is being called. Last but not least, our system also can save the updated data into the file after we exit the system. As a conclusion, the courier management system is a very useful system that could help all courier services management to improve their functionality and its user experience.
+
 
 
 ## Design <a name="design"></a> 🎨
 #### Flowchart
 ![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/databaseprojek.drawio.png)
 #### Class Diagram
-![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/classdiagram.jpg)
+![2]()
 
 ## Design Description <a name="designdescription"></a> 💹
 

@@ -3,21 +3,34 @@
 
 using namespace std;
 
-class Inventory{
+class goods{
     private:
-        int itemNumber;
-        int quantity;
-        double cost;
-        double totalCost;
+        int id;
+        string name;
+        int price;
+        string itemLocation;
+    
     public:
-        Inventory();
-        Inventory(int, int, double);
-        void setItemNumber(int);
-        void setQuantity(int);
-        void setCost(double);
-        void setTotalCost();
-        int getItemNumber();
-        int getQuantity();
-        double getCost();
-        double getTotalCost();
+        goods(int id, string name, int price, string itemLocation){
+            this->id = id;
+            this->name = name;
+            this->price = price;
+            this->itemLocation = itemLocation;
+        }
+
+        int getId(){
+            return id;
+        }
+
+        string getName(){
+            return name;
+        }
+
+        int getPrice(){
+            return price;
+        }
+
+        string getItemLocation(){
+            return itemLocation;
+        }
 };
