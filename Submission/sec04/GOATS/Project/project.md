@@ -19,7 +19,7 @@ Among the difficulties the system will face include effectively allocating waiti
 
 ![Alt text](images/Flowchart.jpg)
 
-##Data structure concept implementation
+## Data structure concept implementation
 
 
 ## Queue : Appointment system 
@@ -40,63 +40,97 @@ This system focuses on part of the hospital's function. So we Focus on the appoi
 ![Alt text](images/appointment1.PNG)
 1. The system will display a menu.
 2. Choose (key in 1) to add a new appointment.
+
 ![Alt text](images/appointment2.PNG)
+
 3. Insert Patient name, contact information, and reason for appointment.
 4. Press enter
+
 ![Alt text](images/appointment3.PNG)
+
 5. The system will display a success notification that means that the appointment has been added.
 
 ### 2. Check-in for an appointment.
+
 ![Alt text](images/checkin1.PNG)
+
 1. The system will display a menu.
 2. Choose (key in 2) option 2 to check in for an appointment (Check means that the patient gets ready to make an appointment).
+
 ![Alt text](images/checkin2.PNG)
+
 3. The system will display a success message to notify that the patient has a successful check-in. 
 4. The patient will be in a waiting queue for the next check-up.
+
 ![Alt text](images/checkin3.PNG)
+
 5. You can check if the user is in the queue by keying in option 4 in the menu. (you do this with other operations to check if the user is added to the queue or not)
-![Alt text](images/appointment3.PNG)
+
+![Alt text](images/checkin4.PNG)
+
 6. If you got this message means that there is no patient in the queue so cannot do the operation.
 
 ### 3. Call the patient to get a Medication prescription
+
 ![Alt text](images/medic1.PNG)
+
 1. The system will display a menu.
 2. Choose (key in 3) option 3 to move the patient in the queue to get medication after the doctor's discussion.
 3. The system will automatically remove patients that have got their medication.
+
 ![Alt text](images/medic2.PNG)
+
 4. The system will display a success message of the patient getting a turn to get medication and the medication that the patient is given.
-![Alt text](images/medic1.PNG)
+
+![Alt text](images/medic3.PNG)
+
 5. If you got this message means that there is no patient in the queue so cannot do the operation.
 
 ### 4. Check the waiting list queue
+
 ![Alt text](images/list1.PNG)
+
 1. The system will display a menu.
 2. Choose (key in 4) option 4 to look at all the waiting queues.
+
 ![Alt text](images/list2.PNG)
+
 currently no patient in the list.
 3. The system will display all the waiting queues for patients that have not checked in yet, have checked in, and are waiting to get medication.
 
 ### 5. To view the history of the Hospital appointment
+
 ![Alt text](images/histo1.PNG)
+
 1. The system will display a menu.
 2. Choose (key in 5) option 5 to view the list of all patients that do a discussion with the doctor. 
+
 ![Alt text](images/histo2.PNG)
+
 3. The system will display all the Patients that have made the appointment only.
 
 ### 6. To export the history of the appointment hospital.
+
 ![Alt text](images/histo1.PNG)
+
 1. The system will display a menu.
 2. Choose the (key in 5) option which will display all patients that have done an appointment.
+
 ![Alt text](images/histo3.PNG)
+
 3. The system will automatically export data into a text file.
 4. You can find the txt file in the C directory in folder History.
 
 ### 7. End the program
+
 ![Alt text](images/exit1.PNG)
+
 1. The system will display a menu.
 2. Choose (key in 6) option 6 to exit the system.
 3. The system will remove all the patient records that are still in the queue and the history.
+
 ![Alt text](images/exit2.PNG)
+
 4. The system will display a message before the end of the program
 
 
