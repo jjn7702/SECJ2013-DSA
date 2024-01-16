@@ -31,7 +31,7 @@ Election Management System is a system that will be used during the UTM voting d
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/8b3596b0-7214-4cc8-b868-9ab2a0314386" width="3%" height="3%"> Flowchart
 
-![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Project_Flowchart.png)
+![2](https://drive.google.com/file/d/1fHlM7QDAATt5hLikZZU-9dLlpINaUTWa/view?usp=sharing)
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/fabaacbe-18c1-4f64-a3a5-e1b40e910e71" width="4%" height="4%"> Queue Implementation
 ##### 1. Enqueue
