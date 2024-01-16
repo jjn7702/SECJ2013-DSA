@@ -41,7 +41,7 @@ class Menu{
 			price = p;
 		}
 		void printmenu(){
-		cout << code << setw(20) << name << setw(20) << foodtype << setw(20) << price << endl;		
+		cout << code << setw(20) << name << setw(20) << foodtype << setw(18) << price << fixed << setprecision(2) << endl;		
 		}
 };
 
@@ -193,7 +193,7 @@ class Cart{
 			cout << "Code" << setw(18) << "Name" << setw(20) << "Type" << setw(20) << "Price(RM)" << endl;
 			cout << "-------------------------------------------------------------" << endl;
 			while(temp){
-				cout << temp->getcode() << setw(20) << temp->getname() << setw(20) << temp->getfoodtype() << setw(20) << temp->getprice() << endl;
+				cout << temp->getcode() << setw(20) << temp->getname() << setw(20) << temp->getfoodtype() << setw(18) << temp->getprice() << fixed << setprecision(2)  << endl;
 				temp = temp -> next;
 			}
 			 cout << endl;

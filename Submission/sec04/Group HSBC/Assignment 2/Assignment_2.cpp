@@ -76,11 +76,21 @@ class Node {
     	}
 };
 
+Node* swap(Node* acc1, Node* acc2)
+{
+	Node* temp = acc2->next;
+
+	acc2->next = acc1;
+	acc1->next = temp;
+
+	return acc2;
+}
+
 class List{
-	private:
-		Node* head;
 	
 	public:
+		Node* head;
+
 		List(){head = NULL;}
 		
 		bool isEmpty(){
@@ -139,7 +149,7 @@ class List{
 			newNode->next = slow->next;
 			slow->next = newNode;
 		}
-
+		
 		//delete first node
 		void deleteFirst(){
 			if (!isEmpty()) {
@@ -213,18 +223,75 @@ class List{
 
     		while (current != NULL) {
         		if (current->account.getAccNum() == num) {
-            	cout << "Node found with Account Number " << num << ":\n";
-            	current->account.printTitle();
-            	current->account.printDetails();
-            	found = true;
-            	break;
-        	}
+            		cout << "Node found with Account Number " << num << ":\n";
+            		current->account.printTitle();
+					current->account.printDetails();
+					found = true;
+					break;
+        		}
         		current = current->next;
     		}
 
  	   		if (!found) {
         		cout << "Node not found with Account Number " << num << ".\n";
     		}
+		}
+
+		int getSize()
+		{
+			Node* temp = head;
+			int count = 1;
+
+			while(temp)
+			{
+				count++;
+				temp = temp->next;
+			}
+
+			return count;
+		}
+
+		void BubbleSort(Node** data, int dataSize, bool type)
+		{
+			Node** h;
+			bool sorted = false;
+
+			for(int i =0; i <= dataSize && (sorted == false); i++)
+			{
+				h = data;
+				sorted = true;
+				
+				for(int j =0; j < dataSize - i - 1 ; j++)
+				{
+					Node* temp = *h;
+					if(temp != NULL && temp->next != NULL)
+					{
+						Node* acc1 = *h;
+						Node* acc2 = acc1->next;
+
+						switch(type)
+						{
+							case false :
+								if(acc1->account.getAccNum() > acc2->account.getAccNum())
+								{
+									*h = swap(acc1, acc2);
+									sorted = false;
+								}
+								break;
+
+							default :
+								if(acc1->account.getAccNum() < acc2->account.getAccNum())
+								{
+									*h = swap(acc1, acc2);
+									sorted = false;
+								}
+								break;
+						}
+
+						h = &(*h)->next;
+					}
+				}
+			}
 		}
 		
 		//display all the node in the list
@@ -314,14 +381,23 @@ int menuDelete(){
 	return choice;
 }
 
+int menuDisplay()
+{
+	int choice;
+
+	cout << "1. Display without sort.\n"
+		 << "2. Display in ascending (account number).\n"
+		 << "3. Display in discending (account number).\n"
+		 << "Enter your choice: ";
+	cin >> choice;
+
+	return choice;
+}
 
 int main(){
 	
 	string filename = "inputasg2.txt";
 	
-	cout<<"Enter the input file name: ";
-	//cin>>filename;
-	cout<<endl;
 	Account* account = new Account[99];
 	int count = read_data(account, filename);
 	
@@ -370,13 +446,13 @@ int main(){
 				
 				//add info into a obj
 				a.setAccountNumber(acc_num);
-					a.setBalance(balance);
-					a.setTransactionDate(trans_date);
-					a.setTransactionType(trans_type);
-					a.setTransactionAmount(trans_amt);
-					if(trans_type == "TRANSFER"){
-						a.setTargetAccount(target_acc);
-					}
+				a.setBalance(balance);
+				a.setTransactionDate(trans_date);
+				a.setTransactionType(trans_type);
+				a.setTransactionAmount(trans_amt);
+				if(trans_type == "TRANSFER"){
+					a.setTargetAccount(target_acc);
+				}
 					
 				if(choiceAdd == 1){ //insert new node in front	
 					acc.insertBeginning(a);
@@ -438,8 +514,27 @@ int main(){
 			acc.findNode(findAcc);
 		}
 		else{
-			//display all the node
-			acc.displayNode();
+
+			int choiceDisp = menuDisplay();
+			int listSize = acc.getSize();
+			
+			switch(choiceDisp)
+			{
+				case 1 :
+					acc.displayNode();
+					break;
+
+				case 2 :
+					acc.BubbleSort(&acc.head, listSize, false);
+					acc.displayNode();
+					break;
+
+				default :
+					acc.BubbleSort(&acc.head, listSize, true);
+					acc.displayNode();
+					break;
+					
+			}
 		}
 		
 		cout << "\n\n\n\nBack to menu (1: yes / 0: no) : ";

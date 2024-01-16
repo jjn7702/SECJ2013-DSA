@@ -18,34 +18,38 @@
 
 ## Objectives <a name="objectives"></a> :heavy_check_mark:
 
-   The objective is to implement a courier management system based on linked lists. The program will read courier data from a TEST.txt file, and builds a linked list of courier objects, provides a menu-driven interface for performing some operations such as adding a new courier node to the list, deleting a node from the list, searching for a courier node based on provided options, sorting the list based on provided options, and displaying the updated list. In this coding we use sorted-linked list class and node class to ease the courier management system on adding new node, deleting, sorting and searching system. The system also has a user-friendly interface with a menu-driven system that determines users through the whole process until they choose to exit the system. 
-The following are the code's key features and objectives:
+The aim is to apply a courier management system based on linked lists. The program will read courier data from aTEST.txt file, and builds a linked list of courier objects, provides a menu- driven interface for performing some operations similar as adding a new courier node to the list, deleting a node from the list, searching for a courier node based on provided options, sorting the list based on provided options, and displaying the updated list. In this coding we use sorted- linked list class and node class to ease the courier management system on adding new nodes, deleting, sorting and searching systems. The system also has a user-friendly interface with a menu- driven system that determines users through the whole process until they choose to exit the system.
+The following are the code's vital features and aims
 
-1. Courier Service:
-A courier is  by attributes such as name, parcel type, source, destination, status, and tracking number. There are methods for setting and retrieving and also a display method for printing the courier details.
+Courier Service
 
-2. Node Class:
-A node in a linked list, each of which contains a Courier object and a pointer to the next node.
+A courier is by attributes such as name, parcel type, source, destination, status, and tracking number. There are approaches for setting and retrieving and also a display method for printing the courier details.
 
-3. LinkedList Class:
-Managed a linked list of Courier nodes.
-Ask and allow the user to insert a new node at the beginning, middle, or end of the list. Have operations for deleting a node from the list's beginning, middle, or end. This class also provides a method for locating a node using specified features. This function implements a sorting algorithm. Implements a sorting algorithm to sort the list based on various criteria (such as name, parcel type, and tracking number).
+Node Class
 
-4. Main Purpose:
-The linked list is populated by reading courier information from a file (TEST.txt). Implements a menu-driven interface for interacting with the courier list. Have various options which are adding, deleting, searching, sorting, and displaying courier nodes. The program will continue to run until the user chooses to exit.
+A node in a linked list, each of which contains a Courier object and a pointer to the succeeding node.
 
-5. Input from a File:
-The program reads courier information from a file (TEST.txt) and uses it to add the information of the linked list.
+LinkedList Class
 
-6. Menu-Based User Interface:
-To perform various operations on the courier list, the program provides a user-friendly menu.
+Managed a linked list of Courier nodes. Ask and allow the user to insert a new node at the beginning, middle, or end of the list. Have operations for deleting a node from the list's beginning, middle, or end. This class also provides a method for locating a node using defined features. This function implements a sorting algorithm. Implements a sorting algorithm to sort the list based on varied criteria( similar as name, parcel type, and tracking number).
 
-7. Validation of Data:
-Basic input validation includes checking for valid menu options and handling invalid input while searching. In general, the goal is to create a flexible and interactive courier management system based on linked lists that allows users to efficiently manage and manipulate courier data.
+Main Purpose
+
+The linked list is populated by reading courier information from a file(TEST.txt). Implements a menu- driven interface for interacting with the courier list. Have varied options which are adding, deleting, searching, sorting, and displaying courier nodes. The program will continue to run until the user chooses to exit. 
+
+Input from a File
+The program reads courier information from a file(TEST.txt) and uses it to add the data of the linked list.
+
+Menu- Based User Interface
+
+The program provides a user-friendly menu to perform varied operations on the courier list. 
+Checking for valid menu options and handling invalid input while searching are included in validation of DataBasic input confirmation . The aim is to produce an adjustable and reciprocal courier operation system based on linked lists which allows the users to make the courier data is easily managed.
+
+
 
 ## Synopsis <a name="synopsis"></a> 📝
 
-The Courier Management System uses a linked list to store and manage courier data. The program reads data from a file, populates a linked list, and then provides a menu-driven interface for users to do various processes on the courier list. These processes include the adding, deleting, search, sorting, and the display of courier information.
+The Courier Management System allows workers to store data about parcels in a more organized way. For instance, we can update new data when we receive a parcel order by the customer and delete it a few days after the parcel has been delivered. We also can search the data based on the specified criteria of the parcel. Moreover, this system also can sort the data of parcels in ascending orders (name,parcel type,tracking number) .
 
 ## Design <a name="design"></a> 🎨
 ![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass2/files/images/dsa.jpg)
@@ -53,8 +57,6 @@ The Courier Management System uses a linked list to store and manage courier dat
 ## Design Description <a name="designdescription"></a> 💹
 
 #### LINKED LIST FUNCTION
-
-The linked list is implemented as nodes, containing a Courier object and a pointer to the next node. These nodes are managed by the LinkedList class, which includes methods for adding a new node (insertFront, insertMiddle, insertBack), deleting a node (deleteFront, deleteMiddle, deleteBack), finding the node (findNode), sorting the list (sortList), and displaying all the nodes (displayList) for the Courier Management System.
 
 #### ADDING A NEW NODE
 
@@ -97,27 +99,25 @@ The linked list is implemented as nodes, containing a Courier object and a point
 
 2. From the option, the data will be searched by corresponding function either by name, parcel type, source, destination, status or tracking number.
 
-3. The function begins by setting the value of a boolean variable (found) to false.
+3. The function sets the value of a boolean variable (found) to false.
 
 4. It iterates through the linked list, comparing the attributes of each courier to the corresponding attributes in the searchData.
 
-5. If a match is found based on the specified search criteria, the courier's information is displayed using the Courier class's display method.
+    4.1 The findNode function uses searchKey to search the courier data based on the option that was chosen by the user.
 
-    5.1 The findNode function uses searchKey to search the courier data based on the option that was chosen by the user.
+         4.1.1 Option 1: name with specific searchKey will be displayed.
 
-         5.1.1 Option 1: name with specific searchKey will be displayed.
+         4.1.2 Option 2: parcel type with specific searchKey will be displayed.
 
-         5.1.2 Option 2: parcel type with specific searchKey will be displayed.
+         4.1.3 Option 3: source with specific searchKey will be displayed.
 
-         5.1.3 Option 3: source with specific searchKey will be displayed.
+         4.1.4 Option 4: destination with specific searchKey will be displayed.
 
-         5.1.4 Option 4: destination with specific searchKey will be displayed.
+         4.1.5 Option 5: status with specific searchKey will be displayed.
 
-         5.1.5 Option 5: status with specific searchKey will be displayed.
+         4.1.6 Option 6: tracking number with specific searchKey will be displayed.
 
-         5.1.6 Option 6: tracking number with specific searchKey will be displayed.
-
-         5.1.7 Option 0: return back to the main menu.
+         4.1.7 Option 0: return back to the main menu.
 
 
 
@@ -125,21 +125,19 @@ The linked list is implemented as nodes, containing a Courier object and a point
 
 1. Get the option from the main function.
 
-2. The function begins by determining whether the linked list is not empty and has more than one node.
+2. The function determines whether the linked list is not empty and has more than one node.
 
 3. It iteratively traverses the list, comparing and swapping elements based on the sorting criterion selected.
 
-4. The sortCriteria parameter determines the sorting criteria, and the comparison is performed accordingly.
+      3.1 The sortList function uses sortCriteria to sort the courier data based on the option that was chosen by the user.
 
-      4.1 The sortList function uses sortCriteria to sort the courier data based on the option that was chosen by the user.
+            3.1.1 Option 1: courier data sort by name.
 
-            4.1.1 Option 1: courier data sort by name.
+            3.1.2 Option 2: courier data sort by parcel type.
 
-            4.1.2 Option 2: courier data sort by parcel type.
+            3.1.3 Option 3: courier data sort by tracking number.
 
-            4.1.3 Option 3: courier data sort by tracking number.
-
-            4.1.4 Option 0: return back to the main menu.
+            3.1.4 Option 0: return back to the main menu.
 
 #### DISPLAYING THE NODE
 
@@ -148,15 +146,15 @@ The linked list is implemented as nodes, containing a Courier object and a point
 
 ## Assignment Report <a name="report"></a> 🔔
 
-Submission date: 29-Dec-2023 08:22PM (UTC-0800)
+Submission date: 31-Dec-2023 07:17AM (UTC-0800)
 
-Submission ID: 2265594315
+Submission ID: 2265834359
 
-File name: ASSIGNMENT_2_DSA_FABS.pdf (179.03K)
+File name: ASSIGNMENT_2_DSA_FABS.pdf (177.69K)
 
-Word count: 1167
+Word count: 1131
 
-Character count: 5866
+Character count: 5500
 
 ![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Ass2/files/images/REPORT.jpg)
 

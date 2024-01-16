@@ -61,7 +61,7 @@ public:
 
   bool isEmpty() { return (head == NULL); }
 
-  void insertFront(BookingNode newBooking) {
+ void insertFront(BookingNode newBooking) {
     BookingNode *newNode = new BookingNode(newBooking);
     if (!isEmpty())
       newNode->next = head;
@@ -82,9 +82,7 @@ public:
     temp->next = newNode;
   }
 
-  void insertMiddle2CID(
-      BookingNode newBooking,
-      string sKey) { // Insert the node after the node with specific value
+  void insertMiddle2CID(BookingNode newBooking, string sKey) {
     BookingNode *temp = head;
     BookingNode *newNode = new BookingNode(newBooking);
 
@@ -109,10 +107,8 @@ public:
     temp->next = newNode;
   }
 
-  void insertMiddle3CID(
-      BookingNode newBooking,
-      string sKey) { // Insert the node before the node with specific value
-    BookingNode *temp = head, *prev; // similar to the removeEnd()
+  void insertMiddle3CID(BookingNode newBooking, string sKey) {
+    BookingNode *temp = head, *prev; 
     BookingNode *newNode = new BookingNode(newBooking);
 
     bool keyFound = false;
@@ -137,9 +133,7 @@ public:
     prev->next = newNode;
   }
 
-  void insertMiddle2COD(
-      BookingNode newBooking,
-      string sKey) { // Insert the node after the node with specific value
+  void insertMiddle2COD(BookingNode newBooking, string sKey) { 
     BookingNode *temp = head;
     BookingNode *newNode = new BookingNode(newBooking);
 
@@ -164,9 +158,7 @@ public:
     temp->next = newNode;
   }
 
-  void insertMiddle3COD(
-      BookingNode newBooking,
-      string sKey) { // Insert the node before the node with specific value
+  void insertMiddle3COD(BookingNode newBooking, string sKey) { 
     BookingNode *temp = head, *prev;
     BookingNode *newNode = new BookingNode(newBooking);
 
@@ -192,9 +184,7 @@ public:
     prev->next = newNode;
   }
 
-  void insertMiddle2RN(
-      BookingNode newBooking,
-      int sKey) { // Insert the node after the node with specific value
+  void insertMiddle2RN(BookingNode newBooking, int sKey) { 
     BookingNode *temp = head;
     BookingNode *newNode = new BookingNode(newBooking);
 
@@ -211,15 +201,15 @@ public:
       cout << "Sorry, Room Number not found. Cannot insert new booking after "
               "the Room Number."
            << endl;
+      delete newNode;
+      return;
     }
 
     newNode->next = temp->next;
     temp->next = newNode;
   }
 
-  void insertMiddle3RN(
-      BookingNode newBooking,
-      int sKey) { // Insert the node before the node with specific value
+  void insertMiddle3RN(BookingNode newBooking, int sKey) { 
     BookingNode *temp = head, *prev;
     BookingNode *newNode = new BookingNode(newBooking);
 
@@ -233,7 +223,7 @@ public:
       temp = temp->next;
     }
 
-    if (!keyFound || prev == nullptr) {
+    if (!keyFound) {
       cout << "Sorry, Room Number not found. Cannot insert new booking before "
               "the Room Number."
            << endl;
@@ -249,7 +239,7 @@ public:
     BookingNode *temp = head;
     BookingNode *newNode = new BookingNode(newBooking);
 
-    if (head == NULL) {
+    if (isEmpty()) {
       head = newNode;
       return;
     }
@@ -334,15 +324,6 @@ public:
     cout << "------------------------------------------------------------------"
             "------------------"
          << endl;
-  }
-
-  BookingNode *insertSortedFront(string checkIn, string checkOut, int room,
-                           string type, string id, double total) {
-    BookingNode *newNode =
-        new BookingNode(checkIn, checkOut, room, type, id, total);
-    newNode->next = head;
-    head = newNode;
-    return head;
   }
 
   BookingNode *merge(BookingNode *a, BookingNode *b) {
@@ -484,8 +465,7 @@ void insertMenu(List &bookingList) {
     cin >> totalPrice;
   }
 
-  BookingNode newbooking(checkInDate, checkOutDate, roomNo, roomType, ic,
-                         totalPrice);
+  BookingNode newbooking(checkInDate, checkOutDate, roomNo, roomType, ic, totalPrice);
   switch (option) {
   case 1:
     bookingList.insertFront(newbooking);

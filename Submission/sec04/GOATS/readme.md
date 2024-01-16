@@ -16,7 +16,7 @@ Hospital Management System efficiently handles doctor and patient records. Users
 ## Findings 📊
 
 - [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/GOATS/Assignment1)
-- Assignment 2
+- [Assignment 2](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/GOATS/Assignment2)
 - Project
 
 ## Contribution 🛠️

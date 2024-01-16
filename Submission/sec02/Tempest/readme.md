@@ -26,7 +26,7 @@ The task management system is designed and created to help the user to manage al
 
 - [Assignment 1](./assignment1/assignment1.md)
 - [Assignment 2](./assignment2/assignment2.md)
-- Project
+- [Project](./Project/project.md)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
