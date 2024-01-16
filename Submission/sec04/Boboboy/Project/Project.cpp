@@ -84,3 +84,25 @@ class Order{
 			price = p;
 		}
 };
+
+class Cart{
+	Order *head;
+	public:
+		Cart(){
+			head = NULL;
+		}
+		
+		bool CartEmpty(){
+			return head == NULL;
+		}
+		
+		void insert(Order *newNode,int w){
+			if(w == 1){
+				if(CartEmpty()){
+					head = newNode;
+				}
+				else{
+					newNode ->next = head;
+					head = newNode;
+				}
+			}//insert the number in front
