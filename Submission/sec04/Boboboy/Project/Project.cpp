@@ -715,3 +715,10 @@ int main(){
 				case 2 : b.display_order_list(); system("pause"); break;
                 case 3 : q.deQueue(); system("pause"); break;
 				case 4 : report(q); system("pause"); break;
+				case 5 : status_admin = false; break;
+				case 6 : cout << "System closed" << endl; return 0;
+			} 
+		}
+	}
+}
+}
