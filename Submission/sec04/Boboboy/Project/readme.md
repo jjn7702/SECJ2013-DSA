@@ -35,7 +35,7 @@ In our system, the queue is used to display the food order based on the order nu
 
 
 ## Class Diagram
-![1](Submission/sec04/Boboboy/Project/Images/class diagram project.jpeg)
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Project/Images/class%20diagram%20project.jpeg)
 
 ## Flowchart 
 
