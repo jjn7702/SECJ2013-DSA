@@ -17,7 +17,6 @@
 
 
 ## Flow Chart 📑
-![](../Image/itsthesameyearanyways.jpg)
 
 ## Queue
 
