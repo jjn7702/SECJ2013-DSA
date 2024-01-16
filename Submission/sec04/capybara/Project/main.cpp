@@ -165,19 +165,25 @@ public:
         return passengerID;
     }
 
-    void popCheckIn() //! ubah guna string
+    string popCheckIn() //! ubah guna string
     {
+        string passengerID;
+
         if (isEmpty())
         {
-            cout << "Stack is empty. No check-in data to pop." << endl;
+            cout << "Stack is empty. No baggage to pop." << endl;
         }
         else
         {
+
             Stack *temp = top;
+            passengerID = top->getPassangerID();
             top = temp->next;
             temp->next = NULL;
             delete temp;
         }
+
+        return passengerID;
     }
 
     void displayStackBaggage()
@@ -532,6 +538,30 @@ void getBaggageData(StackList &BS)
     inputFile.close();
 }
 
+void getCheckInData(StackList &CI)
+{
+
+    ifstream inputFile("data/checkin.csv");
+    string checkIn;
+
+    getline(inputFile, checkIn);
+
+    while (getline(inputFile, checkIn))
+    {
+        string passengerID, flightNumber, seatNumber, dateFlight, timeFlight;
+        stringstream ss(checkIn);
+
+        getline(ss, passengerID, ',');
+        getline(ss, flightNumber, ',');
+        getline(ss, seatNumber, ',');
+        getline(ss, dateFlight, ',');
+        getline(ss, timeFlight, ',');
+
+        CI.pushCheckIn(passengerID, flightNumber, seatNumber, dateFlight, timeFlight);
+    }
+    inputFile.close();
+}
+
 void deleteBaggage(string &ID)
 {
     ifstream inputFile("data/baggage.csv");
@@ -567,15 +597,44 @@ void deleteBaggage(string &ID)
     rename("data/temp.csv", "data/baggage.csv");
 }
 
+void deleteCheckIn(string &ID)
+{
+    ifstream inputFile("data/checkin.csv");
+    ofstream tempfile("data/temp.csv");
+
+    string line;
+    getline(inputFile, line);
+
+    tempfile << line << endl;
+
+    while (getline(inputFile, line))
+    {
+        stringstream ss(line);
+        string passengerID, flightNumber, seatNumber, dateFlight, timeFlight;
+
+        getline(ss, passengerID, ',');
+        getline(ss, flightNumber, ',');
+        getline(ss, seatNumber, ',');
+        getline(ss, dateFlight, ',');
+        getline(ss, timeFlight, ',');
+
+        if (passengerID != ID)
+        {
+            tempfile << line << endl;
+        }
+    }
+
+    inputFile.close();
+    tempfile.close();
+
+    remove("data/checkin.csv");
+    rename("data/temp.csv", "data/checkin.csv");
+}
+
 int main()
 {
     string deletepassengerID;
 
-    //! Output Stack
-    StackList checkIn;
-    newCheckIn(checkIn);
-
-    // //! Display Baggage Stack
     StackList BS;
     getBaggageData(BS);
 
@@ -588,6 +647,20 @@ int main()
     deleteBaggage(deletepassengerID);
 
     BS.displayStackBaggage();
+
+    // //! Display CheckIn Stack
+    StackList checkIn;
+    getCheckInData(checkIn);
+
+    cout << "Output after push" << endl;
+    checkIn.displayStackCheckIn();
+
+    cout << "Output after pop" << endl;
+    deletepassengerID = checkIn.popCheckIn();
+
+    deleteCheckIn(deletepassengerID);
+
+    checkIn.displayStackCheckIn();
 
     // //! Output Queue
     // Flight flightInfo("Example Airline", "New York", "10:00");
