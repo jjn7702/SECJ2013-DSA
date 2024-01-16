@@ -2,7 +2,7 @@
 ## CONTENTS
 - [Problem Analysis](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/project_report.md#problem-analysis-%EF%B8%8F)
 - [Project Designs](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/project_report.md#project-designs-%EF%B8%8F)
-- Data Structure Concept Implementation
+- [Data Structure Concept Implementation](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/project_report.md#data-structure-concept-implementation)
 - [Source Code](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/PAS/Project/files/source%20code)
 - [User Manual/Guides](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/project_report.md#user-manual-)
 
@@ -91,6 +91,72 @@ allowing books borrowing via queue operations. Each step of the operation is cru
 in order to produce the correct output efficiently.
 
 ## DATA STRUCTURE CONCEPT IMPLEMENTATION
+In this project, we implemented 2 different data structures learnt in the 
+Data Structure and Algorithm course throughout this semester which are 
+stack and queue. The Library Management System is designed to manage and 
+view the library’s books that have attributes of book identification, 
+title, author’s name, genre and year of publication. Stack data structure 
+is implemented in this system to store book information that is read from 
+an input file, to store the book information entered by the user and to get 
+the details of the most recently added book. On the other hand, Queue data 
+structure is implemented to store all the customer’s name that are 
+borrowing books from the library, to store the customer’s name that are 
+waiting to borrow books that are currently unavailable, to remove the name 
+of the borrower that has returned the borrowed book and lastly to remove 
+the name of the customer that queued for a book that is previously 
+unavailable and enter the customer’s name and the details of the borrowed 
+book into the ‘borrower’ queue.
+
+### DATA STRUCTURE: STACK
+Book information is stored in a stack. For the implementation of stack, 2 
+classes are written in the code which are class Node and class Stack. In 
+this project, the program reads the book details from an input file named 
+‘inp.txt’. After reading each book’s details the system will then push the 
+book information into the stack by using push() function to store them in 
+the stack. Other than reading book information from the input file, our 
+program accepts user input to add new books into the system. The user can 
+enter the book's details such as the book id, title, author, genre, and 
+year of publication. Once the information is entered, it will be pushed 
+into the stack. Switch case is implemented in our program where the switch 
+expression is the user's option from an option menu as shown in the diagram 
+below.
+
+![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/QUEUE%20IMAGE.png)
+
+When the user enters option 1, the system will ask for the book’s details 
+to be pushed into the stack as explained above. Next, pop() function is 
+used to delete the latest book in the stack. When the user chooses the 
+second option in the option menu,  the switch case in the main() function 
+will call the pop() function in class Stack to delete the latest book in 
+the stack. Other than that,  The stackTop() function returns the id of the 
+book at the top of the stack. When the user picks option 4 from the menu, 
+the program uses the stackTop() function from class Stack to get the book 
+information stored at the top of the stack. This can be clearly shown by 
+the code segment below. 
+
+GAMBAR 2
+
+### DATA STRUCTURE: QUEUE 
+
+For the implementation of queue data structure, we implemented class Queue 
+and 2 objects for the class queue are implemented in the main() function, 
+one named ‘borrow’ and another named ‘request’. The ‘borrow’ queue is used 
+to store the borrower’s name into the queue. When the user chooses option 
+number 6, the system will ask for the name of the borrower and the book id 
+of the book to be borrowed. Based on the book id, if the book is available, 
+the customer will get to borrow the book and the customer's  name is put 
+into the ‘borrow’ queue using the enQueue() function that is called in the 
+main() function from the class Queue. On the other hand, if the book is not 
+available,  by using the enQueue() function, the customer name is put into 
+the ‘request’ queue. When user enters option number 7, the first borrowed 
+book in the ‘borrow’ queue is returned to the returnedBook object of class 
+Node using the getBook() function from the class queue. Then, deQueue() 
+function is implemented in the main() function to delete the book that has 
+been returned from the ‘borrow’ queue. If there are people requesting for 
+the recently returned book in the ‘request’ queue, the book returned will 
+automatically be given to the first person in the ‘request’ queue. This can 
+be clearly shown in the output diagram below.
+
 
 ## SOURCE CODE 🧩
 [Main.cpp & inp.txt](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/PAS/Project/files/source%20code)
