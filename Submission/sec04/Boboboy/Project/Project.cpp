@@ -644,3 +644,21 @@ int main(){
 		a[i].setprice(menu_price);
 		i++;
 	}
+	while(true){
+	do{
+		system("CLS");
+		cout << "Login your character " << endl;
+		cout << "1. Customer" << endl;
+		cout << "2. Kitchen" << endl;
+		cout << "Option: ";
+		cin >> option;
+	}while(option != 1 && option != 2);
+	int choose;
+	bool status = true;
+	if(option == 1){
+	while(status){
+		system("CLS");
+		cout << "************ Welcome to BOBOBOY Restaurant's Ordering System ************" << endl << endl;
+		cout << "--------------------------------------------------------------" << endl;
+		cout << "Code" << setw(18) << "Name" << setw(20) << "Type" << setw(20) << "Price(RM)" << endl;
+		cout << "--------------------------------------------------------------" << endl;
