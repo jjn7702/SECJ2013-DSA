@@ -89,3 +89,104 @@ achieve the desired outputs. The software application carries out different
 operations such as inserting or removing books into a stack in the library, and
 allowing books borrowing via queue operations. Each step of the operation is crucial
 in order to produce the correct output efficiently.
+
+## DATA STRUCTURE CONCEPT IMPLEMENTATION
+
+## SOURCE CODE 🧩
+[Main.cpp & inp.txt](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/PAS/Project/files/source%20code)
+
+## USER MANUAL 🕹
+### Enter a new book
+    Your Option: 1
+    -----Insert Book Details-----
+    ID: B011
+    Book Title: When Breath Becomes Air
+    Book Author: Paul Kalanithi
+    Year: 2016
+    Genre: Non-Fiction
+Example Output:
+
+![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/o1.PNG)
+
+### Undo/Remove the latest book
+    Your Option: 2
+Example Output:
+
+![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/o2.PNG)
+
+### Get Current Number of books
+    Your Option: 3
+Example Output:
+
+![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/o3.PNG)
+
+### Get most recently added book
+    Your Option: 4
+Example Output:
+
+![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/o4.PNG)
+
+### Display current list of books
+    Your Option: 5
+Example Output:
+
+![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/o5.PNG)
+
+### Borrow Book
+    Your Option: 6
+#### If the book is available to borrow
+
+    Enter the name of borrower: Seri
+    Enter the ID of the book to borrow: B009
+
+Example Output:
+
+![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/o6a.PNG)
+
+#### If the book is already borrowed by someone else
+    Enter the name of borrower: Puteri
+    Enter the ID of the book to borrow: B009
+
+Example Output:
+
+![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/o6b.PNG)
+
+### Return Book
+    Your Option: 7
+#### If there is the next person in request queue that wants to borrow the returned book
+Example situation: Seri returned book B009 and Puteri is in the request queue to borrow book B009
+
+Example Output:
+
+![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/o7a.PNG)
+
+#### If there is no person in the request queue that wants to borrow the returned book
+Example situation: Puteri returned book B009 but no one in the request queue wants to borrow book B009.
+
+Example Output:
+
+![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/o7b.PNG)
+
+#### If the request to borrow books queue is empty
+Example situation: Aliyah returned book B002 but the request queue is empty.
+
+Example Output:
+
+![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/o7c.PNG)
+
+### Display all request to borrow book
+    Your Option: 8
+#### If empty
+Example Output:
+
+![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/o8a.PNG)
+
+#### If not empty
+Example Output:
+
+![image](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/PAS/Project/files/images/o8b.PNG)
+
+### Exit
+    Your Option: 9
+
+The program will terminate.
