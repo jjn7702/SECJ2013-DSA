@@ -352,3 +352,27 @@ class Cart{
         } while (swapped);
     }
     }
+        void swap(Order *a, Order *b) {
+        string temp_code = a->getcode();
+        string temp_name = a->getname();
+        string temp_foodtype = a->getfoodtype();
+        float temp_price = a->getprice();
+
+        a->setcode(b->getcode());
+        a->setname(b->getname());
+        a->settype(b->getfoodtype());
+        a->setprice(b->getprice());
+
+        b->setcode(temp_code);
+        b->setname(temp_name);
+        b->settype(temp_foodtype);
+        b->setprice(temp_price);
+    }
+    
+        void clearCart(){
+    	    while(head != NULL){
+    		    Order * temp = head;
+    		    head = head->next;
+    		    delete temp;
+		    }
+	    }
