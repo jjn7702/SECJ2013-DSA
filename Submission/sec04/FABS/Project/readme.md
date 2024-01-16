@@ -41,6 +41,10 @@ There are few features in the courier management system which is
   
    Displaying all updated courier information including name, parcel type, source, destination, status and tracking number.
 
+5. Update data courier
+
+   Update the status attributes in couriers from "Pending" to "Approve" and from "Approve" to "In transit".
+
 ## Synopsis <a name="synopsis"></a> ✨
   The courier management system is used to send the parcel to the specific destination and track the current location. We designed the courier system by implementing the Queue method to easily allow the user to insert, delete,change status, search and display the information of the parcel. When the customers submit the parcel details in the system, the details will be stored in the input file (COURIER.TXT). Using a Queue is suitable for a courier management system as it follows the “First In, First Out” (FIFO) principle. The first parcel detail submitted and stored is the first to be processed by the admin and worker.
 
