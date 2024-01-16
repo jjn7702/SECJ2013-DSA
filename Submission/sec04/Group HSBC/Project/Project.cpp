@@ -7,8 +7,64 @@
 using namespace std;
 
 //printTitle() - WS
+void printTitle(){
+    cout<<"----------------------------------------------------------------------------------------------------------------\n"
+        <<"| Refer Number | Account Number | Transaction Date | Transaction Type | Amount(RM) | Transfered Account Number |\n"
+        <<"----------------------------------------------------------------------------------------------------------------\n";
+}
 
 //class UserAcc - WS
+class UserAcc
+{
+    private :
+        string accNum;
+        float balance;
+        int pin;
+        string password;
+
+    public :
+        void set_accNum(string acc)
+        {
+            accNum = acc;
+        }
+
+        void set_balance(float b)
+        {
+            balance = b;
+        }
+
+        void set_pin(int p)
+        {
+            pin = p;
+        }
+
+        void set_password(string pw)
+        {
+            password = pw;
+        }
+
+        float get_balance()
+        {
+            return balance;
+        }
+
+        string get_accNum()
+        {
+            return accNum;
+        }
+
+        string get_password()
+        {
+            return password;
+        }
+
+        int get_pin()
+        {
+            return pin;
+        }
+
+
+};
 
 //class Transaction - Hayden
 class Transaction{
@@ -139,9 +195,28 @@ class BinaryTree {
         }
 
         //searchNode() - WS
+        void searchNode(Transaction* node, string& accNum, vector<Transaction*>& result){
+            if(node == NULL){
+                return;
+            }
+            
+            if(node->account_number == accNum){
+                result.push_back(node);
+            }
+
+            searchNode(node->left, accNum, result);
+            searchNode(node->right, accNum, result);
+        }
         
 
         //displayInOrder() - WS
+        void displayInOrder(Transaction* node){
+            if(node != NULL) {
+                displayInOrder(node->left);
+                node->printDetails();
+                displayInOrder(node->right);
+            }
+        }
         
 
         //update() - CS
@@ -181,9 +256,30 @@ class BinaryTree {
         }
 
         //searchAccount() - WS
+        void searchAccount(string accNum){
+            vector<Transaction*> result;
+            searchNode(root, accNum, result);
+            printTitle();
+
+            if(!result.empty())
+            {
+                cout << "Found Account with number " << accNum << ":\n";
+
+                for(const auto& node : result){
+                    node->printDetails();
+                }
+            }
+            else{
+                cout << "No Account found with number " << accNum << "\n";
+            }
+        }
         
 
         //displayAccount() - WS
+        void displayAccount(){
+            printTitle();
+            displayInOrder(root);
+        }
         
 
         //transactionFile_update() - CS
@@ -255,6 +351,25 @@ int read_Userdata(UserAcc acc[], string filename)
 }
 
 //menuUser() - WS
+int menuUser(){
+    int choice = -1;
+
+    do{
+        cout << "Menu:\n1. Make a new transaction."
+             << "\n2. View Current Balance"
+             << "\n3. Display Transaction History."
+             << "\n4. Exit the program."
+             << "\nEnter your choice: ";
+        cin >> choice;
+        system("cls");
+
+        if(choice<1 || choice>5)
+            cout << "Invalid choice. Please enter a number between 1 and 4.\n";
+
+    }while(choice<1 || choice>5);
+
+    return choice;
+}
 
 //menuStaff() - Hayden
 int menuStaff()
@@ -280,6 +395,61 @@ int menuStaff()
 }
 
 //calculate_add - WS
+void calculate_add(int type, UserAcc account[], double amt, string targetAcc, int mainAcc, int arraySize)
+{
+    if(type == 1)
+    {
+        account[mainAcc].set_balance(account[mainAcc].get_balance() + amt);
+    }
+    else if(type == 2)
+    {
+        double total = account[mainAcc].get_balance() - amt;
+
+        if(total >= 0)
+        {
+            account[mainAcc].set_balance(total);
+        }
+        else
+        {
+            cout << "No enough balance" << endl;
+            return;
+        }
+    }
+    else
+    {
+        double total = account[mainAcc].get_balance() - amt;
+
+        if(total >= 0)
+        {
+            int i = 0;
+            bool find = 0;
+            for(i = 0; i < arraySize; i++)
+            {
+                if(account[i].get_accNum() == targetAcc)
+                {
+                    find = 1;
+                    break;
+                }
+            }
+
+            if(find == 0)
+            {
+                cout << "Invalid Account to Transfer" << endl;
+                return;
+            }
+            else
+            {
+                account[mainAcc].set_balance(total);
+                account[i].set_balance(account[i].get_balance() + amt);
+            }
+        }
+        else
+        {
+            cout << "No enough balance" << endl;
+            return;
+        }
+    }
+}
 
 //calculate_del - Hayden
 void calculate_del(Transaction trans[], UserAcc account[], int ref, int count, int n)
