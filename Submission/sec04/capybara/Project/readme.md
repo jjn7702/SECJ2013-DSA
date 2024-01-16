@@ -3,7 +3,7 @@
 ## Table of Content
 - [Project Overview](#project-overview)
 - [Pseudocode](#pseudocode-)
-- [Flow Chart](#flow-chart)
+- [Flow Chart](#flow-chart-)
 - [UML](#uml-diagram)
 - [Data Structure and Code Implementation](#data-structure-and-code-implementation)
 
