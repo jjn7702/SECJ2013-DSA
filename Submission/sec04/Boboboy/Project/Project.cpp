@@ -199,3 +199,31 @@ class Cart{
 			}
 			 cout << endl;
 		}
+        void displayReceipt(int order_num){
+			fstream outfile("Receipt.txt",ios :: out);
+			Order *temp;
+			temp = head;
+			float totalprice;
+			if(temp == NULL){
+				outfile << "Cart is empty" << endl;
+				cout << "Cart is empty" << endl;
+			}
+			outfile << "Your Order Number is: " << order_num << endl;
+			outfile << "********************** Receipt *******************************" << endl << endl;
+			outfile << "--------------------------------------------------------------" << endl;
+			outfile << "Code" << setw(18) << "Name" << setw(20) << "Type" << setw(20) << "Price(RM)" << endl;
+			outfile << "--------------------------------------------------------------" << endl;
+			cout << "********************** Receipt *******************************" << endl << endl;
+			cout << "--------------------------------------------------------------" << endl;
+			cout << "Code" << setw(18) << "Name" << setw(20) << "Type" << setw(20) << "Price(RM)" << endl;
+			cout << "--------------------------------------------------------------" << endl;
+			while(temp){
+				cout << temp->getcode() << setw(20) << temp->getname() << setw(20) << temp->getfoodtype() << setw(20) << temp->getprice() << endl;
+				outfile << temp->getcode() << setw(20) << temp->getname() << setw(20) << temp->getfoodtype() << setw(20) << temp->getprice() << endl;
+				totalprice += temp->getprice();
+				temp = temp -> next;
+			}
+			outfile << "The Total Price is " << setw(43) << totalprice << endl;
+			 cout << endl;
+			 outfile << endl;
+		}
