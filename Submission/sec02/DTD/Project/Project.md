@@ -9,8 +9,8 @@ _Don't forget to hit the :star: if you like this repo._
 
 # Library Management System - Project
 ## Objective
-The primary objective of this program is to create an efficient library management system utilizing a linked list data structure. The system aims to provide essential functionalities such as adding, finding, deleting, sorting, and displaying books within the library.
-.
+The primary objective of this program is to create an efficient library management system utilizing a stack and queue concept in data structure. The system aims to provide essential functionalities such as adding(enqueue), , deleting(dequeue), stack, and displaying books within the library.
+
 
 ## Sypnosis 📝
 The program utilizes a linked list to store information about books. Each book is represented by an instance of the Book class. The linked list is implemented using the Node and Library classes. The Library class provides methods to perform various operations on the linked list, such as adding, deleting, finding, sorting, and displaying books. The main function interacts with the user through a menu, allowing them to manage the library efficiently.
