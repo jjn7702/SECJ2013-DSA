@@ -86,7 +86,7 @@ class queueOrder{
             return ((front == NULL) && (back == NULL));
         }
 
-        void enQueue(Menu menu){
+        void enQueue(Order order){
             NodeQueue *newOrder = new NodeQueue(order);
 
             if (isEmpty()){
@@ -98,18 +98,45 @@ class queueOrder{
             }
         }
 
-        void printOrder(){
-            //perlukan ke? 
+        void deQueue(){
+        NodeQueue *delOrder = front;
+        if(isEmpty())
+            cout << "There is no other order pending\n";
+        else{
+            if(front != back){
+            front = front->next;
+            delOrder->next = NULL; 
+            delete delOrder;
+                }
+            else{
+                front = NULL;
+                back = NULL;
+                }
+            }
+        }
+
+        void printOrder() {
             if (isEmpty()) {
                 cout << "There is no other order pending\n";
             } else {
                 NodeQueue *temp = front;
 
-                while (temp) {
-                    cout << temp->getTableNum() << " ";
-                    temp = temp->next;
-                }
-            }
+            while (temp) {
+                Order currentOrder = temp->getOrder();
+                Menu currentMenu = currentOrder.getMenu();
+
+                cout << "Menu: ";
+                currentMenu.displayMenu();
+                cout << "Pax: " << currentOrder.getPax() << " | ";
+                cout << "Table Number: " << currentOrder.getTableNum() << " | ";
+                cout << "Quantity: " << currentOrder.getQuantity() << "\n";
+
+                temp = temp->next;
         }
+    }
+}
+
+
+
 
 };
