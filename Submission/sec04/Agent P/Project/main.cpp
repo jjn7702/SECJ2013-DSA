@@ -1359,3 +1359,54 @@ int main()
                 break;
     	case 2 : if(count==1)
 				 	l2 = l.Voterlogin();
+                    cout<<"[1] Vote \n[2] View profile \n[3] Search for candidate\n [4] Exit\n";
+    			 cout<<"Please choose an option : ";
+    			 cin>>opt6;
+    			 system("CLS");
+    			 break;
+    	case 3 : 
+    			 if(count==1)
+					c2 = c.CandLogin();
+				 cout<<"[1] View Profile\n[2] View Candidate\n[3] Withdraw\n[4] Exit\n";
+                 cout<<"Option : ";
+                 cin>>opt9;
+                 switch(opt9){
+                        case 1  :   c.displayProfile(c2);
+                                    break;
+                        case 2  :   c.display();
+                                    break;
+                        case 3  :   c.delsearch(c2);
+                                    break;
+                        default : exit(0);
+                    }
+	}
+	
+	int key2,opt7;
+	string key3;
+	
+	switch(opt6)
+	{
+		case 1 : 
+				 if(l2->getVoteStatus()=="null")
+				 {
+				 	 c.facAsc();
+					 cout<<"\nPlease choose 3 candidates : ";
+					 cout<<"\nChoice 1 : ";
+					 cin>>voteC[0];
+					 do
+					 {
+					 	cout<<"\nChoice 2 : ";
+					 	cin>>voteC[1];
+					 }while(voteC[0]==voteC[1]);
+					 do
+					 {
+					 	cout<<"\nChoice 3 : ";
+					 	cin>>voteC[2];
+					 }while((voteC[0]==voteC[1])||(voteC[1]==voteC[2])||(voteC[2]==voteC[0]));
+					 
+					 l.voteStat(l2);
+					 c.voteCand(voteC);
+				 }
+				 else
+				 	cout<<"\nYou have already voted!"<<endl;
+				 break;
