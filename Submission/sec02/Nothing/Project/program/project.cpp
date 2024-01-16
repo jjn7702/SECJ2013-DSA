@@ -34,3 +34,28 @@ class goods{
             return itemLocation;
         }
 };
+
+class itemNodeQueue{
+    public:
+        goods item;
+        itemNodeQueue *next;
+        itemNodeQueue *prev;
+}
+
+class itemQueue{
+    public:
+        itemNodeQueue *front;
+        itemNodeQueue *rear;
+
+        void createQueue(){
+            front = NULL;
+            rear = NULL;
+            size = 0;
+        }
+
+        bool isEmpty(){
+            if(front == NULL)
+                return true;
+            else
+                return false;
+        }
