@@ -654,5 +654,33 @@ class CandidateList
             cout<<"The candidate is registered successfully!"<<endl;
 		}
 
+        void deleteFront()
+        {
+            if(isEmpty())
+                cout<<"The list is empty!"<<endl;
+            else{
+                Candidate *temp = Chead;
+                Chead = temp->next;
+                temp->next = NULL;
+            }
+        }
+
+        void deleteEnd()
+        {
+            if(isEmpty())
+                cout<<"The list is empty!"<<endl;
+            else{
+                Candidate *temp = Chead,*temp2;
+                while(temp->next != NULL){
+                    temp2 = temp;
+                    temp = temp->next;
+                }
+
+                temp2->next = NULL;
+                delete temp;
+                
+            }
+        }
+
 	
 };
