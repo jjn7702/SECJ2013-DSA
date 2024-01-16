@@ -562,3 +562,23 @@ Cart deleteorder(Cart b){
 		}while(pop == 'Y');
 		return b;
 }
+
+void Search_item_in_Cart(Cart b){
+	int item_search;
+	string target;
+	Order *foundo;
+	char status;
+	do{
+		cout << "Seacrh the Cart by using:" << endl;
+		cout << "1. Code" << endl;
+		cout << "2. Name" << endl;
+		cout << "Choice: ";
+		cin >> item_search;
+		if(item_search == 1){
+			cout << "Enter the code:";
+			cin >> target;			
+			for(char &t : target){
+			t = toupper(t);
+			}
+			foundo = b.find(target,item_search);  
+		}
