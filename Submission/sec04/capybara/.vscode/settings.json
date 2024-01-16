@@ -6,6 +6,7 @@
         "vector": "cpp",
         "new": "cpp",
         "iosfwd": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "iomanip": "cpp"
     }
 }

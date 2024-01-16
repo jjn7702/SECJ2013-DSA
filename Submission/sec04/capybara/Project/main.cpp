@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -35,7 +36,9 @@ public:
         {
             cout << "There are no reservations made\n";
         };
-        cout << "The primary booker is " << front->user_info << " with the baggage of " << front->baggage_info << endl
+
+        cout << endl;
+        cout << setw(35) << "The primary booker is " << front->user_info << " with the baggage of " << front->baggage_info << endl
              << endl;
     }
 
@@ -69,10 +72,10 @@ public:
             ReservationNode *temp = front;
             front = front->next;
             cout << endl;
-            cout << "Removed Ticket " << temp->user_info << " together with " << temp->baggage_info << " kg of baggage";
+            cout << setw(25) << "Removed Ticket " << temp->user_info << " together with " << temp->baggage_info << " kg of baggage";
             cout << endl;
             delete temp;
-            cout << "Reservation removed successfully." << endl;
+            cout << setw(55) << "Reservation removed successfully." << endl;
         }
     }
 
@@ -85,11 +88,12 @@ public:
         else
         {
             ReservationNode *current = front;
-            cout << "\nDestination: " << current->destination_info << endl;
+            cout << endl;
+            cout << setw(39) << "Destination: " << current->destination_info << endl;
 
             while (current != nullptr)
             {
-                cout << "Name: " << current->user_info << ", Baggage Info: " << current->baggage_info << endl;
+                cout << setw(25) << "Name: " << current->user_info << " || Baggage Info: " << current->baggage_info << endl;
                 current = current->next;
             }
 
@@ -119,7 +123,8 @@ void writeToFile(ReservationQueue &reservationQueue)
 
     outFile.close();
 
-    cout << "Data has been updated" << endl
+    cout << setw(56) << "/        Data has been updated      /" << endl;
+    cout << setw(56) << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl
          << endl;
 }
 
@@ -134,61 +139,102 @@ int main()
 {
     ReservationQueue reservationQueue;
 
-    cout << "Welcome to Capybara Airport" << endl;
-    cout << "Where do you wanna go?" << endl
+    cout << setw(40) << "                                               _" << endl;
+    cout << setw(40) << "                 ___                          (_)" << endl;
+    cout << setw(20) << "               _/XXX\\" << endl;
+    cout << setw(40) << "_             /XXXXXX\\_                                    __" << endl;
+    cout << setw(40) << "X\\__    __   /X XXXX XX\\                          _       /XX\\__      ___" << endl;
+    cout << setw(40) << "    \\__/  \\_/__       \\ \\                       _/X\\__   /XX XXX\\____/XXX\\" << endl;
+    cout << setw(40) << "  \\  ___   \\/  \\_      \\ \\               __   _/      \\_/  _/  -   __  -  \\" << endl;
+    cout << setw(40) << " ___/   \\__/   \\ \\__     \\__           /  \\_//  _ _ \\  \\     __  /  \\____/" << endl;
+    cout << setw(40) << "/  __    \\  /     \\ \\_   _//_\\___    __/    //           \\___/  \\/     __/" << endl;
+    cout << setw(40) << "__/_______\\________\\__\\_/________\\__/_/____/_____________/_______\\____/____" << endl;
+    cout << setw(32) << "                                  ___" << endl;
+    cout << setw(36) << "                                 /L|0\\" << endl;
+    cout << setw(38) << "                                /  |  \\" << endl;
+    cout << setw(40) << "                               /       \\" << endl;
+    cout << setw(40) << "                              /    |    \\" << endl;
+    cout << setw(40) << "                             /           \\" << endl;
+    cout << setw(40) << "                            /  __  | __   \\" << endl;
+    cout << setw(40) << "                           /  __/    \\__   \\" << endl;
+    cout << setw(40) << "                          /  /__   |  __\\   \\" << endl;
+    cout << setw(40) << "                         /___________________\\" << endl;
+    cout << setw(40) << "                         /          |         \\" << endl;
+    cout << setw(40) << "                              /   _|_   \\" << endl;
+    cout << setw(40) << "                      /      ____/___\\____     \\" << endl;
+    cout << setw(40) << "                      ___________[o0o]___________" << endl;
+    cout << setw(40) << "                               O   O   O" << endl;
+
+    cout << endl;
+    cout << setw(60) << "Welcome to Capybara International Airport (CiA)" << endl;
+    cout << setw(46) << "Where do you wanna go?" << endl
          << endl;
 
     const int numDestinations = 5;
     string destinations[numDestinations] = {"New York", "Paris", "Tokyo", "London", "Sydney"};
 
-    cout << "Destinations:" << endl;
+    cout << setw(42) << "Destinations:" << endl;
     for (int i = 0; i < numDestinations; ++i)
     {
-        cout << i + 1 << ". " << destinations[i] << endl;
+        cout << setw(30) << i + 1 << ". " << destinations[i] << endl;
     }
 
     cout << endl;
 
     int selectedDestination;
-    cout << "Enter the number of your destination: ";
+
+    cout << setw(58) << "________________________________________" << endl;
+    cout << setw(59) << "| Enter the number of your destination: |" << endl;
+    cout << setw(59) << "|_______________________________________|" << endl;
+
+    cout << endl;
+    cout << setw(39) << "Option: ";
+
     cin >> selectedDestination;
+    cout << endl;
 
     if (selectedDestination >= 1 && selectedDestination <= numDestinations)
     {
-        cout << "\nYou selected: " << destinations[selectedDestination - 1] << endl
+        cout << setw(39) << "You selected: " << destinations[selectedDestination - 1] << endl;
+        cout << setw(30) << "         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl
              << endl;
 
         string user_info;
         double baggage_weight;
         int numPassengers = 0;
 
-        cout << "How many passengers are there?: ";
+        cout << setw(53) << "How many passengers are there?: ";
         cin >> numPassengers;
         cout << endl;
 
         for (int i = 1; i <= numPassengers; i++)
         {
-            cout << "Enter passenger " << i << " name: ";
+            cout << setw(39) << "Enter passenger " << i << " name: ";
             cin.ignore();
             getline(cin, user_info);
 
-            cout << "Enter baggage weight (in kg): ";
+            cout << setw(53) << "Enter baggage weight (in kg): ";
             cin >> baggage_weight;
             cout << endl;
             reservationQueue.enqueue(user_info, to_string(baggage_weight), destinations[selectedDestination]);
         };
-        cout << "Reservation added successfully." << endl;
+
+        cout << setw(56) << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+        cout << setw(56) << "/   Reservation added successfully  /" << endl;
+
         writeToFile(reservationQueue);
 
-        cout
-            << "Menu" << endl;
-        cout << "[1] Review All Ticket" << endl;
-        cout << "[2] Cancel Ticket" << endl;
-        cout << "[3] Show Primary Booker" << endl;
-        cout << "[4] Exit" << endl;
+        cout << setw(55) << "_____________________________________" << endl;
+        cout << setw(56) << "|      Menu                           |" << endl;
+        cout << setw(56) << "|      [1] Review All Ticket          |" << endl;
+        cout << setw(56) << "|      [2] Cancel Ticket              |" << endl;
+        cout << setw(56) << "|      [3] Show Primary Booker        |" << endl;
+        cout << setw(56) << "|      [4] Exit                       |" << endl;
+        cout << setw(56) << "|_____________________________________|" << endl
+             << endl;
 
         int selection;
-        cout << "\nSelection?: ";
+        cout << setw(39) << "Selection?: ";
         cin >> selection;
 
         do
@@ -214,13 +260,16 @@ int main()
                 return 1;
             };
 
-            cout << "\nMenu" << endl;
-            cout << "[1] Review All Ticket" << endl;
-            cout << "[2] Cancel Ticket" << endl;
-            cout << "[3] Show Primary Booker" << endl;
-            cout << "[4] Exit" << endl;
+            cout << setw(55) << "_____________________________________" << endl;
+            cout << setw(56) << "|      Menu                           |" << endl;
+            cout << setw(56) << "|      [1] Review All Ticket          |" << endl;
+            cout << setw(56) << "|      [2] Cancel Ticket              |" << endl;
+            cout << setw(56) << "|      [3] Show Primary Booker        |" << endl;
+            cout << setw(56) << "|      [4] Exit                       |" << endl;
+            cout << setw(56) << "|_____________________________________|" << endl
+                 << endl;
 
-            cout << "\nSelection: ";
+            cout << setw(39) << "Selection: ";
             cin >> selection;
 
         } while (selection >= 1 && selection <= 3);

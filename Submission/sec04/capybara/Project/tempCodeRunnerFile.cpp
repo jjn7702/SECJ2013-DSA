@@ -1,5 +1,2 @@
- // if (isEmpty())
-        // {
-        //     cout << "There are no reservations made\n";
-        //     return;
-        // };
+
+        cout << setw(53) << "How many passengers are there?: ";
