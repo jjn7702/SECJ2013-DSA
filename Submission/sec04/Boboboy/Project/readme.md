@@ -103,6 +103,6 @@ focus on the last uncompleted orders in the list
 ## Findings 📊
 
 - [Source code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Project/Project.cpp)
-- [Inputfile]()
+- [Inputfile](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Boboboy/Project/input.txt.txt)
 - [Outputfile]()
 - [Report]()
