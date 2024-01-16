@@ -17,7 +17,7 @@ The objective for this project is to create a fully functional  Election managem
 
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/ac62ef65-848d-41a6-97c2-1ff40be8ecd3" width="3%" height="3%"> Synopsis
-
+Election Management System is a system that will be used during the UTM voting days for the new council members.Admin , Candidate and Voters will be the user for this system.The admin will login and can choose to view the list of candidates or voters , remove the candidate or voters and also can insert candidate.The Admin can choose to view the list of candidates based on sorting of faculty , name , matric and vote count in ascending order.As for inserting candidate , Admin will manually insert the candidates name , faculty , age , matric number , phone number , IC , password , email.The password will be given by the admin to the candidate later for them to login in to the system.To remove candidate , admin will just look at the list and input the row number to remove the row of the candidate’s detail from the list.For candidate , they can view the list of candidates , view their own profile and choose to withdraw from the candidate list.Candidate can just simply choose to view the list of candidates and the system will pop out the list of candidates.Same goes for view profile as well.If the candidate choose to withdraw they can also simply just click to withdraw from the list.For voters , they can register in the voter’s list to be eligible to cast their vote.Voters can also choose to cast their votes for 3 candidates and they can view the list of candidates as well.
 
 
 
