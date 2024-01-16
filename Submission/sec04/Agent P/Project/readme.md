@@ -46,10 +46,17 @@ Election Management System is a system that will be used during the UTM voting d
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/project-management.png"  width="4%" height="4%"> User Guide
 
 ##### 1. Main Menu
+
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20184949.png)
+
 Users will need to choose whether to login as Admin, Voter or Candidate here by entering 1 for admin, 2 for voter and 3 for candidate.
 **Users need to choose either one of the options and will be redirected till the users enter either one of the options. 
 
 ##### 2. Admin
+
+Step 1
+
+https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20185433.png
 
 ##### 3. Voter
 
