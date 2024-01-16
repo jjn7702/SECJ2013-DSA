@@ -110,3 +110,66 @@ class historyStack{
                 return top->item;
         }   
 };
+
+class itemNodeQueue{
+    public:
+        goods item;
+        itemNodeQueue *next;
+        itemNodeQueue *prev;
+};
+
+class itemQueue{
+    public:
+        itemNodeQueue *front;
+        itemNodeQueue *rear;
+        int size;
+
+        void createQueue(){
+            front = NULL;
+            rear = NULL;
+            size = 0;
+        }
+
+        bool isEmpty(){
+            if(front == NULL)
+                return true;
+            else
+                return false;
+        }
+
+        void enqueue(goods item){
+            itemNodeQueue *newNode = new itemNodeQueue;
+            newNode->item = item;
+            newNode->next = NULL;
+            newNode->prev = NULL;
+
+            if(isEmpty()){
+                front = newNode;
+                rear = newNode;
+            }else{
+                newNode->prev = rear;
+                rear->next = newNode;
+                rear = newNode;
+            }
+            size++;
+        }
+
+        void dequeue(){
+            if(isEmpty()){
+                cout << "Queue is empty" << endl;
+            }else{
+                itemNodeQueue *temp = front;
+                front = front->next;
+                front->prev = NULL;
+                delete temp;
+                size--;
+            }
+        }
+
+        goods getItem(){
+            if(isEmpty())
+                cout << "Queue is empty" << endl;
+            else
+                return front->item;
+        }
+};
