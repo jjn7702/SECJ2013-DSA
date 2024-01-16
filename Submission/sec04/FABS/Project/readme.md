@@ -166,8 +166,17 @@ There are few features in the courier management system which is
 ![3](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/Screenshot%202024-01-16%20212006.png)
 
 ## Similarity Report <a name="report"></a> 🔔
+Submission date: 16-Jan-2024 05:18AM (UTC-0800)
 
+Submission ID: 2271861129
 
+File name: PROJECT_DSA.pdf (427.53K)
+
+Word count: 2121
+
+Character count: 10197
+
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/similarity.png)
 
 ## Findings <a name="findings"></a>📊
 
