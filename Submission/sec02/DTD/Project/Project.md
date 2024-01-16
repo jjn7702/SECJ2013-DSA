@@ -42,29 +42,33 @@ The primary objective of this program is to create an efficient library manageme
 
 ### Stack
   1.Stack Implementation
-    a. The “Stack” class implements both push and pop operations to manage the books in the library.
-    b. These two operations are used to add new books to the top of the list of books and remove a book from the top of the list.
-    c. The “Stack” class methods can only be accessed by a Staff.
+  
+   <li>a. The “Stack” class implements both push and pop operations to manage the books in the library.</li> 
+     <li>b. These two operations are used to add new books to the top of the list of books and remove a book from the top of the list. </li>
+    <li>c. The “Stack” class methods can only be accessed by a Staff. </li>
 
 ### Queue
   2.Queue Implementation
-    a. The “Queue” class handles two operations : enqueue and dequeue.
-    b. The enqueue method can only be accessed by the patrons/ users of the Library Management System while the dequeue is accessed by the staff.
-    c. The enqueue is used to add the name of the patron and the title of the book that they want to borrow.
-    d. The dequeue is used by the staff to approve the request of the patron to borrow the book.
+  
+  <li>a. The “Queue” class handles two operations : enqueue and dequeue. </li>
+  <li>b. The enqueue method can only be accessed by the patrons/ users of the Library Management System while the dequeue is accessed by the staff. </li>
+  <li>c. The enqueue is used to add the name of the patron and the title of the book that they want to borrow. </li>
+  <li>d. The dequeue is used by the staff to approve the request of the patron to borrow the book. </li>
 
 
 ## User Guide
 
   1.Staff Operations
-    a. Add New Book (Push) : Staff can add a new book to the top of the list.
-    b. Remove Book (Pop) : Staff can remove the book at the top of the list.
-    c. Display Current List (DisplayStack) : Staff can display the current list of books.
-    d. Approve Borrow Request : Staff can approve the borrow request done by the patrons and this will dequeue the request from the queue.
+  
+  <li>a. Add New Book (Push) : Staff can add a new book to the top of the list. </li>
+  <li>b. Remove Book (Pop) : Staff can remove the book at the top of the list. </li>
+  <li>c. Display Current List (DisplayStack) : Staff can display the current list of books. </li>
+  <li>d. Approve Borrow Request : Staff can approve the borrow request done by the patrons and this will dequeue the request from the queue. </li>
 
   2.Patron Operations
-    a. Request a book (Enqueue) : Patrons will make a request to borrow books from the library.
-    b. Display Current Requests (DisplayQueue) :   Patrons can display the list of requests.
+  
+  <li>a. Request a book (Enqueue) : Patrons will make a request to borrow books from the library. </li>
+  <li>b. Display Current Requests (DisplayQueue) :   Patrons can display the list of requests. </li>
 
 
 ## Prepared by 🧑‍💻
