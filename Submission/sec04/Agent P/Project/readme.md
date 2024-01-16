@@ -42,6 +42,8 @@ Since the voter class used a queue, whenever a new voter registered himself, the
     
 ##### 2. Dequeue
 
+For dequeue, this can only be done by the admin. This is because, in the queue the deleted item will be the first item in the queue. So voters can’t delete themselves from the queue. The admin can also specify how many voters to delete at the same time since all the old voters can be deleted at the same time.
+
 ##### 3. Sort
 
 ##### 4. Search
