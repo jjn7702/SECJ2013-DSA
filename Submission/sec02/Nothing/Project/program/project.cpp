@@ -40,7 +40,7 @@ class itemNodeQueue{
         goods item;
         itemNodeQueue *next;
         itemNodeQueue *prev;
-}
+};
 
 class itemQueue{
     public:
@@ -103,8 +103,7 @@ class historyNodeStack{
         char action;
         historyNodeStack *next;
         historyNodeStack *prev;
-        
-}
+};
 
 class historyStack{
     private:
