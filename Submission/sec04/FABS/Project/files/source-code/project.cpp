@@ -263,6 +263,13 @@ public:
     }
 };
 
+class Admin {
+private:
+    Queue &courierQueue;
+
+public:
+    Admin(Queue &queue) : courierQueue(queue) {}
+};
 
 
 int main() {
