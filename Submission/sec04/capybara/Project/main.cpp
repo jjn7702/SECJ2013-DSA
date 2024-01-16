@@ -229,8 +229,8 @@ int main()
         cout << setw(56) << "|      [1] Review All Ticket          |" << endl;
         cout << setw(56) << "|      [2] Cancel Ticket              |" << endl;
         cout << setw(56) << "|      [3] Show Primary Booker        |" << endl;
-        cout << setw(56) << "|      [4] Edit Reservation Ticke     |" << endl;
-        cout << setw(56) << "|      [5] Total Reservation          |" << endl;
+        cout << setw(56) << "|      [4] Edit Reservation Ticket    |" << endl;
+        cout << setw(56) << "|      [5] Total Baggage Weight       |" << endl;
         cout << setw(56) << "|      [6] Exit                       |" << endl;
         cout << setw(56) << "|_____________________________________|" << endl
              << endl;
@@ -324,7 +324,7 @@ int main()
             cout << setw(56) << "|      [2] Cancel Ticket              |" << endl;
             cout << setw(56) << "|      [3] Show Primary Booker        |" << endl;
             cout << setw(56) << "|      [4] Edit Reservation Ticket    |" << endl;
-            cout << setw(56) << "|      [5] Total Reservation          |" << endl;
+            cout << setw(56) << "|      [5] Total Baggage Weight       |" << endl;
             cout << setw(56) << "|      [6] Exit                       |" << endl;
             cout << setw(56) << "|_____________________________________|" << endl
                  << endl;
