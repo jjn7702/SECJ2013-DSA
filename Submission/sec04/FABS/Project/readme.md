@@ -69,6 +69,65 @@ There are few features in the courier management system which is
 
 ## Design Description <a name="designdescription"></a> 💹
 
+### ADDING A NEW COURIER
+
+1. Get the option from the customer menu.
+   
+2. The customer menu provides an option for customers to add a new courier into the queue at the rear.
+   
+   2.1 The enqueue function in the Courier Service Systems allows customers to add new              couriers to the system.
+   
+   2.1.1 Calls the ‘enqueue’ function in the ‘Queue’ class to add a new courier into the              system.
+   
+   2.1.2 User inputs courier details such as name, parcel type, source, destination,                  tracking number.
+   
+   2.1.3 The status will be automatically set to “Pending’ by default.
+   
+   2.1.4 The courier is added to the rear of the courier que (follow queue rule).
+   
+   2.1.5 Return back to the customer menu.
+
+### UPDATING AND REMOVING FROM QUEUE
+
+1. Get the option from the admin and worker menu.
+   
+2. From the admin menu, the courier status can be updated from “Pending” to “Approved”.
+   
+   2.1 Iterates through the courier queue to find the first courier with status “Pending”.
+   
+   2.1.1 If found, change the status from “Pending” to “Approved”.
+   
+   2.1.2 Notifies the approval to the admin.
+   
+   2.2 If no status “Pending” is found
+   
+      2.2.1 Notify the admin that there are no more pending status to approve.
+   
+3. From the worker menu, the courier status can be updated from “Approved” to “In Transit”.
+   
+   3.1 Iterates through the courier queue to find the first courier with status “Approved”.
+
+      3.1.1 If found, change the status from “Approved” to “In transit”.
+
+      3.1.2 Notifies the change to the worker.
+
+    3.2 If no status “Approve” in found
+
+      3.2.1 Notify the worker that there are no more approved status to be changed to in transit.
+   
+4. From the admin menu, the courier queue can be deleted (dequeue)
+   
+    4.1 The courier at the front is removed from the courier queue.
+   
+5. From the worker menu, the courier queue can be deleted (dequeue)
+   
+    5.1 The courier at the front is removed from the courier queue.
+   
+6. Return back to the admin/worker menu.
+
+
+
+
 ## User Manual/Guide <a name="usermanual"></a> 📝
 
 ## Similarity Report <a name="report"></a> 🔔
