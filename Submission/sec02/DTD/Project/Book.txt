@@ -1,10 +1,10 @@
-The Great Gatsby,F. Scott Fitzgerald, 1925 978-0743273565
-To Kill a Mockingbird,Harper Lee, 1960 978-0061120084
-1984,George Orwell, 1949 978-0451524935
-The Catcher in the Rye,J.D. Salinger, 1951 978-0316769480
-Pride and Prejudice,Jane Austen, 1813 978-0486284736
-The Hobbit,J.R.R. Tolkien, 1937 978-0345534835
-The Da Vinci Code,Dan Brown, 2003 978-0307474278
-The Alchemist,Paulo Coelho, 1988 978-0061122415
-The Lord of the Rings,J.R.R. Tolkien, 1954 978-0544003415
-Harry Potter and the Sorcerer's Stone,J.K. Rowling, 1997 978-0590353427
+The Great Gatsby, F. Scott Fitzgerald, 1925 978-0743273565
+To Kill a Mockingbird, Harper Lee, 1960 978-0061120084
+1984, George Orwell, 1949 978-0451524935
+One Hundred Years of Solitude, Gabriel Garcia Marquez, 1967 978-0061120084
+The Catcher in the Rye, J.D. Salinger, 1951 978-0316769480
+To the Lighthouse, Virginia Woolf, 1927 978-0156907392
+Brave New World, Aldous Huxley, 1932 978-0060850524
+The Lord of the Rings, J.R.R. Tolkien, 1954 978-0618640157
+Pride and Prejudice, Jane Austen, 1813 978-0141439518
+The Grapes of Wrath, John Steinbeck, 1939 978-0143039433
