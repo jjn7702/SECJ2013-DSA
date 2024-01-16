@@ -487,3 +487,12 @@ class Candidate
         string getEmail(){return email;}
         
         void setName(string n){name=n;}
+        void setFaculty(string f){faculty=f;}
+        void setAge(int a){age=a;}
+        void setVoteCount(int v){voteCount=v;}
+        void setIC(string i){ic=i;}
+        void setPhone(string p){phone=p;}
+        void setMatric(string m){matric=m;}
+        void setPass(string pa){pass=pa;}
+        void setEmail(string e){email=e;}
+};
