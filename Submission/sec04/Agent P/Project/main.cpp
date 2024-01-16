@@ -1040,5 +1040,67 @@ void VoteAsc(){
             display();
                 
 }
+void search(int opt,string key,int key2) // SEARCHING CANDIDATE
+        {
+            Candidate *temp = Chead;
+            bool found = false;
+
+            if(isEmpty()){
+                cout<<"The list is empty!"<<endl;
+                return;
+            }
+
+            else{
+            switch(opt)
+            {
+                case 1 : 
+                    while(temp != NULL)
+                    {
+                        if(temp->getName() == key)
+                        {
+                            cout<<"\nName  : "<<temp->getName()<<endl;
+                            cout<<"Faculty : "<<temp->getFaculty()<<endl;
+                            cout<<"Age     : "<<temp->getAge()<<endl;
+                            cout<<"IC      : "<<temp->getIC()<<endl;
+                            cout<<"Email   : "<<temp->getEmail()<<endl;
+                            cout<<"Matric  : "<<temp->getMatric()<<endl;
+                            found = true;
+                        }
+                        temp = temp->next;
+                    }
+                    break;
+                case 2:
+                    while(temp != NULL)
+                    {
+                        if(temp->getFaculty() == key)
+                        {
+                            cout<<"\nName  : "<<temp->getName()<<endl;
+                            cout<<"Faculty : "<<temp->getFaculty()<<endl;
+                            cout<<"Age     : "<<temp->getAge()<<endl;
+                            cout<<"IC      : "<<temp->getIC()<<endl;
+                            cout<<"Email   : "<<temp->getEmail()<<endl;
+                            cout<<"Matric  : "<<temp->getMatric()<<endl;
+                            found = true;
+                        }
+                        temp = temp->next;
+                    }
+                    break;
+
+                    case 3: 
+                        while(temp != NULL)
+                    {
+                        if(temp->getAge() == key2)
+                        {
+                            cout<<"\nName  : "<<temp->getName()<<endl;
+                            cout<<"Faculty : "<<temp->getFaculty()<<endl;
+                            cout<<"Age     : "<<temp->getAge()<<endl;
+                            cout<<"IC      : "<<temp->getIC()<<endl;
+                            cout<<"Email   : "<<temp->getEmail()<<endl;
+                            cout<<"Matric  : "<<temp->getMatric()<<endl;
+                            found = true;
+                        }
+                        temp = temp->next;
+                    }
+                    break; 
 	
 };
