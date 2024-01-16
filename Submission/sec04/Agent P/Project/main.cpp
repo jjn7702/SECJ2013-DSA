@@ -1307,3 +1307,35 @@ int main()
 	    adm[j] = Admin(user,pass);
 	    j++;
     }
+    	inx.close();
+    opt1 = LoginUI();
+    
+    do
+    {
+    
+    int voteC[3]={-1,-2,-3};
+    int opt6,opt5,opt9;
+    string ex;
+    switch(opt1)
+    {
+    	case 1 : if(count==1){
+         			AdminLogin(adm,j);}
+                 cout<<" [1] View Voter\n [2] View Candidate\n [3] Delete Voter\n [4] Delete Candidate\n [5] Insert Candidate\n [6] Exit\n";
+                 cout<<"Option : ";
+                 cin>>opt5;
+                 switch(opt5){
+                        case 1  :   adminVoter(l);
+                                    break;
+                        case 2  :   adminCand(c);
+                                    break;
+                        case 3  :   l.display();
+                                    int del;
+                                    cout<<"How many voter(s) you want to delete? : ";
+                                    cin>>del;
+                                    for(int i=0;i<del;i++){
+                                        l.Dequeue();
+                                    }
+                                    system("CLS");
+                                    cout<<"\nVoters after deletion : \n";
+                                    l.display();
+                                    break;
