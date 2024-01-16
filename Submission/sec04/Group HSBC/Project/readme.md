@@ -21,7 +21,7 @@ _Don't forget to hit the :star: if you like this repo._
 
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/images/project-management.png" width="3%" height="3%"> Description
-The main goal of HSBC's Banking System is to enhance the user experience and smoothen the flow of control of the system. In assignment 2, we implement the linked list which use pointer concept to replace the array to enhance our system's performance and the storage is unlimited.
+In this project, we implement the binary tree concept in our banking system for adding, deleting and searching purpose. On the other hand, we also make our system into 2 views which are from user's view and also staff's view. For the user view, user can create a new account or login to their own account and proceed to deposit, withdrawal, transfer and also displaying transaction history function in the user menu page. For the staff view, staff can enter the system to check all the transaction made by users, search for a specific user's transaction detail and delete a transaction. This project can protect the user's account well because user need to key in their id and password once they want to login and use this system.
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/bc7e2df3-d20d-457c-b9fb-e0574b6a740e" width="3%" height="3%"> Objective
 The objectives of creating this banking system:
@@ -67,6 +67,10 @@ For inserting a new transaction, we create a member function named insertNode fu
             }
 
             return node; // Return the updated root of the current subtree
+        }
+
+         void insertAccount(Transaction& acc){
+            root = insertNode(root, acc);
         }
 
 ###### b. View Current Balance
@@ -241,7 +245,7 @@ For deleting a transaction, we create a function called deleteAccount function. 
 | Name             | Matric Number | Photo                                                         |
 | :---------------- | :-------------: | :------------------------------------------------------------: |
 |  Hayden Huan Kee Jiun |    A22EC0166     | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Project/image/photo_2023-12-11_08-21-15%20(1).jpg" title="Icon by Trazobanana"><img src="image/photo_2023-12-11_08-21-15%20(1).jpg" width=80px, height=80px>     |
-|   Liow Chee Suan   |   A22EC0072      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Project/image/IMG_20231102_111152.jpg" title="Icon by Trazobanana"><img src="image/IMG_20231102_111152.jpg" width=80px, height=80px>         |
+|   Liow Chee Suan   |   A22EC0072      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Project/image/IMG_20231220_173159%20(1).jpg" title="Icon by Trazobanana"><img src="image/IMG_20231220_173159%20(1).jpg" width=80px, height=80px>         |
 |  Chan Qing Yee     |   A22EC0040      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Project/image/profilepic900kb.jpg" title="Icon by Trazobanana"><img src="image/profilepic900kb.jpg" width=80px, height=80px>         |
 |  Ooi Wei Sian     |   A22EC0102      | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Project/image/weisian.jpg" title="Icon by Trazobanana"><img src="image/weisian.jpg" width=80px, height=80px>         |
 

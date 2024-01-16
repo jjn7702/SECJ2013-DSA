@@ -11,6 +11,8 @@ private:
     string author;
     int year;
     string ISBN;
+    string borrowerName; 
+    string matricID; 
 
 public:
     Book() : title(""), author(""), year(0), ISBN("") {}
@@ -19,17 +21,30 @@ public:
     string getAuthor() const { return author; }
     int getYear() const { return year; }
     string getISBN() const { return ISBN; }
+    string getBorrowerName() const { return borrowerName; }
+    string getMatricID() const { return matricID; }
 
     void setTitle(const string& t) { title = t; }
     void setAuthor(const string& a) { author = a; }
     void setYear(int y) { year = y; }
     void setISBN(const string& i) { ISBN = i; }
+    void setBorrowerName(const string& name) { borrowerName = name; }
+    void setMatricID(const string& id) { matricID = id; }
 
     void displayBook() const {
         cout << setw(50) << left << "| " + title
              << setw(30) << left << "| " + author
              << setw(10) << left << "| " + to_string(year)
              << setw(15) << left << "| " + ISBN + "|" << endl;
+    }
+
+     void displayBookrequest() const {
+        cout << setw(50) << left << "| " + title
+             << setw(30) << left << "| " + author
+             << setw(10) << left << "| " + to_string(year)
+             << setw(15) << left << "| " + ISBN
+             << setw(20) << left << "| " + borrowerName
+             << setw(15) << left << "| " + matricID + "|" << endl;   
     }
 };
 
@@ -146,16 +161,16 @@ public:
     }
 
     void displayStack() const {
-        cout << "Borrowed History:\n";
-        Node* current = top;
+    cout << "Borrowed History:\n";
+    Node* current = this->top;
 
-        while (current != nullptr) {
-            current->data.displayBook();
-            current = current->next;
-        }
-
-        cout << "----------------------\n";
+    while (current != nullptr) {
+        current->data.displayBookrequest();  // Display book details including borrower info
+        current = current->next;
     }
+
+    cout << "----------------------\n";
+}
 };
 
 
@@ -255,9 +270,13 @@ public:
         cout << "Book with ISBN " << isbn << " deleted successfully.\n";
     }
 
-    void requestBookBorrowing(const Book& book) {
-        userQueue.enqueue(book);
-        cout << "Your request to borrow the book '" << book.getTitle() << "' has been added to the queue.\n";
+    void requestBookBorrowing(const Book& book, const string& borrowerName, const string& matricID) {
+        Book newBook = book; // Create a copy of the book
+        newBook.setBorrowerName(borrowerName);
+        newBook.setMatricID(matricID);
+
+        userQueue.enqueue(newBook);
+        cout << "Your request to borrow the book '" << newBook.getTitle() << "' has been added to the queue.\n";
     }
 
     void processUserBorrowRequests() {
@@ -298,9 +317,9 @@ public:
     borrowedHistory.displayStack();
 }
 
-Book getTop() const {
-    return borrowedHistory.getTop();
-}
+Book getLastBorrowedBook() const {
+        return borrowedHistory.getTop();
+    }
 
     bool isBookInLibrary(const Book& book) {
         Node* current = head;
@@ -313,7 +332,7 @@ Book getTop() const {
         return false;
     }
 
-    void patronMenu() {
+   void patronMenu() {
         int choice;
         do {
             cout << "Patron Menu\n";
@@ -347,7 +366,15 @@ Book getTop() const {
                     getline(cin, input);
                     requestedBook.setISBN(input);
 
-                    requestBookBorrowing(requestedBook);
+                    cout << "Enter your name: ";
+                    getline(cin, input);
+                    string borrowerName = input;
+
+                    cout << "Enter your matric ID: ";
+                    getline(cin, input);
+                    string matricID = input;
+
+                    this->requestBookBorrowing(requestedBook, borrowerName, matricID);
                     break;
                 }
                 case 2:
@@ -377,27 +404,26 @@ Book getTop() const {
         cout << "Enter your choice: ";
         cin >> choice;
 
-       switch (choice) {
-        case 1:
-            displayBorrowedHistory(); 
-            break;
-        case 2: {
-            Book lastBorrowedBook = getTop();
-            if (lastBorrowedBook.getISBN() != "") { 
-                cout << "Last Book Borrowed:\n";
-                lastBorrowedBook.displayBook();
-        }   else {
-            cout << "No books have been borrowed yet.\n";
+        switch (choice) {
+            case 1:
+                this->displayBorrowedHistory();  // Use 'this' to access member function
+                break;
+            case 2: {
+                Book lastBorrowedBook = this->getLastBorrowedBook();  // Use 'this' to access member function
+                if (lastBorrowedBook.getISBN() != "") {
+                    cout << "Latest Book Borrowed:\n";
+                    lastBorrowedBook.displayBookrequest();  // Display book details including borrower info
+                } else {
+                    cout << "No books have been borrowed yet.\n";
+                }
+                break;
+            }
+            case 3:
+                cout << "Exiting staff menu.\n";
+                break;
+            default:
+                cout << "Invalid choice. Please try again.\n";
         }
-            break;
-        }
-        case 3:
-            cout << "Exiting staff menu.\n";
-            break;
-        default:
-        cout << "Invalid choice. Please try again.\n";
-}
-
 
         cout << "---------------------------------\n";
     } while (choice != 3);

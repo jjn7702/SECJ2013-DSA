@@ -9,8 +9,6 @@ using namespace std;
 const int MAX_COMPANION_ADULTS = 10;
 const int MAX_COMPANION_CHILDREN = 10;
 
-void newCheckIn(string &pID, string &fNumber, string &sNumber, string &dFlight, string &tFlight);
-
 //! Code STACK
 class Stack
 {
@@ -29,7 +27,7 @@ public:
     string dateFlight;
     string timeFlight;
 
-    Stack(string pId, string &pName, string &bID, string &typBaggage, string &bWeight, string &bCheckIn)
+    Stack(string pId, string pName, string bID, string typBaggage, string bWeight, string bCheckIn)
     {
         passengerId = pId;
         passangerName = pName;
@@ -51,27 +49,32 @@ public:
         next = NULL;
     }
 
-    string getPassangerName() const
+    string getPassangerID()
+    {
+        return passengerId;
+    }
+
+    string getPassangerName()
     {
         return passangerName;
     }
 
-    string getBaggageID() const
+    string getBaggageID()
     {
         return baggageID;
     }
 
-    string getTypeBaggage() const
+    string getTypeBaggage()
     {
         return typeBaggage;
     }
 
-    string getBaggageWeight() const
+    string getBaggageWeight()
     {
         return baggageWeight;
     }
 
-    string getBaggageCheckIn() const
+    string getBaggageCheckIn()
     {
         return baggageCheckIn;
     }
@@ -101,7 +104,6 @@ public:
         return passengerId;
     }
 };
-
 class StackList
 {
 private:
@@ -118,9 +120,9 @@ public:
         return top == NULL;
     }
 
-    void pushBaggage(string &passangerName, string &baggageID, string &typeBaggage, string &baggageWeight, string &baggageCheckIn)
+    void pushBaggage(string &passengerID, string &passangerName, string &baggageID, string &typeBaggage, string &baggageWeight, string &baggageCheckIn)
     {
-        Stack *newNode = new Stack(passangerName, baggageID, typeBaggage, baggageWeight, baggageCheckIn);
+        Stack *newNode = new Stack(passengerID, passangerName, baggageID, typeBaggage, baggageWeight, baggageCheckIn);
 
         if (!isEmpty())
         {
@@ -142,34 +144,46 @@ public:
         // add new data
     }
 
-    void popBaggage()
+    string popBaggage()
     {
+        string passengerID;
+
         if (isEmpty())
         {
             cout << "Stack is empty. No baggage to pop." << endl;
         }
         else
         {
+
             Stack *temp = top;
+            passengerID = top->getPassangerID();
             top = temp->next;
             temp->next = NULL;
             delete temp;
         }
+
+        return passengerID;
     }
 
-    void popCheckIn()
+    string popCheckIn() //! ubah guna string
     {
+        string passengerID;
+
         if (isEmpty())
         {
-            cout << "Stack is empty. No check-in data to pop." << endl;
+            cout << "Stack is empty. No baggage to pop." << endl;
         }
         else
         {
+
             Stack *temp = top;
+            passengerID = top->getPassangerID();
             top = temp->next;
             temp->next = NULL;
             delete temp;
         }
+
+        return passengerID;
     }
 
     void displayStackBaggage()
@@ -177,6 +191,7 @@ public:
         Stack *temp = top;
         while (temp)
         {
+            cout << "Passenger ID: " << temp->getPassangerID() << endl;
             cout << "Name: " << temp->getPassangerName() << endl;
             cout << "Baggage ID: " << temp->getBaggageID() << endl;
             cout << "Type of Baggage: " << temp->getTypeBaggage() << endl;
@@ -206,7 +221,32 @@ public:
         cout << endl;
     }
 
-    // void display semua babi
+    void displayall()
+    {
+        Stack *temp = top;
+        while (temp)
+        {
+            cout << " Passanger Information:" << endl;
+            cout << "Passenger ID : " << temp->getPassengerId() << endl;
+            cout << "Flight ID: " << temp->getFlightNumber() << endl;
+            cout << "Seat Number: " << temp->getSeatNumber() << endl;
+            cout << "Date Flight: " << temp->getDateFlight() << endl;
+            cout << "Time Flight: " << temp->getTimeFlight() << endl;
+            cout << endl;
+
+            cout << "Baggage Information:" << endl;
+            cout << "Passenger ID: " << temp->getPassangerID() << endl;
+            cout << "Name: " << temp->getPassangerName() << endl;
+            cout << "Baggage ID: " << temp->getBaggageID() << endl;
+            cout << "Type of Baggage: " << temp->getTypeBaggage() << endl;
+            cout << "Baggaga Weight: " << temp->getBaggageWeight() << endl;
+            cout << "Baggage Checked In: " << temp->getBaggageCheckIn() << endl;
+            cout << endl;
+
+            temp = temp->next;
+        }
+        cout << endl;
+    }
 };
 
 //! Code QUEUE
@@ -218,6 +258,10 @@ public:
 
     Reservation(const string &name, const string &seat) : passengerName(name), seatNumber(seat) {}
 };
+
+void newCheckIn(StackList &checkIn);
+void newBaggage(StackList &BS);
+void deleteBaggage(string &ID);
 
 class Node
 {
@@ -396,55 +440,13 @@ public:
 };
 
 // buat newdata function
-void newCheckIn(string &pID, string &fNumber, string &sNumber, string &dFlight, string &tFlight)
+void newCheckIn(StackList &checkIn)
 {
+    string pID, fNumber, sNumber, dFlight, tFlight;
 
-    ofstream reservationFile("data/checkin.csv", ios::app);
-    reservationFile.seekp(0, ios::end);
-    reservationFile << "\n"
-                    << pID << "," << fNumber << "," << sNumber << "," << dFlight << "," << tFlight;
+    cout << "Insert New Data: ";
+    cin >> pID >> fNumber >> sNumber >> dFlight >> tFlight;
 
-    reservationFile.seekp(0, ios::end);
-    reservationFile.close();
-};
-
-int main()
-{
-
-    //! Output Stack
-    StackList BS;
-
-    ifstream inputFile("data/baggage.csv");
-
-    if (inputFile.is_open())
-    {
-        string line;
-
-        getline(inputFile, line);
-
-        while (getline(inputFile, line))
-        {
-            istringstream iss(line);
-            string passangerName, baggageID, typeBaggage, baggageWeight, baggageCheckIn;
-
-            if (getline(iss, passangerName, ',') && getline(iss, baggageID, ',') && getline(iss, typeBaggage, ',') && getline(iss, baggageWeight, ',') && getline(iss, baggageCheckIn, ','))
-            {
-                BS.pushBaggage(passangerName, baggageID, typeBaggage, baggageWeight, baggageCheckIn);
-            }
-            else
-            {
-                cout << "Error: " << line << endl;
-            }
-        }
-        inputFile.close();
-    }
-    else
-    {
-        cout << "Error while opening file: " << endl;
-        return 1;
-    }
-
-    StackList checkIn; // Fix the identifier name
     ifstream userFile("data/checkin.csv");
     string lineUser;
     string passengerID, flightNumber, seatNumber, dateFlight, timeFlight;
@@ -464,27 +466,243 @@ int main()
 
     userFile.close();
 
-    cout << "Add new data: ";
-    cin >> passengerID >> flightNumber >> seatNumber >> dateFlight >> timeFlight;
-    checkIn.pushCheckIn(passengerID, flightNumber, seatNumber, dateFlight, timeFlight);
-    newCheckIn(passengerID, flightNumber, seatNumber, dateFlight, timeFlight);
+    ofstream reservationFile("data/checkin.csv", ios::app);
+    reservationFile.seekp(0, ios::end);
+    reservationFile << "\n"
+                    << pID << "," << fNumber << "," << sNumber << "," << dFlight << "," << tFlight;
 
+    reservationFile.seekp(0, ios::end);
+    reservationFile.close();
+
+    checkIn.pushCheckIn(pID, fNumber, sNumber, dFlight, tFlight);
     checkIn.displayStackCheckIn(); // Display the updated stack
+};
 
-    // checkIn.displayStackCheckIn(); // Use correct identifier
+void newBaggage(StackList &BS)
+{
+    string pID, pName, bID, typBaggage, tbWeight, bCheckIn;
 
-    //! Output Queue
-    Flight flightInfo("Example Airline", "New York", "10:00");
-    AirlineReservationSystem system(flightInfo);
+    cout << "Insert New Data: ";
+    cin >> pID >> pName >> bID >> typBaggage >> tbWeight >> bCheckIn;
 
-    system.displayFlightInfo();
-    system.displaySeats();
+    ifstream userFile("data/baggage.csv");
+    string lineUser;
+    string passengerID, passengerName, baggageID, typeBaggage, baggageWeight, baggageCheckIn;
 
-    system.makeReservation("arif", "A11");
-    system.makeReservation("megat", "B32");
-    system.makeReservation("Derf", "B41");
+    getline(userFile, lineUser); // skip the headings
 
-    system.displaySeats();
+    while (getline(userFile, lineUser))
+    {
+        stringstream ss(lineUser); // get the whole line
+        getline(ss, passengerID, ',');
+        getline(ss, passengerName, ',');
+        getline(ss, baggageID, ',');
+        getline(ss, typeBaggage, ',');
+        getline(ss, baggageWeight, ',');
+        getline(ss, baggageCheckIn, ',');
+        BS.pushBaggage(passengerID, passengerName, baggageID, typeBaggage, baggageWeight, baggageCheckIn);
+    }
+
+    userFile.close();
+    ofstream reservationFile("data/baggage.csv", ios::app);
+    reservationFile.seekp(0, ios::end);
+    reservationFile << "\n"
+                    << pID << "," << pName << "," << bID << "," << typBaggage << "," << tbWeight << "," << bCheckIn;
+
+    reservationFile.seekp(0, ios::end);
+    reservationFile.close();
+};
+
+void getBaggageData(StackList &BS)
+{
+
+    ifstream inputFile("data/baggage.csv");
+    string lineBaggage;
+
+    getline(inputFile, lineBaggage);
+
+    while (getline(inputFile, lineBaggage))
+    {
+        string passengerID, passangerName, baggageID, typeBaggage, baggageWeight, baggageCheckIn;
+        stringstream ss(lineBaggage);
+
+        getline(ss, passengerID, ',');
+        getline(ss, passangerName, ',');
+        getline(ss, baggageID, ',');
+        getline(ss, typeBaggage, ',');
+        getline(ss, baggageWeight, ',');
+        getline(ss, baggageCheckIn, ',');
+
+        BS.pushBaggage(passengerID, passangerName, baggageID, typeBaggage, baggageWeight, baggageCheckIn);
+    }
+    inputFile.close();
+}
+
+void getCheckInData(StackList &CI)
+{
+
+    ifstream inputFile("data/checkin.csv");
+    string checkIn;
+
+    getline(inputFile, checkIn);
+
+    while (getline(inputFile, checkIn))
+    {
+        string passengerID, flightNumber, seatNumber, dateFlight, timeFlight;
+        stringstream ss(checkIn);
+
+        getline(ss, passengerID, ',');
+        getline(ss, flightNumber, ',');
+        getline(ss, seatNumber, ',');
+        getline(ss, dateFlight, ',');
+        getline(ss, timeFlight, ',');
+
+        CI.pushCheckIn(passengerID, flightNumber, seatNumber, dateFlight, timeFlight);
+    }
+    inputFile.close();
+}
+
+void deleteBaggage(string &ID)
+{
+    ifstream inputFile("data/baggage.csv");
+    ofstream tempfile("data/temp.csv");
+
+    string line;
+    getline(inputFile, line);
+
+    tempfile << line << endl;
+
+    while (getline(inputFile, line))
+    {
+        stringstream ss(line);
+        string passengerID, passangerName, baggageID, typeBaggage, baggageWeight, baggageCheckIn;
+
+        getline(ss, passengerID, ',');
+        getline(ss, passangerName, ',');
+        getline(ss, baggageID, ',');
+        getline(ss, typeBaggage, ',');
+        getline(ss, baggageWeight, ',');
+        getline(ss, baggageCheckIn, ',');
+
+        if (passengerID != ID)
+        {
+            tempfile << line << endl;
+        }
+    }
+
+    inputFile.close();
+    tempfile.close();
+
+    remove("data/baggage.csv");
+    rename("data/temp.csv", "data/baggage.csv");
+}
+
+void deleteCheckIn(string &ID)
+{
+    ifstream inputFile("data/checkin.csv");
+    ofstream tempfile("data/temp.csv");
+
+    string line;
+    getline(inputFile, line);
+
+    tempfile << line << endl;
+
+    while (getline(inputFile, line))
+    {
+        stringstream ss(line);
+        string passengerID, flightNumber, seatNumber, dateFlight, timeFlight;
+
+        getline(ss, passengerID, ',');
+        getline(ss, flightNumber, ',');
+        getline(ss, seatNumber, ',');
+        getline(ss, dateFlight, ',');
+        getline(ss, timeFlight, ',');
+
+        if (passengerID != ID)
+        {
+            tempfile << line << endl;
+        }
+    }
+
+    inputFile.close();
+    tempfile.close();
+
+    remove("data/checkin.csv");
+    rename("data/temp.csv", "data/checkin.csv");
+}
+
+int main()
+{
+    string deletepassengerID;
+
+    StackList BS;
+    getBaggageData(BS);
+
+    cout << "Output after push" << endl;
+    BS.displayStackBaggage();
+
+    cout << "Output after pop" << endl;
+    deletepassengerID = BS.popBaggage();
+
+    deleteBaggage(deletepassengerID);
+
+    BS.displayStackBaggage();
+
+    // //! Display CheckIn Stack
+    StackList checkIn;
+    getCheckInData(checkIn);
+
+    cout << "Output after push" << endl;
+    checkIn.displayStackCheckIn();
+
+    cout << "Output after pop" << endl;
+    deletepassengerID = checkIn.popCheckIn();
+
+    deleteCheckIn(deletepassengerID);
+
+    checkIn.displayStackCheckIn();
+
+    // //! Output Queue
+    // Flight flightInfo("Example Airline", "New York", "10:00");
+    // AirlineReservationSystem system(flightInfo);
+
+    // system.displayFlightInfo();
+    // system.displaySeats();
+
+    // system.makeReservation("arif", "A11");
+    // system.makeReservation("megat", "B32");
+    // system.makeReservation("Derf", "B41");
+
+    // system.displaySeats();
 
     return 0;
+
+    // int option;
+    // cout << "Choose Operation:" << endl;
+    // cout << "[0] Stack " << endl;
+    // cout << "[1] Queue " << endl;
+
+    // cin >> option;
+    // cout << endl;
+
+    // switch (option)
+    // {
+    // case 1:
+    // {
+    //     int choice;
+    //     cout << "Choose you checkin: " << endl;
+    //     cout << "[0] Passenger Check In" << endl;
+    //     cout << "[1] Baggage Check In" << endl;
+
+    //     cin >> choice;
+
+    //     while (choice != 3)
+    //     {
+    //         if(choice == 0)
+    //         {
+
+    //         }
+    //     }
+    // }
+    // }
 }

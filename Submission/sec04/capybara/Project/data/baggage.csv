@@ -1,4 +1,1 @@
 passengerID, passangerName, baggageID, typeBaggage, baggageWeight, baggageCheckIn
-1,John Doe, AA23, Carry On, 5, True
-2,Jane Smith, BB34, Suitcase, 20, False
-3,Robert Johnsone, CC67, Carr On, 3, False

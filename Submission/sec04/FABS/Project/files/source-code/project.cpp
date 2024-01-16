@@ -39,7 +39,7 @@ class Courier {
             cout << left << setw(1) << "No." << setw(20) << "Tracking Number" << setw(20) << "Name"
                  << setw(20) << "Parcel Type" << setw(20) << "Source"
                  << setw(20) << "Destination" << setw(20) << "Status" << endl;
-            cout << setfill('-') << setw(130) << " " << setfill(' ') << endl;
+            cout << setfill('-') << setw(120) << " " << setfill(' ') << endl;
           }
 
            void display(int index) {
@@ -168,10 +168,42 @@ public:
         cout << "<< Finish searching... Press any key to continue >>";
         cin.get();
     }
+
+	void insertBack(Courier& newCourier) {
+        Courier* node = new Courier(newCourier.getName(), newCourier.getParcelType(), newCourier.getSource(),
+                                    newCourier.getDestination(), newCourier.getStatus(), newCourier.getTrackingNum());
+
+        if (isEmpty()) {
+            front = rear = node;
+        } else {
+            rear->setNext(node);
+            rear = node;
+        }
+    }
+
+    ~Queue() {
+        Courier* currNode = front;
+        Courier* nextNode;
+
+        while (currNode != NULL) {
+            nextNode = currNode->getNext();
+            delete currNode;
+            currNode = nextNode;
+        }
+    }
        
 };
 
-
+// To display main menu
+void dispMenu() {
+    system("CLS");
+    cout << "COURIER MANAGEMENT SYSTEM" << endl
+         << "\n\t1. Enqueue Courier (Queue)"
+         << "\n\t2. Dequeue Courier (Queue)"
+         << "\n\t3. Search Courier  (Queue)"
+         << "\n\t4. Display Courier (Queue)"
+         << "\n\t5. Exit" << endl;
+}
 
 
 int main() {
