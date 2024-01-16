@@ -207,7 +207,15 @@ void dispMenu() {
 
 
 int main() {
-    
+
+   ifstream inputFile("COURIER.TXT");
+    if (!inputFile.is_open()) {
+        cout << "Error opening file." << endl;
+        return 1;
+    }
+
+   Queue courierQueue;
+	
    string line;
     while (getline(inputFile, line)) {
         stringstream ss(line);
