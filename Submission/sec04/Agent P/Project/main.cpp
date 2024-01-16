@@ -1243,3 +1243,29 @@ void adminCand(CandidateList c){
     }
 
 }
+
+int main()
+{
+    string name,faculty,email,ic,matric,key,pass,phone,status;
+    int age,opt1,vote,count=1;
+    char answer,answer2,ch;
+    VoterQueue l;
+    Voter *l2 = NULL;
+
+    ifstream in;
+    in.open("voter.csv");
+    
+    while(getline(in,name,','))
+    {
+        getline(in,faculty,',');
+        getline(in,ic,',');
+        in>>age;
+        in.ignore();
+        getline(in,matric,',');
+        getline(in,pass,',');
+        getline(in,email,',');
+        getline(in,status,'\n');
+        l.Enqueue(name,faculty,age,ic,email,matric,pass,status);
+		//cout<<name<<" "<<faculty<<" "<<ic<<" "<<age<<" "<<matric<<" "<<pass<<" "<<email<<" "<<status<<endl;
+        //getline(in,name,',');
+    }
