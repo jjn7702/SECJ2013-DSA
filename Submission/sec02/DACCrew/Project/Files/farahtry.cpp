@@ -8,14 +8,14 @@ class nodeStack
 {
     string date;
     double amount, balance;
-    char type;
+    string type;
 
 public:
     nodeStack *next;
-    nodeStack(string d, char t, double a, double b) : date(d), type(t), amount(a), balance(b), next(NULL) {}
+    nodeStack(string d, string t, double a, double b) : date(d), type(t), amount(a), balance(b), next(NULL) {}
 
     string getDate() const { return date; }
-    char getType() const { return type; }
+    string getType() const { return type; }
     double getAmount() const { return amount; }
     double getBalance() const { return balance; }
 };
@@ -30,7 +30,7 @@ public:
 
     bool isEmpty() const { return (top == NULL); }
 
-    void push(string d, char t, double a, double b)
+    void push(string d, string t, double a, double b)
     {
         nodeStack *nn = new nodeStack(d, t, a, b);
 
@@ -103,6 +103,8 @@ void performTransaction(stack &transactionStack, double &balance)
     string date;
     double amount;
     char type;
+    string typestring;
+
 
     cout << "Enter date (DD-MM-YYYY): ";
     cin >> date;
@@ -115,14 +117,16 @@ void performTransaction(stack &transactionStack, double &balance)
         cout << "Enter deposit amount: ";
         cin >> amount;
         balance += amount;
-        transactionStack.push(date, type, amount, balance);
+        typestring="Deposit";
+        transactionStack.push(date, typestring, amount, balance);
         break;
     case 'W':
         cout << "Enter withdrawal amount: ";
         cin >> amount;
         if (amount <= balance){
             balance -= amount;
-            transactionStack.push(date, type, amount, balance);
+            typestring="Withdrawal";
+            transactionStack.push(date, typestring, amount, balance);
             }
         else
             cout << "Insufficient funds for withdrawal." << endl;
@@ -133,7 +137,8 @@ void performTransaction(stack &transactionStack, double &balance)
         if (amount <= balance)
         {
             balance -= amount;
-            transactionStack.push(date, type, amount, balance);
+            typestring="Transfer";
+            transactionStack.push(date, typestring, amount, balance);
         }
         else
             cout << "Insufficient funds for transfer." << endl;
