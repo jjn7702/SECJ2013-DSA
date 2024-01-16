@@ -682,5 +682,28 @@ class CandidateList
             }
         }
 
+        void deleteAtNode(int index)
+        {
+            if(isEmpty())
+                cout<<"The list is empty!"<<endl;
+            else{
+                Candidate *temp = Chead,*temp2;
+                
+                for(int i=0;i<index-1;i++){
+                    if(temp->next != NULL){
+                        temp2 = temp;
+                        temp = temp->next;
+                    } 
+                    else{
+                        cout<<"The candidate does not exist";
+                        exit(0);
+                }   
+                }
+                temp2->next = temp->next;
+                temp->next = NULL;
+                delete temp;
+            }
+        }
+
 	
 };
