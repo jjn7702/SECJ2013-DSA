@@ -59,11 +59,11 @@ public:
     void enqueue(const Courier& newCourier) {
         Courier* node = new Courier(
             newCourier.getName(),
-            newCourier.getParcelType(),
+            newCourier.getType(),
             newCourier.getSource(),
-            newCourier.getDestination(),
-            newCourier.getStatus(),
-            newCourier.getTrackingNum()
+            newCourier.getDest(),
+            newCourier.getStat(),
+            newCourier.getTrackNum()
 	);
 
         if (isEmpty()) {
@@ -117,7 +117,7 @@ public:
 	     Courier* currNode = front;
 
 	     while (currNode) {
-		     if (currNode->getTrackingNum() == trackingNum) {
+		     if (currNode->getTrackNum() == trackingNum) {
 			     return currNode;
 		     }
 		     currNode = currNode->getNext();
@@ -169,11 +169,11 @@ public:
 
 	      while (currNode) {
 		file << currNode->getName() << ","
-	             << currNode->getParcelType() << ","
+	             << currNode->getType() << ","
 	             << currNode->getSource() << ","
-	             << currNode->getDestination() << ","
-	             << currNode->getStatus() << ","
-	             << currNode->getTrackingNum() << endl;
+	             << currNode->getDest() << ","
+	             << currNode->getStat() << ","
+	             << currNode->getTrackNum() << endl;
 	
 	        currNode = currNode->getNext();
 	       } 
@@ -309,10 +309,10 @@ public:
                     Courier* currentCourier = courierQueue.getFront();
 
                     while (currentCourier) {
-                        if (currentCourier->getStatus() == "Pending") {
+                        if (currentCourier->getStat() == "Pending") {
                             foundPendingCourier = true;
                             currentCourier->setStatus("Approved");
-                            cout << "\nCourier with Tracking Number " << currentCourier->getTrackingNum() << " approved." << endl;
+                            cout << "\nCourier with Tracking Number " << currentCourier->getTrackNum() << " approved." << endl;
                         }
 
                         currentCourier = currentCourier->getNext(); // Move to the next courier
@@ -393,9 +393,9 @@ public:
                     Courier* currentCourier = courierQueue.getFront();
 
                     while (currentCourier) {
-                        if (currentCourier->getStatus() == "Approved") {
+                        if (currentCourier->getStat() == "Approved") {
                             currentCourier->setStatus("In transit");
-                            cout << "\nCourier with Tracking Number " << currentCourier->getTrackingNum() << " marked as in transit." << endl;
+                            cout << "\nCourier with Tracking Number " << currentCourier->getTrackNum() << " marked as in transit." << endl;
                         }
 
                         currentCourier = currentCourier->getNext();
@@ -430,7 +430,7 @@ public:
 
 int main() {
 	Queue courierQueue;
-	courierQueue.updatedFromFile("COURIER.txt");
+	courierQueue.updateFromFile("COURIER.txt");
 	Customer customer(courierQueue);
 	Admin admin(courierQueue);
 	Worker worker(courierQueue);
