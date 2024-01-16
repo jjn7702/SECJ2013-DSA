@@ -48,29 +48,28 @@ class Order{
     double totalPrice;
     int quantity;
 
+
     public:
     Order(Menu menu, int tableNum, int pax, double totalPrice, int quantity)
     : menu(menu), tableNum(tableNum), pax(pax), quantity(quantity) {}
 
-    //Order getMenu(){return menu;}
-    //Order getTableNum(){return menu;}
-    //Order getPax(){return pax;}
-    //Order gettotalPrice(){return totalPrice;}
-    //Order getQuantity(){return quantity;}
+    Menu getMenu(){return menu;}
+    int getTableNum(){return tableNum;}
+    int getPax(){return pax;}
+    double gettotalPrice(){return totalPrice;}
+    int getQuantity(){return quantity;}
 };
 
 
 
 class NodeQueue{
-    Menu menu;
+    Order order;
 
     public:
     NodeQueue *next;
+    NodeQueue(Order o) : order(o), next(NULL) { }
 
-    NodeQueue(Menu m){
-        menu = m;
-        next = NULL;
-    }
+    Order getOrder(){return order;}
 };
 
 class queueOrder{
@@ -88,7 +87,7 @@ class queueOrder{
         }
 
         void enQueue(Menu menu){
-            NodeQueue *newOrder = new NodeQueue(menu);
+            NodeQueue *newOrder = new NodeQueue(order);
 
             if (isEmpty()){
                 front = newOrder;
@@ -98,4 +97,19 @@ class queueOrder{
                 back = newOrder;
             }
         }
-}
+
+        void printOrder(){
+            //perlukan ke? 
+            if (isEmpty()) {
+                cout << "There is no other order pending\n";
+            } else {
+                NodeQueue *temp = front;
+
+                while (temp) {
+                    cout << temp->getTableNum() << " ";
+                    temp = temp->next;
+                }
+            }
+        }
+
+};
