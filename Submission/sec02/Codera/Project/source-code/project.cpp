@@ -133,11 +133,61 @@ public:
 // Queue
 class Queue
 {
-private:
-    Node *head;
-
 public:
+    Node *back, *front;
 
+    Queue(){
+        front = NULL;
+        back = NULL;
+    }
+
+    bool isEmpty(){
+        return ((front == NULL) && (back == NULL));
+    }
+
+    void enQueue(int d){
+        Node *newNode = new Node(d);
+
+        if(isEmpty()){
+            front = newNode;
+            back = newNode;
+        }
+        else{
+            back->next =  newNode;
+            back = newNode;
+        }
+    }
+
+    void deQueue(){
+        Node *delNode = front;
+        if(isEmpty())
+            cout << "The queue is empty" << endl;
+        else{
+            if(front != back){
+                front = front->next;
+                delNode->next = NULL;
+            }
+            else{
+                front = NULL;
+                back = NULL;
+            }
+            delete delNode;
+        }
+    }
+
+    void print(){
+        if(isEmpty())
+            cout << "Sorry, nothing in queue" << endl;
+        else{
+            Node *temp = front;
+
+            while(temp){ //temp != NULL
+                cout << temp->getData() << " ";
+                temp = temp->next;
+            }
+            cout << endl;
+        }
+    }
 };
 
 // display patient record
