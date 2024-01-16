@@ -524,5 +524,39 @@ class CandidateList
 				Chead = nn;
 			}
 		}
+
+        Candidate *CandLogin() //CANDIDATE LOGIN
+		{
+			bool found = false;
+			do
+			{
+				string loginId,loginPass;
+				cout<<"Please enter your ID & PASSWORD"<<endl;
+				cout<<"ID : ";
+				cin>>loginId;
+				cout<<"PASSWORD : ";
+				cin>>loginPass;
+				cout<<endl;
+				system("CLS");
+				
+				Candidate *temp = Chead;
+				
+				while(temp != NULL)
+				{
+					if((temp->getMatric() == loginId) && (temp->getPass() == loginPass))
+					{
+						cout<<"\nWelcome, "<<temp->getName()<<endl<<endl;
+						return temp;
+					}
+					
+					temp = temp->next;
+				}
+		
+				if(found==false)
+					cout<<"ID or Password entered is wrong!"<<endl<<endl;
+	
+		}while(found==false);
+    return NULL;
+	} 
 	
 };
