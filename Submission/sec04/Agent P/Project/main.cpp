@@ -589,5 +589,20 @@ class CandidateList
 		
 		CandFile();
 	}
+
+    void CandFile()
+        {
+        	ofstream out;
+        	out.open("cand.csv");
+
+            Candidate *temp = Chead;
+
+            while(temp != NULL)
+            {
+                out<<temp->getName()<<","<<temp->getFaculty()<<","<<temp->getAge()<<","<<temp->getIC()<<","<<temp->getPhone()<<","<<temp->getVoteCount()<<","<<temp->getMatric()<<","<<temp->getPass()<<","<<temp->getEmail()<<endl;
+                temp = temp->next;
+            }
+            out.close();
+		}
 	
 };
