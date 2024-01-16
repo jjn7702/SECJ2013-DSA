@@ -13,7 +13,7 @@ The primary objective of this program is to create an efficient library manageme
 
 
 ## Problem Analysis 📝
-	
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Project/ProblemAnalysis.png">
 
 ## Design 🎨
 
