@@ -311,41 +311,46 @@ class BinaryTree {
 };
 
 //read_data() - QY
-int read_Userdata(UserAcc acc[], string filename)
-{
-    ifstream inp(filename);
-
-    if(!inp){
+int read_data(Transaction acc[], const string& filename){
+	
+	string an, type, d, target;
+	double amt;
+	int n = 0, referNum;
+	ifstream f1(filename);
+	if(!f1){
 		cout<<"Error opening file: "<<filename<<endl;
 		exit(0);
 	}
+	
+	while(!f1.eof()){
+        target = "-";
 
-    int i = 0;
-    while(!inp.eof())
-    {
-        string accnum, pw;
-        float balance;
-        int pin;
+        f1 >> referNum;
+        f1.ignore();
+        acc[n].setReferNum(referNum);
 
-        getline(inp, accnum, ',');
-        acc[i].set_accNum(accnum);
-
-        inp >> balance;
-        inp.ignore();
-        acc[i].set_balance(balance);
-
-        inp >> pin;
-        inp.ignore();
-        acc[i].set_pin(pin);
-
-        getline(inp, pw, '\n');
-        acc[i].set_password(pw);
-
-        i++;
-    }
-
-    inp.close();
-    return i;
+        getline(f1,an,',');
+		acc[n].setAccountNumber(an);
+		
+		getline(f1,d,',');
+		acc[n].setTransactionDate(d);
+		
+		getline(f1,type,',');
+		acc[n].setTransactionType(type);
+		
+		f1>>amt;
+		f1.ignore();
+		
+		if(type == "TRANSFER")
+			getline(f1,target);
+			
+		acc[n].setTargetAccount(target);
+		acc[n].setTransactionAmount(amt);
+		n++;
+	}
+	
+	f1.close();
+	return n;
 }
 
 
