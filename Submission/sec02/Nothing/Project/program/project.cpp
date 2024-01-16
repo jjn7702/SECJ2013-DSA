@@ -218,3 +218,26 @@ void menu() {
     cout << "6.  Redo\n";
     cout << "7.  Exit\n";
 }
+
+itemQueue import(){
+    ifstream file;
+    int id;
+    string name;
+    int price;
+    string itemLocation;
+    itemQueue item;
+    goods newItem;
+    file.open("input.txt");
+    if(!file){
+        cout << "File not found" << endl;
+    }else{
+        //each line is a goods
+        while(file >> id >> name >> price >> itemLocation){
+            newItem = goods(id, name, price, itemLocation);
+            //insert into item
+            item.enqueue(newItem);
+        }
+    }
+    file.close();
+    return item;
+}
