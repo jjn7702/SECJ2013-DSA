@@ -21,7 +21,7 @@ Among the difficulties the system will face include effectively allocating waiti
 
 ## Flow Chart
 
-![Alt text](images/Flowchart.jpg)
+![Alt text](images/Flowcharts.jpg)
 
 ## Data structure concept implementation
 
