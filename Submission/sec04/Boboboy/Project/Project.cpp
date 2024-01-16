@@ -662,3 +662,23 @@ int main(){
 		cout << "--------------------------------------------------------------" << endl;
 		cout << "Code" << setw(18) << "Name" << setw(20) << "Type" << setw(20) << "Price(RM)" << endl;
 		cout << "--------------------------------------------------------------" << endl;
+        for(int i = 0; i <N; i++){
+			a[i].printmenu();
+		}
+		cout << "Process:" << endl;
+		cout << "1. Add Order" << endl;
+		cout <<"2. Delete Order" << endl;
+		cout << "3. Find the item you ordered in Cart" << endl;
+		cout << "4. Confirm Order" << endl;
+		cout << "5. Check the Order Status" << endl;
+		cout << "6. Back to the home page" << endl;
+		cout << "Your Choice:";
+		cin >> choose;
+		switch(choose){
+			case 1 :		order = Cus_order();
+							cus_action = waytoInsert();
+							b = Customer_order(a,b,order,cus_action);
+							break;
+			case 2 :		b.displayCart();
+							b = deleteorder(b);
+							break;
