@@ -159,6 +159,7 @@ Step 1.2
 Users can register as a new Voter by entering option 2.
 
 Step 1.2.1
+
 ![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/Screenshot%202024-01-16%20200049.png)
 
 Users will need to fill in all this information.
@@ -290,7 +291,7 @@ The voter can choose to continue or end the process here by entering ‘y’ to 
 
 Step 3.3
 
-![4]()
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Agent%20P/images/WhatsApp%20Image%202024-01-16%20at%209.02.35%20PM.jpeg)
 
 If the candidate chose option 3, then they will withdraw from the election process and their name will be removed from the candidate list and the system will end.
 
