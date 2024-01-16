@@ -409,3 +409,95 @@ class Cart{
 	}
 }
 };
+
+class Retaurant{
+	int front;
+	int back;
+	int count;
+	int customer_num; 
+	int items[N];
+	public:
+		Retaurant(){
+			front = 0;
+			count = 0;
+			back = N-1;
+			customer_num = 0;
+		}
+		bool isEmpty(){
+			return (count == 0);
+		}
+		bool isFull(){
+			return (count == N);
+		}
+		void enQueue(int d){
+			if(isFull()){
+				cout << "Sorry, the queue is full" << endl;
+			}
+			else{
+			    back = (back + 1) % N;
+			    items[back] = d; // items[++ back] = d
+			    count ++;
+			    customer_num++;
+		    }
+		}
+		void deQueue(){
+			if(isEmpty()){
+				cout << "Sorry, no item in the queue" << endl;
+			}
+			else{
+				cout << "The customer Order "<< items[front] <<" has been done" << endl;
+				front = (front + 1) % N;
+				count --;
+			}
+		}
+		int getFront(){
+			return items[front];
+		}
+		int getBack(){
+			return items[back];
+		}
+		int getcustomer_num(){
+			return customer_num;
+		}
+		void print(){
+			if(isEmpty()){
+				cout << "No order is placed" << endl;
+			}
+			else{
+			if(front > back){
+				for(int i = front; i<N; i++){
+					cout << "The Number Order " << items[i] << " is placed" << endl;
+				}
+				for(int i = 0; i <= back; i++){
+					cout << "The Number Order " << items[i] << " is placed" << endl;
+			    }
+			}
+			else{
+				for(int i = front; i <= back; i++){
+					cout << "The Number Order " << items[i] << " is placed" << endl;	
+			    }
+			}
+		}
+		cout << endl;
+	}
+	void checkStatus() {
+	int expectedNumber;
+	cout << "Enter Your Order Number: ";
+	cin >> expectedNumber;
+    bool orderFound = false;
+
+    for (int i = front; i <= back; i++) {
+        int currentNumber = items[i];
+        if (currentNumber == expectedNumber) {
+            orderFound = true;
+            cout << "Order Number " << currentNumber << " is in progress." << endl;
+            break;  // Exit the loop once the order is found
+        }
+    }
+
+    if (!orderFound) {
+        cout << "Order Number " << expectedNumber << " completed." << endl;
+    }
+}
+
+};
