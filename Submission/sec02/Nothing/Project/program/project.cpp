@@ -177,12 +177,15 @@ void displayHeader();
 void menu();
 bool isNumber(string);
 itemQueue import();
+goods *add();
 
 int main(){
     displayHeader();
     welcomeScreen();
     itemQueue item;
     item.createQueue();
+    historyStack history;
+    history.createStack();
     string input;
     while(true){
         int choice;
@@ -208,8 +211,14 @@ int main(){
             case 1:
                 item = import();
                 break;
-            case 2:
+            case 2: {
+                goods *newItem = add();
+                item.enqueue(*newItem);
+                history.push(*newItem, 'a');
+                cout << "Item added!" << endl;
+                system("pause");
                 break;
+            }
             case 3:
                 break;
             case 4:
@@ -243,12 +252,11 @@ void displayHeader() {
 void menu() {
     cout << "Please select an option:\n";
     cout << "1.  Import item from file\n";
-    cout << "2.  Remove item\n";
-    cout << "3.  Search item\n";
+    cout << "2.  Add item\n";
+    cout << "3.  Remove item\n";
     cout << "4.  Display item\n";
     cout << "5.  Undo\n";
-    cout << "6.  Redo\n";
-    cout << "7.  Exit\n";
+    cout << "6.  Display history\n";
 }
 
 bool isNumber(string input){
@@ -282,4 +290,24 @@ itemQueue import(){
     cout << "Import successful!" << endl;
     system("pause");
     return item;
+}
+
+goods *add(){
+    int id;
+    string name;
+    int price;
+    string itemLocation;
+    goods *newItem;
+    system("cls");
+    displayHeader();
+    cout << "Enter item ID: ";
+    cin >> id;
+    cout << "Enter item name: ";
+    cin >> name;
+    cout << "Enter item price: ";
+    cin >> price;
+    cout << "Enter item location: ";
+    cin >> itemLocation;
+    newItem = new goods(id, name, price, itemLocation);
+    return newItem;
 }
