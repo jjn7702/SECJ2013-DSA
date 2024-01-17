@@ -25,7 +25,7 @@ _Don't forget to hit the :star: if you like this repo._
 ##  Synopsis
 
 ## Class Diagram
-![1]([https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Project/image/class%20diagram.JPG](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Images/WhatsApp%20Image%202024-01-17%20at%2010.04.50%20PM.jpeg))
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Images/WhatsApp%20Image%202024-01-17%20at%2010.04.50%20PM.jpeg)
 
 
 ## Pseudocode
