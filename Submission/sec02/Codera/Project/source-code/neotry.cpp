@@ -537,24 +537,80 @@ int main()
     while (!logout)
     {
         system("cls");
-        cout << "\nHospital Management System\n\n<<MAIN PAGE>>\n[1] Add new patient\n[2] Delete patient\n[3] Search patient\n[4] Sort patient\n[5] Display patient list\n[6] Edit Patient Info\n[7] Logout"
+        cout << "\nHospital Management System\n\n<<MAIN PAGE>>\n[1] Add new patient\n[2] Delete patient\n[3] Search patient\n[4] Sort patient\n[5] Display patient list\n[6] Logout"
              << endl;
         cout << "\nOption: ";
         cin >> opt;
         cin.ignore();
+
         if (opt == 1)
         {
-            while (true)
+            bool addPatientMenu = true;
+
+            while (addPatientMenu)
             {
                 system("cls");
                 cout << "<<ADD NEW PATIENT>>" << endl;
                 cout << "[1] Insert record" << endl;
-                cout << "[2] Back" << endl
+                cout << "[2] Back to main menu" << endl
                      << endl;
                 cout << "Option: ";
                 cin >> choice;
                 cout << endl;
 
+                switch (choice)
+                {
+                case 1:
+                {
+                    cin.ignore();
+
+                    cout << "\n---Enter patient details---" << endl;
+                    cout << "Name: ";
+                    getline(cin, name);
+                    cout << "IC: ";
+                    getline(cin, ic);
+                    cout << "Age: ";
+                    cin >> age;
+                    cin.ignore();
+                    cout << "Gender: ";
+                    getline(cin, gender);
+                    cout << "Contact Number: ";
+                    getline(cin, contactNum);
+                    cout << "Disease: ";
+                    getline(cin, disease);
+                    cout << "Diagnosed Date: ";
+                    getline(cin, date);
+
+                    patList.enQueue(name, ic, age, gender, contactNum, disease, date);
+                    cout << "\nPatient added successfully!" << endl;
+                    patList.save();
+                    cin.ignore();
+                    cout << "Press any key to continue...";
+                    cin.ignore();
+                    break;
+                }
+                case 2:
+                    addPatientMenu = false; // Exit the loop and go back to the main menu
+                    break;
+                default:
+                    cout << "Invalid option. Please enter a valid option (1 or 2)." << endl;
+                    system("pause");
+                    break;
+                }
+            }
+        }
+        else if (opt == 2)
+        {
+            while (true)
+            {
+                system("cls");
+                cout << "<<DELETE PATIENT>>" << endl;
+                cout << "[1] Delete record" << endl;
+                cout << "[2] Back" << endl
+                     << endl;
+                cout << "Option: ";
+                cin >> choice;
+                cout << endl;
                 if (choice == 2)
                     break;
 
@@ -565,81 +621,6 @@ int main()
                     continue;
                 }
                 cin.ignore();
-
-                cout << "\n---Enter patient details---" << endl;
-                cout << "Name: ";
-                getline(cin, name);
-                cout << "IC: ";
-                getline(cin, ic);
-                cout << "Age: ";
-                cin >> age;
-                cout << "Gender: ";
-                cin.ignore();
-                getline(cin, gender);
-                cout << "Contact Number: ";
-                getline(cin, contactNum);
-                cout << "Disease: ";
-                getline(cin, disease);
-                cout << "Diagnosed Date: ";
-                getline(cin, date);
-
-                patList.enQueue(name, ic, age, gender, contactNum, disease, date);
-                cout << "\nPatient added successfully!" << endl;
-                patList.save();
-
-                system("pause");
-            }
-        }
-        else if (opt == 2)
-        {
-            system("cls");
-            cout << "<<DELETE PATIENT>>" << endl;
-
-            if (patList.isEmpty())
-                cout << "No patients to delete. The queue is empty." << endl;
-            else
-            {
-                cout << "Enter patient name to delete: ";
-                getline(cin, name);
-
-                Patient *deletedPatient = patList.searchByName(name);
-
-                if (deletedPatient != nullptr)
-                {
-                    // Display the details of patients with the specified name
-                    cout << "\nPatients with the specified name:" << endl;
-
-                    Patient *temp = deletedPatient;
-
-                    while (temp != nullptr && temp->getName() == name)
-                    {
-                        temp->displayPatientDetails();
-                        cout << "-------------------------------" << endl;
-                        temp = temp->next;
-                    }
-
-                    // Confirm deletion
-                    cout << "\nAre you sure you want to delete these patients? (Y/N): ";
-                    char confirm;
-                    cin >> confirm;
-
-                    cin.ignore(); // Clear any newline characters from the buffer
-
-                    if (confirm == 'Y' || confirm == 'y')
-                    {
-                        patList.deQueueByName(name);
-                        deletedPatient = patList.searchByName(name);
-                        cout << "\nPatients deleted successfully!" << endl;
-                    }
-                    else
-                    {
-                        cout << "\nDeletion canceled." << endl;
-                    }
-                }
-                else
-                {
-                    cout << "\nPatient not found." << endl;
-                }
             }
         }
         else if (opt == 3)
@@ -750,104 +731,7 @@ int main()
             patList.print();
             system("pause");
         }
-
-else if (opt == 6)
-{
-    system("cls");
-    cout << "<<EDIT PATIENT INFO>>" << endl;
-
-    if (patList.isEmpty())
-        cout << "No patients to edit. The queue is empty." << endl;
-    else
-    {
-        // Display patient list
-        dispHeader();
-        patList.print();
-
-        // Ask user which patient to edit
-        cout << "\nEnter the name of the patient to edit: ";
-        getline(cin, name);
-
-        Patient *patientToEdit = patList.searchByName(name);
-
-        if (patientToEdit != nullptr)
-        {
-            // Display the patient details
-            cout << "\nPatient Found:" << endl;
-            patientToEdit->displayPatientDetails();
-
-            // Ask user what to edit
-            cout << "\nWhat would you like to edit?" << endl;
-            cout << "[1] Name" << endl;
-            cout << "[2] IC" << endl;
-            cout << "[3] Age" << endl;
-            cout << "[4] Gender" << endl;
-            cout << "[5] Contact Number" << endl;
-            cout << "[6] Disease" << endl;
-            cout << "[7] Diagnosed Date" << endl;
-            cout << "Option: ";
-            cin >> choice;
-            cin.ignore();
-
-            string newValue;
-            int newAge;
-
-            switch (choice)
-            {
-            case 1:
-                cout << "Enter new name: ";
-                getline(cin, newValue);
-                patientToEdit->setName(newValue);
-                break;
-            case 2:
-                cout << "Enter new IC: ";
-                getline(cin, newValue);
-                patientToEdit->setIC(newValue);
-                break;
-            case 3:
-                cout << "Enter new age: ";
-                cin >> newAge;
-                cin.ignore();
-                patientToEdit->setAge(newAge);
-                break;
-            case 4:
-                cout << "Enter new gender: ";
-                getline(cin, newValue);
-                patientToEdit->setGender(newValue);
-                break;
-            case 5:
-                cout << "Enter new contact number: ";
-                getline(cin, newValue);
-                patientToEdit->setContactNum(newValue);
-                break;
-            case 6:
-                cout << "Enter new disease: ";
-                getline(cin, newValue);
-                patientToEdit->setDisease(newValue);
-                break;
-            case 7:
-                cout << "Enter new diagnosed date: ";
-                getline(cin, newValue);
-                patientToEdit->setDate(newValue);
-                break;
-            default:
-                cout << "Invalid option. Please enter a valid option (1 to 7)." << endl;
-                system("pause");
-                continue;
-            }
-
-            cout << "\nPatient info updated successfully!" << endl;
-            patList.save();
-        }
-        else
-        {
-            cout << "\nPatient not found." << endl;
-        }
-    }
-    system("pause");
-}
-
-        else if(opt == 7)
+        else if (opt == 6)
         {
             logout = true;
             cout << "\n\nYou have successfully logged out!" << endl;

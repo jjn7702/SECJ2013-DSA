@@ -49,6 +49,7 @@ class itemNodeQueue{
         itemNodeQueue *prev;
 };
 
+
 class itemQueue{
     public:
         itemNodeQueue *front;
@@ -72,6 +73,7 @@ itemQueue import();
 goods *add();
 void printHistory(historyStack);
 void saveToFile(itemQueue);
+
 
 int main(){
     displayHeader();
@@ -213,6 +215,7 @@ void historyStack::push(goods item, char action){
     }
     size++;
 }
+
 void historyStack::pop(){
     if(isEmpty()){
         cout << "Stack is empty" << endl;
@@ -252,6 +255,7 @@ void itemQueue::createQueue(){
     rear = NULL;
     size = 0;
 }
+
 bool itemQueue::isEmpty(){
     if(front == NULL)
         return true;
@@ -313,6 +317,8 @@ void displayHeader() {
     cout << "|                     System                      |\n";
     cout << "===================================================\n";
 }
+
+
 void menu() {
     cout << "Please select an option:\n";
     cout << "1.  Import item from file\n";
@@ -360,6 +366,7 @@ itemQueue import(){
     system("pause");
     return item;
 }
+
 goods *add(){
     int id;
     string name;
