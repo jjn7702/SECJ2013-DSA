@@ -5,6 +5,20 @@
 #include <vector> 
 using namespace std;
 
+
+
+void displayHeader(){
+    cout << setw(10) << "Table" << " | "
+        << left << setw(10) << "Food ID" << " | "
+        << setw(21) << "Name" << " | "
+        << setw(13) << "Category" << " | "
+        << setw(6) << "Quantity" << " | "
+        << setw(6) << "Price" << " | "
+        << setw(10) << "Total Price" << endl;
+    cout << "-------------------------------------------------------------------------" << endl;
+
+}
+
 class Menu {
 private:
     string foodId;
@@ -35,6 +49,7 @@ public:
     void setPrice(double price) { this->price = price; }
 
     void displayMenu() const {
+        displayHeader();
         cout << left;
         cout << setw(10) << foodId << " | "
              << setw(21) << name << " | "
@@ -42,6 +57,7 @@ public:
              << fixed << setprecision(2) << setw(6) << price << endl;
     }
 };
+
 
 class nodeStack {
 public:
@@ -236,6 +252,7 @@ void customerView(){
         cout << "[1]Make order\n";
         cout << "[2]View current queueing order\n";
         cout << "[3]Cancel order\n";
+        cout << "[4]Exit menu\n";
         cout << "Please make your choice\n";
         cout << "Choice : ";
         cin >> opt;
@@ -284,10 +301,22 @@ void customerView(){
             order.printOrder();
             break;
 
-        default:
+        case 3:
+            cout << "Re enter your table number :";
+            cin >> tableNum;
+            order.deQueue(tableNum);
+            cout << "Order for table number [" << tableNum << "] is complete." << endl;
             break;
 
+        case 4 :
+            cout << "Exiting Customer Menu." << endl;
+            break;
+
+        default:
+            cout << "Invalid option. Please try again." << endl;
+            break;
         }
+
 
         cout << "\nDo you want to continue? (Y/N): ";
         cin >> choice;
@@ -306,14 +335,14 @@ void staffView() {
     queueOrder orderQueue;
 
     do {
-        cout << "\n[1] Add Menu" << endl;
+        cout << "\n\n[1] Add Menu" << endl;
         cout << "[2] Delete Menu" << endl;
         cout << "[3] Display Recent Changes" << endl;
         cout << "[4] View Customer Orders" << endl;
         cout << "[5] Confirm Customer Order" << endl;
         cout << "[6] Exit Staff Menu" << endl;
 
-        cout << "Enter your choice: ";
+        cout << "\nEnter your choice: ";
         cin >> opt;
 
         switch (opt) {
@@ -329,13 +358,13 @@ void staffView() {
                 cin >> price;
 
                 menuStack.push(Menu(foodId, name, category, price));
-                cout << "Menu added successfully." << endl;
+                cout << "\nMenu added successfully." << endl;
                 break;
             }
 
             case 2: {
                 menuStack.pop();
-                cout << "Menu deleted successfully." << endl;
+                cout << "\nMenu deleted successfully." << endl;
                 break;
             }
 
@@ -396,18 +425,29 @@ bool checkStaff(string staffId) {
 
 int main() {
     string staffID;
+    string user;
 
     cout << "Welcome to Tupperware!!\n\n";
-    cout << "If you are a staff, please enter your staff ID : ";
-    getline(cin, staffID);
+    cout << "Are you [Customer] or [Staff]? : ";
+    getline(cin, user);
 
-    if (!checkStaff(staffID)) {
-        cout << "Invalid staff ID. Redirecting to customer view...\n";
+    if (user == "Staff" || user == "staff") {
+        cout << "If you are a staff, please enter your staff ID : ";
+        getline(cin, staffID);
+
+        if (!checkStaff(staffID)) {
+            cout << "Invalid staff ID. Redirecting to customer view...\n\n";
+            customerView();
+        } else {
+            cout << "\nWelcome, staff! Redirecting to staff view...\n";
+            staffView();
+        }
+    } else if (user == "Customer" || user == "customer") {
+        cout << "\nWelcome, customer! Redirecting to customer view...\n";
         customerView();
-    } else {
-        cout << "Welcome, staff! Redirecting to staff view...\n";
-        staffView();
     }
+
+    cout << "\n\n\nThank you for using our system";
 
     return 0;
 }
