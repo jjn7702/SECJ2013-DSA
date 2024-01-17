@@ -236,6 +236,27 @@ saveToFile function:
 
 ## Design 
 
+The Warehouse Inventory Management System is designed to efficiently handle and streamline operations related to inventory management within a warehouse setting. The system comprises key components, including classes for goods, a history stack for tracking transactions, and a queue for managing the inventory.
+
+### Goods Class:
+The `goods` class represents individual items in the inventory, with private attributes such as ID, name, price, and item location. The class includes methods for retrieving these attributes, providing a clear and encapsulated representation of each item.
+
+### History Stack:
+The `historyStack` class is responsible for maintaining a transaction history through a stack data structure. It stores instances of the `goods` class along with an associated action character ('a' for addition and 'r' for removal). This allows the system to track changes in the inventory over time.
+
+### Item Queue:
+The `itemQueue` class is implemented to manage the main inventory. It utilizes a queue data structure to handle the lifecycle of items, allowing for easy addition and removal. The queue maintains a doubly-linked list of `itemNodeQueue` instances, each containing a `goods` object, forming a structured representation of the inventory.
+
+### User Interface:
+The main function serves as the user interface, providing a menu-driven system. Users can import items from a file, add new items to the inventory, remove items, display the current inventory, and print/save the transaction history and inventory to files. The system ensures user-friendly interactions by displaying a welcome screen and a clear header throughout the execution.
+
+### File Operations:
+The system supports file operations, including importing items from a CSV file, saving the transaction history to a text file (`history.txt`), and saving the current inventory to a CSV file (`output.csv`). This enhances data persistence and facilitates external analysis and reporting.
+
+### Input Validation:
+To ensure data integrity, the system incorporates input validation mechanisms. Functions such as `isNumber` and `isfloat` verify whether user inputs are numeric, preventing invalid data entry.
+
+The Warehouse Inventory Management System, with its well-structured classes and functionalities, aims to provide a robust solution for businesses or organizations reliant on efficient inventory management within their warehouses.
 
 
 
