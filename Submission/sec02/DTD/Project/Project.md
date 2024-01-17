@@ -64,11 +64,15 @@ The primary objective of this program is to create an efficient library manageme
   <li>b. Remove Book (Pop) : Staff can remove the book at the top of the list. </li>
   <li>c. Display Current List (DisplayStack) : Staff can display the current list of books. </li>
   <li>d. Approve Borrow Request : Staff can approve the borrow request done by the patrons and this will dequeue the request from the queue. </li>
-
-  2.Patron Operations
-  
+<br>
+  2.Patron Operations <br>
+  </br>
   <li>a. Request a book (Enqueue) : Patrons will make a request to borrow books from the library. </li>
   <li>b. Display Current Requests (DisplayQueue) :   Patrons can display the list of requests. </li>
+<br>
+  3.Exiting the System <br>
+  </br>
+<li>When the user (staff/patron) chooses option 3, they will exit the system. </li>
 
 
 ## Prepared by 🧑‍💻
