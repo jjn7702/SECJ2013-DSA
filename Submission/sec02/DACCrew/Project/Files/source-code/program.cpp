@@ -219,3 +219,71 @@ void saveToFile(stack &transactionStack)
         cout << "Error opening the file." << endl;
     }
 }
+
+int main()
+{
+    stack transactionStack;
+    double balance = 0.0;
+
+    int choice;
+
+    cout << "\n<<<<< WELCOME TO DACCrew BANKING MANAGEMENT SYSTEM >>>>>\n"
+         << endl;
+
+    do
+    {
+        cout << "1. Check Balance" << endl
+             << "2. Display Transaction List" << endl
+             << "3. Perform Transaction" << endl
+             << "4. Search for Transaction" << endl
+             << "5. Exit" << endl
+             << "Your choice: ";
+        cin >> choice;
+
+        switch (choice)
+        {
+        case 1:
+            cout << "\nCurrent Balance: RM" << balance << endl
+                 << endl;
+            break;
+        case 2:
+            print(transactionStack, balance);
+            break;
+        case 3:
+            performTransaction(transactionStack, balance);
+            break;
+        case 4:
+            int searchChoice;
+            cout << "\n[1] Search by Type" << endl
+                 << "[2] Search by Date" << endl
+                 << "[3] Back to Main Menu" << endl
+                 << "Your choice:";
+            cin >> searchChoice;
+            cout << endl;
+            if (searchChoice == 1)
+            {
+                char searchType;
+                cout << "\nEnter transaction type (D: Deposit/W: Withdraw/T: Transfer): ";
+                cin >> searchType;
+                transactionStack.searchByType(searchType);
+            }
+            else if (searchChoice == 2)
+            {
+                string searchDate;
+                cout << "\nEnter date (DD-MM-YYYY): ";
+                cin >> searchDate;
+                transactionStack.searchByDate(searchDate);
+            }
+            else if (searchChoice == 3)
+                break;
+        case 5:
+            cout << "\nExiting..." << endl;
+            break;
+        default:
+            cout << "\nInvalid choice. Try again." << endl;
+        }
+
+    } while (choice != 5);
+
+    return 0;
+}
