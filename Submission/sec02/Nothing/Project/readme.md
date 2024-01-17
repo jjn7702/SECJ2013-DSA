@@ -10,12 +10,12 @@ _Don't forget to hit the :star: if you like this repo._
 # Inventory Management System
 
 ## Table Of Contents
-- [Objective](#-Objective)
-- [Synopsis](#-synopsis)
-- [Class Diagram](#-class-diagram)
-- [Pseudocode](#-pseudocode)
-- [Design Description](#-design-description)
-- [Findings](#-Findings)
+- Objective
+- Synopsis
+- Class Diagram
+- Pseudocode
+- Design Description
+- Findings
 
 
 
@@ -23,8 +23,190 @@ _Don't forget to hit the :star: if you like this repo._
 
 ##  Objective
 ##  Synopsis
+
 ## Class Diagram
-(https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Images/WhatsApp%20Image%202024-01-17%20at%2010.04.50%20PM.jpeg)
+
+### <img src="[https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/b7b1299f-ead1-4e66-ad2e-95b901f4f03c](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Images/WhatsApp%20Image%202024-01-17%20at%2010.04.50%20PM.jpeg)" width="3%" height="3%">
+
+## Pseudocode
+
+### Main and other function: 
+
+Function main ()  
+
+1. Display welcome screen. 
+
+2. Create an empty itemQueue for managing the inventory. 
+
+3. Create an empty historyStack for recording actions. 
+
+4. Enter a loop to display the menu and handle user choices: 
+
+   a. Display the header. 
+
+   b. Display the menu options. 
+
+   c. Get the user's choice (integer). 
+
+   d. Validate the user's input using isNumber function. 
+
+   e. If the input is not a valid integer, show an error message and continue to the menu. 
+
+   f. Perform actions based on the user's choice: 
+
+      - If choice is 1: 
+
+        - Call import function to load items from a file. 
+
+        - Display import status. 
+
+      - If choice is 2: 
+
+        - Call add function to get item details from the user. 
+
+        - Enqueue the item to the itemQueue. 
+
+        - Push an 'add' action to the historyStack. 
+
+        - Display "Item added!" message. 
+
+      - If choice is 3: 
+
+        - Check if the itemQueue is empty. 
+
+        - If it's empty, display "No item in the inventory!" message. 
+
+        - Otherwise: 
+
+          - Dequeue an item from the itemQueue. 
+
+          - Push a 'remove' action to the historyStack. 
+
+          - Display "Item removed!" message. 
+
+      - If choice is 4: 
+
+        - Check if the itemQueue is empty. 
+
+        - If it's empty, display "No item in the inventory!" message. 
+
+        - Otherwise: 
+
+          - Display items from the itemQueue. 
+
+      - If choice is 5: 
+
+        - Call printHistory function to print history to a file. 
+
+        - Display "Printing history..." message. 
+
+        - Display "History saved into file" message. 
+
+        - Display "Exiting..." message. 
+
+        - Sleep for 2 seconds. 
+
+        - Clear the console screen. 
+
+        - End the program. 
+
+   g. Pause the program for user interaction. 
+
+5. End the program. 
+
+ 
+
+DisplayHeader Function: 
+
+1. Clear the console screen. 
+
+2. Display the program header. 
+
+  
+
+Menu Function: 
+
+1. Display the available menu options. 
+
+  
+
+IsNumber Function (input validation for integers): 
+
+1. Check if the input string consists of digits only. 
+
+2. Return true if it's a valid integer, false otherwise. 
+
+  
+
+IsFloat Function (input validation for floating-point numbers): 
+
+1. Check if the input string is a valid floating-point number. 
+
+2. Return true if it's a valid float, false otherwise. 
+
+  
+
+WelcomeScreen Function: 
+
+1. Clear the console screen. 
+
+2. Display a welcome message. 
+
+3. Wait for user confirmation (e.g., press any key). 
+
+  
+
+Import Function: 
+
+1. Open the file "input.csv" for reading. 
+
+2. Create an empty itemQueue. 
+
+3. Read items from the file and add them to the itemQueue. 
+
+4. Close the file. 
+
+5. Display import status. 
+
+6. Return the itemQueue. 
+
+  
+
+Add Function: 
+
+1. Get item details (ID, name, price, location) from the user. 
+
+2. Create a new goods object with the details provided. 
+
+3. Return the goods object. 
+
+  
+
+printHistory Function: 
+
+1. Open the file "history.txt" for writing. 
+
+2. Iterate through the historyStack: 
+
+   a. Write each history node's details (ID, name, price, location, action) to the file. 
+
+3. Close the file. 
+
+ 
+
+saveToFile function: 
+
+Open file “output.csv” 
+
+While item is not empty 
+
+Write item info into file 
+
+Item.dequeue 
+
+Close file 
+
+ 
 
 ## Design 
 
