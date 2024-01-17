@@ -1,3 +1,26 @@
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+#include <string>
+#include <sstream>
+
+using namespace std;
+
+class nodeStack
+{
+    string date;
+    double amount, balance;
+    string type;
+
+public:
+    nodeStack *next;
+    nodeStack(string d, string t, double a, double b) : date(d), type(t), amount(a), balance(b), next(NULL) {}
+
+    string getDate() const { return date; }
+    string getType() const { return type; }
+    double getAmount() const { return amount; }
+    double getBalance() const { return balance; }
+};
 
 class stack
 {
