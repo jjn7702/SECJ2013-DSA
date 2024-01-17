@@ -5,36 +5,22 @@
 
 using namespace std;
 
-
-
-class historyNodeStack{
-    public:
-        goods item;
-        char action;
-        historyNodeStack *next;
-};
-
-class historyStack{
+class goods{
     private:
-        historyNodeStack *top;
-        historyNodeStack *bottom;
-        int size;
-
+        int id;
+        string name;
+        double price;
+        string itemLocation;
+    
     public:
-        void createStack();
-        bool isEmpty();
-        void push(goods item, char action);
-        void pop();
-        char getAction();
-        goods getItem();
+        goods(int id = 0, string name = "", double price = 0, string itemLocation = "");
+        int getId();
+        string getName();
+        double getPrice();
+        string getItemLocation();
 };
 
-class itemNodeQueue{
-    public:
-        goods item;
-        itemNodeQueue *next;
-        itemNodeQueue *prev;
-};
+
 
 class itemQueue{
     public:
