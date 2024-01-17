@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include<iomanip>
+#include <unistd.h>
 
 using namespace std;
 
@@ -8,11 +9,11 @@ class goods{
     private:
         int id;
         string name;
-        int price;
+        double price;
         string itemLocation;
     
     public:
-        goods(int id = 0, string name = "", int price = 0, string itemLocation = ""){
+        goods(int id = 0, string name = "", double price = 0, string itemLocation = ""){
             this->id = id;
             this->name = name;
             this->price = price;
@@ -27,7 +28,7 @@ class goods{
             return name;
         }
 
-        int getPrice(){
+        double getPrice(){
             return price;
         }
 
@@ -41,7 +42,6 @@ class historyNodeStack{
         goods item;
         char action;
         historyNodeStack *next;
-        historyNodeStack *prev;
 };
 
 class historyStack{
@@ -69,13 +69,11 @@ class historyStack{
             newNode->item = item;
             newNode->action = action;
             newNode->next = NULL;
-            newNode->prev = NULL;
 
             if(isEmpty()){
                 top = newNode;
                 bottom = newNode;
             }else{
-                newNode->prev = top;
                 top->next = newNode;
                 top = newNode;
             }
@@ -83,12 +81,22 @@ class historyStack{
         }
 
         void pop(){
-            if(top == NULL){
+            if(isEmpty()){
                 cout << "Stack is empty" << endl;
             }else{
-                historyNodeStack *temp = top;
-                top = top->prev;
-                top->next = NULL;
+                historyNodeStack *temp = bottom;
+                historyNodeStack *prev = NULL;
+                while(temp->next != NULL){
+                    prev = temp;
+                    temp = temp->next;
+                }
+                if(prev == NULL){
+                    top = NULL;
+                    bottom = NULL;
+                }else{
+                    prev->next = NULL;
+                    top = prev;
+                }
                 delete temp;
                 size--;
             }
@@ -106,7 +114,7 @@ class historyStack{
                 cout << "Stack is empty" << endl;
             else
                 return top->item;
-        }   
+        }
 };
 
 class itemNodeQueue{
@@ -179,6 +187,8 @@ class itemQueue{
                 itemNodeQueue *temp = front;
                 //display in table
                 cout << "ID" << setw(10) << "Name" << setw(10) << "Price" << setw(10) << "Location" << endl;
+                //price to 2 decimal places
+                cout << fixed << setprecision(2);
                 while(temp != NULL){
                     cout << temp->item.getId() << setw(10) << temp->item.getName() << setw(10) << temp->item.getPrice() << setw(10) << temp->item.getItemLocation() << endl;
                     temp = temp->next;
@@ -191,8 +201,10 @@ void welcomeScreen();
 void displayHeader();
 void menu();
 bool isNumber(string);
+bool isfloat(string);
 itemQueue import();
 goods *add();
+void printHistory(historyStack);
 
 int main(){
     displayHeader();
@@ -208,7 +220,7 @@ int main(){
             displayHeader();
             menu();
             cout << "Enter your choice: ";
-            
+
             getline(cin, input);
             if(isNumber(input)){
                 choice = stoi(input);
@@ -267,44 +279,22 @@ int main(){
                     break;
                 }
                 break;
-            case 5:
-                if (history.isEmpty()) {
-                    system("cls");
-                    displayHeader();
-                    cout << "No history!" << endl;
-                    system("pause");
-                    break;
-                }
-                else {
-                    if (history.getAction() == 'a') {
-                        item.dequeue();
-                        history.pop();
-                        system("cls");
-                        displayHeader();
-                        cout << "Undo successful!" << endl;
-                        system("pause");
-                        break;
-                    }
-                    else if (history.getAction() == 'r') {
-                        item.enqueue(history.getItem());
-                        history.pop();
-                        system("cls");
-                        displayHeader();
-                        cout << "Undo successful!" << endl;
-                        system("pause");
-                        break;
-                    }
-                }
-                break;
-            case 7:
-                system("cls");
-                cout << "Thank you for using the system!" << endl;
+            case 5:{
+                system ("cls");
+                displayHeader();
+                cout << "Printing history..." << endl;
+                printHistory(history);
+                cout << "History saved into file" << endl;
                 system("pause");
                 system("cls");
+                cout << "Exiting..." << endl;
+                cout << "Thank you for using the system!" << endl;
+                sleep(2);
+                system("cls");
                 return 0;
+            }
         }
     }
-    return 0;
 }
 
 void welcomeScreen(){
@@ -328,8 +318,7 @@ void menu() {
     cout << "2.  Add item\n";
     cout << "3.  Remove item\n";
     cout << "4.  Display item\n";
-    cout << "5.  Undo\n";
-    cout << "6.  Display history\n";
+    cout << "5.  Print history and exit\n";
 }
 
 bool isNumber(string input){
@@ -341,22 +330,31 @@ bool isNumber(string input){
 }
 
 itemQueue import(){
-    ifstream file("input.txt");
+    ifstream file("input.csv");
     int id;
     string name;
-    int price;
+    double price;
     string itemLocation;
     itemQueue item;
     item.createQueue();
     goods *newItem;
+    system("cls");
+    displayHeader();
     if (!file.is_open()) {
         cout << "File not found" << endl;
     }else{
         cout << "Importing..." << endl;
         //each line is a goods
-        while (file >> id >> name >> price >> itemLocation) {
+        while (!file.eof()) {
+            file >> id;
+            file.ignore();
+            getline(file, name, ',');
+            file >> price;
+            file.ignore();
+            getline(file, itemLocation);
             newItem = new goods(id, name, price, itemLocation);
             item.enqueue(*newItem);
+        
         }
     }
     file.close();
@@ -368,19 +366,73 @@ itemQueue import(){
 goods *add(){
     int id;
     string name;
-    int price;
+    double price;
     string itemLocation;
     goods *newItem;
     system("cls");
     displayHeader();
-    cout << "Enter item ID: ";
-    cin >> id;
+    string input;
+    while(true){
+        cout << "Enter item ID: ";
+        getline(cin, input);
+        if(isNumber(input)){
+            id = stoi(input);
+            break;
+        }else{
+            cout << "Invalid input, please enter a number!" << endl;
+            system("pause");
+            system("cls");
+            displayHeader();
+        }
+    }
     cout << "Enter item name: ";
-    cin >> name;
-    cout << "Enter item price: ";
-    cin >> price;
+    getline(cin, name);
+    while(true){
+        cout << "Enter item price: ";
+        getline(cin, input);
+        if(isfloat(input)){
+            price = stod(input);
+            break;
+        }else{
+            cout << "Invalid input, please enter a number!" << endl;
+            system("pause");
+            system("cls");
+            displayHeader();
+        }
+    }
     cout << "Enter item location: ";
-    cin >> itemLocation;
+    getline(cin, itemLocation);
     newItem = new goods(id, name, price, itemLocation);
     return newItem;
+}
+
+bool isfloat(string s){
+    int count = 0;
+    for(int i = 0; i < s.length(); i++){
+        if(s[i] == '.') count++;
+        if(isdigit(s[i]) == false && s[i] != '.'){
+            cout << "Invalid input, enter a numberic input!\n";
+            system("pause");
+            system("cls");
+            return false;
+        }
+    }
+    if(count > 1){
+        cout << "Invalid input, enter a numberic input!\n";
+        system("pause");
+        system("cls");
+        return false;
+    }
+    return true;
+}
+
+void printHistory(historyStack history){
+    ofstream file("history.txt");
+    if(file.is_open()){
+        while(!history.isEmpty()){
+            file << history.getItem().getId() << " " << history.getItem().getName() << " " << history.getItem().getPrice() << " " << history.getItem().getItemLocation() << " " << history.getAction() << endl;
+            history.pop();
+        }
+    }
+    file.close();
 }
