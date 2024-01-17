@@ -197,7 +197,14 @@ class itemQueue{
         }
 };
 
-
+void welcomeScreen();
+void displayHeader();
+void menu();
+bool isNumber(string);
+bool isfloat(string);
+itemQueue import();
+goods *add();
+void printHistory(historyStack);
 
 int main(){
     displayHeader();
