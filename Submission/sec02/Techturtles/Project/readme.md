@@ -1,7 +1,7 @@
 # Courier Service System
 
 ## Description 📝
-The Courier Service System is specially designed for the administrator. The system's objectives are mainly to sort parcels efficiently based on their status, shipping option or tracking number. Moreover, it also helps the administrator to add a new parcel into the system. Not to mention, the admin will be able to search the intended parcel based on the parcel’s tracking number. In Assignment 2, the latest Courier Service System will implement linked lists. The system's objectives are mainly to add, delete, find, sort and display parcels using linked lists method. Finally, the project will need us to implement stack, queue or tree data structures to our project
+The Courier Service System is specially designed for the administrator. The system's objectives are mainly to sort parcels efficiently based on their status, shipping option or tracking number. Moreover, it also helps the administrator to add a new parcel into the system. Not to mention, the admin will be able to search the intended parcel based on the parcel’s tracking number. In Assignment 2, the latest Courier Service System will implement linked lists. The system's objectives are mainly to add, delete, find, sort and display parcels using linked lists method. Finally, the project will need us to implement stack, queue or tree data structures to our project. Now, the project's objective is to add or delete parcels using stack or queue operations respectively to execute both functions.
 
 <h1>Project</h1>
 
