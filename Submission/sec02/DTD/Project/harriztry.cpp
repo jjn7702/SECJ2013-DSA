@@ -190,6 +190,16 @@ public:
         }
     }
 
+    void displayQueueFront() const {
+        if (!isEmpty()) {
+            cout << "Next borrow request in the queue:\n";
+            cout << "- [" << front->data.getTitle() << " requested by " << front->data.getAuthor() << "] " << endl;
+          
+        } else {
+            cout << "Queue is empty.\n";
+        }
+    }
+
     void displayQueue() const
     {
         if (isEmpty())
@@ -346,7 +356,7 @@ int main()
         else if (stackChoice == 4)
         {
                 
-                patronQueue.displayQueue();
+                patronQueue.displayQueueFront();
                 system("pause");
                 patronQueue.dequeue();
                 system("pause");
