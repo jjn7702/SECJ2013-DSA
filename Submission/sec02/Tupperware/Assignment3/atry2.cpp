@@ -5,6 +5,15 @@
 
 using namespace std;
 
+void displayHeader(){
+    cout << left << setw(10) << "Food ID" << " | "
+        << setw(21) << "Name" << " | "
+        << setw(13) << "Category" << " | "
+        << setw(6) << "Price" << "\n";
+    cout << "---------------------------------------------------------" << endl;
+
+}
+
 class Menu {
 private:
     string foodId;
@@ -93,8 +102,6 @@ public:
         else {
             nodeStack* temp = top;
 
-            cout << "Recent Menu Changes:" << endl;
-
             while (temp) {
                 temp->menu.displayMenu();
                 temp = temp->next;
@@ -182,20 +189,6 @@ public:
             delete temp;
             cout << "Order for table number " << tableNumber << " dequeued successfully." << endl;
         }
-        /*nodeQueue* delNode = front;
-
-        if (isEmpty())
-            cout << "The queue is empty." << endl;
-        else {
-            if (front != back) {
-                front = front->next;
-                delNode->next = NULL;
-            } else {
-                front = NULL;
-                back = NULL;
-            }
-            delete delNode;
-        }*/
     }
 
     void displayQueue() {
@@ -206,16 +199,10 @@ public:
                  << left << setw(10) << "Food ID" << " | "
                  << setw(21) << "Name" << " | "
                  << setw(13) << "Category" << " | "
-                 << setw(6) << "Quantity" << " | "
+                 << setw(8) << "Quantity" << " | "
                  << setw(6) << "Price" << " | "
                  << setw(10) << "Total Price" << endl;
-            cout << "-------------------------------------------------------------------------" << endl;
-            /*cout << "Order Queue:" << endl;
-            cout << left << setw(10) << "Food ID" << " | "
-                 << setw(21) << "Name" << " | "
-                 << setw(13) << "Category" << " | "
-                 << setw(6) << "Price" << endl;
-            cout << "----------------------------------------------" << endl;*/
+            cout << "-------------------------------------------------------------------------------------------------" << endl;
 
             nodeQueue* temp = front;
             while (temp) {
@@ -225,7 +212,7 @@ public:
                      << setw(10) << menu.getFoodId() << " | "
                      << setw(21) << menu.getName() << " | "
                      << setw(13) << menu.getCategory() << " | "
-                     << setw(6) << order.getQuantity() << " | "
+                     << setw(8) << order.getQuantity() << " | "
                      << fixed << setprecision(2) << setw(6) << menu.getPrice() << " | "
                      << setw(10) << fixed << setprecision(2) << order.getTotalPrice() << endl;
                 temp = temp->next;
@@ -242,7 +229,7 @@ private:
     QueueMenu orderQueue;
 
 public:
-    void staffMenu() {
+    void staffView() {
         char choice;
         int opt;
         string foodId, name, category;
@@ -284,6 +271,7 @@ public:
                 }
 
                 case 3: {
+                    displayHeader();
                     menuStack.displayStack();
                     break;
                 }
@@ -304,7 +292,6 @@ public:
                     }
 
                     orderQueue.deQueue(tableNumber);
-                    //cout << "Order for table number [" << tableNumber << "] is complete." << endl;
                     break;
                 }
 
@@ -323,7 +310,7 @@ public:
         } while (choice == 'Y' || choice == 'y');
     }
 
-    void customerMenu() {
+    void customerView() {
         char choice;
         int opt;
         string foodId, name, category;
@@ -341,64 +328,51 @@ public:
 
             switch (opt) {
                 case 1: {
-                    cout << "Enter your table number: ";
-                    cin >> tableNumber;
-
-                    // Check if the table number is valid
-                    if (tableNumber <= 0) {
-                        cout << "Invalid table number. Please enter a positive integer." << endl;
-                        break;
-                    }
-
                     // Display the menu for the customer
-                    cout << "Menu:" << endl;
+                    cout << "\nMenu:" << endl;
+                    displayHeader();
                     menuStack.displayStack();
 
-                    // Get order details
-                    cout << "Enter the food ID for the order: ";
-                    cin >> foodId;
+                    if (!menuStack.isEmpty()){
+                        cout << "\nEnter your table number: ";
+                        cin >> tableNumber;
 
-                    // Check if the entered food ID is valid (exists in the menu)
-                    // For simplicity, assuming all food IDs are unique
-                    // In a real-world scenario, you might want to implement a more robust validation
-                    Menu selectedMenu;
-                    bool validFoodId = false;
-
-                    nodeStack* temp = menuStack.getTop();
-                    while (temp) {
-                        if (temp->menu.getFoodId() == foodId) {
-                            selectedMenu = temp->menu;
-                            validFoodId = true;
+                        // Check if the table number is valid
+                        if (tableNumber <= 0) {
+                            cout << "Invalid table number. Please enter a positive integer." << endl;
                             break;
                         }
-                        temp = temp->next;
+
+                        cout << "Enter the food ID for the order: ";
+                        cin >> foodId;
+
+                        Menu selectedMenu;
+                        bool validFoodId = false;
+
+                        nodeStack* temp = menuStack.getTop();
+                        while (temp) {
+                            if (temp->menu.getFoodId() == foodId) {
+                                selectedMenu = temp->menu;
+                                validFoodId = true;
+                                break;
+                            }
+                            temp = temp->next;
+                        }
+
+                        if (!validFoodId) {
+                            cout << "Invalid food ID. Please enter a valid food ID from the menu." << endl;
+                            break;
+                        }
+
+                        cout << "Enter the quantity: ";
+                        int quantity;
+                        cin >> quantity;
+
+                        // Enqueue the order
+                        orderQueue.enQueue(Order(tableNumber, selectedMenu, quantity));
+                        cout << "Order enqueued successfully." << endl;
                     }
-
-                    if (!validFoodId) {
-                        cout << "Invalid food ID. Please enter a valid food ID from the menu." << endl;
-                        break;
-                    }
-
-                    cout << "Enter the quantity: ";
-                    int quantity;
-                    cin >> quantity;
-
-                    // Enqueue the order
-                    orderQueue.enQueue(Order(tableNumber, selectedMenu, quantity));
-                    cout << "Order enqueued successfully." << endl;
                     break;
-                    /*cout << "Enter the food ID for the order: ";
-                    cin >> foodId;
-                    cout << "Enter the quantity: ";
-                    int quantity;
-                    cin >> quantity;
-
-                    for (int i = 0; i < quantity; ++i) {
-                        orderQueue.enQueue(Menu(foodId, "", "", 0.0));
-                    }
-
-                    cout << "Order enqueued successfully." << endl;
-                    break;*/
                 }
 
                 case 2: {
@@ -417,15 +391,7 @@ public:
                     }
 
                     orderQueue.deQueue(tableNumber);
-                    //cout << "Order is cancelled." << endl;
                     break;
-                    /*if (!orderQueue.isEmpty()) {
-                        orderQueue.deQueue();
-                        cout << "Order canceled and dequeued successfully." << endl;
-                    } else {
-                        cout << "No orders to cancel." << endl;
-                    }
-                    break;*/
                 }
 
                 case 4: {
@@ -443,50 +409,55 @@ public:
         } while (choice == 'Y' || choice == 'y');
     }
 
-    void run() {
-        char choice;
-        int opt;
+    bool checkStaff(string staffId) {
+        string registeredId[3] = {"NAQ", "NN", "WNS"};
 
-        cout << "WELCOME TO TUPPERWARE!" << endl;
-
-        do {
-            cout << "\n[1] Staff Menu" << endl;
-            cout << "[2] Customer Menu" << endl;
-            cout << "[3] Exit" << endl;
-
-            cout << "Enter your choice: ";
-            cin >> opt;
-
-            switch (opt) {
-                case 1: {
-                    staffMenu();
-                    break;
-                }
-
-                case 2: {
-                    customerMenu();
-                    break;
-                }
-
-                case 3: {
-                    cout << "Exiting the program. Thank you!" << endl;
-                    break;
-                }
-
-                default:
-                    cout << "Invalid option. Please try again." << endl;
+        for (int i = 0; i < 3; i++) {
+            if (staffId == registeredId[i]) {
+                return true; 
             }
-
-            cout << "\nDo you want to continue in the main menu? (Y/N): ";
-            cin >> choice;
-
-        } while (choice == 'Y' || choice == 'y');
+        }
+        return false;
     }
 };
 
 int main() {
     RestaurantSystem restaurant;
-    restaurant.run();
+
+    string staffID;
+    string user;
+    char choice;
+
+
+    cout << "Welcome to Tupperware!!\n\n";
+    do{
+
+        cout << "\nAre you [Customer] or [Staff]? : ";
+        // cin.ignore();
+        getline(cin, user);
+
+        if (user == "Staff" || user == "staff") {
+            cout << "If you are a staff, please enter your staff ID : ";
+            getline(cin, staffID);
+
+            if (!restaurant.checkStaff(staffID)) {
+                cout << "Invalid staff ID. Redirecting to customer view...\n\n";
+                restaurant.customerView();
+            } else {
+                cout << "\nWelcome, staff! Redirecting to staff view...\n";
+                restaurant.staffView();
+            }
+        } else if (user == "Customer" || user == "customer") {
+            cout << "\nWelcome, customer! Redirecting to customer view...\n\n";
+            restaurant.customerView();
+        }
+
+        cout << "\nDo you want to continue in the main menu? (Y/N): ";
+        cin >> choice;
+        cin.ignore();
+    } while (choice == 'Y' || choice == 'y');
+
+    cout << "\nThank you for using our system";
 
     return 0;
 }

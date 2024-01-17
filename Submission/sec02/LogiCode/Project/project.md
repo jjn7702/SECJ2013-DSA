@@ -14,7 +14,7 @@
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/bc7e2df3-d20d-457c-b9fb-e0574b6a740e" width="3%" height="3%"> Objectives:
 - To simulate an actual Hotel Booking System in a way that administrators can use it to manage the room bookings of customers in a hotel.
-- To improve understanding and enhance application of data structure: binary search tree in a real-world scenario.
+- To improve understanding and enhance application of data structure: Binary Search Tree in a real-world scenario.
 - To utilize file mechanism in C++ to read data from external files as a simulation of the database of the system.
 
 <br>
@@ -25,11 +25,26 @@ The Hotel Booking System is designed for hotel administrators to manage room boo
 
 The administrators are then required to enter their username and password to achieve the purpose of Authentication of the Hotel Booking System. The verification is carried out through the searching function implemented by the binary search tree on the username and password inputted in the AdminNode class. 
 
-With the administrator menu provided, the administrator is able to insert, delete, search, sort and view the booking information stored in the BookingNode class. The menu is operated and implemented with pointer-based binary search tree data structure concept and technique. 
+With the administrator menu provided, the administrator is able to insert, delete, search, view the booking information and number of bookings stored in the BookingNode class. The menu is operated and implemented with pointer-based Binary Search Tree data structure concept and technique. 
 
 <br>
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/7c22dd04-a0ad-4b86-93eb-1b7506935823" width="3%" height="3%"> Project Overview/ Problem Analysis:
+In this project, the case study carried out is the Hotel Booking System, which is described to be a system to manage room bookings in a hotel. The primary users targeted for the system are the administrators of the hotel while the secondary users targeted are the staff of the hotel. There are multiple main features that were implemented in the system of this project, including, 
+
+I. Authentication and Security System 
+- The user is required to enter their username and password before accessing the Hotel Booking System. The entered information is then verified by the system with the implementation of Binary Search Tree to store admin information which are admin name, position, username and password retrieved from the file (database) and search for matching information to authenticate the administrator.
+
+II. Booking Information Management System
+- The booking information is stored by using Binary Search Tree after retrieving from the file (database) in a similar way as Authentication and Security System. The booking details include check-in date, check-out date, room number, room type, identification card number of customer and total price are then used in collaboration to implement functions to insert, delete, search, view booking information and number of bookings in the system.
+
+III. File Handling as the Simulation of Database of System
+- By using the external files which store the administrator and booking information, the database of the real world scenario is successfully simulated. The data in the files are read and stored into the system using file operations and Binary Search Tree in C++ respectively. 
+
+IV. User Interface
+- In order to enhance user experience, an interactive menu for administrators to perform various operations is created with structured arrangement and design. The administrators menu options include clear instructions for each operation such as inserting a booking, deleting a booking, searching for a booking, viewing all bookings and viewing the number of bookings in the system.
+
+By addressing the main features in the Hotel Booking System, a well-structured system that can manage room bookings in a hotel is achieved at the same time as developing an understanding of data structures of Binary Search Tree and file handling in C++.
 
 <br>
 
