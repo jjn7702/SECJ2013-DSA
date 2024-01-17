@@ -52,7 +52,7 @@ _Don't forget to hit the :star: if you like this repo._
 - [Source code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Assignment1/Assignment1.cpp)
 - [Inputfile](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Project/program/inventory.txt)
 - [Report](https://liveutm-my.sharepoint.com/:w:/r/personal/gohyang_live_utm_my/_layouts/15/Doc.aspx?sourcedoc=%7B92C7213B-18DE-4231-8478-D07DF392B1B2%7D&file=DSA%20Project.docx&action=default&mobileredirect=true&DefaultItemOpen=1&ct=1705473578873&wdOrigin=OFFICECOM-WEB.MAIN.EDGEWORTH&cid=9962ffda-3870-4d17-a400-1ae1f3d19490&wdPreviousSessionSrc=HarmonyWeb&wdPreviousSession=3116b39b-768c-468a-80d7-d020017bdbcc)
-- [Slide presentations]([(https://www.canva.com/design/DAF6JJZzRj4/GvXNuNystdpJwrXRM5xiVQ/edit?utm_content=DAF6JJZzRj4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton))
+- [Slide presentations](https://www.canva.com/design/DAF6JJZzRj4/GvXNuNystdpJwrXRM5xiVQ/edit?utm_content=DAF6JJZzRj4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
