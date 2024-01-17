@@ -48,6 +48,8 @@ This project aims to demonstrate effective implementation of linked lists, encap
 
 ##  Synopsis
 
+The Inventory Management System is designed to productively oversee and perform operations on a collection of products or items inside the stockroom because it is basic for eros businesses or organizations to track or oversee their stock. By utilizing our system, users can oversee the lifecycle of inventory items from the minute they are imported into the system until they take off the distribution center. The system encourages the expansion and evacuation of items through an natural interface, supported by a solid line for item management and a stack for keeping up a brief history of exchanges. Each thing are spoken to as a question with unmistakable properties such as ID, name, price, and location, ensuring clear distinguishing proof and following. History includes permits for the review examination of stock changes, which is basic for inspecting and detailing purposes. Generally, the system points to streamlining stockroom operations, decreasing blunders in stock administration, and giving fast get-to-item and exchange information, making it an important device for any inventory-reliant business. 
+
 ## Class Diagram
 ![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Images/WhatsApp%20Image%202024-01-17%20at%2010.04.50%20PM.jpeg)
 
