@@ -8,7 +8,7 @@
 _Don't forget to hit the :star: if you like this repo._
 
 # Inventory Management System
-
+The Warehouse Inventory Management System, implemented in C++, is designed for efficient inventory tracking in a warehouse. It uses a queue to manage items and a stack to record user actions. The system allows importing, adding, removing, and displaying items through a user-friendly console interface. It supports input validation and provides functionalities to save the inventory and action history to external files. The code is modular, with distinct classes for items, history, and queues, promoting readability and maintainability. Overall, it provides a straightforward and organized solution for inventory management.
 ## Table Of Contents
 - Objective
 - Synopsis
@@ -236,6 +236,27 @@ saveToFile function:
 
 ## Design 
 
+The Warehouse Inventory Management System is designed to efficiently handle and streamline operations related to inventory management within a warehouse setting. The system comprises key components, including classes for goods, a history stack for tracking transactions, and a queue for managing the inventory.
+
+### Goods Class:
+The `goods` class represents individual items in the inventory, with private attributes such as ID, name, price, and item location. The class includes methods for retrieving these attributes, providing a clear and encapsulated representation of each item.
+
+### History Stack:
+The `historyStack` class is responsible for maintaining a transaction history through a stack data structure. It stores instances of the `goods` class along with an associated action character ('a' for addition and 'r' for removal). This allows the system to track changes in the inventory over time.
+
+### Item Queue:
+The `itemQueue` class is implemented to manage the main inventory. It utilizes a queue data structure to handle the lifecycle of items, allowing for easy addition and removal. The queue maintains a doubly-linked list of `itemNodeQueue` instances, each containing a `goods` object, forming a structured representation of the inventory.
+
+### User Interface:
+The main function serves as the user interface, providing a menu-driven system. Users can import items from a file, add new items to the inventory, remove items, display the current inventory, and print/save the transaction history and inventory to files. The system ensures user-friendly interactions by displaying a welcome screen and a clear header throughout the execution.
+
+### File Operations:
+The system supports file operations, including importing items from a CSV file, saving the transaction history to a text file (`history.txt`), and saving the current inventory to a CSV file (`output.csv`). This enhances data persistence and facilitates external analysis and reporting.
+
+### Input Validation:
+To ensure data integrity, the system incorporates input validation mechanisms. Functions such as `isNumber` and `isfloat` verify whether user inputs are numeric, preventing invalid data entry.
+
+The Warehouse Inventory Management System, with its well-structured classes and functionalities, aims to provide a robust solution for businesses or organizations reliant on efficient inventory management within their warehouses.
 
 
 
@@ -251,7 +272,7 @@ saveToFile function:
 ## File
 | No | Name |File | 
 | -----:| ----- | :------: | 
-|1| Document PDF| <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Assignment1/Assigment%201%20Group%20Nothing%20.pdf" ><img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Images/pdf64.png" width="24px" height="24px" ></a>|
+|1| Document PDF| <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Project/program/DSA%20Project%20(2).pdf" ><img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Images/pdf64.png" width="24px" height="24px" ></a>|
 
 
 
