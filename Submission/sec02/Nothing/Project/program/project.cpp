@@ -406,4 +406,34 @@ goods *add(){
     return newItem;
 }
 
+bool isfloat(string s){
+    int count = 0;
+    for(int i = 0; i < s.length(); i++){
+        if(s[i] == '.') count++;
+        if(isdigit(s[i]) == false && s[i] != '.'){
+            cout << "Invalid input, enter a numberic input!\n";
+            system("pause");
+            system("cls");
+            return false;
+        }
+    }
+    if(count > 1){
+        cout << "Invalid input, enter a numberic input!\n";
+        system("pause");
+        system("cls");
+        return false;
+    }
+    return true;
+}
+
+void printHistory(historyStack history){
+    ofstream file("history.txt");
+    if(file.is_open()){
+        while(!history.isEmpty()){
+            file << history.getItem().getId() << " " << history.getItem().getName() << " " << history.getItem().getPrice() << " " << history.getItem().getItemLocation() << " " << history.getAction() << endl;
+            history.pop();
+        }
+    }
+    file.close();
+}
 
