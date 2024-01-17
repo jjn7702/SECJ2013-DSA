@@ -1,8 +1,6 @@
-// try to do queue link 
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <vector> 
 using namespace std;
 
 
@@ -143,20 +141,20 @@ class Order{
 
 
 
-class NodeQueue{
+class nodeQueue{ 
     public:
     Order order;
-    NodeQueue *next;
-    NodeQueue(Order o) : order(o), next(NULL) { }
+    nodeQueue *next;
+    nodeQueue(Order o) : order(o), next(NULL) { }
 
     Order getOrder(){return order;}
 };
 
-class queueOrder{
+class QueueMenu{
     public:
-        NodeQueue *back, *front;
+        nodeQueue *back, *front;
 
-        queueOrder(){
+        QueueMenu(){
             front = NULL;
             back = NULL;
         }
@@ -167,7 +165,7 @@ class queueOrder{
         }
 
         void enQueue(Order order){
-            NodeQueue *newOrder = new NodeQueue(order);
+            nodeQueue *newOrder = new nodeQueue(order);
 
             if (isEmpty()){
                 front = newOrder;
@@ -178,8 +176,8 @@ class queueOrder{
             }
         }
     void deQueue(int tableNumber) {
-        NodeQueue* temp = front;
-        NodeQueue* prev = NULL;
+        nodeQueue* temp = front;
+        nodeQueue* prev = NULL;
 
         while (temp != NULL && temp->order.getTableNum() != tableNumber) {
             prev = temp;
@@ -208,14 +206,14 @@ class queueOrder{
     }
 
 
-        void printOrder() {
+        void displayQueue() {
             if (isEmpty()) {
                 cout << "There is no other order pending\n";
             } else {
-                NodeQueue *temp = front;
+                nodeQueue *temp = front;
 
             while (temp) {
-                Order currentOrder = temp->getOrder();
+                Order currentOrder = temp->getOrder(); // bandingkan ngan line 223
                 Menu currentMenu = currentOrder.getMenu();
 
                 cout << "Menu: ";
@@ -232,11 +230,10 @@ class queueOrder{
 };
 
 // start of restaurant view
-class RestaurantSystem(){
-
+class RestaurantSystem{
 public:
     StackMenu menuStack;
-    queueOrder orderQueue;
+    QueueMenu orderQueue;
 
 void staffView() {
     char choice;
@@ -285,7 +282,7 @@ void staffView() {
             }
 
                 case 4: {
-                orderQueue.printOrder();
+                orderQueue.displayQueue();
                 break;
             }
 
@@ -327,9 +324,8 @@ void customerView(){
     char choice;
     string foodId;
     Menu selectedMenu;
-    vector<Menu> menuList;  
 
-    NodeQueue *temp = nullptr;  
+    nodeQueue *temp = nullptr;  
     bool validFoodId = false;
     
     do {
@@ -361,7 +357,7 @@ void customerView(){
 
                 // to check if the foodID existed.
                 validFoodId = false;
-                temp = order.front;
+                temp = orderQueue.front;
 
                 while (temp) {
                     Order currentOrder = temp->getOrder();
@@ -376,7 +372,7 @@ void customerView(){
                 if (validFoodId == false)
                     cout << "Sorry, the food is not existed";
                 else {
-                    order.enQueue(Order(selectedMenu, quantity));
+                    orderQueue.enQueue(Order(selectedMenu, quantity));
                 }
             }
 
@@ -384,13 +380,13 @@ void customerView(){
 
         case 2:
             cout << "Viewing current queueing orders:\n";
-            order.printOrder();
+            orderQueue.displayQueue();
             break;
 
         case 3:
             cout << "Re enter your table number :";
             cin >> tableNum;
-            order.deQueue(tableNum);
+            orderQueue.deQueue(tableNum);
             cout << "Order for table number [" << tableNum << "] is complete." << endl;
             break;
 
@@ -423,7 +419,14 @@ bool checkStaff(string staffId) {
     return false;
 }
 
-void run(){
+
+};
+// end of restaurant system
+
+
+int main() {
+    RestaurantSystem restaurant;
+    
     string staffID;
     string user;
     char choice;
@@ -433,35 +436,31 @@ void run(){
     do{
 
         cout << "Are you [Customer] or [Staff]? : ";
+        // cin.ignore();
         getline(cin, user);
 
         if (user == "Staff" || user == "staff") {
             cout << "If you are a staff, please enter your staff ID : ";
             getline(cin, staffID);
 
-            if (!checkStaff(staffID)) {
+            if (!restaurant.checkStaff(staffID)) {
                 cout << "Invalid staff ID. Redirecting to customer view...\n\n";
-                customerView();
+                restaurant.customerView();
             } else {
                 cout << "\nWelcome, staff! Redirecting to staff view...\n";
-                staffView();
+                restaurant.staffView();
             }
         } else if (user == "Customer" || user == "customer") {
             cout << "\nWelcome, customer! Redirecting to customer view...\n";
-            customerView();
+            restaurant.customerView();
         }
 
         cout << "\nDo you want to continue in the main menu? (Y/N): ";
         cin >> choice;
+        cin.ignore();
     } while (choice == 'Y' || choice == 'y');
 
     cout << "\n\n\nThank you for using our system";
-
-}
-}
-// end of restaurant system
-
-int main() {
 
     return 0;
 }
