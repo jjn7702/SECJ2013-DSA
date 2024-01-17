@@ -341,3 +341,41 @@ public:
       }
    }
    // <------------------------end admin functionality to search for booking------------->
+
+      bool removeBookingByIC(string icNumber)
+   {
+      BookingQueue::Node *current = doneBooking.getFrontNode();
+      BookingQueue::Node *previous = nullptr;
+
+      while (current != nullptr)
+      {
+         if (current->data.getIcNum() == icNumber)
+         {
+            // Found the booking with the specified IC number
+            if (previous != nullptr)
+            {
+               // If the node to be removed is not the first node
+               previous->next = current->next;
+            }
+            else
+            {
+               // If the node to be removed is the first node
+               doneBooking.dequeue();
+            }
+
+            delete current;
+            cout << "\n\t\t\t\tBooking for IC Number " << icNumber << " removed successfully." << endl;
+            return true;
+         }
+
+         // Move to the next node
+         previous = current;
+         current = current->next;
+      }
+
+      cout << "\n\t\t\t\tBooking for IC Number " << icNumber << " not found." << endl;
+      return false;
+   }
+   // <------------------------end admin functionality to remove for booking------------->
+
+   //<----------------------------- END ADMIN FUNCTIONALITY------------------------------------>
