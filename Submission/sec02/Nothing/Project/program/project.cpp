@@ -215,45 +215,11 @@ void historyStack::push(goods item, char action){
     }
     size++;
 }
-void historyStack::pop(){
-    if(isEmpty()){
-        cout << "Stack is empty" << endl;
-    }else{
-        historyNodeStack *temp = bottom;
-        historyNodeStack *prev = NULL;
-        while(temp->next != NULL){
-            prev = temp;
-            temp = temp->next;
-        }
-        if(prev == NULL){
-            top = NULL;
-            bottom = NULL;
-        }else{
-            prev->next = NULL;
-            top = prev;
-        }
-        delete temp;
-        size--;
-    }
-}
-char historyStack::getAction(){
-    if(isEmpty())
-        cout << "Stack is empty" << endl;
-    else
-        return top->action;
-}
-goods historyStack::getItem(){
-    if(isEmpty())
-        cout << "Stack is empty" << endl;
-    else
-        return top->item;
-}
 
-void itemQueue::createQueue(){
-    front = NULL;
-    rear = NULL;
-    size = 0;
-}
+
+
+
+
 bool itemQueue::isEmpty(){
     if(front == NULL)
         return true;
