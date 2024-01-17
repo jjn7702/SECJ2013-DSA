@@ -51,9 +51,18 @@ By addressing the main features in the Hotel Booking System, a well-structured s
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/aff8a4cc-5395-4a39-9329-0660c64eeb0a" width="5%" height="5%"> Class Diagram
 <p align="center">
-<img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/aff8a4cc-5395-4a39-9329-0660c64eeb0a" width="80%"><br>
-Figure 1: Class Diagram of Hotel Booking System
+<img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/74751c5b-ec20-4f99-9709-553f9a8d8679" width="40%"><br>
+Figure : Class Diagram of Hotel Booking System
 </p>
+
+<br>
+
+
+<p align="center">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/4821c68b-0d26-430e-a984-8ca7a41786f4" width="40%"><br>
+Figure : Class Diagram of Hotel Booking System
+</p>
+
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/8b3596b0-7214-4cc8-b868-9ab2a0314386" width="3%" height="3%"> Flowchart
 <p align="center">
@@ -134,6 +143,8 @@ Figure 1: Class Diagram of Hotel Booking System
 
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/fabaacbe-18c1-4f64-a3a5-e1b40e910e71" width="4%" height="4%"> Description of how to implement data structure operations: Binary Tree
+In the Hotel Booking System, we have implemented Binary Search Tree - Inserting, Deleting, Searching, Displaying and Counting in the form of pointer-based to define functions in managing the room bookings in a hotel. This data structure operation works by having two main declarations which are Node declaration and Tree declaration.
+
 
 #### 1. Inserting
 There are four main types of insert linked list functions for inserting operation in our system, which are insert at the front, insert at the middle based on location, insert at the middle based on the data and insert at the end. 
@@ -147,24 +158,20 @@ In the Basic Operations - Deleting, we have defined four delete linked list conc
 As an example, in our system, the deleteFront() function is used to delete the first booking data by declaring a temporary pointer points to head (first data), pointing head to the data pointed by the next pointer of head to make the second booking data as the first booking data and breaking the pointer connection by declaring the next pointer of the temporary pointer to NULL and finally deleting the temporary pointer. For deleteMid() function, the desirable unwanted booking data location is entered and found using a while loop, points the next pointer of the previous booking data pointer to the booking data pointed by the next pointer of unwanted data and ultimately deleted the booking data found while the deleteMidCR() function will be implemented in a similar way except the function will accept, find and delete the booking data that has matched check-in date and room number at the same time. Lastly, the deleteEnd() function operates by finding and deleting the last booking data and making the second last booking data points to NULL.
 
 
-#### 3. Finding
+#### 3. Searching
 The finding operation is implemented by utilizing a counter to track node positions and matching the user input to every node value. Once it finds the match, the position value will be returned to help the user identify the booking. In our case, the findNode() function is used to locate a customer's IC in a booking list. 
 
 First, the findNode() function takes user input as the string parameter. A temporary pointer is set to the first node of the list, and a counter is initialized to 1. Then, a while loop runs as long as the temporary pointer is not null and the IC of the node does not match the user input. Inside the loop, the temporary pointer points to the next node, and the counter is incremented. Once the match is found or the pointer is null, the loop stops. Then the function checks the temporary pointer. It will return the position if the pointer is null, otherwise it displays an error message.
 
 
 #### 4. Displaying
-The dispList() function and getBookingInfo() function are used to display the list of customer bookings which contains check-in date, check-out date, room number, room type, customer IC, and total price.
+In the system, the displayBooking() function and display() function collaborate with getBookingInfo() function to display the list of room bookings in the hotel which contains check-in date, check-out date, room number, room type, customer IC and total price.
 
-In dispList() function, a temporary pointer is created and pointed to the first node of the list. A counter is also initialised to 0. The while loop will check whether the temporary pointer is null. If not, it pre-increments the counter, points the pointer to the next node and calls getBookingInfo() function. The getBookingInfo() function is used to display booking details for each node.
+The displayBooking() function is first called by the option chosen by the administrator to view the booking data in the system. Once called, the function will then call the display() function. The latter then checks whether the argument passed is pointing to NULL. Recursive functions are called if the argument is pointing to a node in which it will call display() function and pass the pointer pointed by the left pointer of the original argument, collaborate with getBookingInfo() to display the current argument room booking data and ultimately call again the display() function and pass the pointer pointed by the right pointer of the original argument. This process continues until the tree points to NULL which means that the tree is a leaf. As a result, the room booking data is printed in inorder traversal.
 
 
-#### 5. Sorting
-We have implemented Merge Sort algorithm to sort bookings ascendingly based on check-in date using sortList(), mergeSort(), midPoint() and merge() functions. By dividing the linked list recursively into two lists after finding the midpoint, two lists will be compared and sorted then merged back into the original list.
-
-First, sortList() function is called in the main function. The result of mergeSort() function is declared as the first node of the list. mergeSort() function will then check whether the start node of the list is empty. If so, it returns the start node. If not, midPoint() function is called to get the midpoint. The list is then separated into two sublists using the midpoint. The sublists will be separated recursively until all lists with one or zero nodes are left and return the result of merge() function by taking two sublists as parameters.
-
-Inside merge() function, it checks whether one list is empty. If not, it compares the two nodes by their check in date. A new list is created and the node with earlier check in date is inserted as the first node. The merging process will ensure all nodes are merged and return the new list.
+#### 5. Counting
+The Counting operation is used to count the number of nodes in the tree in which in our system it is implemented to count the number of bookings having in the system. To achieve the counting purpose, the numberOfNodes() function and countNodes() function operate together when the numberOfNodes() is called due to the administrator choosing to view the number of bookings in the system. It then calls countNodes() function and in the function, the argument passed examines and if it points to NULL, value 0 is returned while other conditions will return the value of 1 + countNodes(tree->left) + countNodes(tree->right). In a simpler manner, the recursive approach makes each node which is each booking data contribute 1 to the count and then the counts of the left and right subtrees are added. Consequently, the number of bookings is counted and returned.
 
 <br>
 

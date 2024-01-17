@@ -220,3 +220,162 @@ public:
    // <------------------------end customer functionality to cancel booking------------->
 
    //<-----------------------------END CUSTOMER FUNCTIONALITY------------------------------------>
+
+ //<----------------------------- ADMIN FUNCTIONALITY------------------------------------>
+
+   // <------------------------start admin functionality to approve reserve booking------------->
+   void approveReservation()
+   {
+      displayRequestedBookings();
+
+      int numToApprove;
+      cout << "\n\t\t\t\tEnter the number of reservations to approve (0 to cancel): ";
+      cin >> numToApprove;
+
+      if (numToApprove > 0)
+      {
+         int count = 0;
+
+         // Open request.txt for reading and writing
+         ifstream requestFile(requestFileName);
+         ofstream tempFile("temp.txt");
+
+         if (requestFile.is_open() && tempFile.is_open())
+         {
+            // Read and process existing reservations in request.txt
+            string name, destination, airline, ic;
+            int day, month, year;
+
+            while (requestFile >> name >> day >> month >> year >> destination >> airline >> ic)
+            {
+               if (!requestFile.fail())
+               {
+                  if (count < numToApprove)
+                  {
+                     // Approve reservations from request.txt
+                     Cust newBooking(name, day, month, year, destination, airline, ic);
+                     doneBooking.enqueue(newBooking);
+                     updateBookingFile();
+
+                     count++;
+                  }
+                  else
+                  {
+                     // Convert date values to strings before writing to tempFile
+                     tempFile << name << " " << to_string(day) << " " << to_string(month) << " " << to_string(year) << " "
+                              << destination << " " << airline << " " << ic << "\n";
+                  }
+               }
+               else
+               {
+                  break; // Stop reading if there are no more reservations in the file
+               }
+            }
+
+            requestFile.close();
+            tempFile.close();
+
+            // Rename tempFile to request.txt to overwrite the original file
+            if (remove(requestFileName.c_str()) != 0)
+               perror("Error deleting file");
+            else
+            {
+               if (rename("temp.txt", requestFileName.c_str()) != 0)
+                  perror("Error renaming file");
+            }
+
+            // Clear the doneBooking queue after processing approvals
+            while (!reservationRequests.isEmpty())
+            {
+               reservationRequests.dequeue();
+            }
+
+            // Display a message for successful approvals
+            cout << "\n\t\t\t\t" << count << " reservation(s) approved and removed from request.txt." << endl;
+         }
+         else
+         {
+            cout << "\n\t\t\t\tError opening files for reading/writing." << endl;
+         }
+      }
+      else
+      {
+         cout << "\n\t\t\t\tReservations not approved." << endl;
+      }
+   }
+
+   // <------------------------end admin functionality to approve reserve booking------------->
+
+// <------------------------admin functionality to search for booking------------->
+   void searchByICNumber(string icNumber) const
+   {
+      cout << "\n\t\t\t\tBooking details for IC Number " << icNumber << ":" << endl;
+      bool found = false;
+
+      BookingQueue::Node *current = doneBooking.getFrontNode();
+      while (current != nullptr)
+      {
+         if (current->data.getIcNum() == icNumber)
+         {
+            cout << "\t\t---------------------------------------------------------------------------------------" << endl;
+            cout << left << setw(5) << "\t" << setw(15) << "  \tName"
+                 << "  Date of Booking"
+                 << "\t     Destination"
+                 << "\t   Airlines"
+                    "\t   IC Number"
+                 << endl;
+            cout << "\t\t---------------------------------------------------------------------------------------" << endl;
+
+            current->data.displayBookingInfo();
+            cout << "\t\t---------------------------------------------------------------------------------------" << endl;
+
+            found = true;
+         }
+
+         current = current->next;
+      }
+
+      if (!found)
+      {
+         cout << "\n\t\t\t\tNo bookings found for IC Number " << icNumber << "." << endl;
+      }
+   }
+   // <------------------------end admin functionality to search for booking------------->
+
+      bool removeBookingByIC(string icNumber)
+   {
+      BookingQueue::Node *current = doneBooking.getFrontNode();
+      BookingQueue::Node *previous = nullptr;
+
+      while (current != nullptr)
+      {
+         if (current->data.getIcNum() == icNumber)
+         {
+            // Found the booking with the specified IC number
+            if (previous != nullptr)
+            {
+               // If the node to be removed is not the first node
+               previous->next = current->next;
+            }
+            else
+            {
+               // If the node to be removed is the first node
+               doneBooking.dequeue();
+            }
+
+            delete current;
+            cout << "\n\t\t\t\tBooking for IC Number " << icNumber << " removed successfully." << endl;
+            return true;
+         }
+
+         // Move to the next node
+         previous = current;
+         current = current->next;
+      }
+
+      cout << "\n\t\t\t\tBooking for IC Number " << icNumber << " not found." << endl;
+      return false;
+   }
+   // <------------------------end admin functionality to remove for booking------------->
+
+   //<----------------------------- END ADMIN FUNCTIONALITY------------------------------------>
