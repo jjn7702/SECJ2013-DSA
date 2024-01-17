@@ -9,19 +9,20 @@ _Don't forget to hit the :star: if you like this repo._
 
 # Library Management System - Project
 ## Objective
-The primary objective of this program is to create an efficient library management system utilizing a linked list data structure. The system aims to provide essential functionalities such as adding, finding, deleting, sorting, and displaying books within the library.
-.
+The primary objective of this program is to create an efficient library management system utilizing a stack and queue concept in data structure. The system aims to provide essential functionalities such as adding(enqueue), , deleting(dequeue), stack, and displaying books within the library.
 
-## Sypnosis 📝
-The program utilizes a linked list to store information about books. Each book is represented by an instance of the Book class. The linked list is implemented using the Node and Library classes. The Library class provides methods to perform various operations on the linked list, such as adding, deleting, finding, sorting, and displaying books. The main function interacts with the user through a menu, allowing them to manage the library efficiently.
+
+## Problem Analysis 📝
+
+   DTD Library Management System use for an organized and efficient system to manage books and process borrow requests for a library.The system has two concept for implementation which is Stack and Queue.Staff using stack concept which is allows system to add new books,deleting existing books and displaying current list of books.All are managed using the stack concept.In addition, Staff can receive patron borrow requests,view and processing applications using queue concept.Patron interface allows library patrons to request books by entering their name and the title of the book they want to borrow.These requests are kept in a queue.Both interfaces provide a display option that allows users to view current status of books.An iterative user flow allows users to perform multiple actions until they decide to exit the program.In summary, the DTD library management system aims to simplify book management and borrow request processing to ensure the efficiency of library operations by implementing stack and queue concept in data structures to maintain order.  
 
 ## Design 🎨
 
 1. Class Diagram
-<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Assignment2/ClassDiagramASG2DSA.png">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Project/CDProject.drawio.png">
 
 2. Pseudocode
-<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Assignment2/Pseudocode.png">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Project/PseudocodeProject.png">
 
 
 ## Flow of System 💹
@@ -40,26 +41,42 @@ The program utilizes a linked list to store information about books. Each book i
 
 ## Implementation
 
-### Linked List
-The program's linked list is a crucial component. Book data can be managed dynamically with the help of this data structure. The Library class encompasses functions like appending books to the start, middle, and finish of the list, locating and eliminating books according to their ISBN or title, and organising books according to their ISBN, title, author, year, or sort order.
+### Stack
+  1.Stack Implementation
+  
+   <li>a. The “Stack” class implements both push and pop operations to manage the books in the library.</li> 
+     <li>b. These two operations are used to add new books to the top of the list of books and remove a book from the top of the list. </li>
+    <li>c. The “Stack” class methods can only be accessed by a Staff. </li>
 
-A new book node is added into the list by using the addBookfront function. This function will add a new book that will act as a node to the current list of books. The book will be added to the front of the list.
-
-In addition,a new node for book is position at the middle or the linked list.The addBookMiddle can add the book to the middle of the book list.The function make it more organised because it is being updated in the middle of the book list depending on how much the total of books following the file and when inserting a new data.
-
-Other than that, users can also add new books to the end of the linked list by using the addBookEnd function. By executing this function, the new book will then appear at the end of the list when the displayBook function is called to display the books.
-
-Next is the findBook function, this will enable the users to find books from the library/linked list based on user input. The user can input either the title of the book or the ISBN number of the book that they want to find.
-
-Finally, the deleteNode function can be used to delete the nodes in the data in the file based on the user input. The user can choose to delete the book/node in the front, middle, or end. After the deletion process, the updated list of books will appear and the user can check whether the book is deleted.
-
-
-
-### Sorting
-In the program, sorting is also implemented. The type of sorting that is used in the program is the bubble sort. This type of sorting was chosen because it is straightforward and is easier to implement. The user can choose to sort the list of books by the attributes such as title, author, year of publication and ISBN number.
+### Queue
+  2.Queue Implementation
+  
+  <li>a. The “Queue” class handles two operations : enqueue and dequeue. </li>
+  <li>b. The enqueue method can only be accessed by the patrons/ users of the Library Management System while the dequeue is accessed by the staff. </li>
+  <li>c. The enqueue is used to add the name of the patron and the title of the book that they want to borrow. </li>
+  <li>d. The dequeue is used by the staff to approve the request of the patron to borrow the book. </li>
 
 
+## User Guide
 
+  1.Staff Operations
+  
+  <li>a. Add New Book (Push) : Staff can add a new book to the top of the list. </li>
+  <li>b. Remove Book (Pop) : Staff can remove the book at the top of the list. </li>
+  <li>c. Display Current List (DisplayStack) : Staff can display the current list of books. </li>
+  <li>d. Approve Borrow Request : Staff can approve the borrow request done by the patrons and this will dequeue the request from the queue. </li>
+<br>
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Project/staffmenu.png">
+  2.Patron Operations <br>
+  </br>
+  <li>a. Request a book (Enqueue) : Patrons will make a request to borrow books from the library. </li>
+  <li>b. Display Current Requests (DisplayQueue) :   Patrons can display the list of requests. </li>
+<br>
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Project/patronmenu.png">
+  3.Exiting the System <br>
+  </br>
+<li>When the user (staff/patron) chooses option 3, they will exit the system. </li>
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Project/thankyou.png">
 
 ## Prepared by 🧑‍💻
 
@@ -72,7 +89,7 @@ In the program, sorting is also implemented. The type of sorting that is used in
 
 ## Findings 📊
 
-- [Source Code](./Assignment2.cpp)
+- [Source Code](./Project.cpp)
 - [Input File](./book.txt)
 - [Report](./Assignment_2_DSA_(DTD).pdf)
 

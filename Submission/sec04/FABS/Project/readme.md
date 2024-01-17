@@ -65,7 +65,7 @@ There are few features in the courier management system which is
 #### Flowchart
 ![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/dsaflowchart.png)
 #### Class Diagram
-![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/class%20diagram.jpg)
+![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/classdiagram.jpg)
 
 ## Design Description <a name="designdescription"></a> 💹
 
@@ -161,9 +161,10 @@ There are few features in the courier management system which is
 
 
 ## User Manual/Guide <a name="usermanual"></a> 📝
-![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/Screenshot%202024-01-16%20210723.png)
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/Screenshot%202024-01-16%20220555.png)
 ![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/Screenshot%202024-01-16%20210820.png)
-![3](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/Screenshot%202024-01-16%20212006.png)
+![3](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/Screenshot%202024-01-16%20220520.png)
+![4](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/Screenshot%202024-01-16%20220533.png)
 
 ## Similarity Report <a name="report"></a> 🔔
 Submission date: 16-Jan-2024 05:18AM (UTC-0800)
@@ -182,7 +183,8 @@ Character count: 10197
 
 - [Source Code](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/source-code/project.cpp)
 - [Input File](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/source-code/COURIER.TXT)
-- [Project Report]()
-- [Similarity Report]()
+- [Project Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/PROJECT%20REPORT%20DSA.pdf)
+- [Similarity Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Project%20Report.pdf)
+- [Presentation Slide](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/FABS%20DSA%20PROJECT%20PRESENTATION%20SLIDE.pdf)
 
 

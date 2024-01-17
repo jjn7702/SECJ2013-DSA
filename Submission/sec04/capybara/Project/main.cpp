@@ -89,10 +89,10 @@ public:
         {
             ReservationNode *current = front;
             cout << endl;
-            cout << setw(39) << "Destination: " << current->destination_info << endl;
 
             while (current != nullptr)
             {
+                cout << setw(39) << "Destination: " << current->destination_info << endl;
                 cout << setw(25) << "Name: " << current->user_info << " || Baggage Info: " << current->baggage_info << endl;
                 current = current->next;
             }
@@ -195,7 +195,7 @@ int main()
 
     if (selectedDestination >= 1 && selectedDestination <= numDestinations)
     {
-        cout << setw(39) << "You selected: " << destinations[selectedDestination - 1] << endl;
+        cout << setw(39) << "You selected: " << destinations[selectedDestination] << endl;
         cout << setw(30) << "         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl
              << endl;
 
@@ -229,8 +229,8 @@ int main()
         cout << setw(56) << "|      [1] Review All Ticket          |" << endl;
         cout << setw(56) << "|      [2] Cancel Ticket              |" << endl;
         cout << setw(56) << "|      [3] Show Primary Booker        |" << endl;
-        cout << setw(56) << "|      [4] Edit Reservation Ticke     |" << endl;
-        cout << setw(56) << "|      [5] Total Reservation          |" << endl;
+        cout << setw(56) << "|      [4] Edit Reservation Ticket    |" << endl;
+        cout << setw(56) << "|      [5] Total Baggage Weight       |" << endl;
         cout << setw(56) << "|      [6] Exit                       |" << endl;
         cout << setw(56) << "|_____________________________________|" << endl
              << endl;
@@ -258,7 +258,7 @@ int main()
             }
             else if (selection == 4)
             {
-                cout << setw(55) << "Enter passenger name to modify: ";
+                cout << setw(50) << "Enter passenger name to modify: ";
                 cin.ignore();
                 getline(cin, user_info);
 
@@ -272,17 +272,18 @@ int main()
                         // Modify passenger information
                         string newName;
 
-                        cout << setw(55) << "Enter a different user name: ";
+                        cout << setw(50) << "Enter a different user name: ";
                         getline(cin, newName);
 
                         cout
-                            << setw(55) << "Enter new baggage weight (in kg): ";
+                            << setw(50) << "Enter new baggage weight (in kg): ";
                         cin >> baggage_weight;
 
                         current->user_info = newName;
                         current->baggage_info = to_string(baggage_weight);
 
-                        cout << setw(55) << "Passenger information modified successfully." << endl;
+                        cout << setw(59) << "Passenger information modified successfully." << endl;
+                        cout << endl;
                         found = true;
                         break;
                     }
@@ -323,7 +324,7 @@ int main()
             cout << setw(56) << "|      [2] Cancel Ticket              |" << endl;
             cout << setw(56) << "|      [3] Show Primary Booker        |" << endl;
             cout << setw(56) << "|      [4] Edit Reservation Ticket    |" << endl;
-            cout << setw(56) << "|      [5] Total Reservation          |" << endl;
+            cout << setw(56) << "|      [5] Total Baggage Weight       |" << endl;
             cout << setw(56) << "|      [6] Exit                       |" << endl;
             cout << setw(56) << "|_____________________________________|" << endl
                  << endl;

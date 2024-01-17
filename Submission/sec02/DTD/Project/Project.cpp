@@ -7,7 +7,8 @@
 
 using namespace std;
 
-class Book {
+class Book
+{
 private:
     string title;
     string author;
@@ -17,17 +18,18 @@ private:
 public:
     Book() : title(""), author(""), year(0), ISBN("") {}
 
-    string getTitle()  { return title; }
-    string getAuthor()  { return author; }
-    int getYear()  { return year; }
-    string getISBN()  { return ISBN; }
+    string getTitle() const { return title; }
+    string getAuthor() const { return author; }
+    int getYear() const { return year; }
+    string getISBN() const { return ISBN; }
 
-    void setTitle(string& t) { title = t; }
-    void setAuthor(string& a) { author = a; }
+    void setTitle(const string &t) { title = t; }
+    void setAuthor(const string &a) { author = a; }
     void setYear(int y) { year = y; }
-    void setISBN(string& i) { ISBN = i; }
+    void setISBN(const string &i) { ISBN = i; }
 
-    void displayBook() const {
+    void displayBook() const
+    {
         cout << setw(50) << left << "| " + title
              << setw(30) << left << "| " + author
              << setw(10) << left << "| " + to_string(year)
@@ -35,273 +37,421 @@ public:
     }
 };
 
-class Library {
+class Node
+{
+public:
+    Book data;
+    Node *next;
+
+    Node(const Book &b) : data(b), next(nullptr) {}
+};
+
+class Stack
+{
 private:
-    Book stackArray[MAX_SIZE];
     int top;
+    Book book[MAX_SIZE];
 
 public:
-    Library() : top(-1) {}
+    Stack() : top(-1) {}
 
-    void pushBook(Book& book) {
-        if (top < MAX_SIZE - 1) {
-            stackArray[++top] = book;
-        } else {
-            cout << "Stack is full. Cannot add more books.\n";
+    void push(const Book &newBook)
+    {
+        if (isFull())
+        {
+            cout << "Stack is full" << endl;
+        }
+        else
+        {
+            top++;
+            book[top] = newBook;
         }
     }
 
-    void popBook() {
-        if (top >= 0) {
-            cout << "Book removed from the stack: " << stackArray[top].getTitle() << endl;
+    void pop()
+    {
+        if (isEmpty())
+        {
+            cout << "Stack is empty" << endl;
+        }
+        else
+        {
             top--;
-        } else {
-            cout << "Stack is empty. No book to remove.\n";
         }
     }
 
-    void displayStack() {
+    bool isEmpty()
+    {
+        return (top == -1);
+    }
+
+    bool isFull()
+    {
+        return (top == MAX_SIZE - 1);
+    }
+
+    void readFromFileStack()
+    {
+        ifstream inputFile("book.txt");
+
+        if (!inputFile.is_open())
+        {
+            cout << "Error opening file: book.txt" << endl;
+        }
+
+        string Title, Author, isbn;
+        int Year;
+
+        while (!inputFile.eof())
+        {
+            getline(inputFile, Title, ',');
+            getline(inputFile, Author, ',');
+            inputFile >> Year;
+            inputFile.ignore();
+            getline(inputFile, isbn);
+            Book newBook;
+            newBook.setTitle(Title);
+            newBook.setAuthor(Author);
+            newBook.setYear(Year);
+            newBook.setISBN(isbn);
+
+            push(newBook);
+        }
+
+        inputFile.close();
+    }
+
+    void displayStack() const
+    {
         system("cls");
-        cout << "Books in the stack:\n";
         cout << "-----------------------------------------------------------------------------------------------------------" << endl;
         cout << setw(50) << left << "| Title"
              << setw(30) << left << "| Author"
              << setw(10) << left << "| Year"
-             << setw(15) << left << "| ISBN"
-             << " |" << endl;
+             << setw(15) << left << "| ISBN" << " |" << endl;
         cout << "-----------------------------------------------------------------------------------------------------------" << endl;
-        for (int i = top; i >= 0; i--) {
-            stackArray[i].displayBook();
+        for (int i = top; i >= 0; i--)
+        {
+            book[i].displayBook();
         }
         cout << "-----------------------------------------------------------------------------------------------------------" << endl;
     }
+};
 
-    void enqueueRequest(string& patronName,string& bookTitle) {
-        ofstream outputFile("PatronQueue.txt", ios::app);
-        if (outputFile.is_open()) {
-            outputFile << patronName << "," << bookTitle << endl;
-            outputFile.close();
-            cout << "Request added to the queue: " << patronName << " - " << bookTitle << endl;
-        } else {
-            cout << "Error opening file: PatronQueue.txt" << endl;
-        }
+class Queue
+{
+private:
+    Node *front, *rear;
+
+public:
+    Queue() : front(nullptr), rear(nullptr) {}
+
+    bool isEmpty() const
+    {
+        return (front == nullptr);
     }
 
-void dequeueRequest() {
-    fstream file("PatronQueue.txt", ios::in | ios::out);
+    void enqueue(const Book &newBook)
+    {
+        Node *newNode = new Node(newBook);
 
-    if (file.is_open()) {
-        string patronName, bookTitle;
-        bool requestFound = false;
+        if (isEmpty())
+        {
+            front = rear = newNode;
+        }
+        else
+        {
+            rear->next = newNode;
+            rear = newNode;
+        }
 
-        ofstream tempFile("temp.txt", ios::app);
+        cout << "Book added to the queue." << endl;
+    }
 
-        while (getline(file, patronName, ',') && getline(file, bookTitle)) {
-            if (!requestFound) {
-                cout << "Patron request removed from the queue: " << patronName << " - " << bookTitle << endl;
-                requestFound = true;
-            } else {
-                tempFile << patronName << "," << bookTitle << endl;
+    void dequeue()
+    {
+        if (isEmpty())
+        {
+            cout << "Queue is empty. Cannot dequeue." << endl;
+        }
+        else
+        {
+            Node *temp = front;
+            front = front->next;
+
+            if (front == nullptr)
+            {
+                rear = nullptr;
             }
+
+            delete temp;
+
+            cout << "Book request has been approved!" << endl;
         }
-
-        if (!requestFound) {
-            cout << "Queue is empty. No request to remove." << endl;
-        }
-
-        file.close();
-        tempFile.close();
-
-        remove("PatronQueue.txt");
-        rename("temp.txt", "PatronQueue.txt");
-    } else {
-        cout << "Error opening file: PatronQueue.txt" << endl;
     }
+
+    void displayQueueFront() const {
+        if (!isEmpty()) {
+            cout << "First borrow request in the queue:\n";
+            cout << "- [" << front->data.getTitle() << " requested by " << front->data.getAuthor() << "] " << endl;
+          
+        } else {
+            cout << "Queue is empty.\n";
+        }
+    }
+
+    void displayQueue() const
+    {
+        if (isEmpty())
+        {
+            system("cls");
+            cout << "Queue is empty." << endl;
+        }
+        else
+        {
+            system("cls");
+            cout << "Books in the queue:" << endl;
+            Node *current = front;
+            while (current != nullptr)
+            {
+                cout << "- [" << current->data.getTitle() << " requested by " << current->data.getAuthor() << "] " << endl;
+                current = current->next;
+            }
+            cout << endl;
+        }
+    }
+
+    void readFromFileQueue()
+{
+    ifstream inputFile("borrowqueue.txt");
+
+    if (!inputFile.is_open())
+    {
+        cout << "Error opening file: borrowqueue.txt" << endl;
+        return;
+    }
+
+    string line;
+
+    while (getline(inputFile, line))
+    {
+        stringstream ss(line);
+        string patronName, title;
+
+        if (getline(ss, patronName, ',') && getline(ss, title))
+        {
+            Book requestedBook;
+            requestedBook.setTitle(title);
+            requestedBook.setAuthor(patronName);
+            enqueue(requestedBook);
+        }
+        else
+        {
+            cout << "Error reading line from file: " << line << endl;
+        }
+    }
+
+    inputFile.close();
 }
 
-    void displayQueue() {
-        ifstream inputFile("PatronQueue.txt");
-        if (inputFile.is_open()) {
-            system("cls");
-            cout << "Patron requests in the queue:\n\n";
-            cout << "--------------------------------------------------" << endl;
-            cout << "| " << setw(20) << left << "Patron Name" << " | " << setw(23) << left << "Requested Book Title" << " |" << endl;
-            cout << "--------------------------------------------------" << endl;
-            string patronName, bookTitle;
-            while (getline(inputFile, patronName, ',') && getline(inputFile, bookTitle)) {
-                cout << "| " << setw(20) << left << patronName << " | " << setw(23) << left << bookTitle << " |" << endl;
-            }
-            cout << "--------------------------------------------------" << endl;
-            inputFile.close();
-        } else {
-            cout << "Error opening file: PatronQueue.txt" << endl;
+    void writeToBorrowQueueFile(const Book &newBook)
+    {
+        ofstream outputFile("borrowqueue.txt", ios::app);
+
+        if (!outputFile.is_open())
+        {
+            cout << "Error opening file: borrowqueue.txt" << endl;
+        }
+
+        outputFile << newBook.getAuthor() << "," << newBook.getTitle() << endl;
+
+        outputFile.close();
+    }
+
+    ~Queue()
+    {
+        while (!isEmpty())
+        {
+            dequeue();
         }
     }
 };
 
-int main() {
-    Library library;
-    int choice, stackChoice, queueChoice;
-    char yn1;
-    Book newBook;
-    string Title, Author, ISBN, patronName, requestedBookTitle;
-    int Year;
-    ifstream inputFile("Book.txt");
+int main()
+{
+    Stack bookStack;
+    Queue patronQueue;
+    bookStack.readFromFileStack();
+    patronQueue.readFromFileQueue();
 
-    if (!inputFile.is_open()) {
-        cout << "Error opening file: Book.txt" << endl;
-        return 1;
-    }
+    int choice;
+    char yn;
+    int queueChoice;
 
-    while (!inputFile.eof()) {
-        getline(inputFile, Title, ',');
-        getline(inputFile, Author, ',');
-        inputFile >> Year;
-        inputFile.ignore();
-        getline(inputFile, ISBN);
+    do
+    {
+        system("cls");
+        cout << setw(39) << " ____________________________________" << endl;
+        cout << setw(40) << "|                                    |" << endl;
+        cout << setw(40) << "|       Welcome to DTD Library!      |" << endl;
+        cout << setw(40) << "|____________________________________|" << endl
+             << endl;
 
-        newBook.setTitle(Title);
-        newBook.setAuthor(Author);
-        newBook.setYear(Year);
-        newBook.setISBN(ISBN);
+        cout << setw(5) << "[1] Staff (Stack)" << endl;
+        cout << setw(5) << "[2] Patron (Queue)" << endl;
+        cout << setw(5) << "[3] Exit" << endl
+             << endl;
+        cout << "Please enter your choice : ";
+        cin >> choice;
 
-        library.pushBook(newBook);
-    }
-
-    inputFile.close();
-
-do {
-    system("cls");
-    cout << setw(39) << " ____________________________________" << endl;
-    cout << setw(40) << "|                                    |" << endl;
-    cout << setw(40) << "|       Welcome to DTD Library!      |" << endl;
-    cout << setw(40) << "|____________________________________|" << endl
-         << endl;
-
-    cout << setw(5) << "[1] Staff (Stack)" << endl;
-    cout << setw(5) << "[2] Patron (Queue)" << endl;
-    cout << setw(5) << "[3] Exit" << endl << endl;
-    cout << "Please enter your choice : ";
-    cin >> choice;
-
-    switch (choice) {
+        switch (choice)
+        {
         case 1:
+           system("cls");
+        int stackChoice;
+        cout << setw(39) << " ____________________________________" << endl;
+        cout << setw(40) << "|                                    |" << endl;
+        cout << setw(40) << "|             Staff Menu             |" << endl;
+        cout << setw(40) << "|____________________________________|" << endl
+             << endl;
+
+        cout << setw(5) << "[1] Add New Book (Push)" << endl;
+        cout << setw(5) << "[2] Remove Book (Pop)" << endl;
+        cout << setw(5) << "[3] Display Current List (DisplayStack)" << endl;
+        cout << setw(5) << "[4] Approve Borrow Request" << endl ;
+        cout << setw(5) << "[5] Display Borrow Requests" << endl ;
+        cout << setw(5) << "[6] Back" << endl;
+        cout << "Please enter your choice : ";
+        cin >> stackChoice;
+
+        if (stackChoice == 1)
+        {
+            string title, author, isbn;
+            int year;
+
             system("cls");
-            cout << setw(39) << " ____________________________________" << endl;
-            cout << setw(40) << "|                                    |" << endl;
-            cout << setw(40) << "|             Staff Menu             |" << endl;
-            cout << setw(40) << "|____________________________________|" << endl
-                 << endl;
+            cout << "Enter the title of the book : ";
+            cin.ignore();
+            getline(cin, title);
+            cout << "Enter the author of the book : ";
+            getline(cin, author);
+            cout << "Enter the year of the book : ";
+            cin >> year;
+            cout << "Enter the ISBN of the book : ";
+            cin.ignore();
+            getline(cin, isbn);
 
-            cout << setw(5) << "[1] Add New Book (Push)" << endl;
-            cout << setw(5) << "[2] Remove Book (Pop)" << endl;
-            cout << setw(5) << "[3] Display Current List (DisplayStack)" << endl;
-            cout << setw(5) << "[4] Exit" << endl << endl;
-            cout << "Please enter your choice : ";
-            cin >> stackChoice;
+            Book newBook;
+            newBook.setTitle(title);
+            newBook.setAuthor(author);
+            newBook.setYear(year);
+            newBook.setISBN(isbn);
 
-            if (stackChoice == 1) {
-                system("cls");
-                cout << setw(39) << " ____________________________________" << endl;
-                cout << setw(40) << "|                                    |" << endl;
-                cout << setw(40) << "|             Add New Book           |" << endl;
-                cout << setw(40) << "|____________________________________|" << endl << endl;
-
-                cout << "Enter the book title : ";
-                cin.ignore();
-                getline(cin, Title);
-                cout << "Enter the book author : ";
-                getline(cin, Author);
-                cout << "Enter the book year : ";
-                cin >> Year;
-                cout << "Enter the book ISBN : ";
-                cin.ignore();
-                getline(cin, ISBN);
-
-                newBook.setTitle(Title);
-                newBook.setAuthor(Author);
-                newBook.setYear(Year);
-                newBook.setISBN(ISBN);
-
-                library.pushBook(newBook);
-                cout << "Book added to the stack: " << newBook.getTitle() << endl;
-                library.displayStack();
+            bookStack.push(newBook);
+            bookStack.displayStack();
+            cout << "Book has been added!" << endl;
+        }
+        else if (stackChoice == 2)
+        {
+             bookStack.pop();
+             bookStack.displayStack();
+            cout << "Book has been removed!" << endl;
+        }
+        else if (stackChoice == 3)
+        {
+             bookStack.displayStack();
+        }
+        else if (stackChoice == 4)
+        {
+                
+                patronQueue.displayQueueFront();
                 system("pause");
-            } else if (stackChoice == 2) {
-                system("cls");
-                cout << setw(39) << " ____________________________________" << endl;
-                cout << setw(40) << "|                                    |" << endl;
-                cout << setw(40) << "|             Delete Book            |" << endl;
-                cout << setw(40) << "|____________________________________|" << endl << endl;
-                library.popBook();
-                library.displayStack();
+                patronQueue.dequeue();
                 system("pause");
-            } else if (stackChoice == 3) {
-                library.displayStack();
-            } else {
-                cout << "Invalid input. Please try again." << endl;
+                patronQueue.displayQueue();
                 system("pause");
-            }
+        }
+        else if (stackChoice == 5)
+        {
+                
+                patronQueue.displayQueue();
+                system("pause");
+        }
+        else if (stackChoice == 6)
+        {
+            main();
+        }
+
+        else
+        {
+            cout << "Invalid input!" << endl;
+        }
             break;
 
         case 2:
             system("cls");
+
             cout << setw(39) << " ____________________________________" << endl;
             cout << setw(40) << "|                                    |" << endl;
-            cout << setw(40) << "|             Patron Menu            |" << endl;
+            cout << setw(40) << "|            Patron Menu             |" << endl;
             cout << setw(40) << "|____________________________________|" << endl
                  << endl;
 
-            cout << setw(5) << "[1] Add Request (Enqueue)" << endl;
-            cout << setw(5) << "[2] Remove Request (Dequeue)" << endl;
-            cout << setw(5) << "[3] Display Requests (DisplayQueue)" << endl;
-            cout << setw(5) << "[4] Exit" << endl << endl;
+            cout << setw(5) << "[1] Request a Book (Enqueue)" << endl;
+            cout << setw(5) << "[2] Display Current Requests (DisplayQueue)" << endl;
+            cout << setw(5) << "[3] Back" << endl
+                 << endl;
             cout << "Please enter your choice : ";
             cin >> queueChoice;
 
-            if (queueChoice == 1) {
+            if (queueChoice == 1)
+            {
                 system("cls");
-                cout << setw(39) << " ____________________________________" << endl;
-                cout << setw(40) << "|                                    |" << endl;
-                cout << setw(40) << "|           Add Patron Request        |" << endl;
-                cout << setw(40) << "|____________________________________|" << endl << endl;
-
-                cout << "Enter your name : ";
+                string patronName, title;
+                bookStack.displayStack();
+                cout << "\nEnter your name : ";
                 cin.ignore();
                 getline(cin, patronName);
-                cout << "Enter the title of the book you want : ";
-                getline(cin, requestedBookTitle);
+                cout << "Enter the title of the requested book : ";
+                getline(cin, title);
 
-                library.enqueueRequest(patronName, requestedBookTitle);
-                library.displayQueue();
-                system("pause");
-            } else if (queueChoice == 2) {
-                system("cls");
-                cout << setw(39) << " ____________________________________" << endl;
-                cout << setw(40) << "|                                    |" << endl;
-                cout << setw(40) << "|         Remove Patron Request      |" << endl;
-                cout << setw(40) << "|____________________________________|" << endl << endl;
-
-                library.dequeueRequest();
-                library.displayQueue();
-                system("pause");
-            } else if (queueChoice == 3) {
-                library.displayQueue();
-            } else {
-                cout << "Invalid input. Please try again." << endl;
+                Book requestedBook;
+                requestedBook.setTitle(title);
+                requestedBook.setAuthor(patronName); // Using Author field to store patron name for tracking
+                patronQueue.enqueue(requestedBook);
+                patronQueue.writeToBorrowQueueFile(requestedBook);
+                patronQueue.displayQueue();
+                cout << "Book request added!" << endl;
+            }
+            else if (queueChoice == 2)
+            {
+                patronQueue.displayQueue();
+            }
+            else if (queueChoice == 3)
+            {
+                main();
+            }
+            else
+            {
+                cout << "Invalid input!" << endl;
             }
             break;
 
         case 3:
-            cout << "Exiting the program. Goodbye!" << endl;
+            system("cls");
+            cout << "Thank you for using DTD Library!" << endl;
             break;
 
         default:
-            cout << "Invalid input. Please try again." << endl;
-    }
-    cout << "Do you still want to use the program? (Y/N): ";
-    cin >> yn1;
-} while (yn1 == 'Y' || yn1 == 'y');
+            system("cls");
+            cout << "Invalid input!" << endl;
+            break;
+        }
+
+        cout << "Do you still want to use the system? (Y/N) : ";
+        cin >> yn;
+
+    } while (yn == 'Y' || yn == 'y');
 
     return 0;
 }
