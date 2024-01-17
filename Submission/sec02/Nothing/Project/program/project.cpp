@@ -162,6 +162,7 @@ class itemQueue{
                 delete temp;
                 size--;
             }
+            cout << "Item " << front->item.getId() << " removed!" << endl;
         }
 
         goods getItem(){
@@ -169,6 +170,20 @@ class itemQueue{
                 cout << "Queue is empty" << endl;
             else
                 return front->item;
+        }
+
+        void display(){
+            if(isEmpty()){
+                cout << "Queue is empty" << endl;
+            }else{
+                itemNodeQueue *temp = front;
+                //display in table
+                cout << "ID" << setw(10) << "Name" << setw(10) << "Price" << setw(10) << "Location" << endl;
+                while(temp != NULL){
+                    cout << temp->item.getId() << setw(10) << temp->item.getName() << setw(10) << temp->item.getPrice() << setw(10) << temp->item.getItemLocation() << endl;
+                    temp = temp->next;
+                }
+            }
         }
 };
 
@@ -193,7 +208,8 @@ int main(){
             displayHeader();
             menu();
             cout << "Enter your choice: ";
-            cin >> input;
+            
+            getline(cin, input);
             if(isNumber(input)){
                 choice = stoi(input);
                 if(choice >= 1 && choice <= 7){
@@ -220,8 +236,65 @@ int main(){
                 break;
             }
             case 3:
+                if (item.isEmpty()) {
+                    system("cls");
+                    displayHeader();
+                    cout << "No item in the inventory!" << endl;
+                    system("pause");
+                    break;
+                }
+                else {
+                    history.push(item.getItem(), 'r');
+                    item.dequeue();
+                    displayHeader();
+                    system("pause");
+                    system("cls");
+                }
                 break;
             case 4:
+                if (item.isEmpty()) {
+                    system("cls");
+                    displayHeader();
+                    cout << "No item in the inventory!" << endl;
+                    system("pause");
+                    break;
+                }
+                else {
+                    system("cls");
+                    displayHeader();
+                    item.display();
+                    system("pause");
+                    break;
+                }
+                break;
+            case 5:
+                if (history.isEmpty()) {
+                    system("cls");
+                    displayHeader();
+                    cout << "No history!" << endl;
+                    system("pause");
+                    break;
+                }
+                else {
+                    if (history.getAction() == 'a') {
+                        item.dequeue();
+                        history.pop();
+                        system("cls");
+                        displayHeader();
+                        cout << "Undo successful!" << endl;
+                        system("pause");
+                        break;
+                    }
+                    else if (history.getAction() == 'r') {
+                        item.enqueue(history.getItem());
+                        history.pop();
+                        system("cls");
+                        displayHeader();
+                        cout << "Undo successful!" << endl;
+                        system("pause");
+                        break;
+                    }
+                }
                 break;
             case 7:
                 system("cls");
