@@ -1,10 +1,6 @@
-JOSEPH                        020917052131   21   Male      01319972345      Disease1                 23/12/2023     
-
-Sabrina                       971010012234   26   Female    0126672318       Disease2                 20/11/2023     
-
-Lim Ching Chong               031209151097   20   Male      01110952318      Disease3                 19/10/2023     
-
-Sakura Imoto                  071109191177   17   Female    01215552481      Disease2                 11/10/2023     
-
-Chloe Lee                     000321070045   23   Female    01719972345      Disease4                 07/09/2023     
-
+Ali bin Abu|020917052131|21|Male|01319972345|Disease1|23/12/2023
+Sabrina|971010012234|26|Female|0126672318|Disease2|20/11/2023
+Lim Ching Chong|031209151097|20|Male|01110952318|Disease3|19/10/2023
+Sakura Imoto|071109191177|17|Female|01215552481|Disease2|11/10/2023
+Chloe Lee|000321070045|23|Female|01719972345|Disease4|07/09/2023
+joan lee|030917092345|20|Female|0121234567|Disease5|12/11/2023

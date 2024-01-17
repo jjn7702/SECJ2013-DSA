@@ -90,7 +90,7 @@ public:
         return (top == MAX_SIZE - 1);
     }
 
-    void readFromFile()
+    void readFromFileStack()
     {
         ifstream inputFile("book.txt");
 
@@ -221,7 +221,7 @@ public:
         }
     }
 
-    void readFromFile()
+    void readFromFileQueue()
 {
     ifstream inputFile("borrowqueue.txt");
 
@@ -281,8 +281,8 @@ int main()
 {
     Stack bookStack;
     Queue patronQueue;
-    bookStack.readFromFile();
-    patronQueue.readFromFile();
+    bookStack.readFromFileStack();
+    patronQueue.readFromFileQueue();
 
     int choice;
     char yn;
