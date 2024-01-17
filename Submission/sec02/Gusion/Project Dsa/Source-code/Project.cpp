@@ -220,3 +220,88 @@ public:
    // <------------------------end customer functionality to cancel booking------------->
 
    //<-----------------------------END CUSTOMER FUNCTIONALITY------------------------------------>
+
+ //<----------------------------- ADMIN FUNCTIONALITY------------------------------------>
+
+   // <------------------------start admin functionality to approve reserve booking------------->
+   void approveReservation()
+   {
+      displayRequestedBookings();
+
+      int numToApprove;
+      cout << "\n\t\t\t\tEnter the number of reservations to approve (0 to cancel): ";
+      cin >> numToApprove;
+
+      if (numToApprove > 0)
+      {
+         int count = 0;
+
+         // Open request.txt for reading and writing
+         ifstream requestFile(requestFileName);
+         ofstream tempFile("temp.txt");
+
+         if (requestFile.is_open() && tempFile.is_open())
+         {
+            // Read and process existing reservations in request.txt
+            string name, destination, airline, ic;
+            int day, month, year;
+
+            while (requestFile >> name >> day >> month >> year >> destination >> airline >> ic)
+            {
+               if (!requestFile.fail())
+               {
+                  if (count < numToApprove)
+                  {
+                     // Approve reservations from request.txt
+                     Cust newBooking(name, day, month, year, destination, airline, ic);
+                     doneBooking.enqueue(newBooking);
+                     updateBookingFile();
+
+                     count++;
+                  }
+                  else
+                  {
+                     // Convert date values to strings before writing to tempFile
+                     tempFile << name << " " << to_string(day) << " " << to_string(month) << " " << to_string(year) << " "
+                              << destination << " " << airline << " " << ic << "\n";
+                  }
+               }
+               else
+               {
+                  break; // Stop reading if there are no more reservations in the file
+               }
+            }
+
+            requestFile.close();
+            tempFile.close();
+
+            // Rename tempFile to request.txt to overwrite the original file
+            if (remove(requestFileName.c_str()) != 0)
+               perror("Error deleting file");
+            else
+            {
+               if (rename("temp.txt", requestFileName.c_str()) != 0)
+                  perror("Error renaming file");
+            }
+
+            // Clear the doneBooking queue after processing approvals
+            while (!reservationRequests.isEmpty())
+            {
+               reservationRequests.dequeue();
+            }
+
+            // Display a message for successful approvals
+            cout << "\n\t\t\t\t" << count << " reservation(s) approved and removed from request.txt." << endl;
+         }
+         else
+         {
+            cout << "\n\t\t\t\tError opening files for reading/writing." << endl;
+         }
+      }
+      else
+      {
+         cout << "\n\t\t\t\tReservations not approved." << endl;
+      }
+   }
+
+   // <------------------------end admin functionality to approve reserve booking------------->
