@@ -167,7 +167,17 @@ public:
             // Display the last element without the arrow
             cout << data[rear].tasks << "|" << data[rear].day + "-" + data[rear].month + "-" + data[rear].year << "|" << data[rear].status;
         }
-       
+        else
+        {
+            for (int a = front; a < N - 1; a++)
+            {
+                cout << data[a].tasks << "|" << data[a].day + "-" + data[a].month + "-" + data[a].year << "|" << data[a].status << "->";
+            }
+            // Display the last element without the arrow
+            cout << data[rear].tasks << "|" << data[rear].day + "-" + data[rear].month + "-" + data[rear].year << "|" << data[rear].status;
+        }
+        cout << endl;
+    }
 };
 
 int main()
