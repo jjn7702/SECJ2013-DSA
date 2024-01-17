@@ -7,8 +7,8 @@
 - [Synopsis](#Synopsis)
 - [Class Diagram](#class-diagram)
 - [Pseudocode](#pseudocode)
-- [Implementation of Linked List](#implementation-of-linked-list)
-- [Implementation of Sorting](#implementation-of-sorting)
+- [Implementation of Stack](#implementation-of-stack)
+- [Implementation ofQueue](#implementation-of-queue)
 
 ## Introduction
 ### Problem Analysis
@@ -51,7 +51,7 @@ The system uses a Stack linked list operation to manage the menu list. This oper
 The StackMenu class represents stack operation for the menu. nodeStack* top indicates a pointer to point to the top of the stack. StackMenu initialises top as null value indicating that the stack is empty. isEmpty() is to check whether the stack menu is empty or not. The push function in the system is to add a new menu in the stack menu. The system will prompt the user to enter menu details, if the stack is not empty it will set the new menu to the current top stack. On the other hand, the pop function is to delete a menu from the stack. If the stack is empty, the system will display “The stack is empty”. If not, the top stack will be set to the next node, and the top node will be deleted. The stackTop() is to get the current of the stack menu. Lastly, displayStack() is to display all the menus in the stack. It will display according to the current menu changes.
 
 
-### Implementation of Sorting
+### Implementation of Queue
 The system implements the queue linked-list operation to store customer’s orders. The operation includes adding a new order from the customer, viewing the current list of orders, and also cancelling orders. 
 
 The addition of a new order is by adding an order into the queue. If the queue is empty, the new order  or node will be placed first in the queue and also the back of queue, otherwise, it will be added to the back of the queue. The next for back will take the new node and the back will be the new node. This means, the queue will only increment its storage at the end of the list.
