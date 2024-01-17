@@ -75,6 +75,64 @@ void printHistory(historyStack);
 void saveToFile(itemQueue);
 
 
+int main(){
+    displayHeader();
+    welcomeScreen();
+    itemQueue item;
+    item.createQueue();
+    historyStack history;
+    history.createStack();
+    string input;
+    while(true){
+        int choice;
+        while(true){
+            displayHeader();
+            menu();
+            cout << "Enter your choice: ";
+
+            getline(cin, input);
+            if(isNumber(input)){
+                choice = stoi(input);
+                if(choice >= 1 && choice <= 7){
+                    break;
+                }else{
+                    cout << "Please enter a number between 1 and 7" << endl;
+                    system ("pause");
+                }
+            }else{
+                cout << "Invalid input, please enter a number between 1 and 7" << endl;
+                system ("pause");
+            }
+        }
+        switch(choice){
+            case 1:
+                item = import();
+                break;
+            case 2: {
+                goods *newItem = add();
+                item.enqueue(*newItem);
+                history.push(*newItem, 'a');
+                cout << "Item added!" << endl;
+                system("pause");
+                break;
+            }
+            case 3:
+                if (item.isEmpty()) {
+                    system("cls");
+                    displayHeader();
+                    cout << "No item in the inventory!" << endl;
+                    system("pause");
+                    break;
+                }
+                else {
+                    displayHeader();
+                    history.push(item.getItem(), 'r');
+                    cout << "Item: " << item.getItem().getName() <<" id: "<< item.getItem().getId() << " has been taken out!" << endl;
+                    item.dequeue();
+                    system("pause");
+                    system("cls");
+                }
+                break;
             case 4:
                 if (item.isEmpty()) {
                     system("cls");
