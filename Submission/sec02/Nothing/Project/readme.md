@@ -27,15 +27,20 @@ The objective of this project is to develop a Warehouse Inventory Management Sys
 
 1. FIFO inventory storing algorithm 
 First in first out (FIFO) concept ensures that the oldest items in the inventory are the first to be used or shipped. This helps in rotating stock efficiently, preventing perishable goods expiring or becoming obsolete. It's particularly important for industries where products have a limited shelf life. 
+
 2.Neat and Creative Output: 
 Develop a user-friendly and visually appealing interface for displaying inventory and history. 
 Ensure clear and descriptive messages for user interactions.
+
 3.Data Hiding and Encapsulation: 
 Apply the concepts of data hiding and encapsulation by making the goods class private and providing public methods for accessing attributes.
+
 4.History Tracking: 
 Maintain a history of actions performed, including additions and removals, and save this history to a file when exiting the system.
+
 5.User Interaction: 
 Provide a menu-driven interface for users to interact with the system, making it intuitive and easy to use.
+
 6.File Operations: 
 Enable the system to import goods information from a file, export the result after operation and save the history to a file. 
 
