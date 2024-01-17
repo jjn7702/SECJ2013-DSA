@@ -115,7 +115,19 @@ public:
         return count == N;
     }
 
-   
+    void enqueue(const TaskData &newTask)
+    {
+        if (isfull())
+        {
+            cout << "Sorry, the queue is full" << endl;
+        }
+        else
+        {
+            rear = (rear + 1) % N; //*
+            data[rear] = newTask;
+            count++;
+        }
+    }
 
     void dequeue()
     {
