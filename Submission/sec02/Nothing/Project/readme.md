@@ -22,8 +22,9 @@ _Don't forget to hit the :star: if you like this repo._
 
 
 ##  Objective
-
 ##  Synopsis
+## Class Diagram
+(https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Images/WhatsApp%20Image%202024-01-17%20at%2010.04.50%20PM.jpeg)
 
 ## Design 
 
