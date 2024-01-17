@@ -5,20 +5,7 @@
 
 using namespace std;
 
-class goods{
-    private:
-        int id;
-        string name;
-        double price;
-        string itemLocation;
-    
-    public:
-        goods(int id = 0, string name = "", double price = 0, string itemLocation = "");
-        int getId();
-        string getName();
-        double getPrice();
-        string getItemLocation();
-};
+
 
 class historyNodeStack{
     public:
