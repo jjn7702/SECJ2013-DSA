@@ -26,9 +26,6 @@
 - Implement the stack data structure
 - Strengthen the knowledge learned through applying it
 
-### Synopsis
-DACCrew Banking Transaction System aims to streamline and manage basic bank transactions which include deposits, withdrawals, and transfers. We are implementing the stack data structures to guarantee the efficiency in handling transactions. There are five main user-friendly functions: "Check Balance," "Display Transaction Limit," "Perform Transaction," "Search for Transactions," and "Exit."
-
 ### 1.2 Synopsis
 DACCrew Banking Transaction System aims to streamline and manage basic bank transactions which include deposits, withdrawals, and transfers. We are implementing the stack data structures to guarantee the efficiency in handling transactions. There are five main user-friendly functions: "Check Balance," "Display Transaction Limit," "Perform Transaction," "Search for Transactions," and "Exit."
 Features and Functions:
