@@ -14,14 +14,18 @@
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/bc7e2df3-d20d-457c-b9fb-e0574b6a740e" width="3%" height="3%"> Objectives:
 - To simulate an actual Hotel Booking System in a way that administrators can use it to manage the room bookings of customers in a hotel.
-- To improve understanding and enhance application of data structure: binary tree in a real-world scenario.
+- To improve understanding and enhance application of data structure: binary search tree in a real-world scenario.
 - To utilize file mechanism in C++ to read data from external files as a simulation of the database of the system.
 
 <br>
 
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/ac62ef65-848d-41a6-97c2-1ff40be8ecd3" width="3%" height="3%"> Synopsis
-The Hotel Booking System is designed for hotel administrators to manage room bookings in a hotel. By using file input operation, the system reads the file containing booking information which are check-in date, check-out date, room number, room type, identification card number and total price of bookings and stores in BookingNode class. With the administrator menu provided, the administrator is able to insert, delete, find, sort and view the booking information stored in the BookingNode class. The menu is further detailed to insert menu and delete menu in which the insert menu involves the insertion of booking data at front, in the middle under certain conditions such as at certain position, before or after certain position, before or after specific booking information like check-in date, check-out date and room number and at the end of the booking data while delete menu involves deleting the first booking, specific position booking, booking with specific check-in date and room number and the last booking data. All menus are operated and implemented with linked list data structure concept and technique. 
+The Hotel Booking System is designed for hotel administrators to manage room bookings in a hotel. By using file input operation, the system reads the files containing admin information which are admin name, position, username and password and booking information which are check-in date, check-out date, room number, room type, identification card number and total price of bookings and stores in AdminNode class and BookingNode class respectively. 
+
+The administrators are then required to enter their username and password to achieve the purpose of Authentication of the Hotel Booking System. The verification is carried out through the searching function implemented by the binary search tree on the username and password inputted in the AdminNode class. 
+
+With the administrator menu provided, the administrator is able to insert, delete, search, sort and view the booking information stored in the BookingNode class. The menu is operated and implemented with pointer-based binary search tree data structure concept and technique. 
 
 <br>
 
