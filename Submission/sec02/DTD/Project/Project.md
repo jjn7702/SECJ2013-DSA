@@ -19,7 +19,7 @@ The primary objective of this program is to create an efficient library manageme
 ## Design 🎨
 
 1. Class Diagram
-<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Project/ClassDiagramProject.drawio.png">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Project/CDProject.drawio.png">
 
 2. Pseudocode
 <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Project/PseudocodeProject.png">
