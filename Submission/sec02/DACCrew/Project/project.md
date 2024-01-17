@@ -29,7 +29,7 @@
 
 ## System Design
 ### 2.1 System Algorithm Design
-<img src="">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Images/Pseudocodeproject.png">
 
 ### 2.2 Data Structure Operation
 
