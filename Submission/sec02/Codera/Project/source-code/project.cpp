@@ -249,6 +249,8 @@ int main()
     }
     cout << "\n\t\t\t\t" << (char)1 << "!";
 
+    
+
     // main page
     while (!logout)
     {
