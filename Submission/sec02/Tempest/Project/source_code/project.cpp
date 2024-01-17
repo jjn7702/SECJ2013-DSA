@@ -67,26 +67,7 @@ public:
         return data[top];
     }
 
-    void print()
-    {
-        if (isempty())
-        {
-            cout << "sorry, stack is empty" << endl;
-        }
-        else
-        {
-            for (int a = top; a >= 0; a--)
-            {
-                cout << left << setw(40) << data[a].tasks;
-                cout << left << setw(2) << "|";
-                cout << left << setw(20) << data[a].day + "-" + data[a].month + "-" + data[a].year;
-                cout << left << setw(2) << "|";
-                cout << left << setw(10) << data[a].status << endl;
-
-                cout << endl;
-            }
-        }
-    }
+   
 };
 
 class queue
