@@ -66,6 +66,7 @@ The primary objective of this program is to create an efficient library manageme
   <li>c. Display Current List (DisplayStack) : Staff can display the current list of books. </li>
   <li>d. Approve Borrow Request : Staff can approve the borrow request done by the patrons and this will dequeue the request from the queue. </li>
 <br>
+
   2.Patron Operations <br>
   </br>
   <li>a. Request a book (Enqueue) : Patrons will make a request to borrow books from the library. </li>
