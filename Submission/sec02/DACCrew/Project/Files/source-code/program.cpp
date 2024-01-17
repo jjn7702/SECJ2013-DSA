@@ -1,3 +1,26 @@
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+#include <string>
+#include <sstream>
+
+using namespace std;
+
+class nodeStack
+{
+    string date;
+    double amount, balance;
+    string type;
+
+public:
+    nodeStack *next;
+    nodeStack(string d, string t, double a, double b) : date(d), type(t), amount(a), balance(b), next(NULL) {}
+
+    string getDate() const { return date; }
+    string getType() const { return type; }
+    double getAmount() const { return amount; }
+    double getBalance() const { return balance; }
+};
 
 class stack
 {
@@ -218,6 +241,63 @@ void saveToFile(stack &transactionStack)
     {
         cout << "Error opening the file." << endl;
     }
+}
+
+void performTransaction(stack &transactionStack, double &balance)
+{
+    string date;
+    double amount;
+    char type;
+    string typestring;
+
+    cout << "\nEnter date (DD-MM-YYYY): ";
+    cin >> date;
+    cout << "Enter transaction type (D: Deposit/W: Withdraw/T: Transfer): ";
+    cin >> type;
+
+    switch (type)
+    {
+    case 'D':
+        cout << "Enter deposit amount: ";
+        cin >> amount;
+        balance += amount;
+        typestring = "Deposit";
+        transactionStack.push(date, typestring, amount, balance);
+        saveToFile(transactionStack);
+        break;
+    case 'W':
+        cout << "Enter withdrawal amount: ";
+        cin >> amount;
+        if (amount <= balance)
+        {
+            balance -= amount;
+            typestring = "Withdrawal";
+            transactionStack.push(date, typestring, amount, balance);
+            saveToFile(transactionStack);
+        }
+        else
+            cout << "\nInsufficient funds for withdrawal." << endl;
+        break;
+    case 'T':
+        cout << "\nEnter transfer amount: ";
+        cin >> amount;
+        if (amount <= balance)
+        {
+            balance -= amount;
+            typestring = "Transfer";
+            transactionStack.push(date, typestring, amount, balance);
+            saveToFile(transactionStack);
+        }
+        else
+            cout << "\nInsufficient funds for transfer." << endl;
+        break;
+    default:
+        cout << "\nInvalid transaction type." << endl;
+        return;
+    }
+
+    cout << "\nTransaction completed successfully." << endl
+         << endl;
 }
 
 int main()
