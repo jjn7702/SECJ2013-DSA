@@ -1,3 +1,26 @@
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+#include <string>
+#include <sstream>
+
+using namespace std;
+
+class nodeStack
+{
+    string date;
+    double amount, balance;
+    string type;
+
+public:
+    nodeStack *next;
+    nodeStack(string d, string t, double a, double b) : date(d), type(t), amount(a), balance(b), next(NULL) {}
+
+    string getDate() const { return date; }
+    string getType() const { return type; }
+    double getAmount() const { return amount; }
+    double getBalance() const { return balance; }
+};
 
 class stack
 {
@@ -218,4 +241,129 @@ void saveToFile(stack &transactionStack)
     {
         cout << "Error opening the file." << endl;
     }
+}
+
+void performTransaction(stack &transactionStack, double &balance)
+{
+    string date;
+    double amount;
+    char type;
+    string typestring;
+
+    cout << "\nEnter date (DD-MM-YYYY): ";
+    cin >> date;
+    cout << "Enter transaction type (D: Deposit/W: Withdraw/T: Transfer): ";
+    cin >> type;
+
+    switch (type)
+    {
+    case 'D':
+        cout << "Enter deposit amount: ";
+        cin >> amount;
+        balance += amount;
+        typestring = "Deposit";
+        transactionStack.push(date, typestring, amount, balance);
+        saveToFile(transactionStack);
+        break;
+    case 'W':
+        cout << "Enter withdrawal amount: ";
+        cin >> amount;
+        if (amount <= balance)
+        {
+            balance -= amount;
+            typestring = "Withdrawal";
+            transactionStack.push(date, typestring, amount, balance);
+            saveToFile(transactionStack);
+        }
+        else
+            cout << "\nInsufficient funds for withdrawal." << endl;
+        break;
+    case 'T':
+        cout << "\nEnter transfer amount: ";
+        cin >> amount;
+        if (amount <= balance)
+        {
+            balance -= amount;
+            typestring = "Transfer";
+            transactionStack.push(date, typestring, amount, balance);
+            saveToFile(transactionStack);
+        }
+        else
+            cout << "\nInsufficient funds for transfer." << endl;
+        break;
+    default:
+        cout << "\nInvalid transaction type." << endl;
+        return;
+    }
+
+    cout << "\nTransaction completed successfully." << endl
+         << endl;
+}
+
+int main()
+{
+    stack transactionStack;
+    double balance = 0.0;
+
+    int choice;
+
+    cout << "\n<<<<< WELCOME TO DACCrew BANKING MANAGEMENT SYSTEM >>>>>\n"
+         << endl;
+
+    do
+    {
+        cout << "1. Check Balance" << endl
+             << "2. Display Transaction List" << endl
+             << "3. Perform Transaction" << endl
+             << "4. Search for Transaction" << endl
+             << "5. Exit" << endl
+             << "Your choice: ";
+        cin >> choice;
+
+        switch (choice)
+        {
+        case 1:
+            cout << "\nCurrent Balance: RM" << balance << endl
+                 << endl;
+            break;
+        case 2:
+            print(transactionStack, balance);
+            break;
+        case 3:
+            performTransaction(transactionStack, balance);
+            break;
+        case 4:
+            int searchChoice;
+            cout << "\n[1] Search by Type" << endl
+                 << "[2] Search by Date" << endl
+                 << "[3] Back to Main Menu" << endl
+                 << "Your choice:";
+            cin >> searchChoice;
+            cout << endl;
+            if (searchChoice == 1)
+            {
+                char searchType;
+                cout << "\nEnter transaction type (D: Deposit/W: Withdraw/T: Transfer): ";
+                cin >> searchType;
+                transactionStack.searchByType(searchType);
+            }
+            else if (searchChoice == 2)
+            {
+                string searchDate;
+                cout << "\nEnter date (DD-MM-YYYY): ";
+                cin >> searchDate;
+                transactionStack.searchByDate(searchDate);
+            }
+            else if (searchChoice == 3)
+                break;
+        case 5:
+            cout << "\nExiting..." << endl;
+            break;
+        default:
+            cout << "\nInvalid choice. Try again." << endl;
+        }
+
+    } while (choice != 5);
+
+    return 0;
 }

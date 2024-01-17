@@ -192,6 +192,7 @@ void historyStack::createStack(){
     bottom = NULL;
     size = 0;
 }
+
 bool historyStack::isEmpty(){
     if(top == NULL)
         return true;
@@ -426,7 +427,8 @@ void printHistory(historyStack history){
     if(file.is_open()){
         file <<setw(5)<< "ID" <<setw(15)<< "Name" <<setw(15)<< "Price" <<setw(15)<< "Location" <<setw(15)<< "Action" << endl;
         while(!history.isEmpty()){
-            file <<setw(5)<< history.getItem().getId() <<setw(15)<< history.getItem().getName() <<setw(15)<< history.getItem().getPrice() <<setw(15)<< history.getItem().getItemLocation() <<setw(15)<< history.getAction() << endl;
+            file <<setw(5)<< history.getItem().getId() <<setw(15)<< history.getItem().getName() <<setw(15)<< history.getItem().getPrice() 
+            <<setw(15)<< history.getItem().getItemLocation() <<setw(15)<< history.getAction() << endl;
             history.pop();
         }
     }

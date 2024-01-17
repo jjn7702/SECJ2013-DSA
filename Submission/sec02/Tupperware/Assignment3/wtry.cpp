@@ -91,7 +91,7 @@ public:
         }
     }
 
-    nodeStack* getTop() const {
+    nodeStack* stackTop() const {
         return top;
     }
 
