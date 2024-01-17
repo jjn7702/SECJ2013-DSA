@@ -297,7 +297,7 @@ After:
 
 - [Source Code](./source_code/project.cpp)
 - [Input File](./source_code/task.txt)
-- [Report]("https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/Project/project%20(1).pdf")
+- [Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/Project/project%20(1).pdf)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
