@@ -65,74 +65,74 @@ The cancel order operation works by deleting the most front node in the queue. W
 
 ##### Stack Implementation
 
-Stack Implementation
-class nodeStack {
-public:
-    Menu menu;
-    nodeStack* next;
-    nodeStack(Menu m) : menu(m), next(nullptr) {}
-};
 
-
-class StackMenu {
-private:
-    nodeStack *top;
-
-
-public:
-    StackMenu() {
-        top = NULL;
-    }
-
-
-    bool isEmpty() {
-        return top == NULL;
-    }
-
-
-    void push(const Menu& menu) {
-        nodeStack* newNode = new nodeStack(menu);
-
-
-        if (!isEmpty())
-            newNode->next = top;
-        top = newNode;
-    }
-
-
-    void pop() {
-        if (isEmpty())
-            cout << "The stack is empty." << endl;
-        else {
-            nodeStack* del = top;
-
-
-            top = del->next;
-            del->next = NULL;
-            delete del;
+    class nodeStack {
+    public:
+        Menu menu;
+        nodeStack* next;
+        nodeStack(Menu m) : menu(m), next(nullptr) {}
+    };
+    
+    
+    class StackMenu {
+    private:
+        nodeStack *top;
+    
+    
+    public:
+        StackMenu() {
+            top = NULL;
         }
-    }
-
-
-    nodeStack* getTop() const {
-        return top;
-    }
-
-
-    void displayStack() {
-        if (isEmpty())
-            cout << "Sorry, no menu in the stack." << endl;
-        else {
-            nodeStack* temp = top;
-
-
-            while (temp) {
-                temp->menu.displayMenu();
-                temp = temp->next;
+    
+    
+        bool isEmpty() {
+            return top == NULL;
+        }
+    
+    
+        void push(const Menu& menu) {
+            nodeStack* newNode = new nodeStack(menu);
+    
+    
+            if (!isEmpty())
+                newNode->next = top;
+            top = newNode;
+        }
+    
+    
+        void pop() {
+            if (isEmpty())
+                cout << "The stack is empty." << endl;
+            else {
+                nodeStack* del = top;
+    
+    
+                top = del->next;
+                del->next = NULL;
+                delete del;
             }
         }
-    }
-};
+    
+    
+        nodeStack* getTop() const {
+            return top;
+        }
+    
+    
+        void displayStack() {
+            if (isEmpty())
+                cout << "Sorry, no menu in the stack." << endl;
+            else {
+                nodeStack* temp = top;
+    
+    
+                while (temp) {
+                    temp->menu.displayMenu();
+                    temp = temp->next;
+                }
+            }
+        }
+    };
 
 
 
