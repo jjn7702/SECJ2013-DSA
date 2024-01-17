@@ -162,6 +162,7 @@ class itemQueue{
                 delete temp;
                 size--;
             }
+            cout << "Item " << front->item.getId() << " removed!" << endl;
         }
 
         goods getItem(){
@@ -207,7 +208,8 @@ int main(){
             displayHeader();
             menu();
             cout << "Enter your choice: ";
-            cin >> input;
+            
+            getline(cin, input);
             if(isNumber(input)){
                 choice = stoi(input);
                 if(choice >= 1 && choice <= 7){
@@ -245,7 +247,6 @@ int main(){
                     history.push(item.getItem(), 'r');
                     item.dequeue();
                     displayHeader();
-                    cout << "Item removed!" << endl;
                     system("pause");
                     system("cls");
                 }
@@ -264,6 +265,35 @@ int main(){
                     item.display();
                     system("pause");
                     break;
+                }
+                break;
+            case 5:
+                if (history.isEmpty()) {
+                    system("cls");
+                    displayHeader();
+                    cout << "No history!" << endl;
+                    system("pause");
+                    break;
+                }
+                else {
+                    if (history.getAction() == 'a') {
+                        item.dequeue();
+                        history.pop();
+                        system("cls");
+                        displayHeader();
+                        cout << "Undo successful!" << endl;
+                        system("pause");
+                        break;
+                    }
+                    else if (history.getAction() == 'r') {
+                        item.enqueue(history.getItem());
+                        history.pop();
+                        system("cls");
+                        displayHeader();
+                        cout << "Undo successful!" << endl;
+                        system("pause");
+                        break;
+                    }
                 }
                 break;
             case 7:
