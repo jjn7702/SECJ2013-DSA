@@ -129,18 +129,7 @@ public:
         }
     }
 
-    void dequeue()
-    {
-        if (isempty())
-        {
-            cout << "Sorry, the queue is empty" << endl;
-        }
-        else
-        {
-            front = (front + 1) % N;
-            count--;
-        }
-    }
+   
 
     TaskData getfront()
     {
