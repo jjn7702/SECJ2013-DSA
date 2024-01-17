@@ -170,6 +170,20 @@ class itemQueue{
             else
                 return front->item;
         }
+
+        void display(){
+            if(isEmpty()){
+                cout << "Queue is empty" << endl;
+            }else{
+                itemNodeQueue *temp = front;
+                //display in table
+                cout << "ID" << setw(10) << "Name" << setw(10) << "Price" << setw(10) << "Location" << endl;
+                while(temp != NULL){
+                    cout << temp->item.getId() << setw(10) << temp->item.getName() << setw(10) << temp->item.getPrice() << setw(10) << temp->item.getItemLocation() << endl;
+                    temp = temp->next;
+                }
+            }
+        }
 };
 
 void welcomeScreen();
@@ -220,8 +234,37 @@ int main(){
                 break;
             }
             case 3:
+                if (item.isEmpty()) {
+                    system("cls");
+                    displayHeader();
+                    cout << "No item in the inventory!" << endl;
+                    system("pause");
+                    break;
+                }
+                else {
+                    history.push(item.getItem(), 'r');
+                    item.dequeue();
+                    displayHeader();
+                    cout << "Item removed!" << endl;
+                    system("pause");
+                    system("cls");
+                }
                 break;
             case 4:
+                if (item.isEmpty()) {
+                    system("cls");
+                    displayHeader();
+                    cout << "No item in the inventory!" << endl;
+                    system("pause");
+                    break;
+                }
+                else {
+                    system("cls");
+                    displayHeader();
+                    item.display();
+                    system("pause");
+                    break;
+                }
                 break;
             case 7:
                 system("cls");
