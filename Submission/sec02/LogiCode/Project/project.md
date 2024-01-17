@@ -99,16 +99,16 @@ Figure : Class Diagram of Hotel Booking System
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/438b3b12-cfbc-49ac-bcfd-05b07830c665" width="55%" height="55%"><br>
   Figure 11: Flowchart of findBooking Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/966f0c97-38f0-44e1-8a5f-6d7ed0df6761" width="55%" height="55%"><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/966f0c97-38f0-44e1-8a5f-6d7ed0df6761" width="35%" height="35%"><br>
   Figure 12: Flowchart of destroyTree Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/37ddabee-bdee-4ecf-9dbd-68344af13d97" width="55%" height="55%"><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/37ddabee-bdee-4ecf-9dbd-68344af13d97" width="18%" height="18%"><br>
   Figure 13: Flowchart of displayBooking Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/0361f71b-7fbc-475f-ba94-4980537de5dd" width="55%" height="55%"><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/0361f71b-7fbc-475f-ba94-4980537de5dd" width="35%" height="35%"><br>
   Figure 14: Flowchart of display Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/2a70ecec-328f-4804-bfb2-f4f6fbfcbf8a" width="55%" height="55%"><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/2a70ecec-328f-4804-bfb2-f4f6fbfcbf8a" width="40%" height="40%"><br>
   Figure 15: Flowchart of countNodes Function
   <br><br><br>
   <img src="" width="40%" height="40%"><br>
@@ -123,7 +123,7 @@ Figure : Class Diagram of Hotel Booking System
   <img src="" width="70%" height="70%"><br>
   Figure 19: Flowchart of main Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/fc9f7d5d-c417-41a3-9a07-a2ba1b44222e" width="40%" height="40%"><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/fc9f7d5d-c417-41a3-9a07-a2ba1b44222e" width="45%" height="45%"><br>
   Figure 20: Flowchart of readBookingData Function
 </p>
 
