@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include<iomanip>
+#include <unistd.h>
 
 using namespace std;
 
@@ -8,11 +9,11 @@ class goods{
     private:
         int id;
         string name;
-        int price;
+        double price;
         string itemLocation;
     
     public:
-        goods(int id = 0, string name = "", int price = 0, string itemLocation = ""){
+        goods(int id = 0, string name = "", double price = 0, string itemLocation = ""){
             this->id = id;
             this->name = name;
             this->price = price;
@@ -27,7 +28,7 @@ class goods{
             return name;
         }
 
-        int getPrice(){
+        double getPrice(){
             return price;
         }
 
@@ -80,11 +81,22 @@ class historyStack{
         }
 
         void pop(){
-            if(top == NULL){
+            if(isEmpty()){
                 cout << "Stack is empty" << endl;
             }else{
-                historyNodeStack *temp = top;
-                top->next = NULL;
+                historyNodeStack *temp = bottom;
+                historyNodeStack *prev = NULL;
+                while(temp->next != NULL){
+                    prev = temp;
+                    temp = temp->next;
+                }
+                if(prev == NULL){
+                    top = NULL;
+                    bottom = NULL;
+                }else{
+                    prev->next = NULL;
+                    top = prev;
+                }
                 delete temp;
                 size--;
             }
@@ -175,6 +187,8 @@ class itemQueue{
                 itemNodeQueue *temp = front;
                 //display in table
                 cout << "ID" << setw(10) << "Name" << setw(10) << "Price" << setw(10) << "Location" << endl;
+                //price to 2 decimal places
+                cout << fixed << setprecision(2);
                 while(temp != NULL){
                     cout << temp->item.getId() << setw(10) << temp->item.getName() << setw(10) << temp->item.getPrice() << setw(10) << temp->item.getItemLocation() << endl;
                     temp = temp->next;
@@ -275,6 +289,8 @@ int main(){
                 system("cls");
                 cout << "Exiting..." << endl;
                 cout << "Thank you for using the system!" << endl;
+                sleep(2);
+                system("cls");
                 return 0;
             }
         }
@@ -314,22 +330,31 @@ bool isNumber(string input){
 }
 
 itemQueue import(){
-    ifstream file("input.txt");
+    ifstream file("input.csv");
     int id;
     string name;
-    int price;
+    double price;
     string itemLocation;
     itemQueue item;
     item.createQueue();
     goods *newItem;
+    system("cls");
+    displayHeader();
     if (!file.is_open()) {
         cout << "File not found" << endl;
     }else{
         cout << "Importing..." << endl;
         //each line is a goods
-        while (file >> id >> name >> price >> itemLocation) {
+        while (!file.eof()) {
+            file >> id;
+            file.ignore();
+            getline(file, name, ',');
+            file >> price;
+            file.ignore();
+            getline(file, itemLocation);
             newItem = new goods(id, name, price, itemLocation);
             item.enqueue(*newItem);
+        
         }
     }
     file.close();
@@ -341,7 +366,7 @@ itemQueue import(){
 goods *add(){
     int id;
     string name;
-    int price;
+    double price;
     string itemLocation;
     goods *newItem;
     system("cls");
@@ -366,7 +391,7 @@ goods *add(){
         cout << "Enter item price: ";
         getline(cin, input);
         if(isfloat(input)){
-            price = stof(input);
+            price = stod(input);
             break;
         }else{
             cout << "Invalid input, please enter a number!" << endl;
