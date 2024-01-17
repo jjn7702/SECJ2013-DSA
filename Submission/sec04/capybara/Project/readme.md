@@ -12,7 +12,7 @@
 Airline reservation systems often have many features, such as booking, ticket review, and ticket cancellation. Our airline reservation system focuses on the user's point of view and not on the administrator's. Initially, the user will be given options such as selecting the location of the number of passengers to buy tickets. Moving on, the user will be given six options: review the purchased ticket details, delete all ticket details, display the primary booker, showing total weight of baggage, editing user information, or exit from the system. Throughout this process, we only apply queue implementation on all aspects, including adding, removing or returning data. 
  
 ## Pseudocode 📑
-![Alt text](./images/image.png)
+![Alt text](./images/Pseudocode.png)
 
 ## Flow Chart 📑
 ![Alt text](./images/flowChartDSA.jpg)
