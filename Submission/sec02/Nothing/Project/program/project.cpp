@@ -20,6 +20,34 @@ class goods{
         string getItemLocation();
 };
 
+class historyNodeStack{
+    public:
+        goods item;
+        char action;
+        historyNodeStack *next;
+};
+
+class historyStack{
+    private:
+        historyNodeStack *top;
+        historyNodeStack *bottom;
+        int size;
+
+    public:
+        void createStack();
+        bool isEmpty();
+        void push(goods item, char action);
+        void pop();
+        char getAction();
+        goods getItem();
+};
+
+class itemNodeQueue{
+    public:
+        goods item;
+        itemNodeQueue *next;
+        itemNodeQueue *prev;
+};
 
 
 class itemQueue{
