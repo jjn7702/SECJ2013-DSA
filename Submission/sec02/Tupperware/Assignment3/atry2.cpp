@@ -182,20 +182,7 @@ public:
             delete temp;
             cout << "Order for table number " << tableNumber << " dequeued successfully." << endl;
         }
-        /*nodeQueue* delNode = front;
 
-        if (isEmpty())
-            cout << "The queue is empty." << endl;
-        else {
-            if (front != back) {
-                front = front->next;
-                delNode->next = NULL;
-            } else {
-                front = NULL;
-                back = NULL;
-            }
-            delete delNode;
-        }*/
     }
 
     void displayQueue() {
