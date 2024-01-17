@@ -81,16 +81,16 @@ Figure : Class Diagram of Hotel Booking System
   <img src="" width="60%" height="60%"><br>
   Figure 5: Flowchart of deleteCurrentNode Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/c6d83f74-041c-4a30-8d52-5fc2dd1300bc" width="55%" height="55%"><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/c6d83f74-041c-4a30-8d52-5fc2dd1300bc" width="30%" height="55%"><br>
   Figure 6: Flowchart of retrieveBooking Function
   <br><br><br>
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/0a82f249-4e65-4585-888a-e250c1cc8a68" width="30%" height="30%"><br>
   Figure 7: Flowchart of insertBooking Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/68a0ca0d-8215-4b21-89d2-84df74f6fc6e" width="40%" height="40%"><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/68a0ca0d-8215-4b21-89d2-84df74f6fc6e" width="30%" height="40%"><br>
   Figure 8: Flowchart of numOfNodes Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/0366951d-499b-4065-a1de-d738f12618df" width="35%" height="35%"><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/0366951d-499b-4065-a1de-d738f12618df" width="55%" height="35%"><br>
   Figure 9: Flowchart of insert Function
   <br><br><br>
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/6157abdd-6400-496c-b83a-2164450e4cf8" width="55%" height="55%"><br>
@@ -114,7 +114,7 @@ Figure : Class Diagram of Hotel Booking System
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/628ea5b6-5254-4600-a392-19a607b3884b" width="40%" height="40%"><br>
   Figure 16: Flowchart of addAdmin Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/cf3d089e-efb7-4e89-941e-bd8509228dae" width="16%" height="16%"><br>
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/cf3d089e-efb7-4e89-941e-bd8509228dae" width="50%" height="16%"><br>
   Figure 17: Flowchart of adminMenu Function
   <br><br><br>
   <img src="" width="40%" height="40%"><br>
