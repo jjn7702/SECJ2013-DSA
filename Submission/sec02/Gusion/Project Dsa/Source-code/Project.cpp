@@ -305,3 +305,39 @@ public:
    }
 
    // <------------------------end admin functionality to approve reserve booking------------->
+
+// <------------------------admin functionality to search for booking------------->
+   void searchByICNumber(string icNumber) const
+   {
+      cout << "\n\t\t\t\tBooking details for IC Number " << icNumber << ":" << endl;
+      bool found = false;
+
+      BookingQueue::Node *current = doneBooking.getFrontNode();
+      while (current != nullptr)
+      {
+         if (current->data.getIcNum() == icNumber)
+         {
+            cout << "\t\t---------------------------------------------------------------------------------------" << endl;
+            cout << left << setw(5) << "\t" << setw(15) << "  \tName"
+                 << "  Date of Booking"
+                 << "\t     Destination"
+                 << "\t   Airlines"
+                    "\t   IC Number"
+                 << endl;
+            cout << "\t\t---------------------------------------------------------------------------------------" << endl;
+
+            current->data.displayBookingInfo();
+            cout << "\t\t---------------------------------------------------------------------------------------" << endl;
+
+            found = true;
+         }
+
+         current = current->next;
+      }
+
+      if (!found)
+      {
+         cout << "\n\t\t\t\tNo bookings found for IC Number " << icNumber << "." << endl;
+      }
+   }
+   // <------------------------end admin functionality to search for booking------------->
