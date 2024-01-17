@@ -28,6 +28,7 @@ private:
     string date;
 
 public:
+    Patient *next;
     // default constructor
     Patient()
     {
@@ -111,63 +112,56 @@ public:
     {
         date = dt;
     }
-
-    // display patient record
-    void display();
-};
-
-// Node
-class Node
-{
-public:
-    Patient data; // patient data
-    Node *next;   // pointer to next node
-
-    Node(Patient p)
-    {
-        data = p;
-        next = NULL;
-    }
 };
 
 // Queue
 class Queue
 {
 public:
-    Node *back, *front;
+    Patient *back, *front;
 
-    Queue(){
+    Queue()
+    {
         front = NULL;
         back = NULL;
     }
 
-    bool isEmpty(){
+    bool isEmpty()
+    {
         return ((front == NULL) && (back == NULL));
     }
 
-    void enQueue(int d){
-        Node *newNode = new Node(d);
+    void enQueue(string n, string i, int a, string g, string c, string d, string dt)
+    {
+        Patient *newNode = new Patient(n, i, a, g, c, d, dt);
 
-        if(isEmpty()){
+        if (isEmpty())
+        {
             front = newNode;
             back = newNode;
         }
-        else{
-            back->next =  newNode;
+        else
+        {
+            back->next = newNode;
             back = newNode;
         }
     }
 
-    void deQueue(){
-        Node *delNode = front;
-        if(isEmpty())
-            cout << "The queue is empty" << endl;
-        else{
-            if(front != back){
-                front = front->next;
+    void deQueue()
+    {
+        Patient *delNode = front;
+
+        if (isEmpty())
+            cout << "The queue is empty!" << endl;
+        else
+        {
+            if (front != back)
+            {
+                front = delNode->next;
                 delNode->next = NULL;
             }
-            else{
+            else
+            {
                 front = NULL;
                 back = NULL;
             }
@@ -175,33 +169,50 @@ public:
         }
     }
 
-    void print(){
-        if(isEmpty())
+    // display patient record
+    void print()
+    {
+        if (isEmpty())
             cout << "Sorry, nothing in queue" << endl;
-        else{
-            Node *temp = front;
+        else
+        {
+            Patient *temp = front;
 
-            while(temp){ //temp != NULL
-                cout << temp->getData() << " ";
+            while (temp)
+            { // temp != NULL
+                cout << setw(30) << left << temp->getName()
+                     << setw(15) << temp->getIC()
+                     << setw(5) << temp->getAge()
+                     << setw(10) << temp->getGender()
+                     << setw(17) << temp->getContactNum()
+                     << setw(25) << temp->getDisease()
+                     << setw(15) << temp->getDate() << endl
+                     << endl;
                 temp = temp->next;
             }
             cout << endl;
         }
     }
-};
 
-// display patient record
-void Patient::display()
-{
-    cout << setw(30) << left << name
-         << setw(15) << ic
-         << setw(5) << age
-         << setw(10) << gender
-         << setw(17) << contactNum
-         << setw(25) << disease
-         << setw(15) << date << endl
-         << endl;
-}
+    void save()
+    {
+        fstream outFile("record.txt", ios::out);
+        Patient *temp = front;
+
+        while (temp)
+        { // temp != NULL
+            outFile << setw(30) << left << temp->getName()
+                    << setw(15) << temp->getIC()
+                    << setw(5) << temp->getAge()
+                    << setw(10) << temp->getGender()
+                    << setw(17) << temp->getContactNum()
+                    << setw(25) << temp->getDisease()
+                    << setw(15) << temp->getDate() << endl
+                    << endl;
+            temp = temp->next;
+        }
+    }
+};
 
 // display header
 void dispHeader()
@@ -223,9 +234,10 @@ void dispHeader()
 
 int main()
 {
-    Patient patient;
-    int opt, choice;
+    Queue patList;
+    int opt, choice, age;
     bool logout = false;
+    string name, ic, gender, contactNum, disease, date;
 
     // loading page
     system("cls");
@@ -249,7 +261,34 @@ int main()
     }
     cout << "\n\t\t\t\t" << (char)1 << "!";
 
-    
+    // read file
+    fstream inFile("record.txt", ios::in);
+    if (!inFile)
+    {
+        cout << "Can't open the file!" << endl;
+        system("pause");
+        return 0;
+    }
+
+    // store the data from file into linked list
+    int i = 0;
+    while (!inFile.eof())
+    {
+        getline(inFile, name, '|');
+        getline(inFile, ic, '|');
+        inFile >> age; // Read age as integer
+        inFile.ignore();
+        getline(inFile, gender, '|');
+        getline(inFile, contactNum, '|');
+        getline(inFile, disease, '|');
+        inFile >> date;
+        inFile.ignore();
+
+        Patient *pat = new Patient(name, ic, age, gender, contactNum, disease, date);
+        patList.enQueue(pat);
+        i++;
+    }
+    inFile.close();
 
     // main page
     while (!logout)
