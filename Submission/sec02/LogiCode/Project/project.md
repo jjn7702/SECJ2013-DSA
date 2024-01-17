@@ -51,8 +51,16 @@ By addressing the main features in the Hotel Booking System, a well-structured s
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/aff8a4cc-5395-4a39-9329-0660c64eeb0a" width="5%" height="5%"> Class Diagram
 <p align="center">
-<img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/aff8a4cc-5395-4a39-9329-0660c64eeb0a" width="80%"><br>
-Figure 1: Class Diagram of Hotel Booking System
+<img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/74751c5b-ec20-4f99-9709-553f9a8d8679" width="40%"><br>
+Figure : Class Diagram of Hotel Booking System
+</p>
+
+<br>
+
+
+<p align="center">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/4821c68b-0d26-430e-a984-8ca7a41786f4" width="40%"><br>
+Figure : Class Diagram of Hotel Booking System
 </p>
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/8b3596b0-7214-4cc8-b868-9ab2a0314386" width="3%" height="3%"> Flowchart
