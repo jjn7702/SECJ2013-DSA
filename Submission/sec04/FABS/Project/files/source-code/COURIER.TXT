@@ -1,0 +1,10 @@
+Muhammad Abduh,Shoes,Pulau Pinang,Melaka,Delivered,548821
+Mohd Ali,Ball,Sarawak,Sabah,Out for delivery,498678
+Jessica Luvia,Phone,Perak,Senai,Out for delivery,789092
+Rahman Putra,Laptop,Kuala Lumpur,Ayer Hitam,Out for delivery,234539
+Emily Lisa,Watch,Pasir Gudang,Tangkak,In transit,876565
+Kamal Kamarudin,Hat,Ipoh,Sabah,In transit,432121
+Aisha Sofea,Glasses,Rompin,Sungai Petani,In transit,567837
+Mohammed Omar,Camera,Karak,Alor Gajah,In transit,987602
+Puteri Syakilla,Bag,Kuala Lumpur,Melaka,In transit,345098
+
