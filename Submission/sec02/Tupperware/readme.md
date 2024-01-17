@@ -125,7 +125,7 @@ _Don't forget to hit the :star: if you like this repo._
 <h2>Findings 📊</h2>
 - <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment1/assingment1.md">Assignment 1 </a><br>
 - <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Assignment2/Assignment2.md">Assignment 2 </a><br>
-- Project<br>
+- <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tupperware/Project/Project.md">Project </a><br>
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.

@@ -7,7 +7,7 @@
 
 _Don't forget to hit the :star: if you like this repo._
 
-# Task Management System - Assignment 2
+# Task Management System - Project
 
 ## Objective🔎
 The stack technique is used in this task management system to facilitate user navigation by preserving a history stack that allows users to easily backtrack through their interactions. A stack is also used to implement a reverse feature, which allows users to return to previous states. The queue technique, on the other hand, is used to manage tasks in a first-in, first-out manner, ensuring task execution fairness. Furthermore, an update queue is implemented, which uses a queue to organise and present updates to users in a systematic manner. These techniques, when combined, improve data accessibility and user experience in the system.
@@ -297,7 +297,7 @@ After:
 
 - [Source Code](./source_code/project.cpp)
 - [Input File](./source_code/task.txt)
-- [Report]
+- [Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Tempest/Project/project%20(1).pdf)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.

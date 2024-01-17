@@ -65,7 +65,7 @@ There are few features in the courier management system which is
 #### Flowchart
 ![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/dsaflowchart.png)
 #### Class Diagram
-![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/class%20diagram.jpg)
+![2](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Images/classdiagram.jpg)
 
 ## Design Description <a name="designdescription"></a> 💹
 
@@ -185,6 +185,6 @@ Character count: 10197
 - [Input File](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/source-code/COURIER.TXT)
 - [Project Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/PROJECT%20REPORT%20DSA.pdf)
 - [Similarity Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/Project%20Report.pdf)
-- [Presentation Slide](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/DSA%20PROJECT%20PRESENTATION%20SLIDE_FABS.pdf)
+- [Presentation Slide](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/FABS/Project/files/FABS%20DSA%20PROJECT%20PRESENTATION%20SLIDE.pdf)
 
 
