@@ -134,6 +134,115 @@ The cancel order operation works by deleting the most front node in the queue. W
         }
     };
 
+##### Queue Implementation
+
+        class nodeQueue {
+    public:
+        Order order;
+        nodeQueue* next;
+        nodeQueue(Order o) : order(o), next(nullptr) {}
+    };
+    
+    
+    class QueueMenu {
+    public:
+        nodeQueue *back, *front;
+    
+    
+        QueueMenu() {
+            front = NULL;
+            back = NULL;
+        }
+    
+    
+        bool isEmpty() {
+            return ((front == NULL) && (back == NULL));
+        }
+    
+    
+        void enQueue(const Order& order) {
+            nodeQueue* newNode = new nodeQueue(order);
+    
+    
+            if (isEmpty()) {
+                front = newNode;
+                back = newNode;
+            } else {
+                back->next = newNode;
+                back = newNode;
+            }
+        }
+    
+    
+        void deQueue(int tableNumber) {
+            nodeQueue* temp = front;
+            nodeQueue* prev = NULL;
+    
+    
+            while (temp != NULL && temp->order.getTableNumber() != tableNumber) {
+                prev = temp;
+                temp = temp->next;
+            }
+    
+    
+            if (temp == NULL) {
+                cout << "No orders found for table number " << tableNumber << "." << endl;
+            } else {
+                if (prev == NULL) {
+                    front = temp->next;
+                    if (front == NULL) {
+                        back = NULL;
+                    }
+                } else {
+                    prev->next = temp->next;
+                    if (prev->next == NULL) {
+                        back = prev;
+                    }
+                }
+    
+    
+                temp->next = NULL;
+                delete temp;
+                cout << "Order for table number " << tableNumber << " dequeued successfully." << endl;
+            }
+        }
+    
+    
+        void displayQueue() {
+            if (isEmpty())
+                cout << "Sorry, no order in the queue." << endl;
+            else {
+                cout << setw(10) << "Table" << " | "
+                     << left << setw(10) << "Food ID" << " | "
+                     << setw(21) << "Name" << " | "
+                     << setw(13) << "Category" << " | "
+                     << setw(8) << "Quantity" << " | "
+                     << setw(6) << "Price" << " | "
+                     << setw(10) << "Total Price" << endl;
+                cout << "-------------------------------------------------------------------------------------------------" << endl;
+    
+    
+                nodeQueue* temp = front;
+                while (temp) {
+                    Order order = temp->order;
+                    Menu menu = order.getMenu();
+                    cout << setw(10) << order.getTableNumber() << " | "
+                         << setw(10) << menu.getFoodId() << " | "
+                         << setw(21) << menu.getName() << " | "
+                         << setw(13) << menu.getCategory() << " | "
+                         << setw(8) << order.getQuantity() << " | "
+                         << fixed << setprecision(2) << setw(6) << menu.getPrice() << " | "
+                         << setw(10) << fixed << setprecision(2) << order.getTotalPrice() << endl;
+                    temp = temp->next;
+                }
+    
+    
+                cout << endl;
+            }
+        }
+    };
+
+
 
 
 <br>
