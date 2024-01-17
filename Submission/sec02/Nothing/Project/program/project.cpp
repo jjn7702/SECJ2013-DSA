@@ -13,28 +13,11 @@ class goods{
         string itemLocation;
     
     public:
-        goods(int id = 0, string name = "", double price = 0, string itemLocation = ""){
-            this->id = id;
-            this->name = name;
-            this->price = price;
-            this->itemLocation = itemLocation;
-        }
-
-        int getId(){
-            return id;
-        }
-
-        string getName(){
-            return name;
-        }
-
-        double getPrice(){
-            return price;
-        }
-
-        string getItemLocation(){
-            return itemLocation;
-        }
+        goods(int id = 0, string name = "", double price = 0, string itemLocation = "");
+        int getId();
+        string getName();
+        double getPrice();
+        string getItemLocation();
 };
 
 class historyNodeStack{
@@ -51,70 +34,12 @@ class historyStack{
         int size;
 
     public:
-        void createStack(){
-            top = NULL;
-            bottom = NULL;
-            size = 0;
-        }
-
-        bool isEmpty(){
-            if(top == NULL)
-                return true;
-            else
-                return false;
-        }
-
-        void push(goods item, char action){
-            historyNodeStack *newNode = new historyNodeStack;
-            newNode->item = item;
-            newNode->action = action;
-            newNode->next = NULL;
-
-            if(isEmpty()){
-                top = newNode;
-                bottom = newNode;
-            }else{
-                top->next = newNode;
-                top = newNode;
-            }
-            size++;
-        }
-
-        void pop(){
-            if(isEmpty()){
-                cout << "Stack is empty" << endl;
-            }else{
-                historyNodeStack *temp = bottom;
-                historyNodeStack *prev = NULL;
-                while(temp->next != NULL){
-                    prev = temp;
-                    temp = temp->next;
-                }
-                if(prev == NULL){
-                    top = NULL;
-                    bottom = NULL;
-                }else{
-                    prev->next = NULL;
-                    top = prev;
-                }
-                delete temp;
-                size--;
-            }
-        }
-
-        char getAction(){
-            if(isEmpty())
-                cout << "Stack is empty" << endl;
-            else
-                return top->action;
-        }
-
-        goods getItem(){
-            if(isEmpty())
-                cout << "Stack is empty" << endl;
-            else
-                return top->item;
-        }
+        void createStack();
+        bool isEmpty();
+        void push(goods item, char action);
+        void pop();
+        char getAction();
+        goods getItem();
 };
 
 class itemNodeQueue{
@@ -130,71 +55,12 @@ class itemQueue{
         itemNodeQueue *rear;
         int size;
 
-        void createQueue(){
-            front = NULL;
-            rear = NULL;
-            size = 0;
-        }
-
-        bool isEmpty(){
-            if(front == NULL)
-                return true;
-            else
-                return false;
-        }
-
-        void enqueue(goods item){
-            itemNodeQueue *newNode = new itemNodeQueue;
-            newNode->item = item;
-            newNode->next = NULL;
-            newNode->prev = NULL;
-
-            if(isEmpty()){
-                front = newNode;
-                rear = newNode;
-            }else{
-                newNode->prev = rear;
-                rear->next = newNode;
-                rear = newNode;
-            }
-            size++;
-        }
-
-        void dequeue(){
-            if(isEmpty()){
-                cout << "Queue is empty" << endl;
-            }else{
-                itemNodeQueue *temp = front;
-                front = front->next;
-                front->prev = NULL;
-                delete temp;
-                size--;
-            }
-            cout << "Item " << front->item.getId() << " removed!" << endl;
-        }
-
-        goods getItem(){
-            if(isEmpty())
-                cout << "Queue is empty" << endl;
-            else
-                return front->item;
-        }
-
-        void display(){
-            if(isEmpty()){
-                cout << "Queue is empty" << endl;
-            }else{
-                itemNodeQueue *temp = front;
-                //display in table
-                cout << "ID" << setw(10) << "Name" << setw(10) << "Price" << setw(10) << "Location" << endl;
-                //price to 2 decimal places
-                cout << fixed << setprecision(2);
-                while(temp != NULL){
-                    cout << temp->item.getId() << setw(10) << temp->item.getName() << setw(10) << temp->item.getPrice() << setw(10) << temp->item.getItemLocation() << endl;
-                    temp = temp->next;
-                }
-            }
-        }
+        void createQueue();
+        bool isEmpty();
+        void enqueue(goods item);
+        void dequeue();
+        goods getItem();
+        void display();
 };
 
 void welcomeScreen();
@@ -259,6 +125,7 @@ int main(){
                     history.push(item.getItem(), 'r');
                     item.dequeue();
                     displayHeader();
+                    cout << "Item removed!" << endl;
                     system("pause");
                     system("cls");
                 }
@@ -297,13 +164,144 @@ int main(){
     }
 }
 
+goods::goods(int id, string name, double price, string itemLocation){
+    this->id = id;
+    this->name = name;
+    this->price = price;
+    this->itemLocation = itemLocation;
+}
+int goods::getId(){
+    return id;
+}
+string goods::getName(){
+    return name;
+}
+double goods::getPrice(){
+    return price;
+}
+string goods::getItemLocation(){
+    return itemLocation;
+}
+
+void historyStack::createStack(){
+    top = NULL;
+    bottom = NULL;
+    size = 0;
+}
+bool historyStack::isEmpty(){
+    if(top == NULL)
+        return true;
+    else
+        return false;
+}
+void historyStack::push(goods item, char action){
+    historyNodeStack *newNode = new historyNodeStack;
+    newNode->item = item;
+    newNode->action = action;
+    newNode->next = NULL;
+
+    if(isEmpty()){
+        top = newNode;
+        bottom = newNode;
+    }else{
+        top->next = newNode;
+        top = newNode;
+    }
+    size++;
+}
+void historyStack::pop(){
+    if(isEmpty()){
+        cout << "Stack is empty" << endl;
+    }else{
+        historyNodeStack *temp = bottom;
+        historyNodeStack *prev = NULL;
+        while(temp->next != NULL){
+            prev = temp;
+            temp = temp->next;
+        }
+        if(prev == NULL){
+            top = NULL;
+            bottom = NULL;
+        }else{
+            prev->next = NULL;
+            top = prev;
+        }
+        delete temp;
+        size--;
+    }
+}
+char historyStack::getAction(){
+    if(isEmpty())
+        cout << "Stack is empty" << endl;
+    else
+        return top->action;
+}
+goods historyStack::getItem(){
+    if(isEmpty())
+        cout << "Stack is empty" << endl;
+    else
+        return top->item;
+}
+
+void itemQueue::createQueue(){
+    front = NULL;
+    rear = NULL;
+    size = 0;
+}
+bool itemQueue::isEmpty(){
+    if(front == NULL)
+        return true;
+    else
+        return false;
+}
+void itemQueue::enqueue(goods item){
+    itemNodeQueue *newNode = new itemNodeQueue;
+    newNode->item = item;
+    newNode->next = NULL;
+    newNode->prev = NULL;
+
+    if(isEmpty()){
+        front = newNode;
+        rear = newNode;
+    }else{
+        rear->next = newNode;
+        newNode->prev = rear;
+        rear = newNode;
+    }
+    size++;
+}
+void itemQueue::dequeue(){
+    if(isEmpty()){
+        cout << "Queue is empty" << endl;
+    }else{
+        itemNodeQueue *temp = front;
+        front = front->next;
+        if(front == NULL)
+            rear = NULL;
+        else
+            front->prev = NULL;
+        delete temp;
+        size--;
+    }
+}
+goods itemQueue::getItem(){
+    return front->item;
+}
+void itemQueue::display(){
+    itemNodeQueue *temp = front;
+    cout << "ID\tName\t\tPrice\t\tLocation" << endl;
+    while(temp != NULL){
+        cout << temp->item.getId() << "\t" << temp->item.getName() << "\t\t" << temp->item.getPrice() << "\t\t" << temp->item.getItemLocation() << endl;
+        temp = temp->next;
+    }
+}
+
 void welcomeScreen(){
     system("cls");
     cout << "Welcome to the warehouse inventory management system!\n";
     system("pause");
     system("cls");
 }
-
 void displayHeader() {
     system("cls");
     cout << "=========================================\n";
@@ -311,7 +309,6 @@ void displayHeader() {
     cout << "|                System                 |\n";
     cout << "=========================================\n";
 }
-
 void menu() {
     cout << "Please select an option:\n";
     cout << "1.  Import item from file\n";
@@ -320,7 +317,6 @@ void menu() {
     cout << "4.  Display item\n";
     cout << "5.  Print history and exit\n";
 }
-
 bool isNumber(string input){
     for(int i = 0; i < input.length(); i++){
         if(!isdigit(input[i]))
@@ -328,7 +324,6 @@ bool isNumber(string input){
     }
     return true;
 }
-
 itemQueue import(){
     ifstream file("input.csv");
     int id;
@@ -362,7 +357,6 @@ itemQueue import(){
     system("pause");
     return item;
 }
-
 goods *add(){
     int id;
     string name;
@@ -405,7 +399,6 @@ goods *add(){
     newItem = new goods(id, name, price, itemLocation);
     return newItem;
 }
-
 bool isfloat(string s){
     int count = 0;
     for(int i = 0; i < s.length(); i++){
@@ -425,7 +418,6 @@ bool isfloat(string s){
     }
     return true;
 }
-
 void printHistory(historyStack history){
     ofstream file("history.txt");
     if(file.is_open()){
