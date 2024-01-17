@@ -192,7 +192,7 @@ public:
 
     void displayQueueFront() const {
         if (!isEmpty()) {
-            cout << "Next borrow request in the queue:\n";
+            cout << "First borrow request in the queue:\n";
             cout << "- [" << front->data.getTitle() << " requested by " << front->data.getAuthor() << "] " << endl;
           
         } else {
@@ -222,29 +222,37 @@ public:
     }
 
     void readFromFile()
+{
+    ifstream inputFile("borrowqueue.txt");
+
+    if (!inputFile.is_open())
     {
-        ifstream inputFile("borrowqueue.txt");
+        cout << "Error opening file: borrowqueue.txt" << endl;
+        return;
+    }
 
-        if (!inputFile.is_open())
-        {
-            cout << "Error opening file: borrowqueue.txt" << endl;
-        }
+    string line;
 
+    while (getline(inputFile, line))
+    {
+        stringstream ss(line);
         string patronName, title;
 
-        while (!inputFile.eof())
+        if (getline(ss, patronName, ',') && getline(ss, title))
         {
-            getline(inputFile, patronName, ',');
-            getline(inputFile, title);
-            
             Book requestedBook;
             requestedBook.setTitle(title);
-            requestedBook.setAuthor(patronName); // Using Author field to store patron name for tracking
+            requestedBook.setAuthor(patronName);
             enqueue(requestedBook);
         }
-
-        inputFile.close();
+        else
+        {
+            cout << "Error reading line from file: " << line << endl;
+        }
     }
+
+    inputFile.close();
+}
 
     void writeToBorrowQueueFile(const Book &newBook)
     {
