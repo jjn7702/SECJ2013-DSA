@@ -295,7 +295,7 @@ This pseudocode outlines the structure of our program, including class definitio
 
 - [Source Code](./Source-code/Project.cpp)
 - [Input File]
-- [Report]
+- [Report](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Gusion/Project%20Dsa/DSA%20PROJECT.pdf)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
