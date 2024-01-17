@@ -242,6 +242,8 @@ The cancel order operation works by deleting the most front node in the queue. W
         }
     };
 
+##### User manual/guide: provide examples of input and output (if any) for each task.
+
 
 
 
