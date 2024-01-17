@@ -151,8 +151,11 @@ void customerView(){
     char choice;
     string foodId;
     Menu selectedMenu;
-    vector<Menu> menuList;  // Use a vector to store multiple Menu objects
+    vector<Menu> menuList;  
     queueOrder order;
+
+    NodeQueue *temp = nullptr;  
+    bool validFoodId = false;
     
 
         cout << "Welcome to the customer View\n";
@@ -180,9 +183,8 @@ void customerView(){
             cin >> quantity;
 
             // to check if the foodID existed.
-            bool validFoodId = false;
-
-            NodeQueue *temp;
+            validFoodId = false;
+            temp = order.front;
 
             while (temp) {
                 Order currentOrder = temp->getOrder();
@@ -212,26 +214,22 @@ void customerView(){
 
         }
 
-        // Order order(selectedMenu, quantitiy);
-
-
-        // orderQueue.enQueue(order);
-
-        // cout << "Current Orders:\n";
-        // orderQueue.printOrder();
-
-        // orderQueue.deQueue();
-
-        // cout << "\nOrders after dequeue:\n";
-        // orderQueue.printOrder();
 
 }
 
+    
 
-// int main() {
-//     do {
+int main() {
 
-// } while (choice == 'y' || choice == 'Y');
-//     return 0;
+    string staffID;
 
-// }
+    cout << "Welcome to Tupperware!!\n\n";
+    cout << "If you are a staff, please enter your staff ID : ";
+    getline(cin, staffID);
+
+    checkStaff(staffID);
+
+    customerView();
+    return 0;
+
+}

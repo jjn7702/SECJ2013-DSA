@@ -188,7 +188,7 @@ public:
             {
                 front++;
             }
-            cout << "Book removed from the queue." << endl;
+            cout << "Book request has been approved!" << endl;
         }
     }
 
@@ -196,15 +196,17 @@ public:
     {
         if (isEmpty())
         {
+            system("cls");
             cout << "Queue is empty." << endl;
         }
         else
         {
+            system("cls");
             cout << "Books in the queue:" << endl;
             int i = front;
             do
             {
-                cout << "[ " << book[i].getTitle() << " requested by " << book[i].getAuthor() << " ] ";
+                cout << "- " <<"[ " << book[i].getTitle() << " requested by " << book[i].getAuthor() << " ] " << endl;
                 i++;
             } while (i <= rear);
             cout << endl;
@@ -296,9 +298,12 @@ int main()
         }
         else if (stackChoice == 4)
         {
+                
+                patronQueue.displayQueue();
                 patronQueue.dequeue();
                 patronQueue.displayQueue();
-                cout << "Book request canceled!" << endl;
+                
+                system("pause");
         }
         else if (stackChoice == 5)
         {
@@ -330,6 +335,7 @@ int main()
 
             if (queueChoice == 1)
             {
+                system("cls");
                 string patronName, title;
                 cout << "Enter your name : ";
                 cin.ignore();
