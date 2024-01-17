@@ -37,7 +37,7 @@ In an Airline Reservation System, various features and components work together 
 
 4. **Cancellation of Reservations:**
    - **Description:** Permits customers to cancel their recent reservations.
-   - **Functionality:** Removes the most recent reservation from the queue upon customer request.
+   - **Functionality:** Removes the most previous reservation from the queue upon customer request.
 
 5. **Search and Display Bookings:**
    - **Description:** Enables administrators to search for and display booking details.
