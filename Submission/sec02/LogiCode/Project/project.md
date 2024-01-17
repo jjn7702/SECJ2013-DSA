@@ -63,6 +63,7 @@ Figure : Class Diagram of Hotel Booking System
 Figure : Class Diagram of Hotel Booking System
 </p>
 
+
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/8b3596b0-7214-4cc8-b868-9ab2a0314386" width="3%" height="3%"> Flowchart
 <p align="center">
   <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/5891ba7b-91c6-4b00-8c06-b86758335181" width="15%" height="15%"><br>
@@ -142,6 +143,8 @@ Figure : Class Diagram of Hotel Booking System
 
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/fabaacbe-18c1-4f64-a3a5-e1b40e910e71" width="4%" height="4%"> Description of how to implement data structure operations: Binary Tree
+In the Hotel Booking System, we have implemented Binary Search Tree - Inserting, Deleting, Searching, Displaying and Counting in the form of pointer-based to define functions in managing the room bookings in a hotel. This data structure operation works by having two main declarations which are Node declaration and Tree declaration.
+
 
 #### 1. Inserting
 There are four main types of insert linked list functions for inserting operation in our system, which are insert at the front, insert at the middle based on location, insert at the middle based on the data and insert at the end. 
