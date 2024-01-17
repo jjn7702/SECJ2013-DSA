@@ -227,12 +227,7 @@ int main()
     cout << endl;
 
     // Display tasks using queue method
-    cout << "\nTasks using Queue method:" << endl;
-    cout << "TASK|DATE|STATUS" << endl
-         << endl;
-
-    q.display(); // Display the entire queue
-    cout << endl;
+   
 
     int choice;
     bool displayTaskList;
