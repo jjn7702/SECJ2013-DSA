@@ -112,12 +112,24 @@ public:
     {
         date = dt;
     }
+
+    void displayPatientDetails() const
+    {
+        cout << "\nPatient Details:" << endl;
+        cout << "Name: " << name << endl;
+        cout << "IC: " << ic << endl;
+        cout << "Age: " << age << endl;
+        cout << "Gender: " << gender << endl;
+        cout << "Contact Number: " << contactNum << endl;
+        cout << "Disease: " << disease << endl;
+        cout << "Diagnosed Date: " << date << endl;
+    }
 };
 
 // Queue
 class Queue
 {
-    
+
 public:
     Patient *back, *front;
 
@@ -148,29 +160,52 @@ public:
         }
     }
 
-    void deQueue()
+    void deQueueByName(string name)
     {
         Patient *delNode = front;
+        Patient *prevNode = nullptr;
 
         if (isEmpty())
+        {
             cout << "The queue is empty!" << endl;
+            return;
+        }
+
+        while (delNode != nullptr && delNode->getName() != name)
+        {
+            prevNode = delNode;
+            delNode = delNode->next;
+        }
+
+        if (delNode == nullptr)
+        {
+            cout << "Patient with name " << name << " not found!" << endl;
+            return;
+        }
+
+        if (prevNode != nullptr)
+        {
+            // Patient to be deleted is not the first one
+            prevNode->next = delNode->next;
+            delNode->next = nullptr;
+        }
         else
         {
-            if (front != back)
+            // Patient to be deleted is the first one
+            front = delNode->next;
+            if (front == nullptr)
             {
-                front = delNode->next;
-                delNode->next = NULL;
+                // If the queue becomes empty after deletion, update back
+                back = nullptr;
             }
-            else
-            {
-                front = NULL;
-                back = NULL;
-            }
-            delete delNode;
+            delNode->next = nullptr;
         }
+
+        delete delNode;
+        cout << "Patient with name " << name << " deleted successfully!" << endl;
     }
-    
-  // Search by name
+
+    // Search by name
     Patient *searchByName(string name)
     {
         Patient *temp = front;
@@ -221,7 +256,7 @@ public:
         return NULL; // Patient not found
     }
 
-        // Merge Sort by name
+    // Merge Sort by name
     void mergeSortByName()
     {
         mergeSort(&front, "name");
@@ -238,9 +273,6 @@ public:
     {
         mergeSort(&front, "disease");
     }
-
-
-
 
     // display patient record
     void print()
@@ -496,8 +528,7 @@ int main()
         inFile >> date;
         inFile.ignore();
 
-        Patient *pat = new Patient(name, ic, age, gender, contactNum, disease, date);
-        patList.enQueue(pat);
+        patList.enQueue(name, ic, age, gender, contactNum, disease, date);
         i++;
     }
     inFile.close();
@@ -514,9 +545,105 @@ int main()
 
         if (opt == 1)
         {
+            while (true)
+            {
+                system("cls");
+                cout << "<<ADD NEW PATIENT>>" << endl;
+                cout << "[1] Insert record" << endl;
+                cout << "[2] Back" << endl
+                     << endl;
+                cout << "Option: ";
+                cin >> choice;
+                cout << endl;
 
-            
-        }else if (opt == 3)
+                if (choice == 2)
+                    break;
+
+                if (choice < 1 || choice > 2)
+                {
+                    cout << "Invalid option. Please enter a valid option (1 or 2)." << endl;
+                    system("pause");
+                    continue;
+                }
+                cin.ignore();
+
+                cout << "\n---Enter patient details---" << endl;
+                cout << "Name: ";
+                getline(cin, name);
+                cout << "IC: ";
+                getline(cin, ic);
+                cout << "Age: ";
+                cin >> age;
+                cout << "Gender: ";
+                cin.ignore();
+                getline(cin, gender);
+                cout << "Contact Number: ";
+                getline(cin, contactNum);
+                cout << "Disease: ";
+                getline(cin, disease);
+                cout << "Diagnosed Date: ";
+                getline(cin, date);
+
+                patList.enQueue(name, ic, age, gender, contactNum, disease, date);
+                cout << "\nPatient added successfully!" << endl;
+                patList.save();
+
+                system("pause");
+            }
+        }
+        else if (opt == 2)
+        {
+            system("cls");
+            cout << "<<DELETE PATIENT>>" << endl;
+
+            if (patList.isEmpty())
+                cout << "No patients to delete. The queue is empty." << endl;
+            else
+            {
+                cout << "Enter patient name to delete: ";
+                getline(cin, name);
+
+                Patient *deletedPatient = patList.searchByName(name);
+
+                if (deletedPatient != nullptr)
+                {
+                    // Display the details of patients with the specified name
+                    cout << "\nPatients with the specified name:" << endl;
+
+                    Patient *temp = deletedPatient;
+
+                    while (temp != nullptr && temp->getName() == name)
+                    {
+                        temp->displayPatientDetails();
+                        cout << "-------------------------------" << endl;
+                        temp = temp->next;
+                    }
+
+                    // Confirm deletion
+                    cout << "\nAre you sure you want to delete these patients? (Y/N): ";
+                    char confirm;
+                    cin >> confirm;
+
+                    cin.ignore(); // Clear any newline characters from the buffer
+
+                    if (confirm == 'Y' || confirm == 'y')
+                    {
+                        patList.deQueueByName(name);
+                        deletedPatient = patList.searchByName(name);
+                        cout << "\nPatients deleted successfully!" << endl;
+                    }
+                    else
+                    {
+                        cout << "\nDeletion canceled." << endl;
+                    }
+                }
+                else
+                {
+                    cout << "\nPatient not found." << endl;
+                }
+            }
+        }
+        else if (opt == 3)
         {
             while (true)
             {
@@ -616,8 +743,15 @@ int main()
                 }
                 system("pause");
             }
-
-        }else if (opt == 6)
+        }
+        else if (opt == 5)
+        {
+            // Display patient list
+            dispHeader();
+            patList.print();
+            system("pause");
+        }
+        else if (opt == 6)
         {
             logout = true;
             cout << "\n\nYou have successfully logged out!" << endl;
@@ -628,6 +762,7 @@ int main()
             system("pause");
         }
     }
+
     system("pause");
     return 0;
 }
