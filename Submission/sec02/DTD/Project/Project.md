@@ -13,7 +13,8 @@ The primary objective of this program is to create an efficient library manageme
 
 
 ## Problem Analysis 📝
-<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Project/ProblemAnalysis.png">
+
+   DTD Library Management System use for an organized and efficient system to manage books and process borrow requests for a library.The system has two concept for implementation which is Stack and Queue.Staff using stack concept which is allows system to add new books,deleting existing books and displaying current list of books.All are managed using the stack concept.In addition, Staff can receive patron borrow requests,view and processing applications using queue concept.Patron interface allows library patrons to request books by entering their name and the title of the book they want to borrow.These requests are kept in a queue.Both interfaces provide a display option that allows users to view current status of books.An iterative user flow allows users to perform multiple actions until they decide to exit the program.In summary, the DTD library management system aims to simplify book management and borrow request processing to ensure the efficiency of library operations by implementing stack and queue concept in data structures to maintain order.  
 
 ## Design 🎨
 
