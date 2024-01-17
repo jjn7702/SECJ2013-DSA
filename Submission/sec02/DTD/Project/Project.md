@@ -66,16 +66,17 @@ The primary objective of this program is to create an efficient library manageme
   <li>c. Display Current List (DisplayStack) : Staff can display the current list of books. </li>
   <li>d. Approve Borrow Request : Staff can approve the borrow request done by the patrons and this will dequeue the request from the queue. </li>
 <br>
-
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Project/staffmenu.png">
   2.Patron Operations <br>
   </br>
   <li>a. Request a book (Enqueue) : Patrons will make a request to borrow books from the library. </li>
   <li>b. Display Current Requests (DisplayQueue) :   Patrons can display the list of requests. </li>
 <br>
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Project/patronmenu.png">
   3.Exiting the System <br>
   </br>
 <li>When the user (staff/patron) chooses option 3, they will exit the system. </li>
-
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DTD/Project/thankyou.png">
 
 ## Prepared by 🧑‍💻
 
