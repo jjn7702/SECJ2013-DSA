@@ -115,7 +115,7 @@ public:
         return count == N;
     }
 
-    void enqueue()
+    void enqueue(const TaskData &newTask)
     {
         if (isfull())
         {
