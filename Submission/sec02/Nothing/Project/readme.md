@@ -25,8 +25,8 @@ _Don't forget to hit the :star: if you like this repo._
 ##  Synopsis
 
 ## Class Diagram
+![1]([https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec04/Group%20HSBC/Project/image/class%20diagram.JPG](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Images/WhatsApp%20Image%202024-01-17%20at%2010.04.50%20PM.jpeg))
 
-### <img src="[https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/b7b1299f-ead1-4e66-ad2e-95b901f4f03c](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Images/WhatsApp%20Image%202024-01-17%20at%2010.04.50%20PM.jpeg)" width="3%" height="3%">
 
 ## Pseudocode
 
@@ -196,15 +196,15 @@ printHistory Function:
 
 saveToFile function: 
 
-Open file “output.csv” 
+1. Open file “output.csv” 
 
-While item is not empty 
+2. While item is not empty 
 
-Write item info into file 
+    a. Write item info into file 
 
-Item.dequeue 
+    b. Item.dequeue 
 
-Close file 
+3. Close file 
 
  
 
