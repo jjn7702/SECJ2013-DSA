@@ -564,7 +564,7 @@ int main()
                 {
                     // Display the found patient details
                     cout << "\nPatient Found:" << endl;
-                    resultNode->displayPatientDetails();
+                    resultNode->print();
                 }
                 else
                 {
