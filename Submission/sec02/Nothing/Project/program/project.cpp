@@ -317,11 +317,53 @@ void displayHeader() {
 }
 
 
-
-
-
-
-
+void menu() {
+    cout << "Please select an option:\n";
+    cout << "1.  Import item from file\n";
+    cout << "2.  Add item\n";
+    cout << "3.  Remove item\n";
+    cout << "4.  Display item\n";
+    cout << "5.  Print history, save files, and exit\n";
+}
+bool isNumber(string input){
+    for(int i = 0; i < input.length(); i++){
+        if(!isdigit(input[i]))
+            return false;
+    }
+    return true;
+}
+itemQueue import(){
+    ifstream file("input.csv");
+    int id;
+    string name;
+    double price;
+    string itemLocation;
+    itemQueue item;
+    item.createQueue();
+    goods *newItem;
+    system("cls");
+    displayHeader();
+    if (!file.is_open()) {
+        cout << "File not found" << endl;
+    }else{
+        cout << "Importing..." << endl;
+        //each line is a goods
+        while (!file.eof()) {
+            file >> id;
+            file.ignore();
+            getline(file, name, ',');
+            file >> price;
+            file.ignore();
+            getline(file, itemLocation);
+            newItem = new goods(id, name, price, itemLocation);
+            item.enqueue(*newItem);
+        }
+    }
+    file.close();
+    cout << "Import successful!" << endl;
+    system("pause");
+    return item;
+}
 
 goods *add(){
     int id;
