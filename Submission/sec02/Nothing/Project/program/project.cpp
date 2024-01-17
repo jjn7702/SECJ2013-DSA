@@ -71,6 +71,7 @@ bool isfloat(string);
 itemQueue import();
 goods *add();
 void printHistory(historyStack);
+void saveToFile(itemQueue);
 
 int main(){
     displayHeader();
@@ -122,10 +123,10 @@ int main(){
                     break;
                 }
                 else {
-                    history.push(item.getItem(), 'r');
-                    item.dequeue();
                     displayHeader();
-                    cout << "Item removed!" << endl;
+                    history.push(item.getItem(), 'r');
+                    cout << "Item: " << item.getItem().getName() <<" id: "<< item.getItem().getId() << " has been taken out!" << endl;
+                    item.dequeue();
                     system("pause");
                     system("cls");
                 }
@@ -152,6 +153,9 @@ int main(){
                 cout << "Printing history..." << endl;
                 printHistory(history);
                 cout << "History saved into file" << endl;
+                cout << "Saving inventory..." << endl;
+                saveToFile(item);
+                cout << "Inventory saved into file" << endl;
                 system("pause");
                 system("cls");
                 cout << "Exiting..." << endl;
@@ -304,10 +308,10 @@ void welcomeScreen(){
 }
 void displayHeader() {
     system("cls");
-    cout << "=========================================\n";
-    cout << "|    Warehouse Inventory Management     |\n";
-    cout << "|                System                 |\n";
-    cout << "=========================================\n";
+    cout << "===================================================\n";
+    cout << "|         Warehouse Inventory Management          |\n";
+    cout << "|                     System                      |\n";
+    cout << "===================================================\n";
 }
 void menu() {
     cout << "Please select an option:\n";
@@ -315,7 +319,7 @@ void menu() {
     cout << "2.  Add item\n";
     cout << "3.  Remove item\n";
     cout << "4.  Display item\n";
-    cout << "5.  Print history and exit\n";
+    cout << "5.  Print history, save files, and exit\n";
 }
 bool isNumber(string input){
     for(int i = 0; i < input.length(); i++){
@@ -349,7 +353,6 @@ itemQueue import(){
             getline(file, itemLocation);
             newItem = new goods(id, name, price, itemLocation);
             item.enqueue(*newItem);
-        
         }
     }
     file.close();
@@ -424,6 +427,16 @@ void printHistory(historyStack history){
         while(!history.isEmpty()){
             file << history.getItem().getId() << " " << history.getItem().getName() << " " << history.getItem().getPrice() << " " << history.getItem().getItemLocation() << " " << history.getAction() << endl;
             history.pop();
+        }
+    }
+    file.close();
+}
+void saveToFile(itemQueue item){
+    ofstream file("output.csv");
+    if(file.is_open()){
+        while(!item.isEmpty()){
+            file << item.getItem().getId() << "," << item.getItem().getName() << "," << item.getItem().getPrice() << "," << item.getItem().getItemLocation() << endl;
+            item.dequeue();
         }
     }
     file.close();
