@@ -22,11 +22,35 @@ _Don't forget to hit the :star: if you like this repo._
 
 
 ##  Objective
+
+The objective of this project is to develop a Warehouse Inventory Management System using the different concept of data structure algorithm in C++. The system is designed to efficiently manage and perform operations on a collection of goods/items within the warehouse. The program employs a queue algorithm to store and manipulate the data related to goods, providing functionalities such as importing items from a file, adding new items, removing items, displaying the inventory, and stack algorithm for printing a history of actions.  
+
+1. FIFO inventory storing algorithm 
+First in first out (FIFO) concept ensures that the oldest items in the inventory are the first to be used or shipped. This helps in rotating stock efficiently, preventing perishable goods expiring or becoming obsolete. It's particularly important for industries where products have a limited shelf life. 
+ 
+2.Neat and Creative Output: 
+Develop a user-friendly and visually appealing interface for displaying inventory and history. 
+Ensure clear and descriptive messages for user interactions. 
+
+3.Data Hiding and Encapsulation: 
+Apply the concepts of data hiding and encapsulation by making the goods class private and providing public methods for accessing attributes. 
+
+4.History Tracking: 
+Maintain a history of actions performed, including additions and removals, and save this history to a file when exiting the system. 
+
+5.User Interaction: 
+Provide a menu-driven interface for users to interact with the system, making it intuitive and easy to use. 
+
+6.File Operations: 
+Enable the system to import goods information from a file, export the result after operation and save the history to a file. 
+
+This project aims to demonstrate effective implementation of linked lists, encapsulation, user interface design, and file operations in a practical application of Warehouse Inventory Management. 
+
 ##  Synopsis
 
 ## Class Diagram
+![1](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Images/WhatsApp%20Image%202024-01-17%20at%2010.04.50%20PM.jpeg)
 
-### <img src="[https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/b7b1299f-ead1-4e66-ad2e-95b901f4f03c](https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Nothing/Images/WhatsApp%20Image%202024-01-17%20at%2010.04.50%20PM.jpeg)" width="3%" height="3%">
 
 ## Pseudocode
 
@@ -196,15 +220,15 @@ printHistory Function:
 
 saveToFile function: 
 
-Open file “output.csv” 
+1. Open file “output.csv” 
 
-While item is not empty 
+2. While item is not empty 
 
-Write item info into file 
+    a. Write item info into file 
 
-Item.dequeue 
+    b. Item.dequeue 
 
-Close file 
+3. Close file 
 
  
 
