@@ -1,8 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include<iomanip>
-#include<chrono>
-#include<thread>
 
 using namespace std;
 
@@ -177,18 +175,52 @@ class itemQueue{
 void welcomeScreen();
 void displayHeader();
 void menu();
+bool isNumber(string);
 itemQueue import();
 
 int main(){
     displayHeader();
     welcomeScreen();
     itemQueue item;
+    item.createQueue();
+    string input;
     while(true){
-        displayHeader();
-        menu();
         int choice;
-        cout << "Enter your choice: ";
-        cin >> choice;
+        while(true){
+            displayHeader();
+            menu();
+            cout << "Enter your choice: ";
+            cin >> input;
+            if(isNumber(input)){
+                choice = stoi(input);
+                if(choice >= 1 && choice <= 7){
+                    break;
+                }else{
+                    cout << "Please enter a number between 1 and 7" << endl;
+                    system ("pause");
+                }
+            }else{
+                cout << "Invalid input, please enter a number between 1 and 7" << endl;
+                system ("pause");
+            }
+        }
+        switch(choice){
+            case 1:
+                item = import();
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 7:
+                system("cls");
+                cout << "Thank you for using the system!" << endl;
+                system("pause");
+                system("cls");
+                return 0;
+        }
     }
     return 0;
 }
@@ -196,7 +228,7 @@ int main(){
 void welcomeScreen(){
     system("cls");
     cout << "Welcome to the warehouse inventory management system!\n";
-    this_thread::sleep_for(chrono::milliseconds(500));
+    system("pause");
     system("cls");
 }
 
@@ -210,7 +242,7 @@ void displayHeader() {
 
 void menu() {
     cout << "Please select an option:\n";
-    cout << "1.  Add item\n";
+    cout << "1.  Import item from file\n";
     cout << "2.  Remove item\n";
     cout << "3.  Search item\n";
     cout << "4.  Display item\n";
@@ -219,25 +251,35 @@ void menu() {
     cout << "7.  Exit\n";
 }
 
+bool isNumber(string input){
+    for(int i = 0; i < input.length(); i++){
+        if(!isdigit(input[i]))
+            return false;
+    }
+    return true;
+}
+
 itemQueue import(){
-    ifstream file;
+    ifstream file("input.txt");
     int id;
     string name;
     int price;
     string itemLocation;
     itemQueue item;
-    goods newItem;
-    file.open("input.txt");
-    if(!file){
+    item.createQueue();
+    goods *newItem;
+    if (!file.is_open()) {
         cout << "File not found" << endl;
     }else{
+        cout << "Importing..." << endl;
         //each line is a goods
-        while(file >> id >> name >> price >> itemLocation){
-            newItem = goods(id, name, price, itemLocation);
-            //insert into item
-            item.enqueue(newItem);
+        while (file >> id >> name >> price >> itemLocation) {
+            newItem = new goods(id, name, price, itemLocation);
+            item.enqueue(*newItem);
         }
     }
     file.close();
+    cout << "Import successful!" << endl;
+    system("pause");
     return item;
 }

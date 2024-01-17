@@ -202,9 +202,16 @@ public:
         {
             cout << "Books in the queue:" << endl;
             int i = front;
+
+            cout << "| " << setw(10) << left << "No"
+                 << "| " << setw(10) << left << "Title" << setw(15) << " |"<< endl;
             do
             {
+<<<<<<< Updated upstream
                 cout << "[ " << book[i].getTitle() << " requested by " << book[i].getAuthor() << " ] ";
+=======
+                cout << " [" << i + 1 << "] " << setw(10)  << book[i].getTitle()  << endl;
+>>>>>>> Stashed changes
                 i++;
             } while (i <= rear);
             cout << endl;
