@@ -8,7 +8,7 @@
 _Don't forget to hit the :star: if you like this repo._
 
 # Inventory Management System
-
+The Warehouse Inventory Management System, implemented in C++, is designed for efficient inventory tracking in a warehouse. It uses a queue to manage items and a stack to record user actions. The system allows importing, adding, removing, and displaying items through a user-friendly console interface. It supports input validation and provides functionalities to save the inventory and action history to external files. The code is modular, with distinct classes for items, history, and queues, promoting readability and maintainability. Overall, it provides a straightforward and organized solution for inventory management.
 ## Table Of Contents
 - Objective
 - Synopsis
