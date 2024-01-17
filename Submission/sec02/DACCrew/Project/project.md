@@ -29,25 +29,25 @@
 ### 1.2 Synopsis
 DACCrew Banking Transaction System aims to streamline and manage basic bank transactions which include deposits, withdrawals, and transfers. We are implementing the stack data structures to guarantee the efficiency in handling transactions. There are five main user-friendly functions: "Check Balance," "Display Transaction Limit," "Perform Transaction," "Search for Transactions," and "Exit."
 Features and Functions:
-#### Welcome Message and Menu Display:
+#### 1. Welcome Message and Menu Display:
 The system first greets the user with a welcome message and presents a main menu with the options available.
 
-#### Check Balance:
+#### 2. Check Balance:
 This feature allows users to check the current balance
 
-#### Display Transaction Limit:
+#### 3. Display Transaction Limit:
 This feature allows users to review their transaction history, which lists all previously performed transactions.
 
-#### Perform Transaction:
+#### 4. Perform Transaction:
 This feature allows users to perform transactions by prompting the users to provide transaction details, such as the date in "DD-MM-YYYY" format, transaction type (W for withdrawal, D for deposit, and T for transfer), and transaction amount.
 
-#### Search for Transactions:
+#### 5. Search for Transactions:
 This feature enables users to find the information of their transaction according to type and date of transaction.
 
-#### File Saving:
+#### 6. File Saving:
 This feature describes how the system can save the transaction history to a file named "transaction_history.txt," for future reference.
 
-#### Exit:
+#### 7. Exit:
 Terminating the system.
 
 ## System Design
