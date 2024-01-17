@@ -101,10 +101,9 @@ public:
         else {
             nodeStack* temp = top;
 
-            cout << "Recent Menu Changes:" << endl;
+            // cout << "Recent Menu Changes:" << endl;
 
             while (temp) {
-                displayHeader();
                 temp->menu.displayMenu();
                 temp = temp->next;
             }
@@ -124,7 +123,7 @@ class Order{
     //default constructor
     Order(Menu menu, int tableNum, int pax, int quantity)
     : menu(menu), tableNum(tableNum), pax(pax), quantity(quantity) {
-        totalPrice += quantity * menu.getPrice();
+        totalPrice = quantity * menu.getPrice();
     }
 
     //order constructor
@@ -345,6 +344,8 @@ class RestaurantSystem{
         Menu selectedMenu;
 
         bool validFoodId = false;
+        double totalOrderPrice = 0;
+        nodeQueue* temp = orderQueue.front;
         
         do {
 
@@ -352,7 +353,8 @@ class RestaurantSystem{
             cout << "[1]Make order\n";
             cout << "[2]View current queueing order\n";
             cout << "[3]Cancel order\n";
-            cout << "[4]Exit menu\n";
+            cout << "[4]See total price\n";
+            cout << "[5]Exit menu\n";
             cout << "Please make your choice\n";
             cout << "Choice : ";
             cin >> opt;
@@ -368,6 +370,7 @@ class RestaurantSystem{
                 else {
 
                     cout << "Menu:" << endl;
+                    displayHeader();
                     menuStack.displayStack();
                     cout << endl;
                     
@@ -398,6 +401,7 @@ class RestaurantSystem{
                         cout << "Sorry, the food is not existed";
                     else {
                         orderQueue.enQueue(Order(selectedMenu, quantity));
+                        cout << "Order enqueued successfully." << endl;
                     }
                 }
 
@@ -416,6 +420,16 @@ class RestaurantSystem{
                 break;
 
             case 4 :
+
+                while (temp) {
+                    totalOrderPrice += temp->order.getTotalPrice();
+                    temp = temp->next;
+                }
+
+                cout << "Total Price for all orders: " << fixed << setprecision(2) << totalOrderPrice << endl;
+                break;
+                
+            case 5 :
                 cout << "Exiting Customer Menu." << endl;
                 break;
 
