@@ -182,15 +182,15 @@ public:
             if (front == nullptr)
             {
                 rear = nullptr;
-            
+            }
+
             delete temp;
 
             cout << "Book request has been approved!" << endl;
-            }
         }
     }
 
-    void displayQueue() 
+    void displayQueue() const
     {
         if (isEmpty())
         {
@@ -211,6 +211,45 @@ public:
         }
     }
 
+    void readFromFile()
+    {
+        ifstream inputFile("borrowqueue.txt");
+
+        if (!inputFile.is_open())
+        {
+            cout << "Error opening file: borrowqueue.txt" << endl;
+        }
+
+        string patronName, title;
+
+        while (!inputFile.eof())
+        {
+            getline(inputFile, patronName, ',');
+            getline(inputFile, title);
+            
+            Book requestedBook;
+            requestedBook.setTitle(title);
+            requestedBook.setAuthor(patronName); // Using Author field to store patron name for tracking
+            enqueue(requestedBook);
+        }
+
+        inputFile.close();
+    }
+
+    void writeToBorrowQueueFile(const Book &newBook)
+    {
+        ofstream outputFile("borrowqueue.txt", ios::app);
+
+        if (!outputFile.is_open())
+        {
+            cout << "Error opening file: borrowqueue.txt" << endl;
+        }
+
+        outputFile << newBook.getAuthor() << "," << newBook.getTitle() << endl;
+
+        outputFile.close();
+    }
+
     ~Queue()
     {
         while (!isEmpty())
@@ -218,7 +257,6 @@ public:
             dequeue();
         }
     }
-    
 };
 
 int main()
@@ -226,6 +264,7 @@ int main()
     Stack bookStack;
     Queue patronQueue;
     bookStack.readFromFile();
+    patronQueue.readFromFile();
 
     int choice;
     char yn;
@@ -250,7 +289,7 @@ int main()
         switch (choice)
         {
         case 1:
-        system("cls");
+           system("cls");
         int stackChoice;
         cout << setw(39) << " ____________________________________" << endl;
         cout << setw(40) << "|                                    |" << endl;
@@ -362,6 +401,7 @@ int main()
                 requestedBook.setTitle(title);
                 requestedBook.setAuthor(patronName); // Using Author field to store patron name for tracking
                 patronQueue.enqueue(requestedBook);
+                patronQueue.writeToBorrowQueueFile(requestedBook);
                 patronQueue.displayQueue();
                 cout << "Book request added!" << endl;
             }
