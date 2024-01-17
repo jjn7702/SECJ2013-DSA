@@ -66,80 +66,66 @@ Figure : Class Diagram of Hotel Booking System
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/8b3596b0-7214-4cc8-b868-9ab2a0314386" width="3%" height="3%"> Flowchart
 <p align="center">
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/5891ba7b-91c6-4b00-8c06-b86758335181" width="15%" height="15%"><br>
-  Figure 2: Flowchart of main Function
+  <img src="" width="15%" height="15%"><br>
+  Figure 1: Flowchart of deleteBooking Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/13f62fee-3843-4a1f-940e-f1d03851f2d8" width="70%" height="70%"><br>
-  Figure 3: Flowchart of adminMenu Function
+  <img src="" width="15%" height="15%"><br>
+  Figure 2: Flowchart of getPredecessor Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/be931299-a607-4ab8-9681-33f6ef476b00" width="70%" height="70%"><br>
-  Figure 4: Flowchart of insertMenu Function
+  <img src="" width="70%" height="70%"><br>
+  Figure 3: Flowchart of isEmpty Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/1773ca16-aa2b-4978-a160-e5d7db87bc09" width="60%" height="60%"><br>
-  Figure 5: Flowchart of deleteMenu Function
+  <img src="" width="70%" height="70%"><br>
+  Figure 4: Flowchart of deleteNode Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/8d111e03-5925-48ed-8784-db6f018a7986" width="55%" height="55%"><br>
-  Figure 6: Flowchart of readBookingData Function
+  <img src="" width="60%" height="60%"><br>
+  Figure 5: Flowchart of deleteCurrentNode Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/1741b2c0-6aa7-4728-952b-ebef3bb8a7d4" width="30%" height="30%"><br>
-  Figure 7: Flowchart of isEmpty Function
+  <img src="" width="55%" height="55%"><br>
+  Figure 6: Flowchart of retrieveBooking Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/9d07a9f7-68b9-43f2-9de7-364b98699770" width="40%" height="40%"><br>
-  Figure 8: Flowchart of insertFront Function
+  <img src="" width="30%" height="30%"><br>
+  Figure 7: Flowchart of insertBooking Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/52bf83cf-91e8-4f3e-b131-caf0e03d15c6" width="35%" height="35%"><br>
-  Figure 9: Flowchart of insertMiddle Function
+  <img src="" width="40%" height="40%"><br>
+  Figure 8: Flowchart of numOfNodes Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/f16df4d6-f2e5-4892-bb3b-3a3f95c09674" width="55%" height="55%"><br>
-  Figure 10: Flowchart of insertMiddle2CID Function
+  <img src="" width="35%" height="35%"><br>
+  Figure 9: Flowchart of insert Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/98cc2ac6-ce49-47c5-a67a-e4d12e023b04" width="55%" height="55%"><br>
-  Figure 11: Flowchart of insertMiddle3CID Function
+  <img src="" width="55%" height="55%"><br>
+  Figure 10: Flowchart of retrieve Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/a098fac4-26db-474a-b78a-c1b1b6c897ba" width="55%" height="55%"><br>
-  Figure 12: Flowchart of insertMiddle2COD Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/438b3b12-cfbc-49ac-bcfd-05b07830c665" width="55%" height="55%"><br>
+  Figure 11: Flowchart of findBooking Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/98f86f34-ff2e-47e5-a09b-65203135d1c4" width="55%" height="55%"><br>
-  Figure 13: Flowchart of insertMiddle3COD Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/966f0c97-38f0-44e1-8a5f-6d7ed0df6761" width="55%" height="55%"><br>
+  Figure 12: Flowchart of destroyTree Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/8db14ce2-d7d9-4677-b89b-fc6ccde14f5f" width="55%" height="55%"><br>
-  Figure 14: Flowchart of insertMiddle2RN Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/37ddabee-bdee-4ecf-9dbd-68344af13d97" width="55%" height="55%"><br>
+  Figure 13: Flowchart of displayBooking Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/72a8e18f-ca54-4830-b15c-54a9a9d5f55a" width="55%" height="55%"><br>
-  Figure 15: Flowchart of insertMiddle3RN Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/0361f71b-7fbc-475f-ba94-4980537de5dd" width="55%" height="55%"><br>
+  Figure 14: Flowchart of display Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/3adf64ac-4530-4e96-8792-85cd2b72c9eb" width="40%" height="40%"><br>
-  Figure 16: Flowchart of insertEnd Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/2a70ecec-328f-4804-bfb2-f4f6fbfcbf8a" width="55%" height="55%"><br>
+  Figure 15: Flowchart of countNodes Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/28d0ea99-0b25-4f65-93c3-74776495663a" width="16%" height="16%"><br>
-  Figure 17: Flowchart of deleteFront Function
+  <img src="" width="40%" height="40%"><br>
+  Figure 16: Flowchart of addAdmin Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/a7344b35-23b7-4880-8398-dd92c277be88" width="40%" height="40%"><br>
-  Figure 18: Flowchart of deleteMid Function
+  <img src="" width="16%" height="16%"><br>
+  Figure 17: Flowchart of adminMenu Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/0ebe458b-9ed9-46cf-91b3-971af1140563" width="70%" height="70%"><br>
-  Figure 19: Flowchart of deleteMidCR Function
+  <img src="" width="40%" height="40%"><br>
+  Figure 18: Flowchart of authenticationAdmin Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/129dc69d-fa4a-4721-9285-55fbcf2dd0a4" width="40%" height="40%"><br>
-  Figure 20: Flowchart of deleteEnd Function
+  <img src="" width="70%" height="70%"><br>
+  Figure 19: Flowchart of main Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/da35bf9f-ea63-4780-bfc2-f416214a6d1d" width="40%" height="40%"><br>
-  Figure 22: Flowchart of merge Function
-  <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/0fccfe2f-b13f-4ff2-aabc-79b7f095ecd8" width="30%" height="30%"><br>
-  Figure 23: Flowchart of midPoint Function
-  <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/40849ca8-7295-4fea-822c-516d3d2f8caa" width="40%" height="40%"><br>
-  Figure 24: Flowchart of mergeSort Function
-  <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/06c77591-e373-4b55-b770-4d4cc66655c4" width="20%" height="20%"><br>
-  Figure 25: Flowchart of sortList Function
-  <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/465d4c3b-bb34-4aa2-ba55-fbfb6c1046cf" width="30%" height="30%"><br>
-  Figure 26: Flowchart of findNode Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/fc9f7d5d-c417-41a3-9a07-a2ba1b44222e" width="40%" height="40%"><br>
+  Figure 20: Flowchart of readBookingData Function
 </p>
-
-
 
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/fabaacbe-18c1-4f64-a3a5-e1b40e910e71" width="4%" height="4%"> Description of how to implement data structure operations: Binary Tree
