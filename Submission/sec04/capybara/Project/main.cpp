@@ -89,10 +89,10 @@ public:
         {
             ReservationNode *current = front;
             cout << endl;
-            cout << setw(39) << "Destination: " << current->destination_info << endl;
 
             while (current != nullptr)
             {
+                cout << setw(39) << "Destination: " << current->destination_info << endl;
                 cout << setw(25) << "Name: " << current->user_info << " || Baggage Info: " << current->baggage_info << endl;
                 current = current->next;
             }
@@ -195,7 +195,7 @@ int main()
 
     if (selectedDestination >= 1 && selectedDestination <= numDestinations)
     {
-        cout << setw(39) << "You selected: " << destinations[selectedDestination - 1] << endl;
+        cout << setw(39) << "You selected: " << destinations[selectedDestination] << endl;
         cout << setw(30) << "         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl
              << endl;
 
