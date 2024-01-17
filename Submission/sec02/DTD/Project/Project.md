@@ -91,7 +91,7 @@ The primary objective of this program is to create an efficient library manageme
 
 - [Source Code](./Project.cpp)
 - [Input File](./book.txt)
-- [Report](./Assignment_2_DSA_(DTD).pdf)
+- [Report](./Project_DSA_(DTD).docx.pdf)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
