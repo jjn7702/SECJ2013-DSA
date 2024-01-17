@@ -202,14 +202,14 @@ public:
         if (isEmpty())
             cout << "Sorry, no order in the queue." << endl;
         else {
-            // cout << setw(10) << "Table" << " | "
-            //      << left << setw(10) << "Food ID" << " | "
-            //      << setw(21) << "Name" << " | "
-            //      << setw(13) << "Category" << " | "
-            //      << setw(6) << "Quantity" << " | "
-            //      << setw(6) << "Price" << " | "
-            //      << setw(10) << "Total Price" << endl;
-            // cout << "-------------------------------------------------------------------------" << endl;
+            cout << setw(10) << "Table" << " | "
+                 << left << setw(10) << "Food ID" << " | "
+                 << setw(21) << "Name" << " | "
+                 << setw(13) << "Category" << " | "
+                 << setw(6) << "Quantity" << " | "
+                 << setw(6) << "Price" << " | "
+                 << setw(10) << "Total Price" << endl;
+            cout << "-------------------------------------------------------------------------" << endl;
             /*cout << "Order Queue:" << endl;
             cout << left << setw(10) << "Food ID" << " | "
                  << setw(21) << "Name" << " | "
