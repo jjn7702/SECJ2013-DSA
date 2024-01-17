@@ -1,7 +1,7 @@
 # Banking System - Project Report
 
-- <a href="" >Report Project</a>
-- <a href="" >Project Turnitin Report </a>
+- <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Project/Mini%20Project%20DACCrew.pdf" >Report Project</a>
+- <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/DACCrew/Project/DACCrew%20Project%20Report.pdf" >Project Turnitin Report </a>
 - <a href="https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec02/DACCrew/Project/Files/source-code" >Project coding </a>
 ## Prepared By DACCrew
 | Name         | Matric No    |
