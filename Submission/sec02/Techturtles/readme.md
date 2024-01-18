@@ -82,10 +82,10 @@ The Courier Service System is specially designed for the administrator. The syst
 <h1>Project</h1>
 
 ## Flow of system
-- 1. Start
-- 2. The system reads the file data from ParcelData.txt.
+1. Start
+2. The system reads the file data from ParcelData.txt.
    - 2.1. If there is an error in the opening file, the system will terminate.
-- 3. The system will prompt the user to input a choice number between 1 to 3.
+3. The system will prompt the user to input a choice number between 1 to 3.
    - 3.1. Case 1: If user selects case 1, the user will be implementing stack operations to enter a new parcel using push function, or remove an item using pop function.
       - 3.1.1. If case 1, the parcel will be added at the top of the stack.
       - 3.1.2. Else if case 2, the parcel will be removed from the top of the stack.
@@ -100,10 +100,10 @@ The Courier Service System is specially designed for the administrator. The syst
       - 3.2.5. Else the system will display “Invalid choice. Please enter a number between 1 and 4”.
    - 3.3. Case 3 : If the user enters choice 3, the system will be terminated.
    - 3.4. Else the system will display “Invalid choice. Please enter a number between 1 and 3”.
-- 4. End
+4. End
 
 <h3>Project</h3>
-<a href="Submission/sec02/Techturtles/Project/Project_DSA_TechTurtles.pdf"><img src="https://cdn.vectorstock.com/i/1000x1000/45/57/file-doc-icon-digital-blue-vector-24754557.webp" width="35px" height="40px" ></a>
+<a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Techturtles/Project/Project_DSA_TechTurtles.pdf"><img src="https://cdn.vectorstock.com/i/1000x1000/45/57/file-doc-icon-digital-blue-vector-24754557.webp" width="35px" height="40px" ></a>
 
 ## Findings 📊
 

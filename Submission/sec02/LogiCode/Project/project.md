@@ -8,6 +8,7 @@
 - [Class Diagram](#-class-diagram)
 - [Flowchart](#-flowchart)
 - [Description of how to implement data structure operations: Binary Tree](#-description-of-how-to-implement-data-structure-operations-binary-tree)
+- [User Guide](#-user-guide)
 
 <br>
 
@@ -66,80 +67,66 @@ Figure : Class Diagram of Hotel Booking System
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/8b3596b0-7214-4cc8-b868-9ab2a0314386" width="3%" height="3%"> Flowchart
 <p align="center">
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/5891ba7b-91c6-4b00-8c06-b86758335181" width="15%" height="15%"><br>
-  Figure 2: Flowchart of main Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/c44bca2b-69b9-421f-8b56-4807d9ab16b0" width="25%" height="25%"><br>
+  Figure 1: Flowchart of deleteBooking Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/13f62fee-3843-4a1f-940e-f1d03851f2d8" width="70%" height="70%"><br>
-  Figure 3: Flowchart of adminMenu Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/deb7c373-15a3-403c-a4db-4ac20fbb34be" width="40%" height="40%"><br>
+  Figure 2: Flowchart of getPredecessor Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/be931299-a607-4ab8-9681-33f6ef476b00" width="70%" height="70%"><br>
-  Figure 4: Flowchart of insertMenu Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/e8b2586d-1d1e-42c9-a8e6-41a3e7e21f4a" width="20%" height="20%"><br>
+  Figure 3: Flowchart of isEmpty Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/1773ca16-aa2b-4978-a160-e5d7db87bc09" width="60%" height="60%"><br>
-  Figure 5: Flowchart of deleteMenu Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/2b4dfc80-9ef5-40a7-a5f3-e8730628eadb" width="50%" height="50%"><br>
+  Figure 4: Flowchart of deleteNode Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/8d111e03-5925-48ed-8784-db6f018a7986" width="55%" height="55%"><br>
-  Figure 6: Flowchart of readBookingData Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/66100e17-eb7a-465b-8052-f9c87a079f55" width="60%" height="60%"><br>
+  Figure 5: Flowchart of deleteCurrentNode Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/1741b2c0-6aa7-4728-952b-ebef3bb8a7d4" width="30%" height="30%"><br>
-  Figure 7: Flowchart of isEmpty Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/c6d83f74-041c-4a30-8d52-5fc2dd1300bc" width="30%" height="55%"><br>
+  Figure 6: Flowchart of retrieveBooking Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/9d07a9f7-68b9-43f2-9de7-364b98699770" width="40%" height="40%"><br>
-  Figure 8: Flowchart of insertFront Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/0a82f249-4e65-4585-888a-e250c1cc8a68" width="30%" height="30%"><br>
+  Figure 7: Flowchart of insertBooking Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/52bf83cf-91e8-4f3e-b131-caf0e03d15c6" width="35%" height="35%"><br>
-  Figure 9: Flowchart of insertMiddle Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/68a0ca0d-8215-4b21-89d2-84df74f6fc6e" width="25%" height="40%"><br>
+  Figure 8: Flowchart of numOfNodes Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/f16df4d6-f2e5-4892-bb3b-3a3f95c09674" width="55%" height="55%"><br>
-  Figure 10: Flowchart of insertMiddle2CID Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/0366951d-499b-4065-a1de-d738f12618df" width="55%" height="35%"><br>
+  Figure 9: Flowchart of insert Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/98cc2ac6-ce49-47c5-a67a-e4d12e023b04" width="55%" height="55%"><br>
-  Figure 11: Flowchart of insertMiddle3CID Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/6157abdd-6400-496c-b83a-2164450e4cf8" width="55%" height="55%"><br>
+  Figure 10: Flowchart of retrieve Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/a098fac4-26db-474a-b78a-c1b1b6c897ba" width="55%" height="55%"><br>
-  Figure 12: Flowchart of insertMiddle2COD Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/438b3b12-cfbc-49ac-bcfd-05b07830c665" width="55%" height="55%"><br>
+  Figure 11: Flowchart of findBooking Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/98f86f34-ff2e-47e5-a09b-65203135d1c4" width="55%" height="55%"><br>
-  Figure 13: Flowchart of insertMiddle3COD Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/966f0c97-38f0-44e1-8a5f-6d7ed0df6761" width="35%" height="35%"><br>
+  Figure 12: Flowchart of destroyTree Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/8db14ce2-d7d9-4677-b89b-fc6ccde14f5f" width="55%" height="55%"><br>
-  Figure 14: Flowchart of insertMiddle2RN Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/37ddabee-bdee-4ecf-9dbd-68344af13d97" width="18%" height="18%"><br>
+  Figure 13: Flowchart of displayBooking Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/72a8e18f-ca54-4830-b15c-54a9a9d5f55a" width="55%" height="55%"><br>
-  Figure 15: Flowchart of insertMiddle3RN Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/0361f71b-7fbc-475f-ba94-4980537de5dd" width="35%" height="35%"><br>
+  Figure 14: Flowchart of display Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/3adf64ac-4530-4e96-8792-85cd2b72c9eb" width="40%" height="40%"><br>
-  Figure 16: Flowchart of insertEnd Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/2a70ecec-328f-4804-bfb2-f4f6fbfcbf8a" width="40%" height="40%"><br>
+  Figure 15: Flowchart of countNodes Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/28d0ea99-0b25-4f65-93c3-74776495663a" width="16%" height="16%"><br>
-  Figure 17: Flowchart of deleteFront Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/628ea5b6-5254-4600-a392-19a607b3884b" width="50%" height="40%"><br>
+  Figure 16: Flowchart of addAdmin Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/a7344b35-23b7-4880-8398-dd92c277be88" width="40%" height="40%"><br>
-  Figure 18: Flowchart of deleteMid Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/cf3d089e-efb7-4e89-941e-bd8509228dae" width="60%" height="16%"><br>
+  Figure 17: Flowchart of adminMenu Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/0ebe458b-9ed9-46cf-91b3-971af1140563" width="70%" height="70%"><br>
-  Figure 19: Flowchart of deleteMidCR Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/4ee26350-b1cc-459d-aad3-c3abd203616a" width="60%" height="60%"><br>
+  Figure 18: Flowchart of authenticationAdmin Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/129dc69d-fa4a-4721-9285-55fbcf2dd0a4" width="40%" height="40%"><br>
-  Figure 20: Flowchart of deleteEnd Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/6e2b13ff-89b5-448f-a8db-21f728bbe167" width="70%" height="70%"><br>
+  Figure 19: Flowchart of main Function
   <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/da35bf9f-ea63-4780-bfc2-f416214a6d1d" width="40%" height="40%"><br>
-  Figure 22: Flowchart of merge Function
-  <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/0fccfe2f-b13f-4ff2-aabc-79b7f095ecd8" width="30%" height="30%"><br>
-  Figure 23: Flowchart of midPoint Function
-  <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/40849ca8-7295-4fea-822c-516d3d2f8caa" width="40%" height="40%"><br>
-  Figure 24: Flowchart of mergeSort Function
-  <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/06c77591-e373-4b55-b770-4d4cc66655c4" width="20%" height="20%"><br>
-  Figure 25: Flowchart of sortList Function
-  <br><br><br>
-  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128159572/465d4c3b-bb34-4aa2-ba55-fbfb6c1046cf" width="30%" height="30%"><br>
-  Figure 26: Flowchart of findNode Function
+  <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128119778/fc9f7d5d-c417-41a3-9a07-a2ba1b44222e" width="45%" height="45%"><br>
+  Figure 20: Flowchart of readBookingData Function
 </p>
-
-
 
 
 ### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/fabaacbe-18c1-4f64-a3a5-e1b40e910e71" width="4%" height="4%"> Description of how to implement data structure operations: Binary Tree
@@ -147,21 +134,16 @@ In the Hotel Booking System, we have implemented Binary Search Tree - Inserting,
 
 
 #### 1. Inserting
-There are four main types of insert linked list functions for inserting operation in our system, which are insert at the front, insert at the middle based on location, insert at the middle based on the data and insert at the end. 
-
-First, insert at the front (insertFront()), which is implemented by checking if the linked list is empty first. If the linked list has any node, the new node will point to the first node of the linked list. Then, the head points to the new booking data. Besides, for insert at middle based on location (insertMiddle), a temporary pointer is declared and pointed to the first booking data at first.  After that, the temporary pointer will continuously point to the next node until the location specified is reached, the new node will insert at the location by pointing the new node to the next node pointed by the temporary pointer and then the node pointed by the temporary pointer will be pointed to the new node. Furthermore, for inserting the node at middle based on specified data such as insertMiddle2CID(), insertMiddle3CID(), insertMiddle2COD(), insertMiddle3COD(), insertMiddle2RN() and insertMiddle3RN() in our system, it is similar to insert at middle based on location, but the data specified instead of location will be found using loop. After the data is found, the new node can be inserted after the data using the same method as insert based on location. However, for inserting before the data, another pointer (*pre) will be declared in addition to temporary pointers. It will point to the node before the node pointed by the temporary pointer. Once the data is found, the next pointer of the new node will point to the node pointed by the temporary pointer and the next pointer of the node pointed by the pre pointer will point to the new node to complete the insertion operation. Lastly, the insert at the end (insertEnd()) function is implemented by declaring the temporary pointer and pointing to the first booking data of the linked list. The linked list will be checked if it is empty. If it is empty, the head will directly point to the new node. If the linked list is not empty, the temporary pointer will be moved to point to the next booking data until the next pointer of that node points to NULL. Then, the new booking data will be inserted after that node.
-
+For inserting a new node into the tree, insert() function and insertBooking() functions are used. In our case, the tree is called bookingTree and the node is called bookingTreeNode. inserBooking() function is called in the main function to pass newNode (a bookingTreeNode object) and root (starting node of bookingTree)  to the insert() function. insert() function first checks whether the bookingTree is empty. If empty, then the newNode will become the root. If not, it will compare the check-in date and room number of the currentNode and newNode. newNode will be inserted to the left child nodes of currentNode  if its check-in date is earlier than the root. If both currentNode and newNode contain equal check-in date, newNode will be inserted to the  left child nodes of currentNode  if its room number is smaller. The process continues until newNode is placed in the correct position.
 
 #### 2. Deleting
-In the Basic Operations - Deleting, we have defined four delete linked list concept functions which are deleteFront(), deleteMid(), deleteMidCR() and deleteEnd() functions. The delete operations are implemented by deciding and locating the desirable data to be deleted, setting the pointer of the predecessor of the unwanted data to the successor of the data, declaring the pointer of data that points to the successor to NULL (for deleting first data) and releasing the memory used by the data.
-
-As an example, in our system, the deleteFront() function is used to delete the first booking data by declaring a temporary pointer points to head (first data), pointing head to the data pointed by the next pointer of head to make the second booking data as the first booking data and breaking the pointer connection by declaring the next pointer of the temporary pointer to NULL and finally deleting the temporary pointer. For deleteMid() function, the desirable unwanted booking data location is entered and found using a while loop, points the next pointer of the previous booking data pointer to the booking data pointed by the next pointer of unwanted data and ultimately deleted the booking data found while the deleteMidCR() function will be implemented in a similar way except the function will accept, find and delete the booking data that has matched check-in date and room number at the same time. Lastly, the deleteEnd() function operates by finding and deleting the last booking data and making the second last booking data points to NULL.
+In the Binary Search Tree - Deleting, we have defined two delete functions which are deleteNode() and deleteCurrentNode(). The delete operations are implemented by deciding and locating the desirable data to be deleted. The deleteNode() function will compare the check-in date and room number data entered by the user. If the check-in date or room number entered is smaller than the check-in date or room number in the node pointed by the tree pointer, the tree pointer will move to the left subtree. On the other hand,  if the check-in date or room number entered is larger than the check-in date or room number in the node pointed by the tree pointer, the tree pointer will move to the right subtree. The moving process will continue until the check-in date and room number entered are equal to the data in the node pointed by the tree pointer. Then, the deleteCurrentNode() function will be called. In the deleting process, if the unwanted booking data has no children at the left side, the unwanted node will be replaced by the booking data at the right side of the unwanted node. If the unwanted booking data has no children at the right side, the unwanted node will be replaced by the booking data at the left side of the unwanted node. However, if the unwanted booking data has two children at both side, the getPredecessor() function will be called to find the booking data located at the right most of the left side of the tree, and the booking data in that node will replace the node with the unwanted booking data. Lastly, the memory used by the unwanted booking data will be released.
 
 
 #### 3. Searching
-The finding operation is implemented by utilizing a counter to track node positions and matching the user input to every node value. Once it finds the match, the position value will be returned to help the user identify the booking. In our case, the findNode() function is used to locate a customer's IC in a booking list. 
+retrieve() function and retrieveBooking() function are utilized for searching a booking. By taking the check-in date, room number and a boolean variable as parameters, retrieve() function will check whether the input check-in date and room number are less than current node’s check-in date and room number, if so, then recursively call the function on the left subtree of the starting node. If not, then search it on the right subtree. If the booking is found, the boolean variable will be set as true. retrieveBooking() function is called in the main function to pass the user input to the retrieve() function. 
 
-First, the findNode() function takes user input as the string parameter. A temporary pointer is set to the first node of the list, and a counter is initialized to 1. Then, a while loop runs as long as the temporary pointer is not null and the IC of the node does not match the user input. Inside the loop, the temporary pointer points to the next node, and the counter is incremented. Once the match is found or the pointer is null, the loop stops. Then the function checks the temporary pointer. It will return the position if the pointer is null, otherwise it displays an error message.
+Besides, the authenticateAdmin() function is used to find the username and password in the tree. The current pointer that is initially point to the root will move to the node at left subtree if the entered username is smaller than the username pointed by the pointer and move to the node at right subtree if the entered username is larger than the username pointed by the pointer until the username and password that same with that one that the user entered is found. If not, the function will return false.
 
 
 #### 4. Displaying
@@ -174,6 +156,55 @@ The displayBooking() function is first called by the option chosen by the admini
 The Counting operation is used to count the number of nodes in the tree in which in our system it is implemented to count the number of bookings having in the system. To achieve the counting purpose, the numberOfNodes() function and countNodes() function operate together when the numberOfNodes() is called due to the administrator choosing to view the number of bookings in the system. It then calls countNodes() function and in the function, the argument passed examines and if it points to NULL, value 0 is returned while other conditions will return the value of 1 + countNodes(tree->left) + countNodes(tree->right). In a simpler manner, the recursive approach makes each node which is each booking data contribute 1 to the count and then the counts of the left and right subtrees are added. Consequently, the number of bookings is counted and returned.
 
 <br>
+
+### <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/d824d795-81a4-47ac-8144-171209c36d9c" width="3%" height="3%"> User Guide
+
+##### User Authentication
+1. The user enters the username and password.
+<br>
+<p align="center">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/085e52ed-80ae-4f88-96b1-5e668b768a68" width="30%" height="30%"><br>
+</p>
+2. If the username and password are valid, it will show “Authentication successful!” and the admin menu.
+<br>
+<p align="center">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/c4ecb57c-23e8-4cab-9b31-0ee023baecb4" width="30%" height="30%"><br>
+</p>
+3. If the username and password are invalid, it will show “Invalid username or password”.
+<br>
+<p align="center">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/5df91a44-10a0-499a-9916-04c3fcf42dbd" width="30%" height="30%"><br>
+</p>
+
+##### Insert Booking
+1. The user enters ‘1’.
+<br>
+<p align="center">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/5c587bfc-8c04-457c-9ea7-eeb22ead7270" width="30%" height="30%"><br>
+</p>
+
+2. The user enters required information such as check-in date, check-out date,room number, room type, ic and total price.
+<br>
+<p align="center">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/8e2f5cd6-600d-487a-a475-baee1a5abfb8" width="30%" height="30%"><br>
+</p>
+3. The booking is successfully added.
+<br>
+
+##### Delete Booking
+1. The user enters ‘2’.
+<br>
+<p align="center">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/d54d8b52-dcd9-4d1c-bb8d-43f9c0153f25" width="30%" height="30%"><br>
+</p>
+2. The user enters required information such as check-in date and room number.
+<br>
+<p align="center">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/d1899f6c-c904-4cf1-9007-f369b4e53134" width="30%" height="30%"><br>
+</p>
+3. The booking is deleted successfully.
+<br>
+
 
 ### Source Codes<br>
 <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/LogiCode/Assignment2/source-code/assignment2.cpp"> <img src="https://github.com/jjn7702/SECJ2013-DSA/assets/128120717/896def01-68aa-4cf4-95d9-144436fd3fa1" width="3%" height="3%"></a><br>
