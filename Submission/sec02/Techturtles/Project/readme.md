@@ -29,12 +29,6 @@ The Courier Service System is specially designed for the administrator. The syst
 <h3>Project</h3>
 <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Techturtles/Project/Project_DSA_TechTurtles.pdf"><img src="https://cdn.vectorstock.com/i/1000x1000/45/57/file-doc-icon-digital-blue-vector-24754557.webp" width="35px" height="40px" ></a>
 
-## Findings 📊
-
-- <a href="Assignment 1" >Assignment 1 
-- <a href="Assignment 2" >Assignment 2 
-- <a href="Project" >Project 
-
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
 
