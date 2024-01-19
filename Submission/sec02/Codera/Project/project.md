@@ -22,7 +22,15 @@ In order to effectively manage and monitor patients' records in hospitals, a hos
 | Lee Yik Hong       | A21BE0376       | <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Images/Assignment%20photo.jpg" width=80px, height=80px>         |
 
 ## Objectives
-
+User Interface and User Experience:
+ Problem: The current system maybe be too complicated to control and manage data. 
+ Solution: Design an user friendly interface, which enables the user to manage patient 
+easily and efficiently. 
+Data Backup Concerns:
+ Problem: The current may not update the data input or may have no data back up, which 
+causes data loss sometimes. 
+ Solution: There is data backup file which will be updated every time the user log out of 
+the system
 
 ## Synopsis
 
