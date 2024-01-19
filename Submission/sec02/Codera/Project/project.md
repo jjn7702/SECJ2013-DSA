@@ -49,8 +49,21 @@ Relationship between the Patient and Queue classes involves aggregation and asso
 
 
 ## Description on Linked List Operation
-  
+Queue data structure concept is following the FIFO principle, which is first In first out. The first input will be the first one to be deleted in this concept. 
 
+     In the Hospital Management System, this concept is used to manage the patients details and information. The system will be having two pointers which is front and back(for the application of the queue concept). 
+
+     The first concept inside the queue data structure is enqueue, we use enQueue function to add new patient to the system. If the system patient info is empty, then the front and back will be same on the newly added patient. If there are other patients info in the system, then the back will be updated to the new added patient, and the pointer of the original last patient will point to the new patient. 
+
+     The another concept is Dequeue. The dequeue function will remove the patient from the system which is at the back of the system based on the concept. However, it can also delete the patient based on its position in the system, which it travel from front to back until the corresponded patient is found based on the name. If it is found, then the pointers of the patient before and after it will then be updated. If the patient deleted is the last element, then front and back of the system will be updated to null. 
+
+     By using isEmpty function, the system can checked if the patient info txt is empty or with patient info, by checking the front and back is null or not. 
+
+     We are also using linked list to perform the queue data structure. The front of the queue being set as the head, and the back of the queue is set as the tail. The next pointer of each patient info is pointing to the next patient info. When patient is removed, next pointer of each patient info is updated. 
+
+     This queue data structure will make the system to be able to do searching, deleting, adding, sorting, and also editing functions. 
+
+     
 ## Findings 📊
 - [Report](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec02/Codera/Project/Report)
 - [Source Code](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec02/Codera/Project/source-code)
