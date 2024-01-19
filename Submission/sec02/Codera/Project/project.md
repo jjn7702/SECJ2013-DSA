@@ -26,17 +26,20 @@ In order to effectively manage and monitor patients' records in hospitals, a hos
 - Problem: The current system maybe be too complicated to control and manage data. 
 - Solution: Design an user friendly interface, which enables the user to manage patient 
 easily and efficiently. 
-<br>
+
 ### Data Backup Concerns:
 - Problem: The current may not update the data input or may have no data back up, which 
 causes data loss sometimes. 
 - Solution: There is data backup file which will be updated every time the user log out of 
 the system
 
+## Objective
+
 ## Synopsis
 
 
 ## Class Diagram
+
 ### The relationships are:
 
 
