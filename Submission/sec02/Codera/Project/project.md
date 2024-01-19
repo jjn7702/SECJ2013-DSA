@@ -39,7 +39,7 @@ the system
 
 
 ## Class Diagram
-
+<img src = 'https://github.com/jjn7702/SECJ2013-DSA'>
 ### The relationships are:
 
 
