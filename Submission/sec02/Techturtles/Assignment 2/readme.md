@@ -1,6 +1,9 @@
-# Courier Service System
+# Techturtles Courier Service System
+
+<a href="#"><img src="https://cdn.pixabay.com/animation/2022/11/10/13/26/13-26-03-556_512.gif" width=300px, height=230px></a>
 
 ## Description 📝
+
 The Courier Service System is specially designed for the administrator. The system's objectives are mainly to sort parcels efficiently based on their status, shipping option or tracking number. Moreover, it also helps the administrator to add a new parcel into the system. Not to mention, the admin will be able to search the intended parcel based on the parcel’s tracking number. In Assignment 2, the latest Courier Service System will implement linked lists. The system's objectives are mainly to add, delete, find, sort and display parcels using linked lists method.
 
 ## Prepared by 🧑‍💻
