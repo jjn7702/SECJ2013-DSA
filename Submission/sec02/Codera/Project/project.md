@@ -43,7 +43,11 @@ the system
 
 ### The relationships are:
 Relationship between the Patient and Queue classes involves aggregation and association.
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Project/pseudocode/Picture1.png" alt="Class Diagram">
 <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Project/pseudocode/Picture2.png" alt="Class Diagram">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Project/pseudocode/Picture3.png" alt="Class Diagram">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Project/pseudocode/Picture4.png" alt="Class Diagram">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Project/pseudocode/Picture5.png" alt="Class Diagram">
 
 ## Pseudocode
 
