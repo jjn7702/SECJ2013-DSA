@@ -106,7 +106,7 @@ The Courier Service System is specially designed for the administrator. The syst
    - 3.4. Else the system will display “Invalid choice. Please enter a number between 1 and 3”.
 4. End
 
-<h3>Project</h3>
+<h3>Report Project</h3>
 <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Techturtles/Project/Project_DSA_TechTurtles.pdf"><img src="https://cdn.vectorstock.com/i/1000x1000/45/57/file-doc-icon-digital-blue-vector-24754557.webp" width="35px" height="40px" ></a>
 
 ## Findings 📊
