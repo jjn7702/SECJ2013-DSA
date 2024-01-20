@@ -1,7 +1,7 @@
 # Assignment 1
 
 # Techturtles Courier Service System
-<a href="https://www.freepik.com/icon/graduated_4537051" title="Icon by Trazobanana"><img src="https://i.pinimg.com/originals/6c/9e/19/6c9e197129299c5af04d8ad1173ad9b9.gif" width=300px, height=230px>
+<a href="#" title="Icon by Trazobanana"><img src="https://i.pinimg.com/originals/6c/9e/19/6c9e197129299c5af04d8ad1173ad9b9.gif" width=300px, height=230px>
 
 
 ## Description 📝
