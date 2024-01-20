@@ -43,14 +43,14 @@ the system
 
 ### The relationships are:
 Relationship between the Patient and Queue classes involves aggregation and association.
-<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Project/pseudocode/Picture1.png" alt="Class Diagram">
-<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Project/pseudocode/Picture2.png" alt="Class Diagram">
-<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Project/pseudocode/Picture3.png" alt="Class Diagram">
-<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Project/pseudocode/Picture4.png" alt="Class Diagram">
-<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Project/pseudocode/Picture5.png" alt="Class Diagram">
+
 
 ## Pseudocode
-
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Project/pseudocode/Picture1.png" alt="pseudocode">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Project/pseudocode/Picture2.png" alt="pseudocode">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Project/pseudocode/Picture3.png" alt="pseudocode">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Project/pseudocode/Picture4.png" alt="pseudocode">
+<img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Project/pseudocode/Picture5.png" alt="pseudocode">
 
 ## Description on Linked List Operation
 Queue data structure concept is following the FIFO principle, which is first In first out. The first input will be the first one to be deleted in this concept. 
