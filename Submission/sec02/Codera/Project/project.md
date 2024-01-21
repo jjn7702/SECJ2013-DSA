@@ -34,8 +34,21 @@ causes data loss sometimes.
 the system
 
 ## Objective
+•	Build a system for hospitals to handle patient records.
+•	Use linked lists and queue data structures to organize data effectively.
+•	This system helps workers to add and remove patient info, searching sorting and edit patient medical history.
+
 
 ## Synopsis
+The hospital management system wants to manage patient medical records efficiently. The system uses queue and linked lists to perform those basic tasks. 
+
+Patient record will have the info such as name, diagnosed date, disease, IC and other important information. The system can add and remove patient info, searching, sorting and edit patient medical history.
+
+Furthermore, the system use sorting function to arrange patient lists by name, age, or date of diagnosis. The recently added edit function provides the ability to make modifications to patient records as needed. The system employs the merge sort method for consistent and reliable performance, utilizing a linked list structure in ascending order.
+
+Notably, the system utilizes a Queue data structure method selected from stack, queue, and tree. The choice of the Queue data structure is particularly suitable for our system due to its First-In-First-Out (FIFO) nature. In a hospital setting, patient records often require processing in the order they are received or entered, making the queue an efficient choice. The inherent ability of a queue to manage and process tasks sequentially aligns well with the dynamic nature of patient data in a healthcare environment.
+
+In a nutshell, by replacing manual patient record management, the Hospital Management System reduces the amount of labour that healthcare professionals must perform. The system helps to provide accurate and effective healthcare services.
 
 
 ## Class Diagram
