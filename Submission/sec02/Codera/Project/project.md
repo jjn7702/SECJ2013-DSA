@@ -51,6 +51,8 @@ Notably, the system utilizes a Queue data structure method selected from stack, 
 In a nutshell, by replacing manual patient record management, the Hospital Management System reduces the amount of labour that healthcare professionals must perform. The system helps to provide accurate and effective healthcare services.
 
 
+
+
 ## Class Diagram
 <img src="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Codera/Project/DSA-project_classdiagram.jpg" alt="Class Diagram">
 
