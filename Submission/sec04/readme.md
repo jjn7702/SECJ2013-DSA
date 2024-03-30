@@ -7,9 +7,9 @@
 
 _Don't forget to hit the :star: if you like this repo._
 
-# [Data Structures and Algorithms (SECJ2013)](/.)
+# [Data Structures and Algorithms (SECJ2013)](/README.md)
 
-## [Assignments and Project](/Submission)
+## [Assignments and Project](/Submission/README.md)
 
 ### Section 04 (2023/2024-1)
 
