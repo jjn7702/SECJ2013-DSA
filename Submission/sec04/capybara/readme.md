@@ -16,6 +16,6 @@ Our system is an Airline Reservation system that provides 2 key main functions w
 
 ## Findings
 
-- [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/capybara/Assignment%201)
-- [Assignment 2](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/capybara/Assignment%202)
-- [Project](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/capybara/Project)
+- [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/capybara/Assignment%201/readme.md)
+- [Assignment 2](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/capybara/Assignment%202/readme.md)
+- [Project](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/capybara/Project/readme.md)
