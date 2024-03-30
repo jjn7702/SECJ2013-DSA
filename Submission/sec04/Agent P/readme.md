@@ -16,4 +16,4 @@ As from the agent P group we decided to develop an election management system fo
 
 - [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/Agent%20P/ass1)
 - [Assignment 2](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/Agent%20P/ass2)
-- [Project](../sec04/Agent%20P/Project)
+- [Project](../Agent%20P/Project)
