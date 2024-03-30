@@ -24,9 +24,9 @@ The Courier Management System is designed to make sure a delivery services run s
 
 ## Findings 📊
 
-- [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/FABS/Ass1)
-- [Assignment 2](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/FABS/Ass2)
-- [Project](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/FABS/Project)
+- [Assignment 1](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/FABS/Ass1/readme.md)
+- [Assignment 2](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/FABS/Ass2/readme.md)
+- [Project](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec04/FABS/Project/readme.md)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
