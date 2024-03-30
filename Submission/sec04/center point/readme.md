@@ -33,7 +33,7 @@ In this program, we advanced our system with linked list concept to make our sys
 
 - <a href="../center point/Assignment 1/assignment1.md" >Assignment 1 
 - <a href="../center point/Assignment 2/asg2.md" >Assignment 2
-- Project
+- <a href="../center point/project" >Project
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/jjn7702/SECJ2013-DSA/Submission/Sample/issues) for any improvements, suggestions or errors in the content.
