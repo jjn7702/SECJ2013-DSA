@@ -111,7 +111,7 @@ In summary, this folder structure appears to be organizing a GitHub repository b
 | 8 | [Techturtles](../Submission/sec02/Techturtles/readme.md) | <a href="sec02/Techturtles/Assignment 1/Assignment_1_DSA_techt.pdf" ><img src="../images/clipboard.png" width="24px" height="24px" ></a> |  <a href="sec02/Techturtles/Assignment 2/Assignment2_DSA.pdf" ><img src="../images/inventory.png" width="24px" height="24px" ></a> | <a href="https://docs.google.com/document/d/1JW1P6x2eOVxP_JaEn0Vlfu7WZqIgMGlps621HJo4fMQ/edit" ><img src="../images/project-management.png" width="24px" height="24px" ></a> |
 | 9 | [Gusion](https://github.com/jjn7702/SECJ2013-DSA/tree/main/Submission/sec02/Gusion) | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Gusion/Assignment%201/Assignment%201.md" ><img src="../images/clipboard.png" width="24px" height="24px" ></a> | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Gusion/Assignment%202/Assignment%202.md" ><img src="../images/inventory.png" width="24px" height="24px" ></a> | <a href="https://github.com/jjn7702/SECJ2013-DSA/blob/main/Submission/sec02/Gusion/Project%20Dsa/Project%20Dsa.md" ><img src="../images/project-management.png" width="24px" height="24px" ></a> |
 
-### [Section 04 (2023/2024-1))](/sec04/readme.md)
+### [Section 04 (2023/2024-1)](../sec04/readme.md)
 
 | No | Name | Assignment 1 | Assignment 2 | Project |
 | --- | --- | :---: | :---: | :---: |
