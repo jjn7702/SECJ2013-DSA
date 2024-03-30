@@ -102,7 +102,7 @@ This course contributes to the following Program Learning Outcomes:
 
 ## Evaluation 📊
 
-- [Assignments](./Submission/readme.md)(2): 10%
+- [Assignments](Submission/readme.md)(2): 10%
 - Lab Exercises(4): 10%
 - Quizzes(2): 10%
 - [Project](./Submission/readme.md): 10%
