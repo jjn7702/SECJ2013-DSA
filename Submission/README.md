@@ -7,7 +7,7 @@
 
 _Don't forget to hit the :star: if you like this repo._
 
-# [Data Structures and Algorithms (SECJ2013)](readme.md)
+# [Data Structures and Algorithms (SECJ2013)](./readme.md)
 
 ## Assignments and Project 📚 
 
