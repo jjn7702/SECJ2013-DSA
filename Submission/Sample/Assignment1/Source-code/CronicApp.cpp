@@ -29,7 +29,6 @@ void dispSearchMenu() {
     cout << "2. Age" << endl;
     cout << "3. Disease" << endl;
     cout << "Enter your choice: ";
-    cout << "Testing";
 }
 
 // Function to display patient details
