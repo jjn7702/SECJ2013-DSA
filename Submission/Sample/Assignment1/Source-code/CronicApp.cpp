@@ -20,7 +20,6 @@ void displayMenu() {
     cout << "4. Sort Patients by Name" << endl;
     cout << "0. Exit" << endl;
     cout << "Enter your choice: ";
-    cout << "Enter";
 }
 
 // Function to display search menu
